@@ -18,7 +18,7 @@ Start with `../CLAUDE.md` (status and rules), then `CHARTER.md`, then read in th
 | `09-study-register.md` | The 61 repositories from the outside playbook, verified against the GitHub API, with priority, licence, last push, study status and cautions |
 | `10-review-disposition.md` | Point-by-point ruling on the outside review: sixteen corrections and every other point, with the document changed and the test that closes it |
 | `11-channel-intel.md` | What the HackOS channel messages changed: Cursor optional, Zetaris judging core (USL, data-quality rule, reflection), Nightshift as primary provider, model availability, receipts and memory isolation, metadata.json community draft, judge-script pattern, the deadline |
-| `DECISIONS.md` | Decisions D-001 to D-021, where we differ from outside documents, open gates G0 to G7 and gate P |
+| `DECISIONS.md` | Decisions D-001 to D-028, where we differ from outside documents, open gates G0 to G7 and gate P |
 | `candidates/2026-10-27-track1-candidate-evaluation.md` | How the first candidate (BidDelta) and alternatives were checked |
 | `reference/` | Local only (not published): outside documents kept as received: the architecture source map, the Track 1 winning standard, the GitHub study playbook, the 2026-10-27 architecture review and playbook message, and the curated HackOS channel digest. Inputs, not verified fact |
 | `../research/` | Local only: cloned repositories and the three research reports (`feasibility/`, `competition/`, `standards/`), the real addendum sample, `repo_facts.tsv` |

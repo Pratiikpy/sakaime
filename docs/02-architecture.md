@@ -184,7 +184,7 @@ Mechanism:
    - A relevant, adequate source reports a result contradicting the claim in the same scope: CONTRADICTED_BY_SPECIFIED_EVIDENCE. Contradicting material that is weak, off-scope or low in credibility triggers REQUIRES_DOMAIN_REVIEW instead and must be dispositioned before any SUPPORTED label.
    - UNKNOWN on a required dimension, or a claimed version with no evidence at all: INSUFFICIENT_EVIDENCE.
    - Any rule flagged as needing clinical judgement: REQUIRES_DOMAIN_REVIEW.
-4. **Dependency-aware degradation.** Each claim declares required, corroborating and optional sources. Losing a required source yields INSUFFICIENT_EVIDENCE or UNRESOLVED with the reason; losing a corroborating one is displayed and lowers the explanation only.
+4. **Dependency-aware degradation.** Each claim declares required, corroborating and optional sources. Losing a required source yields INSUFFICIENT_EVIDENCE with the reason shown in `degraded` ("unresolved" is a description of that state, never a sixth label); losing a corroborating one is displayed and lowers the explanation only.
 5. **Minimal counterexample.** The smallest set of dimensions that are NOT_CONTAINED or UNKNOWN, the two values side by side, with anchors.
 6. **Evidence requirements.** For each UNKNOWN or NOT_CONTAINED dimension, the exact kind of document or confirmation that would settle it, written specifically enough to send to a vendor.
 7. **Counterfactual lab.** `compile(claimedUse, evidenceSet, ruleVersion)` is a pure, versioned function. Changing population, version, setting or date recomputes without a model call; explanation text is regenerated only from the new verified findings.
@@ -205,7 +205,7 @@ A bounded state machine, not a free-running agent. Roles are responsibilities, s
 | Compiler | Section 10 | none |
 | Reporter | Writes prose only from verified findings; every sentence carries finding ids; code rejects sentences without one | Nemotron |
 
-Controls: turn cap, per-call timeout, capped retries, budget per case, cancellation, idempotency keys on every external effect, and a published policy for each degradation (source down, Zetaris down, model down). Branching: on UNKNOWN the Planner may replan to a further source; on Critic objection the finding is revised or downgraded; on repeated failure the finding is left UNRESOLVED with the reason. Collaboration behaviours shown in traces: planner delegation, specialist tool use, evaluator critique, revision after critique, uncertainty branching, fallback, shared structured state, evidence in the answer.
+Controls: turn cap, per-call timeout, capped retries, budget per case, cancellation, idempotency keys on every external effect, and a published policy for each degradation (source down, Zetaris down, model down). Branching: on UNKNOWN the Planner may replan to a further source; on Critic objection the finding is revised or downgraded; on repeated failure the finding is left as INSUFFICIENT_EVIDENCE (or REQUIRES_DOMAIN_REVIEW) with the reason. Collaboration behaviours shown in traces: planner delegation, specialist tool use, evaluator critique, revision after critique, uncertainty branching, fallback, shared structured state, evidence in the answer.
 
 ## 12. L0 Scout Intent guard and security
 

@@ -98,7 +98,7 @@ scripts/          secret scan, size check, wording lint, clean-room runner
 docs/             this folder
 ```
 
-The repository is initialised only when Gate 1 starts and the first commit is allowed by the organizers' terms for the second entry (G0). Nothing under `research/` or `reference/` containing third-party code is committed.
+The repository was initialised for design documents first; code commits are local until the organizers' terms for the second entry are on file (G0), and nothing is pushed publicly before the owner confirms. Nothing under `research/` or `reference/` containing third-party code is committed.
 
 ## 4. Method for every component
 

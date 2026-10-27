@@ -1,6 +1,6 @@
 # Sakaime: product requirements document
 
-Status: v0.1 draft, 2026-10-27. Hypotheses are marked. Nothing is built. This PRD is the contract for what the product does and for what we will and will not claim. Architecture: `02-architecture.md`. Sponsor depth: `03-zetaris-plan.md`, `04-meterless-plan.md`. Tests and evidence: `05-requirements-matrix.md`, `06-evaluation-protocol.md`. Decisions and open gates: `DECISIONS.md`.
+Status: v0.2, 2026-10-27 (revised after the outside review and the build of the first modules). Hypotheses are marked. Nothing is built. This PRD is the contract for what the product does and for what we will and will not claim. Architecture: `02-architecture.md`. Sponsor depth: `03-zetaris-plan.md`, `04-meterless-plan.md`. Tests and evidence: `05-requirements-matrix.md`, `06-evaluation-protocol.md`. Decisions and open gates: `DECISIONS.md`.
 
 ## 1. Summary
 

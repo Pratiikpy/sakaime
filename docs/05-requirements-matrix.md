@@ -12,7 +12,7 @@ Status 2026-10-27 (v0.2, revised after the outside review in `10-review-disposit
 | O-04 | Zetaris required with a real, output-changing role | `src/sponsors/zetaris` | ZA-1..ZA-8 | query ids, cassettes, ablation table | NOT STARTED |
 | O-05 | Meterless required with a real, output-changing role | `src/engines/*` | conformance + MA-1..MA-5 | runner output, ablation table | NOT STARTED |
 | O-06 | NVIDIA Nemotron where it contributes; route disclosed | model port, Nightshift route | receipt coverage; role-removal ablation | receipts in dossier | NOT STARTED |
-| O-07 | Cursor: optional per moderator statements of 2026-10-22 and 2026-10-24 and the rules reminder (CONFIRM on the live rules page; the Official Rules text we hold says required). Use it if useful and log it truthfully; claim nothing beyond the log | `cursor-usage-log` | n/a | log entry or an empty log with the explanation | RESOLVED (confirm on live page) |
+| O-07 | Cursor: optional per moderator statements of 2026-10-22 and 2026-10-24 and the rules reminder (CONFIRM on the live rules page; the Official Rules text we hold says required). Use it if useful and log it truthfully; claim nothing beyond the log | `cursor-usage-log` | n/a | log entry or an empty log with the explanation | PROVISIONALLY RESOLVED: moderators say optional; the live rules page is not yet confirmed |
 | O-08 | Bounded and predictable: timeouts, capped retries and turns in code | ports, loop budgets | fault-injection suite | test output | NOT STARTED |
 | O-09 | Offline and keyless judge path | `SAMPLE_MODE` cassettes | clean-clone run, no key, byte-equal labels | recorded transcript | NOT STARTED |
 | O-10 | Open, lawful, light data; no PHI | fixtures manifest | repo size check, secret scan, licence list | manifest + scan output | NOT STARTED |
@@ -51,7 +51,7 @@ Status 2026-10-27 (v0.2, revised after the outside review in `10-review-disposit
 | T3 | **Identity ambiguity**: two similar devices or trials, one true match | true match found, false match not merged, ambiguous pair left AMBIGUOUS | fuzzy-name merge |
 | T4 | **Temporal and authority conflict**: newer vendor claim vs older controlled study | authority respected for the assertion type; newer text does not win | take-latest |
 | T5 | **Changed-source re-evaluation**: change a source or the reviewer-confirmed use | only dependent findings recomputed; old reasoning kept | full recompute without dependency tracking |
-| T6 | **Source-off and degraded query**: disconnect FDA or the registry; separately stop Zetaris; inject a partial result and an unsupported predicate | outcome becomes unresolved or degraded when the source is required for the claim, never "supported"; a lost corroborating source is shown without changing the label; clean continuation per policy | silent fallback |
+| T6 | **Source-off and degraded query**: disconnect FDA or the registry; separately stop Zetaris; inject a partial result and an unsupported predicate | outcome becomes INSUFFICIENT_EVIDENCE with a degraded reason (described as unresolved in the UI) when the source is required for the claim, never "supported"; a lost corroborating source is shown without changing the label; clean continuation per policy | silent fallback |
 | T7 | **Ablations**: remove Nemotron critic, each Meterless engine, identity resolver, federation, compiler | effects reported; components that change nothing removed | full system |
 | T8 | **Decision usefulness**: two independent reviewers, source-by-source vs Sakaime | time and correctness recorded; disagreements kept | manual research |
 
@@ -83,7 +83,7 @@ Each correction is closed only when its test passes. IDs are referenced from `10
 | C-05 | Quote-exists and semantic support, separately | planted cases where the quote exists but supports a different subject, version or threshold; both checks reported; semantic-support error rate measured | [REL] |
 | C-06 | Containment invariants (no label ranking) | property tests (a) and (b) of `02` s10 hold on generated scopes | [REL] |
 | C-07 | Contrary evidence by relevance and credibility | relevant adequate contradiction gives CONTRADICTED; weak or off-scope gives REQUIRES_DOMAIN_REVIEW; a SUPPORTED label without a recorded disposition is impossible | [REL] |
-| C-08 | Dependency-aware degradation | lose a required source: INSUFFICIENT or UNRESOLVED; lose a corroborating one: displayed, label unchanged | [T1] [REL] |
+| C-08 | Dependency-aware degradation | lose a required source: INSUFFICIENT_EVIDENCE with the reason in `degraded` (there is no sixth label); lose a corroborating one: displayed, label unchanged | [T1] [REL] |
 | C-09 | Consistency tests separate from domain-validity tests | the report names which suite each number comes from; no consistency result is described as clinical correctness | [REL] |
 | C-10 | Cluster-aware statistics | effective sample size reported; intervals by cluster bootstrap by device; no split puts one device or study family in both partitions | [REL] |
 | C-11 | Cases chosen after a hand-proven chain | each case has a manifest with identifiers, quotes, a second reader and disagreements before it enters a suite | [REL] |
