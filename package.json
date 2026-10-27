@@ -15,7 +15,10 @@
     "ui:build": "vite build --config ui/vite.config.ts",
     "ui:dev": "tsx ui/dev-server/server.ts",
     "ui:test": "playwright test -c tests/ui/playwright.config.ts",
-    "ui:typecheck": "tsc -p ui/tsconfig.json && tsc -p ui/dev-server/tsconfig.json"
+    "ui:typecheck": "tsc -p ui/tsconfig.json && tsc -p ui/dev-server/tsconfig.json",
+    "serve": "tsx scripts/serve.ts",
+    "record:sample": "tsx scripts/record-sample.ts",
+    "test:live": "LIVE=1 vitest run tests/service/live.test.ts"
   },
   "dependencies": {
     "@duckdb/node-api": "^2.0.0-r.1",

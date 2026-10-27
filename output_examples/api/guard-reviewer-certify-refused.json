@@ -1,0 +1,15 @@
+{
+  "request": "POST /api/guard",
+  "status": 200,
+  "body": {
+    "allowed": false,
+    "intent": "certify_safe",
+    "findings": [
+      {
+        "layer": "policy",
+        "reason": "certify_safe is never executed; ask for review_claim or compare_scope instead"
+      }
+    ],
+    "message": "certify_safe is not something Sakaime does"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "public_device_record_key": "be5ca8a6-573f-411e-a127-45102cf07283",
+      "has_serial_number": "false",
+      "public_version_date": "2022-06-10",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "2",
+      "labeler_duns_number": "832930569",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00860000470001",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "2.1.0",
+      "has_manufacturing_date": "false",
+      "brand_name": "EyeArt",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "PIB",
+          "name": "Diabetic Retinopathy Detection Device",
+          "openfda": {
+            "device_name": "Diabetic Retinopathy Detection Device",
+            "medical_specialty_description": "Ophthalmic",
+            "regulation_number": "886.1100",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "K200667",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "company_name": "Eyenuk, Inc.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "58713",
+          "name": "Retinal image analysis software",
+          "definition": "A software program intended to analyse images of the retina to provide interpretive results for clinical decision support relating to retinal diseases (e.g., diabetic retinopathy, choroidal neovascularization). It utilizes specific algorithms and/or artificial intelligence (AI) and deep learning techniques to assess and perform interpretation of diagnostic images acquired by retinal imaging devices (e.g., fundus camera, retinal optical coherence tomography system, ophthalmoscope) for early diagnosis and management of patients at risk.",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2020-11-09"
+    }
+  ]
+}

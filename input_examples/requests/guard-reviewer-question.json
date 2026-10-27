@@ -1,0 +1,8 @@
+{
+  "method": "POST",
+  "path": "/api/guard",
+  "body": {
+    "text": "Does the evidence cover version 2.1.0 of EyeArt K200667 in primary care?",
+    "origin": "reviewer"
+  }
+}

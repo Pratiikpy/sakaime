@@ -1,0 +1,3449 @@
+{
+  "request": "POST /api/cases/eyeart-k200667/drill",
+  "status": 200,
+  "body": {
+    "drill": "source_off",
+    "before": [
+      {
+        "id": "fnd_9df600cf8b0cdc9c86b477f87b1ece41",
+        "claimId": "CASE-2026-014.intended",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "CONTAINED",
+            "claimed": "2.1.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy; excluding: previously diagnosed with more than mild diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "CONTAINED",
+            "claimed": "primary care",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "CONTAINED",
+            "claimed": "detection aid",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "CONTAINED",
+            "claimed": "use from 2027-01-15",
+            "established": "authorization record: in force from 2020-08-03 with no stated end; study: newest evidence dated 2017-04-17",
+            "anchorIds": [
+              "anc_1e8a72030d960a8ad45e",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_3537cf6977af71b02153",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_65854d03fc25cabc88e5",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-openfda-510k-lkjopbdlkn-authorization"
+            ]
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "claimed": "sensitivity at least 0.85",
+            "established": "ev-pubmed-article-homjefkphi-study: sensitivity 0.951; ev-pubmed-article-homjefkphi-study: sensitivity 0.951; ev-pubmed-article-homjefkphi-study: sensitivity 0.955; ev-pubmed-article-homjefkphi-study: sensitivity 0.955; ev-pubmed-article-homjefkphi-study: sensitivity 0.97; ev-pubmed-article-homjefkphi-study: sensitivity 0.97",
+            "anchorIds": [
+              "anc_462692aadc28ef30f0f6",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630"
+            ],
+            "evidenceIds": [
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy; excluding: previously diagnosed with more than mild diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, previously diagnosed with more than mild diabetic retinopathy, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_1585510c92f69b59",
+          "fact_16129535c274a4a3",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_534416a48d016099",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_79155918ec225774",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.121Z"
+      },
+      {
+        "id": "fnd_faa624de5823f641b4640c895f709298",
+        "claimId": "CLM-EA-01",
+        "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+        "supportedScope": {
+          "product": "device:fda:K200667",
+          "versions": [
+            "2.1.0"
+          ],
+          "population": {
+            "age": {
+              "min": 18
+            },
+            "conditions": [
+              "diabetic retinopathy"
+            ],
+            "exclusions": [
+              "history of macular edema or retinal vascular (vein or artery) occlusion;",
+              "history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;",
+              "persistent visual impairment in one or both eyes;",
+              "subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs.",
+              "subject has contraindications for mydriatic medications or is unwilling or unable to dilate;",
+              "subject is contraindicated for fundus photography (for example, has light sensitivity);",
+              "subject is currently enrolled in an interventional study of an investigational device or drug; or"
+            ]
+          },
+          "settings": [
+            "eye_care",
+            "primary_care"
+          ],
+          "purpose": "detection_aid"
+        },
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "CONTAINED",
+            "claimed": "2.1.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "CONTAINED",
+            "claimed": "eye care, primary care",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "CONTAINED",
+            "claimed": "detection aid",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_1585510c92f69b59",
+          "fact_16129535c274a4a3",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_534416a48d016099",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_79155918ec225774",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.123Z"
+      },
+      {
+        "id": "fnd_192920d32f85300354bc467ed1dbe43a",
+        "claimId": "CLM-EA-02",
+        "label": "REQUIRES_DOMAIN_REVIEW",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "CONTAINED",
+            "claimed": "2.1.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "all ages; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "CONTAINED",
+            "claimed": "eye care, primary care",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "CONTAINED",
+            "claimed": "detection aid",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [
+          {
+            "ruleId": "SAK-REQUIREMENT",
+            "reason": "The hospital requirement req:CLM-EA-02:REQ-02 is recorded as not met. Waiving it, or declining the claim, is a committee decision."
+          }
+        ],
+        "mismatches": [
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "all ages; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for ages below 18; history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_1585510c92f69b59",
+          "fact_16129535c274a4a3",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_534416a48d016099",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_79155918ec225774",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.125Z"
+      },
+      {
+        "id": "fnd_5f6a5ba9dda010acaee36bbc724ca186",
+        "claimId": "CLM-EA-03",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "CONTAINED",
+            "claimed": "2.1.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "DISJOINT",
+            "claimed": "emergency department, inpatient ward",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "CONTAINED",
+            "claimed": "triage notification",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [
+          {
+            "ruleId": "SAK-REQUIREMENT",
+            "reason": "The hospital requirement req:CLM-EA-03:REQ-09 is recorded as not met. Waiving it, or declining the claim, is a committee decision."
+          }
+        ],
+        "mismatches": [
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "DISJOINT",
+            "claimed": "emergency department, inpatient ward",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: study results from emergency department, inpatient ward, or restate the claim for the settings studied (authorization record: eye care, primary care; study: eye care, primary care)."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_64f0396079a5638e",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_9bf7c54c96c23a3c",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_aeaa9daca00b60d7",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.133Z"
+      },
+      {
+        "id": "fnd_bebbda733b107413ba9b9725e1206467",
+        "claimId": "CLM-EA-04",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "DISJOINT",
+            "claimed": "3.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "CONTAINED",
+            "claimed": "eye care, primary care",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "CONTAINED",
+            "claimed": "detection aid",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [
+          {
+            "ruleId": "SAK-REQUIREMENT",
+            "reason": "The hospital requirement req:CLM-EA-04:REQ-04 is recorded as not met. Waiving it, or declining the claim, is a committee decision."
+          }
+        ],
+        "mismatches": [
+          {
+            "dimension": "version",
+            "relation": "DISJOINT",
+            "claimed": "3.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "version",
+            "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (authorization record: 2.1.0; study: 2.1.0) in the model or only in the build, with performance data for 3.0."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_1585510c92f69b59",
+          "fact_16129535c274a4a3",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_534416a48d016099",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_79155918ec225774",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.135Z"
+      },
+      {
+        "id": "fnd_c83c31f946a08f694ee4238732ecd062",
+        "claimId": "CLM-EA-05",
+        "label": "REQUIRES_DOMAIN_REVIEW",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "CONTAINED",
+            "claimed": "2.1.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "CONTAINED",
+            "claimed": "eye care, primary care",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "CONTAINED",
+            "claimed": "detection aid",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [
+          {
+            "ruleId": "SAK-REQUIREMENT",
+            "reason": "The hospital requirement req:CLM-EA-05:PRE-03 is recorded as not met. Waiving it, or declining the claim, is a committee decision."
+          }
+        ],
+        "mismatches": [
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_1585510c92f69b59",
+          "fact_16129535c274a4a3",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_534416a48d016099",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_79155918ec225774",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.137Z"
+      },
+      {
+        "id": "fnd_eebc121c55ad4349ee832753936bc517",
+        "claimId": "CLM-EA-06",
+        "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+        "supportedScope": {
+          "product": "device:fda:K200667",
+          "versions": [
+            "2.1.0"
+          ],
+          "population": {
+            "age": {
+              "min": 18
+            },
+            "conditions": [
+              "diabetic retinopathy"
+            ],
+            "exclusions": [
+              "history of macular edema or retinal vascular (vein or artery) occlusion;",
+              "history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;",
+              "persistent visual impairment in one or both eyes;",
+              "subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs.",
+              "subject has contraindications for mydriatic medications or is unwilling or unable to dilate;",
+              "subject is contraindicated for fundus photography (for example, has light sensitivity);",
+              "subject is currently enrolled in an interventional study of an investigational device or drug; or"
+            ]
+          },
+          "settings": [
+            "eye_care",
+            "primary_care"
+          ],
+          "purpose": "detection_aid"
+        },
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "CONTAINED",
+            "claimed": "device:fda:K200667",
+            "established": "authorization record: device:fda:K200667; study: device:fda:K200667",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_ad83d30d352998688694",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_c984a3350728b10dcc8a",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_d7337b3c8e2a0e7d72d1",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-openfda-510k-lkjopbdlkn-authorization",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "version",
+            "relation": "CONTAINED",
+            "claimed": "2.1.0",
+            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-ctgov-study-dodjhgnind-study",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "setting",
+            "relation": "CONTAINED",
+            "claimed": "eye care, primary care",
+            "established": "authorization record: eye care, primary care; study: eye care, primary care",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_308101da491e88521805",
+              "anc_390c2563a7afd18e7588",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4740ea4717571e5ac8a5",
+              "anc_53eedca52991c2cab31a",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization",
+              "ev-fda-summary-bfcphhfchh-study",
+              "ev-pubmed-article-homjefkphi-study"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "PARTIAL",
+            "claimed": "diagnosis",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ],
+            "evidenceIds": [
+              "ev-fda-summary-bfcphhfchh-authorization"
+            ]
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "population",
+            "relation": "PARTIAL",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+            "anchorIds": [
+              "anc_1232a9143dd65848b568",
+              "anc_1e8a72030d960a8ad45e",
+              "anc_234a910d4d2fade6cdbc",
+              "anc_2b77b3244ae97ac9ae62",
+              "anc_308101da491e88521805",
+              "anc_3537cf6977af71b02153",
+              "anc_390c2563a7afd18e7588",
+              "anc_45d15fdc5e0eeee4ed34",
+              "anc_462692aadc28ef30f0f6",
+              "anc_4cc8be1a7c9ad5f3cd34",
+              "anc_53eedca52991c2cab31a",
+              "anc_55b22af8a49082419e4c",
+              "anc_5cb05e32fc3d8cfc1a16",
+              "anc_5e16728c90c8aad74263",
+              "anc_64d09a9a8cdf345618ae",
+              "anc_65854d03fc25cabc88e5",
+              "anc_69990fd2af61cc462477",
+              "anc_6f9358dd9cd292e0a49a",
+              "anc_705f0766e0e0aa843f2e",
+              "anc_76ee16f126cfc0540eb2",
+              "anc_7bcacbf08474eb80c758",
+              "anc_7c3009d98bc3bbd1c830",
+              "anc_8ad9255cf37c34a27658",
+              "anc_9121a3ef73171435f91a",
+              "anc_98cb9e5f0ef023a5a525",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_b92b7d27c794df791491",
+              "anc_be0ec3944cb0820161a2",
+              "anc_c984a3350728b10dcc8a",
+              "anc_df6219ef30b9d17766df",
+              "anc_e5e063c38ca3b35feae9",
+              "anc_e8b0344ca0c55a8f21d2",
+              "anc_f1eb887e6cc6fb4c7630",
+              "anc_f4969ef1238b9b804bec"
+            ]
+          },
+          {
+            "dimension": "purpose",
+            "relation": "PARTIAL",
+            "claimed": "diagnosis",
+            "established": "authorization record: detection aid",
+            "anchorIds": [
+              "anc_4740ea4717571e5ac8a5",
+              "anc_b8a3535dabc5c75d8365",
+              "anc_c2d801903bd388a2c956",
+              "anc_c7791085dddb0c340655",
+              "anc_d4b68776e58b44cd9a99"
+            ]
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "population",
+            "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: an authorization or study covering diagnosis outside detection aid, or restate the claim to the evidenced purpose (detection aid)."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [
+          "fact_01fb786842bad703",
+          "fact_0429b96e31745ac0",
+          "fact_079a2ad4180ddfec",
+          "fact_082b00ea8a14f44d",
+          "fact_0bb4668e7294ef99",
+          "fact_2952e65d0b73420a",
+          "fact_360e54fff7d89d02",
+          "fact_38c2c9a126ce95be",
+          "fact_3bacc0be7c767b8e",
+          "fact_3dce8d963f4f4a9a",
+          "fact_3e0031d725ac78bf",
+          "fact_41146e7efc2a644b",
+          "fact_456bf8b4024c2892",
+          "fact_50717b0370c899a1",
+          "fact_50d1b8c75c31e012",
+          "fact_5be56a8ac5a40f33",
+          "fact_61a3dfc3534b48b6",
+          "fact_6536aaf19533a3c1",
+          "fact_696db9b39cbc1fff",
+          "fact_6cd91ff15517c514",
+          "fact_73eb23c963795e77",
+          "fact_7c5efa205c717e8a",
+          "fact_7ec8984f6b93d35a",
+          "fact_7fad55d20a1712d7",
+          "fact_84b951c48b6ede29",
+          "fact_866f2b5b833bd62f",
+          "fact_92a0df4913b8f918",
+          "fact_a1ecaeed33d2f4a9",
+          "fact_a215e94fdb2bb529",
+          "fact_a8638f6ee53a4b09",
+          "fact_a8c1c185e875cb47",
+          "fact_ac3aad99ebaae210",
+          "fact_b3053f0e2de522b1",
+          "fact_b387d8f30449f30d",
+          "fact_b4b6b3a04f3951d7",
+          "fact_ba4b6f0e3840e55c",
+          "fact_badc486989b32e2c",
+          "fact_be596883b666a016",
+          "fact_c4de5fd8a0cc5c7e",
+          "fact_c621092df49889e2",
+          "fact_c6a6b2e901ae0dbf",
+          "fact_cffd41a5509cc24a",
+          "fact_dc63d688cd9463c9",
+          "fact_dd69e477f8f33724",
+          "fact_e0130f0964c2b151",
+          "fact_e04840a0b95e01df",
+          "fact_e72acbc684110392",
+          "fact_e8911b2fd704f88d",
+          "fact_f1c2c175efe1fb72",
+          "fact_f33bde54363632ea",
+          "fact_f3e7da38fe7c1c4e",
+          "fact_f72b78a5dc784de1"
+        ],
+        "degraded": [],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-1",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.139Z"
+      }
+    ],
+    "after": [
+      {
+        "id": "fnd_1e7049fb7cd3c3fcd78b774e52e69410",
+        "claimId": "CASE-2026-014.intended",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy; excluding: previously diagnosed with more than mild diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "primary care",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "claimed": "use from 2027-01-15",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "claimed": "sensitivity at least 0.85",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy; excluding: previously diagnosed with more than mild diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "primary care",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "claimed": "use from 2027-01-15",
+            "anchorIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "claimed": "sensitivity at least 0.85",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          },
+          {
+            "dimension": "timing",
+            "request": "From the vendor: the date the authorization took effect and any date it was superseded or withdrawn, and the dates over which the study data were collected."
+          },
+          {
+            "dimension": "metric",
+            "request": "From the vendor: the study result for sensitivity for the claimed version and population, with its confidence interval and the operating point it was measured at."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.602Z"
+      },
+      {
+        "id": "fnd_eb8fa2a7e308fa0ae3046955c1f1eff9",
+        "claimId": "CLM-EA-01",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.604Z"
+      },
+      {
+        "id": "fnd_e742d5465d65eb14ac9206adae2bb1d9",
+        "claimId": "CLM-EA-02",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "all ages; conditions: diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "all ages; conditions: diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.606Z"
+      },
+      {
+        "id": "fnd_1a2b0fbfd6a9ce6bf339c5b6f533d409",
+        "claimId": "CLM-EA-03",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "emergency department, inpatient ward",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "triage notification",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "emergency department, inpatient ward",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "triage notification",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.608Z"
+      },
+      {
+        "id": "fnd_75a4352dc9552d30bfa61c76b17b90ed",
+        "claimId": "CLM-EA-04",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "3.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "3.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.610Z"
+      },
+      {
+        "id": "fnd_486395e4ecba571d5ccc06864f787b7a",
+        "claimId": "CLM-EA-05",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "detection aid",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.612Z"
+      },
+      {
+        "id": "fnd_2cfb17b08aeb064cc4c77d9590742da7",
+        "claimId": "CLM-EA-06",
+        "label": "INSUFFICIENT_EVIDENCE",
+        "mechanicalCoverage": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "diagnosis",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "timing",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          },
+          {
+            "dimension": "metric",
+            "relation": "UNKNOWN",
+            "anchorIds": [],
+            "evidenceIds": []
+          }
+        ],
+        "expertReviewFlags": [],
+        "mismatches": [
+          {
+            "dimension": "product",
+            "relation": "UNKNOWN",
+            "claimed": "device:fda:K200667",
+            "anchorIds": []
+          },
+          {
+            "dimension": "version",
+            "relation": "UNKNOWN",
+            "claimed": "2.1.0",
+            "anchorIds": []
+          },
+          {
+            "dimension": "population",
+            "relation": "UNKNOWN",
+            "claimed": "ages 18 and above; conditions: diabetic retinopathy",
+            "anchorIds": []
+          },
+          {
+            "dimension": "setting",
+            "relation": "UNKNOWN",
+            "claimed": "eye care, primary care",
+            "anchorIds": []
+          },
+          {
+            "dimension": "purpose",
+            "relation": "UNKNOWN",
+            "claimed": "diagnosis",
+            "anchorIds": []
+          }
+        ],
+        "requiredEvidence": [
+          {
+            "dimension": "product",
+            "request": "From the vendor: the exact product name and FDA submission number (K, DEN or P number) that the authorization record and the study cover."
+          },
+          {
+            "dimension": "version",
+            "request": "From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter."
+          },
+          {
+            "dimension": "population",
+            "request": "From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on the patient population."
+          },
+          {
+            "dimension": "setting",
+            "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
+          },
+          {
+            "dimension": "purpose",
+            "request": "From the vendor: the intended-use statement, quoted from the authorization letter or the indications-for-use form."
+          }
+        ],
+        "contraryDispositions": [],
+        "dependsOnFacts": [],
+        "degraded": [
+          {
+            "sourceType": "authorization",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the authorization source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off). 1 supplied authorization record(s) were not read."
+          },
+          {
+            "sourceType": "requirement",
+            "dependency": "required",
+            "reason": "NOT_SUPPLIED: no requirement record was supplied to the compiler. This is not an outage and not an empty search; the source was never consulted for this claim."
+          },
+          {
+            "sourceType": "study",
+            "dependency": "required",
+            "reason": "UNAVAILABLE: the study source in source fda-accessdata-pdf cannot be relied on right now (drill: the FDA decision-summary source is switched off)."
+          }
+        ],
+        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "traceId": "run-eyeart-k200667-2",
+        "reviewerState": "unreviewed",
+        "computedAt": "2026-10-27T12:00:00.614Z"
+      }
+    ],
+    "staleFindingIds": [
+      "fnd_9df600cf8b0cdc9c86b477f87b1ece41",
+      "fnd_faa624de5823f641b4640c895f709298",
+      "fnd_192920d32f85300354bc467ed1dbe43a",
+      "fnd_5f6a5ba9dda010acaee36bbc724ca186",
+      "fnd_bebbda733b107413ba9b9725e1206467",
+      "fnd_c83c31f946a08f694ee4238732ecd062",
+      "fnd_eebc121c55ad4349ee832753936bc517"
+    ],
+    "narrative": "study was switched off: its requests fail with UNAVAILABLE. Evidence of type authorization, study was not read. Labels that changed: CLM-EA-01: SUPPORTED_ONLY_FOR_NARROWER_SCOPE -> INSUFFICIENT_EVIDENCE; CLM-EA-02: REQUIRES_DOMAIN_REVIEW -> INSUFFICIENT_EVIDENCE; CLM-EA-05: REQUIRES_DOMAIN_REVIEW -> INSUFFICIENT_EVIDENCE; CLM-EA-06: SUPPORTED_ONLY_FOR_NARROWER_SCOPE -> INSUFFICIENT_EVIDENCE. No claim that requires the lost evidence is supported; claims that do not require it did not change. 7 findings relied on facts from the lost source and are marked stale.",
+    "invariantHeld": true,
+    "mode": {
+      "sample": true,
+      "federation": "cassette",
+      "model": "recorded",
+      "sources": "cassette",
+      "zetarisReachable": true,
+      "nightshiftReachable": false,
+      "degradedNotes": [
+        "model answers are replayed from 59 recordings made against the real route; a question with no recording abstains",
+        "Zetaris answers are replayed from recordings of the real engine",
+        "every public source is read from recordings dated 2026-10-27"
+      ]
+    }
+  }
+}

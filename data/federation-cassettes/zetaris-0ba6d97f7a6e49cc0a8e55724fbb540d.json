@@ -1,0 +1,33 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "0ba6d97f7a6e49cc0a8e55724fbb540def871223292253bcdb1f8e7a82073396",
+  "statement": "SELECT precedent_id, topic, statement FROM hospital.precedents WHERE scope_org = 'HOSPITAL-A' ORDER BY precedent_id",
+  "identity": "default",
+  "recordedAt": "2026-10-27T10:14:41.675Z",
+  "columns": [
+    "precedent_id",
+    "topic",
+    "statement"
+  ],
+  "rawRows": [
+    [
+      "PRE-01",
+      "triage_validation",
+      "This hospital requires prospective validation for triage tools."
+    ],
+    [
+      "PRE-02",
+      "software_version",
+      "Performance figures are accepted only where the software version is named in the regulator summary, the device record or the publication."
+    ],
+    [
+      "PRE-03",
+      "camera_model",
+      "A camera not listed in the authorization needs a local bridging study before use."
+    ]
+  ],
+  "total": 3,
+  "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+  "recordedElapsedMs": 108,
+  "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872"
+}

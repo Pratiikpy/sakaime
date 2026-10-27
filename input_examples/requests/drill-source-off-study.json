@@ -1,0 +1,8 @@
+{
+  "method": "POST",
+  "path": "/api/cases/eyeart-k200667/drill",
+  "body": {
+    "drill": "source_off",
+    "target": "study"
+  }
+}

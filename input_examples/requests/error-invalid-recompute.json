@@ -1,0 +1,9 @@
+{
+  "method": "POST",
+  "path": "/api/cases/eyeart-k200667/recompute",
+  "body": {
+    "patch": {
+      "versions": "2.1.0"
+    }
+  }
+}

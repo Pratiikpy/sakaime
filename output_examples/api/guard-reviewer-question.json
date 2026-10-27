@@ -1,0 +1,10 @@
+{
+  "request": "POST /api/guard",
+  "status": 200,
+  "body": {
+    "allowed": true,
+    "intent": "review_claim",
+    "findings": [],
+    "message": "Request understood as review_claim."
+  }
+}

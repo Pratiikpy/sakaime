@@ -1,0 +1,67 @@
+{
+  "id": "eyeart-k200667",
+  "title": "EyeArt 2.1.0: diabetic retinopathy detection in primary care",
+  "productLabel": "EyeArt (Eyenuk, K200667)",
+  "constructedNotice": "CONSTRUCTED. The vendor claims and the hospital intended use are written for this demonstration. They were not issued by Eyenuk, Inc. and say nothing about that company. The regulator, registry and publication records they are checked against are real and were retrieved on the dates shown.",
+  "vendor": { "name": "Eyenuk", "aliases": ["Eyenuk, Inc."] },
+  "product": { "name": "EyeArt", "condition": "diabetic retinopathy" },
+  "submission": "K200667",
+  "hospital": { "caseId": "CASE-2026-014", "packetId": "PKT-EA-01", "submissionId": "SUB-1001" },
+  "intended": {
+    "id": "CASE-2026-014.intended",
+    "text": "Can our primary-care clinics use EyeArt 2.1.0 to screen adults with diabetes and no previous diagnosis of more than mild diabetic retinopathy, and does the evidence behind a sensitivity of at least 85 percent apply to that use?",
+    "use": {
+      "product": "device:fda:K200667",
+      "versions": ["2.1.0"],
+      "population": {
+        "age": { "min": 18 },
+        "conditions": ["diabetic retinopathy"],
+        "exclusions": ["previously diagnosed with more than mild diabetic retinopathy"]
+      },
+      "settings": ["primary_care"],
+      "purpose": "detection_aid",
+      "timing": { "from": "2027-01-15" }
+    },
+    "performance": { "metric": "sensitivity", "atLeast": 0.85 },
+    "equipment": "Canon CR-2 Plus AF"
+  },
+  "claims": [
+    {
+      "id": "CLM-EA-01",
+      "text": "Detects more than mild diabetic retinopathy in adults with diabetes in primary care and eye care settings, using the Canon CR-2 AF or CR-2 Plus AF camera.",
+      "use": { "product": "device:fda:K200667", "versions": ["2.1.0"], "population": { "age": { "min": 18 }, "conditions": ["diabetic retinopathy"] }, "settings": ["primary_care", "eye_care"], "purpose": "detection_aid" },
+      "equipment": "Canon CR-2 Plus AF"
+    },
+    {
+      "id": "CLM-EA-02",
+      "text": "Validated for patients with diabetes of all ages, including children.",
+      "use": { "product": "device:fda:K200667", "versions": ["2.1.0"], "population": { "age": { "min": 0 }, "conditions": ["diabetic retinopathy"] }, "settings": ["primary_care", "eye_care"], "purpose": "detection_aid" },
+      "equipment": "Canon CR-2 Plus AF"
+    },
+    {
+      "id": "CLM-EA-03",
+      "text": "Supports prioritisation of diabetic eye disease for patients presenting to the emergency department or admitted to hospital.",
+      "use": { "product": "device:fda:K200667", "versions": ["2.1.0"], "population": { "age": { "min": 18 }, "conditions": ["diabetic retinopathy"] }, "settings": ["emergency_department", "inpatient_ward"], "purpose": "triage_prioritisation" },
+      "equipment": "Canon CR-2 Plus AF"
+    },
+    {
+      "id": "CLM-EA-04",
+      "text": "The 2026 release, version 3.0, is covered by the same clearance and the same pivotal study.",
+      "use": { "product": "device:fda:K200667", "versions": ["3.0"], "population": { "age": { "min": 18 }, "conditions": ["diabetic retinopathy"] }, "settings": ["primary_care", "eye_care"], "purpose": "detection_aid" },
+      "equipment": "Canon CR-2 Plus AF"
+    },
+    {
+      "id": "CLM-EA-05",
+      "text": "Works with any colour fundus camera.",
+      "use": { "product": "device:fda:K200667", "versions": ["2.1.0"], "population": { "age": { "min": 18 }, "conditions": ["diabetic retinopathy"] }, "settings": ["primary_care", "eye_care"], "purpose": "detection_aid" },
+      "equipment": "any_fundus_camera"
+    },
+    {
+      "id": "CLM-EA-06",
+      "text": "Diagnoses diabetic retinopathy and replaces the dilated eye examination.",
+      "use": { "product": "device:fda:K200667", "versions": ["2.1.0"], "population": { "age": { "min": 18 }, "conditions": ["diabetic retinopathy"] }, "settings": ["primary_care", "eye_care"], "purpose": "diagnosis" },
+      "equipment": "Canon CR-2 Plus AF"
+    }
+  ],
+  "dependencies": { "required": ["authorization", "study", "requirement"], "corroborating": [] }
+}

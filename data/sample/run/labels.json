@@ -1,0 +1,853 @@
+{
+  "cases": [
+    {
+      "caseId": "eyeart-k200667",
+      "claims": [
+        {
+          "claimId": "CASE-2026-014.intended",
+          "dependsOnFacts": 56,
+          "findingId": "fnd_9df600cf8b0cdc9c86b477f87b1ece41",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "CONTAINED",
+            "timing": "CONTAINED",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-01",
+          "dependsOnFacts": 56,
+          "findingId": "fnd_faa624de5823f641b4640c895f709298",
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "CONTAINED",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-02",
+          "dependsOnFacts": 56,
+          "findingId": "fnd_192920d32f85300354bc467ed1dbe43a",
+          "label": "REQUIRES_DOMAIN_REVIEW",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "CONTAINED",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-03",
+          "dependsOnFacts": 55,
+          "findingId": "fnd_5f6a5ba9dda010acaee36bbc724ca186",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "DISJOINT",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-04",
+          "dependsOnFacts": 56,
+          "findingId": "fnd_bebbda733b107413ba9b9725e1206467",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "CONTAINED",
+            "timing": "UNKNOWN",
+            "version": "DISJOINT"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-05",
+          "dependsOnFacts": 56,
+          "findingId": "fnd_c83c31f946a08f694ee4238732ecd062",
+          "label": "REQUIRES_DOMAIN_REVIEW",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "CONTAINED",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-06",
+          "dependsOnFacts": 52,
+          "findingId": "fnd_eebc121c55ad4349ee832753936bc517",
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "PARTIAL",
+            "setting": "CONTAINED",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        }
+      ],
+      "federation": [
+        {
+          "respHash": "56b6d7a185ad187a5242f8117d74c90cd49814c02d69dff5fa8cd2e9c9c6a281",
+          "rows": 6,
+          "statement": "SELECT\n  c.case_id,\n  c.intended_purpose,\n  c.intended_setting,\n  CAST(c.intended_min_age AS INT)               AS intended_min_age,\n  s.product_name,\n  vc.claim_id,\n  vc.claimed_version,\n  CAST(vc.claimed_min_age_years AS INT)         AS claimed_min_age_years,\n  vc.claimed_setting,\n  vc.claimed_purpose,\n  k.k_number,\n  k.decision_date,\n  k.clearance_type,\n  u.udi_versions,\n  st.confirmed_studies,\n  st.study_min_age_years,\n  rq.requirement_count,\n  rq.required_min_age,\n  CASE WHEN instr(concat('|', coalesce(u.udi_versions, ''), '|'), concat('|', vc.claimed_version, '|')) > 0\n       THEN 'LISTED' ELSE 'NOT_LISTED' END      AS version_in_device_record,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(vc.claimed_min_age_years AS DOUBLE) < st.study_min_age_years THEN 'CLAIM_BELOW_STUDY_MINIMUM'\n       ELSE 'WITHIN_STUDY' END                  AS claim_age_vs_study,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(c.intended_min_age AS DOUBLE) >= st.study_min_age_years THEN 'COVERED_BY_STUDY'\n       ELSE 'NOT_COVERED_BY_STUDY' END          AS case_age_vs_study\nFROM hospital.cases c\nJOIN hospital.submissions s ON s.submission_id = c.submission_id\nJOIN sk_vendor.vendor_claims vc ON vc.packet_id = s.packet_id\nJOIN sk_registry.fda_510k k ON k.k_number = s.regulator_submission_cited\nLEFT JOIN (\n  SELECT submission_number,\n         concat_ws('|', sort_array(collect_set(version_or_model_number))) AS udi_versions\n  FROM sk_registry.fda_udi\n  GROUP BY submission_number\n) u ON u.submission_number = k.k_number\nLEFT JOIN (\n  SELECT l.case_id,\n         COUNT(DISTINCT t.nct_id)                           AS confirmed_studies,\n         MIN(CAST(t.minimum_age_years AS DOUBLE))           AS study_min_age_years\n  FROM hospital.evidence_links l\n  JOIN sk_registry.ctgov_studies t ON t.nct_id = l.right_id\n  WHERE l.link_class = 'CONFIRMED' AND l.right_type = 'ctgov_study'\n  GROUP BY l.case_id\n) st ON st.case_id = c.case_id\nLEFT JOIN (\n  SELECT applies_to_purpose,\n         COUNT(*)                                                                                    AS requirement_count,\n         MAX(CASE WHEN dimension = 'population_min_age' THEN CAST(required_value AS INT) END)        AS required_min_age\n  FROM hospital.requirements\n  GROUP BY applies_to_purpose\n) rq ON rq.applies_to_purpose = c.intended_purpose\nWHERE c.case_id = 'CASE-2026-014'\nORDER BY c.case_id, vc.claim_id"
+        },
+        {
+          "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
+          "rows": 10,
+          "statement": "SELECT requirement_id, applies_to_purpose, dimension, comparator, required_value, rationale, policy_ref, policy_version\nFROM hospital.requirements\nORDER BY requirement_id"
+        },
+        {
+          "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
+          "rows": 3,
+          "statement": "SELECT precedent_id, topic, statement\nFROM hospital.precedents\nWHERE scope_org = 'HOSPITAL-A'\nORDER BY precedent_id"
+        }
+      ],
+      "links": [
+        {
+          "id": "lnk-205ed2973b409e21",
+          "state": "CONFIRMED",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-340f01f376bfb453",
+          "state": "CONFIRMED",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-5054d56d5b94b3e9",
+          "state": "CANDIDATE",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-56316f38aa07b3b0",
+          "state": "CONFIRMED",
+          "type": "SAME_SUBMISSION"
+        },
+        {
+          "id": "lnk-c204c412b765b429",
+          "state": "CONFIRMED",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-dfec1b65e7b06dcb",
+          "state": "CONFIRMED",
+          "type": "SAME_MARKETED_VERSION"
+        }
+      ],
+      "modelCalls": [
+        {
+          "recorded": true,
+          "role": "planner"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": false,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "critic"
+        },
+        {
+          "recorded": true,
+          "role": "reporter"
+        }
+      ],
+      "records": [
+        {
+          "contentHash": "afed4ff24a9909e3c38fb12eb1f02d413c257cf5faa3561ed7ae692414e41fb5",
+          "id": "clinicaltrials-v2:385057cda3ab:afed4ff24a99:20261027100849",
+          "textHash": "efabd5b1b6d555de254e0b72c701329c053f60a2a59d815467eda1d04fd3cec7"
+        },
+        {
+          "contentHash": "c3db0d55d3b769163e6e341e981d63ea6789f361ee6d03fcbe10ce311ae4ba5c",
+          "id": "clinicaltrials-v2:54598826dee6:c3db0d55d3b7:20261027100849",
+          "textHash": "5d8b9c36d42a8298d88a77e772f6acf6982f39ff7921551f1eb8f9e012ed15ad"
+        },
+        {
+          "contentHash": "4ad5be85bad17b04e097dabd5ee21e3cf81f76c13a4bcee94a216e6f4a95ce25",
+          "id": "clinicaltrials-v2:bb4cb7e9be00:4ad5be85bad1:20261027100743",
+          "textHash": "8b7316687313525813d7e4efaa4d75a9f32cd015217f1b365659d0d666dd738c"
+        },
+        {
+          "contentHash": "6f6d788a59f3a66e75597af7563a7554de0d26d01b68cc7d01cfbda6be0b6219",
+          "id": "fda-summary:K200667",
+          "textHash": "60c29c0f059072856bd9aec1608815ccaacbaa4f7c864d50e3550c54373225d6"
+        },
+        {
+          "contentHash": "7d5e109b9f6a31221de53ae6f375a3cb9dfebbb5542d7c61c2e75c46798e2f3e",
+          "id": "openfda-510k:bc8c394b4673:7d5e109b9f6a:20261027100712",
+          "textHash": "5ada4368ab4ecd357d41a90270aa23aafc3fcc2a9aacf1b86b00066cceaf06fe"
+        },
+        {
+          "contentHash": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a",
+          "id": "openfda-udi:302486244575:e48bf4de3d43:20261027100713",
+          "textHash": "493a5096f4c6e1f3a998a933e4526fa18a74d6525fbb8f2c4b0e0e5d7affb44d"
+        },
+        {
+          "contentHash": "05b93b0c4df6b68cf9369c5b9b2c5f7ab7e2d074825b2ca6f3ef63fdfd0cf268",
+          "id": "pubmed-eutils:99edb86cef09:05b93b0c4df6:20261027100745",
+          "textHash": "1b18eb20c31ef42cf9dcc0accc8a2a1b60fe8d603216969c06fb04c2153c66eb"
+        }
+      ]
+    },
+    {
+      "caseId": "lunit-k211733",
+      "claims": [
+        {
+          "claimId": "CASE-2026-016.intended",
+          "dependsOnFacts": 22,
+          "findingId": "fnd_3d9b1c90e778f0c451be0533232708ad",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "UNKNOWN",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "UNKNOWN",
+            "timing": "UNKNOWN",
+            "version": "UNKNOWN"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-LU-01",
+          "dependsOnFacts": 22,
+          "findingId": "fnd_3c64503a37a747b92b12804526b9ca22",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "UNKNOWN",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "UNKNOWN",
+            "timing": "UNKNOWN",
+            "version": "UNKNOWN"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-LU-02",
+          "dependsOnFacts": 22,
+          "findingId": "fnd_e810e9f325a32ec29b34a997ecab626e",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "UNKNOWN",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "UNKNOWN",
+            "timing": "UNKNOWN",
+            "version": "UNKNOWN"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        }
+      ],
+      "federation": [
+        {
+          "respHash": "51a6d8f05ec2c78ce2f814a7b312b8c66d3e3179a8d670a5e3afa7b837398497",
+          "rows": 2,
+          "statement": "SELECT\n  c.case_id,\n  c.intended_purpose,\n  c.intended_setting,\n  CAST(c.intended_min_age AS INT)               AS intended_min_age,\n  s.product_name,\n  vc.claim_id,\n  vc.claimed_version,\n  CAST(vc.claimed_min_age_years AS INT)         AS claimed_min_age_years,\n  vc.claimed_setting,\n  vc.claimed_purpose,\n  k.k_number,\n  k.decision_date,\n  k.clearance_type,\n  u.udi_versions,\n  st.confirmed_studies,\n  st.study_min_age_years,\n  rq.requirement_count,\n  rq.required_min_age,\n  CASE WHEN instr(concat('|', coalesce(u.udi_versions, ''), '|'), concat('|', vc.claimed_version, '|')) > 0\n       THEN 'LISTED' ELSE 'NOT_LISTED' END      AS version_in_device_record,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(vc.claimed_min_age_years AS DOUBLE) < st.study_min_age_years THEN 'CLAIM_BELOW_STUDY_MINIMUM'\n       ELSE 'WITHIN_STUDY' END                  AS claim_age_vs_study,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(c.intended_min_age AS DOUBLE) >= st.study_min_age_years THEN 'COVERED_BY_STUDY'\n       ELSE 'NOT_COVERED_BY_STUDY' END          AS case_age_vs_study\nFROM hospital.cases c\nJOIN hospital.submissions s ON s.submission_id = c.submission_id\nJOIN sk_vendor.vendor_claims vc ON vc.packet_id = s.packet_id\nJOIN sk_registry.fda_510k k ON k.k_number = s.regulator_submission_cited\nLEFT JOIN (\n  SELECT submission_number,\n         concat_ws('|', sort_array(collect_set(version_or_model_number))) AS udi_versions\n  FROM sk_registry.fda_udi\n  GROUP BY submission_number\n) u ON u.submission_number = k.k_number\nLEFT JOIN (\n  SELECT l.case_id,\n         COUNT(DISTINCT t.nct_id)                           AS confirmed_studies,\n         MIN(CAST(t.minimum_age_years AS DOUBLE))           AS study_min_age_years\n  FROM hospital.evidence_links l\n  JOIN sk_registry.ctgov_studies t ON t.nct_id = l.right_id\n  WHERE l.link_class = 'CONFIRMED' AND l.right_type = 'ctgov_study'\n  GROUP BY l.case_id\n) st ON st.case_id = c.case_id\nLEFT JOIN (\n  SELECT applies_to_purpose,\n         COUNT(*)                                                                                    AS requirement_count,\n         MAX(CASE WHEN dimension = 'population_min_age' THEN CAST(required_value AS INT) END)        AS required_min_age\n  FROM hospital.requirements\n  GROUP BY applies_to_purpose\n) rq ON rq.applies_to_purpose = c.intended_purpose\nWHERE c.case_id = 'CASE-2026-016'\nORDER BY c.case_id, vc.claim_id"
+        },
+        {
+          "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
+          "rows": 10,
+          "statement": "SELECT requirement_id, applies_to_purpose, dimension, comparator, required_value, rationale, policy_ref, policy_version\nFROM hospital.requirements\nORDER BY requirement_id"
+        },
+        {
+          "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
+          "rows": 3,
+          "statement": "SELECT precedent_id, topic, statement\nFROM hospital.precedents\nWHERE scope_org = 'HOSPITAL-A'\nORDER BY precedent_id"
+        }
+      ],
+      "links": [
+        {
+          "id": "lnk-02aa812e3a11af93",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-034822e543528b26",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-132dda4369745423",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-1441a52e6e2418bc",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-1df5b30a68433ccc",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-314946cb4277a16b",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-47163fb87251c3cf",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-526f6d2c9eea0b57",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-5c4e7ff797bfdd6f",
+          "state": "AMBIGUOUS",
+          "type": "SAME_MARKETED_VERSION"
+        },
+        {
+          "id": "lnk-657b3e0aec64990c",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-82029b068eca8f5c",
+          "state": "AMBIGUOUS",
+          "type": "SAME_MARKETED_VERSION"
+        },
+        {
+          "id": "lnk-85b1cbed89611eb1",
+          "state": "CONFIRMED",
+          "type": "SAME_SUBMISSION"
+        },
+        {
+          "id": "lnk-8d3237d90ab78909",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-ab5659f8293336e9",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-bf4cdba6c98ef594",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-d4e5dfa1f0dfee6c",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-d8b3f2e34b6ce2c8",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-deb744045377a602",
+          "state": "CONFIRMED",
+          "type": "SAME_SUBMISSION"
+        },
+        {
+          "id": "lnk-e6ce389d13c363fc",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        }
+      ],
+      "modelCalls": [
+        {
+          "recorded": true,
+          "role": "planner"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "resolver"
+        },
+        {
+          "recorded": true,
+          "role": "resolver"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "critic"
+        },
+        {
+          "recorded": true,
+          "role": "reporter"
+        }
+      ],
+      "records": [
+        {
+          "contentHash": "ca23b051c01d693a405e568f00cf3a223d4f3ec9183d13a47c3dc2b90b4d9008",
+          "id": "clinicaltrials-v2:405c1516182b:ca23b051c01d:20261027101041",
+          "textHash": "a2fd6a2b24c786b5e3b89e0c3e8c301c4b3ac5f2abe799e24da25d5b11d5ca3a"
+        },
+        {
+          "contentHash": "7aac936c917bc52311eff9a8acd3082b32316c0d932b004a1547e400f7436b5a",
+          "id": "clinicaltrials-v2:4c8b9da9593e:7aac936c917b:20261027101043",
+          "textHash": "f07dbbad0fa44a1165c657feac8b59ad6238d7f0a0547bc72d918eb62dfa8197"
+        },
+        {
+          "contentHash": "e127277ed8a68e65bd45049e8b8b0d75bbdc5123d878493501ea50a7b213a888",
+          "id": "clinicaltrials-v2:8cfe52632e9c:e127277ed8a6:20261027101043",
+          "textHash": "3c8b29938b0bf66410bd208f8dbc277a26c9348387771db8b29f92e342d4870f"
+        },
+        {
+          "contentHash": "8a622aef8059b0b676d47d56a5682dfba34788f3c746016fc6d6c57f6bcf6635",
+          "id": "clinicaltrials-v2:8f240eee193a:8a622aef8059:20261027101041",
+          "textHash": "eb867e746415b53b8b63bf73ee2707d2383808d980b56c2c1677d2bb8d4f9289"
+        },
+        {
+          "contentHash": "87d9bb9aa4b1192fb456d8356768a1fe3b205adae6b714b8e9d140088866de91",
+          "id": "fda-summary:K211733",
+          "textHash": "87d9bb9aa4b1192fb456d8356768a1fe3b205adae6b714b8e9d140088866de91"
+        },
+        {
+          "contentHash": "562b26a634d838bac9fffb129538989d9ea55dcb114c767210a30805e4407a7c",
+          "id": "openfda-510k:fe93013b0bd4:562b26a634d8:20261027100948",
+          "textHash": "d69e4c2a73ab789d5d24413c89c3d1f3fc979e2dc9498e32ba075bfa7bb3e759"
+        },
+        {
+          "contentHash": "9e2f4f4e5f017fb9f2842fe848ecc7b7d23fd0b1abb1770e90185a4dfa7212bc",
+          "id": "openfda-udi:21256b8e3cda:9e2f4f4e5f01:20261027100949",
+          "textHash": "c8e8e655cc0d3cef451c0675b508f8823b40229166c4c2bdffd388fbec58485c"
+        },
+        {
+          "contentHash": "f58c84ae533d792d0b8aba68a032bd48d31706a07443e6a0f9c937591d3bcd6b",
+          "id": "pubmed-eutils:13ce08cadca8:f58c84ae533d:20261027101219",
+          "textHash": "0b264d9c8a8f5794299703fecd03817874ff51f384dd4f396109280fd30459a8"
+        },
+        {
+          "contentHash": "dc64fe0e219b9fdf3d63a9e158c675df329948753eb4a1efa731a10e159517c0",
+          "id": "pubmed-eutils:428c21281b11:dc64fe0e219b:20261027101218",
+          "textHash": "4829b279cd1d7999540a34cdaae7bcd0b1d2d2c039f508682fb246aec9f35ffe"
+        },
+        {
+          "contentHash": "c696974d7ed0951b4c4064b8991e54a7fd33cc14147100fedd28a273692fd372",
+          "id": "pubmed-eutils:4390999e25e9:c696974d7ed0:20261027101217",
+          "textHash": "75f09bd4a0f02a06dc0a997547dd2d828b9cb4add30b5bfda0d9e55da077474d"
+        },
+        {
+          "contentHash": "5903bf85d5f614c20869c37446a8741c40a94b1b9257a83542c83b6bfba7ba17",
+          "id": "pubmed-eutils:475444588295:5903bf85d5f6:20261027101044",
+          "textHash": "99a881b79c33bc26c0d51a0a23de32afcba3a77d0154f604ae1281a1c2b42447"
+        },
+        {
+          "contentHash": "525ed0ee89c09a889e61a539e41caa441232a71dc1b0a73006e30867c5d0d4fc",
+          "id": "pubmed-eutils:b71d6fe6f2fb:525ed0ee89c0:20261027101129",
+          "textHash": "5ebbcbb2c1d4eaa7523304aa7a6d0d296d866ff3f2afebae59f9d61c34089d12"
+        },
+        {
+          "contentHash": "2b25a93daea3d1fbeb626b22e274cda22f8f936e1237e06b9913fb58919e26d3",
+          "id": "pubmed-eutils:bf8ddf493b17:2b25a93daea3:20261027101209",
+          "textHash": "f2b6f136657f29cff906cfc5cbe847db16989a3a03bbe73cf04121f3b0b1a388"
+        }
+      ]
+    },
+    {
+      "caseId": "transpara-k221347",
+      "claims": [
+        {
+          "claimId": "CASE-2026-019.intended",
+          "dependsOnFacts": 17,
+          "findingId": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "UNKNOWN",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "UNKNOWN",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-TR-01",
+          "dependsOnFacts": 17,
+          "findingId": "fnd_9f631690802f3134fa5e693b0137e643",
+          "label": "INSUFFICIENT_EVIDENCE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "UNKNOWN",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "UNKNOWN",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        }
+      ],
+      "federation": [
+        {
+          "respHash": "b22fbfaffddb09e156fe158f9fa5dd7fa4d9d27d0252ce5213ec168c92f546ba",
+          "rows": 1,
+          "statement": "SELECT\n  c.case_id,\n  c.intended_purpose,\n  c.intended_setting,\n  CAST(c.intended_min_age AS INT)               AS intended_min_age,\n  s.product_name,\n  vc.claim_id,\n  vc.claimed_version,\n  CAST(vc.claimed_min_age_years AS INT)         AS claimed_min_age_years,\n  vc.claimed_setting,\n  vc.claimed_purpose,\n  k.k_number,\n  k.decision_date,\n  k.clearance_type,\n  u.udi_versions,\n  st.confirmed_studies,\n  st.study_min_age_years,\n  rq.requirement_count,\n  rq.required_min_age,\n  CASE WHEN instr(concat('|', coalesce(u.udi_versions, ''), '|'), concat('|', vc.claimed_version, '|')) > 0\n       THEN 'LISTED' ELSE 'NOT_LISTED' END      AS version_in_device_record,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(vc.claimed_min_age_years AS DOUBLE) < st.study_min_age_years THEN 'CLAIM_BELOW_STUDY_MINIMUM'\n       ELSE 'WITHIN_STUDY' END                  AS claim_age_vs_study,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(c.intended_min_age AS DOUBLE) >= st.study_min_age_years THEN 'COVERED_BY_STUDY'\n       ELSE 'NOT_COVERED_BY_STUDY' END          AS case_age_vs_study\nFROM hospital.cases c\nJOIN hospital.submissions s ON s.submission_id = c.submission_id\nJOIN sk_vendor.vendor_claims vc ON vc.packet_id = s.packet_id\nJOIN sk_registry.fda_510k k ON k.k_number = s.regulator_submission_cited\nLEFT JOIN (\n  SELECT submission_number,\n         concat_ws('|', sort_array(collect_set(version_or_model_number))) AS udi_versions\n  FROM sk_registry.fda_udi\n  GROUP BY submission_number\n) u ON u.submission_number = k.k_number\nLEFT JOIN (\n  SELECT l.case_id,\n         COUNT(DISTINCT t.nct_id)                           AS confirmed_studies,\n         MIN(CAST(t.minimum_age_years AS DOUBLE))           AS study_min_age_years\n  FROM hospital.evidence_links l\n  JOIN sk_registry.ctgov_studies t ON t.nct_id = l.right_id\n  WHERE l.link_class = 'CONFIRMED' AND l.right_type = 'ctgov_study'\n  GROUP BY l.case_id\n) st ON st.case_id = c.case_id\nLEFT JOIN (\n  SELECT applies_to_purpose,\n         COUNT(*)                                                                                    AS requirement_count,\n         MAX(CASE WHEN dimension = 'population_min_age' THEN CAST(required_value AS INT) END)        AS required_min_age\n  FROM hospital.requirements\n  GROUP BY applies_to_purpose\n) rq ON rq.applies_to_purpose = c.intended_purpose\nWHERE c.case_id = 'CASE-2026-019'\nORDER BY c.case_id, vc.claim_id"
+        },
+        {
+          "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
+          "rows": 10,
+          "statement": "SELECT requirement_id, applies_to_purpose, dimension, comparator, required_value, rationale, policy_ref, policy_version\nFROM hospital.requirements\nORDER BY requirement_id"
+        },
+        {
+          "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
+          "rows": 3,
+          "statement": "SELECT precedent_id, topic, statement\nFROM hospital.precedents\nWHERE scope_org = 'HOSPITAL-A'\nORDER BY precedent_id"
+        }
+      ],
+      "links": [
+        {
+          "id": "lnk-0b0f58bd9967ddef",
+          "state": "CONFIRMED",
+          "type": "SAME_SUBMISSION"
+        },
+        {
+          "id": "lnk-356ef8ad9840c9f4",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-36c11ac6927a56d8",
+          "state": "CONFIRMED",
+          "type": "SAME_MARKETED_VERSION"
+        },
+        {
+          "id": "lnk-47ccba963d1e78fa",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-7dac0bf486e44380",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-c20ce650a6b40e02",
+          "state": "AMBIGUOUS",
+          "type": "PUBLICATION_REPORTS"
+        },
+        {
+          "id": "lnk-d0f5a427c937eef1",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-d5d600c1dff9a279",
+          "state": "AMBIGUOUS",
+          "type": "STUDY_EVALUATES"
+        },
+        {
+          "id": "lnk-db72c661ee879a49",
+          "state": "CONFIRMED",
+          "type": "PUBLICATION_REPORTS"
+        }
+      ],
+      "modelCalls": [
+        {
+          "recorded": true,
+          "role": "planner"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "resolver"
+        },
+        {
+          "recorded": true,
+          "role": "resolver"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "support_checker"
+        },
+        {
+          "recorded": true,
+          "role": "critic"
+        },
+        {
+          "recorded": true,
+          "role": "reporter"
+        }
+      ],
+      "records": [
+        {
+          "contentHash": "308fea3b16b3d2357ae811ed08e3878e3102380bd39065d65a84dc6631c93a74",
+          "id": "clinicaltrials-v2:13890fbf8bb1:308fea3b16b3:20261027101323",
+          "textHash": "dc869ba8eed83729ed3edf274ce59a12416a49c67810488e8d5c6c1430743781"
+        },
+        {
+          "contentHash": "3c332ef385b6856c89876a58f8fb980439a003e3ee76159d6211e41e3cacfa95",
+          "id": "clinicaltrials-v2:2294d2a631c5:3c332ef385b6:20261027101324",
+          "textHash": "da4ffd9ad6188071e210d346a5e51b50b0d185aad793836031a0f2c5c0778412"
+        },
+        {
+          "contentHash": "79b74b72629d8de875f9c5751d0040d8d51ce9d18b65e68431e89fde38943b3f",
+          "id": "clinicaltrials-v2:7667bc062676:79b74b72629d:20261027101322",
+          "textHash": "e032f2ee85a7315b10b190d117a0e53cc4c4395ee5b5ba629753348d43e827b1"
+        },
+        {
+          "contentHash": "a35299f65e27728f776abb8b8d61f25c91eb6593a80cee0852fb0e2e25c7bfcb",
+          "id": "fda-summary:K221347",
+          "textHash": "a35299f65e27728f776abb8b8d61f25c91eb6593a80cee0852fb0e2e25c7bfcb"
+        },
+        {
+          "contentHash": "b68cbf306b82a27cec6fb0a264487e3708a84f8d6f06f937b36351e3ea3896c4",
+          "id": "openfda-510k:7ab27f3873de:b68cbf306b82:20261027101251",
+          "textHash": "92797e494c0608837b047cc33da12c1be4de6691c19804a111de9479515ca5ad"
+        },
+        {
+          "contentHash": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd",
+          "id": "openfda-udi:20873b032084:702d7046cefc:20261027101252",
+          "textHash": "0705bacd1c0cbffae8d7aa90bf66163eadba7cf036c1642a50d3124c2f143ea6"
+        },
+        {
+          "contentHash": "044795fc280eaa56a4936e70fccfc2dcb1afa876261360d42d9fb732297b7f40",
+          "id": "pubmed-eutils:29b2104e8bf3:044795fc280e:20261027101439",
+          "textHash": "fe7e59d0c0b8ccf1436ea0dd887c0e9c3eabcc1c774545b9a53b8e1b80e864aa"
+        },
+        {
+          "contentHash": "9b46ed6e0e02181e591214faa961647da1e2c2db971a16d0ab8b8b7e688e0e1e",
+          "id": "pubmed-eutils:332f9bfe75b2:9b46ed6e0e02:20261027101440",
+          "textHash": "d97ff2d84305a997c4ab546991190eea64baa7d4efb9522d636ac92802e152e4"
+        },
+        {
+          "contentHash": "f1a9917cd1cbc2061b928a008a76a4d230340e2ab394d7cbf3e60ee05458649e",
+          "id": "pubmed-eutils:66171a826e88:f1a9917cd1cb:20261027101356",
+          "textHash": "3b47fb405c82099c90bd96e3d18443ab95a4e79a971a8f0a3abcf254b25d3651"
+        },
+        {
+          "contentHash": "59e152800c3640e6713a85abb405c031dab2b286e60c4b5a8fb2d1603c5091af",
+          "id": "pubmed-eutils:7c3cc6104aff:59e152800c36:20261027101440",
+          "textHash": "493250269cec6cbaf489a9a4b0fb6bf5c78ba57ec79cc40b2a06222368bf91b8"
+        },
+        {
+          "contentHash": "4bbc40942b5a0a1c6e20a319949ad6cf3c25ee7edf3d03a5cf3afb7c16aba391",
+          "id": "pubmed-eutils:a19eadb249e2:4bbc40942b5a:20261027101325",
+          "textHash": "39f980f08af2bc8f2403fbe128b85e40ad3dd03d92e211356aab5c611c4ab52d"
+        },
+        {
+          "contentHash": "d99ff3840beb871bf409f0c5160501fa3a6d2611285b5c3413f065c48ca4fb76",
+          "id": "pubmed-eutils:f759ff5b58c6:d99ff3840beb:20261027101422",
+          "textHash": "44cf95801a9d4bd98a7fb9cce9fc846d2a995063953d24edc31b9a20b3dcb663"
+        }
+      ]
+    }
+  ],
+  "digest": "d4423ac8e348c486ac8d102207d014d6c6b68dc90824b588d44de9359b9e03af",
+  "format": "sakaime.sample-run/1",
+  "note": "Labels, relations, federation statements and record hashes of the sample run. Sample mode must reproduce this byte for byte."
+}

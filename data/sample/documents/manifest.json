@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "description": "FDA decision summaries read for the sample run. Real public documents; the manifest pins each by sha256.",
+  "entries": [
+    {
+      "submission": "K200667",
+      "kind": "pdf",
+      "path": "data/silos/documents/fda_summaries/K200667.pdf",
+      "sha256": "6f6d788a59f3a66e75597af7563a7554de0d26d01b68cc7d01cfbda6be0b6219",
+      "bytes": 851970,
+      "sourceUrl": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/K200667.pdf",
+      "recordedAt": "2026-10-27T10:07:13.906Z",
+      "note": "the FDA PDF as fetched on 2026-10-27; the same bytes are held for the Zetaris PDF table"
+    },
+    {
+      "submission": "K211733",
+      "kind": "text",
+      "path": "data/sample/documents/K211733.txt",
+      "sha256": "87d9bb9aa4b1192fb456d8356768a1fe3b205adae6b714b8e9d140088866de91",
+      "bytes": 29947,
+      "sourceUrl": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/K211733.pdf",
+      "recordedAt": "2026-10-27T10:09:50.115Z",
+      "note": "text layer of the FDA PDF as read by pdfjs on 2026-10-27; the PDF itself (sha256 a35ae2cb6a79a81d04c2d48417275a42ab7c724577f6c39c40e9b9b58b9bb414) is not kept in the repository"
+    },
+    {
+      "submission": "K221347",
+      "kind": "text",
+      "path": "data/sample/documents/K221347.txt",
+      "sha256": "a35299f65e27728f776abb8b8d61f25c91eb6593a80cee0852fb0e2e25c7bfcb",
+      "bytes": 17973,
+      "sourceUrl": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221347.pdf",
+      "recordedAt": "2026-10-27T10:12:52.606Z",
+      "note": "text layer of the FDA PDF as read by pdfjs on 2026-10-27; the PDF itself (sha256 de7a75f1ee55319c6a31d9022b182e87d44f378805373931b91d0ca75fa1dfd5) is not kept in the repository"
+    }
+  ]
+}

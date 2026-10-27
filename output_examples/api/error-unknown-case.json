@@ -1,0 +1,18 @@
+{
+  "request": "GET /api/cases/no-such-case",
+  "status": 404,
+  "body": {
+    "error": {
+      "failure": "INVALID",
+      "message": "no case named no-such-case",
+      "detail": {
+        "reason": "UNKNOWN_CASE",
+        "known": [
+          "eyeart-k200667",
+          "lunit-k211733",
+          "transpara-k221347"
+        ]
+      }
+    }
+  }
+}

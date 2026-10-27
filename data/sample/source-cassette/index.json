@@ -1,0 +1,1169 @@
+{
+  "version": 1,
+  "name": "sakaime-case-run-2026-10-27",
+  "description": "Responses made while the Sakaime case pipeline ran against the live public sources. Public records only.",
+  "entries": [
+    {
+      "requestHash": "bc8c394b4673723b3486e01fee84f696cddb326b57b76cdf9888949f55802e1f",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number%3AK200667"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"70f-Ho6Kg4BuTxWWsp9lVtTsOHhj29g\""
+        },
+        "sha256": "7d5e109b9f6a31221de53ae6f375a3cb9dfebbb5542d7c61c2e75c46798e2f3e",
+        "bytes": 1807
+      },
+      "recordedAt": "2026-10-27T10:07:12.349Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "fe93013b0bd4aa307dae421a1b3493efbba5f0c6903b73258cfa7497d34159cb",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number%3AK211733"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"aa1-SbA4zyJfG3xoTiPLPS5jKhGW4ck\""
+        },
+        "sha256": "562b26a634d838bac9fffb129538989d9ea55dcb114c767210a30805e4407a7c",
+        "bytes": 2721
+      },
+      "recordedAt": "2026-10-27T10:09:48.658Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "7ab27f3873de489be173b406a6505437f6c5bfae3de2afb2d18588b74af26a35",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number%3AK221347"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"8c9-QBEsHq1Sf3zQe6sRCWcNMFfyAyc\""
+        },
+        "sha256": "b68cbf306b82a27cec6fb0a264487e3708a84f8d6f06f937b36351e3ea3896c4",
+        "bytes": 2249
+      },
+      "recordedAt": "2026-10-27T10:12:51.140Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "3024862445757e47a0ba17a3459bdf16d70cd4bc40fd6d010984bec4ae2edde3",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K200667%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"c86-P5gumXXLPTcLJliMnl50ugaNa3Y\""
+        },
+        "sha256": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a",
+        "bytes": 3206
+      },
+      "recordedAt": "2026-10-27T10:07:13.511Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "21256b8e3cda233ae7dcaa3a9f966b955bda69ec7bef20e85aec1e0eb4df10f8",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K211733%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"1891-iSUUtwG2v/aWJ524QwEz9oQijFs\""
+        },
+        "sha256": "9e2f4f4e5f017fb9f2842fe848ecc7b7d23fd0b1abb1770e90185a4dfa7212bc",
+        "bytes": 6289
+      },
+      "recordedAt": "2026-10-27T10:09:49.818Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "20873b032084ad663b9b1d964e1bd110dddbd96f9ef3d9d6778addb5d47bb11b",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K221347%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"fed-xhENLqTk9YHidY18Enph9TD2oVc\""
+        },
+        "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd",
+        "bytes": 4077
+      },
+      "recordedAt": "2026-10-27T10:12:52.276Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "bb4cb7e9be003ad19f7d7b091b9f670fb6ef2350b215e8bf9fb3147dec88bdfb",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT03112005"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "4ad5be85bad17b04e097dabd5ee21e3cf81f76c13a4bcee94a216e6f4a95ce25",
+        "bytes": 8908
+      },
+      "recordedAt": "2026-10-27T10:07:43.507Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "54598826dee6e965b3ef65d71df99d7bfd56c00f5ca06513acb40fd837046758",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04302012"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "c3db0d55d3b769163e6e341e981d63ea6789f361ee6d03fcbe10ce311ae4ba5c",
+        "bytes": 4541
+      },
+      "recordedAt": "2026-10-27T10:08:49.534Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "2294d2a631c5ed9c93fdb935494f04e55706dd36262e7548b1895d40a9674b98",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04838756"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "3c332ef385b6856c89876a58f8fb980439a003e3ee76159d6211e41e3cacfa95",
+        "bytes": 9471
+      },
+      "recordedAt": "2026-10-27T10:13:24.426Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8cfe52632e9ca9e0b57dc538214bb6ef3bf49f6a2e10a1049ceaa7559ef52e94",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT05614232"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "e127277ed8a68e65bd45049e8b8b0d75bbdc5123d878493501ea50a7b213a888",
+        "bytes": 4520
+      },
+      "recordedAt": "2026-10-27T10:10:43.333Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "4c8b9da9593ed3452c535577a5d5776961a7d7ba8f74a600b2aa354b4d39674f",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT05619029"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "7aac936c917bc52311eff9a8acd3082b32316c0d932b004a1547e400f7436b5a",
+        "bytes": 5073
+      },
+      "recordedAt": "2026-10-27T10:10:43.718Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "13890fbf8bb128f4f9b16b350bb3751c966562f21bca71b9c99769ddad0d4c62",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT06032390"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "308fea3b16b3d2357ae811ed08e3878e3102380bd39065d65a84dc6631c93a74",
+        "bytes": 10881
+      },
+      "recordedAt": "2026-10-27T10:13:23.026Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8f240eee193ab203e92e8a913663cd6650132ec872a36950448d66c8396527ae",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT06075836"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "8a622aef8059b0b676d47d56a5682dfba34788f3c746016fc6d6c57f6bcf6635",
+        "bytes": 16546
+      },
+      "recordedAt": "2026-10-27T10:10:41.856Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "7667bc062676eabf6a54cb3d868fb5b26adade0ff5bece177feeb8853df691db",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT06187350"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "79b74b72629d8de875f9c5751d0040d8d51ce9d18b65e68431e89fde38943b3f",
+        "bytes": 7818
+      },
+      "recordedAt": "2026-10-27T10:13:22.637Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "405c1516182b6140ec492a9f47fbd5594ff4232b746c1b24eb3fb5caa4115d65",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT06401434"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "ca23b051c01d693a405e568f00cf3a223d4f3ec9183d13a47c3dc2b90b4d9008",
+        "bytes": 12173
+      },
+      "recordedAt": "2026-10-27T10:10:41.444Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "385057cda3ab44164d8e0773bbb7543bb032806e1c8132e74483a48148ea07a8",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT06721351"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "afed4ff24a9909e3c38fb12eb1f02d413c257cf5faa3561ed7ae692414e41fb5",
+        "bytes": 17225
+      },
+      "recordedAt": "2026-10-27T10:08:49.109Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "e27f0b3344b2ec8fd1ba7e8745623fc2879e53e3ade03e7cbc98f8b484daea2e",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Eyenuk%22+AND+%22EyeArt%22+AND+%22diabetic+retinopathy%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "29dd27fee8162b97df98e0204cfef7e160d3d391323cb9573e267d0da2efa338",
+        "bytes": 2421
+      },
+      "recordedAt": "2026-10-27T10:08:24.695Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "111ed3f6532173045de31958c9a2f871ceaaece7a4cfa27879e6cf93a98f7231",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Eyenuk%22+AND+%22EyeArt%22+AND+%22triage+diabetic+retinopathy%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T10:08:48.710Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8f1fca7a89a06cc7171492b6ea82103f106d4a096d787ebd171b02d99d8fab31",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit%22+AND+%22INSIGHT+CXR%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "3f85d839f82d04eb9ef372eea317281ab35ef96f7aec180e553b7df0d6714f0d",
+        "bytes": 1909
+      },
+      "recordedAt": "2026-10-27T10:10:36.473Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "e36f2758d9118f6c8af04d70cb2ab01dfc800e08837fcf5dc57badb397d85746",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit%22+AND+%22INSIGHT+CXR%22+AND+%22outpatient+care%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T10:01:12.480Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "e40a779f0416f8d3da9a50f0cf4289b4799417a476d374b3d7c9a1b0b3123391",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit%22+AND+%22INSIGHT+CXR%22+AND+%22triage%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "3d0c3e37535273f0a2a4739428bc98ab6b1f101ab458387ba25777af448a60ee",
+        "bytes": 567
+      },
+      "recordedAt": "2026-10-27T10:10:40.600Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8885e28b59e6b8ecf9ef2fcbec322aad85ab6d459da11f14cee7151b9e56bf01",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit%22+AND+%22INSIGHT+CXR%22+AND+%22triage+evaluation%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T09:53:51.752Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "a8a9400b77996d342bebcd9a783acfc057b080c07f0f074fe06559125faf0de3",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22breast+neoplasm%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "1b3d84cc0df46ac12a7685b050e91c5dce13a68ca3e9f83f3cd67d0480e2132c",
+        "bytes": 1546
+      },
+      "recordedAt": "2026-10-27T10:13:22.239Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "1360415b3547d61667e6594639464893308d92df27120eb715b71d8ebb877724",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22breast+neoplasms%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "1b3d84cc0df46ac12a7685b050e91c5dce13a68ca3e9f83f3cd67d0480e2132c",
+        "bytes": 1546
+      },
+      "recordedAt": "2026-10-27T09:56:11.168Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "02435285daa83424e465241840c295db86ca32f0aad8d1e28774ff731bbb5733",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22mammography%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "1b3d84cc0df46ac12a7685b050e91c5dce13a68ca3e9f83f3cd67d0480e2132c",
+        "bytes": 1546
+      },
+      "recordedAt": "2026-10-27T10:13:18.725Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8863883beadc2e8c779fbce6be9e9d3d22bd760986feec8617e0229d75a4a7f1",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22screening+performance%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T09:45:32.175Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "66171a826e88eee1329c4e8fbd60d8986486675744caddb49f676cd02cd1665f",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30898381&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "f1a9917cd1cbc2061b928a008a76a4d230340e2ab394d7cbf3e60ee05458649e",
+        "bytes": 8033
+      },
+      "recordedAt": "2026-10-27T10:13:56.306Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "cefc289c40d799e25ec531e5e36373a5ab53c1c53c1f700b58341518ac0b2515",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=32052311&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "4660067cab671974e944380d65bbe1c7ebc70fa3ff77598ddb7327ae1e63b533",
+        "bytes": 9799
+      },
+      "recordedAt": "2026-10-27T10:13:30.493Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "99edb86cef09e34aa713dc73ebd63eb6cca2a69672943ee071223b0273a84497",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34779843&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "05b93b0c4df6b68cf9369c5b9b2c5f7ab7e2d074825b2ca6f3ef63fdfd0cf268",
+        "bytes": 29165
+      },
+      "recordedAt": "2026-10-27T10:07:45.181Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "4390999e25e9a849c257f8b37114ea4287e1ab80dddc859ee3fc88b233f1858c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35202417&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "c696974d7ed0951b4c4064b8991e54a7fd33cc14147100fedd28a273692fd372",
+        "bytes": 15778
+      },
+      "recordedAt": "2026-10-27T10:12:17.246Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "b127705657c57bb4788353ee48fc041f9a381ddf9f371b37b667db13b6d5c57d",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=36171164&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "a703271fb1c60723ffa6548cf7b91066bdb5a972147165247e739258d9897137",
+        "bytes": 6993
+      },
+      "recordedAt": "2026-10-27T10:02:11.770Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "bf8ddf493b17a923375736b1cd1d59a136b488ebd3e298ee2805661d45d81aa4",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37189531&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "2b25a93daea3d1fbeb626b22e274cda22f8f936e1237e06b9913fb58919e26d3",
+        "bytes": 24576
+      },
+      "recordedAt": "2026-10-27T10:12:09.304Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "13ce08cadca8b4147c775921bae592d6371e764fe25923d1d874b2cf65a1cc81",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39806695&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "f58c84ae533d792d0b8aba68a032bd48d31706a07443e6a0f9c937591d3bcd6b",
+        "bytes": 15498
+      },
+      "recordedAt": "2026-10-27T10:12:19.463Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "a19eadb249e225cdcdc94b3172537750a84205634a20081421176b965c639d3f",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39904652&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "4bbc40942b5a0a1c6e20a319949ad6cf3c25ee7edf3d03a5cf3afb7c16aba391",
+        "bytes": 12064
+      },
+      "recordedAt": "2026-10-27T10:13:25.413Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "428c21281b11e917fe7710fbf794ec8f33119638d4d1b0ecd7901d895b4d785d",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40233023&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "dc64fe0e219b9fdf3d63a9e158c675df329948753eb4a1efa731a10e159517c0",
+        "bytes": 21850
+      },
+      "recordedAt": "2026-10-27T10:12:18.449Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "29b2104e8bf38e3990028f342b6b8f65488b5a7f3317c3f85c816c3752865ce9",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40313361&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "044795fc280eaa56a4936e70fccfc2dcb1afa876261360d42d9fb732297b7f40",
+        "bytes": 29979
+      },
+      "recordedAt": "2026-10-27T10:14:39.628Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "4754445882957b5ae7f73781595341a31813ffb5fe1f84f4ea3c675c5e25693a",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40529749&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "5903bf85d5f614c20869c37446a8741c40a94b1b9257a83542c83b6bfba7ba17",
+        "bytes": 26794
+      },
+      "recordedAt": "2026-10-27T10:10:44.941Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "f759ff5b58c6831105552f07ed382e93fe092d757e43f7469679f11e08c6485b",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41375079&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "d99ff3840beb871bf409f0c5160501fa3a6d2611285b5c3413f065c48ca4fb76",
+        "bytes": 25615
+      },
+      "recordedAt": "2026-10-27T10:14:22.528Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "b71d6fe6f2fb19fba30d07cb21aee48942fdcdb83bf0b32628a6e6ca72829bf6",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=41533654&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "525ed0ee89c09a889e61a539e41caa441232a71dc1b0a73006e30867c5d0d4fc",
+        "bytes": 9585
+      },
+      "recordedAt": "2026-10-27T10:11:29.655Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "7c3cc6104aff5f13294ec9b4f997d01adce66b05336ac7d35d59acee0f145cf4",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42029162&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "59e152800c3640e6713a85abb405c031dab2b286e60c4b5a8fb2d1603c5091af",
+        "bytes": 3075
+      },
+      "recordedAt": "2026-10-27T10:14:40.793Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "332f9bfe75b2004f34a22d379f7e48dc05cc66e1a1c3d7f0cbde9a92ddc7b881",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=42788883&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "9b46ed6e0e02181e591214faa961647da1e2c2db971a16d0ab8b8b7e688e0e1e",
+        "bytes": 21162
+      },
+      "recordedAt": "2026-10-27T10:14:40.358Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "e3a9945a5c324e2702ed2978fec08420820044d2517dbee9bbc7b4d59a6d1748",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Eyenuk%22%5Btiab%5D+AND+%22EyeArt%22%5Btiab%5D+AND+%22diabetic+retinopathy%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "6753c94b7fd72ece02a89540f4ff907e6faa5d57387965699f784d158222e2f5",
+        "bytes": 404
+      },
+      "recordedAt": "2026-10-27T10:08:25.143Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "f205e0695f7cfdb24f603fd05c688db068b193251eeb969ac5dc2c3f4efbdf88",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Eyenuk%22%5Btiab%5D+AND+%22EyeArt%22%5Btiab%5D+AND+%22diabetic+retinopathy+screening%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "d94cdedeb73ab2cf44f28ca4069b46372c5bbabb3f185b7573618596b70d7889",
+        "bytes": 335
+      },
+      "recordedAt": "2026-10-27T10:08:48.300Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "c4aab06c9b2a7a4ba54ca05db679842b7910e9f7f29a5f8c9f8a7fd7d97bed06",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Lunit%22%5Btiab%5D+AND+%22INSIGHT+CXR%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "3cacc249e4fb9f07089e2e126be8fd7132fb451db05f5bc111e50b16d5dc93c5",
+        "bytes": 440
+      },
+      "recordedAt": "2026-10-27T10:10:37.507Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "5b71f20783a8201dca8afa9d270bd4efa8119e0889d43e4345f079642ae3b9ed",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Lunit%22%5Btiab%5D+AND+%22INSIGHT+CXR%22%5Btiab%5D+AND+%22diagnostic+accuracy%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "324d1c5257f0e87bec597b9a5bf26be88953e14082c5a5b25baec666353a5235",
+        "bytes": 317
+      },
+      "recordedAt": "2026-10-27T10:10:41.033Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "1f85f91ce5c896abb5f67f3938b2d756c6dc6fce2a4a9e0e6654016543236199",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Lunit%22%5Btiab%5D+AND+%22INSIGHT+CXR%22%5Btiab%5D+AND+%22emergency+department+triage%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "6c153b04c106c97711a303fc7ddecb4c847ef054cf45d7284ae23f338928c52c",
+        "bytes": 371
+      },
+      "recordedAt": "2026-10-27T10:01:12.078Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "cf207845516b2189564778987c960a6f70a8b3efc1932f15207015825ebb091e",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22ScreenPoint%22%5Btiab%5D+AND+%22Transpara%22%5Btiab%5D+AND+%22breast+cancer+screening%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7ce73cdca4a2532dc328cc03cda9434fb257abce59a24f1bd485aa48ed96a561",
+        "bytes": 303
+      },
+      "recordedAt": "2026-10-27T10:13:21.800Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8f43dde48a9505e3dd5031bdb52bb7c381385ed7960857a508e8fa28efd82532",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22ScreenPoint%22%5Btiab%5D+AND+%22Transpara%22%5Btiab%5D+AND+%22diagnostic+accuracy%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "f9839a314f8fae616102c8871778c70c18832fa49b6fc0d1249dcf9802768796",
+        "bytes": 367
+      },
+      "recordedAt": "2026-10-27T09:45:31.783Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "242a33c03e2fb6d6504435d93e13c3de4cb534b414815e3be79d8d43253df0b2",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22ScreenPoint%22%5Btiab%5D+AND+%22Transpara%22%5Btiab%5D+AND+%22mammography%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "0710ee78f90ce7707c92f5fbad7e1ec9a3ed78e38d7682fa1d07e969f30c78f4",
+        "bytes": 313
+      },
+      "recordedAt": "2026-10-27T10:13:19.749Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "2fbb5d32611d1f189a8defd40bf6c153483ef0381faed683ffdd1194afe51fb4",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22ScreenPoint%22%5Btiab%5D+AND+%22Transpara%22%5Btiab%5D+AND+%22mammography+screening%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "39b79e997516853fea6980eedd9382436bf324ae4dfab1861231cdea2c6c2c7e",
+        "bytes": 290
+      },
+      "recordedAt": "2026-10-27T10:03:16.525Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "8a8ec330216ba90a8be11e79f6bbcfecbb69eb7fe2a9d58cc6cef322a52a9d4c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03112005&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "f90410efa72024e71ddec1262ed56c692bc3890cfbe9f993ded647d4ea3bc0ea",
+        "bytes": 195
+      },
+      "recordedAt": "2026-10-27T10:07:43.967Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "6eb7890c139cd936914a224930efb791ef09bfbf540efa3ffb1ec040843d9299",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Eyenuk%22+AND+%22EyeArt%22+AND+%22diabetic+retinopathy%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "57a5ecc024e6a4357f03bf545552d9876d66b0fad964dd43bc9ca4c370452e3f",
+        "bytes": 9229
+      },
+      "recordedAt": "2026-10-27T10:08:47.863Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "124dd4d82f2726d367cec911d4e091bbaa5b377b775ca569bc6cc5d48077780c",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Lunit%22+AND+%22INSIGHT+CXR%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "69aa15ac99ca5fed17c88129e71d5383ac6b550a76581587ff0d6449133e7382",
+        "bytes": 9581
+      },
+      "recordedAt": "2026-10-27T10:10:40.161Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "70658594807c7685e1645330ec881fcd804120203eef00fcce2d0acc7dc42751",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22mammography%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "0bd01b1733c7a362f1eb0d9442309f0b8cb6a98537e55f06917ee4d7bef6c012",
+        "bytes": 9058
+      },
+      "recordedAt": "2026-10-27T10:13:20.764Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    }
+  ],
+  "skipped": [],
+  "unsaved": {}
+}

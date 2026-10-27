@@ -1,0 +1,23 @@
+{
+  "request": "GET /api/cases/eyeart-k200667/timeline?asOf=2018-01-01",
+  "status": 200,
+  "body": [
+    {
+      "at": "2017-04-17T00:00:00.000Z",
+      "kind": "fact_asserted",
+      "summary": "study.start_date = 2017-04-17 (clinicaltrials-v2)",
+      "factIds": [
+        "fact_84b951c48b6ede29"
+      ],
+      "findingIds": [
+        "fnd_9df600cf8b0cdc9c86b477f87b1ece41",
+        "fnd_faa624de5823f641b4640c895f709298",
+        "fnd_192920d32f85300354bc467ed1dbe43a",
+        "fnd_5f6a5ba9dda010acaee36bbc724ca186",
+        "fnd_bebbda733b107413ba9b9725e1206467",
+        "fnd_c83c31f946a08f694ee4238732ecd062",
+        "fnd_eebc121c55ad4349ee832753936bc517"
+      ]
+    }
+  ]
+}

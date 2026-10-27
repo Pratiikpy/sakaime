@@ -1,0 +1,108 @@
+{
+  "schema": "sakaime.model-cassette/1",
+  "recordedAt": "2026-10-27T10:09:47.457Z",
+  "role": "planner",
+  "requestHash": "f3ea6218620a4b5282c18a33838ded9969ebcfcfdee217198670a4a4cb8c6b83",
+  "request": {
+    "system": "You plan evidence searches for a hospital reviewer. You choose among allowed searches only; you cannot add any other action.\nAllowed sources: clinicaltrials-v2, pubmed-eutils, europepmc. A search names the vendor and the product exactly as given and may add one plain condition phrase.\nSuggest at most two searches that would find studies or papers the planned searches could miss, and list the sub-questions the evidence must answer. Reply with JSON only.",
+    "user": "{\"vendor\":\"Lunit\",\"vendorAliases\":[\"Lunit, Inc.\"],\"product\":\"INSIGHT CXR\",\"condition\":null,\"submission\":\"K211733\",\"alreadyPlanned\":[{\"source\":\"openfda-510k\",\"query\":{\"k_number\":\"K211733\"}},{\"source\":\"openfda-udi\",\"query\":{\"submission_number\":\"K211733\"}},{\"source\":\"clinicaltrials-v2\",\"query\":{\"vendor\":\"Lunit\",\"product\":\"INSIGHT CXR\"}},{\"source\":\"pubmed-eutils\",\"query\":{\"vendor\":\"Lunit\",\"product\":\"INSIGHT CXR\"}},{\"source\":\"europepmc\",\"query\":{\"vendor\":\"Lunit\",\"product\":\"INSIGHT CXR\"}}],\"claimedUses\":[{\"id\":\"CASE-2026-016.intended\",\"use\":{\"product\":\"device:fda:K211733\",\"versions\":[\"1.0\"],\"population\":{\"age\":{\"min\":18}},\"settings\":[\"emergency_department\"],\"purpose\":\"triage_prioritisation\",\"timing\":{\"from\":\"2027-02-01\"}},\"performance\":null},{\"id\":\"CLM-LU-01\",\"use\":{\"product\":\"device:fda:K211733\",\"versions\":[\"1.0\"],\"population\":{\"age\":{\"min\":18}},\"settings\":[\"emergency_department\"],\"purpose\":\"triage_prioritisation\"},\"performance\":null},{\"id\":\"CLM-LU-02\",\"use\":{\"product\":\"device:fda:K211733\",\"versions\":[\"2.0\"],\"population\":{\"age\":{\"min\":18}},\"settings\":[\"emergency_department\",\"outpatient_care\"],\"purpose\":\"triage_prioritisation\"},\"performance\":null}]}",
+    "jsonSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subQuestions",
+        "extraSearches"
+      ],
+      "properties": {
+        "subQuestions": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "extraSearches": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "vendor",
+              "product",
+              "reason"
+            ],
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "clinicaltrials-v2",
+                  "pubmed-eutils",
+                  "europepmc"
+                ]
+              },
+              "vendor": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "product": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "condition": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "reason": {
+                "type": "string",
+                "maxLength": 200
+              }
+            }
+          }
+        }
+      }
+    },
+    "maxTokens": 900,
+    "dataClass": "public"
+  },
+  "response": {
+    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy of Lunit INSIGHT CXR for detecting lung abnormalities in emergency department patients?\",\n    \"How does the performance of Lunit INSIGHT CXR version 2.0 compare to version 1.0 in triage prioritisation across emergency department and outpatient care settings?\",\n    \"What are the reported false positive and false negative rates of Lunit INSIGHT CXR in real-world clinical studies?\",\n    \"How does Lunit INSIGHT CXR impact patient outcomes, such as time to treatment or length of stay, when used for triage prioritisation?\",\n    \"What is the inter-observer agreement and reader variability when using Lunit INSIGHT CXR for chest X-ray interpretation?\",\n    \"Are there any safety concerns or adverse events associated with the use of Lunit INSIGHT CXR in clinical practice?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"Lunit\",\n      \"product\": \"INSIGHT CXR\",\n      \"condition\": \"triage\",\n      \"reason\": \"Identify ongoing or completed clinical trials evaluating the device's performance in triage settings.\"\n    },\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"Lunit\",\n      \"product\": \"INSIGHT CXR\",\n      \"condition\": \"diagnostic accuracy\",\n      \"reason\": \"Retrieve peer-reviewed studies reporting diagnostic accuracy metrics such as sensitivity, specificity, and AUC for Lunit INSIGHT CXR.\"\n    }\n  ]\n}",
+    "json": {
+      "subQuestions": [
+        "What is the diagnostic accuracy of Lunit INSIGHT CXR for detecting lung abnormalities in emergency department patients?",
+        "How does the performance of Lunit INSIGHT CXR version 2.0 compare to version 1.0 in triage prioritisation across emergency department and outpatient care settings?",
+        "What are the reported false positive and false negative rates of Lunit INSIGHT CXR in real-world clinical studies?",
+        "How does Lunit INSIGHT CXR impact patient outcomes, such as time to treatment or length of stay, when used for triage prioritisation?",
+        "What is the inter-observer agreement and reader variability when using Lunit INSIGHT CXR for chest X-ray interpretation?",
+        "Are there any safety concerns or adverse events associated with the use of Lunit INSIGHT CXR in clinical practice?"
+      ],
+      "extraSearches": [
+        {
+          "source": "clinicaltrials-v2",
+          "vendor": "Lunit",
+          "product": "INSIGHT CXR",
+          "condition": "triage",
+          "reason": "Identify ongoing or completed clinical trials evaluating the device's performance in triage settings."
+        },
+        {
+          "source": "pubmed-eutils",
+          "vendor": "Lunit",
+          "product": "INSIGHT CXR",
+          "condition": "diagnostic accuracy",
+          "reason": "Retrieve peer-reviewed studies reporting diagnostic accuracy metrics such as sensitivity, specificity, and AUC for Lunit INSIGHT CXR."
+        }
+      ]
+    },
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "recordedFrom": "nvidia",
+    "usage": {
+      "promptTokens": 1783,
+      "completionTokens": 599,
+      "measured": true
+    }
+  },
+  "responseHash": "aa0b7b0ec9167fd88b3bfe577114d2a3e979efd2ea9f175bf8c2ca30e232bb18"
+}

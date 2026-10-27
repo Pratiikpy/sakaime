@@ -1,0 +1,30 @@
+{
+  "id": "transpara-k221347",
+  "title": "Transpara 1.7.2: mammography reading support",
+  "productLabel": "Transpara (ScreenPoint Medical, K221347)",
+  "constructedNotice": "CONSTRUCTED. The vendor claim and the hospital intended use are written for this demonstration. They were not issued by ScreenPoint Medical B.V. and say nothing about that company. The regulator, registry and publication records they are checked against are real and were retrieved on the dates shown.",
+  "vendor": { "name": "ScreenPoint", "aliases": ["ScreenPoint Medical", "Screenpoint Medical B.V."] },
+  "product": { "name": "Transpara", "condition": "mammography" },
+  "submission": "K221347",
+  "hospital": { "caseId": "CASE-2026-019", "packetId": "PKT-TR-01", "submissionId": "SUB-1004" },
+  "intended": {
+    "id": "CASE-2026-019.intended",
+    "text": "Can our breast screening clinic use Transpara 1.7.2 as a reading aid for screening mammograms of women aged 40 and over?",
+    "use": {
+      "product": "device:fda:K221347",
+      "versions": ["1.7.2"],
+      "population": { "age": { "min": 40 } },
+      "settings": ["breast_screening_clinic"],
+      "purpose": "detection_aid",
+      "timing": { "from": "2027-04-01" }
+    }
+  },
+  "claims": [
+    {
+      "id": "CLM-TR-01",
+      "text": "Supports reading of screening mammograms for women aged 40 and over.",
+      "use": { "product": "device:fda:K221347", "versions": ["1.7.2"], "population": { "age": { "min": 40 } }, "settings": ["breast_screening_clinic"], "purpose": "detection_aid" }
+    }
+  ],
+  "dependencies": { "required": ["authorization", "study", "requirement"], "corroborating": [] }
+}

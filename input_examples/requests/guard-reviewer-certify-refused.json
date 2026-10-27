@@ -1,0 +1,8 @@
+{
+  "method": "POST",
+  "path": "/api/guard",
+  "body": {
+    "text": "Certify that K200667 is safe for our hospital.",
+    "origin": "reviewer"
+  }
+}

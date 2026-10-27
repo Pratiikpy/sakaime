@@ -1,0 +1,22 @@
+{
+  "request": "GET /api/health",
+  "status": 200,
+  "body": {
+    "ok": true,
+    "version": "0.1.0",
+    "mode": {
+      "sample": true,
+      "federation": "cassette",
+      "model": "recorded",
+      "sources": "cassette",
+      "zetarisReachable": true,
+      "nightshiftReachable": false,
+      "degradedNotes": [
+        "model answers are replayed from 59 recordings made against the real route; a question with no recording abstains",
+        "Zetaris answers are replayed from recordings of the real engine",
+        "every public source is read from recordings dated 2026-10-27"
+      ]
+    },
+    "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "sakaime.model-cassette/1",
+  "recordedAt": "2026-10-27T10:12:49.861Z",
+  "role": "planner",
+  "requestHash": "1ae7070bd87c33a8a9678e594b10b607627c12c934388d7f253c3b16bb69e43e",
+  "request": {
+    "system": "You plan evidence searches for a hospital reviewer. You choose among allowed searches only; you cannot add any other action.\nAllowed sources: clinicaltrials-v2, pubmed-eutils, europepmc. A search names the vendor and the product exactly as given and may add one plain condition phrase.\nSuggest at most two searches that would find studies or papers the planned searches could miss, and list the sub-questions the evidence must answer. Reply with JSON only.",
+    "user": "{\"vendor\":\"ScreenPoint\",\"vendorAliases\":[\"ScreenPoint Medical\",\"Screenpoint Medical B.V.\"],\"product\":\"Transpara\",\"condition\":\"mammography\",\"submission\":\"K221347\",\"alreadyPlanned\":[{\"source\":\"openfda-510k\",\"query\":{\"k_number\":\"K221347\"}},{\"source\":\"openfda-udi\",\"query\":{\"submission_number\":\"K221347\"}},{\"source\":\"clinicaltrials-v2\",\"query\":{\"vendor\":\"ScreenPoint\",\"product\":\"Transpara\",\"condition\":\"mammography\"}},{\"source\":\"pubmed-eutils\",\"query\":{\"vendor\":\"ScreenPoint\",\"product\":\"Transpara\",\"condition\":\"mammography\"}},{\"source\":\"europepmc\",\"query\":{\"vendor\":\"ScreenPoint\",\"product\":\"Transpara\",\"condition\":\"mammography\"}}],\"claimedUses\":[{\"id\":\"CASE-2026-019.intended\",\"use\":{\"product\":\"device:fda:K221347\",\"versions\":[\"1.7.2\"],\"population\":{\"age\":{\"min\":40}},\"settings\":[\"breast_screening_clinic\"],\"purpose\":\"detection_aid\",\"timing\":{\"from\":\"2027-04-01\"}},\"performance\":null},{\"id\":\"CLM-TR-01\",\"use\":{\"product\":\"device:fda:K221347\",\"versions\":[\"1.7.2\"],\"population\":{\"age\":{\"min\":40}},\"settings\":[\"breast_screening_clinic\"],\"purpose\":\"detection_aid\"},\"performance\":null}]}",
+    "jsonSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subQuestions",
+        "extraSearches"
+      ],
+      "properties": {
+        "subQuestions": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "extraSearches": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "vendor",
+              "product",
+              "reason"
+            ],
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "clinicaltrials-v2",
+                  "pubmed-eutils",
+                  "europepmc"
+                ]
+              },
+              "vendor": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "product": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "condition": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "reason": {
+                "type": "string",
+                "maxLength": 200
+              }
+            }
+          }
+        }
+      }
+    },
+    "maxTokens": 900,
+    "dataClass": "public"
+  },
+  "response": {
+    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy (sensitivity, specificity, AUC) of Transpara version 1.7.2 as a detection aid in women aged 40+ undergoing screening mammography?\",\n    \"Does Transpara improve radiologist performance (cancer detection rate, recall rate, reading time) when used as a concurrent reading aid in screening programs?\",\n    \"What is the standalone performance of Transpara compared to radiologist-only reading and combined AI-radiologist reading in screening populations?\",\n    \"Are there any studies evaluating Transpara performance across different breast density categories (BI-RADS a-d) in screening mammography?\",\n    \"What are the false positive and false negative rates of Transpara in real-world screening settings, and how do they vary by lesion type (masses, calcifications, architectural distortions)?\",\n    \"Has Transpara been validated in prospective clinical trials or multi-center retrospective studies with histologically confirmed outcomes in screening populations?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"ScreenPoint\",\n      \"product\": \"Transpara\",\n      \"condition\": \"breast cancer screening\",\n      \"reason\": \"Broader search for screening-specific studies that may not include 'mammography' in query but evaluate Transpara in screening populations\"\n    },\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"ScreenPoint\",\n      \"product\": \"Transpara\",\n      \"condition\": \"breast neoplasm\",\n      \"reason\": \"Capture clinical trials using MeSH term 'breast neoplasm' that may evaluate Transpara for cancer detection but not explicitly mention mammography in condition field\"\n    }\n  ]\n}",
+    "json": {
+      "subQuestions": [
+        "What is the diagnostic accuracy (sensitivity, specificity, AUC) of Transpara version 1.7.2 as a detection aid in women aged 40+ undergoing screening mammography?",
+        "Does Transpara improve radiologist performance (cancer detection rate, recall rate, reading time) when used as a concurrent reading aid in screening programs?",
+        "What is the standalone performance of Transpara compared to radiologist-only reading and combined AI-radiologist reading in screening populations?",
+        "Are there any studies evaluating Transpara performance across different breast density categories (BI-RADS a-d) in screening mammography?",
+        "What are the false positive and false negative rates of Transpara in real-world screening settings, and how do they vary by lesion type (masses, calcifications, architectural distortions)?",
+        "Has Transpara been validated in prospective clinical trials or multi-center retrospective studies with histologically confirmed outcomes in screening populations?"
+      ],
+      "extraSearches": [
+        {
+          "source": "pubmed-eutils",
+          "vendor": "ScreenPoint",
+          "product": "Transpara",
+          "condition": "breast cancer screening",
+          "reason": "Broader search for screening-specific studies that may not include 'mammography' in query but evaluate Transpara in screening populations"
+        },
+        {
+          "source": "clinicaltrials-v2",
+          "vendor": "ScreenPoint",
+          "product": "Transpara",
+          "condition": "breast neoplasm",
+          "reason": "Capture clinical trials using MeSH term 'breast neoplasm' that may evaluate Transpara for cancer detection but not explicitly mention mammography in condition field"
+        }
+      ]
+    },
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "recordedFrom": "nvidia",
+    "usage": {
+      "promptTokens": 659,
+      "completionTokens": 359,
+      "measured": true
+    }
+  },
+  "responseHash": "a03866717d1970515b3cd998753149364d6fd98bf69c0a5c09b6974fba32baf8"
+}

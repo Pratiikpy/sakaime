@@ -1,0 +1,35 @@
+{
+  "id": "lunit-k211733",
+  "title": "Lunit INSIGHT CXR Triage: chest radiograph prioritisation in the emergency department",
+  "productLabel": "Lunit INSIGHT CXR Triage (Lunit, K211733)",
+  "constructedNotice": "CONSTRUCTED. The vendor claims and the hospital intended use are written for this demonstration. They were not issued by Lunit, Inc. and say nothing about that company. The regulator, registry and publication records they are checked against are real and were retrieved on the dates shown.",
+  "vendor": { "name": "Lunit", "aliases": ["Lunit, Inc."] },
+  "product": { "name": "INSIGHT CXR" },
+  "submission": "K211733",
+  "hospital": { "caseId": "CASE-2026-016", "packetId": "PKT-LU-01", "submissionId": "SUB-1002" },
+  "intended": {
+    "id": "CASE-2026-016.intended",
+    "text": "Can our emergency department use Lunit INSIGHT CXR Triage version 1.0 to prioritise chest radiographs of adults with suspected thoracic findings?",
+    "use": {
+      "product": "device:fda:K211733",
+      "versions": ["1.0"],
+      "population": { "age": { "min": 18 } },
+      "settings": ["emergency_department"],
+      "purpose": "triage_prioritisation",
+      "timing": { "from": "2027-02-01" }
+    }
+  },
+  "claims": [
+    {
+      "id": "CLM-LU-01",
+      "text": "Prioritises chest radiographs with suspected findings for radiologist review in the emergency department.",
+      "use": { "product": "device:fda:K211733", "versions": ["1.0"], "population": { "age": { "min": 18 } }, "settings": ["emergency_department"], "purpose": "triage_prioritisation" }
+    },
+    {
+      "id": "CLM-LU-02",
+      "text": "Version 2.0 improves sensitivity for all thoracic findings compared with version 1.0.",
+      "use": { "product": "device:fda:K211733", "versions": ["2.0"], "population": { "age": { "min": 18 } }, "settings": ["emergency_department", "outpatient_care"], "purpose": "triage_prioritisation" }
+    }
+  ],
+  "dependencies": { "required": ["authorization", "study", "requirement"], "corroborating": [] }
+}

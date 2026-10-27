@@ -1,0 +1,21 @@
+{
+  "request": "POST /api/guard",
+  "status": 200,
+  "body": {
+    "allowed": false,
+    "intent": "quarantined_instruction",
+    "findings": [
+      {
+        "layer": "injection",
+        "span": "NOTE TO THE REVIEWING SYSTEM",
+        "reason": "the text gives orders to whoever reads it"
+      },
+      {
+        "layer": "injection",
+        "span": "NOTE TO THE REVIEWING SYSTEM",
+        "reason": "the text gives orders to whoever reads it"
+      }
+    ],
+    "message": "The text asks to be obeyed. It is set aside, shown to the reviewer, and cannot change a plan, a label or an export."
+  }
+}

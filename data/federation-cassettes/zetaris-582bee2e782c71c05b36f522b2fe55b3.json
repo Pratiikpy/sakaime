@@ -1,0 +1,123 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "582bee2e782c71c05b36f522b2fe55b3d9ec8982a69c20497dcbb6aee5547584",
+  "statement": "SELECT requirement_id, applies_to_purpose, dimension, comparator, required_value, rationale, policy_ref, policy_version FROM hospital.requirements ORDER BY requirement_id",
+  "identity": "default",
+  "recordedAt": "2026-10-27T10:14:41.565Z",
+  "columns": [
+    "requirement_id",
+    "applies_to_purpose",
+    "dimension",
+    "comparator",
+    "required_value",
+    "rationale",
+    "policy_ref",
+    "policy_version"
+  ],
+  "rawRows": [
+    [
+      "REQ-01",
+      "detection_aid",
+      "validation_type",
+      "equals",
+      "prospective_multicentre",
+      "The committee wants prospective evidence from more than one site before a detection aid is considered.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-02",
+      "detection_aid",
+      "population_min_age",
+      "at_most",
+      "18",
+      "Evidence must include participants down to the youngest age at which the hospital will deploy the product.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-03",
+      "detection_aid",
+      "subgroup_reporting",
+      "includes",
+      "age|sex|race_ethnicity",
+      "Performance must be reported by age band, sex and race or ethnicity.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-04",
+      "detection_aid",
+      "version_specific_evidence",
+      "equals",
+      "true",
+      "Evidence must name the software version being bought, not only the product family.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-05",
+      "detection_aid",
+      "update_control_statement",
+      "equals",
+      "true",
+      "The vendor must state how a model update is controlled and when evidence is repeated.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-06",
+      "detection_aid",
+      "setting_match",
+      "includes",
+      "deployment_setting",
+      "The evidence setting must include the setting in which the hospital will use the product.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-07",
+      "triage_prioritisation",
+      "validation_type",
+      "equals",
+      "prospective_multicentre",
+      "Triage tools change the order of clinical work, so retrospective-only evidence is not enough.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-08",
+      "triage_prioritisation",
+      "time_to_notification_reported",
+      "equals",
+      "true",
+      "A triage tool must report time to notification, not accuracy alone.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-09",
+      "triage_prioritisation",
+      "setting_match",
+      "includes",
+      "deployment_setting",
+      "The evidence setting must include the setting in which the hospital will use the product.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ],
+    [
+      "REQ-10",
+      "triage_prioritisation",
+      "version_specific_evidence",
+      "equals",
+      "true",
+      "Evidence must name the software version being bought, not only the product family.",
+      "AI-INTAKE-POLICY",
+      "v3"
+    ]
+  ],
+  "total": 10,
+  "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+  "recordedElapsedMs": 113,
+  "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758"
+}

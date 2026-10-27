@@ -1,0 +1,3 @@
+{"totalCount":1,"studies":[
+{"protocolSection":{"identificationModule":{"nctId":"NCT06401434","briefTitle":"Evaluation of CAD-based Triage for CXR Interpretation During TB Screening"},"statusModule":{"overallStatus":"COMPLETED","startDateStruct":{"date":"2024-05-29"}},"sponsorCollaboratorsModule":{"leadSponsor":{"name":"Freundeskreis Für Internationale Tuberkulosehilfe e.V"}},"designModule":{"enrollmentInfo":{"count":23835}},"armsInterventionsModule":{"interventions":[{"name":"On-site radiologist"},{"name":"CAD-based triage (with INSIGHT CXR software)"}]}}}
+]}

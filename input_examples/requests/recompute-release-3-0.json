@@ -1,0 +1,11 @@
+{
+  "method": "POST",
+  "path": "/api/cases/eyeart-k200667/recompute?claimId=CLM-EA-01",
+  "body": {
+    "patch": {
+      "versions": [
+        "3.0"
+      ]
+    }
+  }
+}
