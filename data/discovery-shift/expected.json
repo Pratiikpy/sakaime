@@ -1,0 +1,1024 @@
+{
+ "A-C-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-C-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-C-03": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-C-04": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-R-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "fda_ref": "submission_number",
+   "item_label": "device_name",
+   "manufacturer": "applicant",
+   "procode": "product_code",
+   "date_of_decision": "decision_date",
+   "risk_class": "device_class"
+  }
+ },
+ "A-R-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "fda_ref": "submission_number",
+   "trade_name": "device_name",
+   "firm_name": "applicant",
+   "fda_product_code": "product_code",
+   "decided_on": "decision_date",
+   "class": "device_class"
+  }
+ },
+ "A-R-03": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "clearance_id": "submission_number",
+   "trade_name": "device_name",
+   "submitter": "applicant",
+   "classification_code": "product_code",
+   "clearance_date": "decision_date",
+   "class": "device_class"
+  }
+ },
+ "A-R-04": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "clearance_id": "submission_number",
+   "trade_name": "device_name",
+   "manufacturer": "applicant",
+   "procode": "product_code",
+   "clearance_date": "decision_date",
+   "regulatory_class": "device_class"
+  }
+ },
+ "A-R-05": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "premarket_ref": "submission_number",
+   "product": "device_name",
+   "manufacturer": "applicant",
+   "prod_code": "product_code",
+   "decided_on": "decision_date",
+   "regulatory_class": "device_class"
+  }
+ },
+ "A-R-06": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_num": "submission_number",
+   "product_name": "device_name",
+   "manufacturer": "applicant",
+   "procode": "product_code",
+   "decided_on": "decision_date",
+   "class": "device_class"
+  }
+ },
+ "A-I-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-I-02": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-I-03": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-I-04": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-D-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-D-02": {
+  "expect": [
+   "held"
+  ]
+ },
+ "A-T-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-T-02": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-T-03": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-T-L1": {
+  "expect": [
+   "declined"
+  ],
+  "knownLimit": "a response cut at a record boundary that declares nothing about its size cannot be told from a complete one"
+ },
+ "A-N-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-N-02": {
+  "expect": [
+   "held",
+   "declined"
+  ]
+ },
+ "A-P-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-P-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-P-03": {
+  "expect": [
+   "held"
+  ]
+ },
+ "A-P-04": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-P-05": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-P-06": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-P-07": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-P-08": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-P-09": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "decision_date": "decision_date",
+   "device_class": "device_class"
+  }
+ },
+ "A-P-10": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-P-11": {
+  "expect": [
+   "mapped",
+   "held",
+   "declined"
+  ],
+  "mapping": {
+   "k_number": "submission_number",
+   "device_name": "device_name",
+   "applicant": "applicant",
+   "product_code": "product_code",
+   "device_class": "device_class"
+  },
+  "forbid": [
+   [
+    "date",
+    "decision_date"
+   ]
+  ]
+ },
+ "A-W-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-X-01": {
+  "expect": [
+   "held"
+  ]
+ },
+ "A-X-02": {
+  "expect": [
+   "held",
+   "declined"
+  ]
+ },
+ "A-X-03": {
+  "expect": [
+   "held",
+   "declined"
+  ]
+ },
+ "A-Z-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-Z-02": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "A-Z-03": {
+  "expect": [
+   "held"
+  ]
+ },
+ "B-C-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-C-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "protocolSection.identificationModule.nctId": "nct_id",
+   "protocolSection.identificationModule.briefTitle": "study_title",
+   "protocolSection.statusModule.overallStatus": "overall_status",
+   "protocolSection.statusModule.startDateStruct.date": "study_start_date",
+   "protocolSection.designModule.enrollmentInfo.count": "enrollment",
+   "protocolSection.eligibilityModule.minimumAge": "min_age_years",
+   "protocolSection.eligibilityModule.eligibilityCriteria": "target_population"
+  }
+ },
+ "B-R-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "registry_id": "nct_id",
+   "trial_name": "study_title",
+   "recruitment_status": "overall_status",
+   "participants_enrolled": "enrollment",
+   "study_start": "study_start_date",
+   "minimum_age": "min_age_years",
+   "inclusion_summary": "target_population"
+  }
+ },
+ "B-R-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct": "nct_id",
+   "title": "study_title",
+   "status": "overall_status",
+   "participants_enrolled": "enrollment",
+   "trial_start_date": "study_start_date",
+   "min_age": "min_age_years",
+   "inclusion_summary": "target_population"
+  }
+ },
+ "B-R-03": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_number": "nct_id",
+   "trial_name": "study_title",
+   "status": "overall_status",
+   "enrolment": "enrollment",
+   "started_on": "study_start_date",
+   "minimum_age": "min_age_years",
+   "inclusion_summary": "target_population"
+  }
+ },
+ "B-R-04": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct": "nct_id",
+   "public_title": "study_title",
+   "status": "overall_status",
+   "actual_enrollment": "enrollment",
+   "trial_start_date": "study_start_date",
+   "minimum_age": "min_age_years",
+   "intended_population": "target_population"
+  }
+ },
+ "B-U-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "B-U-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-U-03": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "B-M-01": {
+  "expect": [
+   "mapped",
+   "held",
+   "declined"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "study_population": "target_population"
+  },
+  "forbid": [
+   [
+    "study_population",
+    "study_population"
+   ]
+  ]
+ },
+ "B-M-02": {
+  "expect": [
+   "mapped",
+   "held",
+   "declined"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "population": "target_population"
+  },
+  "forbid": [
+   [
+    "population",
+    "study_population"
+   ]
+  ]
+ },
+ "B-M-03": {
+  "expect": [
+   "mapped",
+   "held",
+   "declined"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  },
+  "forbid": [
+   [
+    "estimated_enrollment",
+    "enrollment"
+   ]
+  ]
+ },
+ "B-M-04": {
+  "expect": [
+   "mapped",
+   "held",
+   "declined"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  },
+  "forbid": [
+   [
+    "n",
+    "enrollment"
+   ],
+   [
+    "n",
+    "study_sample_size"
+   ]
+  ]
+ },
+ "B-M-05": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrolled_participants": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-N-01": {
+  "expect": [
+   "held"
+  ]
+ },
+ "B-N-02": {
+  "expect": [
+   "held"
+  ]
+ },
+ "B-N-03": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-I-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-I-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-I-03": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "B-I-04": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "B-P-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-P-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-D-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "nct_id": "nct_id",
+   "brief_title": "study_title",
+   "overall_status": "overall_status",
+   "enrollment_count": "enrollment",
+   "start_date": "study_start_date",
+   "minimum_age_years": "min_age_years",
+   "eligibility_summary": "target_population"
+  }
+ },
+ "B-D-02": {
+  "expect": [
+   "held"
+  ]
+ },
+ "B-T-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "B-X-01": {
+  "expect": [
+   "held"
+  ]
+ },
+ "C-C-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  }
+ },
+ "C-R-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pubmed_id": "pmid",
+   "year": "publication_year",
+   "sensitivity_reported": "sensitivity",
+   "spec": "specificity",
+   "trial_id": "nct_id"
+  }
+ },
+ "C-R-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pubmed_id": "pmid",
+   "published_year": "publication_year",
+   "reported_sensitivity": "sensitivity",
+   "spec": "specificity",
+   "trial_id": "nct_id"
+  }
+ },
+ "C-R-03": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pubmed_id": "pmid",
+   "published_year": "publication_year",
+   "sensitivity_reported": "sensitivity",
+   "reported_specificity": "specificity",
+   "nct_number": "nct_id"
+  }
+ },
+ "C-U-01": {
+  "expect": [
+   "held"
+  ]
+ },
+ "C-U-02": {
+  "expect": [
+   "held"
+  ]
+ },
+ "C-U-03": {
+  "expect": [
+   "held"
+  ]
+ },
+ "C-U-04": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "C-U-05": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "C-U-06": {
+  "expect": [
+   "held"
+  ]
+ },
+ "C-N-01": {
+  "expect": [
+   "held"
+  ]
+ },
+ "C-N-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  }
+ },
+ "C-N-03": {
+  "expect": [
+   "mapped",
+   "held"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "nct_id": "nct_id"
+  }
+ },
+ "C-M-01": {
+  "expect": [
+   "mapped",
+   "held"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  },
+  "forbid": [
+   [
+    "metric_a",
+    "sensitivity"
+   ],
+   [
+    "metric_a",
+    "specificity"
+   ]
+  ]
+ },
+ "C-M-L1": {
+  "expect": [
+   "held",
+   "declined"
+  ],
+  "forbid": [
+   [
+    "specificity",
+    "sensitivity"
+   ]
+  ],
+  "knownLimit": "both columns hold plausible fractions; only domain knowledge, not the values, can show the headers are exchanged"
+ },
+ "C-I-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  }
+ },
+ "C-I-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  }
+ },
+ "C-I-03": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "C-I-04": {
+  "expect": [
+   "mapped",
+   "held",
+   "declined"
+  ],
+  "mapping": {
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  },
+  "forbid": [
+   [
+    "ref",
+    "pmid"
+   ]
+  ]
+ },
+ "C-D-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "pub_year": "publication_year",
+   "sensitivity": "sensitivity",
+   "specificity": "specificity",
+   "nct_id": "nct_id"
+  }
+ },
+ "C-P-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "C-P-02": {
+  "expect": [
+   "held"
+  ]
+ },
+ "D-C-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "doi": "doi",
+   "pub_year": "publication_year",
+   "title": "article_title"
+  }
+ },
+ "D-R-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pm_id": "pmid",
+   "doi_url": "doi",
+   "pubyear": "publication_year",
+   "article_name": "article_title"
+  }
+ },
+ "D-R-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pm_id": "pmid",
+   "digital_object_identifier": "doi",
+   "pubyear": "publication_year",
+   "article_name": "article_title"
+  }
+ },
+ "D-R-03": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pm_id": "pmid",
+   "article_doi": "doi",
+   "published_year": "publication_year",
+   "article_name": "article_title"
+  }
+ },
+ "D-I-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "doi": "doi",
+   "pub_year": "publication_year",
+   "title": "article_title"
+  }
+ },
+ "D-I-02": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "doi": "doi",
+   "pub_year": "publication_year",
+   "title": "article_title"
+  }
+ },
+ "D-I-03": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "D-I-04": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "D-N-01": {
+  "expect": [
+   "mapped"
+  ],
+  "mapping": {
+   "pmid": "pmid",
+   "doi": "doi",
+   "pub_year": "publication_year",
+   "title": "article_title"
+  }
+ },
+ "D-T-01": {
+  "expect": [
+   "declined"
+  ]
+ },
+ "D-D-01": {
+  "expect": [
+   "held"
+  ]
+ },
+ "D-X-01": {
+  "expect": [
+   "held",
+   "declined"
+  ]
+ },
+ "D-Z-01": {
+  "expect": [
+   "declined"
+  ]
+ }
+}
