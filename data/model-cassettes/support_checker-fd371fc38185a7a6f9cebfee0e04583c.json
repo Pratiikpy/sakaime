@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:27.784Z",
+  "recordedAt": "2026-10-27T13:35:34.823Z",
   "role": "support_checker",
   "requestHash": "fd371fc38185a7a6f9cebfee0e04583cec2ef1509f6189399b2f107421e5d5f2",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states 'Transpara version 1.7.0' as the AI system used, which matches the asserted device version 1.7.0 for the publication.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states 'Transpara version 1.7.0' which matches the asserted device version 1.7.0 for the publication.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage explicitly states 'Transpara version 1.7.0' as the AI system used, which matches the asserted device version 1.7.0 for the publication."
+      "reason": "The passage explicitly states 'Transpara version 1.7.0' which matches the asserted device version 1.7.0 for the publication."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 474,
-      "completionTokens": 61,
+      "completionTokens": 55,
       "measured": true
     }
   },
-  "responseHash": "b79e62e798547c181e5be0a7f2aa06aaa98d5083e395e8fbd8c136b547d96873"
+  "responseHash": "c962009f8f84b0990e155f7e3fc5d0b748b8dc5179472392f20c053d8b7d13ad"
 }

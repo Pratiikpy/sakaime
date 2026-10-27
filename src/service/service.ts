@@ -42,10 +42,12 @@ import { createModelStack, type ModelStack } from "../models/index.ts";
 import { PortError, type FederationPort, type ModelPort } from "../ports/index.ts";
 import type { Finding, Link } from "../schemas/index.ts";
 import { baseCompileOptions } from "./bridge.ts";
+import { archiveSuperseded, type ArchivedChain } from "./history.ts";
 import { Budget } from "./budget.ts";
 import { buildCaseDossier, dossierSigner, recomputeFn, requiredDimensionsOf } from "./bundle.ts";
 import { loadCases, type LoadedCase } from "./cases.ts";
-import { SERVICE_VERSION, loadConfig, loadDotEnv, type ConfigOverrides, type ServiceConfig } from "./config.ts";
+import { SERVICE_VERSION, loadConfig, loadDotEnv, replaysSources, resumesRecording, type ConfigOverrides, type ServiceConfig } from "./config.ts";
+import { ResumingModelPort } from "./resume.ts";
 import { createFederation, type FederationSetup } from "./federation.ts";
 import { FaultInjectingModel, resolveTarget, type FaultPlan } from "./faults.ts";
 import { runDrill } from "./drills.ts";
@@ -55,7 +57,7 @@ import { LoggedModelPort, scopeFactory } from "./model-log.ts";
 import type { Mutations } from "./mutations.ts";
 import type { StepOutcome } from "./reader.ts";
 import { LiveDocuments, RecordedDocuments, createSources, type DocumentProvider, type SourceSetup } from "./sources.ts";
-import { dimensionViews, currentFindings, detailOf, summaryOf, timeline as timelineOf, sourceRows, type CaseDetail, type CaseSummary, type RunMode, type SourceRow, type TimelineEvent, type ViewContext } from "./views.ts";
+import { dimensionViews, currentFindings, detailOf, summaryOf, timeline as timelineOf, sourceRowsAcross, humanizeFinding, type CaseDetail, type CaseSummary, type RunMode, type SourceRow, type TimelineEvent, type ViewContext } from "./views.ts";
 import { CancelledError, brief, errorMessage } from "./util.ts";
 import { join as pjoin } from "node:path";
 import type { Fetcher } from "../sources/index.ts";
@@ -87,6 +89,8 @@ export interface CaseRecord {
   /** Findings the World Model has marked stale by a change since the run. */
   stale: Set<string>;
   linkEvents: { at: string; linkId: string; decision: string; reviewer: string }[];
+  /** Findings a re-run replaced after a reviewer decided on them, kept with what they were computed from. */
+  archive: ArchivedChain[];
 }
 
 export interface InvestigateOptions {
@@ -112,11 +116,13 @@ export class SakaimeService {
   private readonly records = new Map<string, CaseRecord>();
   private readonly inflight = new Map<string, Promise<CaseRecord>>();
   private readonly cache = new Map<string, StepOutcome>();
+  private readonly policyStamps = new Map<string, { at: string; queryId: string }>();
   private readonly traces = new Map<string, TraceEmitter>();
   private readonly exportLedger: ExportLedger;
   private runSeq = new Map<string, number>();
   private fedCheck: { at: number; reachable: boolean } | undefined;
   private onboarding: Onboarding | undefined;
+  private resuming: ResumingModelPort | undefined;
 
   private constructor(
     readonly config: ServiceConfig,
@@ -125,7 +131,9 @@ export class SakaimeService {
     modelNote: string | undefined,
   ) {
     this.cases = loadCases(config.dirs.cases);
-    this.guard = new Guard({ clock: () => config.clock.now(), ...(overrides.guardSecret ? { secret: overrides.guardSecret } : {}) });
+    // The guard's rate limits and contract lifetimes are about real time. The replay clock moves one millisecond per reading and
+    // would never refill a bucket, so a long sample session would end with every request refused as "too many".
+    this.guard = new Guard({ clock: () => new Date(), ...(overrides.guardSecret ? { secret: overrides.guardSecret } : {}) });
     this.sources = createSources(config, overrides.fetcher ? { fetcher: overrides.fetcher } : {});
     this.federation = overrides.federation === null ? { mode: "off", reachable: false, notes: ["federation was switched off"] } : overrides.federation ? { port: overrides.federation, mode: config.sample ? "cassette" : "live", reachable: true, notes: [] } : createFederation(config);
     this.linkLedger = new ReviewLedger(config.clock);
@@ -158,6 +166,7 @@ export class SakaimeService {
   private modelPort(): ModelPort | undefined {
     if (this.overrides.model === null) return undefined;
     if (this.overrides.model) return this.overrides.model;
+    if (this.stack && resumesRecording(this.config)) return (this.resuming ??= new ResumingModelPort(this.stack.port, this.config.dirs.modelCassettes));
     return this.stack?.port;
   }
 
@@ -201,6 +210,15 @@ export class SakaimeService {
     return reachable;
   }
 
+  /** In sample mode: the keys of the model recordings that were replayed, and the requests that had none. For pruning and for checks. */
+  modelReplayReport(): { hits: Set<string>; misses: { role: string; promptKey: string }[] } {
+    const events = this.stack?.trace.events ?? [];
+    return {
+      hits: new Set(events.filter((e) => e.kind === "cassette.hit").map((e) => String(e["promptKey"]))),
+      misses: events.filter((e) => e.kind === "cassette.miss").map((e) => ({ role: String(e["role"]), promptKey: String(e["promptKey"]) })),
+    };
+  }
+
   async health(): Promise<HealthResponse> {
     return { ok: true, version: SERVICE_VERSION, mode: await this.runMode(), ruleVersion: ruleVersionString() };
   }
@@ -221,7 +239,7 @@ export class SakaimeService {
 
   private documents(): DocumentProvider {
     if (this.overrides.documents) return this.overrides.documents;
-    if (this.config.sample) return new RecordedDocuments(this.config.dirs.root, join(this.config.dirs.documents, "manifest.json"));
+    if (replaysSources(this.config)) return new RecordedDocuments(this.config.dirs.root, join(this.config.dirs.documents, "manifest.json"));
     const connector = this.sources.layer.connectors.get("fda-accessdata-pdf");
     if (!connector) throw new PortError("INVALID", "no FDA decision-summary connector is registered");
     return new LiveDocuments(connector);
@@ -252,6 +270,7 @@ export class SakaimeService {
       ...(options.mutations ? { mutations: options.mutations } : {}),
       ...(this.config.sample ? {} : { cache: this.cache }),
       ledger: this.linkLedger,
+      policyStamps: this.policyStamps,
       budget: new Budget(this.config.limits),
       newScope: scopeFactory(runId),
       ...(options.signal ? { signal: options.signal } : {}),
@@ -265,7 +284,10 @@ export class SakaimeService {
     if (options.store !== false && result.status === "complete") {
       const prior = this.records.get(caseId);
       const decisions = prior?.decisions ?? DecisionLog.create({ clock: this.config.clock });
-      this.records.set(caseId, { result, decisions, stale: new Set(), linkEvents: prior?.linkEvents ?? [] });
+      // A decision stays attached to its finding. If this run produced a different finding for a claim a reviewer had decided on,
+      // the older one is kept so the dossier can list it as superseded and the decision history still resolves.
+      const archive = prior ? archiveSuperseded(prior.result, prior.archive, result, decisions.entries()) : [];
+      this.records.set(caseId, { result, decisions, stale: new Set(), linkEvents: prior?.linkEvents ?? [], archive });
     }
     if (result.status === "refused") throw new PortError("REFUSED", result.reason ?? "the guard refused the request", { runId });
     if (result.status === "cancelled") throw new CancelledError();
@@ -301,7 +323,7 @@ export class SakaimeService {
 
   private async ctx(caseId: string): Promise<ViewContext> {
     const rec = await this.ensureRun(caseId);
-    return { run: rec.result, decisions: rec.decisions.entries(), mode: await this.runMode(), stale: rec.stale, linkEvents: rec.linkEvents };
+    return { run: rec.result, decisions: rec.decisions.entries(), mode: await this.runMode(), stale: rec.stale, linkEvents: rec.linkEvents, archive: rec.archive };
   }
 
   async listCases(): Promise<CaseSummary[]> {
@@ -309,7 +331,7 @@ export class SakaimeService {
     for (const c of this.cases) {
       const rec = this.records.get(c.spec.id);
       if (rec) {
-        out.push(summaryOf({ run: rec.result, decisions: rec.decisions.entries(), mode: await this.runMode(), stale: rec.stale, linkEvents: rec.linkEvents }));
+        out.push(summaryOf({ run: rec.result, decisions: rec.decisions.entries(), mode: await this.runMode(), stale: rec.stale, linkEvents: rec.linkEvents, archive: rec.archive }));
       } else {
         out.push({ id: c.spec.id, title: c.spec.title, productLabel: c.spec.productLabel, claimConstructed: true, openQuestions: 0, staleFindings: 0, reviewerState: "not yet investigated", updatedAt: this.config.clock.now().toISOString() });
       }
@@ -327,11 +349,11 @@ export class SakaimeService {
   }
 
   async sourceRows(): Promise<SourceRow[]> {
-    // The console shows the sources as the last run of any case saw them; before any run, every source is listed as not yet used.
-    const rec = [...this.records.values()][0];
-    if (rec) return sourceRows({ run: rec.result, decisions: [], mode: await this.runMode(), stale: new Set(), linkEvents: [] });
-    const first = this.cases[0]!.spec.id;
-    return sourceRows(await this.ctx(first));
+    // The console shows each source as the investigations so far saw it. A source no case has read says so, with the health it last
+    // had, rather than a state it was never observed in. Before any investigation exists, the first case is investigated.
+    if (this.records.size === 0) await this.ensureRun(this.cases[0]!.spec.id);
+    const mode = await this.runMode();
+    return sourceRowsAcross([...this.records.values()].map((rec) => ({ run: rec.result, decisions: [], mode, stale: new Set<string>(), linkEvents: [], archive: [] })), this.config.clock.now());
   }
 
   // ---------------------------------------------------------------- the Applicability Lab
@@ -350,13 +372,14 @@ export class SakaimeService {
     const patched = applyPatch(r.compiled, { use: request.patch as never });
     const after = compileDetailed(patched, evidence, { ...r.options, requiredDimensions: requiredDimensionsOf(patched) });
     const diff = diffFindings(before, after.finding);
+    const shown = (f: Finding): Finding => humanizeFinding(rec.result, f);
     return {
-      before,
-      after: after.finding,
+      before: shown(before),
+      after: shown(after.finding),
       changed: diff.dimensions.map((d) => ({ dimension: d.dimension, before: d.from, after: d.to })),
       labelChanged: diff.label.changed,
       reasons: after.reasons.map((x) => {
-        const a = after.finding.mechanicalCoverage.find((m) => m.dimension === x.dimension);
+        const a = shown(after.finding).mechanicalCoverage.find((m) => m.dimension === x.dimension);
         return { dimension: x.dimension, relation: x.relation, ...(a?.claimed !== undefined ? { claimed: a.claimed } : {}), ...(a?.established !== undefined ? { established: a.established } : {}), reason: x.text, anchorIds: a?.anchorIds ?? [] };
       }),
       modelCalled: false,
@@ -367,7 +390,7 @@ export class SakaimeService {
   // ---------------------------------------------------------------- add a source
 
   /** "Add a source" from a description and a URL. Idempotent: the same request never registers twice. */
-  async proposeSource(input: { description: string; url: string }, reviewer = "reviewer"): Promise<OnboardingResult> {
+  async proposeSource(input: { description: string; url: string; retry?: boolean | undefined }, reviewer = "reviewer"): Promise<OnboardingResult> {
     this.onboarding ??= new Onboarding({ config: this.config, guard: this.guard, sources: this.sources, federation: this.federation, model: this.modelPort(), ...(this.modelNote ? { modelNote: this.modelNote } : {}) });
     return this.onboarding.propose(input, reviewer);
   }
@@ -433,16 +456,18 @@ export class SakaimeService {
     const rec = await this.ensureRun(caseId);
     const links = (rec.result.wb.links?.links ?? []).map((l) => l.link);
     const signer = dossierSigner(this.config);
-    const bundle = buildCaseDossier({ run: rec.result, config: this.config, signer, decisions: rec.decisions.entries(), links });
+    const bundle = buildCaseDossier({ run: rec.result, config: this.config, signer, decisions: rec.decisions.entries(), links, archive: rec.archive });
     const verify = { recompute: recomputeFn };
-    // The export guard: a dossier leaves only with a signed contract Scout issued for this case and this reviewer.
-    const pending = await this.guard.exportContract(reviewer, caseId);
-    if (!pending) throw new PortError("FORBIDDEN", "Scout issued no export contract for this reviewer and case", { caseId });
-    const approved = this.guard.scout.approve(pending, { kind: "user-confirm", by: reviewer, decision: "approve" });
-    if (!approved.ok) throw new PortError("FORBIDDEN", `the export contract was not approved: ${approved.reason}`, { caseId });
+    // The export guard: a dossier leaves only with a signed contract Scout issued for this case and this reviewer. The contract is
+    // issued now, for this request, and redeemed at once, so a lifetime of five minutes cannot run out between the two.
+    const issued = await this.guard.issueExportContract(reviewer, caseId);
+    if (!issued.ok) {
+      if (issued.kind === "rate_limited") throw new PortError("BLOCKED", issued.reason, { reason: "RATE_LIMITED", retryAfterSeconds: issued.retryAfterSeconds, caseId });
+      throw new PortError("FORBIDDEN", `The dossier was not released: ${issued.reason}`, { caseId, reason: "EXPORT_REFUSED" });
+    }
     const executor = this.guard.executor();
     const outcome = await exportDossier(bundle, {
-      contract: approved.contract,
+      contract: issued.contract,
       verifyContract: (contract) => {
         const v = executor.redeem(contract, { using: ["dossier.export"], actor: reviewer, caseId });
         return v.ok ? { valid: true } : { valid: false, reason: `${v.reason}: ${v.detail}` };
@@ -456,7 +481,13 @@ export class SakaimeService {
   }
 
   async verify(bundle: unknown): Promise<VerifyResponse> {
-    if (bundle === null || typeof bundle !== "object" || Array.isArray(bundle)) throw new PortError("INVALID", "the body is not a dossier bundle", { reason: "NOT_A_BUNDLE" });
+    // Whatever parses as JSON is checked. Something that is not a dossier is a failed check with the reason, the same answer for an
+    // array, a number, null and an object with the wrong parts, never a different status for each.
+    if (bundle === null || typeof bundle !== "object" || Array.isArray(bundle)) {
+      const what = bundle === null ? "null" : Array.isArray(bundle) ? "an array" : `a ${typeof bundle}`;
+      const reason = `the body is ${what}, not a dossier. A dossier is a JSON object with a "manifest" and a "body".`;
+      return { ok: false, checks: [{ name: "bundle.shape", ok: false, detail: `FAIL: ${reason}` }], failures: [{ item: "(body)", reason }], signatureNote: SIGNATURE_STATEMENT, keyKind: "demo" };
+    }
     const result = await verifyDossier(bundle, { recompute: recomputeFn });
     const key = (bundle as { manifest?: { signing?: { keyStatus?: string } } }).manifest?.signing?.keyStatus;
     return {
@@ -483,12 +514,12 @@ export class SakaimeService {
 
   /** The findings of every investigated case, for the cross-case drill checks. */
   allFindings(): Finding[] {
-    return [...this.records.values()].flatMap((r) => currentFindings({ run: r.result, decisions: r.decisions.entries(), mode: {} as RunMode, stale: r.stale, linkEvents: [] }));
+    return [...this.records.values()].flatMap((r) => currentFindings({ run: r.result, decisions: r.decisions.entries(), mode: {} as RunMode, stale: r.stale, linkEvents: [], archive: r.archive }));
   }
 
   dimensions(caseId: string): Record<string, unknown> {
     const rec = this.records.get(caseId);
-    return rec ? dimensionViews({ run: rec.result, decisions: [], mode: {} as RunMode, stale: new Set(), linkEvents: [] }) : {};
+    return rec ? dimensionViews({ run: rec.result, decisions: [], mode: {} as RunMode, stale: new Set(), linkEvents: [], archive: [] }) : {};
   }
 
   describe(): string {

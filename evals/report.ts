@@ -34,6 +34,113 @@ const table = (head: string[], rows: string[][]): string => [`| ${head.join(" | 
 const lines: string[] = [];
 const out = (...s: string[]): void => void lines.push(...s);
 
+interface CaseRow {
+  id: string;
+  mutation: string;
+  expected: string;
+  emitted: string | null;
+  error: string | null;
+  match: boolean;
+  contestable: boolean;
+  basis: string[];
+}
+
+/**
+ * Why the full pipeline's findings are open, counted from the compiler's own reason for each open dimension. A reason that matches
+ * none of the known wordings is counted as "other", never dropped, so the counts add up to the open dimensions.
+ */
+function openCauses(vDetails: Record<string, { unknownOrOpen: string[]; dimensions: Record<string, string> }>): string {
+  const KNOWN: [string, RegExp, string][] = [
+    ["population", /study records do not state a (patient )?population/i, "the study records state no population, so the measured results cannot be tied to the claimed one"],
+    ["population", /cannot be placed against|share terms but are not the same phrase/i, "a claimed condition's wording cannot be placed against the evidence's wording"],
+    ["population", /No evidence record in use states a patient population/i, "no record in use states a population"],
+    ["population", /names no target condition/i, "the evidence names no target condition"],
+    ["population", /claim names no conditions|claim states no age range/i, "the claim leaves out a condition or an age range the evidence states"],
+    ["setting", /study records do not state a care setting/i, "the study records state no care setting"],
+    ["setting", /cannot be placed in the care setting taxonomy/i, "the claimed setting is not in the taxonomy"],
+    ["version", /No evidence record in use states a software version/i, "no record in use states a software version"],
+  ];
+  const counts = new Map<string, Map<string, number>>();
+  for (const [key, v] of Object.entries(vDetails)) {
+    if (!key.startsWith("V|")) continue;
+    for (const open of v.unknownOrOpen) {
+      const [dim, rel] = open.split(":") as [string, string];
+      const text = v.dimensions[dim] ?? "";
+      const known = KNOWN.find(([d, re]) => d === dim && re.test(text));
+      const cause = known ? known[2] : rel === "DISJOINT" ? "the claim and the evidence name different values" : rel === "PARTIAL" ? "the claim asks for more than the evidence covers" : "other";
+      const byDim = counts.get(dim) ?? new Map<string, number>();
+      byDim.set(cause, (byDim.get(cause) ?? 0) + 1);
+      counts.set(dim, byDim);
+    }
+  }
+  const parts = [...counts].map(([dim, byCause]) => `${dim} (${[...byCause.values()].reduce((a, b) => a + b, 0)}): ${[...byCause].sort((a, b) => b[1] - a[1]).map(([c, n]) => `${n} x ${c}`).join("; ")}`);
+  return parts.length ? `Why the dimensions are open, from the compiler's own reasons: ${parts.join(". ")}.` : "";
+}
+
+/** The findings for the lead, each read from the current results; a statement that the results no longer show is not repeated. */
+function currentFindings(): string[] {
+  const items: string[] = [];
+  const rowsOf = (R: Res | undefined, part: string, arm: string): { id: string; emitted: string | null; status: string }[] => (R?.detail?.[part]?.arms as any[] | undefined)?.find((a) => a.id === arm)?.runs?.[0]?.rows ?? [];
+  const keyOf = (R: Res | undefined, part: string, id: string): string => (R?.detail?.[part]?.cases as any[] | undefined)?.find((c) => c.id === id)?.expected ?? "?";
+  const gotOf = (R: Res | undefined, part: string, arm: string, id: string): string => rowsOf(R, part, arm).find((r) => r.id === id)?.emitted ?? "no verdict";
+  const errors = [...rowsOf(BD, "dev", "V"), ...rowsOf(BD, "dev", "V-M1"), ...rowsOf(BH, "heldout", "V")].filter((r) => r.status !== "ok");
+  items.push(
+    errors.length === 0
+      ? `**Exceptions.** No row of the V or V-M1 arm ended in an exception in this run. The earlier CompilerInvariantError on the Gate 0 claim AN-02 (hand-written evidence, a condition that the study item also lists as an exclusion) no longer occurs: V-M1 gives ${gotOf(BD, "dev", "V-M1", "AN-02")} and V gives ${gotOf(BD, "dev", "V", "AN-02")}; the key says ${keyOf(BD, "dev", "AN-02")}.`
+      : `**Exceptions.** ${errors.length} row(s) of the V or V-M1 arms ended in an exception: ${errors.map((e) => e.id).join(", ")}. In the harness an exception is a no-verdict answer and counts against the arm.`,
+  );
+  items.push(
+    `**Extraction to compiler hand-off.** Conditions, exclusions and the study setting are now carried (adapter version 2), and the compiler places a condition only by its closed rules. What still keeps V open is listed under "Why V answers INSUFFICIENT_EVIDENCE so often": mainly study records that state no population or setting, and condition wording that the rules cannot place. The curated condition table is small, was written after the first held-out run, and cites only development documents (ERRATA E-005).`,
+  );
+  items.push(
+    `**Staleness and authorization records.** The compiler now ages an authorization record against the hospital's window as well as dated study evidence. The held-out claim HO-CA-04 (a use beginning four years after clearance, window three years) has the key ${keyOf(BH, "heldout", "HO-CA-04")}; V answered ${gotOf(BH, "heldout", "V", "HO-CA-04")}. This is a design inference, recorded as such in the adapter note.`,
+  );
+  items.push(
+    `**Purpose.** An FDA summary that says both detection and triage is read as the broader purpose (detection aid) once the purpose terms are mapped. On HO-CA-03 the key is ${keyOf(BH, "heldout", "HO-CA-03")} and V answered ${gotOf(BH, "heldout", "V", "HO-CA-03")}; on HO-EF-03 the key is ${keyOf(BH, "heldout", "HO-EF-03")} and V answered ${gotOf(BH, "heldout", "V", "HO-EF-03")}. The sentence "not intended to be used as a diagnostic device" is read as a limit on diagnostic use where the extraction layer finds it; ScopeShift (A) shows the cases in which that changes a label the rule table did not expect.`,
+  );
+  items.push(`**Not re-checked in this run.** The K253801 subgroup figure that was once reported as a second headline (sensitivity 0.806 beside 0.789): \`tests/extraction/RESULTS.md\` records its current state; nothing in these result files shows it.`);
+  return items.map((t, i) => `${i + 1}. ${t}`);
+}
+
+/** The ScopeShift (A) misses, grouped by mutation with what the compiler said, and the cause where the reason names one. Nothing here is typed in by case. */
+function scopeShiftAMisses(R: Res): string[] {
+  const rows = (R["rows"] ?? []) as CaseRow[];
+  const missed = rows.filter((r) => !r.match);
+  const s = R.summaries;
+  const falseSupported = s["falseSupported"] as { k: number; n: number };
+  const out2: string[] = [];
+  if (missed.length === 0) {
+    out2.push("Every case matches the rule table.", "");
+  } else {
+    out2.push(`**${missed.length} of ${rows.length} cases do not match the rule table**, in ${new Set(missed.map((r) => r.mutation)).size} mutation${new Set(missed.map((r) => r.mutation)).size === 1 ? "" : "s"}:`, "");
+    const groups = new Map<string, CaseRow[]>();
+    for (const r of missed) groups.set(r.mutation, [...(groups.get(r.mutation) ?? []), r]);
+    for (const [m, g] of groups) {
+      const total = rows.filter((r) => r.mutation === m).length;
+      const gotten = new Map<string, number>();
+      for (const r of g) gotten.set(`${r.expected} -> ${r.emitted ?? r.error}`, (gotten.get(`${r.expected} -> ${r.emitted ?? r.error}`) ?? 0) + 1);
+      out2.push(`- \`${m}\`, ${g.length} of ${total}: ${[...gotten].map(([k, n]) => `${n} x ${k}`).join("; ")}. The compiler's reason for ${g[0]!.id}: ${(g[0]!.basis[0] ?? "(none recorded)").replace(/\s+/g, " ").slice(0, 260)}`);
+    }
+    out2.push("");
+    const limits = missed.filter((r) => r.mutation === "purpose-escalated" && /limits diagnosis|excludes diagnosis|diagnos/i.test(r.basis[0] ?? ""));
+    if (limits.length > 0) {
+      out2.push(
+        `**Cause of the ${limits.length} \`purpose-escalated\` misses.** The authorization text of those devices itself limits diagnostic use. The compiler now reads such a limit: a reservation it will not interpret gives REQUIRES_DOMAIN_REVIEW, an exclusion gives CONTRADICTED_BY_SPECIFIED_EVIDENCE. Escalating the claim to diagnosis is then not a narrower scope. The rule table has no row for an authorization that limits diagnostic use, so this is a disagreement between the table and the implementation, and the table is what is incomplete. It is reported, not scored away.`,
+        "",
+      );
+    }
+  }
+  out2.push(
+    falseSupported.k === 0
+      ? `No case whose key withholds support ended as SUPPORTED_FOR_SCOPE or as a narrower scope the key does not allow (0 of ${falseSupported.n}).`
+      : `${falseSupported.k} of ${falseSupported.n} cases whose key withholds support ended as a supported label: ${rows.filter((r) => r.match === false && /^SUPPORTED/.test(r.emitted ?? "")).map((r) => r.id).join(", ")}.`,
+    "",
+    "The suite changed after the first held-out run (ERRATA E-005): positive controls now copy the conditions and exclusions the evidence states, and a world is not built when the authorization names a condition the study record does not state, since no claim can be supported there.",
+    "",
+  );
+  return out2;
+}
+
 // ------------------------------------------------------------------------------------------ load
 
 const A = load("scopeshift-a.json");
@@ -71,7 +178,7 @@ out(
   "| Question | Answer | Class |",
   "|---|---|---|",
   `| Gate 0: does a rival match Sakaime on 80 percent or more of the 26 claims (docs/08 Gate 0, evals/gate0/PROTOCOL.md)? | ${g0 ? `**Gap ${g0.gap}** on the rule as written. Read the next paragraph before quoting it.` : "not run"} | builder-labelled |`,
-  `| ScopeShift (A): does the compiler agree with the rule table on ${A?.summaries.cases.n ?? "?"} controlled counterfactuals over ${A?.summaries.cases.products ?? "?"} real device summaries (${A?.summaries.cases.clusters ?? "?"} families)? | ${A ? rate("scopeshift-a.json", "exactLabel", A.summaries)  : "not run"} exact; every miss is one rule (below) | consistency |`,
+  `| ScopeShift (A): does the compiler agree with the rule table on ${A?.summaries.cases.n ?? "?"} controlled counterfactuals over ${A?.summaries.cases.products ?? "?"} real device summaries (${A?.summaries.cases.clusters ?? "?"} families)? | ${A ? rate("scopeshift-a.json", "exactLabel", A.summaries)  : "not run"} exact; the misses are listed with their cause below | consistency |`,
   `| ScopeShift (B), development: Sakaime V exact label, false-supported, false-alarm | ${hd ? `${rate("scopeshift-b-dev.json", "dev.V.exact", hd)}, ${rate("scopeshift-b-dev.json", "dev.V.falseSupported", hd)}, ${rate("scopeshift-b-dev.json", "dev.V.falseAlarm", hd)}` : "not run"} | builder-labelled |`,
   `| ScopeShift (B), held-out (5 devices, sealed): Sakaime V exact label, false-supported, false-alarm | ${hh ? `${rate("scopeshift-b-held-out.json", "heldout.V.exact", hh)}, ${rate("scopeshift-b-held-out.json", "heldout.V.falseSupported", hh)}, ${rate("scopeshift-b-held-out.json", "heldout.V.falseAlarm", hh)}` : "not run"} | builder-labelled |`,
   `| IdentityShift: false merges and precision (leave-one-family-out, 14 families) | ${ID ? `${rate("identityshift.json", "resolver.falseMergeRate", { "resolver.falseMergeRate": ID.summaries.resolver.falseMergeRate })}; precision ${link("identityshift.json", "resolver.precision", `${pct(ID.summaries.resolver.precision.rate)} (${ID.summaries.resolver.precision.k}/${ID.summaries.resolver.precision.n})`)}` : "not run"} | builder-labelled |`,
@@ -82,7 +189,7 @@ out(
 if (g0) {
   out(
     "**Reading the Gate 0 verdict.** The rule removes the gap if any rival reaches 0.80 exact accuracy with no more false-supported answers than Sakaime (T-A), or gives Sakaime's verdict on 80 percent of the claims with fewer false-supported answers (T-B), or a no-verdict incumbent's output lets a reviewer re-derive 80 percent of the keys. No rival did, so the rule says the gap stands. That is a statement about the rivals, and it is a weak one, because **the Sakaime arm itself does not reach 0.80**: the full pipeline answered INSUFFICIENT_EVIDENCE on " +
-      `${g0.sakaimeEmittedLabels?.INSUFFICIENT_EVIDENCE ?? "?"} of ${g0.rivals?.[0]?.claims ?? 26} development claims, which makes no false-supported error and also confirms none of the nine positive controls. The reason is a hand-off gap between the extraction layer and the compiler (section ScopeShift B), not the compiler's logic: on complete, hand-written evidence the compiler reaches ${link("scopeshift-b-dev.json", "dev.V-M1.exact", pct(hd["dev.V-M1.exact"].rate))} exact. "Stands" is not evidence of quality.`,
+      `${g0.sakaimeEmittedLabels?.INSUFFICIENT_EVIDENCE ?? "?"} of ${g0.rivals?.[0]?.claims ?? 26} development claims, which makes no false-supported error and also confirms ${hd["dev.V.correctSupported"]?.k ?? "?"} of the nine positive controls. The causes are listed under "Why V answers INSUFFICIENT_EVIDENCE so often" (section ScopeShift B): wording the compiler will not place, and study records that state no population or setting. On complete, hand-written evidence the compiler reaches ${link("scopeshift-b-dev.json", "dev.V-M1.exact", pct(hd["dev.V-M1.exact"].rate))} exact, which encodes the key's own vocabulary and is not a result. "Stands" is not evidence of quality.`,
     "",
   );
 }
@@ -97,6 +204,8 @@ out(
   "- **E-001** The Gate 0 answer key was edited after the builder saw a dry run of the compiler (evidence typing split into authorization and study items; the CP-01 acceptable set widened). Git history cannot show the earlier key (one commit holds it). All 26 Gate 0 claims are **development**, never held-out. CP-01 is also scored with its original acceptable set below.",
   "- **E-002** The extraction layer is not blind to the five held-out documents (they are the documents it was repaired on).",
   "- **E-003** The adapter between extraction and compiler was built against the development claims only, frozen, and its hash recorded in every result row.",
+  "- **E-004** What the model arms did and did not do: B4 ran once, a stray duplicate process wrote some model replies twice, and the prompts were written once and not tuned.",
+  "- **E-005** The adapter changed to version 2 after the first held-out run (study items dated by their summary's decision date; the staleness window applied to authorization records), and the compiler and extraction layers began to read conditions, exclusions and diagnostic-use limits. The held-out numbers in this report are the run made after those changes: a second look at documents the pipeline had been scored on, not a blind result. The conditions table was written after the first run. The ScopeShift (A) positive controls regressed when conditions were read, because they copied only the age; the suite was then changed to copy what the evidence states, which is a change to the construction made after seeing the compiler's answers.",
   `- Held-out key sealed 2026-10-27T08:09:16Z: claims \`a7e06def...\`, key \`fcd1327e...\`. ${BH ? `Every held-out row was scored against key hash \`${String(BH.meta.heldoutKeySha256).slice(0, 12)}\`.` : "The held-out run has not been made."} The seal is a file hash; the commit that timestamps it is the lead's.`,
   AL ? `- Adapter hash \`${String(AL.meta.frozenAdapterHash).slice(0, 12)}\`. Choices compared on the development claims: ${link("adapter-log.json", "frozenAdapterHash", "adapter-log.json")}.` : "",
   "",
@@ -129,10 +238,7 @@ if (A) {
       Object.entries(s.byMutation).map(([m, v]: [string, any]) => [m, `${v.match}/${v.n}`, v.mismatchIds.length ? v.mismatchIds.slice(0, 2).join("; ") + (v.mismatchIds.length > 2 ? `; and ${v.mismatchIds.length - 2} more` : "") : ""]),
     ),
     "",
-    "**One rule accounts for every miss.** `date-past-window` (12 cases) expects REQUIRES_DOMAIN_REVIEW when a claim begins long after the clearance and the hospital policy sets a three-year window. The compiler applies its staleness rule (R20) to dated *study* evidence only; an authorization record is not aged and the FDA summaries yield no study date, so for authorization-only evidence the rule never fires. With a dated study the same mutation matches (`date-past-window-dated-study`). This is a design decision to confirm, not a harness error: it is why the held-out claim HO-CA-04 is expected to be missed.",
-    "",
-    `All ${s.falseSupported.k} false-supported cases in this table are the \`date-past-window\` misses: the compiler answered SUPPORTED_FOR_SCOPE where the rule table says a reviewer must decide.`,
-    "",
+    ...scopeShiftAMisses(A),
     `Not applicable and skipped (no threshold case without a confidence interval, no study item): ${s.skipped.length} device-worlds, listed in the file. The identity-ambiguity mutation of the protocol is not a compiler input; it is covered by IdentityShift, and the product-level mutations here (\`product-replaced\`, \`product-brand-only\`) test only that a product the evidence does not name is not supported.`,
     "",
   );
@@ -242,7 +348,7 @@ if (BD) {
       "",
       "Dimensions the finding lists as not contained, over the 26 cases (a case can list several): " + Object.entries(tally).sort((a, b) => b[1] - a[1]).map(([k, n]) => `${k} ${n}`).join(", ") + ".",
       "",
-      "The extraction layer reads age, setting, purpose, version, dates and headline results from an FDA summary. It does not read the *conditions* a population is defined by or the *exclusions*, and it gives a study item neither a setting nor a purpose, while the compiler compares claimed conditions and exclusions as exact strings and, for a claim that rests on a study, needs the study to state the setting. So a claim that names a condition (\"women undergoing screening mammography\") cannot be contained in extracted evidence. The compiler refuses with the missing dimension named, which is the cautious direction: V made no false-supported error on the development set. The cost is that V confirms none of the nine positive controls from extracted evidence. Closing this gap is extraction work (conditions, exclusions, study setting), not compiler work; the hand-written evidence (V-M1) shows what the compiler does when it is closed.",
+      `The extraction layer reads age, setting, purpose, version, dates and headline results from an FDA summary, and (adapter version 2, ERRATA E-005) the conditions and exclusions of the indications and a study setting where the summary states one. The compiler places a claimed condition against the evidence's wording only by its closed rules (normal form, a short curated synonym and subtype table, a closed list of narrowing words); a pair it cannot place is not guessed, and for a claim that rests on a study the study record has to state the population and the setting the results were measured in. ${openCauses(det.vDetails)} The compiler refuses with the missing dimension named, which is the cautious direction: V made ${BD.summaries["dev.V.falseSupported"]?.k ?? "?"} false-supported errors on the development set. V confirms ${BD.summaries["dev.V.correctSupported"]?.k ?? "?"} of the ${BD.summaries["dev.V.correctSupported"]?.n ?? "?"} positive controls from extracted evidence. The hand-written evidence (V-M1) shows what the compiler does when the evidence states every dimension in the key's own vocabulary.`,
       "",
     );
   }
@@ -297,7 +403,7 @@ if (BD) {
       return `- **Compiler off (B3 and B4 against V).** The generic Nemotron arms have no compiler and no identity layer and read the same documents: ${bits.filter(Boolean).join("; ")}; V ${pct(v)} exact with ${vfs} false-supported. ${[("B3"), ("B4")].every((id) => s[`dev.${id}.exact.meanWorst`] && s[`dev.${id}.exact.meanWorst`].mean > v) ? "Both generic arms are more often exactly right than V, and both make false-supported errors that V does not" : "See the table for which arm is more often exactly right"}. V's advantage on this set is that it does not over-claim, not exact-label accuracy; the paired table gives the size of each difference and its uncertainty.`;
     })(),
     `- **Compiler on complete evidence (V-M1 against B3/B4).** ${link("scopeshift-b-dev.json", "dev.V-M1.exact", pct(s["dev.V-M1.exact"].rate))} exact with ${link("scopeshift-b-dev.json", "dev.V-M1.falseSupported", `${s["dev.V-M1.falseSupported"].k}/${s["dev.V-M1.falseSupported"].n}`)} false-supported. The hand-written items encode the key's own vocabulary, so this is an upper bound on what the compiler can do with the key's evidence, not a product result.`,
-    `- **Identity layer off (V-noident against V).** Exact label ${link("scopeshift-b-dev.json", "dev.V-noident.exact", pct(s["dev.V-noident.exact"].rate))} against ${link("scopeshift-b-dev.json", "dev.V.exact", pct(s["dev.V.exact"].rate))}: no difference in labels, because V is constant (INSUFFICIENT_EVIDENCE) either way. The identity layer's own effect is measured in IdentityShift (false merges ${ID ? link("identityshift.json", "resolver.falseMergeRate", `${ID.summaries.resolver.falseMergeRate.k}/${ID.summaries.resolver.falseMergeRate.n}`) : "n/a"} against the fuzzy-name baseline's ${ID ? link("identityshift.json", "fuzzyNameBaseline.falseMergeRate", `${ID.summaries.fuzzyNameBaseline.falseMergeRate.k}/${ID.summaries.fuzzyNameBaseline.falseMergeRate.n}`) : "n/a"}). Critical-mismatch recall differs: V ${link("scopeshift-b-dev.json", "dev.V.criticalMismatchRecall", rate("scopeshift-b-dev.json", "dev.V.criticalMismatchRecall", s).replace(/\[|\]\(.*?\)/g, "").slice(0, 20))} against V-noident ${rate("scopeshift-b-dev.json", "dev.V-noident.criticalMismatchRecall", s)}.`,
+    `- **Identity layer off (V-noident against V).** Exact label ${link("scopeshift-b-dev.json", "dev.V-noident.exact", pct(s["dev.V-noident.exact"].rate))} against ${link("scopeshift-b-dev.json", "dev.V.exact", pct(s["dev.V.exact"].rate))}${s["dev.V-noident.exact"].k === s["dev.V.exact"].k ? ": the same number of exact labels" : ": the number of exact labels differs"}. The identity layer's own effect is measured in IdentityShift (false merges ${ID ? link("identityshift.json", "resolver.falseMergeRate", `${ID.summaries.resolver.falseMergeRate.k}/${ID.summaries.resolver.falseMergeRate.n}`) : "n/a"} against the fuzzy-name baseline's ${ID ? link("identityshift.json", "fuzzyNameBaseline.falseMergeRate", `${ID.summaries.fuzzyNameBaseline.falseMergeRate.k}/${ID.summaries.fuzzyNameBaseline.falseMergeRate.n}`) : "n/a"}). Critical-mismatch recall differs: V ${link("scopeshift-b-dev.json", "dev.V.criticalMismatchRecall", rate("scopeshift-b-dev.json", "dev.V.criticalMismatchRecall", s).replace(/\[|\]\(.*?\)/g, "").slice(0, 20))} against V-noident ${rate("scopeshift-b-dev.json", "dev.V-noident.criticalMismatchRecall", s)}.`,
     (() => {
       const ret = (BD.detail?.dev?.retrieval ?? []) as { product: string; candidates: { verdict: string; builderTruth?: string }[] }[];
       const cands = ret.flatMap((r) => r.candidates);
@@ -400,11 +506,7 @@ if (DS) {
 out(
   "## Defects and findings for the lead",
   "",
-  "1. **CompilerInvariantError on valid input.** `compile` throws \"the narrower scope derived for population is itself PARTIAL\" for the Gate 0 claim AN-02 on the hand-written evidence: the claim lists the condition \"paced rhythm\", which the study item also lists as an exclusion. A refusal or a label was expected, not an exception. In the harness an exception is a no-verdict answer and counts against the arm.",
-  "2. **Extraction to compiler hand-off** (above): conditions, exclusions and the study's setting and purpose are not carried, so claims that name them are refused. The compiler also compares conditions as exact strings, so even complete extraction needs a controlled condition vocabulary.",
-  "3. **Staleness is not applied to authorization records** (ScopeShift A). The held-out claim HO-CA-04 (a use beginning four years after clearance, hospital window three years) is labelled REQUIRES_DOMAIN_REVIEW; V answered INSUFFICIENT_EVIDENCE with timing UNKNOWN (\"the study records carry no date\"), because FDA-sourced study items have no date and the staleness rule reads only study dates.",
-  "4. **Extraction reports a subgroup figure as a second headline** for K253801 (sensitivity 0.806 beside 0.789): two values for one metric reach the study item, and a threshold claim is then judged against more than one number.",
-  "5. **Purpose collapse.** An FDA summary that says both detection and triage is read as the broader purpose (detection aid) once the purpose terms are mapped, so a triage-only claim is contained and a claim of diagnosis is a narrower scope; the sentence \"not intended to be used as a diagnostic device\" is not a rule. On HO-CA-03 and HO-EF-03 the compiler recorded purpose PARTIAL (\"diagnosis outside detection aid\"), i.e. a narrower scope; the final label was INSUFFICIENT_EVIDENCE only because the unextracted condition dimension came first. With conditions extracted, these two claims would be reported as a narrower scope where the key says CONTRADICTED_BY_SPECIFIED_EVIDENCE.",
+  ...currentFindings(),
   "",
   "## What was not run",
   "",

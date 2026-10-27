@@ -89,12 +89,33 @@ describe("dossier", () => {
     expect(v.failures.map((f) => f.reason).join(" ")).toMatch(/compiler on the recorded inputs gives INSUFFICIENT_EVIDENCE/);
   });
 
-  it("rejects something that is not a bundle with a typed error", async () => {
-    await expect(svc.verify(null)).rejects.toMatchObject({ failure: "INVALID" });
-    await expect(svc.verify([1, 2])).rejects.toBeInstanceOf(PortError);
-    const v = await svc.verify({ format: "sakaime.dossier" });
-    expect(v.ok).toBe(false);
+  it("answers something that is not a bundle with a failed check that says what a dossier is, the same for every kind of non-dossier", async () => {
+    const answers = await Promise.all([null, [1, 2], 7, "text", {}, { format: "sakaime.dossier" }].map((x) => svc.verify(x)));
+    for (const v of answers) {
+      expect(v.ok).toBe(false);
+      expect(v.failures.length).toBeGreaterThan(0);
+      expect(v.keyKind).toBe("demo");
+    }
+    expect(answers[0]!.failures[0]!.reason).toMatch(/not a dossier/);
+    expect(answers[1]!.failures[0]!.reason).toMatch(/an array/);
   });
+
+  it("is still exported after more guard calls than the old request limit, and after many exports by other reviewers", async () => {
+    // The replay clock moves one millisecond per reading, so a limit counted against it would never refill. The guard counts real time.
+    for (let i = 0; i < 80; i += 1) await svc.screen({ text: i % 3 ? "Certify that K200667 is safe for our hospital." : "Does the evidence cover version 2.1.0 in primary care?", origin: "reviewer" }, "Reviewer Q");
+    for (const who of ["Reviewer R", "Reviewer S", "Reviewer T"]) expect((await svc.dossier("transpara-k221347", who)).exportId).toMatch(/^export-/);
+    expect((await svc.dossier("transpara-k221347", "Reviewer Q")).exportId).toMatch(/^export-/);
+  }, 120_000);
+
+  it("is refused with a reason and a wait, not a bare 403, when a reviewer asks for exports faster than the limit", async () => {
+    const who = "Reviewer Fast";
+    let refused: unknown;
+    for (let i = 0; i < 20 && !refused; i += 1) await svc.dossier("lunit-k211733", who).catch((e: unknown) => (refused = e));
+    expect(refused).toBeInstanceOf(PortError);
+    expect(refused).toMatchObject({ failure: "BLOCKED", detail: { reason: "RATE_LIMITED" } });
+    expect((refused as PortError).detail?.["retryAfterSeconds"]).toBeGreaterThan(0);
+    expect((refused as PortError).message).toMatch(/Try again in \d+ seconds?/);
+  }, 120_000);
 });
 
 describe("the Applicability Lab recomputes without a model call", () => {
@@ -103,7 +124,7 @@ describe("the Applicability Lab recomputes without a model call", () => {
     expect(r.modelCalled).toBe(false);
     expect(r.changed.map((c) => c.dimension)).toContain("version");
     expect(r.changed.find((c) => c.dimension === "version")).toMatchObject({ before: "CONTAINED", after: "DISJOINT" });
-    expect(r.before.label).toBe("SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
+    expect(r.before.label).toBe("SUPPORTED_FOR_SCOPE");
     expect(r.after.label).toBe("INSUFFICIENT_EVIDENCE");
     expect(r.labelChanged).toBe(true);
     expect(r.reasons).toHaveLength(7);
@@ -136,7 +157,7 @@ describe("the Applicability Lab recomputes without a model call", () => {
 
 describe("reviewer decisions are idempotent", () => {
   it("records a decision once, replays it on the same key, and refuses the same key with a different decision", async () => {
-    const fid = svc.recordOf("eyeart-k200667")!.result.results[1]!.finding.id; // CLM-EA-01, narrower scope
+    const fid = svc.recordOf("eyeart-k200667")!.result.results.find((r) => r.claim.id === "CLM-EA-07")!.finding.id; // the labelled population: a narrower scope
     const first = await svc.decide("eyeart-k200667", { findingId: fid, action: "narrow", idempotencyKey: "decision-key-0001", note: "use for 22 and over" }, "Reviewer A");
     expect(first.replayed).toBe(false);
     expect(first.reviewerState).toBe("narrowed");
@@ -149,7 +170,8 @@ describe("reviewer decisions are idempotent", () => {
 
   it("the decision appears in the case view and in the dossier's decision history, and the stored finding is unchanged", async () => {
     const detail = await svc.caseDetail("eyeart-k200667");
-    expect(detail.findings[1]!.reviewerState).toBe("narrowed");
+    expect(detail.findings.find((f) => f.claimId === "CLM-EA-07")!.reviewerState).toBe("narrowed");
+    expect(detail.findings.filter((f) => f.reviewerState !== "unreviewed")).toHaveLength(1);
     expect(detail.timeline.some((e) => e.kind === "decision")).toBe(true);
     const d = await svc.dossier("eyeart-k200667");
     expect(d.bundle.body.decisionHistory).toHaveLength(1);
@@ -199,12 +221,22 @@ describe("views", () => {
     expect(d.matrix!.columns.find((c) => c.name === "k_number")!.sourceId).toBe("registry-snapshots");
     expect(d.matrix!.columns.find((c) => c.name === "claim_id")!.sourceId).toBe("vendor-packets");
     expect(d.matrix!.columns.find((c) => c.name === "case_id")!.sourceId).toBe("hospital");
-    expect(d.matrix!.rows).toHaveLength(6);
+    expect(d.matrix!.rows).toHaveLength(9);
     expect(d.missingEvidence.length).toBeGreaterThan(0);
     expect(d.missingEvidence[0]!.draft).toMatch(/Nothing in this system sends it/);
     expect(d.summary.claimConstructed).toBe(true);
     expect(d.mode.sample).toBe(true);
     expect(d.mode.federation).toBe("cassette");
+  });
+
+  it("every claim of the case is in the detail with its own sentence, the reviewer's question first", async () => {
+    const d = await svc.caseDetail("eyeart-k200667");
+    expect(d.claims.map((c) => c.id)).toEqual(["CASE-2026-014.intended", ...Array.from({ length: 9 }, (_, i) => `CLM-EA-0${i + 1}`)]);
+    for (const c of d.claims) expect(c.text, c.id).toBeTruthy();
+    expect(d.claims[0]!.text).toBe(d.claimText);
+    expect(d.claims[1]!.text).toMatch(/^In the population of the pivotal study/);
+    expect(d.claims.find((c) => c.id === "CLM-EA-09")!.performance).toMatchObject({ metric: "sensitivity", atLeast: 0.96 });
+    expect(d.findings.map((f) => f.claimId)).toEqual(d.claims.map((c) => c.id));
   });
 
   it("the source rows say a failed source failed, and say an empty answer is empty", async () => {

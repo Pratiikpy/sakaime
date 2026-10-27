@@ -59,6 +59,12 @@ export interface WorkbenchEnv {
   signal?: AbortSignal;
   /** Number of per-record second opinions the Extractor may request. */
   maxOpinions: number;
+  /**
+   * When each policy row, with its current wording, was first read. A policy fact is stamped with that first reading and not with
+   * the reading that happens to be running, so investigating the same case again against the same policy gives the same fact
+   * ids and therefore the same finding ids. A changed row has a new wording, so it gets a new stamp and a new fact.
+   */
+  policyStamps?: Map<string, { at: string; queryId: string }>;
 }
 
 export interface FederationState {
@@ -379,7 +385,8 @@ export class Workbench {
   /** The hospital's policy rows are facts like any other: a change to one marks the findings that relied on it stale. */
   private async recordPolicyFacts(items: readonly EvidenceItem[]): Promise<void> {
     const read = this.federation.reads[0];
-    const at = read?.at ?? this.env.config.clock.now().toISOString();
+    const readAt = read?.at ?? this.env.config.clock.now().toISOString();
+    const stamps = (this.env.policyStamps ??= new Map());
     for (const item of items) {
       if (this.requirementFacts.has(item.id)) continue;
       const key = item.id.split(":").pop()!;
@@ -390,7 +397,10 @@ export class Workbench {
         this.requirementFacts.set(item.id, []);
         continue;
       }
-      const fact = await this.world.assertPolicy(key, row ? "policy.requirement" : "policy.precedent", value, read?.result.queryId ?? "none", at);
+      const stampKey = `${key}|${value}`;
+      const stamp = stamps.get(stampKey) ?? { at: readAt, queryId: read?.result.queryId ?? "none" };
+      stamps.set(stampKey, stamp);
+      const fact = await this.world.assertPolicy(key, row ? "policy.requirement" : "policy.precedent", value, stamp.queryId, stamp.at);
       this.requirementFacts.set(item.id, [fact.factId]);
     }
   }

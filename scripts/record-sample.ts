@@ -1,29 +1,37 @@
 /**
- * Records the sample run: investigates every case against the live public sources, the live Zetaris stack and the live
- * model route once, writing the responses into the committed cassettes, then replays them in sample mode and writes the
- * recorded run, the signed dossiers and the traces that sample mode must reproduce.
+ * Records the sample run: investigates every case against the live Zetaris stack and the live model route, writing the
+ * responses into the committed cassettes, then replays them in sample mode and writes the recorded run, the signed dossiers,
+ * the traces and the API examples that sample mode must reproduce.
  *
- *   npx tsx scripts/record-sample.ts [caseId ...]       record live, then replay and write the outputs
- *   npx tsx scripts/record-sample.ts --replay-only      keep the recordings, rewrite the recorded run, dossiers and traces
+ *   SAKAIME_RECORD=1 npx tsx scripts/record-sample.ts [caseId ...]        record, then replay and write the outputs
+ *   SAKAIME_RECORD=1 npx tsx scripts/record-sample.ts --resume            keep the recordings already on disk, ask the live route only for the rest
+ *   npx tsx scripts/record-sample.ts --replay-only                        keep the recordings, rewrite the recorded run, dossiers, traces and examples
+ *   SAKAIME_RECORD=1 npx tsx scripts/record-sample.ts --live-sources      also fetch the public sources again and replace their recordings
  *
- * Needs the network, the local Zetaris stack (infra/zetaris) and a model key in .env. Public-class content only is recorded:
- * regulator, registry and publication text and structured claim fields; vendor claim sentences never enter a prompt.
- * Re-recording replaces the cassette entries it touches; run the replay test afterwards and commit what changes.
+ * By default the public sources and the decision summaries are replayed from the committed recordings, so the model and
+ * Zetaris recordings are made against exactly the records the sample run replays. A fresh recording first moves the old model
+ * and Zetaris recordings to .sakaime/backup (ignored by git), so no recording that the new run does not use is left behind.
+ * Needs the local Zetaris stack (infra/zetaris) and a model key in .env. Public-class content only is recorded: regulator,
+ * registry and publication text and structured claim fields; vendor claim sentences never enter a prompt.
  */
-import { mkdirSync, writeFileSync } from "node:fs";
+import { cpSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { CassetteStore } from "../src/sources/index.ts";
 import { SakaimeService } from "../src/service/service.ts";
 import { recordedRun, writeRecordedRun } from "../src/service/sample-run.ts";
-import { loadDotEnv, loadConfig, type ServiceConfig } from "../src/service/config.ts";
+import { deterministicClock, loadDotEnv, loadConfig, replaysSources, type ServiceConfig } from "../src/service/config.ts";
 import type { SummaryDocument } from "../src/service/sources.ts";
-import { readFileSync, existsSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { createApp } from "../src/api/server.ts";
 
 loadDotEnv();
 const replayOnly = process.argv.includes("--replay-only");
+const resume = process.argv.includes("--resume");
+const liveSources = process.argv.includes("--live-sources");
 const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
+if (!liveSources && !replayOnly) process.env["SAKAIME_SOURCES"] = "cassette";
+if (resume) process.env["SAKAIME_RESUME"] = "1";
 
 const sha = (b: Uint8Array | string): string => createHash("sha256").update(b).digest("hex");
 
@@ -53,10 +61,25 @@ function recordDocuments(cfg: ServiceConfig, docs: SummaryDocument[]): void {
   console.log(`document manifest written with ${entries.length} entries`);
 }
 
+/** Moves the model and Zetaris recordings aside, so a fresh recording leaves exactly the ones the new run uses. */
+function setAsideOldRecordings(cfg: ServiceConfig): void {
+  const stamp = new Date().toISOString().replace(/\D/g, "").slice(0, 14);
+  for (const [name, dir] of [["model-cassettes", cfg.dirs.modelCassettes], ["federation-cassettes", cfg.dirs.federationCassettes]] as const) {
+    const files = readdirSync(dir).filter((f) => f.endsWith(".json"));
+    if (files.length === 0) continue;
+    const backup = join(cfg.dirs.root, ".sakaime", "backup", `${name}-${stamp}`);
+    mkdirSync(backup, { recursive: true });
+    cpSync(dir, backup, { recursive: true });
+    for (const f of files) rmSync(join(dir, f));
+    console.log(`moved ${files.length} old ${name} to ${backup}`);
+  }
+}
+
 async function main(): Promise<void> {
   const cfg = loadConfig({ sample: false, record: true });
   if (!replayOnly) {
-    const live = await SakaimeService.create({ sample: false, record: true });
+    if (!resume) setAsideOldRecordings(cfg);
+    const live = await SakaimeService.create({ sample: false, record: true, clock: deterministicClock() });
     const ids = live.cases.map((c) => c.spec.id).filter((id) => only.length === 0 || only.includes(id));
     console.log(`recording ${ids.length} case(s) in live mode: model ${(await live.runMode()).model}, federation ${live.federation.mode}`);
     const docs: SummaryDocument[] = [];
@@ -67,7 +90,7 @@ async function main(): Promise<void> {
       console.log(`${id}: ${r.status} in ${Math.round((Date.now() - started) / 1000)} s; ${r.results.map((x) => `${x.claim.id}=${x.finding.label}`).join(" ")}`);
     }
     (live.sources.recording as CassetteStore | undefined)?.save();
-    recordDocuments(cfg, docs);
+    if (!replaysSources(cfg)) recordDocuments(cfg, docs);
     live.close();
 
   }
@@ -82,6 +105,20 @@ async function main(): Promise<void> {
   }
   const rec = recordedRun(runs);
   console.log("recorded run written to", writeRecordedRun(cfg.dirs.sampleRun, rec));
+
+  // The replay must have been answered by the recordings alone, and the recordings kept are the ones it used.
+  const report = sample.modelReplayReport();
+  if (report.misses.length > 0) {
+    console.error(`${report.misses.length} model request(s) had no recording in the replay: ${report.misses.map((m) => `${m.role} ${m.promptKey.slice(0, 12)}`).join(", ")}`);
+    process.exitCode = 1;
+  }
+  const unusedFiles = readdirSync(cfg.dirs.modelCassettes).filter((f) => f.endsWith(".json") && !report.hits.has(JSON.parse(readFileSync(join(cfg.dirs.modelCassettes, f), "utf8")).requestHash as string));
+  if (!replayOnly && report.misses.length === 0) {
+    for (const f of unusedFiles) rmSync(join(cfg.dirs.modelCassettes, f));
+    console.log(`${report.hits.size} model recordings used by the replay; ${unusedFiles.length} unused recording(s) removed`);
+  } else if (unusedFiles.length > 0) {
+    console.log(`${unusedFiles.length} model recording(s) were not used by the replay: ${unusedFiles.slice(0, 5).join(", ")}${unusedFiles.length > 5 ? " ..." : ""}`);
+  }
 
   mkdirSync(join(cfg.dirs.outputs, "dossiers"), { recursive: true });
   mkdirSync(join(cfg.dirs.outputs, "traces"), { recursive: true });
@@ -108,7 +145,7 @@ async function writeApiExamples(sample: SakaimeService, cfg: ServiceConfig): Pro
   mkdirSync(outDir, { recursive: true });
   // Examples are chosen from the labels the run actually produced; nothing here assumes a particular label exists.
   const findings = (await sample.caseDetail("eyeart-k200667")).findings;
-  const narrow = findings.find((f) => f.label === "SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
+  const narrow = findings.find((f) => f.claimId === "CLM-EA-07" && f.label === "SUPPORTED_ONLY_FOR_NARROWER_SCOPE") ?? findings.find((f) => f.label === "SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
   const review = findings.find((f) => f.label === "REQUIRES_DOMAIN_REVIEW");
   const chosen = narrow ?? review ?? findings[0]!;
   const decision = narrow
@@ -128,6 +165,9 @@ async function writeApiExamples(sample: SakaimeService, cfg: ServiceConfig): Pro
     { name: "drill-zetaris-off", method: "POST", path: "/api/cases/eyeart-k200667/drill", body: { drill: "zetaris_off" } },
     { name: "decision", method: "POST", path: "/api/cases/eyeart-k200667/decision", body: decisionBody },
     { name: "decision-replayed", method: "POST", path: "/api/cases/eyeart-k200667/decision", body: decisionBody },
+    { name: "drill-source-off-no-target", method: "POST", path: "/api/cases/eyeart-k200667/drill", body: { drill: "source_off" } },
+    { name: "propose-metadata-address", method: "POST", path: "/api/sources/propose", body: { description: "Instance metadata of the host", url: "http://169.254.169.254/latest/meta-data/" } },
+    { name: "verify-not-a-dossier", method: "POST", path: "/api/dossier/verify", body: [] },
     { name: "error-unknown-case", method: "GET", path: "/api/cases/no-such-case" },
     { name: "error-invalid-recompute", method: "POST", path: "/api/cases/eyeart-k200667/recompute", body: { patch: { versions: "2.1.0" } } },
   ];

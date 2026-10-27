@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:30.056Z",
+  "recordedAt": "2026-10-27T13:35:37.952Z",
   "role": "support_checker",
   "requestHash": "52645d202b37d174247c39015013dd5e5fd5065d24fa0a2e5178836c49193730",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states 'Transpara version 1.7.0 ScreenPoint Medical, Nijmegen, Netherlands', which matches the asserted subject (Transpara from ScreenPoint) and version (1.7.0).\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states the AI system is Transpara version 1.7.0 from ScreenPoint Medical, which matches the asserted subject, product, and version.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage explicitly states 'Transpara version 1.7.0 ScreenPoint Medical, Nijmegen, Netherlands', which matches the asserted subject (Transpara from ScreenPoint) and version (1.7.0)."
+      "reason": "The passage states the AI system is Transpara version 1.7.0 from ScreenPoint Medical, which matches the asserted subject, product, and version."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 492,
-      "completionTokens": 70,
+      "completionTokens": 56,
       "measured": true
     }
   },
-  "responseHash": "14d23ab2124451e44d20749800acd59ed177cd9522610f7c040a80d1e668226e"
+  "responseHash": "94b64ef58dd0845847f57b8633669d34b2aa581486061e055873be2f6e8e6cc0"
 }

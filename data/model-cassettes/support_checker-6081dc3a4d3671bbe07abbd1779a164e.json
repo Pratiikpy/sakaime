@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:55.271Z",
+  "recordedAt": "2026-10-27T13:36:24.784Z",
   "role": "support_checker",
   "requestHash": "6081dc3a4d3671bbe07abbd1779a164eb60bf8f60c2b62f663e149f32db55344",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'The sensitivity of the unaided HR for diagnosis was 89%', which matches the asserted value of 0.89 (89%) for sensitivity in the reader_arm (unaided HR) context.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'The sensitivity of the unaided HR for diagnosis was 89%', which matches the asserted sensitivity value of 0.89 (89%) for the reader_arm (unaided HR).\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states 'The sensitivity of the unaided HR for diagnosis was 89%', which matches the asserted value of 0.89 (89%) for sensitivity in the reader_arm (unaided HR) context."
+      "reason": "The passage states 'The sensitivity of the unaided HR for diagnosis was 89%', which matches the asserted sensitivity value of 0.89 (89%) for the reader_arm (unaided HR)."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 458,
-      "completionTokens": 71,
+      "completionTokens": 69,
       "measured": true
     }
   },
-  "responseHash": "7be474ff9b93bf71bb36707a65a9fb79fc42a56575bf9a29595e7e3afbbb28a9"
+  "responseHash": "9332fac638f5e162cb86cff34322fc7986dcaff5a58ba2bb8334872ab56cff06"
 }

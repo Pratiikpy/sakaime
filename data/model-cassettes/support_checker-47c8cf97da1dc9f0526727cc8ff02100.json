@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:11:28.947Z",
+  "recordedAt": "2026-10-27T13:33:01.205Z",
   "role": "support_checker",
   "requestHash": "47c8cf97da1dc9f0526727cc8ff021009a4125d4169ea81403133abd505b9907",
   "request": {
@@ -48,14 +48,16 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'JF CXR-1, 86.0% and 80.0%' where the first value (86.0%) corresponds to sensitivity, matching the asserted value of 0.86 proportion for the subject publication:pmid:40529749.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\"],\n  \"reason\": \"The passage reports sensitivity and specificity values as percentages (86.0%, 80.0%, etc.) but does not specify the metric as 'result.sensitivity' with unit 'proportion'. The passage does not state the value 0.86 as a proportion for the specified subject and metric.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states 'JF CXR-1, 86.0% and 80.0%' where the first value (86.0%) corresponds to sensitivity, matching the asserted value of 0.86 proportion for the subject publication:pmid:40529749."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "metric"
+      ],
+      "reason": "The passage reports sensitivity and specificity values as percentages (86.0%, 80.0%, etc.) but does not specify the metric as 'result.sensitivity' with unit 'proportion'. The passage does not state the value 0.86 as a proportion for the specified subject and metric."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 533,
@@ -63,5 +65,5 @@
       "measured": true
     }
   },
-  "responseHash": "ac17815c7a2f893ca32a30e9a556b4967c9431464e689749ebf8e90d0acb2378"
+  "responseHash": "372a790cb9526034d79f402461006d3d3be15052f03f9940cab45f3e4db80c4a"
 }

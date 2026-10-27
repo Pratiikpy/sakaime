@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "scopeshift-a",
-    "startedAt": "2026-10-27T12:56:42.458Z",
+    "startedAt": "2026-10-27T13:49:44.734Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
@@ -10,62 +10,63 @@
     "description": "ScopeShift (A): controlled single-dimension counterfactuals over authentic scopes read by the extraction layer from real FDA summaries. Consistency between a rule table and the compiler; not clinical correctness.",
     "stalenessWindowDays": 1095,
     "studyAdequacy": "Study items are marked adequate by construction in world W2; extraction never sets the flag.",
-    "resultsHash": "31007822a6182bee"
+    "resultsHash": "8daa2569053e63cf"
   },
   "summaries": {
     "cases": {
-      "n": 236,
+      "n": 222,
       "clusters": 17,
       "products": 18,
-      "meanClusterSize": 13.88
+      "meanClusterSize": 13.06
     },
     "exactLabel": {
-      "k": 220,
-      "n": 236,
-      "rate": 0.9322033898305084,
-      "wilsonLo": 0.8927205779097586,
-      "wilsonHi": 0.9578412932657779,
-      "clusterLo": 0.8779342723004695,
-      "clusterHi": 0.9755126928820309,
+      "k": 218,
+      "n": 222,
+      "rate": 0.9819819819819819,
+      "wilsonLo": 0.9545959868776086,
+      "wilsonHi": 0.9929713956458295,
+      "clusterLo": 0.9651714136739882,
+      "clusterHi": 0.9953922335433137,
       "clusters": 17
     },
     "deterministicExactLabel": {
-      "k": 182,
-      "n": 195,
-      "rate": 0.9333333333333333,
-      "wilsonLo": 0.8892942075041463,
-      "wilsonHi": 0.960629148531962,
-      "clusterLo": 0.8949711607786589,
-      "clusterHi": 0.9690316541865214,
+      "k": 177,
+      "n": 181,
+      "rate": 0.9779005524861878,
+      "wilsonLo": 0.9445640260961137,
+      "wilsonHi": 0.9913731879020675,
+      "clusterLo": 0.9578313253012049,
+      "clusterHi": 0.9945659518213866,
       "clusters": 17
     },
     "positiveControlCorrectSupported": {
-      "k": 23,
-      "n": 27,
-      "rate": 0.8518518518518519,
-      "wilsonLo": 0.6752131457218702,
-      "wilsonHi": 0.9408407222375568,
-      "clusterLo": 0.7241379310344828,
-      "clusterHi": 0.9629629629629629,
+      "k": 24,
+      "n": 24,
+      "rate": 1,
+      "wilsonLo": 0.8620237953250198,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
       "clusters": 17
     },
     "positiveControlFalseAlarm": {
-      "k": 4,
-      "n": 27,
-      "rate": 0.14814814814814814,
-      "wilsonLo": 0.05915927776244326,
-      "wilsonHi": 0.3247868542781298,
-      "clusterLo": 0.037037037037037035,
-      "clusterHi": 0.2692307692307692,
+      "k": 0,
+      "n": 24,
+      "rate": 0,
+      "wilsonLo": 1.3877787807814457e-17,
+      "wilsonHi": 0.13797620467498017,
+      "zeroErrorUpper95": 0.11734615615494881,
+      "clusterLo": 0,
+      "clusterHi": 0,
       "clusters": 17
     },
     "falseSupported": {
       "k": 0,
-      "n": 209,
+      "n": 198,
       "rate": 0,
       "wilsonLo": 0,
-      "wilsonHi": 0.018048451847580686,
-      "zeroErrorUpper95": 0.01423140958268787,
+      "wilsonHi": 0.019032060326648184,
+      "zeroErrorUpper95": 0.01501607818876094,
       "clusterLo": 0,
       "clusterHi": 0,
       "clusters": 17
@@ -81,18 +82,18 @@
       "clusters": 17
     },
     "contestableReviewExact": {
-      "k": 38,
+      "k": 41,
       "n": 41,
-      "rate": 0.926829268292683,
-      "wilsonLo": 0.8057255146228096,
-      "wilsonHi": 0.9748021693660901,
-      "clusterLo": 0.7631578947368421,
+      "rate": 1,
+      "wilsonLo": 0.9143324298155681,
+      "wilsonHi": 0.9999999999999999,
+      "clusterLo": 1,
       "clusterHi": 1,
       "clusters": 17
     },
     "noVerdict": {
       "k": 0,
-      "n": 236
+      "n": 222
     },
     "skipped": [
       {
@@ -116,14 +117,29 @@
         "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
       },
       {
+        "product": "DEN170073",
+        "world": "W2",
+        "reason": "the authorization names the condition the device is for and the study record does not state one, so no claim can be tied to both; there is no positive control to mutate"
+      },
+      {
         "product": "DEN200080",
         "world": "W2",
         "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
       },
       {
+        "product": "DEN200055",
+        "world": "W2",
+        "reason": "the authorization names the condition the device is for and the study record does not state one, so no claim can be tied to both; there is no positive control to mutate"
+      },
+      {
         "product": "K213857",
         "world": "W2",
         "reason": "no study item"
+      },
+      {
+        "product": "DEN180001",
+        "world": "W2",
+        "reason": "the authorization names the condition the device is for and the study record does not state one, so no claim can be tied to both; there is no positive control to mutate"
       },
       {
         "product": "DEN190040",
@@ -143,18 +159,13 @@
     ],
     "byMutation": {
       "positive-control": {
-        "n": 27,
-        "match": 23,
-        "mismatchIds": [
-          "A-DEN170073-W2-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE",
-          "A-K253265-W1-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE",
-          "A-DEN200055-W2-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE",
-          "A-DEN180001-W2-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE"
-        ]
+        "n": 24,
+        "match": 24,
+        "mismatchIds": []
       },
       "version-bump": {
-        "n": 10,
-        "match": 10,
+        "n": 8,
+        "match": 8,
         "mismatchIds": []
       },
       "version-unconfirmed": {
@@ -164,10 +175,8 @@
       },
       "setting-widened": {
         "n": 5,
-        "match": 4,
-        "mismatchIds": [
-          "A-K253265-W1-setting-widened: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE"
-        ]
+        "match": 5,
+        "mismatchIds": []
       },
       "setting-unrelated": {
         "n": 5,
@@ -176,16 +185,13 @@
       },
       "setting-unplaced": {
         "n": 6,
-        "match": 5,
-        "mismatchIds": [
-          "A-K253265-W1-setting-unplaced: expected REQUIRES_DOMAIN_REVIEW, got INSUFFICIENT_EVIDENCE"
-        ]
+        "match": 6,
+        "mismatchIds": []
       },
       "purpose-escalated": {
         "n": 15,
-        "match": 10,
+        "match": 11,
         "mismatchIds": [
-          "A-K253265-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE",
           "A-DEN200080-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got REQUIRES_DOMAIN_REVIEW",
           "A-K253801-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got REQUIRES_DOMAIN_REVIEW",
           "A-K252360-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got REQUIRES_DOMAIN_REVIEW",
@@ -199,10 +205,8 @@
       },
       "purpose-unplaced": {
         "n": 17,
-        "match": 16,
-        "mismatchIds": [
-          "A-K253265-W1-purpose-unplaced: expected REQUIRES_DOMAIN_REVIEW, got INSUFFICIENT_EVIDENCE"
-        ]
+        "match": 17,
+        "mismatchIds": []
       },
       "date-before-authorization": {
         "n": 12,
@@ -211,10 +215,8 @@
       },
       "date-past-window": {
         "n": 12,
-        "match": 11,
-        "mismatchIds": [
-          "A-K253265-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got INSUFFICIENT_EVIDENCE"
-        ]
+        "match": 12,
+        "mismatchIds": []
       },
       "product-replaced": {
         "n": 18,
@@ -236,24 +238,20 @@
         "match": 18,
         "mismatchIds": []
       },
+      "age-min-lowered": {
+        "n": 4,
+        "match": 4,
+        "mismatchIds": []
+      },
       "threshold-above-interval": {
-        "n": 9,
-        "match": 9,
+        "n": 6,
+        "match": 6,
         "mismatchIds": []
       },
       "study-source-unavailable": {
-        "n": 9,
-        "match": 9,
+        "n": 6,
+        "match": 6,
         "mismatchIds": []
-      },
-      "age-min-lowered": {
-        "n": 7,
-        "match": 4,
-        "mismatchIds": [
-          "A-DEN170073-W2-age-min-lowered: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE",
-          "A-DEN200055-W2-age-min-lowered: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE",
-          "A-DEN180001-W2-age-min-lowered: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE"
-        ]
       },
       "date-past-window-dated-study": {
         "n": 6,
@@ -456,7 +454,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -474,7 +472,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -657,7 +655,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -675,7 +673,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -875,7 +873,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -893,7 +891,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -1011,6 +1009,7 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
+        "population is unknown",
         "purpose is unknown"
       ]
     },
@@ -1028,6 +1027,7 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
+        "population is unknown",
         "purpose is unknown"
       ]
     },
@@ -1046,7 +1046,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -1064,7 +1064,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -1228,7 +1228,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -1246,7 +1246,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -1286,90 +1286,6 @@
       ]
     },
     {
-      "id": "A-DEN170073-W2-positive-control",
-      "cluster": "DEN170073",
-      "product": "device:fda:DEN170073",
-      "world": "W2",
-      "mutation": "positive-control",
-      "dimension": "none",
-      "expected": "SUPPORTED_FOR_SCOPE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": false,
-      "basis": [
-        "population is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN170073-W2-threshold-above-interval",
-      "cluster": "DEN170073",
-      "product": "device:fda:DEN170073",
-      "world": "W2",
-      "mutation": "threshold-above-interval",
-      "dimension": "metric",
-      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-      "contestable": false,
-      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "contrary study result, ev_902d3b51dae79dc5: sensitivity 0.878 (CI 0.812 to 0.925) against the claimed minimum 0.945: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum",
-        "contrary study result, ev_902d3b51dae79dc5: sensitivity 0.878 (CI 0.812 to 0.925) against the claimed minimum 0.945: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
-      ]
-    },
-    {
-      "id": "A-DEN170073-W2-study-source-unavailable",
-      "cluster": "DEN170073",
-      "product": "device:fda:DEN170073",
-      "world": "W2",
-      "mutation": "study-source-unavailable",
-      "dimension": "source",
-      "expected": "INSUFFICIENT_EVIDENCE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "required evidence type \"study\" is lost, empty or was never supplied",
-        "product is unknown",
-        "version is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN170073-W2-age-min-lowered",
-      "cluster": "DEN170073",
-      "product": "device:fda:DEN170073",
-      "world": "W2",
-      "mutation": "age-min-lowered",
-      "dimension": "population",
-      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": false,
-      "basis": [
-        "population is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN170073-W2-version-bump",
-      "cluster": "DEN170073",
-      "product": "device:fda:DEN170073",
-      "world": "W2",
-      "mutation": "version-bump",
-      "dimension": "version",
-      "expected": "INSUFFICIENT_EVIDENCE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "version is not covered by any evidence",
-        "population is unknown"
-      ]
-    },
-    {
       "id": "A-K253265-W1-positive-control",
       "cluster": "K253265",
       "product": "device:fda:K253265",
@@ -1378,11 +1294,11 @@
       "dimension": "none",
       "expected": "SUPPORTED_FOR_SCOPE",
       "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
+      "emitted": "SUPPORTED_FOR_SCOPE",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "population is unknown"
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
       ]
     },
     {
@@ -1410,11 +1326,11 @@
       "dimension": "setting",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "population is unknown"
+        "setting is only partly covered; the evidenced part is stated as the supported scope"
       ]
     },
     {
@@ -1430,7 +1346,6 @@
       "error": null,
       "match": true,
       "basis": [
-        "population is unknown",
         "setting is not covered by any evidence"
       ]
     },
@@ -1443,11 +1358,12 @@
       "dimension": "setting",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "INSUFFICIENT_EVIDENCE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "population is unknown"
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
       ]
     },
     {
@@ -1459,11 +1375,11 @@
       "dimension": "purpose",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "population is unknown"
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
       ]
     },
     {
@@ -1479,7 +1395,6 @@
       "error": null,
       "match": true,
       "basis": [
-        "population is unknown",
         "purpose is not covered by any evidence"
       ]
     },
@@ -1492,11 +1407,12 @@
       "dimension": "purpose",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "INSUFFICIENT_EVIDENCE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "population is unknown"
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
       ]
     },
     {
@@ -1524,11 +1440,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "INSUFFICIENT_EVIDENCE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "population is unknown"
+        "R20-STALENESS: The newest authorization record is dated 2025-11-06, and the claimed period ends 2028-12-05: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -2154,6 +2070,7 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
+        "population is unknown",
         "purpose is unknown"
       ]
     },
@@ -2171,6 +2088,7 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
+        "population is unknown",
         "purpose is unknown"
       ]
     },
@@ -2189,7 +2107,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2207,72 +2125,6 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "purpose is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN200055-W2-positive-control",
-      "cluster": "DEN200055",
-      "product": "device:fda:DEN200055",
-      "world": "W2",
-      "mutation": "positive-control",
-      "dimension": "none",
-      "expected": "SUPPORTED_FOR_SCOPE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": false,
-      "basis": [
-        "population is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN200055-W2-threshold-above-interval",
-      "cluster": "DEN200055",
-      "product": "device:fda:DEN200055",
-      "world": "W2",
-      "mutation": "threshold-above-interval",
-      "dimension": "metric",
-      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-      "contestable": false,
-      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "contrary study result, ev_b977d72c2a1bff14: auc 0.787 (CI 0.755 to 0.817) against the claimed minimum 0.837: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
-      ]
-    },
-    {
-      "id": "A-DEN200055-W2-study-source-unavailable",
-      "cluster": "DEN200055",
-      "product": "device:fda:DEN200055",
-      "world": "W2",
-      "mutation": "study-source-unavailable",
-      "dimension": "source",
-      "expected": "INSUFFICIENT_EVIDENCE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "required evidence type \"study\" is lost, empty or was never supplied",
-        "product is unknown",
-        "population is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN200055-W2-age-min-lowered",
-      "cluster": "DEN200055",
-      "product": "device:fda:DEN200055",
-      "world": "W2",
-      "mutation": "age-min-lowered",
-      "dimension": "population",
-      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": false,
-      "basis": [
         "population is unknown"
       ]
     },
@@ -2338,6 +2190,7 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
+        "population is unknown",
         "timing is unknown"
       ]
     },
@@ -2355,6 +2208,7 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
+        "population is unknown",
         "timing is unknown"
       ]
     },
@@ -2373,7 +2227,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "timing is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2391,7 +2245,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "timing is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2489,8 +2343,8 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
-        "purpose is unknown",
-        "timing is unknown"
+        "population is unknown",
+        "purpose is unknown"
       ]
     },
     {
@@ -2507,8 +2361,8 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
-        "purpose is unknown",
-        "timing is unknown"
+        "population is unknown",
+        "purpose is unknown"
       ]
     },
     {
@@ -2526,7 +2380,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2544,7 +2398,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2726,7 +2580,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2744,7 +2598,7 @@
       "basis": [
         "product is not covered by any evidence",
         "version is unknown",
-        "purpose is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -2781,89 +2635,6 @@
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
         "version is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN180001-W2-positive-control",
-      "cluster": "DEN180001",
-      "product": "device:fda:DEN180001",
-      "world": "W2",
-      "mutation": "positive-control",
-      "dimension": "none",
-      "expected": "SUPPORTED_FOR_SCOPE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": false,
-      "basis": [
-        "population is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN180001-W2-threshold-above-interval",
-      "cluster": "DEN180001",
-      "product": "device:fda:DEN180001",
-      "world": "W2",
-      "mutation": "threshold-above-interval",
-      "dimension": "metric",
-      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-      "contestable": false,
-      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "contrary study result, ev_6af9554b338f7ced: sensitivity 0.874 (CI 0.819 to 0.929) against the claimed minimum 0.949: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
-      ]
-    },
-    {
-      "id": "A-DEN180001-W2-study-source-unavailable",
-      "cluster": "DEN180001",
-      "product": "device:fda:DEN180001",
-      "world": "W2",
-      "mutation": "study-source-unavailable",
-      "dimension": "source",
-      "expected": "INSUFFICIENT_EVIDENCE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "required evidence type \"study\" is lost, empty or was never supplied",
-        "product is unknown",
-        "version is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN180001-W2-age-min-lowered",
-      "cluster": "DEN180001",
-      "product": "device:fda:DEN180001",
-      "world": "W2",
-      "mutation": "age-min-lowered",
-      "dimension": "population",
-      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": false,
-      "basis": [
-        "population is unknown"
-      ]
-    },
-    {
-      "id": "A-DEN180001-W2-version-bump",
-      "cluster": "DEN180001",
-      "product": "device:fda:DEN180001",
-      "world": "W2",
-      "mutation": "version-bump",
-      "dimension": "version",
-      "expected": "INSUFFICIENT_EVIDENCE",
-      "contestable": false,
-      "emitted": "INSUFFICIENT_EVIDENCE",
-      "error": null,
-      "match": true,
-      "basis": [
-        "version is not covered by any evidence",
-        "population is unknown"
       ]
     },
     {
@@ -4100,8 +3871,8 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
-        "setting is unknown",
-        "purpose is unknown"
+        "population is unknown",
+        "setting is unknown"
       ]
     },
     {
@@ -4118,8 +3889,8 @@
       "match": true,
       "basis": [
         "product is not covered by any evidence",
-        "setting is unknown",
-        "purpose is unknown"
+        "population is unknown",
+        "setting is unknown"
       ]
     },
     {
@@ -4137,7 +3908,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {
@@ -4155,7 +3926,7 @@
       "basis": [
         "required evidence type \"authorization\" is lost, empty or was never supplied",
         "product is unknown",
-        "setting is unknown"
+        "population is unknown"
       ]
     },
     {

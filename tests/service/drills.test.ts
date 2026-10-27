@@ -22,7 +22,7 @@ describe("every drill in the contract runs through the real code and holds its i
     for (const drill of DRILLS) {
       if (drill === "registry_changed" && caseId === "lunit-k211733") continue; // covered below
       it(`${caseId}: ${drill}`, async () => {
-        const r = await svc.drill(caseId, { drill, ...(drill === "source_off" ? { target: "authorization" } : {}) });
+        const r = await svc.drill(caseId, { drill, ...(drill === "source_off" || drill === "source_empty" ? { target: "authorization" } : {}) });
         expect(DrillResponseSchema.safeParse(r).success).toBe(true);
         expect(r.invariantHeld, r.narrative).toBe(true);
         expect(r.narrative.length).toBeGreaterThan(30);
@@ -48,6 +48,49 @@ describe("a lost required source never yields a supported label (T6)", () => {
     expect(r.after.filter((f) => SUPPORTED.includes(f.label))).toEqual([]);
     for (const f of r.after) expect(f.degraded.length, f.claimId).toBeGreaterThan(0);
     expect(r.before.some((f) => SUPPORTED.includes(f.label))).toBe(true); // the drill removed something that mattered
+  });
+
+  it("the claim that was supported before the drill is demoted by it, to the label the compiler gives with that evidence missing", async () => {
+    const r = await svc.drill("eyeart-k200667", { drill: "source_off", target: "study" });
+    const was = r.before.find((f) => f.claimId === "CLM-EA-01")!;
+    const now = r.after.find((f) => f.claimId === "CLM-EA-01")!;
+    expect(was.label).toBe("SUPPORTED_FOR_SCOPE");
+    expect(now.label).toBe("INSUFFICIENT_EVIDENCE");
+    expect(now.degraded.some((d) => d.sourceType === "study" && d.dependency === "required")).toBe(true);
+    expect(r.narrative).toMatch(/CLM-EA-01: SUPPORTED_FOR_SCOPE -> INSUFFICIENT_EVIDENCE/);
+    expect(r.invariantHeld).toBe(true);
+  });
+
+  it("a claim that was not supported before a drill is not supported after it, whatever was lost", async () => {
+    const cases = [
+      ["source_off", "authorization"],
+      ["source_off", "study"],
+      ["source_empty", "registry"],
+      ["zetaris_off", undefined],
+      ["truncated_result", undefined],
+    ] as const;
+    let checked = 0;
+    for (const [drill, target] of cases) {
+      const r = await svc.drill("eyeart-k200667", { drill, ...(target ? { target } : {}) });
+      for (const before of r.before.filter((f) => !SUPPORTED.includes(f.label))) {
+        const after = r.after.find((f) => f.claimId === before.claimId)!;
+        expect(SUPPORTED.includes(after.label), `${drill} ${target ?? ""} ${before.claimId}: ${before.label} -> ${after.label}`).toBe(false);
+        checked += 1;
+      }
+    }
+    expect(checked).toBeGreaterThanOrEqual(5 * 7);
+  });
+
+  it("a case with no supported claim at all still holds the invariant under every drill", async () => {
+    for (const id of ["lunit-k211733", "transpara-k221347"]) {
+      const before = svc.recordOf(id)!.result.results.map((r) => r.finding.label);
+      expect(before.some((l) => SUPPORTED.includes(l)), id).toBe(false);
+      for (const drill of ["source_off", "zetaris_off", "truncated_result"] as const) {
+        const r = await svc.drill(id, { drill, ...(drill === "source_off" ? { target: "study" } : {}) });
+        expect(r.invariantHeld, `${id} ${drill}: ${r.narrative}`).toBe(true);
+        expect(r.after.every((f) => !SUPPORTED.includes(f.label)), `${id} ${drill}`).toBe(true);
+      }
+    }
   });
 
   it("Zetaris off is named as lost hospital requirements, not as an empty result", async () => {
@@ -98,9 +141,14 @@ describe("a registry record changes after a finding (T5)", () => {
     expect(r.narrative).toMatch(/findings of other cases are untouched/);
   });
 
-  it("the revised record changes labels the way the compiler says, and the earlier findings are kept", async () => {
+  it("the revised record changes labels only where the compiler says, and the earlier findings are kept", async () => {
     const r = await svc.drill("eyeart-k200667", { drill: "registry_changed" });
-    expect(r.after.some((f, i) => f.label !== r.before[i]!.label)).toBe(true);
+    // The study record was revised to a minimum age of 22. The packet's other records still state 18 and above, so the evidence as a whole
+    // covers the same ages and no label moves; the findings that relied on the replaced fact are marked stale all the same.
+    const moved = r.after.filter((f, i) => f.label !== r.before[i]!.label).map((f) => f.claimId);
+    expect(moved).toEqual([]);
+    expect(r.narrative).toMatch(/No label changed/);
+    expect(r.staleFindingIds.length).toBeGreaterThan(0);
     expect(svc.recordOf("eyeart-k200667")!.result.results[1]!.finding.id).toBe(r.before[1]!.id);
   });
 

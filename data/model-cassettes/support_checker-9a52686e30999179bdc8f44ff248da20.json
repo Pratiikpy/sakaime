@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:08:20.427Z",
+  "recordedAt": "2026-10-27T13:31:15.798Z",
   "role": "support_checker",
   "requestHash": "9a52686e30999179bdc8f44ff248da209e0ca3deb2441f1f3dba78f63ffe5816",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'sensitivity: 95.5%' for mtmDR detection, which matches the asserted value of 0.955 proportion for the publication pmid:34779843.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports sensitivity of 95.5% for mtmDR and 95.1% for vtDR, which matches the asserted value of 0.955 for the specified publication.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states 'sensitivity: 95.5%' for mtmDR detection, which matches the asserted value of 0.955 proportion for the publication pmid:34779843."
+      "reason": "The passage reports sensitivity of 95.5% for mtmDR and 95.1% for vtDR, which matches the asserted value of 0.955 for the specified publication."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 560,
-      "completionTokens": 70,
+      "completionTokens": 68,
       "measured": true
     }
   },
-  "responseHash": "4b93c3145dad71fa8eb837eb01b416398590ec8d63c69401f9a7d27cfe2b644c"
+  "responseHash": "d3c2105f803fe9dcfa886118e3e3b78d813ec7e796be8d6579d35e08b1bc6d39"
 }

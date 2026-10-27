@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:07:25.264Z",
+  "recordedAt": "2026-10-27T13:30:26.782Z",
   "role": "support_checker",
   "requestHash": "76c6a79c4a8540207950836cc5f7468f212628c167efa47089a2ff875efcab0e",
   "request": {
@@ -48,22 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"version\"],\n  \"reason\": \"The passage refers to \\\"EyeArt v2.1.0 rev006\\\" while the assertion specifies version \\\"2.1.0\\\". The passage includes a revision suffix (rev006) that is not present in the asserted version, making the version reference different from the assertion's claim.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"version\"],\n  \"reason\": \"The passage refers to \\\"EyeArt v2.1.0 rev006\\\" while the assertion specifies version \\\"2.1.0\\\". The passage includes a revision suffix (rev006) that is not present in the asserted version, making the version reference different.\"}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
         "version"
       ],
-      "reason": "The passage refers to \"EyeArt v2.1.0 rev006\" while the assertion specifies version \"2.1.0\". The passage includes a revision suffix (rev006) that is not present in the asserted version, making the version reference different from the assertion's claim."
+      "reason": "The passage refers to \"EyeArt v2.1.0 rev006\" while the assertion specifies version \"2.1.0\". The passage includes a revision suffix (rev006) that is not present in the asserted version, making the version reference different."
     },
     "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 508,
-      "completionTokens": 90,
+      "completionTokens": 85,
       "measured": true
     }
   },
-  "responseHash": "f40210100b26050c48241f63f486b4204c71876931da49ea405e44a39f7e89b1"
+  "responseHash": "328973c7afef265754ee7f134eef5bd9e8de793a047ddc5d23eca52ddbdc1bfa"
 }

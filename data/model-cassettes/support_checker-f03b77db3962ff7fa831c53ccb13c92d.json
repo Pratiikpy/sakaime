@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:13.276Z",
+  "recordedAt": "2026-10-27T13:35:02.461Z",
   "role": "support_checker",
   "requestHash": "f03b77db3962ff7fa831c53ccb13c92de8c32925a66329a0c71098d54f8d1c4a",
   "request": {
@@ -48,20 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'The AUC is 0.945 (0.935-0.954) for 2D and 0.945 (0.936-0.954) for DBT.' This matches the assertion's value of 0.945, interval [0.936, 0.954], and context DBT.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"threshold\"],\n  \"reason\": \"Passage reports two AUC values (0.945 for 2D and 0.945 for DBT) while assertion specifies a single AUC of 0.945 for the Transpara product under FDA 510(k) K221347. Passage does not state a threshold.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states 'The AUC is 0.945 (0.935-0.954) for 2D and 0.945 (0.936-0.954) for DBT.' This matches the assertion's value of 0.945, interval [0.936, 0.954], and context DBT."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "metric",
+        "threshold"
+      ],
+      "reason": "Passage reports two AUC values (0.945 for 2D and 0.945 for DBT) while assertion specifies a single AUC of 0.945 for the Transpara product under FDA 510(k) K221347. Passage does not state a threshold."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
-      "promptTokens": 511,
-      "completionTokens": 112,
+      "promptTokens": 1239,
+      "completionTokens": 258,
       "measured": true
     }
   },
-  "responseHash": "98ee8d3d26e4680ccdd05e7535803d519dd30a0a97ce86eb756df8a59f959ade"
+  "responseHash": "823b2c7d08cef9dafe6b70842d9ba98071db2da8c296345c29cbe5cea0a43d52"
 }

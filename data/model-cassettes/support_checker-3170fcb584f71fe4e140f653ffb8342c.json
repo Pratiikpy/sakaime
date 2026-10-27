@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:11.051Z",
+  "recordedAt": "2026-10-27T13:34:51.705Z",
   "role": "support_checker",
   "requestHash": "3170fcb584f71fe4e140f653ffb8342c7432decec5c1a014bf38f259688fc7f4",
   "request": {
@@ -48,20 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'The AUC is 0.945 (0.935-0.954) for 2D', which matches the assertion's value of 0.945, interval [0.935, 0.954], and context qualifier '2D'.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"subject\", \"metric\"],\n  \"reason\": \"The passage reports AUC values for two products (2D and DBT) but does not identify the Transpara product associated with FDA 510(k) K221347. The passage also reports two AUC metrics (0.945 for 2D and 0.945 for DBT) while the assertion specifies only one metric (auc).\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states 'The AUC is 0.945 (0.935-0.954) for 2D', which matches the assertion's value of 0.945, interval [0.935, 0.954], and context qualifier '2D'."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "subject",
+        "metric"
+      ],
+      "reason": "The passage reports AUC values for two products (2D and DBT) but does not identify the Transpara product associated with FDA 510(k) K221347. The passage also reports two AUC metrics (0.945 for 2D and 0.945 for DBT) while the assertion specifies only one metric (auc)."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 505,
-      "completionTokens": 91,
+      "completionTokens": 109,
       "measured": true
     }
   },
-  "responseHash": "cacc9941d766a7c3dbd3fd1e44917b40f97a89a409092bfe3598dc2695b91fd4"
+  "responseHash": "26ffb88d4f109de755e8fffb9f461c8aab96b793a3e33c33f53ae2cb108dca90"
 }

@@ -70,6 +70,8 @@ export function createApp(svc: SakaimeService, options: AppOptions = {}): Hono {
 
   const fail = (c: Context, error: unknown): Response => {
     const m = mapError(error, env);
+    const wait = m.body.error.detail?.["retryAfterSeconds"];
+    if (m.status === 429 && typeof wait === "number") c.header("Retry-After", String(Math.max(1, Math.ceil(wait))));
     return c.json(m.body, m.status as 400);
   };
   /** Validates the response against its contract schema before sending it. A mismatch is a bug in the service and is reported as one. */
@@ -91,7 +93,7 @@ export function createApp(svc: SakaimeService, options: AppOptions = {}): Hono {
   };
 
   app.onError((error, c) => fail(c, error));
-  app.notFound((c) => c.json({ error: { failure: "INVALID", message: `no such route: ${c.req.method} ${new URL(c.req.url).pathname}`, detail: { reason: "UNKNOWN_ROUTE" } } }, 404));
+  app.notFound((c) => c.json({ error: { failure: "NOT_FOUND", message: `no such route: ${c.req.method} ${new URL(c.req.url).pathname}`, detail: { reason: "UNKNOWN_ROUTE" } } }, 404));
 
   // The Host header must name this machine. A page on another origin that resolves a name to 127.0.0.1 cannot read answers.
   app.use("*", async (c, next) => {
@@ -119,6 +121,9 @@ export function createApp(svc: SakaimeService, options: AppOptions = {}): Hono {
 
   app.get("/api/health", async (c) => ok(c, HealthResponseSchema, await svc.health()));
   app.get("/api/sources", async (c) => ok(c, z.array(SourceRowSchema), await svc.sourceRows()));
+  // A request the product declines (a host off the allowlist, a metadata or private address, a guarded intent) is an answer, not
+  // an error: HTTP 200 with outcome "declined" and the stage-1 reason. Only a malformed body is a 400. The same request twice gets
+  // the stored answer byte for byte; "retry": true asks for a fresh run of one that was declined as retryable.
   app.post("/api/sources/propose", async (c) => {
     const body = ProposeSourceRequestSchema.parse(await json(c));
     return ok(c, OnboardingResultSchema, await svc.proposeSource(body, reviewerOf(c)));
@@ -151,6 +156,8 @@ export function createApp(svc: SakaimeService, options: AppOptions = {}): Hono {
     const out = await svc.dossier(c.req.param("id"), reviewerOf(c));
     return new Response(out.contents, { status: 200, headers: { "content-type": "application/json; charset=utf-8", "x-export-id": out.exportId, "x-export-replayed": String(out.replayed), "content-disposition": `attachment; filename="${c.req.param("id")}.dossier.json"` } });
   });
+  // Anything that parses as JSON is verified. A body that is not a dossier (an array, {}, a number) is a verification result: HTTP 200,
+  // ok false, a failure that names what is missing. Only a body that is not JSON at all is a 400.
   app.post("/api/dossier/verify", async (c) => ok(c, VerifyResponseSchema, await svc.verify(await json(c))));
   app.post("/api/guard", async (c) => {
     const body = GuardRequestSchema.parse(await json(c));

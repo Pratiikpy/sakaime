@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:09:53.243Z",
+  "recordedAt": "2026-10-27T13:31:58.083Z",
   "role": "support_checker",
   "requestHash": "9c766ed38cbf4fecd6beec3891986dda175347e1b8060a497960174f0a60eecc",
   "request": {
@@ -48,23 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"context\"],\n  \"reason\": \"The passage reports ROC AUC and sensitivity for pneumothorax, but specificity is 99.14% (matches the value) while the assertion specifies ROC AUC as the metric and context:pneumothorax as the qualifier. The passage does not report ROC AUC as a specificity result, and the context qualifier in the assertion does not align with the passage's reporting of metrics for pneumothorax.\"}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"context\"],\n  \"reason\": \"The passage reports ROC AUC and sensitivity for pneumothorax, but does not report specificity. The assertion claims specificity of 0.9914 for the INSIGHT CXR product, while the passage provides AUC and sensitivity values, and the context is pneumothorax but the metric does not match.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
         "metric",
         "context"
       ],
-      "reason": "The passage reports ROC AUC and sensitivity for pneumothorax, but specificity is 99.14% (matches the value) while the assertion specifies ROC AUC as the metric and context:pneumothorax as the qualifier. The passage does not report ROC AUC as a specificity result, and the context qualifier in the assertion does not align with the passage's reporting of metrics for pneumothorax."
+      "reason": "The passage reports ROC AUC and sensitivity for pneumothorax, but does not report specificity. The assertion claims specificity of 0.9914 for the INSIGHT CXR product, while the passage provides AUC and sensitivity values, and the context is pneumothorax but the metric does not match."
     },
     "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 507,
-      "completionTokens": 113,
+      "completionTokens": 93,
       "measured": true
     }
   },
-  "responseHash": "befe25f9adf9f494dcc39365ce9f9e9309ac75541ecdc064332a2ff212e2c7a8"
+  "responseHash": "a7b24bc91063703c2468cc67ed9a1b14de2b5cd02e72167739b93281539b6a19"
 }

@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:11:03.139Z",
+  "recordedAt": "2026-10-27T13:32:27.625Z",
   "role": "support_checker",
   "requestHash": "d300d2426a91128110c2b07a946aba2736d0e4c370c67bd571e9c4a4ed417d7d",
   "request": {
@@ -48,20 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'JF CXR-1, 86.0% and 80.0%' where the second value (80.0%) corresponds to specificity, which equals 0.8 proportion.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"population\"],\n  \"reason\": \"The passage reports sensitivity and specificity values for multiple AI models but does not specify the metric as 'specificity' with a value of 0.8, nor does it define the population or version context required by the assertion. The values presented (e.g., 80.0%, 64.0%) are proportions but lack the precise metric labeling and population definition asserted.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states 'JF CXR-1, 86.0% and 80.0%' where the second value (80.0%) corresponds to specificity, which equals 0.8 proportion."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "metric",
+        "population"
+      ],
+      "reason": "The passage reports sensitivity and specificity values for multiple AI models but does not specify the metric as 'specificity' with a value of 0.8, nor does it define the population or version context required by the assertion. The values presented (e.g., 80.0%, 64.0%) are proportions but lack the precise metric labeling and population definition asserted."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 533,
-      "completionTokens": 70,
+      "completionTokens": 107,
       "measured": true
     }
   },
-  "responseHash": "02d74563e1660275ece4a570ff100dedd87ff740ab3d097cc60e76d0a910bb7e"
+  "responseHash": "1b4b6d9c86d42410ab1907c38ba67d2f991fdf3b5d4c86d562f634e06a8922da"
 }

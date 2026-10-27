@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:53.607Z",
+  "recordedAt": "2026-10-27T13:36:16.221Z",
   "role": "support_checker",
   "requestHash": "034cfe860c516099b3904c6139fe3f6487f6bd2947061abc667973d9b7424867",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'human readers 0.816' which matches the assertion's value of 0.816 for the reader_arm qualifiers. The subject is the AI product evaluation context (Transpara) and the metric is AUC as specified.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'human readers 0.816' which matches the assertion's value of 0.816 for the reader_arm qualifiers.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states 'human readers 0.816' which matches the assertion's value of 0.816 for the reader_arm qualifiers. The subject is the AI product evaluation context (Transpara) and the metric is AUC as specified."
+      "reason": "The passage states 'human readers 0.816' which matches the assertion's value of 0.816 for the reader_arm qualifiers."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 506,
-      "completionTokens": 78,
+      "completionTokens": 58,
       "measured": true
     }
   },
-  "responseHash": "046610a8c0e9927ca0a501a5b1d6b430df489ef9a79a2a231aa98ea7dad2f633"
+  "responseHash": "e72283359f609065d28cacc639d6f30d6a1570aa5dff4496db1705766d10aa62"
 }

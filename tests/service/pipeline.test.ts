@@ -153,6 +153,36 @@ describe("EyeArt K200667, the case with a registry study", () => {
     const unassessed = byId("CLM-EA-01").requirements.unassessed.map((u) => u.id);
     expect(unassessed).toEqual(expect.arrayContaining(["REQ-03", "REQ-05"]));
   });
+
+  it("the claim that states the studied population is supported, and says what each dimension rests on", () => {
+    const f = eye().results.find((r) => r.claim.id === "CLM-EA-01")!.finding;
+    expect(f.label).toBe("SUPPORTED_FOR_SCOPE");
+    for (const d of ["product", "version", "population", "setting", "purpose"]) expect(f.mechanicalCoverage.find((m) => m.dimension === d)!.relation, d).toBe("CONTAINED");
+    expect(f.mismatches).toEqual([]);
+    expect(f.expertReviewFlags).toEqual([]);
+    expect(f.degraded).toEqual([]);
+    expect(f.dependsOnFacts.length).toBeGreaterThan(10);
+  });
+
+  it("the same product and the same sentence without the study's exclusions is only partly covered, and the narrower scope names them", () => {
+    const f = eye().results.find((r) => r.claim.id === "CLM-EA-07")!.finding;
+    expect(f.label).toBe("SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
+    expect(f.mechanicalCoverage.find((m) => m.dimension === "population")!.relation).toBe("PARTIAL");
+    const scope = JSON.stringify(f.supportedScope);
+    expect(scope).toMatch(/macular edema/);
+    expect(scope).toMatch(/mydriatic|dilat/);
+  });
+
+  it("patients the indications exclude contradict the evidence, and a figure the paper does not reach goes to a reviewer", () => {
+    const byId = (cid: string) => eye().results.find((r) => r.claim.id === cid)!;
+    expect(byId("CLM-EA-08").finding.label).toBe("CONTRADICTED_BY_SPECIFIED_EVIDENCE");
+    expect(byId("CLM-EA-08").finding.mechanicalCoverage.find((m) => m.dimension === "population")!.relation).toBe("DISJOINT");
+    expect(byId("CLM-EA-09").finding.expertReviewFlags.map((x) => x.ruleId)).toContain("SAK-CONTRARY-UNDISPOSITIONED");
+  });
+
+  it("the packet holds every label there is", () => {
+    expect(new Set(eye().results.map((r) => r.finding.label))).toEqual(new Set(["SUPPORTED_FOR_SCOPE", "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", "CONTRADICTED_BY_SPECIFIED_EVIDENCE", "INSUFFICIENT_EVIDENCE", "REQUIRES_DOMAIN_REVIEW"]));
+  });
 });
 
 describe("Transpara K221347 against a trial that used another version", () => {

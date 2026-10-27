@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:11:58.252Z",
+  "recordedAt": "2026-10-27T13:33:26.444Z",
   "role": "support_checker",
   "requestHash": "b2ffe86e4f6aff1544dcf0c7214abd88dfc0b152d8dee15ab51f5649c9f9c126",
   "request": {
@@ -48,22 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"version\"],\n  \"reason\": \"The passage states the product version as 3.1.4.1, while the assertion specifies version 1.1.4.3.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"subject\", \"version\"],\n  \"reason\": \"The passage states that Lunit INSIGHT CXR version 3.1.4.1 was used, while the assertion claims version 1.1.4.3 for INSIGHT CXR. Additionally, version 1.1.4.3 is associated with MMG, not INSIGHT CXR, in the passage.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
+        "subject",
         "version"
       ],
-      "reason": "The passage states the product version as 3.1.4.1, while the assertion specifies version 1.1.4.3."
+      "reason": "The passage states that Lunit INSIGHT CXR version 3.1.4.1 was used, while the assertion claims version 1.1.4.3 for INSIGHT CXR. Additionally, version 1.1.4.3 is associated with MMG, not INSIGHT CXR, in the passage."
     },
-    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 537,
-      "completionTokens": 57,
+      "completionTokens": 98,
       "measured": true
     }
   },
-  "responseHash": "827876ac0fef94ac62199e733ccc6dfb78f38874ea39116bf7ca0ac463c2b4e7"
+  "responseHash": "af847a0f9593826a745ce5cded3728095e5d05415cbbd21ae4f3ca18760f9c08"
 }

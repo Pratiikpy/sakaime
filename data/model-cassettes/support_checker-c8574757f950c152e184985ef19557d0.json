@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:10:19.666Z",
+  "recordedAt": "2026-10-27T13:32:05.896Z",
   "role": "support_checker",
   "requestHash": "c8574757f950c152e184985ef19557d065ba408737ef68e88e74961543e7d1a6",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports Specificity 90.51% (95% CI: 88.18 - 92.83) for pneumothorax, which matches the assertion's value, unit, interval, and qualifiers.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports Specificity 90.51% (95% CI: 88.18 - 92.83) for pneumothorax, which matches the assertion's value 0.9051, unit proportion, interval [0.8818, 0.9283], and qualifier context:pneumothorax.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage reports Specificity 90.51% (95% CI: 88.18 - 92.83) for pneumothorax, which matches the assertion's value, unit, interval, and qualifiers."
+      "reason": "The passage reports Specificity 90.51% (95% CI: 88.18 - 92.83) for pneumothorax, which matches the assertion's value 0.9051, unit proportion, interval [0.8818, 0.9283], and qualifier context:pneumothorax."
     },
     "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 566,
-      "completionTokens": 77,
+      "completionTokens": 105,
       "measured": true
     }
   },
-  "responseHash": "0455a03098d6597e4969c46de8cbc82314fc87a293adc7b32c5d360890a4a062"
+  "responseHash": "2e29fb6035c599b716535f29dad52324d1ff5c9c540eb09c93969c271f5055cc"
 }

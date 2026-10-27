@@ -35,7 +35,7 @@ import {
 } from "../sources/index.ts";
 import { defaultCardsDir } from "../sources/cards.ts";
 import { sha256Hex } from "../util/canonical.ts";
-import type { ServiceConfig } from "./config.ts";
+import { replaysSources, type ServiceConfig } from "./config.ts";
 
 /** Tries each fetcher in turn; a "no recording" miss moves on, anything else is the answer. */
 export class ChainFetcher implements Fetcher {
@@ -72,11 +72,18 @@ export function createSources(config: ServiceConfig, overrides: { fetcher?: Fetc
   const cards = loadSourceCards(cardsDir);
   const allowlist = allowlistFromCards(cards);
 
-  if (config.sample) {
+  if (replaysSources(config)) {
     const stores: Fetcher[] = [];
     if (existsSync(join(config.dirs.sourceCassette, "index.json"))) stores.push(new CassetteFetcher(CassetteStore.load(config.dirs.sourceCassette), allowlist));
     stores.push(new CassetteFetcher(CassetteStore.load(config.dirs.publicCassette), allowlist));
-    return { layer: createSourceLayer({ mode: "cassette", fetcher: new ChainFetcher(stores), cardsDir, stateDir: config.dirs.state, clock: config.clock }) };
+    if (!config.record) return { layer: createSourceLayer({ mode: "cassette", fetcher: new ChainFetcher(stores), cardsDir, stateDir: config.dirs.state, clock: config.clock }) };
+    // Recording against the committed recordings: a request they answer is replayed, so the evidence does not move. A request they
+    // do not answer (a search the planning model proposed this time) is made live once and recorded, so the sample run can replay it.
+    const store = existsSync(join(config.dirs.sourceCassette, "index.json"))
+      ? CassetteStore.load(config.dirs.sourceCassette)
+      : CassetteStore.create(config.dirs.sourceCassette, "sakaime-case-run-2026-10-27", "Responses made while the Sakaime case pipeline ran against the live public sources. Public records only.");
+    stores.push(new RecordingFetcher(new SafeFetcher({ allowlist }), store, { overwrite: false, ref: "sakaime-service", now: () => config.clock.now() }));
+    return { layer: createSourceLayer({ mode: "cassette", fetcher: new ChainFetcher(stores), cardsDir, stateDir: config.dirs.state, clock: config.clock }), recording: store };
   }
 
   const live = new SafeFetcher({ allowlist });

@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:02.931Z",
+  "recordedAt": "2026-10-27T13:34:48.476Z",
   "role": "support_checker",
   "requestHash": "22480aecd51cf83daffa3a3c67f56d6db7e5dcc9607198d29e5dd4a644786e0d",
   "request": {
@@ -48,20 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states 'Trade/Device Name: Transpara 1.7.2', which directly matches the asserted subject and version.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"version\"],\n  \"reason\": \"The passage states the product is Transpara 1.7.2, but the assertion specifies version 1.7.2 with qualifier device_name_line. The passage does not confirm the FDA 510(k) K221347 regulatory submission context or the specific device_name_line qualifier, making the match insufficient for 'supports'.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage explicitly states 'Trade/Device Name: Transpara 1.7.2', which directly matches the asserted subject and version."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "version"
+      ],
+      "reason": "The passage states the product is Transpara 1.7.2, but the assertion specifies version 1.7.2 with qualifier device_name_line. The passage does not confirm the FDA 510(k) K221347 regulatory submission context or the specific device_name_line qualifier, making the match insufficient for 'supports'."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 526,
-      "completionTokens": 52,
+      "completionTokens": 100,
       "measured": true
     }
   },
-  "responseHash": "190fd7c3f509e9fa666844b80a791672142e42a4f53f02d7fad22c08f5e9f288"
+  "responseHash": "e0551673a925828a598adf80db338202497b03d3afd072422e764d89e4fdc938"
 }

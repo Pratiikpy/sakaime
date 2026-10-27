@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:12:16.042Z",
+  "recordedAt": "2026-10-27T13:34:18.517Z",
   "role": "support_checker",
   "requestHash": "0a5578f82c92a4f16de7441b49c31e084af47e455690f3c4d4b17c45bfdbcd14",
   "request": {
@@ -48,23 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"threshold\"],\n  \"reason\": \"The passage reports specificity as 0.81, not 0.84. The passage does not state a threshold for specificity, while the assertion specifies a value of 0.84 without a stated threshold, creating a metric mismatch. The AUC of 0.84 in the passage refers to a different metric (AUC) than the specificity of 0.84 claimed in the assertion.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\"],\n  \"reason\": \"The passage reports specificity as 0.81 (CI95%: 0.80-0.82), not 0.84. The value 0.84 corresponds to AUC in the passage.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
-        "metric",
-        "threshold"
+        "metric"
       ],
-      "reason": "The passage reports specificity as 0.81, not 0.84. The passage does not state a threshold for specificity, while the assertion specifies a value of 0.84 without a stated threshold, creating a metric mismatch. The AUC of 0.84 in the passage refers to a different metric (AUC) than the specificity of 0.84 claimed in the assertion."
+      "reason": "The passage reports specificity as 0.81 (CI95%: 0.80-0.82), not 0.84. The value 0.84 corresponds to AUC in the passage."
     },
-    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 543,
-      "completionTokens": 113,
+      "completionTokens": 75,
       "measured": true
     }
   },
-  "responseHash": "cdf46e42d24e77c0f066c929daf8ceb57233c524a9a3decae76acfea40885699"
+  "responseHash": "bfc00db3c6b2a25094e44d31a716459a60bfe298ca8a6b70246f8d318f790006"
 }

@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:12:14.385Z",
+  "recordedAt": "2026-10-27T13:34:15.602Z",
   "role": "support_checker",
   "requestHash": "111d0c1bacf4734ffda21ba94cf71859539fd1bc159c64fc9f1b562d2435c09f",
   "request": {
@@ -48,23 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"context\"],\n  \"reason\": \"The passage reports specificity as 0.89 for the AI, but the assertion expects 0.94. The passage is a multi-reader study reporting AUC, sensitivity, and specificity values, which does not match the assertion's context of evaluating a specific AI product's result.specificity in a particular publication.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\"],\n  \"reason\": \"The passage reports the AI's specificity as 0.89 (CI95%: 0.79-0.98), not 0.94. The value 0.94 corresponds to the AI's AUC, not specificity.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
-        "metric",
-        "context"
+        "metric"
       ],
-      "reason": "The passage reports specificity as 0.89 for the AI, but the assertion expects 0.94. The passage is a multi-reader study reporting AUC, sensitivity, and specificity values, which does not match the assertion's context of evaluating a specific AI product's result.specificity in a particular publication."
+      "reason": "The passage reports the AI's specificity as 0.89 (CI95%: 0.79-0.98), not 0.94. The value 0.94 corresponds to the AI's AUC, not specificity."
     },
-    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 619,
-      "completionTokens": 95,
+      "completionTokens": 81,
       "measured": true
     }
   },
-  "responseHash": "ad59f95217b833ae777a534a48f71581e6f25446fe3d21477b08659f90ea3089"
+  "responseHash": "336c44dfc229dbd623e7cc061b0cad2d72f9a0cdd4551507c9f28b960303e452"
 }

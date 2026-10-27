@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "failureshift",
-    "startedAt": "2026-10-27T12:57:26.550Z",
+    "startedAt": "2026-10-27T13:49:51.188Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
@@ -9,7 +9,7 @@
     ],
     "description": "FailureShift: fault injection through the real ports. Share of drills ending in the correct state; each drill's expected and observed state is listed.",
     "adapterHash": "1415c80ca352587a",
-    "resultsHash": "483bec49ba2f9c8f"
+    "resultsHash": "25d1373ed2699546"
   },
   "summaries": {
     "drills": {
@@ -78,9 +78,9 @@
       "timeline": {
         "controlApiUp": "FORBIDDEN",
         "apiStopped": "UNAVAILABLE",
-        "msToFailure": 5,
+        "msToFailure": 4,
         "classifiedHealth": "UNAVAILABLE",
-        "restoredAfterMs": 12364
+        "restoredAfterMs": 12409
       }
     },
     "scoutGuard": {
@@ -1240,7 +1240,7 @@
       "fault": "the real local Zetaris API container (sakaime-zetaris-api-1) is stopped",
       "surface": "ZetarisPort against the real stack",
       "expected": "UNAVAILABLE (with the API up the same port reports FORBIDDEN for the unknown key, so an outage is distinguishable from a refusal); the stack answers SELECT 1 again afterwards",
-      "observed": "API up: FORBIDDEN; API stopped: UNAVAILABLE after 5 ms; classified UNAVAILABLE; restored after 12364 ms",
+      "observed": "API up: FORBIDDEN; API stopped: UNAVAILABLE after 4 ms; classified UNAVAILABLE; restored after 12409 ms",
       "pass": true
     },
     {

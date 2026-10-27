@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:50.818Z",
+  "recordedAt": "2026-10-27T13:35:55.752Z",
   "role": "support_checker",
   "requestHash": "e0f513e0183fa27883cd7c7b37f17027f6c02e52b405f86d9eacc9aa1cbf31c4",
   "request": {
@@ -48,23 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"subject\", \"context\"],\n  \"reason\": \"The passage reports sensitivity of 'the unaided HR' (human reader) at 89%, not the AI product Transpara. The assertion concerns the AI product's sensitivity, but the passage describes human reader performance without AI assistance.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"subject\", \"context\"],\n  \"reason\": \"The passage reports sensitivity of the unaided human reader (HR) as 89%, not the AI product Transpara. The assertion concerns the AI product's sensitivity, but the passage describes the unaided human reader's performance.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
         "subject",
         "context"
       ],
-      "reason": "The passage reports sensitivity of 'the unaided HR' (human reader) at 89%, not the AI product Transpara. The assertion concerns the AI product's sensitivity, but the passage describes human reader performance without AI assistance."
+      "reason": "The passage reports sensitivity of the unaided human reader (HR) as 89%, not the AI product Transpara. The assertion concerns the AI product's sensitivity, but the passage describes the unaided human reader's performance."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 476,
-      "completionTokens": 77,
+      "completionTokens": 76,
       "measured": true
     }
   },
-  "responseHash": "2680ab604082d6886948490b874143586c23387889cab192cbb537a490b23d67"
+  "responseHash": "62fb71f0436f5634811f1cd19f936e43250ab2a9c8da9b6e606908e9cc6a9a15"
 }

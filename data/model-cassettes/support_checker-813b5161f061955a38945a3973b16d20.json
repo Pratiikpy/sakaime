@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:08:24.286Z",
+  "recordedAt": "2026-10-27T13:31:23.195Z",
   "role": "support_checker",
   "requestHash": "813b5161f061955a38945a3973b16d209a3252eb7b2520910bd1fd12324567e1",
   "request": {
@@ -48,20 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states specificity of the AI system for mtmDR as 85.0% (95% CI, 82.6%-87.4%), which matches the asserted value of 0.85 proportion.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"threshold\"],\n  \"reason\": \"The passage reports specificity values of 85.0% for mtmDR and 89.0% for vtDR, which differ from the asserted value of 0.85 (85%). Additionally, the passage does not specify a threshold for the specificity metric; it only reports observed values with confidence intervals.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states specificity of the AI system for mtmDR as 85.0% (95% CI, 82.6%-87.4%), which matches the asserted value of 0.85 proportion."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "metric",
+        "threshold"
+      ],
+      "reason": "The passage reports specificity values of 85.0% for mtmDR and 89.0% for vtDR, which differ from the asserted value of 0.85 (85%). Additionally, the passage does not specify a threshold for the specificity metric; it only reports observed values with confidence intervals."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 560,
-      "completionTokens": 72,
+      "completionTokens": 97,
       "measured": true
     }
   },
-  "responseHash": "6ca7ffc5b3dbbd5efd43c37de970207fd01e00f9608a8200919afcd98354690e"
+  "responseHash": "9226a75b03cb61b6450f446598c5b1d8c374ae7b3dead068b886aaf00f8de34f"
 }

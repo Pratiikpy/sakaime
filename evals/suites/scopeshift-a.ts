@@ -68,8 +68,14 @@ function w1Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem): Case[] {
     required.push("version");
   }
   const authAge = s.population?.age;
-  if (authAge && (authAge.min !== undefined || authAge.max !== undefined)) {
-    base["population"] = { age: authAge };
+  // The positive control states what the authorization states about the population, conditions and exclusions included. The
+  // extraction layer reads both from the indications, and a claim that is silent on a condition the evidence names is
+  // undecided, so a control that copied only the age would measure the omission rather than the rule.
+  const statedAge = authAge && (authAge.min !== undefined || authAge.max !== undefined) ? authAge : undefined;
+  const conditions = s.population?.conditions ?? [];
+  const exclusions = s.population?.exclusions ?? [];
+  if (statedAge || conditions.length || exclusions.length) {
+    base["population"] = { ...(statedAge ? { age: statedAge } : {}), ...(conditions.length ? { conditions } : {}), ...(exclusions.length ? { exclusions } : {}) };
     required.push("population");
   }
   if (s.settings?.length) {
@@ -96,7 +102,7 @@ function w1Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem): Case[] {
     mk("version-unconfirmed", "version", "INSUFFICIENT_EVIDENCE", noVersion);
   }
   if (authAge?.min !== undefined && authAge.min > 5) {
-    mk("age-min-lowered", "population", "CONTRADICTED_BY_SPECIFIED_EVIDENCE", { ...base, population: { age: { ...authAge, min: authAge.min - 5 } } });
+    mk("age-min-lowered", "population", "CONTRADICTED_BY_SPECIFIED_EVIDENCE", { ...base, population: { ...(base["population"] as object), age: { ...authAge, min: authAge.min - 5 } } });
   }
   if (s.settings?.length) {
     const covered = s.settings.filter((x) => settingsH.has(x));
@@ -127,11 +133,11 @@ function w1Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem): Case[] {
   return cases;
 }
 
-function w2Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem, study: EvidenceItem): Case[] {
+function w2Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem, study: EvidenceItem): { cases: Case[]; skipped?: string } {
   const cases: Case[] = [];
   const product = `device:fda:${p.id}`;
   const headline = study.results.find((r) => r.ci && ["sensitivity", "auc", "ppa", "specificity"].includes(r.metric));
-  if (!headline || !headline.ci) return cases;
+  if (!headline || !headline.ci) return { cases, skipped: "the study item has no result with a confidence interval, so no threshold case can be built" };
   const [lo, hi] = headline.ci;
   const adequateStudy: EvidenceItem = { ...study, adequate: true };
   const claimBase: Record<string, unknown> = { product };
@@ -141,8 +147,20 @@ function w2Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem, study: Eviden
     claimBase["versions"] = study.scope.versions.filter((v) => auth.scope.versions?.includes(v));
     required.push("version");
   }
-  if (studyAge?.min !== undefined) {
-    claimBase["population"] = { age: studyAge };
+  // The claim states the population the study states: its age, conditions and exclusions, copied. The authorization's exclusions
+  // apply to it as well, because the evidence the claim stands on is limited by both records. A claim that is silent on the
+  // population does not require it.
+  const conditions = study.scope.population?.conditions ?? [];
+  const exclusions = [...new Set([...(auth.scope.population?.exclusions ?? []), ...(study.scope.population?.exclusions ?? [])])];
+  const studyStatesPopulation = studyAge?.min !== undefined || conditions.length > 0 || (study.scope.population?.exclusions?.length ?? 0) > 0;
+  // The authorization names a condition the study does not. A claim that names it finds the study's results unattached to it
+  // (they are reported for a population that does not say it); a claim that does not name it leaves the population undecided.
+  // No claim can be SUPPORTED_FOR_SCOPE in that world, so the world has no positive control and is not built.
+  if (studyStatesPopulation && (auth.scope.population?.conditions?.length ?? 0) > 0 && conditions.length === 0) {
+    return { cases, skipped: "the authorization names the condition the device is for and the study record does not state one, so no claim can be tied to both; there is no positive control to mutate" };
+  }
+  if (studyStatesPopulation) {
+    claimBase["population"] = { ...(studyAge?.min !== undefined ? { age: studyAge } : {}), ...(conditions.length ? { conditions } : {}), ...(exclusions.length ? { exclusions } : {}) };
     required.push("population");
   }
   const hasVersions = Array.isArray(claimBase["versions"]) && (claimBase["versions"] as string[]).length > 0;
@@ -162,7 +180,7 @@ function w2Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem, study: Eviden
   mk("study-source-unavailable", "source", "INSUFFICIENT_EVIDENCE", { ...claimBase, performance: perf(Math.max(0, lo - 0.02)) }, { options: { ...options, sourceHealth: { study: "UNAVAILABLE" } } });
   if (studyAge?.min !== undefined && studyAge.min > 5) {
     const authStates = auth.scope.population?.age?.min !== undefined;
-    mk("age-min-lowered", "population", authStates ? "CONTRADICTED_BY_SPECIFIED_EVIDENCE" : "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", { ...claimBase, population: { age: { ...studyAge, min: studyAge.min - 5 } }, performance: perf(Math.max(0, lo - 0.02)) });
+    mk("age-min-lowered", "population", authStates ? "CONTRADICTED_BY_SPECIFIED_EVIDENCE" : "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", { ...claimBase, population: { ...(claimBase["population"] as object), age: { ...studyAge, min: studyAge.min - 5 } }, performance: perf(Math.max(0, lo - 0.02)) });
   }
   if (hasVersions) mk("version-bump", "version", "INSUFFICIENT_EVIDENCE", { ...claimBase, versions: ["99.9"], performance: perf(Math.max(0, lo - 0.02)) });
   const decision = auth.scope.timing?.from;
@@ -177,7 +195,7 @@ function w2Cases(p: (typeof PRODUCTS)[number], auth: EvidenceItem, study: Eviden
       { contestable: true, items: [auth, dated], options: { ...options, requiredDimensions: [...required, "timing"] } },
     );
   }
-  return cases;
+  return { cases };
 }
 
 async function main(): Promise<void> {
@@ -193,8 +211,8 @@ async function main(): Promise<void> {
     cases.push(...w1Cases(p, auth));
     if (study) {
       const w2 = w2Cases(p, auth, study);
-      if (w2.length === 0) skipped.push({ product: p.id, world: "W2", reason: "the study item has no result with a confidence interval, so no threshold case can be built" });
-      cases.push(...w2);
+      if (w2.skipped) skipped.push({ product: p.id, world: "W2", reason: w2.skipped });
+      cases.push(...w2.cases);
     } else skipped.push({ product: p.id, world: "W2", reason: "no study item" });
   }
 

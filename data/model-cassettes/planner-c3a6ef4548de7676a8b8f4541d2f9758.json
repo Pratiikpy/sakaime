@@ -1,0 +1,108 @@
+{
+  "schema": "sakaime.model-cassette/1",
+  "recordedAt": "2026-10-27T13:30:23.147Z",
+  "role": "planner",
+  "requestHash": "c3a6ef4548de7676a8b8f4541d2f975839efd671645191bce9958592a7198d49",
+  "request": {
+    "system": "You plan evidence searches for a hospital reviewer. You choose among allowed searches only; you cannot add any other action.\nAllowed sources: clinicaltrials-v2, pubmed-eutils, europepmc. A search names the vendor and the product exactly as given and may add one plain condition phrase.\nSuggest at most two searches that would find studies or papers the planned searches could miss, and list the sub-questions the evidence must answer. Reply with JSON only.",
+    "user": "{\"vendor\":\"Eyenuk\",\"vendorAliases\":[\"Eyenuk, Inc.\"],\"product\":\"EyeArt\",\"condition\":\"diabetic retinopathy\",\"submission\":\"K200667\",\"alreadyPlanned\":[{\"source\":\"openfda-510k\",\"query\":{\"k_number\":\"K200667\"}},{\"source\":\"openfda-udi\",\"query\":{\"submission_number\":\"K200667\"}},{\"source\":\"clinicaltrials-v2\",\"query\":{\"vendor\":\"Eyenuk\",\"product\":\"EyeArt\",\"condition\":\"diabetic retinopathy\"}},{\"source\":\"pubmed-eutils\",\"query\":{\"vendor\":\"Eyenuk\",\"product\":\"EyeArt\",\"condition\":\"diabetic retinopathy\"}},{\"source\":\"europepmc\",\"query\":{\"vendor\":\"Eyenuk\",\"product\":\"EyeArt\",\"condition\":\"diabetic retinopathy\"}}],\"claimedUses\":[{\"id\":\"CASE-2026-014.intended\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":18},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\"],\"purpose\":\"detection_aid\",\"timing\":{\"from\":\"2027-01-15\"}},\"performance\":{\"metric\":\"sensitivity\",\"atLeast\":0.85}},{\"id\":\"CLM-EA-01\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\",\"Persistent visual impairment in one or both eyes;\",\"History of macular edema or retinal vascular (vein or artery) occlusion;\",\"History of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;\",\"Subject is contraindicated for fundus photography (for example, has light sensitivity);\",\"Subject has contraindications for mydriatic medications or is unwilling or unable to dilate;\",\"Subject is currently enrolled in an interventional study of an investigational device or drug; or\",\"Subject has a condition or is in a situation which in the opinion of the Investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs.\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-02\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":0},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-03\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"emergency_department\",\"inpatient_ward\"],\"purpose\":\"triage_prioritisation\"},\"performance\":null},{\"id\":\"CLM-EA-04\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"3.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-05\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-06\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"diagnosis\"},\"performance\":null},{\"id\":\"CLM-EA-07\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-08\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-09\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic retinopathy\"],\"exclusions\":[\"previously diagnosed with more than mild diabetic retinopathy\"]},\"settings\":[\"primary_care\",\"eye_care\"],\"purpose\":\"detection_aid\"},\"performance\":{\"metric\":\"sensitivity\",\"atLeast\":0.96}}]}",
+    "jsonSchema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subQuestions",
+        "extraSearches"
+      ],
+      "properties": {
+        "subQuestions": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        },
+        "extraSearches": {
+          "type": "array",
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "vendor",
+              "product",
+              "reason"
+            ],
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "clinicaltrials-v2",
+                  "pubmed-eutils",
+                  "europepmc"
+                ]
+              },
+              "vendor": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "product": {
+                "type": "string",
+                "maxLength": 80
+              },
+              "condition": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "reason": {
+                "type": "string",
+                "maxLength": 200
+              }
+            }
+          }
+        }
+      }
+    },
+    "maxTokens": 900,
+    "dataClass": "public"
+  },
+  "response": {
+    "text": "{\n  \"subQuestions\": [\n    \"What is the analytical and clinical performance of EyeArt version 2.1.0 and 3.0 in detecting diabetic retinopathy across the specified age ranges and exclusion criteria?\",\n    \"How does the sensitivity and specificity of EyeArt compare to the claimed performance metrics (sensitivity at least 0.85, at least 0.96) in real-world primary care and eye care settings?\",\n    \"What are the published study results or clinical trial data for EyeArt regarding its use as a detection aid and triage prioritisation tool in diabetic retinopathy screening?\",\n    \"Are there any ongoing or completed clinical trials registered in ClinicalTrials.gov that evaluate EyeArt's performance in the specified populations and settings?\",\n    \"What does the published literature say about the accuracy of EyeArt in detecting more than mild diabetic retinopathy versus referable diabetic retinopathy?\",\n    \"How does the device performance vary across different clinical settings (primary care, eye care, emergency department, inpatient ward) as claimed in the submitted use cases?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"Eyenuk\",\n      \"product\": \"EyeArt\",\n      \"condition\": \"diabetic retinopathy\",\n      \"reason\": \"Identify any completed or ongoing clinical trials that evaluate EyeArt's diagnostic performance in the specified age and exclusion criteria.\"\n    },\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"Eyenuk\",\n      \"product\": \"EyeArt\",\n      \"condition\": \"sensitivity specificity diabetic retinopathy\",\n      \"reason\": \"Retrieve peer-reviewed studies that report sensitivity, specificity, and other accuracy metrics for EyeArt in diabetic retinopathy detection.\"\n    }\n  ]\n}",
+    "json": {
+      "subQuestions": [
+        "What is the analytical and clinical performance of EyeArt version 2.1.0 and 3.0 in detecting diabetic retinopathy across the specified age ranges and exclusion criteria?",
+        "How does the sensitivity and specificity of EyeArt compare to the claimed performance metrics (sensitivity at least 0.85, at least 0.96) in real-world primary care and eye care settings?",
+        "What are the published study results or clinical trial data for EyeArt regarding its use as a detection aid and triage prioritisation tool in diabetic retinopathy screening?",
+        "Are there any ongoing or completed clinical trials registered in ClinicalTrials.gov that evaluate EyeArt's performance in the specified populations and settings?",
+        "What does the published literature say about the accuracy of EyeArt in detecting more than mild diabetic retinopathy versus referable diabetic retinopathy?",
+        "How does the device performance vary across different clinical settings (primary care, eye care, emergency department, inpatient ward) as claimed in the submitted use cases?"
+      ],
+      "extraSearches": [
+        {
+          "source": "clinicaltrials-v2",
+          "vendor": "Eyenuk",
+          "product": "EyeArt",
+          "condition": "diabetic retinopathy",
+          "reason": "Identify any completed or ongoing clinical trials that evaluate EyeArt's diagnostic performance in the specified age and exclusion criteria."
+        },
+        {
+          "source": "pubmed-eutils",
+          "vendor": "Eyenuk",
+          "product": "EyeArt",
+          "condition": "sensitivity specificity diabetic retinopathy",
+          "reason": "Retrieve peer-reviewed studies that report sensitivity, specificity, and other accuracy metrics for EyeArt in diabetic retinopathy detection."
+        }
+      ]
+    },
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "recordedFrom": "nvidia",
+    "usage": {
+      "promptTokens": 3730,
+      "completionTokens": 686,
+      "measured": true
+    }
+  },
+  "responseHash": "9b2de2bd0e91d8d1c7383b7456c89b088e40a37ad5068a332dbab0086b5e4c1e"
+}

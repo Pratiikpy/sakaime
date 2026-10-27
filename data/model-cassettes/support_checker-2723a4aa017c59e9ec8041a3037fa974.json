@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:14.976Z",
+  "recordedAt": "2026-10-27T13:35:14.832Z",
   "role": "support_checker",
   "requestHash": "2723a4aa017c59e9ec8041a3037fa97438f8fe5f0dad0dc07fa76e1ca01e0340",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'For 2D, the sensitivity is 95.0% (93.5-96.4) at 0.30 FP/image.' This matches the assertion's subject (Transpara product for 2D), metric (sensitivity), value (0.95 proportion), interval ([0.935, 0.964]), and context qualifier (2D).\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that for 2D, the sensitivity is 95.0% (93.5-96.4) at 0.30 FP/image, which matches the assertion's value of 0.95 proportion, interval [0.935, 0.964], and context 2D.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states 'For 2D, the sensitivity is 95.0% (93.5-96.4) at 0.30 FP/image.' This matches the assertion's subject (Transpara product for 2D), metric (sensitivity), value (0.95 proportion), interval ([0.935, 0.964]), and context qualifier (2D)."
+      "reason": "The passage states that for 2D, the sensitivity is 95.0% (93.5-96.4) at 0.30 FP/image, which matches the assertion's value of 0.95 proportion, interval [0.935, 0.964], and context 2D."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 488,
-      "completionTokens": 113,
+      "completionTokens": 97,
       "measured": true
     }
   },
-  "responseHash": "25a988c245e219975e8c14b83dec30fca4d8a69244de8b06a9b569cb9494933b"
+  "responseHash": "f2728c4e042d0cfbd7d9b92622d70e49a5fc7a4b5a6feac7dc13ab5932545a4b"
 }

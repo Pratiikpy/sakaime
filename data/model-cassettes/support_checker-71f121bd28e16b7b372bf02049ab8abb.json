@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:14:29.218Z",
+  "recordedAt": "2026-10-27T13:37:04.326Z",
   "role": "support_checker",
   "requestHash": "71f121bd28e16b7b372bf02049ab8abb995677c2ae822f2cd35c8ffc50baf6de",
   "request": {
@@ -48,20 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states sensitivity was 94.9% (95% CI: 81.4-94.1), which matches the assertion's value, unit, and interval.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"threshold\"],\n  \"reason\": \"The passage reports sensitivity as 94.9% (95% CI: 81.4-94.1) for classifying as intermediate or elevated risk, but the assertion's interval [0.814, 0.941] has an upper bound of 0.941, which does not match the reported upper bound of 0.949 (94.9%). This indicates a threshold or reporting inconsistency.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states sensitivity was 94.9% (95% CI: 81.4-94.1), which matches the assertion's value, unit, and interval."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "threshold"
+      ],
+      "reason": "The passage reports sensitivity as 94.9% (95% CI: 81.4-94.1) for classifying as intermediate or elevated risk, but the assertion's interval [0.814, 0.941] has an upper bound of 0.941, which does not match the reported upper bound of 0.949 (94.9%). This indicates a threshold or reporting inconsistency."
     },
-    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 565,
-      "completionTokens": 64,
+      "completionTokens": 123,
       "measured": true
     }
   },
-  "responseHash": "d8a2249c6fea8ebb33f9e4217651463c4df8ba1192d592fbe1f41a0b70ec88a1"
+  "responseHash": "5260c2f2a520b4599079bbc09f0ec66970aac690e2e29d730ba231754301e48f"
 }

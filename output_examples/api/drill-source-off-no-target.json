@@ -1,0 +1,14 @@
+{
+  "request": "POST /api/cases/eyeart-k200667/drill",
+  "status": 400,
+  "body": {
+    "error": {
+      "failure": "INVALID",
+      "message": "the source_off drill needs a target: name the evidence type (authorization, study, requirement), the source id or a family (fda, registry, literature, hospital) to break",
+      "detail": {
+        "reason": "TARGET_REQUIRED",
+        "drill": "source_off"
+      }
+    }
+  }
+}

@@ -27,6 +27,7 @@ import { baseCompileOptions } from "./bridge.ts";
 import type { ServiceConfig } from "./config.ts";
 import type { StoredRecord } from "./evidence.ts";
 import { assertionTypesOf } from "./reader.ts";
+import { chainOf, supersessionReason, type ArchivedChain } from "./history.ts";
 import type { WorldFact } from "./world.ts";
 
 /** Seed for the committed sample dossiers, so the same inputs give the same bytes. A demo key identifies no one. */
@@ -142,6 +143,8 @@ export interface BundleInput {
   signer: DossierSigner;
   decisions: DecisionEntry[];
   links: Link[];
+  /** Findings that a re-run replaced after a reviewer decided on them. They are listed as superseded, with their evidence. */
+  archive?: readonly ArchivedChain[];
 }
 
 export function buildCaseDossier(input: BundleInput): DossierBundle {
@@ -150,22 +153,38 @@ export function buildCaseDossier(input: BundleInput): DossierBundle {
   const asm = wb.assembled;
   if (!asm) throw new Error("the investigation produced no assembled evidence to build a dossier from");
 
-  // Findings: the current ones, with the older finding each revision replaced placed before it.
-  const revisions = run.history.filter((h) => h.kind === "revision");
+  // Findings, per claim in order: any finding a re-run replaced after a decision, the older finding a revision replaced, then the
+  // current one. Each links to the one before it, so history is a chain and nothing is rewritten.
+  const archive = input.archive ?? [];
   const findings: Finding[] = [];
   const compilerRuns: { findingId: string; evidenceItemIds: string[] }[] = [];
   for (const r of run.results) {
-    const rev = revisions.find((h) => h.newer.id === r.finding.id);
-    if (rev) {
-      findings.push(rev.older, rev.newer);
-      compilerRuns.push({ findingId: rev.older.id, evidenceItemIds: rev.olderEvidenceIds }, { findingId: rev.newer.id, evidenceItemIds: r.evidence.map((i) => i.id) });
-    } else {
-      findings.push(r.finding);
-      compilerRuns.push({ findingId: r.finding.id, evidenceItemIds: r.evidence.map((i) => i.id) });
-    }
+    const chain = [...archive.filter((c) => c.claimId === r.claim.id).flatMap((c) => c.members), ...chainOf(run, r.claim.id)];
+    chain.forEach((m, i) => {
+      const before = chain[i - 1];
+      const f = before && m.finding.supersedes === undefined ? { ...m.finding, supersedes: before.finding.id, supersedesReason: supersessionReason(before.finding, m.finding) } : m.finding;
+      findings.push(f);
+      compilerRuns.push({ findingId: f.id, evidenceItemIds: m.evidenceItemIds });
+    });
   }
 
+  // What the older findings were computed from is kept beside what the current ones were computed from.
+  const earlierRuns = [...new Set(archive.map((c) => c.run))].filter((r) => r !== run);
   const items = new Map<string, EvidenceItem>();
+  const earlierAnchors = new Map<string, (typeof asm.anchors)[number]>();
+  const earlierAssertions = new Map<string, (typeof asm.assertions)[number]>();
+  const earlierRecords = new Map<string, StoredRecord>();
+  const earlierFacts = new Map<string, WorldFact>();
+  for (const old of earlierRuns) {
+    const a = old.wb.assembled;
+    if (!a) continue;
+    for (const i of a.items) items.set(i.id, i);
+    for (const r of old.results) for (const i of r.evidence) items.set(i.id, i);
+    for (const x of a.anchors) earlierAnchors.set(x.id, x);
+    for (const x of a.assertions) earlierAssertions.set(x.id, x);
+    for (const e of old.wb.extracted.values()) earlierRecords.set(e.stored.id, e.stored);
+    for (const f of old.wb.world.facts) earlierFacts.set(`${f.factId}|${f.assertionId}`, f);
+  }
   for (const i of asm.items) items.set(i.id, i);
   for (const r of run.results) for (const i of r.evidence) items.set(i.id, i);
 
@@ -175,8 +194,8 @@ export function buildCaseDossier(input: BundleInput): DossierBundle {
       .map((i) => ({ id: i.id, claimId: r.claim.id, description: (i.limitations[0] ?? i.id).slice(0, 400), evidenceItemId: i.id, anchorIds: [] as string[] })),
   );
 
-  const records = [...wb.extracted.values()].map((e) => e.stored);
-  const snapshots = records.map((s: StoredRecord) =>
+  const records = new Map([...earlierRecords, ...[...wb.extracted.values()].map((e) => [e.stored.id, e.stored] as const)]);
+  const snapshots = [...records.values()].map((s: StoredRecord) =>
     snapshotFromRecord({
       record: { id: s.id, sourceId: s.sourceId, retrievedAt: s.retrievedAt, ...(s.sourcePublishedAt ? { sourcePublishedAt: s.sourcePublishedAt } : {}), requestHash: s.requestHash, contentHash: s.contentHash, schemaVersion: s.schemaVersion, license: s.license },
       text: s.text,
@@ -184,7 +203,7 @@ export function buildCaseDossier(input: BundleInput): DossierBundle {
     }),
   );
 
-  const facts = factsOf(wb.world.facts);
+  const facts = factsOf([...earlierFacts.values(), ...wb.world.facts]);
   const used = new Set<string>([...snapshots.map((s) => s.sourceId), ...facts.map((f) => f.sourceId)]);
   if (wb.federation.status === "ok") used.add("hospital-policy");
   const sources = sourceRows(run, used);
@@ -230,8 +249,8 @@ export function buildCaseDossier(input: BundleInput): DossierBundle {
       compilerRuns,
       requirements,
       evidenceItems: [...items.values()],
-      anchors: asm.anchors,
-      assertions: asm.assertions,
+      anchors: [...new Map([...earlierAnchors, ...asm.anchors.map((a) => [a.id, a] as const)]).values()],
+      assertions: [...new Map([...earlierAssertions, ...asm.assertions.map((a) => [a.id, a] as const)]).values()],
       links: input.links,
       facts,
       snapshots,

@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:10:05.842Z",
+  "recordedAt": "2026-10-27T13:31:59.821Z",
   "role": "support_checker",
   "requestHash": "b34222529b12503b96d5b3082c6d5504ac9d49704d7ce44709cf81a0baed068e",
   "request": {
@@ -48,20 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports 96.08% sensitivity for pneumothorax, which matches the asserted value of 0.9608 proportion for the same context.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"threshold\"],\n  \"reason\": \"The passage reports ROC AUC and specificity, not sensitivity as the assertion claims. The passage states 96.08% sensitivity but does not report a sensitivity threshold; it reports ROC AUC and specificity instead.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage reports 96.08% sensitivity for pneumothorax, which matches the asserted value of 0.9608 proportion for the same context."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "metric",
+        "threshold"
+      ],
+      "reason": "The passage reports ROC AUC and specificity, not sensitivity as the assertion claims. The passage states 96.08% sensitivity but does not report a sensitivity threshold; it reports ROC AUC and specificity instead."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 506,
-      "completionTokens": 60,
+      "completionTokens": 72,
       "measured": true
     }
   },
-  "responseHash": "0d1033eac93e374e7741aa821979e30900c3e07efde3f04e263da34f7c7e62f2"
+  "responseHash": "c047476de1ff0a3cdba0ad0b856b66edadb2a9f87f3cd9e7e7b1e6df097b687e"
 }

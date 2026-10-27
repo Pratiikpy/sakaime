@@ -3,37 +3,9 @@
   "status": 200,
   "body": {
     "before": {
-      "id": "fnd_faa624de5823f641b4640c895f709298",
+      "id": "fnd_967d4211965f59d347ab66c1f9711ede",
       "claimId": "CLM-EA-01",
-      "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
-      "supportedScope": {
-        "product": "device:fda:K200667",
-        "versions": [
-          "2.1.0"
-        ],
-        "population": {
-          "age": {
-            "min": 18
-          },
-          "conditions": [
-            "diabetic retinopathy"
-          ],
-          "exclusions": [
-            "history of macular edema or retinal vascular (vein or artery) occlusion;",
-            "history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;",
-            "persistent visual impairment in one or both eyes;",
-            "subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs.",
-            "subject has contraindications for mydriatic medications or is unwilling or unable to dilate;",
-            "subject is contraindicated for fundus photography (for example, has light sensitivity);",
-            "subject is currently enrolled in an interventional study of an investigational device or drug; or"
-          ]
-        },
-        "settings": [
-          "eye_care",
-          "primary_care"
-        ],
-        "purpose": "detection_aid"
-      },
+      "label": "SUPPORTED_FOR_SCOPE",
       "mechanicalCoverage": [
         {
           "dimension": "product",
@@ -58,8 +30,8 @@
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
             "anc_65854d03fc25cabc88e5",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_76ee16f126cfc0540eb2",
             "anc_7bcacbf08474eb80c758",
@@ -80,6 +52,7 @@
             "anc_e5e063c38ca3b35feae9",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
@@ -105,8 +78,8 @@
             "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
             "anc_9121a3ef73171435f91a",
@@ -118,6 +91,7 @@
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
@@ -128,9 +102,9 @@
         },
         {
           "dimension": "population",
-          "relation": "PARTIAL",
-          "claimed": "ages 18 and above; conditions: diabetic retinopathy",
-          "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+          "relation": "CONTAINED",
+          "claimed": "ages 22 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or",
+          "established": "authorization record: conditions: diabetes mellitus; excluding: history of more than mild diabetic retinopathy; study: ages 18 and above; conditions: diabetic eye problem, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or",
           "anchorIds": [
             "anc_1232a9143dd65848b568",
             "anc_1e8a72030d960a8ad45e",
@@ -141,6 +115,7 @@
             "anc_390c2563a7afd18e7588",
             "anc_45d15fdc5e0eeee4ed34",
             "anc_462692aadc28ef30f0f6",
+            "anc_4740ea4717571e5ac8a5",
             "anc_4cc8be1a7c9ad5f3cd34",
             "anc_53eedca52991c2cab31a",
             "anc_55b22af8a49082419e4c",
@@ -148,8 +123,8 @@
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
             "anc_65854d03fc25cabc88e5",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_76ee16f126cfc0540eb2",
             "anc_7bcacbf08474eb80c758",
@@ -160,15 +135,20 @@
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
             "anc_be0ec3944cb0820161a2",
+            "anc_c2d801903bd388a2c956",
+            "anc_c7791085dddb0c340655",
             "anc_c984a3350728b10dcc8a",
+            "anc_d4b68776e58b44cd9a99",
             "anc_df6219ef30b9d17766df",
             "anc_e5e063c38ca3b35feae9",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
             "ev-ctgov-study-dodjhgnind-study",
+            "ev-fda-summary-bfcphhfchh-authorization",
             "ev-fda-summary-bfcphhfchh-study",
             "ev-pubmed-article-homjefkphi-study"
           ]
@@ -188,8 +168,8 @@
             "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
             "anc_9121a3ef73171435f91a",
@@ -201,6 +181,7 @@
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
@@ -239,56 +220,8 @@
         }
       ],
       "expertReviewFlags": [],
-      "mismatches": [
-        {
-          "dimension": "population",
-          "relation": "PARTIAL",
-          "claimed": "ages 18 and above; conditions: diabetic retinopathy",
-          "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
-          "anchorIds": [
-            "anc_1232a9143dd65848b568",
-            "anc_1e8a72030d960a8ad45e",
-            "anc_234a910d4d2fade6cdbc",
-            "anc_2b77b3244ae97ac9ae62",
-            "anc_308101da491e88521805",
-            "anc_3537cf6977af71b02153",
-            "anc_390c2563a7afd18e7588",
-            "anc_45d15fdc5e0eeee4ed34",
-            "anc_462692aadc28ef30f0f6",
-            "anc_4cc8be1a7c9ad5f3cd34",
-            "anc_53eedca52991c2cab31a",
-            "anc_55b22af8a49082419e4c",
-            "anc_5cb05e32fc3d8cfc1a16",
-            "anc_5e16728c90c8aad74263",
-            "anc_64d09a9a8cdf345618ae",
-            "anc_65854d03fc25cabc88e5",
-            "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
-            "anc_705f0766e0e0aa843f2e",
-            "anc_76ee16f126cfc0540eb2",
-            "anc_7bcacbf08474eb80c758",
-            "anc_7c3009d98bc3bbd1c830",
-            "anc_8ad9255cf37c34a27658",
-            "anc_9121a3ef73171435f91a",
-            "anc_98cb9e5f0ef023a5a525",
-            "anc_b8a3535dabc5c75d8365",
-            "anc_b92b7d27c794df791491",
-            "anc_be0ec3944cb0820161a2",
-            "anc_c984a3350728b10dcc8a",
-            "anc_df6219ef30b9d17766df",
-            "anc_e5e063c38ca3b35feae9",
-            "anc_e8b0344ca0c55a8f21d2",
-            "anc_f1eb887e6cc6fb4c7630",
-            "anc_f4969ef1238b9b804bec"
-          ]
-        }
-      ],
-      "requiredEvidence": [
-        {
-          "dimension": "population",
-          "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
-        }
-      ],
+      "mismatches": [],
+      "requiredEvidence": [],
       "contraryDispositions": [],
       "dependsOnFacts": [
         "fact_01fb786842bad703",
@@ -296,32 +229,34 @@
         "fact_079a2ad4180ddfec",
         "fact_082b00ea8a14f44d",
         "fact_0bb4668e7294ef99",
-        "fact_1585510c92f69b59",
-        "fact_16129535c274a4a3",
+        "fact_19314d0d36c1ff54",
         "fact_2952e65d0b73420a",
         "fact_360e54fff7d89d02",
+        "fact_385f1896f76218d3",
         "fact_38c2c9a126ce95be",
         "fact_3bacc0be7c767b8e",
+        "fact_3c891299095d3f2c",
         "fact_3dce8d963f4f4a9a",
         "fact_3e0031d725ac78bf",
         "fact_41146e7efc2a644b",
         "fact_456bf8b4024c2892",
         "fact_50717b0370c899a1",
         "fact_50d1b8c75c31e012",
-        "fact_534416a48d016099",
         "fact_5be56a8ac5a40f33",
         "fact_61a3dfc3534b48b6",
-        "fact_6536aaf19533a3c1",
+        "fact_64b6f2a7896aa835",
+        "fact_68dcc6d8405b6d11",
         "fact_696db9b39cbc1fff",
         "fact_6cd91ff15517c514",
         "fact_73eb23c963795e77",
-        "fact_79155918ec225774",
         "fact_7c5efa205c717e8a",
         "fact_7ec8984f6b93d35a",
         "fact_7fad55d20a1712d7",
         "fact_84b951c48b6ede29",
         "fact_866f2b5b833bd62f",
+        "fact_88d25d9859d66dee",
         "fact_92a0df4913b8f918",
+        "fact_963f572fe1a20eba",
         "fact_a1ecaeed33d2f4a9",
         "fact_a215e94fdb2bb529",
         "fact_a8638f6ee53a4b09",
@@ -343,19 +278,21 @@
         "fact_e04840a0b95e01df",
         "fact_e72acbc684110392",
         "fact_e8911b2fd704f88d",
+        "fact_eaeb489c3d6f6de3",
         "fact_f1c2c175efe1fb72",
         "fact_f33bde54363632ea",
         "fact_f3e7da38fe7c1c4e",
+        "fact_f47aebc4a104ecd8",
         "fact_f72b78a5dc784de1"
       ],
       "degraded": [],
-      "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+      "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
       "traceId": "run-eyeart-k200667-1",
       "reviewerState": "unreviewed",
-      "computedAt": "2026-10-27T12:00:00.123Z"
+      "computedAt": "2026-10-27T12:00:00.122Z"
     },
     "after": {
-      "id": "fnd_fffb51268b118dc707e6779dd54b83a3",
+      "id": "fnd_d362162ed26a94b8f590ffb5953ae1ed",
       "claimId": "CLM-EA-01",
       "label": "INSUFFICIENT_EVIDENCE",
       "mechanicalCoverage": [
@@ -382,8 +319,8 @@
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
             "anc_65854d03fc25cabc88e5",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_76ee16f126cfc0540eb2",
             "anc_7bcacbf08474eb80c758",
@@ -404,6 +341,7 @@
             "anc_e5e063c38ca3b35feae9",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
@@ -429,8 +367,8 @@
             "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
             "anc_9121a3ef73171435f91a",
@@ -442,6 +380,7 @@
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
@@ -452,9 +391,9 @@
         },
         {
           "dimension": "population",
-          "relation": "PARTIAL",
-          "claimed": "ages 18 and above; conditions: diabetic retinopathy",
-          "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
+          "relation": "CONTAINED",
+          "claimed": "ages 22 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or",
+          "established": "authorization record: conditions: diabetes mellitus; excluding: history of more than mild diabetic retinopathy; study: ages 18 and above; conditions: diabetic eye problem, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or",
           "anchorIds": [
             "anc_1232a9143dd65848b568",
             "anc_1e8a72030d960a8ad45e",
@@ -465,6 +404,7 @@
             "anc_390c2563a7afd18e7588",
             "anc_45d15fdc5e0eeee4ed34",
             "anc_462692aadc28ef30f0f6",
+            "anc_4740ea4717571e5ac8a5",
             "anc_4cc8be1a7c9ad5f3cd34",
             "anc_53eedca52991c2cab31a",
             "anc_55b22af8a49082419e4c",
@@ -472,8 +412,8 @@
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
             "anc_65854d03fc25cabc88e5",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_76ee16f126cfc0540eb2",
             "anc_7bcacbf08474eb80c758",
@@ -484,15 +424,20 @@
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
             "anc_be0ec3944cb0820161a2",
+            "anc_c2d801903bd388a2c956",
+            "anc_c7791085dddb0c340655",
             "anc_c984a3350728b10dcc8a",
+            "anc_d4b68776e58b44cd9a99",
             "anc_df6219ef30b9d17766df",
             "anc_e5e063c38ca3b35feae9",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
             "ev-ctgov-study-dodjhgnind-study",
+            "ev-fda-summary-bfcphhfchh-authorization",
             "ev-fda-summary-bfcphhfchh-study",
             "ev-pubmed-article-homjefkphi-study"
           ]
@@ -512,8 +457,8 @@
             "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
             "anc_9121a3ef73171435f91a",
@@ -525,6 +470,7 @@
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ],
           "evidenceIds": [
@@ -579,8 +525,8 @@
             "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
+            "anc_66d005d3bedd4aae3135",
             "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
             "anc_9121a3ef73171435f91a",
@@ -592,48 +538,7 @@
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
             "anc_f1eb887e6cc6fb4c7630",
-            "anc_f4969ef1238b9b804bec"
-          ]
-        },
-        {
-          "dimension": "population",
-          "relation": "PARTIAL",
-          "claimed": "ages 18 and above; conditions: diabetic retinopathy",
-          "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
-          "anchorIds": [
-            "anc_1232a9143dd65848b568",
-            "anc_1e8a72030d960a8ad45e",
-            "anc_234a910d4d2fade6cdbc",
-            "anc_2b77b3244ae97ac9ae62",
-            "anc_308101da491e88521805",
-            "anc_3537cf6977af71b02153",
-            "anc_390c2563a7afd18e7588",
-            "anc_45d15fdc5e0eeee4ed34",
-            "anc_462692aadc28ef30f0f6",
-            "anc_4cc8be1a7c9ad5f3cd34",
-            "anc_53eedca52991c2cab31a",
-            "anc_55b22af8a49082419e4c",
-            "anc_5cb05e32fc3d8cfc1a16",
-            "anc_5e16728c90c8aad74263",
-            "anc_64d09a9a8cdf345618ae",
-            "anc_65854d03fc25cabc88e5",
-            "anc_69990fd2af61cc462477",
-            "anc_6f9358dd9cd292e0a49a",
-            "anc_705f0766e0e0aa843f2e",
-            "anc_76ee16f126cfc0540eb2",
-            "anc_7bcacbf08474eb80c758",
-            "anc_7c3009d98bc3bbd1c830",
-            "anc_8ad9255cf37c34a27658",
-            "anc_9121a3ef73171435f91a",
-            "anc_98cb9e5f0ef023a5a525",
-            "anc_b8a3535dabc5c75d8365",
-            "anc_b92b7d27c794df791491",
-            "anc_be0ec3944cb0820161a2",
-            "anc_c984a3350728b10dcc8a",
-            "anc_df6219ef30b9d17766df",
-            "anc_e5e063c38ca3b35feae9",
-            "anc_e8b0344ca0c55a8f21d2",
-            "anc_f1eb887e6cc6fb4c7630",
+            "anc_f26f233379908399f279",
             "anc_f4969ef1238b9b804bec"
           ]
         }
@@ -642,10 +547,6 @@
         {
           "dimension": "version",
           "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (authorization record: 2.1.0; study: 2.1.0) in the model or only in the build, with performance data for 3.0."
-        },
-        {
-          "dimension": "population",
-          "request": "From the vendor: performance results for history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or (excluded from the evidence, not excluded by the claim), or restate the claim to cover only ages 18 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or."
         }
       ],
       "contraryDispositions": [],
@@ -655,32 +556,34 @@
         "fact_079a2ad4180ddfec",
         "fact_082b00ea8a14f44d",
         "fact_0bb4668e7294ef99",
-        "fact_1585510c92f69b59",
-        "fact_16129535c274a4a3",
+        "fact_19314d0d36c1ff54",
         "fact_2952e65d0b73420a",
         "fact_360e54fff7d89d02",
+        "fact_385f1896f76218d3",
         "fact_38c2c9a126ce95be",
         "fact_3bacc0be7c767b8e",
+        "fact_3c891299095d3f2c",
         "fact_3dce8d963f4f4a9a",
         "fact_3e0031d725ac78bf",
         "fact_41146e7efc2a644b",
         "fact_456bf8b4024c2892",
         "fact_50717b0370c899a1",
         "fact_50d1b8c75c31e012",
-        "fact_534416a48d016099",
         "fact_5be56a8ac5a40f33",
         "fact_61a3dfc3534b48b6",
-        "fact_6536aaf19533a3c1",
+        "fact_64b6f2a7896aa835",
+        "fact_68dcc6d8405b6d11",
         "fact_696db9b39cbc1fff",
         "fact_6cd91ff15517c514",
         "fact_73eb23c963795e77",
-        "fact_79155918ec225774",
         "fact_7c5efa205c717e8a",
         "fact_7ec8984f6b93d35a",
         "fact_7fad55d20a1712d7",
         "fact_84b951c48b6ede29",
         "fact_866f2b5b833bd62f",
+        "fact_88d25d9859d66dee",
         "fact_92a0df4913b8f918",
+        "fact_963f572fe1a20eba",
         "fact_a1ecaeed33d2f4a9",
         "fact_a215e94fdb2bb529",
         "fact_a8638f6ee53a4b09",
@@ -702,16 +605,18 @@
         "fact_e04840a0b95e01df",
         "fact_e72acbc684110392",
         "fact_e8911b2fd704f88d",
+        "fact_eaeb489c3d6f6de3",
         "fact_f1c2c175efe1fb72",
         "fact_f33bde54363632ea",
         "fact_f3e7da38fe7c1c4e",
+        "fact_f47aebc4a104ecd8",
         "fact_f72b78a5dc784de1"
       ],
       "degraded": [],
-      "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+      "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
       "traceId": "run-eyeart-k200667-1",
       "reviewerState": "unreviewed",
-      "computedAt": "2026-10-27T12:00:00.123Z"
+      "computedAt": "2026-10-27T12:00:00.122Z"
     },
     "changed": [
       {
@@ -746,8 +651,8 @@
           "anc_5e16728c90c8aad74263",
           "anc_64d09a9a8cdf345618ae",
           "anc_65854d03fc25cabc88e5",
+          "anc_66d005d3bedd4aae3135",
           "anc_69990fd2af61cc462477",
-          "anc_6f9358dd9cd292e0a49a",
           "anc_705f0766e0e0aa843f2e",
           "anc_76ee16f126cfc0540eb2",
           "anc_7bcacbf08474eb80c758",
@@ -768,6 +673,7 @@
           "anc_e5e063c38ca3b35feae9",
           "anc_e8b0344ca0c55a8f21d2",
           "anc_f1eb887e6cc6fb4c7630",
+          "anc_f26f233379908399f279",
           "anc_f4969ef1238b9b804bec"
         ]
       },
@@ -787,8 +693,8 @@
           "anc_53eedca52991c2cab31a",
           "anc_5e16728c90c8aad74263",
           "anc_64d09a9a8cdf345618ae",
+          "anc_66d005d3bedd4aae3135",
           "anc_69990fd2af61cc462477",
-          "anc_6f9358dd9cd292e0a49a",
           "anc_705f0766e0e0aa843f2e",
           "anc_8ad9255cf37c34a27658",
           "anc_9121a3ef73171435f91a",
@@ -800,15 +706,16 @@
           "anc_d4b68776e58b44cd9a99",
           "anc_e8b0344ca0c55a8f21d2",
           "anc_f1eb887e6cc6fb4c7630",
+          "anc_f26f233379908399f279",
           "anc_f4969ef1238b9b804bec"
         ]
       },
       {
         "dimension": "population",
-        "relation": "PARTIAL",
-        "claimed": "ages 18 and above; conditions: diabetic retinopathy",
-        "established": "study: ages 18 and above; conditions: diabetic eye problems, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or",
-        "reason": "The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy; the claim (diabetic retinopathy) lies inside it. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
+        "relation": "CONTAINED",
+        "claimed": "ages 22 and above; conditions: diabetic retinopathy; excluding: history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or",
+        "established": "authorization record: conditions: diabetes mellitus; excluding: history of more than mild diabetic retinopathy; study: ages 18 and above; conditions: diabetic eye problem, diabetic macular edema, diabetic retinopathy; excluding: history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or",
+        "reason": "The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The evidence covers diabetic retinopathy; the claim (diabetic retinopathy) lies inside it. Every group the evidence excluded is also excluded or not claimed.",
         "anchorIds": [
           "anc_1232a9143dd65848b568",
           "anc_1e8a72030d960a8ad45e",
@@ -819,6 +726,7 @@
           "anc_390c2563a7afd18e7588",
           "anc_45d15fdc5e0eeee4ed34",
           "anc_462692aadc28ef30f0f6",
+          "anc_4740ea4717571e5ac8a5",
           "anc_4cc8be1a7c9ad5f3cd34",
           "anc_53eedca52991c2cab31a",
           "anc_55b22af8a49082419e4c",
@@ -826,8 +734,8 @@
           "anc_5e16728c90c8aad74263",
           "anc_64d09a9a8cdf345618ae",
           "anc_65854d03fc25cabc88e5",
+          "anc_66d005d3bedd4aae3135",
           "anc_69990fd2af61cc462477",
-          "anc_6f9358dd9cd292e0a49a",
           "anc_705f0766e0e0aa843f2e",
           "anc_76ee16f126cfc0540eb2",
           "anc_7bcacbf08474eb80c758",
@@ -838,11 +746,15 @@
           "anc_b8a3535dabc5c75d8365",
           "anc_b92b7d27c794df791491",
           "anc_be0ec3944cb0820161a2",
+          "anc_c2d801903bd388a2c956",
+          "anc_c7791085dddb0c340655",
           "anc_c984a3350728b10dcc8a",
+          "anc_d4b68776e58b44cd9a99",
           "anc_df6219ef30b9d17766df",
           "anc_e5e063c38ca3b35feae9",
           "anc_e8b0344ca0c55a8f21d2",
           "anc_f1eb887e6cc6fb4c7630",
+          "anc_f26f233379908399f279",
           "anc_f4969ef1238b9b804bec"
         ]
       },
@@ -862,8 +774,8 @@
           "anc_53eedca52991c2cab31a",
           "anc_5e16728c90c8aad74263",
           "anc_64d09a9a8cdf345618ae",
+          "anc_66d005d3bedd4aae3135",
           "anc_69990fd2af61cc462477",
-          "anc_6f9358dd9cd292e0a49a",
           "anc_705f0766e0e0aa843f2e",
           "anc_8ad9255cf37c34a27658",
           "anc_9121a3ef73171435f91a",
@@ -875,6 +787,7 @@
           "anc_d4b68776e58b44cd9a99",
           "anc_e8b0344ca0c55a8f21d2",
           "anc_f1eb887e6cc6fb4c7630",
+          "anc_f26f233379908399f279",
           "anc_f4969ef1238b9b804bec"
         ]
       },
@@ -906,6 +819,6 @@
       }
     ],
     "modelCalled": false,
-    "elapsedMs": 1
+    "elapsedMs": 2
   }
 }

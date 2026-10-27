@@ -23,17 +23,21 @@ export async function sampleService(service?: ServiceOverrides, extra: { env?: R
  */
 export const EXPECTED_LABELS: Record<string, Record<string, string>> = {
   "eyeart-k200667": {
-    // The readers now carry the authorization's condition and exclusion. The claims that name diabetic retinopathy as the population meet the
-    // exclusion of patients previously diagnosed with more than mild diabetic retinopathy, and the compiler cannot place those two wordings
-    // (SAK-UNPLACED-CONDITION), so a reviewer must; before, the exclusion was not read and these were narrower scopes. The headline question
-    // (use from 2027) also meets the service's staleness window (R20).
+    // One packet, nine sentences, every label. The headline question (use from 2027) meets the service's staleness window (R20).
+    // CLM-EA-01 states the population of the pivotal study, its exclusions included, so every dimension it states is covered.
+    // CLM-EA-07 states the labelled population only; the registry record of the pivotal study excluded further groups, so the evidence
+    // covers a narrower scope. The rest overreach on one thing each: the hospital's youngest age (02), setting and purpose (03), release
+    // (04), camera (05), diagnosis (06), patients the indications exclude (08), and a figure the paper's own figures do not reach (09).
     "CASE-2026-014.intended": "REQUIRES_DOMAIN_REVIEW",
-    "CLM-EA-01": "REQUIRES_DOMAIN_REVIEW",
+    "CLM-EA-01": "SUPPORTED_FOR_SCOPE",
     "CLM-EA-02": "REQUIRES_DOMAIN_REVIEW",
     "CLM-EA-03": "INSUFFICIENT_EVIDENCE",
     "CLM-EA-04": "INSUFFICIENT_EVIDENCE",
     "CLM-EA-05": "REQUIRES_DOMAIN_REVIEW",
-    "CLM-EA-06": "REQUIRES_DOMAIN_REVIEW",
+    "CLM-EA-06": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    "CLM-EA-07": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    "CLM-EA-08": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+    "CLM-EA-09": "REQUIRES_DOMAIN_REVIEW",
   },
   "lunit-k211733": {
     "CASE-2026-016.intended": "INSUFFICIENT_EVIDENCE",

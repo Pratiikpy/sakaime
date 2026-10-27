@@ -1,0 +1,65 @@
+{
+  "request": "POST /api/sources/propose",
+  "status": 200,
+  "body": {
+    "id": "23fea8d07199be26d2b64ef1f1baee4ed578388eab8eb863b70bb0a983e4f304",
+    "outcome": "declined",
+    "reason": "only https is allowed; got \"http\". Only hosts named by a source card can be onboarded.",
+    "stages": [
+      {
+        "stage": "authorization",
+        "status": "failed",
+        "summary": "Refused: only https is allowed; got \"http\"",
+        "detail": {
+          "failure": "REFUSED",
+          "allowlisted": [
+            "api.crossref.org",
+            "api.fda.gov",
+            "clinicaltrials.gov",
+            "eutils.ncbi.nlm.nih.gov",
+            "www.accessdata.fda.gov",
+            "www.ebi.ac.uk",
+            "www.fda.gov"
+          ]
+        }
+      },
+      {
+        "stage": "capability_discovery",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      },
+      {
+        "stage": "bounded_probe",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      },
+      {
+        "stage": "mapping_proposal",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      },
+      {
+        "stage": "semantic_validation",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      },
+      {
+        "stage": "human_review",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      },
+      {
+        "stage": "registration",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      },
+      {
+        "stage": "monitoring",
+        "status": "skipped",
+        "summary": "not reached: authorization did not pass"
+      }
+    ],
+    "mapping": [],
+    "recorded": false
+  }
+}

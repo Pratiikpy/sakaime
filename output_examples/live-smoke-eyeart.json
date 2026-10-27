@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-27T09:31:30.015Z",
+  "ranAt": "2026-10-27T14:01:16.934Z",
   "mode": {
     "sample": false,
     "federation": "live",
@@ -11,19 +11,22 @@
   },
   "status": "complete",
   "labels": {
-    "CASE-2026-014.intended": "INSUFFICIENT_EVIDENCE",
-    "CLM-EA-01": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    "CASE-2026-014.intended": "REQUIRES_DOMAIN_REVIEW",
+    "CLM-EA-01": "SUPPORTED_FOR_SCOPE",
     "CLM-EA-02": "REQUIRES_DOMAIN_REVIEW",
     "CLM-EA-03": "INSUFFICIENT_EVIDENCE",
     "CLM-EA-04": "INSUFFICIENT_EVIDENCE",
     "CLM-EA-05": "REQUIRES_DOMAIN_REVIEW",
-    "CLM-EA-06": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+    "CLM-EA-06": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    "CLM-EA-07": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    "CLM-EA-08": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+    "CLM-EA-09": "REQUIRES_DOMAIN_REVIEW"
   },
   "sameLabelsAsRecordedSample": true,
   "federation": {
     "status": "ok",
     "servedFrom": "live",
-    "rows": 6
+    "rows": 9
   },
   "sources": [
     {
@@ -71,8 +74,8 @@
     {
       "step": "search-europepmc",
       "source": "europepmc",
-      "status": "UNAVAILABLE",
-      "detail": "source unavailable (HTTP 503)"
+      "status": "OK",
+      "detail": "10 record(s) from europepmc"
     },
     {
       "step": "candidate-NCT06721351",
@@ -81,24 +84,24 @@
       "detail": "1 record(s) from clinicaltrials-v2"
     },
     {
-      "step": "candidate-NCT04302012",
+      "step": "candidate-NCT03112005",
       "source": "clinicaltrials-v2",
       "status": "OK",
       "detail": "1 record(s) from clinicaltrials-v2"
     }
   ],
   "modelLeg": {
-    "status": "unavailable",
-    "reasons": [
-      "the planner model call failed (FORBIDDEN): nvidia: HTTP 403, the key was not accepted; the rule path was used",
-      "the critic model call failed (FORBIDDEN): nvidia: HTTP 403, the key was not accepted; the rule path was used",
-      "the reporter model call failed (FORBIDDEN): nvidia: HTTP 403, the key was not accepted; the rule path was used"
+    "status": "answered",
+    "events": 2,
+    "routedModels": [
+      "nvidia/nemotron-3-ultra-550b-a55b",
+      "nvidia/nemotron-3.5-lightning-30b-a3b"
     ]
   },
   "prose": {
-    "sentences": 28,
-    "fromModel": 0,
+    "sentences": 10,
+    "fromModel": 10,
     "rejected": 0
   },
-  "traceEvents": 52
+  "traceEvents": 53
 }

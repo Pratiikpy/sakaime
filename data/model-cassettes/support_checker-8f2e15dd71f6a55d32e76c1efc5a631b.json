@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:14:38.404Z",
+  "recordedAt": "2026-10-27T13:37:11.153Z",
   "role": "support_checker",
   "requestHash": "8f2e15dd71f6a55d32e76c1efc5a631b3fa2ee3c9b1bd1fb8fca7d3c005153d2",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that Transpara had an AUC of 0.73 with a 95% CI of 0.63-0.82, which matches the assertion's value, interval, subject, and metric.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that Transpara had an AUC of 0.73 with 95% CI 0.63-0.82, which matches the assertion's value, unit, and interval.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states that Transpara had an AUC of 0.73 with a 95% CI of 0.63-0.82, which matches the assertion's value, interval, subject, and metric."
+      "reason": "The passage states that Transpara had an AUC of 0.73 with 95% CI 0.63-0.82, which matches the assertion's value, unit, and interval."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 492,
-      "completionTokens": 72,
+      "completionTokens": 68,
       "measured": true
     }
   },
-  "responseHash": "0155b7fd875052dc7958486bc713d464b123a2e2c6efd3b669ec3457fa8c856b"
+  "responseHash": "dfb69cfa8915c73beadb84a855d24470e6bf7682aa14926314a2f0a16b7dbef7"
 }

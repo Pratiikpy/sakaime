@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:12:02.448Z",
+  "recordedAt": "2026-10-27T13:33:30.865Z",
   "role": "resolver",
   "requestHash": "335728d161c13234af1d6e0ae5b5151b3afe58fa00e8720e0ce7b022347d0a74",
   "request": {
@@ -76,14 +76,14 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\"verdict\":\"UNSURE\",\"citations\":[{\"record\":\"from\",\"field\":\"text\",\"quote\":\"Our meta-analysis evaluated the diagnostic accuracy of five AI-based PTB detection products\"},{\"record\":\"to\",\"field\":\"name\",\"quote\":\"Lunit INSIGHT CXR Triage\"}],\"rationale\":\"The systematic review evaluates five AI-based PTB detection products but does not explicitly name Lunit INSIGHT CXR Triage in the provided excerpt. The product name appears similar to the search term 'lunit insight cxr' but cannot be confirmed as one of the five evaluated products from the given text.\"}",
+    "text": "{\"verdict\":\"DIFFERENT\",\"citations\":[{\"record\":\"from\",\"field\":\"name\",\"quote\":\"A systematic review and meta-analysis of artificial intelligence software for tuberculosis diagnosis using chest X-ray imaging.\"},{\"record\":\"to\",\"field\":\"name\",\"quote\":\"Lunit INSIGHT CXR Triage\"}],\"rationale\":\"The 'from' record is a systematic review evaluating multiple AI products for TB diagnosis, while the 'to' record is a specific commercial product (Lunit INSIGHT CXR Triage) that may have been one of the products evaluated in the review, but they are not the same entity.\"}",
     "json": {
-      "verdict": "UNSURE",
+      "verdict": "DIFFERENT",
       "citations": [
         {
           "record": "from",
-          "field": "text",
-          "quote": "Our meta-analysis evaluated the diagnostic accuracy of five AI-based PTB detection products"
+          "field": "name",
+          "quote": "A systematic review and meta-analysis of artificial intelligence software for tuberculosis diagnosis using chest X-ray imaging."
         },
         {
           "record": "to",
@@ -91,16 +91,16 @@
           "quote": "Lunit INSIGHT CXR Triage"
         }
       ],
-      "rationale": "The systematic review evaluates five AI-based PTB detection products but does not explicitly name Lunit INSIGHT CXR Triage in the provided excerpt. The product name appears similar to the search term 'lunit insight cxr' but cannot be confirmed as one of the five evaluated products from the given text."
+      "rationale": "The 'from' record is a systematic review evaluating multiple AI products for TB diagnosis, while the 'to' record is a specific commercial product (Lunit INSIGHT CXR Triage) that may have been one of the products evaluated in the review, but they are not the same entity."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 964,
-      "completionTokens": 125,
+      "completionTokens": 128,
       "measured": true
     }
   },
-  "responseHash": "4697e9c62e90e1f111add9fffdfcc92e07b4511b59b1ed3038207ce17ac715f7"
+  "responseHash": "392c3e04fbe1eec742ed78783ce865d109e199e61cb0b99123057cd17b938412"
 }

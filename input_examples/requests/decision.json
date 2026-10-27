@@ -2,7 +2,7 @@
   "method": "POST",
   "path": "/api/cases/eyeart-k200667/decision",
   "body": {
-    "findingId": "fnd_faa624de5823f641b4640c895f709298",
+    "findingId": "fnd_d3019f184b22aca9e9f5a8ee0470ffab",
     "action": "narrow",
     "note": "Use only for the narrower scope the compiler states.",
     "idempotencyKey": "example-decision-0001"

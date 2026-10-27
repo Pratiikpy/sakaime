@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:14:20.286Z",
+  "recordedAt": "2026-10-27T13:36:39.817Z",
   "role": "resolver",
   "requestHash": "e9530a592a3b50ba940237fcb5ba595c0d822fcda41ece9b82e4cf15d1716f37",
   "request": {
@@ -76,7 +76,7 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\"verdict\":\"DIFFERENT\",\"citations\":[{\"record\":\"from\",\"field\":\"name\",\"quote\":\"Screening performance and characteristics of breast cancer detected in the Mammography Screening with Artificial Intelligence trial (MASAI): a randomised, controlled, parallel-group, non-inferiority, single-blinded, screening accuracy study.\"},{\"record\":\"to\",\"field\":\"name\",\"quote\":\"Artificial Intelligence in BreastScreen Norway - a Randomized Controlled Trial\"},{\"record\":\"from\",\"field\":\"text\",\"quote\":\"done within the Swedish national screening programme, women recruited at four screening sites in southwest Sweden (Malmö, Lund, Landskrona, and Trelleborg)\"},{\"record\":\"to\",\"field\":\"text\",\"quote\":\"Artificial Intelligence in BreastScreen Norway\"},{\"record\":\"from\",\"field\":\"date\",\"quote\":\"2025\"},{\"record\":\"to\",\"field\":\"date\",\"quote\":\"2024-11-25\"},{\"record\":\"from\",\"field\":\"version\",\"quote\":\"1.7.0\"},{\"record\":\"to\",\"field\":\"text\",\"quote\":\"Transpara, ScreenPoint Medical, Nijmegen, The Netherlands\"}],\"rationale\":\"The two records describe distinct trials: the 'from' record reports results of the Swedish MASAI trial (Transpara version 1.7.0, 2025 publication), while the 'to' record describes the Norwegian BreastScreen Norway RCT (protocol dated 2024-11-25, enrollment 150,000). Different trial names, countries, populations, and publication stages confirm they are not the same study.\"}",
+    "text": "{\"verdict\":\"DIFFERENT\",\"citations\":[{\"record\":\"from\",\"field\":\"name\",\"quote\":\"Screening performance and characteristics of breast cancer detected in the Mammography Screening with Artificial Intelligence trial (MASAI): a randomised, controlled, parallel-group, non-inferiority, single-blinded, screening accuracy study.\"},{\"record\":\"to\",\"field\":\"name\",\"quote\":\"Artificial Intelligence in BreastScreen Norway - a Randomized Controlled Trial\"},{\"record\":\"from\",\"field\":\"text\",\"quote\":\"done within the Swedish national screening programme, women recruited at four screening sites in southwest Sweden (Malmö, Lund, Landskrona, and Trelleborg)\"},{\"record\":\"to\",\"field\":\"text\",\"quote\":\"Artificial Intelligence in BreastScreen Norway\"},{\"record\":\"from\",\"field\":\"date\",\"quote\":\"2025\"},{\"record\":\"to\",\"field\":\"date\",\"quote\":\"2024-11-25\"},{\"record\":\"from\",\"field\":\"version\",\"quote\":\"1.7.0\"},{\"record\":\"to\",\"field\":\"manufacturer\",\"quote\":\"Norwegian Institute of Public Health\"}],\"rationale\":\"The 'from' record describes the MASAI trial conducted in Sweden with Transpara version 1.7.0, while the 'to' record describes a separate Norwegian trial (BreastScreen Norway) sponsored by the Norwegian Institute of Public Health; different trial names, locations, sponsors, and one specifies an AI version while the other does not.\"}",
     "json": {
       "verdict": "DIFFERENT",
       "citations": [
@@ -117,20 +117,20 @@
         },
         {
           "record": "to",
-          "field": "text",
-          "quote": "Transpara, ScreenPoint Medical, Nijmegen, The Netherlands"
+          "field": "manufacturer",
+          "quote": "Norwegian Institute of Public Health"
         }
       ],
-      "rationale": "The two records describe distinct trials: the 'from' record reports results of the Swedish MASAI trial (Transpara version 1.7.0, 2025 publication), while the 'to' record describes the Norwegian BreastScreen Norway RCT (protocol dated 2024-11-25, enrollment 150,000). Different trial names, countries, populations, and publication stages confirm they are not the same study."
+      "rationale": "The 'from' record describes the MASAI trial conducted in Sweden with Transpara version 1.7.0, while the 'to' record describes a separate Norwegian trial (BreastScreen Norway) sponsored by the Norwegian Institute of Public Health; different trial names, locations, sponsors, and one specifies an AI version while the other does not."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 1315,
-      "completionTokens": 341,
+      "completionTokens": 311,
       "measured": true
     }
   },
-  "responseHash": "a3afc4352b21435bcab8429d0a7dbca6bb0b1d35574a5290970667d110ec6eb0"
+  "responseHash": "9965d715868a1952e8ee19f80a5bc880b92adc2ea6673f7e3ffc7e499a2391b7"
 }

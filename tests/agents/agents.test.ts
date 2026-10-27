@@ -270,6 +270,73 @@ describe("guard", () => {
 
   it("issues an export contract to a reviewer only", async () => {
     expect(await guard.exportContract("rev-1", "eyeart-k200667")).toBeDefined();
+    const nobody = await guard.issueExportContract("viewer-1", "eyeart-k200667", "viewer");
+    expect(nobody.ok).toBe(false);
+    if (!nobody.ok) {
+      expect(nobody.kind).toBe("refused");
+      expect(nobody.reason.length).toBeGreaterThan(10);
+    }
+  });
+
+  it("says in plain words what it will not do, with no registry id in the text", async () => {
+    const asked: [string, RegExp][] = [
+      ["Certify that K200667 is safe for our hospital.", /^Certifying a product for use is not something Sakaime does\./],
+      ["Approve the purchase of EyeArt.", /^Approving a purchase is not something Sakaime does\./],
+      ["Email the vendor and ask for the missing study.", /^Contacting a vendor is not something Sakaime does\./],
+      ["Email the whole case file to my personal address.", /^Sending data out of the system is not something Sakaime does\./],
+    ];
+    for (const [text, want] of asked) {
+      const r = await new Guard({ clock: () => new Date() }).screen(text, "reviewer");
+      expect(r.response.allowed, text).toBe(false);
+      expect(r.response.message, text).toMatch(want);
+      for (const s of [r.response.message, ...r.response.findings.map((f) => f.reason)]) expect(s, text).not.toMatch(/exfiltrate|certify_safe|approve_procurement|contact_vendor|\bTry: /);
+    }
+  });
+});
+
+describe("export contracts are not affected by what else a reviewer asked", () => {
+  it("is issued fresh each time and still issued after many refused or ordinary requests by the same reviewer", async () => {
+    // Real time, as the service uses: a token bucket refills with the clock, so a clock that never moves would show a limit that is not real.
+    let t = Date.parse("2026-10-27T12:00:00.000Z");
+    const g = new Guard({ clock: () => new Date((t += 2000)) });
+    for (let i = 0; i < 30; i += 1) await g.screen(i % 2 ? "Certify that K200667 is safe for our hospital." : "Does the evidence cover version 2.1.0 in primary care?", "reviewer", { id: "rev-1", role: "reviewer" });
+    const ids = new Set<string>();
+    for (let i = 0; i < 6; i += 1) {
+      const r = await g.issueExportContract("rev-1", "eyeart-k200667");
+      expect(r.ok, `export ${i}`).toBe(true);
+      if (r.ok) ids.add(r.contract.contractId);
+    }
+    expect(ids.size).toBe(6);
+  });
+
+  it("a reviewer who asks for exports faster than the limit is told how long to wait", async () => {
+    const g = new Guard({ clock: () => new Date("2026-10-27T12:00:00.000Z") });
+    let refused: Awaited<ReturnType<Guard["issueExportContract"]>> | undefined;
+    for (let i = 0; i < 20 && !refused; i += 1) {
+      const r = await g.issueExportContract("rev-2", "eyeart-k200667");
+      if (!r.ok) refused = r;
+    }
+    expect(refused).toBeDefined();
+    expect(refused!.ok).toBe(false);
+    if (refused && !refused.ok) {
+      expect(refused.kind).toBe("rate_limited");
+      if (refused.kind === "rate_limited") {
+        expect(refused.retryAfterSeconds).toBeGreaterThan(0);
+        expect(refused.reason).toMatch(/Try again in \d+ seconds?/);
+      }
+    }
+    // Another reviewer is not held back by it.
+    expect((await g.issueExportContract("rev-3", "eyeart-k200667")).ok).toBe(true);
+  });
+
+  it("a contract it signed is redeemed by the executor of the same guard, once", async () => {
+    const g = new Guard({ clock: () => new Date() });
+    const r = await g.issueExportContract("rev-4", "eyeart-k200667");
+    expect(r.ok).toBe(true);
+    if (!r.ok) return;
+    const executor = g.executor();
+    expect(executor.redeem(r.contract, { using: ["dossier.export"], actor: "rev-4", caseId: "eyeart-k200667" }).ok).toBe(true);
+    expect(executor.redeem(r.contract, { using: ["dossier.export"], actor: "rev-4", caseId: "eyeart-k200667" }).ok).toBe(false);
   });
 });
 

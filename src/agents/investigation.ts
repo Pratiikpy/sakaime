@@ -20,6 +20,7 @@ import { allClaims } from "../service/cases.ts";
 import type { AssembledEvidence } from "../service/assemble.ts";
 import type { ReadStep, StepOutcome } from "../service/reader.ts";
 import { Workbench, type ClaimResult, type WorkbenchEnv } from "../service/workbench.ts";
+import { evidenceLabels, readableText } from "../service/views.ts";
 import { CancelledError, brief, errorMessage, throwIfCancelled } from "../service/util.ts";
 import type { CaseSpec } from "../service/cases.ts";
 import { CRITIC_JSON_SCHEMA, codeChecks, criticPrompt, findingView, linkNotes, vetObjections, type CriticNote } from "./critic.ts";
@@ -84,6 +85,7 @@ export class Investigation {
   private history: SupersededFinding[] = [];
   private prose: ProseResult = { lines: [], rejected: [], modelCalled: false };
   private revised = false;
+  private refusal = "";
 
   constructor(
     readonly spec: CaseSpec,
@@ -113,7 +115,7 @@ export class Investigation {
           case "guard":
             if (!(await this.guard())) {
               status = "refused";
-              reason = "the guard refused the request";
+              reason = `the guard refused the request: ${this.refusal}`;
               this.state = "done";
             }
             break;
@@ -183,6 +185,7 @@ export class Investigation {
     const { response, decision } = await this.env.guard.screen(REQUEST_TEXT(this.spec), "reviewer", this.env.reviewer, this.spec.id);
     this.say("guard", response.allowed ? `request understood as ${response.intent}; the investigation may proceed` : `request refused: ${response.message}`, { intent: response.intent, findings: response.findings, scoutDecision: decision?.decision, policyPack: decision?.policyPackVersion });
     if (response.allowed) this.go("plan", "the request is an evidence review the product performs");
+    else this.refusal = response.message;
     return response.allowed;
   }
 
@@ -402,6 +405,7 @@ export class Investigation {
     this.say("compiler", `assembled ${asm.items.length} evidence items from ${new Set(asm.items.map((i) => asm.itemRecord.get(i.id))).size} stored records, backed by ${asm.facts.length} facts; ${asm.notExtracted.length} things could not be extracted and are listed`, { items: asm.items.map((i) => ({ id: i.id, type: i.assertionType })), notExtracted: asm.notExtracted });
     const before = new Map(this.wb.results.map((r) => [r.claim.id, r.finding] as const));
     const results = await this.wb.compileAll();
+    const labels = evidenceLabels(this.wb);
     for (const r of results) {
       const prev = before.get(r.claim.id);
       if (prev && prev.id !== r.finding.id) {
@@ -411,7 +415,7 @@ export class Investigation {
           /* identical ids are not a change */
         }
       }
-      this.say("compiler", `${r.claim.id}: ${r.finding.label}. ${r.detail.labelBasis[0] ?? ""}`.trim(), { findingId: r.finding.id, claimId: r.claim.id, label: r.finding.label, ruleVersion: r.finding.ruleVersion, basis: r.detail.labelBasis, relations: Object.fromEntries(r.finding.mechanicalCoverage.map((a) => [a.dimension, a.relation])), flags: r.finding.expertReviewFlags.map((f) => f.ruleId), degraded: r.finding.degraded.map((d) => `${d.sourceType}:${d.dependency}`) });
+      this.say("compiler", `${r.claim.id}: ${r.finding.label}. ${readableText(r.detail.labelBasis[0] ?? "", labels)}`.trim(), { findingId: r.finding.id, claimId: r.claim.id, label: r.finding.label, ruleVersion: r.finding.ruleVersion, basis: r.detail.labelBasis, relations: Object.fromEntries(r.finding.mechanicalCoverage.map((a) => [a.dimension, a.relation])), flags: r.finding.expertReviewFlags.map((f) => f.ruleId), degraded: r.finding.degraded.map((d) => `${d.sourceType}:${d.dependency}`) });
     }
     const unknown = results.filter((r) => r.finding.mismatches.some((m) => m.relation === "UNKNOWN"));
     const more = this.pendingNcts.length + this.pendingPmids.length;
@@ -494,6 +498,9 @@ export class Investigation {
       asked && Array.isArray(sentences) ? { sentences, recorded: asked.response.recorded, routedModel: asked.response.routedModel, ...(asked.response.receipt?.receiptId ? { receiptId: asked.response.receipt.receiptId } : {}) } : undefined,
       asked ? undefined : "no model sentences were available; templated sentences from the compiler's wording were used",
     );
+    // The sentences were checked as written. What a reader is shown names the record behind an evidence item, not the item's id.
+    const labels = evidenceLabels(this.wb);
+    this.prose = { ...this.prose, lines: this.prose.lines.map((l) => ({ ...l, text: readableText(l.text, labels) })) };
     const fromModel = this.prose.lines.filter((l) => l.source === "model").length;
     this.say(
       "reporter",

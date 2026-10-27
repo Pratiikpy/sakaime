@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:11:13.753Z",
+  "recordedAt": "2026-10-27T13:32:54.189Z",
   "role": "support_checker",
   "requestHash": "5636fa032496d1d9bb20c94262e81a2c9d56f74da9b96dce9f9b8681755026e7",
   "request": {
@@ -48,22 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\"],\n  \"reason\": \"The passage reports Lunit INSIGHT CXR sensitivity as 90.0%, not 86.0% as asserted. The 86.0% value corresponds to JF CXR-1, not Lunit INSIGHT CXR.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"threshold\"],\n  \"reason\": \"The passage reports Lunit INSIGHT CXR sensitivity as 90.0% (0.90 proportion), not 0.86. The passage does not report a threshold for sensitivity, while the assertion specifies a threshold of 0.86 proportion. The reported metric (sensitivity) does not match the asserted value (0.86).\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
-        "metric"
+        "metric",
+        "threshold"
       ],
-      "reason": "The passage reports Lunit INSIGHT CXR sensitivity as 90.0%, not 86.0% as asserted. The 86.0% value corresponds to JF CXR-1, not Lunit INSIGHT CXR."
+      "reason": "The passage reports Lunit INSIGHT CXR sensitivity as 90.0% (0.90 proportion), not 0.86. The passage does not report a threshold for sensitivity, while the assertion specifies a threshold of 0.86 proportion. The reported metric (sensitivity) does not match the asserted value (0.86)."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 553,
-      "completionTokens": 79,
+      "completionTokens": 105,
       "measured": true
     }
   },
-  "responseHash": "5f688e349dddb4919500ef0b0763dcf23994a6b2fb6b72846d8c9d9146ce68c9"
+  "responseHash": "e5e5c29a969599d8acfe1860b13f91e7221ded16824a8976606a4dbcb0126f9a"
 }

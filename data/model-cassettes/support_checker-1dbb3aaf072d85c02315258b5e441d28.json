@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:32.636Z",
+  "recordedAt": "2026-10-27T13:35:39.497Z",
   "role": "support_checker",
   "requestHash": "1dbb3aaf072d85c02315258b5e441d28cb468b15a384ba3b6e3e681a6406a7ef",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'specificity was 86%' which matches the asserted value of 0.86 proportion for specificity in the reader_arm context.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that the specificity was 86%, which matches the assertion's value of 0.86 (proportion).\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states 'specificity was 86%' which matches the asserted value of 0.86 proportion for specificity in the reader_arm context."
+      "reason": "The passage states that the specificity was 86%, which matches the assertion's value of 0.86 (proportion)."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 459,
-      "completionTokens": 56,
+      "completionTokens": 52,
       "measured": true
     }
   },
-  "responseHash": "7fdec5db49ee013549f16e39f998f50c2c236c288f4434face840b1edfdfe2f1"
+  "responseHash": "3393142ad07cc5fdb0b02d7c0cb08140d483b739492538a20a5d06dc2405dd6e"
 }

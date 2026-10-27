@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:07:27.075Z",
+  "recordedAt": "2026-10-27T13:30:30.001Z",
   "role": "support_checker",
   "requestHash": "327ee4b0f76e0b7070f4347377b3cbbd1846c226a00e4af520469add3be6e171",
   "request": {
@@ -48,22 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"version\"],\n  \"reason\": \"The passage states the product version is v2.1.0, but the assertion expects device.version 2.1.0. The passage refers to 'software version v2.1.0' while the assertion specifies 'device.version 2.1.0', creating a mismatch in the context of the EyeArt product and FDA 510(k) K200667.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"version\"],\n  \"reason\": \"The passage states the product version is v2.1.0, but the assertion specifies version 2.1.0 without the 'v' prefix. The passage does not explicitly confirm the exact format required by the assertion, creating a mismatch in version representation.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
         "version"
       ],
-      "reason": "The passage states the product version is v2.1.0, but the assertion expects device.version 2.1.0. The passage refers to 'software version v2.1.0' while the assertion specifies 'device.version 2.1.0', creating a mismatch in the context of the EyeArt product and FDA 510(k) K200667."
+      "reason": "The passage states the product version is v2.1.0, but the assertion specifies version 2.1.0 without the 'v' prefix. The passage does not explicitly confirm the exact format required by the assertion, creating a mismatch in version representation."
     },
     "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 486,
-      "completionTokens": 109,
+      "completionTokens": 80,
       "measured": true
     }
   },
-  "responseHash": "27ca18c438e99530b889b2f0424e318ef08abe4052f7829bfb2971778a2bcade"
+  "responseHash": "db353a37ef76c6a3f555636ec66aa73dbc48caac87185537c2435acac5da6cfa"
 }

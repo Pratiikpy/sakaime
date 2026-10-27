@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:12:13.092Z",
+  "recordedAt": "2026-10-27T13:33:40.655Z",
   "role": "support_checker",
   "requestHash": "8eef9b4bdbf995483b1a2642ebc105631d620c3535876c79309e5381f14b3002",
   "request": {
@@ -48,23 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"context\"],\n  \"reason\": \"The passage reports specificity as 0.89 for the AI, while the assertion expects 0.94. The passage describes a multi-reader study context, whereas the assertion references publication:pmid:37189531, indicating a different context.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\"],\n  \"reason\": \"The passage reports the AI specificity as 0.89 (CI95%: 0.79-0.98), not 0.94. The value 0.94 corresponds to the AI AUC, not specificity.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
-        "metric",
-        "context"
+        "metric"
       ],
-      "reason": "The passage reports specificity as 0.89 for the AI, while the assertion expects 0.94. The passage describes a multi-reader study context, whereas the assertion references publication:pmid:37189531, indicating a different context."
+      "reason": "The passage reports the AI specificity as 0.89 (CI95%: 0.79-0.98), not 0.94. The value 0.94 corresponds to the AI AUC, not specificity."
     },
-    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 599,
-      "completionTokens": 87,
+      "completionTokens": 79,
       "measured": true
     }
   },
-  "responseHash": "7b2630e1f889e9a339956646a495f5e516159b8074060a6ba226c0057d5354ea"
+  "responseHash": "2051054f03148ad530082840532a82d38d2e2e921c7034045b3c6e939d9a6ad2"
 }

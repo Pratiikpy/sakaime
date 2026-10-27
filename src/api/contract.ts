@@ -57,6 +57,8 @@ export const ProposeSourceRequestSchema = z.object({
   description: z.string().min(3).max(500),
   /** Must resolve inside the allowlist or the request is refused with the reason. */
   url: z.string().url().max(2000),
+  /** Run again a request that was declined as retryable. Without it a repeated request returns the stored answer unchanged. */
+  retry: z.boolean().optional(),
 });
 
 export const ONBOARDING_STAGES = [
@@ -189,6 +191,8 @@ export const CaseDetailSchema = z.object({
   summary: CaseSummarySchema,
   claim: ClaimSchema,
   claimText: z.string(),
+  /** Every claim of the case, the reviewer's own question first, each with its sentence in `text`. A finding names its claim by id. */
+  claims: z.array(ClaimSchema).default([]),
   findings: z.array(FindingSchema),
   dimensions: z.record(z.string(), z.array(DimensionViewSchema)),
   anchors: z.array(AnchorViewSchema),

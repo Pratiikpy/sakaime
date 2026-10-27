@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:12:11.414Z",
+  "recordedAt": "2026-10-27T13:33:39.149Z",
   "role": "support_checker",
   "requestHash": "1bf2ff5c3118fd3442ca50bf51dc4d69d8dd22a1faecf9976bc5190b439b055d",
   "request": {
@@ -48,23 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"context\"],\n  \"reason\": \"The passage reports specificity as 0.89 for the AI and 0.95 for radiologists, while the assertion expects 0.97. The passage provides AUC, sensitivity, and specificity values in a multi-reader study context, but the assertion's metric and value do not match the reported results.\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\"],\n  \"reason\": \"The passage reports specificity of 0.89 for the AI and 0.95 for radiologists, not 0.97. The value 0.97 corresponds to the AUC of radiologists, not specificity.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
-        "metric",
-        "context"
+        "metric"
       ],
-      "reason": "The passage reports specificity as 0.89 for the AI and 0.95 for radiologists, while the assertion expects 0.97. The passage provides AUC, sensitivity, and specificity values in a multi-reader study context, but the assertion's metric and value do not match the reported results."
+      "reason": "The passage reports specificity of 0.89 for the AI and 0.95 for radiologists, not 0.97. The value 0.97 corresponds to the AUC of radiologists, not specificity."
     },
-    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 599,
-      "completionTokens": 95,
+      "completionTokens": 74,
       "measured": true
     }
   },
-  "responseHash": "abcea716d66235472be653bf26010dcbc8f96ab10572e05646d47b49b6fd0086"
+  "responseHash": "d1f506cb473f0b1df73e21277f3903baef13c525fe57712d48bc33f4b63ada1d"
 }

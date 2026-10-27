@@ -2,8 +2,10 @@
  * Typed error bodies (ErrorBodySchema in contract.ts) from the failures the product already names.
  *
  * Every PortError carries a failure class; the class decides the HTTP status and is repeated in the body, so a client can tell
- * a source that is down (UNAVAILABLE) from a request the product refuses (REFUSED) from malformed input (INVALID). No error
- * body carries a secret: the text is scrubbed of any configured key or token before it leaves.
+ * a source that is down (UNAVAILABLE) from a request the product refuses (REFUSED) from malformed input (INVALID). Two answers
+ * belong to the API rather than to a port: NOT_FOUND (404) for a case, run, finding or link that does not exist, and a 429 with
+ * detail.retryAfterSeconds for a reviewer who has used up a rate limit. No error body carries a secret: the text is scrubbed of
+ * any configured key or token before it leaves.
  */
 import { ZodError } from "zod";
 import { CompilerInputError } from "../compiler/index.ts";
@@ -68,9 +70,12 @@ export function mapError(error: unknown, env: Record<string, string | undefined>
   });
   if (error instanceof PortError) {
     const reason = error.detail?.["reason"];
-    const status = typeof reason === "string" && /^UNKNOWN_/.test(reason) ? 404 : STATUS[error.failure];
+    // A name that matches nothing is NOT_FOUND, whichever port class raised it; the taxonomy of ports has no such class.
+    const unknown = typeof reason === "string" && /^UNKNOWN_/.test(reason);
+    const limited = reason === "RATE_LIMITED";
+    const status = unknown ? 404 : limited ? 429 : STATUS[error.failure];
     const { retryable: _r, ...rest } = error.detail ?? {};
-    return { status, body: body(error.failure, error.message, Object.keys(rest).length ? rest : undefined) };
+    return { status, body: body(unknown ? "NOT_FOUND" : error.failure, error.message, Object.keys(rest).length ? rest : undefined) };
   }
   if (error instanceof ZodError) {
     return { status: 400, body: body("INVALID", `the request does not match the contract: ${error.issues[0]?.path.join(".") || "(body)"}: ${error.issues[0]?.message ?? "invalid"}`, { issues: error.issues.slice(0, 8).map((i) => ({ path: i.path.join("."), message: i.message })) }) };

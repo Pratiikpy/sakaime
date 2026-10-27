@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:08:17.533Z",
+  "recordedAt": "2026-10-27T13:31:09.255Z",
   "role": "support_checker",
   "requestHash": "6ec0f41dfa59414c93e85377641e5c5934e77980d18b626f49833ea159ba9493",
   "request": {
@@ -48,14 +48,14 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that participants were 'aged 18 years or older', which directly supports the assertion that the minimum age in the study population is 18 years.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that 942 individuals aged 18 years or older participated, which matches the assertion's age_min of 18 years and population context.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states that participants were 'aged 18 years or older', which directly supports the assertion that the minimum age in the study population is 18 years."
+      "reason": "The passage states that 942 individuals aged 18 years or older participated, which matches the assertion's age_min of 18 years and population context."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 487,
@@ -63,5 +63,5 @@
       "measured": true
     }
   },
-  "responseHash": "ba0b363566d995bc561097dafaa3077f1650c8457cc1b6dabb5b4d1ce3a1df73"
+  "responseHash": "f5f984f6035b59f3367b94902cb7ea275f5491c5cfd8b0d7906e2b5d9c55d14b"
 }

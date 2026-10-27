@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:09.393Z",
+  "recordedAt": "2026-10-27T13:34:49.896Z",
   "role": "support_checker",
   "requestHash": "99e86569395a2705d2e7f999c72e139ca96dd0d49865e45b2a42905393cafe28",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states 'Transpara@ 1.7.2' under 'Device Name', which directly matches the asserted subject and version.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states the device name Transpara@ 1.7.2, which matches the asserted subject and version 1.7.2.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage explicitly states 'Transpara@ 1.7.2' under 'Device Name', which directly matches the asserted subject and version."
+      "reason": "The passage states the device name Transpara@ 1.7.2, which matches the asserted subject and version 1.7.2."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 454,
-      "completionTokens": 53,
+      "completionTokens": 54,
       "measured": true
     }
   },
-  "responseHash": "6ebe13430e4cbcb176f3b17ae49200881ecef533e02656f76ebd1a3f1c1aa328"
+  "responseHash": "9bdf3044f077d653e574c178cc30817e92a1acf083f28934bf6af88bf3b0d26a"
 }

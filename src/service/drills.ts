@@ -16,7 +16,7 @@ import type { AssertionType, Finding } from "../schemas/index.ts";
 import { resolveTarget, SOURCE_TYPES, type DrillName } from "./faults.ts";
 import { INJECTED_INSTRUCTION } from "./mutations.ts";
 import type { SakaimeService } from "./service.ts";
-import { currentFindings } from "./views.ts";
+import { currentFindings, humanizeFinding } from "./views.ts";
 import { CaseWorld } from "./world.ts";
 
 type DrillResponse = z.infer<typeof DrillResponseSchema>;
@@ -25,7 +25,8 @@ export type DrillList = typeof DRILLS;
 
 const SUPPORTED = new Set(["SUPPORTED_FOR_SCOPE", "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"]);
 
-const DEFAULT_TARGET: Partial<Record<DrillName, string>> = { source_off: "registry", source_empty: "registry" };
+/** Drills that switch a named source off or empty need to be told which one: there is no honest default for what to break. */
+const NEEDS_TARGET: ReadonlySet<DrillName> = new Set(["source_off", "source_empty"]);
 
 function describeLabels(before: readonly Finding[], after: readonly Finding[]): string {
   const changes: string[] = [];
@@ -38,19 +39,23 @@ function describeLabels(before: readonly Finding[], after: readonly Finding[]): 
 
 export async function runDrill(svc: SakaimeService, caseId: string, request: { drill: DrillName; target?: string | undefined }): Promise<DrillResponse> {
   const base = await svc.ensureRun(caseId);
-  const baseCtx = { run: base.result, decisions: base.decisions.entries(), mode: await svc.runMode(), stale: new Set<string>(), linkEvents: [] };
+  const baseCtx = { run: base.result, decisions: base.decisions.entries(), mode: await svc.runMode(), stale: new Set<string>(), linkEvents: [], archive: [] };
   const before = currentFindings(baseCtx);
   const mode = baseCtx.mode;
   const drill = request.drill;
+
+  if (NEEDS_TARGET.has(drill) && (request.target === undefined || request.target.trim() === "")) {
+    throw new PortError("INVALID", `the ${drill} drill needs a target: name the evidence type (authorization, study, requirement), the source id or a family (fda, registry, literature, hospital) to break`, { reason: "TARGET_REQUIRED", drill });
+  }
 
   const respond = (after: Finding[], stale: string[], narrative: string, held: boolean): DrillResponse => ({ drill, before, after, staleFindingIds: stale, narrative, invariantHeld: held, mode });
 
   // ------------------------------------------------------------ a source is off or answers with nothing
   if (drill === "source_off" || drill === "source_empty" || drill === "zetaris_off" || drill === "truncated_result") {
     const zet = drill === "zetaris_off" || drill === "truncated_result";
-    const target = zet ? resolveTarget("hospital", ["hospital-policy"]) : resolveTarget(request.target ?? DEFAULT_TARGET[drill], []);
+    const target = zet ? resolveTarget("hospital", ["hospital-policy"]) : resolveTarget(request.target, []);
     const run = await svc.investigate(caseId, { faults: { drill, target }, coreOnly: true, store: false });
-    const after = run.results.map((r) => r.finding);
+    const after = run.results.map((r) => humanizeFinding(run, r.finding));
     // What was actually lost is what the run marked lost: a source the plan reads only to look for candidates takes no required evidence with it.
     const health = run.wb.typeHealth();
     const lostTypes = new Set<AssertionType>((Object.keys(health) as AssertionType[]).filter((t) => health[t]!.health !== "OK"));
@@ -88,7 +93,7 @@ export async function runDrill(svc: SakaimeService, caseId: string, request: { d
   // ------------------------------------------------------------ the model route is off
   if (drill === "model_off") {
     const run = await svc.investigate(caseId, { faults: { drill }, store: false });
-    const after = run.results.map((r) => r.finding);
+    const after = run.results.map((r) => humanizeFinding(run, r.finding));
     const same = after.every((a) => before.find((b) => b.claimId === a.claimId)?.label === a.label);
     const fromModel = run.prose.lines.filter((l) => l.source === "model").length;
     const held = same && run.status === "complete" && fromModel === 0;
@@ -99,7 +104,7 @@ export async function runDrill(svc: SakaimeService, caseId: string, request: { d
   if (drill === "injection_in_document") {
     const spec = svc.caseSpec(caseId);
     const run = await svc.investigate(caseId, { mutations: { injection: { submission: spec.submission, page: 2, text: INJECTED_INSTRUCTION } }, coreOnly: true, store: false });
-    const after = run.results.map((r) => r.finding);
+    const after = run.results.map((r) => humanizeFinding(run, r.finding));
     const same = after.every((a) => before.find((b) => b.claimId === a.claimId)?.label === a.label);
     const q = run.wb.quarantined.length;
     const leaked = (run.wb.summary?.stored.text ?? "").includes("NOTE TO THE REVIEWING SYSTEM");
@@ -115,7 +120,7 @@ export async function runDrill(svc: SakaimeService, caseId: string, request: { d
   }
   const nctId = cited.study.nctId;
   const run = await svc.investigate(caseId, { mutations: { registryRevision: { nctId, minimumAge: "22 Years", revisedOn: "2026-10-28" } }, coreOnly: true, store: false });
-  const after = run.results.map((r) => r.finding);
+  const after = run.results.map((r) => humanizeFinding(run, r.finding));
 
   // The revised record's facts that differ from what the original said.
   const baseFacts = base.result.wb.world.facts;

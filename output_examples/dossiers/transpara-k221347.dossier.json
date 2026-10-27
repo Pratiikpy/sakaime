@@ -365,7 +365,7 @@
         "predicate": "device.version",
         "quoteVerified": true,
         "subjectId": "device:fda:K221347",
-        "supportVerified": "PASS",
+        "supportVerified": "FAIL",
         "value": "1.7.2"
       },
       {
@@ -512,6 +512,17 @@
         "value": "women"
       },
       {
+        "anchorId": "anc_c2318e42c0613d109738",
+        "assertionType": "authorization",
+        "extractionMethod": "pattern",
+        "id": "asr_9b45a9c757d8dec73e37",
+        "predicate": "population.condition",
+        "quoteVerified": true,
+        "subjectId": "device:fda:K221347",
+        "supportVerified": "PASS",
+        "value": "women undergoing screening mammography and digital breast tomosynthesis"
+      },
+      {
         "anchorId": "anc_10fc94e447ddf1c99693",
         "assertionType": "study",
         "extractionMethod": "pattern",
@@ -579,7 +590,7 @@
         "predicate": "result.auc",
         "quoteVerified": true,
         "subjectId": "device:fda:K221347",
-        "supportVerified": "PASS",
+        "supportVerified": "FAIL",
         "unit": "proportion",
         "value": 0.945
       }
@@ -652,7 +663,7 @@
           "req:CASE-2026-019.intended:REQ-04",
           "req:CASE-2026-019.intended:REQ-06"
         ],
-        "findingId": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb"
+        "findingId": "fnd_fd3e480eb6f7e9c63039636bc8f12c75"
       },
       {
         "evidenceItemIds": [
@@ -662,7 +673,7 @@
           "req:CLM-TR-01:REQ-04",
           "req:CLM-TR-01:REQ-06"
         ],
-        "findingId": "fnd_9f631690802f3134fa5e693b0137e643"
+        "findingId": "fnd_23276a4eef35101a9fc8fb01ff9ce990"
       }
     ],
     "counterexamples": [
@@ -670,15 +681,24 @@
         "claimId": "CASE-2026-019.intended",
         "dimensions": [
           "population",
-          "setting",
-          "timing"
+          "setting"
         ],
-        "findingId": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
+        "findingId": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
         "mismatches": [
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_06385a690b441d958cbb",
+              "anc_12b6398153eb8928e3c7",
+              "anc_6f6cd641b36704529e5c",
+              "anc_881e1583c016ba6db4ab",
+              "anc_b0ace5e53b9014452999",
+              "anc_c2318e42c0613d109738",
+              "anc_c738814dd884468df7cc",
+              "anc_efb1a6100bfe716d9efe"
+            ],
             "claimed": "ages 40 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis",
             "relation": "UNKNOWN"
           },
           {
@@ -690,31 +710,11 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "specialty clinic",
             "dimension": "setting",
             "established": "authorization record: any care setting, hospital (any unit)",
-            "relation": "UNKNOWN"
-          },
-          {
-            "anchorIds": [
-              "anc_06385a690b441d958cbb",
-              "anc_12b6398153eb8928e3c7",
-              "anc_6f6cd641b36704529e5c",
-              "anc_881e1583c016ba6db4ab",
-              "anc_8a127d6f3f87be5c1b36",
-              "anc_b0ace5e53b9014452999",
-              "anc_c2318e42c0613d109738",
-              "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0",
-              "anc_fb4f992a6c0d855d7f70"
-            ],
-            "claimed": "use from 2027-04-01",
-            "dimension": "timing",
-            "established": "authorization record: in force from 2022-08-03 with no stated end",
             "relation": "UNKNOWN"
           }
         ]
@@ -725,12 +725,22 @@
           "population",
           "setting"
         ],
-        "findingId": "fnd_9f631690802f3134fa5e693b0137e643",
+        "findingId": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
         "mismatches": [
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_06385a690b441d958cbb",
+              "anc_12b6398153eb8928e3c7",
+              "anc_6f6cd641b36704529e5c",
+              "anc_881e1583c016ba6db4ab",
+              "anc_b0ace5e53b9014452999",
+              "anc_c2318e42c0613d109738",
+              "anc_c738814dd884468df7cc",
+              "anc_efb1a6100bfe716d9efe"
+            ],
             "claimed": "ages 40 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis",
             "relation": "UNKNOWN"
           },
           {
@@ -742,8 +752,7 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "specialty clinic",
             "dimension": "setting",
@@ -756,7 +765,7 @@
     "decisionHistory": [],
     "egress": [
       {
-        "at": "2026-10-27T12:00:00.376Z",
+        "at": "2026-10-27T12:00:00.384Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-1",
@@ -766,7 +775,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.384Z",
+        "at": "2026-10-27T12:00:00.392Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-2",
@@ -776,7 +785,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.385Z",
+        "at": "2026-10-27T12:00:00.393Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-3",
@@ -786,7 +795,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.386Z",
+        "at": "2026-10-27T12:00:00.394Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-4",
@@ -796,7 +805,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.387Z",
+        "at": "2026-10-27T12:00:00.395Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-5",
@@ -806,7 +815,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.388Z",
+        "at": "2026-10-27T12:00:00.396Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-6",
@@ -816,7 +825,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.389Z",
+        "at": "2026-10-27T12:00:00.397Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-7",
@@ -826,7 +835,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.445Z",
+        "at": "2026-10-27T12:00:00.452Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-8",
@@ -836,7 +845,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.446Z",
+        "at": "2026-10-27T12:00:00.453Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-9",
@@ -846,7 +855,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.449Z",
+        "at": "2026-10-27T12:00:00.456Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-10",
@@ -856,7 +865,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.450Z",
+        "at": "2026-10-27T12:00:00.457Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-11",
@@ -866,7 +875,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.451Z",
+        "at": "2026-10-27T12:00:00.458Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-12",
@@ -876,7 +885,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.452Z",
+        "at": "2026-10-27T12:00:00.459Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-13",
@@ -886,7 +895,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.453Z",
+        "at": "2026-10-27T12:00:00.460Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-14",
@@ -896,7 +905,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.454Z",
+        "at": "2026-10-27T12:00:00.461Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-15",
@@ -906,7 +915,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.459Z",
+        "at": "2026-10-27T12:00:00.466Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-16",
@@ -916,7 +925,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.460Z",
+        "at": "2026-10-27T12:00:00.467Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-17",
@@ -926,7 +935,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.483Z",
+        "at": "2026-10-27T12:00:00.490Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-18",
@@ -936,7 +945,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.484Z",
+        "at": "2026-10-27T12:00:00.491Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-19",
@@ -946,7 +955,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.485Z",
+        "at": "2026-10-27T12:00:00.492Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-20",
@@ -956,7 +965,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.486Z",
+        "at": "2026-10-27T12:00:00.493Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-21",
@@ -966,7 +975,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.520Z",
+        "at": "2026-10-27T12:00:00.527Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-22",
@@ -976,7 +985,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.523Z",
+        "at": "2026-10-27T12:00:00.530Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-transpara-k221347-1:model-23",
@@ -986,33 +995,33 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.504Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "dataClass": "public",
         "decision": "allowed",
-        "id": "egress-a2b05e6b-38b2-4770-8573-7448aa8f0501",
+        "id": "egress-d7523256-4dfc-4b60-9b04-b3f0037e3574",
         "reason": "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected",
         "route": "local",
-        "subjectId": "a2b05e6b-38b2-4770-8573-7448aa8f0501",
+        "subjectId": "d7523256-4dfc-4b60-9b04-b3f0037e3574",
         "subjectKind": "federation"
       },
       {
-        "at": "2026-10-27T12:00:00.504Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "dataClass": "public",
         "decision": "allowed",
-        "id": "egress-0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+        "id": "egress-01f7d49a-311c-4667-b1cb-ffd9aad396fa",
         "reason": "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected",
         "route": "local",
-        "subjectId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+        "subjectId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
         "subjectKind": "federation"
       },
       {
-        "at": "2026-10-27T12:00:00.504Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "dataClass": "public",
         "decision": "allowed",
-        "id": "egress-4fe66a72-e182-4f9c-b046-ad21a8699670",
+        "id": "egress-d282cb9a-607f-4b27-b883-29f25599fe3e",
         "reason": "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected",
         "route": "local",
-        "subjectId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+        "subjectId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
         "subjectKind": "federation"
       }
     ],
@@ -1162,7 +1171,7 @@
         "history": "evidence",
         "id": "eh-17",
         "kind": "fact_recorded",
-        "refId": "fact_74c50a4586abe87a",
+        "refId": "fact_ea5274e5b6f330dc",
         "seq": 17
       },
       {
@@ -1178,7 +1187,7 @@
         "history": "evidence",
         "id": "eh-19",
         "kind": "fact_recorded",
-        "refId": "fact_ea5274e5b6f330dc",
+        "refId": "fact_ddc8a93e6c61d61f",
         "seq": 19
       },
       {
@@ -1186,7 +1195,7 @@
         "history": "evidence",
         "id": "eh-20",
         "kind": "fact_recorded",
-        "refId": "fact_ddc8a93e6c61d61f",
+        "refId": "fact_70dae45af9c60a12",
         "seq": 20
       },
       {
@@ -1194,7 +1203,7 @@
         "history": "evidence",
         "id": "eh-21",
         "kind": "fact_recorded",
-        "refId": "fact_70dae45af9c60a12",
+        "refId": "fact_f71d8f60225397d1",
         "seq": 21
       },
       {
@@ -1202,7 +1211,7 @@
         "history": "evidence",
         "id": "eh-22",
         "kind": "fact_recorded",
-        "refId": "fact_f71d8f60225397d1",
+        "refId": "fact_ca4247b69aeae6f9",
         "seq": 22
       },
       {
@@ -1210,7 +1219,7 @@
         "history": "evidence",
         "id": "eh-23",
         "kind": "fact_recorded",
-        "refId": "fact_ca4247b69aeae6f9",
+        "refId": "fact_fa9b765f5375d3d2",
         "seq": 23
       },
       {
@@ -1218,7 +1227,7 @@
         "history": "evidence",
         "id": "eh-24",
         "kind": "fact_recorded",
-        "refId": "fact_fa9b765f5375d3d2",
+        "refId": "fact_5b724f410ae575f9",
         "seq": 24
       },
       {
@@ -1238,82 +1247,74 @@
         "seq": 26
       },
       {
-        "at": "2026-10-27T10:12:52.606Z",
+        "at": "2026-10-27T12:00:00.047Z",
         "history": "evidence",
         "id": "eh-27",
         "kind": "fact_recorded",
-        "refId": "fact_3ad6fbf213219d65",
+        "refId": "fact_68dcc6d8405b6d11",
         "seq": 27
       },
       {
-        "at": "2026-10-27T12:00:00.406Z",
+        "at": "2026-10-27T12:00:00.047Z",
         "history": "evidence",
         "id": "eh-28",
         "kind": "fact_recorded",
-        "refId": "fact_5e6f4716527f5a7b",
+        "refId": "fact_385f1896f76218d3",
         "seq": 28
-      },
-      {
-        "at": "2026-10-27T12:00:00.406Z",
-        "history": "evidence",
-        "id": "eh-29",
-        "kind": "fact_recorded",
-        "refId": "fact_b71a40b1a649b5ed",
-        "seq": 29
       },
       {
         "at": "2026-10-27T10:13:24.426Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-30",
+        "id": "eh-29",
         "kind": "source_health_observed",
         "refId": "clinicaltrials-v2",
+        "seq": 29
+      },
+      {
+        "at": "2026-10-27T12:00:00.533Z",
+        "health": "OK",
+        "history": "evidence",
+        "id": "eh-30",
+        "kind": "source_health_observed",
+        "refId": "fda-accessdata-pdf",
         "seq": 30
       },
       {
-        "at": "2026-10-27T12:00:00.526Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "health": "OK",
         "history": "evidence",
         "id": "eh-31",
         "kind": "source_health_observed",
-        "refId": "fda-accessdata-pdf",
-        "seq": 31
-      },
-      {
-        "at": "2026-10-27T12:00:00.504Z",
-        "health": "OK",
-        "history": "evidence",
-        "id": "eh-32",
-        "kind": "source_health_observed",
         "refId": "hospital-policy",
-        "seq": 32
+        "seq": 31
       },
       {
         "at": "2026-10-27T10:12:51.140Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-33",
+        "id": "eh-32",
         "kind": "source_health_observed",
         "refId": "openfda-510k",
-        "seq": 33
+        "seq": 32
       },
       {
         "at": "2026-10-27T10:12:52.276Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-34",
+        "id": "eh-33",
         "kind": "source_health_observed",
         "refId": "openfda-udi",
-        "seq": 34
+        "seq": 33
       },
       {
         "at": "2026-10-27T10:14:40.793Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-35",
+        "id": "eh-34",
         "kind": "source_health_observed",
         "refId": "pubmed-eutils",
-        "seq": 35
+        "seq": 34
       }
     ],
     "evidenceItems": [
@@ -1335,13 +1336,12 @@
       },
       {
         "anchorIds": [
-          "anc_fa9ff2bd98e5022c23d0",
           "anc_6f6cd641b36704529e5c",
+          "anc_c2318e42c0613d109738",
           "anc_efb1a6100bfe716d9efe",
           "anc_c738814dd884468df7cc",
           "anc_12b6398153eb8928e3c7",
           "anc_b0ace5e53b9014452999",
-          "anc_c2318e42c0613d109738",
           "anc_881e1583c016ba6db4ab",
           "anc_06385a690b441d958cbb"
         ],
@@ -1350,6 +1350,11 @@
         "limitations": [],
         "results": [],
         "scope": {
+          "population": {
+            "conditions": [
+              "women undergoing screening mammography and digital breast tomosynthesis"
+            ]
+          },
           "product": "device:fda:K221347",
           "purpose": "screening_concurrent_reading_aid",
           "settings": [
@@ -1366,9 +1371,9 @@
       },
       {
         "anchorIds": [
+          "anc_881e1583c016ba6db4ab",
           "anc_944b4cbca6c390bafd71",
           "anc_d0f574773c91498764dc",
-          "anc_6af61794cf5c237cb5f2",
           "anc_06385a690b441d958cbb"
         ],
         "assertionType": "study",
@@ -1376,13 +1381,15 @@
         "limitations": [
           "sensitivity 0.95 is reported for a narrower or different analysis (context:2D) and is not used as the headline result",
           "sensitivity 0.932 is reported for a narrower or different analysis (context:DBT) and is not used as the headline result",
-          "auc 0.945 is reported for a narrower or different analysis (context:2D) and is not used as the headline result",
-          "auc 0.945 is reported for a narrower or different analysis (context:DBT) and is not used as the headline result",
-          "version 1.7.2 is named elsewhere in the same document; the passages that report these results do not name a version"
+          "version 1.7.2 is named elsewhere in the same document; the passages that report these results do not name a version",
+          "dated 2022-08-03, the decision date of the document that describes it: the study existed by then; its own date is not stated"
         ],
         "results": [],
         "scope": {
           "product": "device:fda:K221347",
+          "timing": {
+            "from": "2022-08-03"
+          },
           "versions": [
             "1.7.2"
           ]
@@ -1485,23 +1492,12 @@
         "validFrom": "2022-08-03T00:00:00.000Z"
       },
       {
-        "anchorId": "anc_fa9ff2bd98e5022c23d0",
+        "anchorId": "anc_6f6cd641b36704529e5c",
         "assertionType": "authorization",
-        "hash": "cae9796d2ed4452638fdfe8868f19761ff3c8dec473c4cc6001328600fab3d54",
-        "id": "fact_74c50a4586abe87a",
-        "object": "Transpara 1.7.2",
+        "hash": "349bd764997cb031aa8b6a4ab51891426bc06d78000b292c3cdc51a7c9768122",
+        "id": "fact_ea5274e5b6f330dc",
+        "object": "Transpara@ 1.7.2",
         "predicate": "device.name",
-        "recordedAt": "2026-10-27T10:12:52.606Z",
-        "sourceId": "fda-accessdata-pdf",
-        "subject": "device:fda:K221347"
-      },
-      {
-        "anchorId": "anc_fa9ff2bd98e5022c23d0",
-        "assertionType": "authorization",
-        "hash": "66adaa375d9eb2563796b63d06fb12d573df0eb894e38b55bef4cae019ad33a6",
-        "id": "fact_efefa23209485485",
-        "object": "1.7.2",
-        "predicate": "device.version",
         "recordedAt": "2026-10-27T10:12:52.606Z",
         "sourceId": "fda-accessdata-pdf",
         "subject": "device:fda:K221347"
@@ -1509,10 +1505,10 @@
       {
         "anchorId": "anc_6f6cd641b36704529e5c",
         "assertionType": "authorization",
-        "hash": "349bd764997cb031aa8b6a4ab51891426bc06d78000b292c3cdc51a7c9768122",
-        "id": "fact_ea5274e5b6f330dc",
-        "object": "Transpara@ 1.7.2",
-        "predicate": "device.name",
+        "hash": "66adaa375d9eb2563796b63d06fb12d573df0eb894e38b55bef4cae019ad33a6",
+        "id": "fact_efefa23209485485",
+        "object": "1.7.2",
+        "predicate": "device.version",
         "recordedAt": "2026-10-27T10:12:52.606Z",
         "sourceId": "fda-accessdata-pdf",
         "subject": "device:fda:K221347"
@@ -1573,6 +1569,17 @@
         "subject": "device:fda:K221347"
       },
       {
+        "anchorId": "anc_c2318e42c0613d109738",
+        "assertionType": "authorization",
+        "hash": "850f248a9e29261394f24ecef4ea23e89c4e9a4bfc62454a46ce3d788e7256e0",
+        "id": "fact_5b724f410ae575f9",
+        "object": "women undergoing screening mammography and digital breast tomosynthesis",
+        "predicate": "population.condition",
+        "recordedAt": "2026-10-27T10:12:52.606Z",
+        "sourceId": "fda-accessdata-pdf",
+        "subject": "device:fda:K221347"
+      },
+      {
         "anchorId": "anc_944b4cbca6c390bafd71",
         "assertionType": "study",
         "hash": "1e4debc685a6b4b891c88173cb27c5282ffdb905768a532661f3fec8d178cce3",
@@ -1595,40 +1602,29 @@
         "subject": "device:fda:K221347"
       },
       {
-        "anchorId": "anc_6af61794cf5c237cb5f2",
-        "assertionType": "study",
-        "hash": "5d5dd4146bb0ce4ad619cd802baea7f38e61fd4995b00dfa52566a485e855b74",
-        "id": "fact_3ad6fbf213219d65",
-        "object": "0.945",
-        "predicate": "result.auc",
-        "recordedAt": "2026-10-27T10:12:52.606Z",
-        "sourceId": "fda-accessdata-pdf",
-        "subject": "device:fda:K221347"
-      },
-      {
         "assertionType": "requirement",
-        "hash": "03aeeb6eac5177fba0bf50bdcab729354838ec9b8b21b534f84a6f0a98affcaa",
-        "id": "fact_5e6f4716527f5a7b",
+        "hash": "64e9f0cf9cbefc4a7e4daeaa4d43dd646de5e733e76f4039890f67ebf6520a8f",
+        "id": "fact_68dcc6d8405b6d11",
         "object": "version_specific_evidence equals true (AI-INTAKE-POLICY v3)",
         "predicate": "policy.requirement",
-        "recordedAt": "2026-10-27T12:00:00.406Z",
+        "recordedAt": "2026-10-27T12:00:00.047Z",
         "sourceId": "hospital-policy",
         "subject": "policy:REQ-04"
       },
       {
         "assertionType": "requirement",
-        "hash": "2166ec3b56fbec8fc070f84a573c2eb461febf51602190e9bacaa96e2c881316",
-        "id": "fact_b71a40b1a649b5ed",
+        "hash": "359d9d975fd247335a0af8b0632d9771a3d0d71e2330eff2acafb02fa4934492",
+        "id": "fact_385f1896f76218d3",
         "object": "setting_match includes deployment_setting (AI-INTAKE-POLICY v3)",
         "predicate": "policy.requirement",
-        "recordedAt": "2026-10-27T12:00:00.406Z",
+        "recordedAt": "2026-10-27T12:00:00.047Z",
         "sourceId": "hospital-policy",
         "subject": "policy:REQ-06"
       }
     ],
     "federation": [
       {
-        "at": "2026-10-27T12:00:00.504Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "columns": [
           {
             "name": "case_id",
@@ -1717,7 +1713,7 @@
         ],
         "identity": "default",
         "label": "recorded",
-        "queryId": "a2b05e6b-38b2-4770-8573-7448aa8f0501",
+        "queryId": "d7523256-4dfc-4b60-9b04-b3f0037e3574",
         "respHash": "b22fbfaffddb09e156fe158f9fa5dd7fa4d9d27d0252ce5213ec168c92f546ba",
         "result": {
           "columns": [
@@ -1842,7 +1838,7 @@
         "total": 1
       },
       {
-        "at": "2026-10-27T12:00:00.504Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "columns": [
           {
             "name": "requirement_id",
@@ -1879,7 +1875,7 @@
         ],
         "identity": "default",
         "label": "recorded",
-        "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+        "queryId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
         "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
         "result": {
           "columns": [
@@ -2029,7 +2025,7 @@
         "total": 10
       },
       {
-        "at": "2026-10-27T12:00:00.504Z",
+        "at": "2026-10-27T12:00:00.511Z",
         "columns": [
           {
             "name": "precedent_id",
@@ -2046,7 +2042,7 @@
         ],
         "identity": "default",
         "label": "recorded",
-        "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+        "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
         "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
         "result": {
           "columns": [
@@ -2094,19 +2090,18 @@
     "findings": [
       {
         "claimId": "CASE-2026-019.intended",
-        "computedAt": "2026-10-27T12:00:00.509Z",
+        "computedAt": "2026-10-27T12:00:00.516Z",
         "contraryDispositions": [],
         "degraded": [],
         "dependsOnFacts": [
           "fact_0b5d260424e25f94",
-          "fact_3ad6fbf213219d65",
+          "fact_385f1896f76218d3",
           "fact_55b0ae556c4587a0",
           "fact_5ab0c5b3db39b884",
-          "fact_5e6f4716527f5a7b",
+          "fact_5b724f410ae575f9",
           "fact_6110ad9d533b1601",
+          "fact_68dcc6d8405b6d11",
           "fact_70dae45af9c60a12",
-          "fact_74c50a4586abe87a",
-          "fact_b71a40b1a649b5ed",
           "fact_c4bcc2b8ecf7031f",
           "fact_ca4247b69aeae6f9",
           "fact_cf201734e8638508",
@@ -2116,15 +2111,25 @@
           "fact_f71d8f60225397d1",
           "fact_fa9b765f5375d3d2"
         ],
-        "expertReviewFlags": [],
-        "id": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
+        "expertReviewFlags": [
+          {
+            "dimension": "timing",
+            "reason": "The newest authorization record is dated 2022-08-03, and the claimed period ends 2027-04-01: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+            "ruleId": "R20-STALENESS"
+          },
+          {
+            "dimension": "timing",
+            "reason": "The newest study evidence is dated 2022-08-03, and the claimed period ends 2027-04-01: longer than the configured staleness window. Whether it is still representative is a reviewer judgement.",
+            "ruleId": "R20-STALENESS"
+          }
+        ],
+        "id": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
           {
             "anchorIds": [
               "anc_06385a690b441d958cbb",
               "anc_12b6398153eb8928e3c7",
-              "anc_6af61794cf5c237cb5f2",
               "anc_6f6cd641b36704529e5c",
               "anc_881e1583c016ba6db4ab",
               "anc_8a127d6f3f87be5c1b36",
@@ -2134,7 +2139,6 @@
               "anc_c738814dd884468df7cc",
               "anc_d0f574773c91498764dc",
               "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0",
               "anc_fb4f992a6c0d855d7f70"
             ],
             "claimed": "device:fda:K221347",
@@ -2151,7 +2155,6 @@
             "anchorIds": [
               "anc_06385a690b441d958cbb",
               "anc_12b6398153eb8928e3c7",
-              "anc_6af61794cf5c237cb5f2",
               "anc_6f6cd641b36704529e5c",
               "anc_881e1583c016ba6db4ab",
               "anc_944b4cbca6c390bafd71",
@@ -2159,8 +2162,7 @@
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
               "anc_d0f574773c91498764dc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "1.7.2",
             "dimension": "version",
@@ -2172,10 +2174,22 @@
             "relation": "CONTAINED"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_06385a690b441d958cbb",
+              "anc_12b6398153eb8928e3c7",
+              "anc_6f6cd641b36704529e5c",
+              "anc_881e1583c016ba6db4ab",
+              "anc_b0ace5e53b9014452999",
+              "anc_c2318e42c0613d109738",
+              "anc_c738814dd884468df7cc",
+              "anc_efb1a6100bfe716d9efe"
+            ],
             "claimed": "ages 40 and above",
             "dimension": "population",
-            "evidenceIds": [],
+            "established": "authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis",
+            "evidenceIds": [
+              "ev-fda-summary-ggoklcfjmc-authorization"
+            ],
             "relation": "UNKNOWN"
           },
           {
@@ -2187,8 +2201,7 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "specialty clinic",
             "dimension": "setting",
@@ -2207,8 +2220,7 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "detection aid",
             "dimension": "purpose",
@@ -2225,21 +2237,23 @@
               "anc_6f6cd641b36704529e5c",
               "anc_881e1583c016ba6db4ab",
               "anc_8a127d6f3f87be5c1b36",
+              "anc_944b4cbca6c390bafd71",
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
+              "anc_d0f574773c91498764dc",
               "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0",
               "anc_fb4f992a6c0d855d7f70"
             ],
             "claimed": "use from 2027-04-01",
             "dimension": "timing",
-            "established": "authorization record: in force from 2022-08-03 with no stated end",
+            "established": "authorization record: in force from 2022-08-03 with no stated end; study: newest evidence dated 2022-08-03",
             "evidenceIds": [
               "ev-fda-summary-ggoklcfjmc-authorization",
+              "ev-fda-summary-ggoklcfjmc-study",
               "ev-openfda-510k-pajpkgdcdp-authorization"
             ],
-            "relation": "UNKNOWN"
+            "relation": "CONTAINED"
           },
           {
             "anchorIds": [],
@@ -2250,9 +2264,19 @@
         ],
         "mismatches": [
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_06385a690b441d958cbb",
+              "anc_12b6398153eb8928e3c7",
+              "anc_6f6cd641b36704529e5c",
+              "anc_881e1583c016ba6db4ab",
+              "anc_b0ace5e53b9014452999",
+              "anc_c2318e42c0613d109738",
+              "anc_c738814dd884468df7cc",
+              "anc_efb1a6100bfe716d9efe"
+            ],
             "claimed": "ages 40 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis",
             "relation": "UNKNOWN"
           },
           {
@@ -2264,31 +2288,11 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "specialty clinic",
             "dimension": "setting",
             "established": "authorization record: any care setting, hospital (any unit)",
-            "relation": "UNKNOWN"
-          },
-          {
-            "anchorIds": [
-              "anc_06385a690b441d958cbb",
-              "anc_12b6398153eb8928e3c7",
-              "anc_6f6cd641b36704529e5c",
-              "anc_881e1583c016ba6db4ab",
-              "anc_8a127d6f3f87be5c1b36",
-              "anc_b0ace5e53b9014452999",
-              "anc_c2318e42c0613d109738",
-              "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0",
-              "anc_fb4f992a6c0d855d7f70"
-            ],
-            "claimed": "use from 2027-04-01",
-            "dimension": "timing",
-            "established": "authorization record: in force from 2022-08-03 with no stated end",
             "relation": "UNKNOWN"
           }
         ],
@@ -2300,31 +2304,26 @@
           {
             "dimension": "setting",
             "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
-          },
-          {
-            "dimension": "timing",
-            "request": "From the vendor: the date the authorization took effect and any date it was superseded or withdrawn, and the dates over which the study data were collected."
           }
         ],
         "reviewerState": "unreviewed",
-        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-transpara-k221347-1"
       },
       {
         "claimId": "CLM-TR-01",
-        "computedAt": "2026-10-27T12:00:00.511Z",
+        "computedAt": "2026-10-27T12:00:00.518Z",
         "contraryDispositions": [],
         "degraded": [],
         "dependsOnFacts": [
           "fact_0b5d260424e25f94",
-          "fact_3ad6fbf213219d65",
+          "fact_385f1896f76218d3",
           "fact_55b0ae556c4587a0",
           "fact_5ab0c5b3db39b884",
-          "fact_5e6f4716527f5a7b",
+          "fact_5b724f410ae575f9",
           "fact_6110ad9d533b1601",
+          "fact_68dcc6d8405b6d11",
           "fact_70dae45af9c60a12",
-          "fact_74c50a4586abe87a",
-          "fact_b71a40b1a649b5ed",
           "fact_c4bcc2b8ecf7031f",
           "fact_ca4247b69aeae6f9",
           "fact_cf201734e8638508",
@@ -2335,14 +2334,13 @@
           "fact_fa9b765f5375d3d2"
         ],
         "expertReviewFlags": [],
-        "id": "fnd_9f631690802f3134fa5e693b0137e643",
+        "id": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
           {
             "anchorIds": [
               "anc_06385a690b441d958cbb",
               "anc_12b6398153eb8928e3c7",
-              "anc_6af61794cf5c237cb5f2",
               "anc_6f6cd641b36704529e5c",
               "anc_881e1583c016ba6db4ab",
               "anc_8a127d6f3f87be5c1b36",
@@ -2352,7 +2350,6 @@
               "anc_c738814dd884468df7cc",
               "anc_d0f574773c91498764dc",
               "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0",
               "anc_fb4f992a6c0d855d7f70"
             ],
             "claimed": "device:fda:K221347",
@@ -2369,7 +2366,6 @@
             "anchorIds": [
               "anc_06385a690b441d958cbb",
               "anc_12b6398153eb8928e3c7",
-              "anc_6af61794cf5c237cb5f2",
               "anc_6f6cd641b36704529e5c",
               "anc_881e1583c016ba6db4ab",
               "anc_944b4cbca6c390bafd71",
@@ -2377,8 +2373,7 @@
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
               "anc_d0f574773c91498764dc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "1.7.2",
             "dimension": "version",
@@ -2390,10 +2385,22 @@
             "relation": "CONTAINED"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_06385a690b441d958cbb",
+              "anc_12b6398153eb8928e3c7",
+              "anc_6f6cd641b36704529e5c",
+              "anc_881e1583c016ba6db4ab",
+              "anc_b0ace5e53b9014452999",
+              "anc_c2318e42c0613d109738",
+              "anc_c738814dd884468df7cc",
+              "anc_efb1a6100bfe716d9efe"
+            ],
             "claimed": "ages 40 and above",
             "dimension": "population",
-            "evidenceIds": [],
+            "established": "authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis",
+            "evidenceIds": [
+              "ev-fda-summary-ggoklcfjmc-authorization"
+            ],
             "relation": "UNKNOWN"
           },
           {
@@ -2405,8 +2412,7 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "specialty clinic",
             "dimension": "setting",
@@ -2425,8 +2431,7 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "detection aid",
             "dimension": "purpose",
@@ -2451,9 +2456,19 @@
         ],
         "mismatches": [
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_06385a690b441d958cbb",
+              "anc_12b6398153eb8928e3c7",
+              "anc_6f6cd641b36704529e5c",
+              "anc_881e1583c016ba6db4ab",
+              "anc_b0ace5e53b9014452999",
+              "anc_c2318e42c0613d109738",
+              "anc_c738814dd884468df7cc",
+              "anc_efb1a6100bfe716d9efe"
+            ],
             "claimed": "ages 40 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis",
             "relation": "UNKNOWN"
           },
           {
@@ -2465,8 +2480,7 @@
               "anc_b0ace5e53b9014452999",
               "anc_c2318e42c0613d109738",
               "anc_c738814dd884468df7cc",
-              "anc_efb1a6100bfe716d9efe",
-              "anc_fa9ff2bd98e5022c23d0"
+              "anc_efb1a6100bfe716d9efe"
             ],
             "claimed": "specialty clinic",
             "dimension": "setting",
@@ -2485,7 +2499,7 @@
           }
         ],
         "reviewerState": "unreviewed",
-        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-transpara-k221347-1"
       }
     ],
@@ -3312,7 +3326,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.504Z",
+        "eventTime": "2026-10-27T12:00:00.511Z",
         "eventType": "START",
         "inputs": [
           {
@@ -3340,18 +3354,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "a2b05e6b-38b2-4770-8573-7448aa8f0501",
+              "queryId": "d7523256-4dfc-4b60-9b04-b3f0037e3574",
               "respHash": "b22fbfaffddb09e156fe158f9fa5dd7fa4d9d27d0252ce5213ec168c92f546ba",
               "servedFrom": "cassette",
               "total": 1
             }
           },
-          "runId": "a954c34d-9faa-5f50-9bd6-e53cdd4c3efb"
+          "runId": "a77a5ee5-ff8f-51d9-abd3-e7bfd6ca099e"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.504Z",
+        "eventTime": "2026-10-27T12:00:00.511Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -3465,7 +3479,7 @@
                 ]
               }
             },
-            "name": "a2b05e6b-38b2-4770-8573-7448aa8f0501",
+            "name": "d7523256-4dfc-4b60-9b04-b3f0037e3574",
             "namespace": "sakaime.federation"
           }
         ],
@@ -3476,18 +3490,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "a2b05e6b-38b2-4770-8573-7448aa8f0501",
+              "queryId": "d7523256-4dfc-4b60-9b04-b3f0037e3574",
               "respHash": "b22fbfaffddb09e156fe158f9fa5dd7fa4d9d27d0252ce5213ec168c92f546ba",
               "servedFrom": "cassette",
               "total": 1
             }
           },
-          "runId": "a954c34d-9faa-5f50-9bd6-e53cdd4c3efb"
+          "runId": "a77a5ee5-ff8f-51d9-abd3-e7bfd6ca099e"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.504Z",
+        "eventTime": "2026-10-27T12:00:00.511Z",
         "eventType": "START",
         "inputs": [
           {
@@ -3515,18 +3529,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+              "queryId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
               "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
               "servedFrom": "cassette",
               "total": 10
             }
           },
-          "runId": "86a5a518-1014-52b5-8c3a-3aac7ca12901"
+          "runId": "ffa647f8-b076-57c8-91e1-90ef433970d0"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.504Z",
+        "eventTime": "2026-10-27T12:00:00.511Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -3588,7 +3602,7 @@
                 ]
               }
             },
-            "name": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+            "name": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
             "namespace": "sakaime.federation"
           }
         ],
@@ -3599,18 +3613,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+              "queryId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
               "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
               "servedFrom": "cassette",
               "total": 10
             }
           },
-          "runId": "86a5a518-1014-52b5-8c3a-3aac7ca12901"
+          "runId": "ffa647f8-b076-57c8-91e1-90ef433970d0"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.504Z",
+        "eventTime": "2026-10-27T12:00:00.511Z",
         "eventType": "START",
         "inputs": [
           {
@@ -3638,18 +3652,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+              "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
               "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
               "servedFrom": "cassette",
               "total": 3
             }
           },
-          "runId": "0aa0c9c0-04ef-5408-a58f-ade66d650d52"
+          "runId": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.504Z",
+        "eventTime": "2026-10-27T12:00:00.511Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -3691,7 +3705,7 @@
                 ]
               }
             },
-            "name": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+            "name": "d282cb9a-607f-4b27-b883-29f25599fe3e",
             "namespace": "sakaime.federation"
           }
         ],
@@ -3702,18 +3716,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+              "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
               "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
               "servedFrom": "cassette",
               "total": 3
             }
           },
-          "runId": "0aa0c9c0-04ef-5408-a58f-ade66d650d52"
+          "runId": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.376Z",
+        "eventTime": "2026-10-27T12:00:00.384Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -3738,7 +3752,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.376Z",
+        "eventTime": "2026-10-27T12:00:00.384Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -3763,7 +3777,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.384Z",
+        "eventTime": "2026-10-27T12:00:00.392Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -3780,7 +3794,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "b4f117d9-140b-57a4-a35b-23539d195cb6"
@@ -3788,7 +3802,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.384Z",
+        "eventTime": "2026-10-27T12:00:00.392Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -3805,7 +3819,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "b4f117d9-140b-57a4-a35b-23539d195cb6"
@@ -3813,7 +3827,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.385Z",
+        "eventTime": "2026-10-27T12:00:00.393Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -3830,7 +3844,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "aa10e0d9-9c0e-5bc6-8df5-4cd0805df1f9"
@@ -3838,7 +3852,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.385Z",
+        "eventTime": "2026-10-27T12:00:00.393Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -3855,7 +3869,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "aa10e0d9-9c0e-5bc6-8df5-4cd0805df1f9"
@@ -3863,7 +3877,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.386Z",
+        "eventTime": "2026-10-27T12:00:00.394Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -3880,7 +3894,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "356951e5-5fce-5c4b-baa2-1bbde8928208"
@@ -3888,7 +3902,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.386Z",
+        "eventTime": "2026-10-27T12:00:00.394Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -3905,7 +3919,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "356951e5-5fce-5c4b-baa2-1bbde8928208"
@@ -3913,7 +3927,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.387Z",
+        "eventTime": "2026-10-27T12:00:00.395Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -3930,7 +3944,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "36cce491-390b-54ff-aa41-13d852082b36"
@@ -3938,7 +3952,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.387Z",
+        "eventTime": "2026-10-27T12:00:00.395Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -3955,7 +3969,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "36cce491-390b-54ff-aa41-13d852082b36"
@@ -3963,7 +3977,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.388Z",
+        "eventTime": "2026-10-27T12:00:00.396Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -3980,7 +3994,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "0216a644-d466-5f8a-8bd7-61c755e14ff2"
@@ -3988,7 +4002,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.388Z",
+        "eventTime": "2026-10-27T12:00:00.396Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4005,7 +4019,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "0216a644-d466-5f8a-8bd7-61c755e14ff2"
@@ -4013,7 +4027,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.389Z",
+        "eventTime": "2026-10-27T12:00:00.397Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4038,7 +4052,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.389Z",
+        "eventTime": "2026-10-27T12:00:00.397Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4063,7 +4077,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.445Z",
+        "eventTime": "2026-10-27T12:00:00.452Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4088,7 +4102,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.445Z",
+        "eventTime": "2026-10-27T12:00:00.452Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4113,7 +4127,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.446Z",
+        "eventTime": "2026-10-27T12:00:00.453Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4130,7 +4144,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "8c540134-9f9b-5e30-94b9-792e4399161f"
@@ -4138,7 +4152,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.446Z",
+        "eventTime": "2026-10-27T12:00:00.453Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4155,7 +4169,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "8c540134-9f9b-5e30-94b9-792e4399161f"
@@ -4163,7 +4177,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.449Z",
+        "eventTime": "2026-10-27T12:00:00.456Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4180,7 +4194,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "38a12e2e-4868-5bec-b1bb-f89a11ea4fd2"
@@ -4188,7 +4202,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.449Z",
+        "eventTime": "2026-10-27T12:00:00.456Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4205,7 +4219,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "38a12e2e-4868-5bec-b1bb-f89a11ea4fd2"
@@ -4213,7 +4227,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.450Z",
+        "eventTime": "2026-10-27T12:00:00.457Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4230,7 +4244,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "e3de9524-5ee1-558e-a4f0-f2bf6db651cb"
@@ -4238,7 +4252,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.450Z",
+        "eventTime": "2026-10-27T12:00:00.457Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4255,7 +4269,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "e3de9524-5ee1-558e-a4f0-f2bf6db651cb"
@@ -4263,7 +4277,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.451Z",
+        "eventTime": "2026-10-27T12:00:00.458Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4288,7 +4302,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.451Z",
+        "eventTime": "2026-10-27T12:00:00.458Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4313,7 +4327,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.452Z",
+        "eventTime": "2026-10-27T12:00:00.459Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4338,7 +4352,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.452Z",
+        "eventTime": "2026-10-27T12:00:00.459Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4363,7 +4377,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.453Z",
+        "eventTime": "2026-10-27T12:00:00.460Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4388,7 +4402,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.453Z",
+        "eventTime": "2026-10-27T12:00:00.460Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4413,7 +4427,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.454Z",
+        "eventTime": "2026-10-27T12:00:00.461Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4438,7 +4452,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.454Z",
+        "eventTime": "2026-10-27T12:00:00.461Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4463,7 +4477,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.459Z",
+        "eventTime": "2026-10-27T12:00:00.466Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4488,7 +4502,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.459Z",
+        "eventTime": "2026-10-27T12:00:00.466Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4513,7 +4527,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.460Z",
+        "eventTime": "2026-10-27T12:00:00.467Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4538,7 +4552,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.460Z",
+        "eventTime": "2026-10-27T12:00:00.467Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4563,7 +4577,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.483Z",
+        "eventTime": "2026-10-27T12:00:00.490Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4588,7 +4602,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.483Z",
+        "eventTime": "2026-10-27T12:00:00.490Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4613,7 +4627,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.484Z",
+        "eventTime": "2026-10-27T12:00:00.491Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4638,7 +4652,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.484Z",
+        "eventTime": "2026-10-27T12:00:00.491Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4663,57 +4677,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.485Z",
-        "eventType": "START",
-        "inputs": [],
-        "job": {
-          "name": "model.support_checker",
-          "namespace": "sakaime"
-        },
-        "outputs": [],
-        "producer": "urn:sakaime:dossier:lineage:1.0.0",
-        "run": {
-          "facets": {
-            "sakaime_receipt": {
-              "_producer": "urn:sakaime:dossier:lineage:1.0.0",
-              "_schemaURL": "urn:sakaime:lineage:facet:ReceiptRunFacet:1",
-              "label": "recorded",
-              "provider": "recorded",
-              "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
-            }
-          },
-          "runId": "f9c41064-ac48-5118-b14b-ed7553ef6889"
-        },
-        "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
-      },
-      {
-        "eventTime": "2026-10-27T12:00:00.485Z",
-        "eventType": "COMPLETE",
-        "inputs": [],
-        "job": {
-          "name": "model.support_checker",
-          "namespace": "sakaime"
-        },
-        "outputs": [],
-        "producer": "urn:sakaime:dossier:lineage:1.0.0",
-        "run": {
-          "facets": {
-            "sakaime_receipt": {
-              "_producer": "urn:sakaime:dossier:lineage:1.0.0",
-              "_schemaURL": "urn:sakaime:lineage:facet:ReceiptRunFacet:1",
-              "label": "recorded",
-              "provider": "recorded",
-              "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
-            }
-          },
-          "runId": "f9c41064-ac48-5118-b14b-ed7553ef6889"
-        },
-        "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
-      },
-      {
-        "eventTime": "2026-10-27T12:00:00.486Z",
+        "eventTime": "2026-10-27T12:00:00.492Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4733,12 +4697,12 @@
               "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
-          "runId": "63acf3cd-d364-5a4a-88cc-f4f19c50187b"
+          "runId": "f9c41064-ac48-5118-b14b-ed7553ef6889"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.486Z",
+        "eventTime": "2026-10-27T12:00:00.492Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4758,12 +4722,62 @@
               "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
+          "runId": "f9c41064-ac48-5118-b14b-ed7553ef6889"
+        },
+        "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
+      },
+      {
+        "eventTime": "2026-10-27T12:00:00.493Z",
+        "eventType": "START",
+        "inputs": [],
+        "job": {
+          "name": "model.support_checker",
+          "namespace": "sakaime"
+        },
+        "outputs": [],
+        "producer": "urn:sakaime:dossier:lineage:1.0.0",
+        "run": {
+          "facets": {
+            "sakaime_receipt": {
+              "_producer": "urn:sakaime:dossier:lineage:1.0.0",
+              "_schemaURL": "urn:sakaime:lineage:facet:ReceiptRunFacet:1",
+              "label": "recorded",
+              "provider": "recorded",
+              "receipted": false,
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+            }
+          },
           "runId": "63acf3cd-d364-5a4a-88cc-f4f19c50187b"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.520Z",
+        "eventTime": "2026-10-27T12:00:00.493Z",
+        "eventType": "COMPLETE",
+        "inputs": [],
+        "job": {
+          "name": "model.support_checker",
+          "namespace": "sakaime"
+        },
+        "outputs": [],
+        "producer": "urn:sakaime:dossier:lineage:1.0.0",
+        "run": {
+          "facets": {
+            "sakaime_receipt": {
+              "_producer": "urn:sakaime:dossier:lineage:1.0.0",
+              "_schemaURL": "urn:sakaime:lineage:facet:ReceiptRunFacet:1",
+              "label": "recorded",
+              "provider": "recorded",
+              "receipted": false,
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+            }
+          },
+          "runId": "63acf3cd-d364-5a4a-88cc-f4f19c50187b"
+        },
+        "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
+      },
+      {
+        "eventTime": "2026-10-27T12:00:00.527Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4788,7 +4802,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.520Z",
+        "eventTime": "2026-10-27T12:00:00.527Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4813,7 +4827,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.523Z",
+        "eventTime": "2026-10-27T12:00:00.530Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4830,7 +4844,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "b63eaf64-cbee-5273-bf0f-b3eb94e826b9"
@@ -4838,7 +4852,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.523Z",
+        "eventTime": "2026-10-27T12:00:00.530Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4855,7 +4869,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "b63eaf64-cbee-5273-bf0f-b3eb94e826b9"
@@ -5004,11 +5018,6 @@
                     "anchorId": "anc_efb1a6100bfe716d9efe",
                     "recordId": "fda-summary:K221347",
                     "textHash": "2c84e97c0d65d6691f9f573f208f62e8211796e5867d85e37136fe648125f575"
-                  },
-                  {
-                    "anchorId": "anc_fa9ff2bd98e5022c23d0",
-                    "recordId": "fda-summary:K221347",
-                    "textHash": "69fa3c47fc2d6ac4cd30a43482a5fcc1edcd0bbaf5dc312b238e2b3ab2bec0cb"
                   }
                 ]
               }
@@ -5069,9 +5078,9 @@
                     "textHash": "7b7471e0e28af8f6426b8230318508f40ef44d661fdb1be5e308477b770b2ac4"
                   },
                   {
-                    "anchorId": "anc_6af61794cf5c237cb5f2",
+                    "anchorId": "anc_881e1583c016ba6db4ab",
                     "recordId": "fda-summary:K221347",
-                    "textHash": "ab54d0eef0e861c2a34740068481c99e5e9963f92be6aef00c0f7e256e7e8a8a"
+                    "textHash": "a04737c3ea5682709ede88db7bf6be13d4baeb841e043b69a31ecb689f1ee22b"
                   },
                   {
                     "anchorId": "anc_944b4cbca6c390bafd71",
@@ -5097,7 +5106,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5112,7 +5121,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5139,7 +5148,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5154,7 +5163,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5181,7 +5190,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5196,7 +5205,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5223,7 +5232,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5238,7 +5247,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.526Z",
+        "eventTime": "2026-10-27T12:00:00.533Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5265,7 +5274,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.509Z",
+        "eventTime": "2026-10-27T12:00:00.516Z",
         "eventType": "START",
         "inputs": [
           {
@@ -5298,8 +5307,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5308,12 +5317,12 @@
         "outputs": [],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "badd7718-d97c-53ea-beff-948e85c3a0f3"
+          "runId": "bafc3fb6-80ef-59d5-9254-62db5b2b5870"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.509Z",
+        "eventTime": "2026-10-27T12:00:00.516Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -5346,8 +5355,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5369,11 +5378,6 @@
                     "anchorId": "anc_12b6398153eb8928e3c7",
                     "recordId": "fda-summary:K221347",
                     "textHash": "d90f07bdf6bc54271ed382cc70e0912c831ea5c58c1062b6a233a3af731b109c"
-                  },
-                  {
-                    "anchorId": "anc_6af61794cf5c237cb5f2",
-                    "recordId": "fda-summary:K221347",
-                    "textHash": "ab54d0eef0e861c2a34740068481c99e5e9963f92be6aef00c0f7e256e7e8a8a"
                   },
                   {
                     "anchorId": "anc_6f6cd641b36704529e5c",
@@ -5419,11 +5423,6 @@
                     "anchorId": "anc_efb1a6100bfe716d9efe",
                     "recordId": "fda-summary:K221347",
                     "textHash": "2c84e97c0d65d6691f9f573f208f62e8211796e5867d85e37136fe648125f575"
-                  },
-                  {
-                    "anchorId": "anc_fa9ff2bd98e5022c23d0",
-                    "recordId": "fda-summary:K221347",
-                    "textHash": "69fa3c47fc2d6ac4cd30a43482a5fcc1edcd0bbaf5dc312b238e2b3ab2bec0cb"
                   },
                   {
                     "anchorId": "anc_fb4f992a6c0d855d7f70",
@@ -5439,18 +5438,18 @@
                 "label": "INSUFFICIENT_EVIDENCE"
               }
             },
-            "name": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
+            "name": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
             "namespace": "sakaime.finding"
           }
         ],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "badd7718-d97c-53ea-beff-948e85c3a0f3"
+          "runId": "bafc3fb6-80ef-59d5-9254-62db5b2b5870"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.511Z",
+        "eventTime": "2026-10-27T12:00:00.518Z",
         "eventType": "START",
         "inputs": [
           {
@@ -5483,8 +5482,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5493,12 +5492,12 @@
         "outputs": [],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "67dabf2f-89df-5c38-8b48-b4e284d8d01b"
+          "runId": "95694595-19b5-5c78-810a-3d7ea765f056"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.511Z",
+        "eventTime": "2026-10-27T12:00:00.518Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -5531,8 +5530,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5554,11 +5553,6 @@
                     "anchorId": "anc_12b6398153eb8928e3c7",
                     "recordId": "fda-summary:K221347",
                     "textHash": "d90f07bdf6bc54271ed382cc70e0912c831ea5c58c1062b6a233a3af731b109c"
-                  },
-                  {
-                    "anchorId": "anc_6af61794cf5c237cb5f2",
-                    "recordId": "fda-summary:K221347",
-                    "textHash": "ab54d0eef0e861c2a34740068481c99e5e9963f92be6aef00c0f7e256e7e8a8a"
                   },
                   {
                     "anchorId": "anc_6f6cd641b36704529e5c",
@@ -5606,11 +5600,6 @@
                     "textHash": "2c84e97c0d65d6691f9f573f208f62e8211796e5867d85e37136fe648125f575"
                   },
                   {
-                    "anchorId": "anc_fa9ff2bd98e5022c23d0",
-                    "recordId": "fda-summary:K221347",
-                    "textHash": "69fa3c47fc2d6ac4cd30a43482a5fcc1edcd0bbaf5dc312b238e2b3ab2bec0cb"
-                  },
-                  {
                     "anchorId": "anc_fb4f992a6c0d855d7f70",
                     "recordId": "openfda-510k:7ab27f3873de:b68cbf306b82:20261027101251",
                     "textHash": "49e30965c0d5dac304f5709f1f301862500a45d5bc570b90bde0f3d25c995666"
@@ -5624,13 +5613,13 @@
                 "label": "INSUFFICIENT_EVIDENCE"
               }
             },
-            "name": "fnd_9f631690802f3134fa5e693b0137e643",
+            "name": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
             "namespace": "sakaime.finding"
           }
         ],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "67dabf2f-89df-5c38-8b48-b4e284d8d01b"
+          "runId": "95694595-19b5-5c78-810a-3d7ea765f056"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       }
@@ -6161,7 +6150,7 @@
     ],
     "models": [
       {
-        "at": "2026-10-27T12:00:00.376Z",
+        "at": "2026-10-27T12:00:00.384Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-1",
@@ -6180,7 +6169,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.384Z",
+        "at": "2026-10-27T12:00:00.392Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-2",
@@ -6188,18 +6177,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "377c17a8600bc8e31ef5b2cb3919675d36973ea58c84f7edb53e7cc4cf3a5928",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "8f20466eaecd07031ffbf7bed08c7f372b14cd0ad65c0777ac637b673febfb5e",
         "usage": {
-          "completionTokens": 52,
+          "completionTokens": 100,
           "measured": true,
           "promptTokens": 526
         }
       },
       {
-        "at": "2026-10-27T12:00:00.385Z",
+        "at": "2026-10-27T12:00:00.393Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-3",
@@ -6207,18 +6196,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "9864fa5e9d29e8bdd69cafedeb9a96d5e74ec3e13003188b8a16c039d92c88ea",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "fd1967a97af5716c2fb226d1d5e96ab2757b9d435d2be298e5a52a9995b90be4",
         "usage": {
-          "completionTokens": 53,
+          "completionTokens": 54,
           "measured": true,
           "promptTokens": 454
         }
       },
       {
-        "at": "2026-10-27T12:00:00.386Z",
+        "at": "2026-10-27T12:00:00.394Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-4",
@@ -6226,18 +6215,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "f072f3c97001b2b9d000f2029d0a4490c4dfea18fc8262886a534ade73c62745",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "b727678eaf0cabb1e73cb5b5ad4b3b78f93567ead733b0b883f40256b208412a",
         "usage": {
-          "completionTokens": 91,
+          "completionTokens": 109,
           "measured": true,
           "promptTokens": 505
         }
       },
       {
-        "at": "2026-10-27T12:00:00.387Z",
+        "at": "2026-10-27T12:00:00.395Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-5",
@@ -6245,18 +6234,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "427393dd513a2a36a42b85a6b3b4da6c0c8372e2d36feba3660ea9bec4d37c65",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "3a1918a722d656f5d33ba967ecd745a140ffce7fc9354afba2450bec3f68397c",
         "usage": {
-          "completionTokens": 112,
+          "completionTokens": 258,
           "measured": true,
-          "promptTokens": 511
+          "promptTokens": 1239
         }
       },
       {
-        "at": "2026-10-27T12:00:00.388Z",
+        "at": "2026-10-27T12:00:00.396Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-6",
@@ -6264,18 +6253,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "519f6a7cb69026672894e93cf7dec37e30d7fc7e9305dcb8ec9d099f2bdf39df",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "e76c6b71d0da4424b7c41bc29da056d8031b7715e410e02fa9a1e19413cbe156",
         "usage": {
-          "completionTokens": 113,
+          "completionTokens": 97,
           "measured": true,
           "promptTokens": 488
         }
       },
       {
-        "at": "2026-10-27T12:00:00.389Z",
+        "at": "2026-10-27T12:00:00.397Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-7",
@@ -6294,7 +6283,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.445Z",
+        "at": "2026-10-27T12:00:00.452Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-8",
@@ -6305,15 +6294,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "945c31d1c32e1b9f4cedff87a3eff767f74767d54fd035c5945ffdb85feaf496",
+        "textHash": "98b90fc252f62780e4b064ab8bd2fd63385df626caf66174a05c49055508c477",
         "usage": {
-          "completionTokens": 61,
+          "completionTokens": 55,
           "measured": true,
           "promptTokens": 474
         }
       },
       {
-        "at": "2026-10-27T12:00:00.446Z",
+        "at": "2026-10-27T12:00:00.453Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-9",
@@ -6321,18 +6310,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "2806dc4bce1a5bf8fd022beea6b833967630a831b7adf2373cf1795c515cc36f",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "5b8ee5d2b9010d17084f39f79c5093ad20ee57574e13e90545689267be5528ad",
         "usage": {
-          "completionTokens": 70,
+          "completionTokens": 56,
           "measured": true,
           "promptTokens": 492
         }
       },
       {
-        "at": "2026-10-27T12:00:00.449Z",
+        "at": "2026-10-27T12:00:00.456Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-10",
@@ -6340,18 +6329,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "a1bf6f17f3e7095ad5b0927120a66ee27ce082b3a373895851fe1aa69cd87810",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "e98aeff074944e402f0b7d9a35bd96aaff42e74736f8325edaf93c2621532462",
         "usage": {
-          "completionTokens": 56,
+          "completionTokens": 52,
           "measured": true,
           "promptTokens": 459
         }
       },
       {
-        "at": "2026-10-27T12:00:00.450Z",
+        "at": "2026-10-27T12:00:00.457Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-11",
@@ -6359,18 +6348,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "d68559ba9eb1517f81a974fc5dc7521c57fcb03b806e36f25de2bbdc2bb95fff",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "052e3857d31efb350bbffdff0734dbf997a951eb76c2b3d95d031798e37a6e5f",
         "usage": {
-          "completionTokens": 59,
+          "completionTokens": 100,
           "measured": true,
           "promptTokens": 477
         }
       },
       {
-        "at": "2026-10-27T12:00:00.451Z",
+        "at": "2026-10-27T12:00:00.458Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-12",
@@ -6381,15 +6370,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "1a51dac70c274048968d3626d9542fcdef3f2536501f09509fe4f8a79183852d",
+        "textHash": "43d34026d6741bcd9ba7fea5f9bba759b5a4cc32eb4f5c5c928da1ab87d63c0b",
         "usage": {
-          "completionTokens": 77,
+          "completionTokens": 76,
           "measured": true,
           "promptTokens": 476
         }
       },
       {
-        "at": "2026-10-27T12:00:00.452Z",
+        "at": "2026-10-27T12:00:00.459Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-13",
@@ -6408,7 +6397,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.453Z",
+        "at": "2026-10-27T12:00:00.460Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-14",
@@ -6419,15 +6408,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "5f00d1747ea2307ea727165764f878d42fcc91d913bf41ba6800b6ee6cc3f652",
+        "textHash": "57a9212aab944d49248e34a8750b162a6f2475268034304a5d58f8fa60886ea1",
         "usage": {
-          "completionTokens": 78,
+          "completionTokens": 58,
           "measured": true,
           "promptTokens": 506
         }
       },
       {
-        "at": "2026-10-27T12:00:00.454Z",
+        "at": "2026-10-27T12:00:00.461Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-15",
@@ -6438,15 +6427,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "c876455e9c6e4167269cb72e375064cbb927ca12879ea3e20b449f9a0170faef",
+        "textHash": "99827aad10040d8a16a8f9ff8087b29d41ed63cb693b3975fea830eb4ad79480",
         "usage": {
-          "completionTokens": 71,
+          "completionTokens": 69,
           "measured": true,
           "promptTokens": 458
         }
       },
       {
-        "at": "2026-10-27T12:00:00.459Z",
+        "at": "2026-10-27T12:00:00.466Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-16",
@@ -6457,15 +6446,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "resolver",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "9b6ad554ab5e81720acc532c9c575378fe9d3c5a173b2711b0a28f193c69a111",
+        "textHash": "b7b7854989273b05cb57c36fe917d189718dd5998c9d5e4484fc4cef27a10c68",
         "usage": {
-          "completionTokens": 164,
+          "completionTokens": 160,
           "measured": true,
           "promptTokens": 1043
         }
       },
       {
-        "at": "2026-10-27T12:00:00.460Z",
+        "at": "2026-10-27T12:00:00.467Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-17",
@@ -6476,15 +6465,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "resolver",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "8b3ff986d7131b5004eec314027db565f9d5d4c0d6f8523de0a91db63b0de254",
+        "textHash": "9a0910698727a52751b029866dae6a0acb9e470e5aa722ad22e590d0180b932b",
         "usage": {
-          "completionTokens": 341,
+          "completionTokens": 311,
           "measured": true,
           "promptTokens": 1315
         }
       },
       {
-        "at": "2026-10-27T12:00:00.483Z",
+        "at": "2026-10-27T12:00:00.490Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-18",
@@ -6503,7 +6492,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.484Z",
+        "at": "2026-10-27T12:00:00.491Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-19",
@@ -6522,7 +6511,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.485Z",
+        "at": "2026-10-27T12:00:00.492Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-20",
@@ -6530,18 +6519,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "83ece2688d8e9dd8f40e4781f8e2642337ad99a1510dcc27554fae0285711910",
+        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "textHash": "bf9486291c399692d20d836354452d67fcad85bf2e157e3c1f5a8452515ea6d0",
         "usage": {
-          "completionTokens": 64,
+          "completionTokens": 123,
           "measured": true,
           "promptTokens": 565
         }
       },
       {
-        "at": "2026-10-27T12:00:00.486Z",
+        "at": "2026-10-27T12:00:00.493Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-21",
@@ -6549,18 +6538,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "bcbe7aa205d32c01ddec056b005b00b271c36f374e64a88a37e4b2c72adab319",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "400bc7021562cb079871041a0d4ba5dd3a8929a915d520daee2398a7fead3c2c",
         "usage": {
-          "completionTokens": 72,
+          "completionTokens": 68,
           "measured": true,
           "promptTokens": 492
         }
       },
       {
-        "at": "2026-10-27T12:00:00.520Z",
+        "at": "2026-10-27T12:00:00.527Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-22",
@@ -6571,15 +6560,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "critic",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "ad5b384bafeb5d3c3b415d86ef88c94c0553abaf4bf8378b7457db58784f52aa",
+        "textHash": "a6d4e6bf231e73b37b73bcba1b34e778e53ec2615e6809ef138486c6e2031320",
         "usage": {
-          "completionTokens": 191,
+          "completionTokens": 389,
           "measured": true,
-          "promptTokens": 1682
+          "promptTokens": 1870
         }
       },
       {
-        "at": "2026-10-27T12:00:00.523Z",
+        "at": "2026-10-27T12:00:00.530Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-transpara-k221347-1:model-23",
@@ -6587,14 +6576,14 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "reporter",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "4b372bd04bbcc5b7d7732fb124ad7d3f56dad5bb536e68fd36cbfc9462732b1a",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "494bbe6234a87a450f7dc8b0bf4942aaedaa0c048d293763338ebdf2daa5bd7e",
         "usage": {
-          "completionTokens": 217,
+          "completionTokens": 200,
           "measured": true,
-          "promptTokens": 1568
+          "promptTokens": 1756
         }
       }
     ],
@@ -6672,9 +6661,9 @@
       }
     ],
     "rules": {
-      "registryVersion": "sakaime-compiler@1.0.0",
+      "registryVersion": "sakaime-compiler@1.1.0",
       "versionsUsed": [
-        "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
       ]
     },
     "run": {
@@ -6859,7 +6848,7 @@
         "health": "OK",
         "id": "hospital-policy",
         "kind": "hospital",
-        "lastSuccessAt": "2026-10-27T12:00:00.504Z",
+        "lastSuccessAt": "2026-10-27T12:00:00.511Z",
         "license": "constructed for this demonstration"
       },
       {
@@ -6897,11 +6886,11 @@
   "format": "sakaime.dossier",
   "formatVersion": "1.0.0",
   "manifest": {
-    "createdAt": "2026-10-27T12:00:00.526Z",
-    "dossierId": "dossier-transpara-k221347-d50cc73587",
+    "createdAt": "2026-10-27T12:00:00.533Z",
+    "dossierId": "dossier-transpara-k221347-740f6e7ead",
     "format": "sakaime.dossier",
     "formatVersion": "1.0.0",
-    "root": "0f9d25cbcbbd2d683cbcf4356dc2310b8d3ee6e60ab5f3b5d5f291d47398de27",
+    "root": "497b8b049f81893510e9502a958cf04befebc889d6205147a4b238e8fb63b6ab",
     "sections": {
       "anchors": {
         "items": [
@@ -7080,7 +7069,7 @@
           },
           {
             "id": "asr_30002758f313a4015789",
-            "sha256": "1ec520d815139f7105a9de1a15cda9420a5ba9060413cd32086a3664722305a3"
+            "sha256": "a9b96bfb0dba1d287e83bf02279121670186c62e7a746fb3f4e7a9003bd05800"
           },
           {
             "id": "asr_3ac2030b505387661a3d",
@@ -7135,6 +7124,10 @@
             "sha256": "f33e43712177dd4f2aa4562ed01546864bec27ade94da162fd39df6aad0ce182"
           },
           {
+            "id": "asr_9b45a9c757d8dec73e37",
+            "sha256": "3de6e9ef8b4faa14559ec552c05972ce786617b13c70724a74a8a1fb9c016cf7"
+          },
+          {
             "id": "asr_84d545ecf7b2cc87bd11",
             "sha256": "17ddca2797004c7722d97365a60dec7e609a62398e294d514cec4ac7ad55d9cc"
           },
@@ -7156,7 +7149,7 @@
           },
           {
             "id": "asr_120e42aebfb68e92e437",
-            "sha256": "253d329eb1da0772e1f05c3d51a6fd1b17353815a1bc20b07755228461ae3ea1"
+            "sha256": "41bc8f54bda103078723780e11ca1975785c5b29ed1e6d11f997da8d57833e6c"
           }
         ],
         "kind": "list"
@@ -7177,12 +7170,12 @@
       "compilerRuns": {
         "items": [
           {
-            "id": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
-            "sha256": "8fed2481c264d1068986f7fd977349d0fde8d7c74456e82f612d5c8e64686e9a"
+            "id": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
+            "sha256": "e3e634e8498002b651815fcdaf43f3bfd13e7bbb1851ad2dc0d27b170baee589"
           },
           {
-            "id": "fnd_9f631690802f3134fa5e693b0137e643",
-            "sha256": "afda38f24b478de109a11dba79ec676ccd4a3e6c3a7232f2546eff05f4f5772d"
+            "id": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
+            "sha256": "26f7695d796ef875d2823d6a7f55013ce745d2877165702d1f9f262056ef31f2"
           }
         ],
         "kind": "list"
@@ -7190,12 +7183,12 @@
       "counterexamples": {
         "items": [
           {
-            "id": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
-            "sha256": "baf0017f5cf1a93808fb29e18525b1742926f4af087f9710dddb3028915fdecc"
+            "id": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
+            "sha256": "9a7a480b02ac9d21213bd4e52201012969ec01e27f6f8d7c97e82f80d82d3fc0"
           },
           {
-            "id": "fnd_9f631690802f3134fa5e693b0137e643",
-            "sha256": "3732e609ee056626c64c98b2cfcaa0e5f515fd2ce3eba15acd9c568a3b283df3"
+            "id": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
+            "sha256": "1d9a7231b0df3b719d46b790dbcf076a428ad89e348dce4eaf942e89a1be2a6e"
           }
         ],
         "kind": "list"
@@ -7208,107 +7201,107 @@
         "items": [
           {
             "id": "egress-run-transpara-k221347-1:model-1",
-            "sha256": "8cb0db9f9d52e7d6bfcabdba8dd62cc54aa4bd1a7c4aa9d220d62828c9dc9a32"
+            "sha256": "6ff9d628517c1234f5d33aeb627a10827a4ea90c9073cf2fc1da85d2ae3fc96a"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-2",
-            "sha256": "66f3e675d1eaa63e4cc6ba3409ed889b3171c220631cd890ffcb67c960f5bead"
+            "sha256": "3bd36de9a6adde0016913981d19c7526f43976ac9c254f3f5133225b62382bb4"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-3",
-            "sha256": "33ed50619c1e707ff70bc49fedc1c29b128e33ae3a8b83e553faa1869ef7b9c5"
+            "sha256": "569b6fc1b5bf4dfef70ad8bcab32070ec5c0e23f429f172d0a33c658ce9d7ab7"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-4",
-            "sha256": "12a37b03c5bb085967a930c3b30a1c73574560cfff737e939a926a5bcd206beb"
+            "sha256": "f5e6eb8770ed2b5385a0782257312a541c451010a2c1f2f34c11b56d1c1328ed"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-5",
-            "sha256": "944b75bcd40c19fa9e5a63c69f7aecc66fa5f0e5b3510f74be2cc5e111e033da"
+            "sha256": "6ea02242579365a42011c8409edf1faf9b2101714ca019d926c5e38093cb7446"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-6",
-            "sha256": "53f66f8116e0696061c75c75978d412aadcd10b5dee3a58de400ee4c953d4f75"
+            "sha256": "d20854614307cf4c6a5fe98c710499250b8320d100b5a524838d2dc0c5111b41"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-7",
-            "sha256": "663903b118535a8d6628b36802df77252208fa32bc813c07441e6df00872e584"
+            "sha256": "73ebe42f7a9d3aa5557cff4a655d261fc26280d300a8c4ea2320713ff5a84d1b"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-8",
-            "sha256": "34dc5ecf7c740a9b34af6b3828e39247cb977c45cb6b95bdcfbd30df0784076f"
+            "sha256": "0040964033ba1f7660839f05816b2ed5c891effe1b21da4db33d4473ab94c2db"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-9",
-            "sha256": "414ca5698a31669c10120b2699b61edaf5fe0606181bbf06d4025722fd9355a9"
+            "sha256": "61029c421fb2b7e95c5bea054a2b6d9da6478de2e31fb5f9e7686036db75b97f"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-10",
-            "sha256": "ed479ed7c6f96b00b3ac111c23127bd5c9a33d3f838dfd8e1473b867a79f8ac8"
+            "sha256": "f2ff7a13def93f2472c3eecc983f7b39bcbe4676565c7265962da5d21fb4e7db"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-11",
-            "sha256": "49f0e0c0585196e9f48a28ad1c3ceb21f1218925011af686d583445410924f3c"
+            "sha256": "fd3bbddc5076dccd5dbd2a2b94a0928fdf6a42e34f5e4e3c710fbffc55c24f55"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-12",
-            "sha256": "348764bae90d488316bc383bbeb47cb329a7b8c49260352c6c8835880e98a501"
+            "sha256": "5bf9f31677089db07cb3da65829ef4730d1c81addd7c4381590e68cb0403b089"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-13",
-            "sha256": "0be88d88427bd8a6c53e62880f1416d4c921f3a96b0b949b7974893895800d0b"
+            "sha256": "83760cd04da3aa0e5c112764cd94dd26ddb4a3e2fc6eccbb5eb84dd4dd7bcc30"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-14",
-            "sha256": "08293aab8ca5e74fa0602bc05a9589de25395611bbd734bc8637d145074396b2"
+            "sha256": "8c43a0b3b6e0f5ed0a015baa3f46cdd5fa26805ac0d786e6a34e72d7e522ebc0"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-15",
-            "sha256": "6c6be089bac901323c6ddaa2b4b381caa06b92078b956aed5328a8e42c5ccc37"
+            "sha256": "a0b8649a2612f1d0263657f94da9812df0752a033058ca9a89453e1e199e637f"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-16",
-            "sha256": "48a2c9e2f904cfee2c3fce085fb301e72b02e54feb0887e0d76689cddcd95098"
+            "sha256": "761f3c82097612ed5fa5fd92d195ace465641055c610e01b8d560d19cb516d2f"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-17",
-            "sha256": "ac044ceced6d6cb85b963d8ad1ca22c153da53b806c64f574b2d1922323c0def"
+            "sha256": "9b7d01c3bdea7515dc4145e42f20bb893f2a6c72df97c9d4c50755d5fbea3a7d"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-18",
-            "sha256": "8c032ff908c7238e4cd7d06e86136d36b0e594db6079d6ac814dab6c43feaddd"
+            "sha256": "baa4c40b129108640d225fdf58aa5fbab96bd00f2758d1b8570d5d22a3aa37e8"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-19",
-            "sha256": "2f03d7d2e934e744f81568cbafaef71d84095903466c35bef319b6798ae3a250"
+            "sha256": "4584387a5a0fdb12383a20e0972dc98f70c3e10e304c022933d1ad0729103b9f"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-20",
-            "sha256": "5375c6672d649c21092085e8bea6dc4e768a740066571674bafe6d63d214357c"
+            "sha256": "b2deb5a7f1643e878189af7ab200cce268bea890a6921bf0b1db9266006a9164"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-21",
-            "sha256": "b8615933253e7300159e672dcac1b3a9023987f3aaf2763e0e8d7a28a49aea7d"
+            "sha256": "fd80f6b9f495177e7b8e2304d1e0dd895f69178a8c267ab92175893129158de8"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-22",
-            "sha256": "98fa6664b01fc877b78c6ddcf272cb4ba87ac7e19f76063c2383793533bdaef1"
+            "sha256": "f6d6a91ad58c12466781c4a275b7a372fb19c2211fe58e9dc2c62f1d54a40db5"
           },
           {
             "id": "egress-run-transpara-k221347-1:model-23",
-            "sha256": "6cdbb704290e429e3dc86fc7cb80d71cdcaa14f971f44f38af1fab52ea21a20e"
+            "sha256": "dc4f1c564d3f97b1012d045f36bdfee58c2ca5f163249d9e5e01a5f0cf783059"
           },
           {
-            "id": "egress-a2b05e6b-38b2-4770-8573-7448aa8f0501",
-            "sha256": "e467d26d2e52cb498b6dc163ddd6f190c264d289e5c82f81072fbdaa5c3ada10"
+            "id": "egress-d7523256-4dfc-4b60-9b04-b3f0037e3574",
+            "sha256": "b34ec1a0cfa76b74413013858a87a487338a92b9a0f648bd2130288f221f1a3d"
           },
           {
-            "id": "egress-0dfcb2bb-6efe-4a48-8052-dc59a440099e",
-            "sha256": "852d6a5006c25090517e49f1e57d9a3898fc6a85fcc3aa613f667513492a91f5"
+            "id": "egress-01f7d49a-311c-4667-b1cb-ffd9aad396fa",
+            "sha256": "3cf924b0a437106cf9f4ba885cc457dde0f9a64702ae05af02985503b77e61a7"
           },
           {
-            "id": "egress-4fe66a72-e182-4f9c-b046-ad21a8699670",
-            "sha256": "5992d10875b7f4f6bf80b9aad81894a5bc23b50d0fe5bf9da548bd4ab732deff"
+            "id": "egress-d282cb9a-607f-4b27-b883-29f25599fe3e",
+            "sha256": "eb3330b93dc4b79aee9c6a3e5833d7cce9b718fae3e7d53541c46ab51070d8af"
           }
         ],
         "kind": "list"
@@ -7381,7 +7374,7 @@
           },
           {
             "id": "eh-17",
-            "sha256": "6fa58c60ec57ed91d70887309212bc3c653a39d4c167c8e7ab28350b83fabe74"
+            "sha256": "95f5a6914e1c2ad2e3967ffc03dbf5bcfc37f3909d71fc449223fc8d79dd981b"
           },
           {
             "id": "eh-18",
@@ -7389,27 +7382,27 @@
           },
           {
             "id": "eh-19",
-            "sha256": "3db8d6bd4f4d1ec63f5ad4adf19749959e544685611d037b9473b0034a3ca9bb"
+            "sha256": "4114b4e882181cb3af4e8d74db3ea0b922174094cc668d5565302346041fe45f"
           },
           {
             "id": "eh-20",
-            "sha256": "dcd69b733ee8037471dd8eecfb04014ef1e910a6705aad47e8c436bb08108391"
+            "sha256": "2fdf82ec60a7adb81cc4c44a55f9a76c4136272fa9b01ff3840d5d2b269e2030"
           },
           {
             "id": "eh-21",
-            "sha256": "897d28deacae3ca1618b1caad92a88628febc2b62cc4edba87aae8f5411bc038"
+            "sha256": "8814ac44b39da04a089ab437883833e1590652ef9933ee9d5e16400cf243af55"
           },
           {
             "id": "eh-22",
-            "sha256": "14dd94de6da8656af5e2aae012be3db9a0fe89a7f09d0579783a8e087e44f22e"
+            "sha256": "4a432d8ac745cf573f35204e5304b576d0b97782c5b4dcaee90fb05e7147c8a5"
           },
           {
             "id": "eh-23",
-            "sha256": "f885015e1b3fc2314da13a173d8cc3cfc3c4e1e70400886974eb66ea752c33cf"
+            "sha256": "83f34a7075187d43131ec53e5e5b2ee56be1a67991a3bfa8cc1cb56d8a062916"
           },
           {
             "id": "eh-24",
-            "sha256": "cd657eea8dd5b4abd518782c5bdbd8e74d751db47e2b65908d71f50805e46704"
+            "sha256": "af668818824732956012fec25b166ae2258cc152e80189b45a14c10799736fa0"
           },
           {
             "id": "eh-25",
@@ -7421,39 +7414,35 @@
           },
           {
             "id": "eh-27",
-            "sha256": "03a42cbcdd8cac233c0d138442acba229ccbc6c9fce4df21e3cd167ef22fe5b0"
+            "sha256": "620354b4ab80b83ebbeaf9edc0c5086c3df5686e2a30339659834cd3a972b1b4"
           },
           {
             "id": "eh-28",
-            "sha256": "b291739376b2215de8220d3f9501e67409a1bf4c6aa1dd62428741aede151fe0"
+            "sha256": "ebb175789965aa9c34703bbd48585cfdd2e899a7ab744fb4786343d49e832e31"
           },
           {
             "id": "eh-29",
-            "sha256": "cfb5cf2fb57ac3d846d2f82e74d3089af8f08c1e3e604645508558e2795d2c9a"
+            "sha256": "df15632c646073c46db9bb7a9372a79127ec9b14e100cabc794acb12f7cff7c7"
           },
           {
             "id": "eh-30",
-            "sha256": "0d56e2ca0a7e57c3d69ce9def1784da41bf6bf61d01bdee396db393a226beb79"
+            "sha256": "5fe2dc6b167881e050d95bd41b52008a1252c459a70611fcb8fb22e49281aadc"
           },
           {
             "id": "eh-31",
-            "sha256": "abd97d13fbffc45084f6322f998300ab6662ad84f88f0acd0b64a780a794f553"
+            "sha256": "7559e9a671057f382d0d6f01a9394ccef502aa13490fd9fa8bd45c74845f80e9"
           },
           {
             "id": "eh-32",
-            "sha256": "8f0a2d59585295072588a85477396eaa6566dbfdb8948e806bc56864f9d0f3ef"
+            "sha256": "883cb590451b360edb051c1253e7b84d8fe7e3aaff6c6f367aa5b822aad2bde8"
           },
           {
             "id": "eh-33",
-            "sha256": "f0566d0512c156069bdccd52180c2173d9e14bf8f9b659903f7dc6f163ac61f4"
+            "sha256": "6a40328335895d3311041bfae08a3f7e008b926c6b3c3fce741034604af39ce0"
           },
           {
             "id": "eh-34",
-            "sha256": "7abe5adb6393d143781a1dc7d5006a9fade47abb61cfdd50a1b848a6bf2fde3e"
-          },
-          {
-            "id": "eh-35",
-            "sha256": "a8afac2ae14ccb06d705320bdd24af9142b786b865ce8e26e34177eac5ff2a95"
+            "sha256": "7378487dfa0d9e09808e9aa8981327f12f80ea9110b1fbc258fdd84e632c0424"
           }
         ],
         "kind": "list"
@@ -7466,11 +7455,11 @@
           },
           {
             "id": "ev-fda-summary-ggoklcfjmc-authorization",
-            "sha256": "5f053c2c73c1e7bf3c32370be1a79b07301a6df7959858cfe22f7b9fe4c53b4d"
+            "sha256": "41a1e5d3c8665b849e4251cd7d2a2cb9933beaee6dc06061934d5c0e3f54b44a"
           },
           {
             "id": "ev-fda-summary-ggoklcfjmc-study",
-            "sha256": "6bcb7bbc256d9a81a5c78036e8da00c07d534265ea4b9aab2894966f572e2cd0"
+            "sha256": "c46f76de1f7a2552decc2f20ac5ac92944c77a527bbf067d3b4d4f5da74f69d1"
           },
           {
             "id": "req:CASE-2026-019.intended:REQ-04",
@@ -7510,16 +7499,12 @@
             "sha256": "0ca32574ef41568235eeddd6a5c1ba2f3bf424f45d8be15bf159f8d3c3573045"
           },
           {
-            "id": "fact_74c50a4586abe87a",
-            "sha256": "c97647c86debc0bb34950a905adef23c3d962b7bf70d8cae54dcc5e2090b3b43"
+            "id": "fact_ea5274e5b6f330dc",
+            "sha256": "b138bd52718a4ee72f4792225ef5c7286b1193c40ab516e6af9a59b78696486a"
           },
           {
             "id": "fact_efefa23209485485",
-            "sha256": "855aec44d8d6588b109eff4197c0eed2c7aadc98192cc13b8890884cc82403de"
-          },
-          {
-            "id": "fact_ea5274e5b6f330dc",
-            "sha256": "b138bd52718a4ee72f4792225ef5c7286b1193c40ab516e6af9a59b78696486a"
+            "sha256": "ee2d507e16a63224d546de9e1f2f840f6d211254562ab17ecd7b2ef5dcf2c523"
           },
           {
             "id": "fact_ddc8a93e6c61d61f",
@@ -7542,6 +7527,10 @@
             "sha256": "b97ed2a2a39b6e260b429502f5cdfe87161fae6a15e49c91b912e85d4e8885e0"
           },
           {
+            "id": "fact_5b724f410ae575f9",
+            "sha256": "775f11125c8939835fa53eafc9023bb3646d6ed98558c66cf2e59730539d9398"
+          },
+          {
             "id": "fact_5ab0c5b3db39b884",
             "sha256": "e002085c1e2a60f12fbbac1aa65cb8d54761eca211723c5d9a7a2a6241779ef4"
           },
@@ -7550,16 +7539,12 @@
             "sha256": "ae99041aa8753a447f8269733343b9e243b9a756dd73fe59169a0d839e94269f"
           },
           {
-            "id": "fact_3ad6fbf213219d65",
-            "sha256": "68b6b15c6fd0478b47aaa18134bccb45a47b77741db2a98ac320cbecbab5d76b"
+            "id": "fact_68dcc6d8405b6d11",
+            "sha256": "7c5d3501e26ca1f8037dcc147ca6f067b15aa365ce301e85d8bcf940af2c510c"
           },
           {
-            "id": "fact_5e6f4716527f5a7b",
-            "sha256": "b356b42075ab1efd349299f3b40a58cb613e213d3f7ab43574120480a49be873"
-          },
-          {
-            "id": "fact_b71a40b1a649b5ed",
-            "sha256": "16420fc48649166cf66693a91814242d6556b347b6aa4cb21b92d2684448a5ff"
+            "id": "fact_385f1896f76218d3",
+            "sha256": "4ba63474d1313e3ba5630cd91950163b9d8bdbf88dbfd704660e7e3475bbef5e"
           }
         ],
         "kind": "list"
@@ -7567,16 +7552,16 @@
       "federation": {
         "items": [
           {
-            "id": "a2b05e6b-38b2-4770-8573-7448aa8f0501",
-            "sha256": "2c4dc3237f5f173c25dc23b96046e30a99ff34e65d149bb720bdbb783b28b957"
+            "id": "d7523256-4dfc-4b60-9b04-b3f0037e3574",
+            "sha256": "eb110d1ec02a4fb073237514bad162fbe4d8c322e378acb490273be9b283d7d3"
           },
           {
-            "id": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
-            "sha256": "32d4f310a61501aa358fb8ee371f513111c9e76b79b7f6c3f482f1527b433c21"
+            "id": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
+            "sha256": "c1bf315a8bc8e24b969553ee701b6cd9c048844531c3b7dbd48d489caa8f77c1"
           },
           {
-            "id": "4fe66a72-e182-4f9c-b046-ad21a8699670",
-            "sha256": "9586b05c71a0a1b27ec96ee4cb36171cea6cff6acc09e5211cae02e1bff41e2e"
+            "id": "d282cb9a-607f-4b27-b883-29f25599fe3e",
+            "sha256": "345f34d1e6dad3e0941a727fdb1796182284bc72484ff923f2422e7df97455c8"
           }
         ],
         "kind": "list"
@@ -7584,12 +7569,12 @@
       "findings": {
         "items": [
           {
-            "id": "fnd_7dc94756bc13a4e55a2d0b245de2c0eb",
-            "sha256": "386624f40cf1c1f761c90f0af04af93ab963c6c43e94cec129357aca124534d0"
+            "id": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
+            "sha256": "79c71b71a42c524a06f57fac4b6e6b52de270bd784e0203a02aa35d15a1d2768"
           },
           {
-            "id": "fnd_9f631690802f3134fa5e693b0137e643",
-            "sha256": "628cd3c656d910baaa6f840fdc17d9664bc538f1418fe00cea0147486ef1ec08"
+            "id": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
+            "sha256": "c4a617c037922b352c258d766eec82606192bc0c8ec2a40fe3b335e351dab48a"
           }
         ],
         "kind": "list"
@@ -7693,212 +7678,212 @@
             "sha256": "416c9502c4a8e841aa46fa96653aed8ba84864e715c7cf1022317c18b350f52b"
           },
           {
-            "id": "a954c34d-9faa-5f50-9bd6-e53cdd4c3efb/START",
-            "sha256": "2915a06f589ba5039013d99ae4806330b83567c9f0bc9b5fd62e2723fb3ab36b"
+            "id": "a77a5ee5-ff8f-51d9-abd3-e7bfd6ca099e/START",
+            "sha256": "e1c8cf858ec375be979fd2c3ecf3c711592edab780cdb0a47c3588ec7b40c3ad"
           },
           {
-            "id": "a954c34d-9faa-5f50-9bd6-e53cdd4c3efb/COMPLETE",
-            "sha256": "1346bb15c5749ae67d6fa9fa1ea13282d3f850fcff12d2bd64b6a976bad54863"
+            "id": "a77a5ee5-ff8f-51d9-abd3-e7bfd6ca099e/COMPLETE",
+            "sha256": "7e568d35dac31357cf9da9ded7c87e62af96bead038eee34b0cc7b88a52e7371"
           },
           {
-            "id": "86a5a518-1014-52b5-8c3a-3aac7ca12901/START",
-            "sha256": "9d4914622edaeb601edd5f84b4607194480d980bfbd642451c79d6462793b1aa"
+            "id": "ffa647f8-b076-57c8-91e1-90ef433970d0/START",
+            "sha256": "22c303fb55cb4e56e040ee06c17ae078e58bd2c210fc0a095ec70f9997d73b25"
           },
           {
-            "id": "86a5a518-1014-52b5-8c3a-3aac7ca12901/COMPLETE",
-            "sha256": "bc5572c90911fa3953ba79b8df50c73409f78b840c694568211bd79fcbd059fe"
+            "id": "ffa647f8-b076-57c8-91e1-90ef433970d0/COMPLETE",
+            "sha256": "f97fd089855988471f41a0ad8d6397d311d41ac135641a48fadbb92d3c677892"
           },
           {
-            "id": "0aa0c9c0-04ef-5408-a58f-ade66d650d52/START",
-            "sha256": "3521c916853a8366347dbe9074e6ef475b1057be3b321f182c223e8ae00bc559"
+            "id": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02/START",
+            "sha256": "2cb2352ffb452e6dc77a9254592d23213629ebb26ab42986dd8244235523fdd8"
           },
           {
-            "id": "0aa0c9c0-04ef-5408-a58f-ade66d650d52/COMPLETE",
-            "sha256": "f96a4bff7d9329db4ab38474534054316e4ea2bf430b516646e466229c7a97b9"
+            "id": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02/COMPLETE",
+            "sha256": "5acf36677006060736e8e6544d0b40acaf58a54d41f95cb01f77c08404f6ce2b"
           },
           {
             "id": "adf140b3-3af6-5181-96d9-7a294cdf7ff5/START",
-            "sha256": "02c44512b4ced26efdb3d2f04ae716afa4450309dcf4de5ca0614be9357bd56f"
+            "sha256": "88d413164ea702a2ff05b1b9929537c775f33ddf437674af33ce5b17d0c80204"
           },
           {
             "id": "adf140b3-3af6-5181-96d9-7a294cdf7ff5/COMPLETE",
-            "sha256": "362ca9423f914bb253f0a4fc0446887321615dba0a17eb1bda8159f8b19de785"
+            "sha256": "1d1025918c408d8435bf927b0dfe8fc4152cb622d1a55c31534baf38782a0bf7"
           },
           {
             "id": "b4f117d9-140b-57a4-a35b-23539d195cb6/START",
-            "sha256": "8322b7088a3594a3347d67675942eae65093bc9e5fb06b0522922ea7773b6537"
+            "sha256": "f7f203e86909bfaf299b34da927e8d6b1ee29ff5cf434231a67052c30d25d5ca"
           },
           {
             "id": "b4f117d9-140b-57a4-a35b-23539d195cb6/COMPLETE",
-            "sha256": "e914871bb3c9042b2e0c7c16635ec46e7b07014f6494cef952db06eaf7db5b41"
+            "sha256": "6d468101f30831288d81b377ea4ab79945fa60f1bf4a74fc1adb390f0a775fa2"
           },
           {
             "id": "aa10e0d9-9c0e-5bc6-8df5-4cd0805df1f9/START",
-            "sha256": "bf5cbb2e515118b3b1c248a1d3cba9ee268d8758d86476ccc972e32a377470cd"
+            "sha256": "6aa06c94353bde7fe3853e2a5355af985a8ef594e9eb2408779939d71d8e0fc6"
           },
           {
             "id": "aa10e0d9-9c0e-5bc6-8df5-4cd0805df1f9/COMPLETE",
-            "sha256": "1894f5c1ddfc25fab2a64415319c304c996e8801d66d8c932cc11dbeade4b6da"
+            "sha256": "2d7a7c6c45da11cdb9f65f16d4dbc82335ebfad92d47922932b01218cc158f0a"
           },
           {
             "id": "356951e5-5fce-5c4b-baa2-1bbde8928208/START",
-            "sha256": "1806072c501ff2decf7485e2551de80aed196e468a9a71fc600137ccccd62cd5"
+            "sha256": "ee81be54173ef160470b35fbb58787f1f44d183a0286bee30048b655b4425b78"
           },
           {
             "id": "356951e5-5fce-5c4b-baa2-1bbde8928208/COMPLETE",
-            "sha256": "04d30c94830cb1422c6f699ad59ed34d3027c3440b49304a8f90120807e4f369"
+            "sha256": "ae04bcabdf92d9b42cc25735b1f752306bade6c57cd67714cc4f7ff34f650990"
           },
           {
             "id": "36cce491-390b-54ff-aa41-13d852082b36/START",
-            "sha256": "5dc222dd25c815afa5b71e1e0eb72bacb1a61ed81574ce3a8b996e9f406e8c82"
+            "sha256": "243983a1c40aeebbfea9a5ed5f2f0319fd812b6a720a750651c27e32422db35d"
           },
           {
             "id": "36cce491-390b-54ff-aa41-13d852082b36/COMPLETE",
-            "sha256": "eb54de16a6a096ec1c08191c2835c49bdf4b0f7dc08f9c87650d548a9b7a60f6"
+            "sha256": "e1d61262c73dd95757cdd95f10a8f8a7a795c0b9c3cf03bf8e0cbb39b62d9e57"
           },
           {
             "id": "0216a644-d466-5f8a-8bd7-61c755e14ff2/START",
-            "sha256": "69f6a4e2d61e9de859db0a51479bc9f1877340940a86ba0a7f3c9cdb9b47b12d"
+            "sha256": "b6b09d842c47b30e8b8e24385b294bd22d7b3c832bed013d32ccba013169d828"
           },
           {
             "id": "0216a644-d466-5f8a-8bd7-61c755e14ff2/COMPLETE",
-            "sha256": "92226e1ccf0384cbac02a1a36288f02da6a9ed2134f8bc186516e7388b83d458"
+            "sha256": "8291102c40c8afe833375c422332619bb6337707217e1c6a70a8d7fb96a5af0c"
           },
           {
             "id": "d3cfc8b3-eb6f-544c-9233-52f5ab30a578/START",
-            "sha256": "72e007176df007c843d3244ea47f897525a2650d615c2178c249f75584a61070"
+            "sha256": "e6fb40e606b2227312ea40497fa3ca39d56a23f74ae1cd47f6b2ba182e39be0d"
           },
           {
             "id": "d3cfc8b3-eb6f-544c-9233-52f5ab30a578/COMPLETE",
-            "sha256": "c8cf8fdd01e488c95be6f53499fd6cd9dce0e7298b15abb7ca44b4e8173fceea"
+            "sha256": "bc3c08cfd35fc7668d1f64c4361d4f85a7cc8c27c2ad0bebd686e41d5f7510de"
           },
           {
             "id": "e1921ceb-0bcf-556b-824c-f2b99d9ccd47/START",
-            "sha256": "9a731951ef9c9c381ffd03e735a9e787f32338615cdda0b7f60154f13b80972f"
+            "sha256": "ee78362ee4fec38d8ee19937d777b246df181f78aa7b253519c2205dd5ac9c61"
           },
           {
             "id": "e1921ceb-0bcf-556b-824c-f2b99d9ccd47/COMPLETE",
-            "sha256": "a0ade9c1ac0882ea3553bd7bfac4d4f4389246c16803df5ed824002071e3de35"
+            "sha256": "bd0bc0af278447f071f7073c23a8ab54ee3e5b8600839bf0d92ccbe7d486abd0"
           },
           {
             "id": "8c540134-9f9b-5e30-94b9-792e4399161f/START",
-            "sha256": "f62c2c2342ad3c9e59068718c72747c8b6b3ee2f7b4215bc379e39141624797c"
+            "sha256": "d151e8cdc297e0cead139c27040d20a5356364fb22169b3423fdc1a86e0e62fe"
           },
           {
             "id": "8c540134-9f9b-5e30-94b9-792e4399161f/COMPLETE",
-            "sha256": "53264d2d5a2870aec5f05fa04abe36f6415e6de1ee4ec7c46e18b5f32b657c5c"
+            "sha256": "fa25ece39fe8c01437ee8c104e856bae43bded9eb8b422afb8130e41975f7316"
           },
           {
             "id": "38a12e2e-4868-5bec-b1bb-f89a11ea4fd2/START",
-            "sha256": "398962331a8737528f71f9c41956a312801e7952a05605edb5624cc56ddc067d"
+            "sha256": "f9f331620d88cae99114ebf389ebc89a660f4500974006ded0ccc950bf378a52"
           },
           {
             "id": "38a12e2e-4868-5bec-b1bb-f89a11ea4fd2/COMPLETE",
-            "sha256": "bc261e67159c2ee903b83c582cbe5ca20125cc07806eceff6b1352ec28360ed1"
+            "sha256": "b80728464706462fa294ac17c54d5755e5ba27346fe63e3bc9e747bfa22e390a"
           },
           {
             "id": "e3de9524-5ee1-558e-a4f0-f2bf6db651cb/START",
-            "sha256": "a0698aefefddd413547c3897e02c46e015ff1c109e872640437a18a5fcbff7c8"
+            "sha256": "8680349d30c2d0d3fe8e9f7fcea6e03f8ccbd6785f5d1630036531aa3ff7a14e"
           },
           {
             "id": "e3de9524-5ee1-558e-a4f0-f2bf6db651cb/COMPLETE",
-            "sha256": "e69c247b76fd8fdee68ace3393172f6239355fd0e6523ef67159bf055979f86e"
+            "sha256": "807e921aea1b4001a10df66fd49eeb0b893720d0e19556be11b2b99f6fbabc93"
           },
           {
             "id": "1d1a9ade-c285-5236-afe2-90f716f6d179/START",
-            "sha256": "f02650340a123aea37ce752bc529dfdd0df2effbdf3087e2d4565b2b6048e2d7"
+            "sha256": "ce92155b49f3627b2c160932eab14fa27bc5f9af3abadaaf8431506ad2c75c22"
           },
           {
             "id": "1d1a9ade-c285-5236-afe2-90f716f6d179/COMPLETE",
-            "sha256": "7b0bb18c20016d6423f9d05457257765867c34f2954b4a2e793f0e5a6cb28b51"
+            "sha256": "8a22bf0ee5d373299ef80920656d7bb98b03c758f17d17f41dd7699bba9b269c"
           },
           {
             "id": "feca3e47-7803-50d3-ba45-1875ac96ed2f/START",
-            "sha256": "8110f51bce77e9fd0d45784ae2403c640ff6f8cff466bb66dc5827ba370e383f"
+            "sha256": "7ae091b7c5d2bcc6a9494e67ad0d93bf80c2944cf654feb87aca7c748d18e587"
           },
           {
             "id": "feca3e47-7803-50d3-ba45-1875ac96ed2f/COMPLETE",
-            "sha256": "46ba5b6559adafda457719d3dc421e05150c8d1156f4e8feadd7bff9299593c8"
+            "sha256": "5c19bf56309a7d9240b0312bc8f61656497553f2a3a9ea857a7f7b88200d92a4"
           },
           {
             "id": "ae081730-6a4b-5280-b4f9-0991ae310bc7/START",
-            "sha256": "d49307a6d25f616ed4d027717b134d0fc94378405c7d23a3a3beb090f1e0409d"
+            "sha256": "2fcb70957189ceab87ee2ffffcd8c2fbd6d39d16c14233650621e586d9fe39f7"
           },
           {
             "id": "ae081730-6a4b-5280-b4f9-0991ae310bc7/COMPLETE",
-            "sha256": "7b1fac0fdda91c668bb5efbda13ed0dcf6fa8547acdb7b22c342a16f882c0638"
+            "sha256": "d5ee6ff908d9e4fa799aa15e1e6068bf09dc6a4761e4bd3a55f12850ac7b9ef2"
           },
           {
             "id": "f4d65cf3-0c4b-54c0-ad3e-529c5fbc9e9d/START",
-            "sha256": "0b0dc77c8ef6b5b1fa66ccebd6918115dfbf50d152e8ef76af5bc5cecb1f127a"
+            "sha256": "78aaca2f1c296ada0cf20638c00264f5832b2c9667fde268ad5b8f08cba0f446"
           },
           {
             "id": "f4d65cf3-0c4b-54c0-ad3e-529c5fbc9e9d/COMPLETE",
-            "sha256": "8416e67b7424f0b05a0ef20325903da11d9a2321b64eea9359ca639865f9052e"
+            "sha256": "4e6124b237a67fae11ce226cacfaf5c01895099e1ed0c08ab6d843a803144ac3"
           },
           {
             "id": "a430718e-2bde-528c-bf31-34c2b7228681/START",
-            "sha256": "17f48f080fca7599ba861f33021300c9f135bafcdc266a1724f32016b8ef4822"
+            "sha256": "8b5055ac80ddbc4b9aef71afa9b101bd689f5a9b0e0d2b1a1e6029e246b241ca"
           },
           {
             "id": "a430718e-2bde-528c-bf31-34c2b7228681/COMPLETE",
-            "sha256": "a2b0a22a155cc1d85dc7b00f68378697a143d94c70b54368a192b5e8f9503fa2"
+            "sha256": "2e21a960ae4933bef77caa974d4ca20946e1b575e1c71a396b2e65ab24336e8f"
           },
           {
             "id": "8f06f76a-d5e2-5dde-ab4a-73f0805cfbb5/START",
-            "sha256": "2019634d0b3ecae1eed07e3ffd22b39556c98dfccb6fa9423dce0d240636221d"
+            "sha256": "e10de63830bfd9dcfd87f332bf4793279716260597c2638dae80daba4990fa89"
           },
           {
             "id": "8f06f76a-d5e2-5dde-ab4a-73f0805cfbb5/COMPLETE",
-            "sha256": "171bb2762e7621f4a4ef25edc95000f70a1e64df73ec2d38f39f8b1e642c0f25"
+            "sha256": "5634f724863e7f3bfc9e9b82048f44990aed5940a8f43fda8dd2e03f88ee8a0f"
           },
           {
             "id": "65a0cecd-2260-5282-a682-903f561f1d88/START",
-            "sha256": "3b649a865ba5d8d4f1b038076fcad57211a2bb299a17bd0d6a6d32d424c0c8e1"
+            "sha256": "e62d00b9d617c9c34d315ad5b16fecad9caedddf62b4832e0544d15f3d524cff"
           },
           {
             "id": "65a0cecd-2260-5282-a682-903f561f1d88/COMPLETE",
-            "sha256": "9e927d2286130f1fe7c0ee40a1b437ffe00ea3359c9e81a80af6e049c2075995"
+            "sha256": "4ead937f19b62e2a1b7c46d6b2a922f45cf53b8792249ea1ef049f4bea27f4f2"
           },
           {
             "id": "308ff442-24ae-5892-b288-2b6e5bff849e/START",
-            "sha256": "f00032d6ed71a09c2ffa69f11d3b3c0094b2317bdbd9b3bac2fe2bbaf25b78e6"
+            "sha256": "6af81ffb66cd8d7cdec809396b6efc39a68c132d043ae3888d859c4aa2cd563e"
           },
           {
             "id": "308ff442-24ae-5892-b288-2b6e5bff849e/COMPLETE",
-            "sha256": "edd4bcf4c05a184dd2775712d64b4ece58c34d07296e7a1505ff443ce43bd892"
+            "sha256": "9e2772eef2d018a1dcd2b96b3d007fb0cb626d1b993611315ddf95342310ddd6"
           },
           {
             "id": "f9c41064-ac48-5118-b14b-ed7553ef6889/START",
-            "sha256": "c1c1e4054ad654fb8447083d7acfead25c86e4de7afcabe78c32427ee3e798f0"
+            "sha256": "2812c37a0ba457cf54d108cc6e65fea8725d07362d4cc564b94050363ea220e5"
           },
           {
             "id": "f9c41064-ac48-5118-b14b-ed7553ef6889/COMPLETE",
-            "sha256": "388b6792ec6178ba2d3331ca80d221b1a38fd6f81f098f6b1cdfcaebd59e6a67"
+            "sha256": "c14353328a6fa2e8d048c72e93bf3612ef96472fcc8d605bc38bf1b5cfeb9b80"
           },
           {
             "id": "63acf3cd-d364-5a4a-88cc-f4f19c50187b/START",
-            "sha256": "a067c1c8a98cc4a816a0b1b05a6fe955e0e8960add06d1dd8503761ea4d0f93a"
+            "sha256": "b6c61cdcacf97dfbda732f8ffa61cc7f881f2b1f38df463d18210379f499c9d3"
           },
           {
             "id": "63acf3cd-d364-5a4a-88cc-f4f19c50187b/COMPLETE",
-            "sha256": "80dddd271bcf3e4317046e6bc50c2b79add951a88f7e0f5e5b1d2de52e8ab091"
+            "sha256": "7430f13ede957ce8606d9e6c2a1e0b109014a700ae3281f55b2f8539f8e713e8"
           },
           {
             "id": "b4400c2f-12ba-5ebe-b9a5-53df9039c213/START",
-            "sha256": "cb7ebbffbe7460532d7e43f529584724b19b590fdd0467b008021fa0b9f09673"
+            "sha256": "f20229fe7790783a9c77c079ff2c4b88f5908c8ff52688ed0b9389345e130191"
           },
           {
             "id": "b4400c2f-12ba-5ebe-b9a5-53df9039c213/COMPLETE",
-            "sha256": "1dc536288c7cb48189681ac1d94f67d488f4407921ef09d61db03e2e07822834"
+            "sha256": "432ca782c4fe556cadc6bfa16c4bd1c3a4d54f1695fc76d137e1c23fe2843d17"
           },
           {
             "id": "b63eaf64-cbee-5273-bf0f-b3eb94e826b9/START",
-            "sha256": "8d5fb4fad84e87852c3b0f9e75d26b301dd1c3736d191da2117605285ba6c62e"
+            "sha256": "3295e14e6dbf47a6f696f294c47398209df3643093a1ce6a5b129a659b16180f"
           },
           {
             "id": "b63eaf64-cbee-5273-bf0f-b3eb94e826b9/COMPLETE",
-            "sha256": "8ed9ccb2563a877114c6197a0c9be846cc5f197b7eb239ecc0a82274074cf9df"
+            "sha256": "81e2a8b9c3eee4259465d50c69fecb64b548531060908519a4a1c179c41458d4"
           },
           {
             "id": "82a34787-9f0a-5fca-b929-1822f0dbff71/START",
@@ -7914,7 +7899,7 @@
           },
           {
             "id": "646268f6-10dc-5681-9a1f-ed4321cb483c/COMPLETE",
-            "sha256": "b4192341579c36bfca03f32423c1d5d96140b5426a247573400c924aced17b98"
+            "sha256": "389784cb64e0a663dba2d87f65e5ada19a2cbeb858aa156c74a121f5389f277d"
           },
           {
             "id": "86033a76-4ef1-5ced-a2f4-8e5ba655e57b/START",
@@ -7922,55 +7907,55 @@
           },
           {
             "id": "86033a76-4ef1-5ced-a2f4-8e5ba655e57b/COMPLETE",
-            "sha256": "eb0de8b41f7106d0a9082f4d1354a348c0d4995c59b81cf3a2d4826fec6dca3b"
+            "sha256": "d12f00c153dd800422ff1adc84a0b78d20d1facdf6b7c477676292e1af796444"
           },
           {
             "id": "6ff67eae-dfd2-5534-9668-a135c5e7d644/START",
-            "sha256": "e6e24925aee90504c489ae4718fc3e1fc2c4e8d9d7a330bbfeba3f334c6ca96e"
+            "sha256": "74a838459d07a5b812a03725be99ad20da770f273b77eb93b8c3c59ef556514f"
           },
           {
             "id": "6ff67eae-dfd2-5534-9668-a135c5e7d644/COMPLETE",
-            "sha256": "eea09a924df13ad4b4151a0b6b6b4110b863b627af0ad24c3e61d0a4b7ce68c8"
+            "sha256": "a7a87744b5e126f24a04edb44f10e92be53faa69df02fc6902d527c8a1917bbd"
           },
           {
             "id": "010382a0-4707-51eb-8c00-b0229ae8e1f1/START",
-            "sha256": "4321a6afd2a996645b742798448433db95ff44edda7801d4427fb76445476d63"
+            "sha256": "c307e84ca2afd92108a52125e73d99a8211906fe19e62c8aaa1e9f453c38450b"
           },
           {
             "id": "010382a0-4707-51eb-8c00-b0229ae8e1f1/COMPLETE",
-            "sha256": "ebbfd71aa0fa439186fe83006dff12aae7cfbaad824acbb08e08b50620793dde"
+            "sha256": "7416200c734ca939131ad4b37ba2acac989bed2e63663771085301417531b5bc"
           },
           {
             "id": "b7a349c6-28e7-5293-90b3-c1a65088bdf2/START",
-            "sha256": "8fbd68fac6ad2fb8c78d81c94527e74f2a8d54676e4ee8952d6c6b0362929bed"
+            "sha256": "c85984ed047a5db920538529f35da8492ac9054ccc5e2b39d60c7895dedd3226"
           },
           {
             "id": "b7a349c6-28e7-5293-90b3-c1a65088bdf2/COMPLETE",
-            "sha256": "1ccf0a0fd9c24ca139fe16c348c6fbc92f43ea230113c59882aa41d4da1d314c"
+            "sha256": "e3d1ea89b4c2f556b1721a1610ffcd7f496a1edc7787795f6c755d265b84c41b"
           },
           {
             "id": "63ef1875-6e8d-5e3f-8c59-c5155046f9fc/START",
-            "sha256": "1e2745aa2ad47bf5c384909583c65ed6d90128f1d62ed6beff618e05ef2e5798"
+            "sha256": "31aa0fcf818f90dd0ddab789388ae3911739f47334aeafd74ef8f7a60d80649e"
           },
           {
             "id": "63ef1875-6e8d-5e3f-8c59-c5155046f9fc/COMPLETE",
-            "sha256": "be135206706186a6c38a50f43466f8dd3af138f6885827f03393b4b4647a04ea"
+            "sha256": "5cc432db6702af3dde400608eb54c146d3844eb0af9e674f52fa4608695bcc83"
           },
           {
-            "id": "badd7718-d97c-53ea-beff-948e85c3a0f3/START",
-            "sha256": "14ce28eb4dc68cc0034a410ceea181f1ac37cc4b3621e2337f5fef38c6b35829"
+            "id": "bafc3fb6-80ef-59d5-9254-62db5b2b5870/START",
+            "sha256": "c99c74cce8154b144516d2d84868d46970ba8290f4bada7e6b1cdc67266503be"
           },
           {
-            "id": "badd7718-d97c-53ea-beff-948e85c3a0f3/COMPLETE",
-            "sha256": "74c9756b8a7834ef8078e48424db095ad94fa3feacff7be1b6fc058fb17c4fd0"
+            "id": "bafc3fb6-80ef-59d5-9254-62db5b2b5870/COMPLETE",
+            "sha256": "1463899bfd13bcb3a7a69f099dac893ae4f1f3864a9e3817d5c796a16ffeaf52"
           },
           {
-            "id": "67dabf2f-89df-5c38-8b48-b4e284d8d01b/START",
-            "sha256": "32ce97579a4358437a5d090cf669f7ddf82dc7ed39209fb1f7c9a7db40fb7368"
+            "id": "95694595-19b5-5c78-810a-3d7ea765f056/START",
+            "sha256": "5bc987cdc4fecb99377960f8e956d0ce027e99b606970f4402bdd19ccfa0dce3"
           },
           {
-            "id": "67dabf2f-89df-5c38-8b48-b4e284d8d01b/COMPLETE",
-            "sha256": "d9cc6622a181f96d86b29e5baff06491af50ded7fbc91baa0fd7db31d65fcd51"
+            "id": "95694595-19b5-5c78-810a-3d7ea765f056/COMPLETE",
+            "sha256": "c8e5285f96ac0f373dbf9abb897ec13da3905ac2bb791d80bca6fb2994d8cb0b"
           }
         ],
         "kind": "list"
@@ -8020,95 +8005,95 @@
         "items": [
           {
             "id": "run-transpara-k221347-1:model-1",
-            "sha256": "d719f73d56ed098cd90ca0eaca6ed395275d34dbcd738e13edc1dfcd83202b46"
+            "sha256": "1686ae38e083100c80e044e7c1382425f68a48734b408cc40c9ee1e742cedbd5"
           },
           {
             "id": "run-transpara-k221347-1:model-2",
-            "sha256": "2686697d4bb68067c0a8799b545105ab4c8f0245911e16ef68a15ed73e8f9ae8"
+            "sha256": "4d78bbe45df51bad5abf2485d87092157f6ff48019f6f21880c4795d67ae6f96"
           },
           {
             "id": "run-transpara-k221347-1:model-3",
-            "sha256": "5715b531ed8b31c6451d5ca646902ffcb480ee8d1e39ceb111ccea0440f5a3ba"
+            "sha256": "00c3656d95cfb8ca138dc8df92622796bd9df0b196a34ccfbe2330eed1d9efc6"
           },
           {
             "id": "run-transpara-k221347-1:model-4",
-            "sha256": "1e95753621f85d071d1191e23661c0a2cf86bb132dbb3f8044a6fb0b75ff1206"
+            "sha256": "727733f58f43b577b8f8a2fa419af4152d8425c59eabba48ca6671a9e7ee84ed"
           },
           {
             "id": "run-transpara-k221347-1:model-5",
-            "sha256": "42ae3855c17fccbb54cb5be411f3201dfa4f6acb03abc36dd27f84a18629d2be"
+            "sha256": "a19824f5d79cd604eaacf3c433ea47a77aaa41e527a54d3e1cb4af762b070d6c"
           },
           {
             "id": "run-transpara-k221347-1:model-6",
-            "sha256": "540fda506c023e1616ee0a61bae28e0cf8fd2d1d449677c1f464a88891a8081a"
+            "sha256": "0383dda52c0196ed9d47371d4ada006786638332d530ea0968f8742e0e4a925b"
           },
           {
             "id": "run-transpara-k221347-1:model-7",
-            "sha256": "930ae12b542582e00517569744e82ea3846c20de07b69c5c498140f2a601a9b6"
+            "sha256": "fab12a19d05a77c2b001c46ab199363b09455e2e655b845cb91c084dab11f5d5"
           },
           {
             "id": "run-transpara-k221347-1:model-8",
-            "sha256": "e6c114a48d8eb179dce4aa850a51b12fe0d0a4622447277b9fb1cded130ad397"
+            "sha256": "a9b4e1ae4baaf3be5cc37d9d02d9d17a7bb2ebb4a1fe9015364737a7f26028b7"
           },
           {
             "id": "run-transpara-k221347-1:model-9",
-            "sha256": "aa10386fec3b11cdf2ed2565202d44bb21f0295d5bd07065b3d31f15add06f54"
+            "sha256": "789857975d562eae992550692008bae73aea02135c82e5bede0791a2dfbaf838"
           },
           {
             "id": "run-transpara-k221347-1:model-10",
-            "sha256": "aa9a2830ebc958c17f266eba207cc9ee33f17fe8ebddd2f1c04638daf51b5bc9"
+            "sha256": "2a185bd5b74829397eb4a220efb22b3f95aec383875de0dc7cd6b7184a837523"
           },
           {
             "id": "run-transpara-k221347-1:model-11",
-            "sha256": "ee89a7587cb9c5f1355508bb056c1c44407a9aac360f89f5c5f7784b2093af51"
+            "sha256": "b736e9b1bf67457c940b67cb8f9916bc7953b7aabe88ba0a1edd9a3910416a3f"
           },
           {
             "id": "run-transpara-k221347-1:model-12",
-            "sha256": "b0c7eb88a097ef74e26d17a8114faf390d8daeed2bf59d0e1f27cf90de6f7710"
+            "sha256": "f82351068e07fd853c7ae41ec562242f5bb4cdc79cfecbae91656093f5e9542f"
           },
           {
             "id": "run-transpara-k221347-1:model-13",
-            "sha256": "38101980b2efba04a6e54e8020b1a133939ce43e9b6a9a77f409aafe49f11c44"
+            "sha256": "f59971376452d02153315b5c097f26fb17edbb9f5444b92b39938d6d560d7c1b"
           },
           {
             "id": "run-transpara-k221347-1:model-14",
-            "sha256": "4f1f06449eecc34be200e48acc337ba92bc1e489af5556c444701321381dec6e"
+            "sha256": "ef058054f0740b23eca7a417a0ceb73bad0e647cdda97795d35fd56bc7e508b0"
           },
           {
             "id": "run-transpara-k221347-1:model-15",
-            "sha256": "2f7c1566c4d4322d08675aad9b80719015fe5a0810991c430f953fec8257263b"
+            "sha256": "9f61029cc2a00cad602d4009027ad3dc153c2a9e2a2e8d41f08923337254b61c"
           },
           {
             "id": "run-transpara-k221347-1:model-16",
-            "sha256": "5ad1d7d33f82e81a2aeba61f8edd5a585676bb64244d0f1f6641ef943682325f"
+            "sha256": "cf64e0c64e8cf987f44fa78e1323d0d2aed78a5ff412da947798f9624529b364"
           },
           {
             "id": "run-transpara-k221347-1:model-17",
-            "sha256": "e29c13fb9800e6731bd060b626819d248c3b906807080fa4e21983e61606f206"
+            "sha256": "c35f196c9c3a14aa7a0b607de28bed2c4a3b681ed601d431fe47138a375601bb"
           },
           {
             "id": "run-transpara-k221347-1:model-18",
-            "sha256": "63a440ba216ef434612ba978dfdb28d7367dd551e77c293f167d89136e426c17"
+            "sha256": "726f753c7a95b16f5b8850ccf4b948dd14bf7b773d3eb141db11a86a55cf01f1"
           },
           {
             "id": "run-transpara-k221347-1:model-19",
-            "sha256": "69084694e0da2f6af2dac56f3658837db7d7d0d0baf7a81a853fe31c9ea6f48c"
+            "sha256": "12982192e78f348d36b106c9da3b379d34c3f43f012e60bae06149f3223b6692"
           },
           {
             "id": "run-transpara-k221347-1:model-20",
-            "sha256": "56d29883bf472baee802c025238479ba7e03030f318902fd750f6d2796898ec0"
+            "sha256": "183d3bb07961d9427833288e0953fcb0cd1fe07f8c63de1024138ccfe1d10aa4"
           },
           {
             "id": "run-transpara-k221347-1:model-21",
-            "sha256": "31d998eeaf898a4649f6cbea5f99036cc9e7b516b9afad40d8efdf264b16d2e2"
+            "sha256": "0f6c004fbbdf2ff247c554f08b1c5c052e8486693238309732b7794c34efc9b5"
           },
           {
             "id": "run-transpara-k221347-1:model-22",
-            "sha256": "60407149b9c62d80b19d6636f9e6d31a5a316e4c2d7c74c6159c2f773beb93b3"
+            "sha256": "5e6c4f90dfee55b20ac5b864af2857fe9605df02895613deef15938999573689"
           },
           {
             "id": "run-transpara-k221347-1:model-23",
-            "sha256": "21c62d577c9dcf1621b5627d5f1ff6ab6fec6d70168eb7b5caedc45b49c4ce1d"
+            "sha256": "86293b66e589177221c2f815b2d6687b480cad8f1523a9d40cbd239758e256cf"
           }
         ],
         "kind": "list"
@@ -8140,7 +8125,7 @@
       },
       "rules": {
         "kind": "singleton",
-        "sha256": "54a0323d290d0a6bf6ff0bf69d88f420c91e7e93b668e561daca089d2f1dfa1b"
+        "sha256": "db7fdcebbc46c9cafc9d81541dc9f70de29845393ec3bfd1301887d2852405c2"
       },
       "run": {
         "kind": "singleton",
@@ -8211,7 +8196,7 @@
           },
           {
             "id": "hospital-policy",
-            "sha256": "73d3f9a8a8c660cb18f3fb972d3efc4729e2cf132d8fa1d7423fa6cf7131f8b3"
+            "sha256": "86fdfb4214bf80dcf8438ab52fc5f45f56fa211b4d73589a65be4f01abd27af3"
           },
           {
             "id": "openfda-510k",
@@ -8239,6 +8224,6 @@
   },
   "signature": {
     "algorithm": "Ed25519",
-    "value": "qHwGFqqevvmJevx36TQakeKBVojV4tqFl2ow8iLXGoNVQteniMgeFYRmUexFRGtUCPkUFi3+dUF8ynz4H3LZDg=="
+    "value": "rHiDj6mfwqBlbkScW5Azwvpr70WQdcJfHXQGa7Un/ddbZmQ3b3vTc5DhVEAV57xNPVcm7D58ofVHf8XkDdjmAQ=="
   }
 }

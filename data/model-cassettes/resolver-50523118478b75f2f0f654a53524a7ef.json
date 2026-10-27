@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:14:10.521Z",
+  "recordedAt": "2026-10-27T13:36:27.917Z",
   "role": "resolver",
   "requestHash": "50523118478b75f2f0f654a53524a7efb98b7ac8b3b4c1ffe502f9b687e1b4de",
   "request": {
@@ -76,7 +76,7 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\"verdict\":\"SAME\",\"citations\":[{\"record\":\"from\",\"field\":\"text\",\"quote\":\"The AI system (Transpara version 1.7.0 ScreenPoint Medical, Nijmegen, Netherlands)\"},{\"record\":\"to\",\"field\":\"name\",\"quote\":\"Transpara 1.7.2\"},{\"record\":\"to\",\"field\":\"manufacturer\",\"quote\":\"Screenpoint Medical B.V.\"},{\"record\":\"to\",\"field\":\"version\",\"quote\":\"1.7.2\"}],\"rationale\":\"The study evaluates Transpara version 1.7.0 from ScreenPoint Medical, and the device record is Transpara 1.7.2 from Screenpoint Medical B.V.; same product family and manufacturer, with versions on the same release line (1.7.x).\"}",
+    "text": "{\"verdict\":\"SAME\",\"citations\":[{\"record\":\"from\",\"field\":\"text\",\"quote\":\"The AI system (Transpara version 1.7.0 ScreenPoint Medical, Nijmegen, Netherlands)\"},{\"record\":\"to\",\"field\":\"name\",\"quote\":\"Transpara 1.7.2\"},{\"record\":\"to\",\"field\":\"manufacturer\",\"quote\":\"Screenpoint Medical B.V.\"},{\"record\":\"to\",\"field\":\"version\",\"quote\":\"1.7.2\"}],\"rationale\":\"The study evaluates Transpara version 1.7.0 from ScreenPoint Medical, and the device record is Transpara 1.7.2 from the same manufacturer (Screenpoint Medical B.V.), representing the same product line with a minor version difference.\"}",
     "json": {
       "verdict": "SAME",
       "citations": [
@@ -101,16 +101,16 @@
           "quote": "1.7.2"
         }
       ],
-      "rationale": "The study evaluates Transpara version 1.7.0 from ScreenPoint Medical, and the device record is Transpara 1.7.2 from Screenpoint Medical B.V.; same product family and manufacturer, with versions on the same release line (1.7.x)."
+      "rationale": "The study evaluates Transpara version 1.7.0 from ScreenPoint Medical, and the device record is Transpara 1.7.2 from the same manufacturer (Screenpoint Medical B.V.), representing the same product line with a minor version difference."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 1043,
-      "completionTokens": 164,
+      "completionTokens": 160,
       "measured": true
     }
   },
-  "responseHash": "6ce87135ba9eec41606cea22c1f194bedbffd23b6304464c5f5e93ce2d5ca6a5"
+  "responseHash": "cb6a39bde6d56e8425d836174d912370817714c6fb5ff0dc1afd61b161855c53"
 }

@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:11:33.793Z",
+  "recordedAt": "2026-10-27T13:33:16.421Z",
   "role": "support_checker",
   "requestHash": "5effa571b33f281e66f5bc917332b3d7ad42e5564fe57784cae0ea4ecf4bb43e",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states that Lunit INSIGHT CXR version 3.1.4.1 was used, which matches the asserted version for the AI product under review.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states that Lunit INSIGHT CXR version 3.1.4.1 was used, which matches the asserted version for the AI product evaluated in the publication.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage explicitly states that Lunit INSIGHT CXR version 3.1.4.1 was used, which matches the asserted version for the AI product under review."
+      "reason": "The passage explicitly states that Lunit INSIGHT CXR version 3.1.4.1 was used, which matches the asserted version for the AI product evaluated in the publication."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 537,
-      "completionTokens": 59,
+      "completionTokens": 61,
       "measured": true
     }
   },
-  "responseHash": "0c798ad9ca3665728d75db41a58f68b27a3a6a050cac08e6fbd4f4f34ef14d25"
+  "responseHash": "edb922d3ea8c3b87b2b9c157f7cf17c712b298f05ffa57aa2dea13ef805f7787"
 }

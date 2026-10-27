@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:07:59.997Z",
+  "recordedAt": "2026-10-27T13:31:00.840Z",
   "role": "support_checker",
   "requestHash": "5fdc28bccdfa1a86e114b33f0bfd941fabab0dd7a8561bc78536826b86485561",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states the AI system evaluated is the EyeArt Automated DR Detection System, version 2.1.0, which matches the assertion's subject and version.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states the EyeArt Automated DR Detection System version 2.1.0, which matches the asserted product and version.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage explicitly states the AI system evaluated is the EyeArt Automated DR Detection System, version 2.1.0, which matches the assertion's subject and version."
+      "reason": "The passage states the EyeArt Automated DR Detection System version 2.1.0, which matches the asserted product and version."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 507,
-      "completionTokens": 59,
+      "completionTokens": 51,
       "measured": true
     }
   },
-  "responseHash": "9cc6759441254a56fa65e70c41f93edd2fe03992d2910bf4caa7301f075b4246"
+  "responseHash": "f66548c7fb086d4383d6e5c6bc8ac56933ebf1df1b9358d367ba710e4f806f1f"
 }

@@ -108,6 +108,20 @@ function truthy(v: string | undefined): boolean {
   return v !== undefined && /^(1|true|yes)$/i.test(v.trim());
 }
 
+/**
+ * Sources and decision summaries come from the committed recordings: always in sample mode, and in record mode when
+ * SAKAIME_SOURCES=cassette. That is how the Zetaris statements and the model replies are recorded against the same public records
+ * the sample run replays, without fetching the public sources again.
+ */
+export function replaysSources(config: Pick<ServiceConfig, "sample" | "record" | "env">): boolean {
+  return config.sample || (config.record && config.env["SAKAIME_SOURCES"] === "cassette");
+}
+
+/** Record mode reuses recordings already on disk and asks the live route only for what is missing. */
+export function resumesRecording(config: Pick<ServiceConfig, "record" | "env">): boolean {
+  return config.record && truthy(config.env["SAKAIME_RESUME"]);
+}
+
 export function defaultDirs(root: string = REPO_ROOT): ServiceDirs {
   return {
     root,

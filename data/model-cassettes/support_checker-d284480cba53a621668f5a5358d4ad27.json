@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:08:08.393Z",
+  "recordedAt": "2026-10-27T13:31:07.556Z",
   "role": "support_checker",
   "requestHash": "d284480cba53a621668f5a5358d4ad2710a5f91068633b5896f68167283b7e56",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that participants were 'aged 18 years or older', which directly supports the assertion that the minimum age in the study population is 18 years.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'A total of 942 individuals aged 18 years or older who had diabetes gave consent to participate', which directly supports the assertion that the minimum age in the study population is 18 years.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage states that participants were 'aged 18 years or older', which directly supports the assertion that the minimum age in the study population is 18 years."
+      "reason": "The passage states 'A total of 942 individuals aged 18 years or older who had diabetes gave consent to participate', which directly supports the assertion that the minimum age in the study population is 18 years."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 468,
-      "completionTokens": 58,
+      "completionTokens": 70,
       "measured": true
     }
   },
-  "responseHash": "8da5e050108e0af7013a8d6520067bedb2776d9e26092674b927b9808d7dbdb3"
+  "responseHash": "60e9407d495641720cd6b7275f237cd924e22164362740bd91406821f3c85995"
 }

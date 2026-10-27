@@ -7,13 +7,13 @@
       "history": "decision",
       "seq": 1,
       "idempotencyKey": "example-decision-0001",
-      "requestHash": "fbe2289c3aef46bd6d675bdc35d667c908b80d6e98d0e5e46b307fed72eb9f10",
-      "claimId": "CLM-EA-01",
-      "findingId": "fnd_faa624de5823f641b4640c895f709298",
+      "requestHash": "12697ccc91ab788ee817f0e468a99db1a3b0626532df5f6f3bfad489e236d48a",
+      "claimId": "CLM-EA-07",
+      "findingId": "fnd_d3019f184b22aca9e9f5a8ee0470ffab",
       "action": "narrow",
       "resultingState": "narrowed",
       "reviewer": "reviewer",
-      "at": "2026-10-27T12:00:00.801Z",
+      "at": "2026-10-27T12:00:00.796Z",
       "note": "Use only for the narrower scope the compiler states.",
       "narrowedScope": {
         "product": "device:fda:K200667",
@@ -22,19 +22,20 @@
         ],
         "population": {
           "age": {
-            "min": 18
+            "min": 22
           },
           "conditions": [
             "diabetic retinopathy"
           ],
           "exclusions": [
-            "history of macular edema or retinal vascular (vein or artery) occlusion;",
-            "history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;",
-            "persistent visual impairment in one or both eyes;",
-            "subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs.",
-            "subject has contraindications for mydriatic medications or is unwilling or unable to dilate;",
-            "subject is contraindicated for fundus photography (for example, has light sensitivity);",
-            "subject is currently enrolled in an interventional study of an investigational device or drug; or"
+            "history of macular edema or retinal vascular vein or artery occlusion",
+            "history of more than mild diabetic retinopathy",
+            "history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication",
+            "persistent visual impairment in one or both eye",
+            "subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph",
+            "subject has contraindication for mydriatic medication or is unwilling or unable to dilate",
+            "subject is contraindicated for fundus photography for example has light sensitivity",
+            "subject is currently enrolled in interventional study of investigational device or drug or"
           ]
         },
         "settings": [
@@ -44,7 +45,7 @@
         "purpose": "detection_aid"
       },
       "prevHash": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "57fe5e5d8d0ad4e2a78a12467e6cd98c367b3780ac8935458b2be9e276bbb0d1"
+      "hash": "1e3806927c9eff4f0b7297243ecedaf25b8cd65b9865dbd040924ce68192b939"
     },
     "replayed": false,
     "reviewerState": "narrowed"

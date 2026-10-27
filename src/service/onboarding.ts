@@ -8,7 +8,9 @@
  * one that says so, so the pipeline stops at the stage that needs it and reports why. Nothing is faked to get further.
  */
 import { join } from "node:path";
-import { DEFAULT_CONFIG, JsonFileLedger, MemoryLedger, MemoryReviewQueue, ObjectStoreLander, onboardSource, type DiscoveryDeps, type SnapshotLander } from "../discovery/index.ts";
+import { DEFAULT_CONFIG, JsonFileLedger, MemoryLedger, MemoryReviewQueue, ObjectStoreLander, onboardSource, requestId, type DiscoveryDeps, type SnapshotLander } from "../discovery/index.ts";
+import { ONBOARDING_STAGES } from "../api/contract.ts";
+import { validateUrl } from "../sources/safe-fetch.ts";
 import { HMEM } from "../engines/hmem/index.ts";
 import { WorldModel } from "../engines/world-model/index.ts";
 import { PortError, type ModelPort } from "../ports/index.ts";
@@ -71,14 +73,64 @@ export class Onboarding {
     return this.deps;
   }
 
-  async propose(input: { description: string; url: string }, actor: string): Promise<OnboardingResult> {
+  /** Answers already given, by request id: a repeated request gets the same answer, byte for byte, until a retry is asked for. */
+  private readonly answers = new Map<string, Promise<OnboardingResult>>();
+
+  /**
+   * "Add a source". Every outcome is an OnboardingResult: registered, held for a reviewer, or declined with the reason. A host
+   * off the allowlist, a metadata or private address and a request the guard refuses all end at stage 1 as declined; none is an
+   * error. The same request again returns what was answered the first time. A decline that the pipeline marks retryable (the
+   * source was down, say) is run again only when the caller sets `retry`.
+   */
+  async propose(input: { description: string; url: string; retry?: boolean | undefined }, actor: string): Promise<OnboardingResult> {
     const deps = this.build();
-    // The registration contract: Scout recognises the request as adding a source and signs a short-lived, scope-limited contract.
-    const decision = await this.parts.guard.scout.decide({ prompt: `Add this source: ${input.url} (${input.description})`, user: { id: actor, role: "reviewer" }, surface: "api" });
-    if (decision.decision === "block" || decision.decision === "quarantine") {
-      throw new PortError("REFUSED", `the guard refused the request: ${decision.risk.reason ?? "it matched a guarded intent"}`, { intent: decision.intent?.id });
+    const request = { description: input.description, url: input.url, orgId: "hospital-a", actor };
+    const id = requestId(request);
+    const known = this.answers.get(id);
+    if (known && !input.retry) return structuredClone(await known);
+    const run = this.run(request, id, deps, input.retry === true);
+    this.answers.set(id, run);
+    try {
+      return structuredClone(await run);
+    } catch (error) {
+      if (this.answers.get(id) === run) this.answers.delete(id);
+      throw error;
     }
-    return onboardSource({ description: input.description, url: input.url, orgId: "hospital-a", actor, ...(decision.executionContract ? { contract: decision.executionContract } : {}) }, deps);
+  }
+
+  private async run(request: { description: string; url: string; orgId: string; actor: string }, id: string, deps: DiscoveryDeps, retry: boolean): Promise<OnboardingResult> {
+    // The registration contract: Scout recognises the request as adding a source and signs a short-lived, scope-limited contract.
+    const decision = await this.parts.guard.scout.decide({ prompt: `Add this source: ${request.url} (${request.description})`, user: { id: request.actor, role: "reviewer" }, surface: "api" });
+    if (decision.decision === "block" || decision.decision === "quarantine") {
+      // Where the address itself is what is wrong, the pipeline's own first stage says so in its own words, as it does for any host
+      // off the allowlist. Where the address is acceptable and the guard refused the request for another reason, say that.
+      let addressRefused = false;
+      try {
+        validateUrl(request.url, deps.sources.allowlist);
+      } catch {
+        addressRefused = true;
+      }
+      if (addressRefused) return onboardSource({ ...request, ...(retry ? { retry: true } : {}) }, deps);
+      return this.declinedByGuard(id, decision.risk.reason ?? "it matched a guarded intent");
+    }
+    return onboardSource({ ...request, ...(decision.executionContract ? { contract: decision.executionContract } : {}), ...(retry ? { retry: true } : {}) }, deps);
+  }
+
+  /** The shape the pipeline gives a request it declines at its first stage, for a request the guard refused. */
+  private declinedByGuard(id: string, why: string): OnboardingResult {
+    const reason = `The guard refused the request: ${why}`;
+    return {
+      id,
+      outcome: "declined",
+      reason,
+      stages: ONBOARDING_STAGES.map((stage) =>
+        stage === "authorization"
+          ? { stage, status: "failed" as const, summary: `Refused: ${why}`, detail: { guard: true } }
+          : { stage, status: "skipped" as const, summary: "not reached: authorization did not pass" },
+      ),
+      mapping: [],
+      recorded: false,
+    };
   }
 
   close(): void {

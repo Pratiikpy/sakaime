@@ -7,9 +7,9 @@
     "findings": [
       {
         "layer": "policy",
-        "reason": "certify_safe is never executed; ask for review_claim or compare_scope instead"
+        "reason": "Certifying a product for use is not something Sakaime does."
       }
     ],
-    "message": "certify_safe is not something Sakaime does"
+    "message": "Certifying a product for use is not something Sakaime does. Sakaime does not certify. It can show whether the evidence covers a stated use and where it stops."
   }
 }

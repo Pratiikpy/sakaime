@@ -23,10 +23,10 @@
         "access": "connector",
         "descriptor": "crossref: study records",
         "license": "Metadata reuse licence NOT VERIFIED; the documentation page states only that its own site content is CC BY 4.0",
-        "health": "STALE",
+        "health": "OK",
         "dataClass": "public"
       },
-      "healthDetail": "not used by this case",
+      "healthDetail": "not read by any case investigated so far; no failure has been seen for it",
       "authorityNotes": "authoritative for what a paper reported, not for the product's authorization"
     },
     {
@@ -50,10 +50,11 @@
         "access": "connector",
         "descriptor": "fda-accessdata-pdf: authorization, study records",
         "license": "US government work; reuse terms NOT VERIFIED",
-        "health": "STALE",
+        "health": "OK",
+        "lastSuccessAt": "2026-10-27T10:07:13.906Z",
         "dataClass": "public"
       },
-      "healthDetail": "not used by this case",
+      "healthDetail": "read the decision summary on 2026-10-27",
       "authorityNotes": "authoritative for what use was authorized"
     },
     {
@@ -63,10 +64,10 @@
         "access": "connector",
         "descriptor": "fda-ai-list: authorization records",
         "license": "US government work; reuse terms NOT VERIFIED",
-        "health": "STALE",
+        "health": "OK",
         "dataClass": "public"
       },
-      "healthDetail": "not used by this case",
+      "healthDetail": "not read by any case investigated so far; no failure has been seen for it",
       "authorityNotes": "authoritative for what use was authorized"
     },
     {
@@ -90,10 +91,10 @@
         "access": "connector",
         "descriptor": "openfda-pma: authorization records",
         "license": "CC0 per open.fda.gov/license, with the openFDA disclaimer not to rely on it for medical decisions",
-        "health": "STALE",
+        "health": "OK",
         "dataClass": "public"
       },
-      "healthDetail": "not used by this case",
+      "healthDetail": "not read by any case investigated so far; no failure has been seen for it",
       "authorityNotes": "authoritative for what use was authorized"
     },
     {
@@ -118,10 +119,10 @@
         "descriptor": "pubmed-eutils: study records",
         "license": "NLM-held records; reuse terms are per publisher and are NOT VERIFIED in detail",
         "health": "OK",
-        "lastSuccessAt": "2026-10-27T10:08:48.300Z",
+        "lastSuccessAt": "2026-10-27T10:08:25.143Z",
         "dataClass": "public"
       },
-      "healthDetail": "answered 4 read(s); last on 2026-10-27",
+      "healthDetail": "answered 3 read(s); last on 2026-10-27",
       "authorityNotes": "authoritative for what a paper reported, not for the product's authorization"
     },
     {
@@ -132,12 +133,12 @@
         "descriptor": "Hospital review database: requirements and precedents (constructed)",
         "license": "constructed for this demonstration",
         "health": "OK",
-        "lastSuccessAt": "2026-10-27T12:00:00.052Z",
+        "lastSuccessAt": "2026-10-27T12:00:00.047Z",
         "dataClass": "public"
       },
       "healthDetail": "answered through cassette; 10 requirements, 3 precedents",
       "zetarisName": "hospital.requirements, hospital.precedents, hospital.cases",
-      "rowCount": 6,
+      "rowCount": 9,
       "authorityNotes": "authoritative for what this hospital requires; says nothing about what a product has shown"
     }
   ]

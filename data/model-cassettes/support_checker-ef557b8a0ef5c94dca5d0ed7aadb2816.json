@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:07:22.657Z",
+  "recordedAt": "2026-10-27T13:30:25.561Z",
   "role": "support_checker",
   "requestHash": "ef557b8a0ef5c94dca5d0ed7aadb28160fcd7b72ab28bb4190c7b5d6d5f67086",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage explicitly states that the human factors report used EyeArt v2.1.0 rev005, which matches the asserted version 2.1.0 for the EyeArt product under FDA 510(k) K200667.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states that the EyeArt product is v2.1.0 rev005, which matches the asserted version 2.1.0.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage explicitly states that the human factors report used EyeArt v2.1.0 rev005, which matches the asserted version 2.1.0 for the EyeArt product under FDA 510(k) K200667."
+      "reason": "The passage states that the EyeArt product is v2.1.0 rev005, which matches the asserted version 2.1.0."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 467,
-      "completionTokens": 78,
+      "completionTokens": 56,
       "measured": true
     }
   },
-  "responseHash": "0ba184b374e4340597be25b2e0b5de1a969b1b9885eecd65ad830b6e101d23d7"
+  "responseHash": "b12b43f286c385c15fce716fbe1b76327b1de9c15d83d16b64ed672541ecb07d"
 }

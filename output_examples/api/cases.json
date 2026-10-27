@@ -7,11 +7,11 @@
       "title": "EyeArt 2.1.0: diabetic retinopathy detection in primary care",
       "productLabel": "EyeArt (Eyenuk, K200667)",
       "claimConstructed": true,
-      "headlineLabel": "INSUFFICIENT_EVIDENCE",
-      "openQuestions": 8,
+      "headlineLabel": "REQUIRES_DOMAIN_REVIEW",
+      "openQuestions": 10,
       "staleFindings": 0,
       "reviewerState": "unreviewed",
-      "updatedAt": "2026-10-27T12:00:00.169Z"
+      "updatedAt": "2026-10-27T12:00:00.183Z"
     },
     {
       "id": "lunit-k211733",
@@ -22,7 +22,7 @@
       "openQuestions": 3,
       "staleFindings": 0,
       "reviewerState": "unreviewed",
-      "updatedAt": "2026-10-27T12:00:00.365Z"
+      "updatedAt": "2026-10-27T12:00:00.377Z"
     },
     {
       "id": "transpara-k221347",
@@ -33,7 +33,7 @@
       "openQuestions": 3,
       "staleFindings": 0,
       "reviewerState": "unreviewed",
-      "updatedAt": "2026-10-27T12:00:00.526Z"
+      "updatedAt": "2026-10-27T12:00:00.533Z"
     }
   ]
 }

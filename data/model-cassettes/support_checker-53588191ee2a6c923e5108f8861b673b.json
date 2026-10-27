@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:11:11.597Z",
+  "recordedAt": "2026-10-27T13:32:47.384Z",
   "role": "support_checker",
   "requestHash": "53588191ee2a6c923e5108f8861b673bc116e5913ec0a4a3f9563f6f84751382",
   "request": {
@@ -48,22 +48,22 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"threshold\"],\n  \"reason\": \"Passage states Lunit INSIGHT CXR specificity is 63.0% (0.63), not 0.8 (80%).\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"threshold\"],\n  \"reason\": \"Passage reports specificity of 63.0% (0.63) for Lunit INSIGHT CXR, but assertion claims 0.8 (80%). Value mismatch.\"\n}",
     "json": {
       "verdict": "does_not_support",
       "mismatches": [
         "threshold"
       ],
-      "reason": "Passage states Lunit INSIGHT CXR specificity is 63.0% (0.63), not 0.8 (80%)."
+      "reason": "Passage reports specificity of 63.0% (0.63) for Lunit INSIGHT CXR, but assertion claims 0.8 (80%). Value mismatch."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
-      "promptTokens": 1335,
-      "completionTokens": 232,
+      "promptTokens": 1337,
+      "completionTokens": 239,
       "measured": true
     }
   },
-  "responseHash": "f8a09e5f527f54c729acf46f47d8796360b0caf65fa13bdcc9da7bf67f2c7a41"
+  "responseHash": "2c002815113055c5bf44c070e0ffc2fc66bb1f5aeca0a7d56b553d17a5fdd84d"
 }

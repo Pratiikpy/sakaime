@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:13:38.388Z",
+  "recordedAt": "2026-10-27T13:35:47.780Z",
   "role": "support_checker",
   "requestHash": "f17ff37555fa7c4abd722c1138915fa35f62abcbd816fd9c56d84ec813bbaf1c",
   "request": {
@@ -48,20 +48,23 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage states 'specificity was 86%' which matches the asserted value of 0.86 proportion for specificity in the reader arm (unaided HR).\"\n}",
+    "text": "{\n  \"verdict\": \"does_not_support\",\n  \"mismatches\": [\"metric\", \"context\"],\n  \"reason\": \"The passage reports specificity as 86% for the unaided HR, but the assertion specifies the metric for the AI product Transpara. The passage does not identify Transpara or the AI product evaluated in PubMed ID 32052311, and it describes unaided human reader performance rather than the AI product's result.\"\n}",
     "json": {
-      "verdict": "supports",
-      "mismatches": [],
-      "reason": "The passage states 'specificity was 86%' which matches the asserted value of 0.86 proportion for specificity in the reader arm (unaided HR)."
+      "verdict": "does_not_support",
+      "mismatches": [
+        "metric",
+        "context"
+      ],
+      "reason": "The passage reports specificity as 86% for the unaided HR, but the assertion specifies the metric for the AI product Transpara. The passage does not identify Transpara or the AI product evaluated in PubMed ID 32052311, and it describes unaided human reader performance rather than the AI product's result."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 477,
-      "completionTokens": 59,
+      "completionTokens": 100,
       "measured": true
     }
   },
-  "responseHash": "3b577167d5239599ca55a0953fea0dfb1bf0021b045d2ab722be1569879e28db"
+  "responseHash": "88bd1e96ce68bd166c6bdbdfc6d2fe2fb63b306f20e50a99a12a9c27d36a9ea3"
 }

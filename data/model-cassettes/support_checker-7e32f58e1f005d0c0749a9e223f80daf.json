@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:10:29.525Z",
+  "recordedAt": "2026-10-27T13:32:15.810Z",
   "role": "support_checker",
   "requestHash": "7e32f58e1f005d0c0749a9e223f80daf166abdaccb41a2811472515db23f0877",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports specificity 93.48% (95% CI: 91.06 - 95.91) for pleural effusion, which matches the asserted value 0.9348 and interval [0.9106, 0.9591] when expressed as proportions.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports specificity 93.48% (95% CI: 91.06 - 95.91) for pleural effusion, which matches the asserted value 0.9348 and interval [0.9106, 0.9591] with the context qualifier pleural effusion.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage reports specificity 93.48% (95% CI: 91.06 - 95.91) for pleural effusion, which matches the asserted value 0.9348 and interval [0.9106, 0.9591] when expressed as proportions."
+      "reason": "The passage reports specificity 93.48% (95% CI: 91.06 - 95.91) for pleural effusion, which matches the asserted value 0.9348 and interval [0.9106, 0.9591] with the context qualifier pleural effusion."
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 561,
-      "completionTokens": 94,
+      "completionTokens": 96,
       "measured": true
     }
   },
-  "responseHash": "b8985cb8371bf2bfb53dd4ab1ad8615879dc75596ae1cb0a5150a3e71b685c59"
+  "responseHash": "2d1043ee46fe983cc47272615400081026159d10e379473529267e5f5f2718d1"
 }

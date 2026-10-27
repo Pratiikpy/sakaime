@@ -469,6 +469,28 @@
         "value": "adults"
       },
       {
+        "anchorId": "anc_6a3c8ac83e926ab2be9e",
+        "assertionType": "authorization",
+        "extractionMethod": "pattern",
+        "id": "asr_6ceede97ee0768947231",
+        "predicate": "population.condition",
+        "quoteVerified": true,
+        "subjectId": "device:fda:K211733",
+        "supportVerified": "PASS",
+        "value": "pleural effusion"
+      },
+      {
+        "anchorId": "anc_6a3c8ac83e926ab2be9e",
+        "assertionType": "authorization",
+        "extractionMethod": "pattern",
+        "id": "asr_1d22abf39af1cfeda1a0",
+        "predicate": "population.condition",
+        "quoteVerified": true,
+        "subjectId": "device:fda:K211733",
+        "supportVerified": "PASS",
+        "value": "pneumothorax"
+      },
+      {
         "anchorId": "anc_91217a1df948df111a1b",
         "assertionType": "authorization",
         "extractionMethod": "pattern",
@@ -624,7 +646,7 @@
         "predicate": "result.sensitivity",
         "quoteVerified": true,
         "subjectId": "device:fda:K211733",
-        "supportVerified": "PASS",
+        "supportVerified": "FAIL",
         "unit": "proportion",
         "value": 0.9608
       },
@@ -987,7 +1009,7 @@
           "ev-fda-summary-hdkbadbcnh-authorization",
           "ev-fda-summary-hdkbadbcnh-study"
         ],
-        "findingId": "fnd_3d9b1c90e778f0c451be0533232708ad"
+        "findingId": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4"
       },
       {
         "evidenceItemIds": [
@@ -995,7 +1017,7 @@
           "ev-fda-summary-hdkbadbcnh-authorization",
           "ev-fda-summary-hdkbadbcnh-study"
         ],
-        "findingId": "fnd_3c64503a37a747b92b12804526b9ca22"
+        "findingId": "fnd_f55bb97cc6a390ab5e9f14b9df2780db"
       },
       {
         "evidenceItemIds": [
@@ -1003,7 +1025,7 @@
           "ev-fda-summary-hdkbadbcnh-authorization",
           "ev-fda-summary-hdkbadbcnh-study"
         ],
-        "findingId": "fnd_e810e9f325a32ec29b34a997ecab626e"
+        "findingId": "fnd_1256df0ac3c512709136323e5be4f80f"
       }
     ],
     "counterexamples": [
@@ -1012,10 +1034,9 @@
         "dimensions": [
           "version",
           "population",
-          "setting",
-          "timing"
+          "setting"
         ],
-        "findingId": "fnd_3d9b1c90e778f0c451be0533232708ad",
+        "findingId": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
         "mismatches": [
           {
             "anchorIds": [],
@@ -1024,32 +1045,24 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
             "relation": "UNKNOWN"
           },
           {
             "anchorIds": [],
             "claimed": "emergency department",
             "dimension": "setting",
-            "relation": "UNKNOWN"
-          },
-          {
-            "anchorIds": [
-              "anc_333522b168f9aeb5c64c",
-              "anc_622a36a3ad798e80c3b6",
-              "anc_6a3c8ac83e926ab2be9e",
-              "anc_78bb12f985d5884f3a87",
-              "anc_91217a1df948df111a1b",
-              "anc_a046e959ac33089d28cd",
-              "anc_a07f6115bb38b86e778e",
-              "anc_c222b1b85209411b9d75",
-              "anc_d1152dd65ee05c0688bc"
-            ],
-            "claimed": "use from 2027-02-01",
-            "dimension": "timing",
-            "established": "authorization record: in force from 2021-11-10 with no stated end",
             "relation": "UNKNOWN"
           }
         ]
@@ -1061,7 +1074,7 @@
           "population",
           "setting"
         ],
-        "findingId": "fnd_3c64503a37a747b92b12804526b9ca22",
+        "findingId": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
         "mismatches": [
           {
             "anchorIds": [],
@@ -1070,9 +1083,18 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
             "relation": "UNKNOWN"
           },
           {
@@ -1090,7 +1112,7 @@
           "population",
           "setting"
         ],
-        "findingId": "fnd_e810e9f325a32ec29b34a997ecab626e",
+        "findingId": "fnd_1256df0ac3c512709136323e5be4f80f",
         "mismatches": [
           {
             "anchorIds": [],
@@ -1099,9 +1121,18 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
             "relation": "UNKNOWN"
           },
           {
@@ -1116,7 +1147,7 @@
     "decisionHistory": [],
     "egress": [
       {
-        "at": "2026-10-27T12:00:00.180Z",
+        "at": "2026-10-27T12:00:00.190Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-1",
@@ -1126,7 +1157,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.188Z",
+        "at": "2026-10-27T12:00:00.198Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-2",
@@ -1136,7 +1167,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.189Z",
+        "at": "2026-10-27T12:00:00.199Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-3",
@@ -1146,7 +1177,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.190Z",
+        "at": "2026-10-27T12:00:00.200Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-4",
@@ -1156,7 +1187,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.191Z",
+        "at": "2026-10-27T12:00:00.201Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-5",
@@ -1166,7 +1197,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.192Z",
+        "at": "2026-10-27T12:00:00.202Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-6",
@@ -1176,7 +1207,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.193Z",
+        "at": "2026-10-27T12:00:00.203Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-7",
@@ -1186,7 +1217,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.261Z",
+        "at": "2026-10-27T12:00:00.273Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-8",
@@ -1196,7 +1227,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.262Z",
+        "at": "2026-10-27T12:00:00.274Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-9",
@@ -1206,7 +1237,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.263Z",
+        "at": "2026-10-27T12:00:00.275Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-10",
@@ -1216,7 +1247,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.264Z",
+        "at": "2026-10-27T12:00:00.276Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-11",
@@ -1226,7 +1257,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.267Z",
+        "at": "2026-10-27T12:00:00.279Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-12",
@@ -1236,7 +1267,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.268Z",
+        "at": "2026-10-27T12:00:00.280Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-13",
@@ -1246,7 +1277,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.269Z",
+        "at": "2026-10-27T12:00:00.281Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-14",
@@ -1256,7 +1287,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.270Z",
+        "at": "2026-10-27T12:00:00.282Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-15",
@@ -1266,7 +1297,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.274Z",
+        "at": "2026-10-27T12:00:00.286Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-16",
@@ -1276,7 +1307,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.275Z",
+        "at": "2026-10-27T12:00:00.287Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-17",
@@ -1286,7 +1317,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.306Z",
+        "at": "2026-10-27T12:00:00.318Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-18",
@@ -1296,7 +1327,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.307Z",
+        "at": "2026-10-27T12:00:00.319Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-19",
@@ -1306,7 +1337,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.308Z",
+        "at": "2026-10-27T12:00:00.320Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-20",
@@ -1316,7 +1347,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.309Z",
+        "at": "2026-10-27T12:00:00.321Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-21",
@@ -1326,7 +1357,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.359Z",
+        "at": "2026-10-27T12:00:00.371Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-22",
@@ -1336,7 +1367,7 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.362Z",
+        "at": "2026-10-27T12:00:00.374Z",
         "dataClass": "public",
         "decision": "allowed",
         "id": "egress-run-lunit-k211733-1:model-23",
@@ -1346,33 +1377,33 @@
         "subjectKind": "model"
       },
       {
-        "at": "2026-10-27T12:00:00.338Z",
+        "at": "2026-10-27T12:00:00.350Z",
         "dataClass": "public",
         "decision": "allowed",
-        "id": "egress-4fcfea85-cabc-48ee-bb54-1b58a4d16030",
+        "id": "egress-ece84cb4-6593-45e5-85d3-626a11d2865f",
         "reason": "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected",
         "route": "local",
-        "subjectId": "4fcfea85-cabc-48ee-bb54-1b58a4d16030",
+        "subjectId": "ece84cb4-6593-45e5-85d3-626a11d2865f",
         "subjectKind": "federation"
       },
       {
-        "at": "2026-10-27T12:00:00.338Z",
+        "at": "2026-10-27T12:00:00.350Z",
         "dataClass": "public",
         "decision": "allowed",
-        "id": "egress-0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+        "id": "egress-01f7d49a-311c-4667-b1cb-ffd9aad396fa",
         "reason": "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected",
         "route": "local",
-        "subjectId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+        "subjectId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
         "subjectKind": "federation"
       },
       {
-        "at": "2026-10-27T12:00:00.338Z",
+        "at": "2026-10-27T12:00:00.350Z",
         "dataClass": "public",
         "decision": "allowed",
-        "id": "egress-4fe66a72-e182-4f9c-b046-ad21a8699670",
+        "id": "egress-d282cb9a-607f-4b27-b883-29f25599fe3e",
         "reason": "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected",
         "route": "local",
-        "subjectId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+        "subjectId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
         "subjectKind": "federation"
       }
     ],
@@ -1555,7 +1586,7 @@
         "history": "evidence",
         "id": "eh-21",
         "kind": "fact_recorded",
-        "refId": "fact_887bbdcd17a418d8",
+        "refId": "fact_f67688a6b6743d93",
         "seq": 21
       },
       {
@@ -1563,7 +1594,7 @@
         "history": "evidence",
         "id": "eh-22",
         "kind": "fact_recorded",
-        "refId": "fact_f9452646010c524c",
+        "refId": "fact_9de01054208158a4",
         "seq": 22
       },
       {
@@ -1571,7 +1602,7 @@
         "history": "evidence",
         "id": "eh-23",
         "kind": "fact_recorded",
-        "refId": "fact_17cf1cc6dcde78aa",
+        "refId": "fact_887bbdcd17a418d8",
         "seq": 23
       },
       {
@@ -1579,7 +1610,7 @@
         "history": "evidence",
         "id": "eh-24",
         "kind": "fact_recorded",
-        "refId": "fact_87a3496ca46aad83",
+        "refId": "fact_f9452646010c524c",
         "seq": 24
       },
       {
@@ -1587,7 +1618,7 @@
         "history": "evidence",
         "id": "eh-25",
         "kind": "fact_recorded",
-        "refId": "fact_0d208eada9c28512",
+        "refId": "fact_17cf1cc6dcde78aa",
         "seq": 25
       },
       {
@@ -1595,7 +1626,7 @@
         "history": "evidence",
         "id": "eh-26",
         "kind": "fact_recorded",
-        "refId": "fact_943e17f241cb0db6",
+        "refId": "fact_87a3496ca46aad83",
         "seq": 26
       },
       {
@@ -1603,7 +1634,7 @@
         "history": "evidence",
         "id": "eh-27",
         "kind": "fact_recorded",
-        "refId": "fact_f57cc1060e96e2a2",
+        "refId": "fact_0d208eada9c28512",
         "seq": 27
       },
       {
@@ -1611,7 +1642,7 @@
         "history": "evidence",
         "id": "eh-28",
         "kind": "fact_recorded",
-        "refId": "fact_8ad5b07dbacdcbfa",
+        "refId": "fact_943e17f241cb0db6",
         "seq": 28
       },
       {
@@ -1619,7 +1650,7 @@
         "history": "evidence",
         "id": "eh-29",
         "kind": "fact_recorded",
-        "refId": "fact_42224ef66be18829",
+        "refId": "fact_f57cc1060e96e2a2",
         "seq": 29
       },
       {
@@ -1627,7 +1658,7 @@
         "history": "evidence",
         "id": "eh-30",
         "kind": "fact_recorded",
-        "refId": "fact_ba74cbaa5e29c5f6",
+        "refId": "fact_8ad5b07dbacdcbfa",
         "seq": 30
       },
       {
@@ -1635,7 +1666,7 @@
         "history": "evidence",
         "id": "eh-31",
         "kind": "fact_recorded",
-        "refId": "fact_0a7a62ede333764a",
+        "refId": "fact_42224ef66be18829",
         "seq": 31
       },
       {
@@ -1643,7 +1674,7 @@
         "history": "evidence",
         "id": "eh-32",
         "kind": "fact_recorded",
-        "refId": "fact_e529acf5cedf1b04",
+        "refId": "fact_ba74cbaa5e29c5f6",
         "seq": 32
       },
       {
@@ -1651,7 +1682,7 @@
         "history": "evidence",
         "id": "eh-33",
         "kind": "fact_recorded",
-        "refId": "fact_769afa726f4a9b6d",
+        "refId": "fact_0a7a62ede333764a",
         "seq": 33
       },
       {
@@ -1659,7 +1690,7 @@
         "history": "evidence",
         "id": "eh-34",
         "kind": "fact_recorded",
-        "refId": "fact_64bd0b8e69831ebd",
+        "refId": "fact_e529acf5cedf1b04",
         "seq": 34
       },
       {
@@ -1667,62 +1698,78 @@
         "history": "evidence",
         "id": "eh-35",
         "kind": "fact_recorded",
-        "refId": "fact_b38fd299107da1b7",
+        "refId": "fact_769afa726f4a9b6d",
         "seq": 35
+      },
+      {
+        "at": "2026-10-27T10:09:50.115Z",
+        "history": "evidence",
+        "id": "eh-36",
+        "kind": "fact_recorded",
+        "refId": "fact_64bd0b8e69831ebd",
+        "seq": 36
+      },
+      {
+        "at": "2026-10-27T10:09:50.115Z",
+        "history": "evidence",
+        "id": "eh-37",
+        "kind": "fact_recorded",
+        "refId": "fact_b38fd299107da1b7",
+        "seq": 37
       },
       {
         "at": "2026-10-27T10:10:43.718Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-36",
-        "kind": "source_health_observed",
-        "refId": "clinicaltrials-v2",
-        "seq": 36
-      },
-      {
-        "at": "2026-10-27T12:00:00.365Z",
-        "health": "OK",
-        "history": "evidence",
-        "id": "eh-37",
-        "kind": "source_health_observed",
-        "refId": "fda-accessdata-pdf",
-        "seq": 37
-      },
-      {
-        "at": "2026-10-27T12:00:00.338Z",
-        "health": "OK",
-        "history": "evidence",
         "id": "eh-38",
         "kind": "source_health_observed",
-        "refId": "hospital-policy",
+        "refId": "clinicaltrials-v2",
         "seq": 38
+      },
+      {
+        "at": "2026-10-27T12:00:00.377Z",
+        "health": "OK",
+        "history": "evidence",
+        "id": "eh-39",
+        "kind": "source_health_observed",
+        "refId": "fda-accessdata-pdf",
+        "seq": 39
+      },
+      {
+        "at": "2026-10-27T12:00:00.350Z",
+        "health": "OK",
+        "history": "evidence",
+        "id": "eh-40",
+        "kind": "source_health_observed",
+        "refId": "hospital-policy",
+        "seq": 40
       },
       {
         "at": "2026-10-27T10:09:48.658Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-39",
+        "id": "eh-41",
         "kind": "source_health_observed",
         "refId": "openfda-510k",
-        "seq": 39
+        "seq": 41
       },
       {
         "at": "2026-10-27T10:09:49.818Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-40",
+        "id": "eh-42",
         "kind": "source_health_observed",
         "refId": "openfda-udi",
-        "seq": 40
+        "seq": 42
       },
       {
         "at": "2026-10-27T10:12:19.463Z",
         "health": "OK",
         "history": "evidence",
-        "id": "eh-41",
+        "id": "eh-43",
         "kind": "source_health_observed",
         "refId": "pubmed-eutils",
-        "seq": 41
+        "seq": 43
       }
     ],
     "evidenceItems": [
@@ -1761,6 +1808,12 @@
         ],
         "results": [],
         "scope": {
+          "population": {
+            "conditions": [
+              "pleural effusion",
+              "pneumothorax"
+            ]
+          },
           "product": "device:fda:K211733",
           "purpose": "triage_prioritization_notification",
           "timing": {
@@ -1770,6 +1823,7 @@
       },
       {
         "anchorIds": [
+          "anc_c222b1b85209411b9d75",
           "anc_b95a06b8a85bb19584e0",
           "anc_da94de4a7df3a8d11fc6",
           "anc_c4215a0f2f97e3b64344",
@@ -1783,17 +1837,20 @@
           "sensitivity 0.9429 is reported for a narrower or different analysis (context:pleural effusion) and is not used as the headline result",
           "specificity 0.9572 is reported for a narrower or different analysis (context:pleural effusion) and is not used as the headline result",
           "auc 0.9973 is reported for a narrower or different analysis (context:pneumothorax) and is not used as the headline result",
-          "sensitivity 0.9608 is reported for a narrower or different analysis (context:pneumothorax) and is not used as the headline result",
           "auc 0.9686 is reported for a narrower or different analysis (context:pleural effusion) and is not used as the headline result",
           "sensitivity 0.8986 is reported for a narrower or different analysis (context:pleural effusion) and is not used as the headline result",
           "specificity 0.9348 is reported for a narrower or different analysis (context:pleural effusion) and is not used as the headline result",
           "auc 0.963 is reported for a narrower or different analysis (context:pneumothorax) and is not used as the headline result",
           "sensitivity 0.8892 is reported for a narrower or different analysis (context:pneumothorax) and is not used as the headline result",
-          "specificity 0.9051 is reported for a narrower or different analysis (context:pneumothorax) and is not used as the headline result"
+          "specificity 0.9051 is reported for a narrower or different analysis (context:pneumothorax) and is not used as the headline result",
+          "dated 2021-11-10, the decision date of the document that describes it: the study existed by then; its own date is not stated"
         ],
         "results": [],
         "scope": {
-          "product": "device:fda:K211733"
+          "product": "device:fda:K211733",
+          "timing": {
+            "from": "2021-11-10"
+          }
         }
       }
     ],
@@ -1873,6 +1930,28 @@
         "id": "fact_c98e0aec15ae3bd0",
         "object": "adults",
         "predicate": "population.group_term",
+        "recordedAt": "2026-10-27T10:09:50.115Z",
+        "sourceId": "fda-accessdata-pdf",
+        "subject": "device:fda:K211733"
+      },
+      {
+        "anchorId": "anc_6a3c8ac83e926ab2be9e",
+        "assertionType": "authorization",
+        "hash": "60778b549bcdb0f8ea9620b47c951ba8fc987747945912c81825fb6de717b254",
+        "id": "fact_f67688a6b6743d93",
+        "object": "pleural effusion",
+        "predicate": "population.condition",
+        "recordedAt": "2026-10-27T10:09:50.115Z",
+        "sourceId": "fda-accessdata-pdf",
+        "subject": "device:fda:K211733"
+      },
+      {
+        "anchorId": "anc_6a3c8ac83e926ab2be9e",
+        "assertionType": "authorization",
+        "hash": "10ee81e8735d66ff0b081a47472a2f785632cdfd8f0a49e4228a2be8f1e8173d",
+        "id": "fact_9de01054208158a4",
+        "object": "pneumothorax",
+        "predicate": "population.condition",
         "recordedAt": "2026-10-27T10:09:50.115Z",
         "sourceId": "fda-accessdata-pdf",
         "subject": "device:fda:K211733"
@@ -2045,7 +2124,7 @@
     ],
     "federation": [
       {
-        "at": "2026-10-27T12:00:00.338Z",
+        "at": "2026-10-27T12:00:00.350Z",
         "columns": [
           {
             "name": "case_id",
@@ -2134,7 +2213,7 @@
         ],
         "identity": "default",
         "label": "recorded",
-        "queryId": "4fcfea85-cabc-48ee-bb54-1b58a4d16030",
+        "queryId": "ece84cb4-6593-45e5-85d3-626a11d2865f",
         "respHash": "51a6d8f05ec2c78ce2f814a7b312b8c66d3e3179a8d670a5e3afa7b837398497",
         "result": {
           "columns": [
@@ -2282,7 +2361,7 @@
         "total": 2
       },
       {
-        "at": "2026-10-27T12:00:00.338Z",
+        "at": "2026-10-27T12:00:00.350Z",
         "columns": [
           {
             "name": "requirement_id",
@@ -2319,7 +2398,7 @@
         ],
         "identity": "default",
         "label": "recorded",
-        "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+        "queryId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
         "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
         "result": {
           "columns": [
@@ -2469,7 +2548,7 @@
         "total": 10
       },
       {
-        "at": "2026-10-27T12:00:00.338Z",
+        "at": "2026-10-27T12:00:00.350Z",
         "columns": [
           {
             "name": "precedent_id",
@@ -2486,7 +2565,7 @@
         ],
         "identity": "default",
         "label": "recorded",
-        "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+        "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
         "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
         "result": {
           "columns": [
@@ -2534,7 +2613,7 @@
     "findings": [
       {
         "claimId": "CASE-2026-016.intended",
-        "computedAt": "2026-10-27T12:00:00.343Z",
+        "computedAt": "2026-10-27T12:00:00.355Z",
         "contraryDispositions": [],
         "degraded": [
           {
@@ -2556,6 +2635,7 @@
           "fact_887bbdcd17a418d8",
           "fact_8ad5b07dbacdcbfa",
           "fact_943e17f241cb0db6",
+          "fact_9de01054208158a4",
           "fact_a6de78a708d31af5",
           "fact_a7ad1c4796c2385a",
           "fact_aeb1f32d95806a77",
@@ -2565,10 +2645,22 @@
           "fact_e35068b387c20dca",
           "fact_e529acf5cedf1b04",
           "fact_f57cc1060e96e2a2",
+          "fact_f67688a6b6743d93",
           "fact_f9452646010c524c"
         ],
-        "expertReviewFlags": [],
-        "id": "fnd_3d9b1c90e778f0c451be0533232708ad",
+        "expertReviewFlags": [
+          {
+            "dimension": "timing",
+            "reason": "The newest authorization record is dated 2021-11-10, and the claimed period ends 2027-02-01: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+            "ruleId": "R20-STALENESS"
+          },
+          {
+            "dimension": "timing",
+            "reason": "The newest study evidence is dated 2021-11-10, and the claimed period ends 2027-02-01: longer than the configured staleness window. Whether it is still representative is a reviewer judgement.",
+            "ruleId": "R20-STALENESS"
+          }
+        ],
+        "id": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
           {
@@ -2605,10 +2697,21 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
-            "evidenceIds": [],
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
+            "evidenceIds": [
+              "ev-fda-summary-hdkbadbcnh-authorization"
+            ],
             "relation": "UNKNOWN"
           },
           {
@@ -2639,23 +2742,28 @@
           {
             "anchorIds": [
               "anc_333522b168f9aeb5c64c",
+              "anc_57e5f8ff2af901357b8d",
               "anc_622a36a3ad798e80c3b6",
               "anc_6a3c8ac83e926ab2be9e",
               "anc_78bb12f985d5884f3a87",
               "anc_91217a1df948df111a1b",
               "anc_a046e959ac33089d28cd",
               "anc_a07f6115bb38b86e778e",
+              "anc_b95a06b8a85bb19584e0",
               "anc_c222b1b85209411b9d75",
-              "anc_d1152dd65ee05c0688bc"
+              "anc_c4215a0f2f97e3b64344",
+              "anc_d1152dd65ee05c0688bc",
+              "anc_da94de4a7df3a8d11fc6"
             ],
             "claimed": "use from 2027-02-01",
             "dimension": "timing",
-            "established": "authorization record: in force from 2021-11-10 with no stated end",
+            "established": "authorization record: in force from 2021-11-10 with no stated end; study: newest evidence dated 2021-11-10",
             "evidenceIds": [
               "ev-fda-summary-hdkbadbcnh-authorization",
+              "ev-fda-summary-hdkbadbcnh-study",
               "ev-openfda-510k-bmbnikcmhl-authorization"
             ],
-            "relation": "UNKNOWN"
+            "relation": "CONTAINED"
           },
           {
             "anchorIds": [],
@@ -2672,32 +2780,24 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
             "relation": "UNKNOWN"
           },
           {
             "anchorIds": [],
             "claimed": "emergency department",
             "dimension": "setting",
-            "relation": "UNKNOWN"
-          },
-          {
-            "anchorIds": [
-              "anc_333522b168f9aeb5c64c",
-              "anc_622a36a3ad798e80c3b6",
-              "anc_6a3c8ac83e926ab2be9e",
-              "anc_78bb12f985d5884f3a87",
-              "anc_91217a1df948df111a1b",
-              "anc_a046e959ac33089d28cd",
-              "anc_a07f6115bb38b86e778e",
-              "anc_c222b1b85209411b9d75",
-              "anc_d1152dd65ee05c0688bc"
-            ],
-            "claimed": "use from 2027-02-01",
-            "dimension": "timing",
-            "established": "authorization record: in force from 2021-11-10 with no stated end",
             "relation": "UNKNOWN"
           }
         ],
@@ -2713,19 +2813,15 @@
           {
             "dimension": "setting",
             "request": "From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report."
-          },
-          {
-            "dimension": "timing",
-            "request": "From the vendor: the date the authorization took effect and any date it was superseded or withdrawn, and the dates over which the study data were collected."
           }
         ],
         "reviewerState": "unreviewed",
-        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-lunit-k211733-1"
       },
       {
         "claimId": "CLM-LU-01",
-        "computedAt": "2026-10-27T12:00:00.345Z",
+        "computedAt": "2026-10-27T12:00:00.357Z",
         "contraryDispositions": [],
         "degraded": [
           {
@@ -2747,6 +2843,7 @@
           "fact_887bbdcd17a418d8",
           "fact_8ad5b07dbacdcbfa",
           "fact_943e17f241cb0db6",
+          "fact_9de01054208158a4",
           "fact_a6de78a708d31af5",
           "fact_a7ad1c4796c2385a",
           "fact_aeb1f32d95806a77",
@@ -2756,10 +2853,11 @@
           "fact_e35068b387c20dca",
           "fact_e529acf5cedf1b04",
           "fact_f57cc1060e96e2a2",
+          "fact_f67688a6b6743d93",
           "fact_f9452646010c524c"
         ],
         "expertReviewFlags": [],
-        "id": "fnd_3c64503a37a747b92b12804526b9ca22",
+        "id": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
           {
@@ -2796,10 +2894,21 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
-            "evidenceIds": [],
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
+            "evidenceIds": [
+              "ev-fda-summary-hdkbadbcnh-authorization"
+            ],
             "relation": "UNKNOWN"
           },
           {
@@ -2848,9 +2957,18 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
             "relation": "UNKNOWN"
           },
           {
@@ -2875,12 +2993,12 @@
           }
         ],
         "reviewerState": "unreviewed",
-        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-lunit-k211733-1"
       },
       {
         "claimId": "CLM-LU-02",
-        "computedAt": "2026-10-27T12:00:00.347Z",
+        "computedAt": "2026-10-27T12:00:00.359Z",
         "contraryDispositions": [],
         "degraded": [
           {
@@ -2902,6 +3020,7 @@
           "fact_887bbdcd17a418d8",
           "fact_8ad5b07dbacdcbfa",
           "fact_943e17f241cb0db6",
+          "fact_9de01054208158a4",
           "fact_a6de78a708d31af5",
           "fact_a7ad1c4796c2385a",
           "fact_aeb1f32d95806a77",
@@ -2911,10 +3030,11 @@
           "fact_e35068b387c20dca",
           "fact_e529acf5cedf1b04",
           "fact_f57cc1060e96e2a2",
+          "fact_f67688a6b6743d93",
           "fact_f9452646010c524c"
         ],
         "expertReviewFlags": [],
-        "id": "fnd_e810e9f325a32ec29b34a997ecab626e",
+        "id": "fnd_1256df0ac3c512709136323e5be4f80f",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
           {
@@ -2951,10 +3071,21 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
-            "evidenceIds": [],
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
+            "evidenceIds": [
+              "ev-fda-summary-hdkbadbcnh-authorization"
+            ],
             "relation": "UNKNOWN"
           },
           {
@@ -3003,9 +3134,18 @@
             "relation": "UNKNOWN"
           },
           {
-            "anchorIds": [],
+            "anchorIds": [
+              "anc_333522b168f9aeb5c64c",
+              "anc_6a3c8ac83e926ab2be9e",
+              "anc_78bb12f985d5884f3a87",
+              "anc_91217a1df948df111a1b",
+              "anc_a07f6115bb38b86e778e",
+              "anc_c222b1b85209411b9d75",
+              "anc_d1152dd65ee05c0688bc"
+            ],
             "claimed": "ages 18 and above",
             "dimension": "population",
+            "established": "authorization record: conditions: pleural effusion, pneumothorax",
             "relation": "UNKNOWN"
           },
           {
@@ -3030,7 +3170,7 @@
           }
         ],
         "reviewerState": "unreviewed",
-        "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
+        "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-lunit-k211733-1"
       }
     ],
@@ -3954,7 +4094,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.338Z",
+        "eventTime": "2026-10-27T12:00:00.350Z",
         "eventType": "START",
         "inputs": [
           {
@@ -3982,18 +4122,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "4fcfea85-cabc-48ee-bb54-1b58a4d16030",
+              "queryId": "ece84cb4-6593-45e5-85d3-626a11d2865f",
               "respHash": "51a6d8f05ec2c78ce2f814a7b312b8c66d3e3179a8d670a5e3afa7b837398497",
               "servedFrom": "cassette",
               "total": 2
             }
           },
-          "runId": "0212da56-49e9-5d24-b661-94a1b1398f6e"
+          "runId": "bc0508f5-0875-5dad-820f-1fca05373a42"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.338Z",
+        "eventTime": "2026-10-27T12:00:00.350Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -4107,7 +4247,7 @@
                 ]
               }
             },
-            "name": "4fcfea85-cabc-48ee-bb54-1b58a4d16030",
+            "name": "ece84cb4-6593-45e5-85d3-626a11d2865f",
             "namespace": "sakaime.federation"
           }
         ],
@@ -4118,18 +4258,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "4fcfea85-cabc-48ee-bb54-1b58a4d16030",
+              "queryId": "ece84cb4-6593-45e5-85d3-626a11d2865f",
               "respHash": "51a6d8f05ec2c78ce2f814a7b312b8c66d3e3179a8d670a5e3afa7b837398497",
               "servedFrom": "cassette",
               "total": 2
             }
           },
-          "runId": "0212da56-49e9-5d24-b661-94a1b1398f6e"
+          "runId": "bc0508f5-0875-5dad-820f-1fca05373a42"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.338Z",
+        "eventTime": "2026-10-27T12:00:00.350Z",
         "eventType": "START",
         "inputs": [
           {
@@ -4157,18 +4297,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+              "queryId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
               "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
               "servedFrom": "cassette",
               "total": 10
             }
           },
-          "runId": "86a5a518-1014-52b5-8c3a-3aac7ca12901"
+          "runId": "ffa647f8-b076-57c8-91e1-90ef433970d0"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.338Z",
+        "eventTime": "2026-10-27T12:00:00.350Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -4230,7 +4370,7 @@
                 ]
               }
             },
-            "name": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+            "name": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
             "namespace": "sakaime.federation"
           }
         ],
@@ -4241,18 +4381,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
+              "queryId": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
               "respHash": "9a79ab1111c988bc13baaa4b0c1aa92c9e73fedcfdb9b915af35c63298a6c758",
               "servedFrom": "cassette",
               "total": 10
             }
           },
-          "runId": "86a5a518-1014-52b5-8c3a-3aac7ca12901"
+          "runId": "ffa647f8-b076-57c8-91e1-90ef433970d0"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.338Z",
+        "eventTime": "2026-10-27T12:00:00.350Z",
         "eventType": "START",
         "inputs": [
           {
@@ -4280,18 +4420,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+              "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
               "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
               "servedFrom": "cassette",
               "total": 3
             }
           },
-          "runId": "0aa0c9c0-04ef-5408-a58f-ade66d650d52"
+          "runId": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.338Z",
+        "eventTime": "2026-10-27T12:00:00.350Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -4333,7 +4473,7 @@
                 ]
               }
             },
-            "name": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+            "name": "d282cb9a-607f-4b27-b883-29f25599fe3e",
             "namespace": "sakaime.federation"
           }
         ],
@@ -4344,18 +4484,18 @@
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:FederationRunFacet:1",
               "label": "recorded",
-              "queryId": "4fe66a72-e182-4f9c-b046-ad21a8699670",
+              "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
               "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872",
               "servedFrom": "cassette",
               "total": 3
             }
           },
-          "runId": "0aa0c9c0-04ef-5408-a58f-ade66d650d52"
+          "runId": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.180Z",
+        "eventTime": "2026-10-27T12:00:00.190Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4380,7 +4520,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.180Z",
+        "eventTime": "2026-10-27T12:00:00.190Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4405,7 +4545,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.188Z",
+        "eventTime": "2026-10-27T12:00:00.198Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4430,7 +4570,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.188Z",
+        "eventTime": "2026-10-27T12:00:00.198Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4455,7 +4595,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.189Z",
+        "eventTime": "2026-10-27T12:00:00.199Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4472,7 +4612,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "1175bc85-3c98-5127-ad26-46a521006cd5"
@@ -4480,7 +4620,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.189Z",
+        "eventTime": "2026-10-27T12:00:00.199Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4497,7 +4637,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "1175bc85-3c98-5127-ad26-46a521006cd5"
@@ -4505,7 +4645,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.190Z",
+        "eventTime": "2026-10-27T12:00:00.200Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4522,7 +4662,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "0d8b9a94-5dcc-53b1-b8cb-4248daef11e5"
@@ -4530,7 +4670,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.190Z",
+        "eventTime": "2026-10-27T12:00:00.200Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4547,7 +4687,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "0d8b9a94-5dcc-53b1-b8cb-4248daef11e5"
@@ -4555,7 +4695,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.191Z",
+        "eventTime": "2026-10-27T12:00:00.201Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4580,7 +4720,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.191Z",
+        "eventTime": "2026-10-27T12:00:00.201Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4605,7 +4745,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.192Z",
+        "eventTime": "2026-10-27T12:00:00.202Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4630,7 +4770,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.192Z",
+        "eventTime": "2026-10-27T12:00:00.202Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4655,7 +4795,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.193Z",
+        "eventTime": "2026-10-27T12:00:00.203Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4680,7 +4820,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.193Z",
+        "eventTime": "2026-10-27T12:00:00.203Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4705,7 +4845,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.261Z",
+        "eventTime": "2026-10-27T12:00:00.273Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4722,7 +4862,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "e5ed3e40-e25d-58a9-b340-c5ee77820a3f"
@@ -4730,7 +4870,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.261Z",
+        "eventTime": "2026-10-27T12:00:00.273Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4747,7 +4887,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "e5ed3e40-e25d-58a9-b340-c5ee77820a3f"
@@ -4755,7 +4895,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.262Z",
+        "eventTime": "2026-10-27T12:00:00.274Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4780,7 +4920,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.262Z",
+        "eventTime": "2026-10-27T12:00:00.274Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4805,7 +4945,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.263Z",
+        "eventTime": "2026-10-27T12:00:00.275Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4822,7 +4962,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "79cc979e-8a73-5ba3-b7d2-54885aa58567"
@@ -4830,7 +4970,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.263Z",
+        "eventTime": "2026-10-27T12:00:00.275Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4847,7 +4987,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "79cc979e-8a73-5ba3-b7d2-54885aa58567"
@@ -4855,7 +4995,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.264Z",
+        "eventTime": "2026-10-27T12:00:00.276Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4872,7 +5012,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "9cca016b-bcda-58e2-839b-8feb5eb2b6cf"
@@ -4880,7 +5020,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.264Z",
+        "eventTime": "2026-10-27T12:00:00.276Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4897,7 +5037,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
+              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
             }
           },
           "runId": "9cca016b-bcda-58e2-839b-8feb5eb2b6cf"
@@ -4905,7 +5045,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.267Z",
+        "eventTime": "2026-10-27T12:00:00.279Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4930,7 +5070,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.267Z",
+        "eventTime": "2026-10-27T12:00:00.279Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -4955,7 +5095,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.268Z",
+        "eventTime": "2026-10-27T12:00:00.280Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -4980,7 +5120,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.268Z",
+        "eventTime": "2026-10-27T12:00:00.280Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5005,7 +5145,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.269Z",
+        "eventTime": "2026-10-27T12:00:00.281Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5030,7 +5170,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.269Z",
+        "eventTime": "2026-10-27T12:00:00.281Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5055,7 +5195,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.270Z",
+        "eventTime": "2026-10-27T12:00:00.282Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5072,7 +5212,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "95f1223b-5729-5540-90df-4779c5e3dff6"
@@ -5080,7 +5220,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.270Z",
+        "eventTime": "2026-10-27T12:00:00.282Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5097,7 +5237,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "95f1223b-5729-5540-90df-4779c5e3dff6"
@@ -5105,7 +5245,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.274Z",
+        "eventTime": "2026-10-27T12:00:00.286Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5130,7 +5270,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.274Z",
+        "eventTime": "2026-10-27T12:00:00.286Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5155,7 +5295,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.275Z",
+        "eventTime": "2026-10-27T12:00:00.287Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5180,7 +5320,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.275Z",
+        "eventTime": "2026-10-27T12:00:00.287Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5205,7 +5345,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.306Z",
+        "eventTime": "2026-10-27T12:00:00.318Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5222,7 +5362,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "6c52ddad-7b12-5594-96cc-32cd4776b43a"
@@ -5230,7 +5370,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.306Z",
+        "eventTime": "2026-10-27T12:00:00.318Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5247,7 +5387,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "6c52ddad-7b12-5594-96cc-32cd4776b43a"
@@ -5255,7 +5395,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.307Z",
+        "eventTime": "2026-10-27T12:00:00.319Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5272,7 +5412,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "bbfa1582-b626-5a18-ab96-b514f5fd4044"
@@ -5280,7 +5420,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.307Z",
+        "eventTime": "2026-10-27T12:00:00.319Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5297,7 +5437,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "bbfa1582-b626-5a18-ab96-b514f5fd4044"
@@ -5305,7 +5445,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.308Z",
+        "eventTime": "2026-10-27T12:00:00.320Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5322,7 +5462,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "64640083-b67e-58cb-824d-40982d23a49e"
@@ -5330,7 +5470,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.308Z",
+        "eventTime": "2026-10-27T12:00:00.320Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5347,7 +5487,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "64640083-b67e-58cb-824d-40982d23a49e"
@@ -5355,7 +5495,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.309Z",
+        "eventTime": "2026-10-27T12:00:00.321Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5372,7 +5512,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "dcbabe98-3478-533d-bdd4-8d01db6e3db5"
@@ -5380,7 +5520,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.309Z",
+        "eventTime": "2026-10-27T12:00:00.321Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5397,7 +5537,7 @@
               "label": "recorded",
               "provider": "recorded",
               "receipted": false,
-              "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              "routedModel": "nvidia/nemotron-3-ultra-550b-a55b"
             }
           },
           "runId": "dcbabe98-3478-533d-bdd4-8d01db6e3db5"
@@ -5405,7 +5545,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.359Z",
+        "eventTime": "2026-10-27T12:00:00.371Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5430,7 +5570,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.359Z",
+        "eventTime": "2026-10-27T12:00:00.371Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5455,7 +5595,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.362Z",
+        "eventTime": "2026-10-27T12:00:00.374Z",
         "eventType": "START",
         "inputs": [],
         "job": {
@@ -5480,7 +5620,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.362Z",
+        "eventTime": "2026-10-27T12:00:00.374Z",
         "eventType": "COMPLETE",
         "inputs": [],
         "job": {
@@ -5711,6 +5851,11 @@
                     "textHash": "e78e68182bad87b181b642eeaf0b6692a9554d5d39760912f562e749a8271a77"
                   },
                   {
+                    "anchorId": "anc_c222b1b85209411b9d75",
+                    "recordId": "fda-summary:K211733",
+                    "textHash": "0d17789f49d910fba576299fbae3d3e0f544bd06002e4d505df693cc8c0f4429"
+                  },
+                  {
                     "anchorId": "anc_c4215a0f2f97e3b64344",
                     "recordId": "fda-summary:K211733",
                     "textHash": "c484fa1a329d70ea56dd08854508a71bfd4dafbfd6ff3d04dda3e62af64b33b7"
@@ -5734,7 +5879,7 @@
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.343Z",
+        "eventTime": "2026-10-27T12:00:00.355Z",
         "eventType": "START",
         "inputs": [
           {
@@ -5759,8 +5904,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5769,12 +5914,12 @@
         "outputs": [],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "25096902-2269-5c19-86ff-f9dae1015f07"
+          "runId": "7a544014-475d-5f21-b31c-c8b0efebdbb6"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.343Z",
+        "eventTime": "2026-10-27T12:00:00.355Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -5799,8 +5944,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5887,18 +6032,18 @@
                 "label": "INSUFFICIENT_EVIDENCE"
               }
             },
-            "name": "fnd_3d9b1c90e778f0c451be0533232708ad",
+            "name": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
             "namespace": "sakaime.finding"
           }
         ],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "25096902-2269-5c19-86ff-f9dae1015f07"
+          "runId": "7a544014-475d-5f21-b31c-c8b0efebdbb6"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.345Z",
+        "eventTime": "2026-10-27T12:00:00.357Z",
         "eventType": "START",
         "inputs": [
           {
@@ -5923,8 +6068,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -5933,12 +6078,12 @@
         "outputs": [],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "3664ade3-65ea-5869-b8c5-177bd483ca9f"
+          "runId": "20744cd9-2838-5d89-bba8-0aa9958c5978"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.345Z",
+        "eventTime": "2026-10-27T12:00:00.357Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -5963,8 +6108,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -6051,18 +6196,18 @@
                 "label": "INSUFFICIENT_EVIDENCE"
               }
             },
-            "name": "fnd_3c64503a37a747b92b12804526b9ca22",
+            "name": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
             "namespace": "sakaime.finding"
           }
         ],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "3664ade3-65ea-5869-b8c5-177bd483ca9f"
+          "runId": "20744cd9-2838-5d89-bba8-0aa9958c5978"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.347Z",
+        "eventTime": "2026-10-27T12:00:00.359Z",
         "eventType": "START",
         "inputs": [
           {
@@ -6087,8 +6232,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -6097,12 +6242,12 @@
         "outputs": [],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "5e39ba0c-72c4-5154-9321-ff210e7a6268"
+          "runId": "921abb7f-8273-5506-b2b4-bb1579011ef1"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       },
       {
-        "eventTime": "2026-10-27T12:00:00.347Z",
+        "eventTime": "2026-10-27T12:00:00.359Z",
         "eventType": "COMPLETE",
         "inputs": [
           {
@@ -6127,8 +6272,8 @@
             "sakaime_ruleVersion": {
               "_producer": "urn:sakaime:dossier:lineage:1.0.0",
               "_schemaURL": "urn:sakaime:lineage:facet:RuleVersionJobFacet:1",
-              "registryVersion": "sakaime-compiler@1.0.0",
-              "ruleVersion": "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+              "registryVersion": "sakaime-compiler@1.1.0",
+              "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
             }
           },
           "name": "applicability.compile",
@@ -6215,13 +6360,13 @@
                 "label": "INSUFFICIENT_EVIDENCE"
               }
             },
-            "name": "fnd_e810e9f325a32ec29b34a997ecab626e",
+            "name": "fnd_1256df0ac3c512709136323e5be4f80f",
             "namespace": "sakaime.finding"
           }
         ],
         "producer": "urn:sakaime:dossier:lineage:1.0.0",
         "run": {
-          "runId": "5e39ba0c-72c4-5154-9321-ff210e7a6268"
+          "runId": "921abb7f-8273-5506-b2b4-bb1579011ef1"
         },
         "schemaURL": "https://openlineage.io/spec/2-0-2/OpenLineage.json#/$defs/RunEvent"
       }
@@ -7295,7 +7440,7 @@
     ],
     "models": [
       {
-        "at": "2026-10-27T12:00:00.180Z",
+        "at": "2026-10-27T12:00:00.190Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-1",
@@ -7314,7 +7459,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.188Z",
+        "at": "2026-10-27T12:00:00.198Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-2",
@@ -7325,15 +7470,15 @@
         "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "e9ffa445a5231dbd31bcd499b7b16ad818eef50ad3aeb98b70626721dd31f0de",
+        "textHash": "73741fb382e3de726118b5afd6a10d541785773e0ac67d953d0bf1b22c1ec3c8",
         "usage": {
-          "completionTokens": 113,
+          "completionTokens": 93,
           "measured": true,
           "promptTokens": 507
         }
       },
       {
-        "at": "2026-10-27T12:00:00.189Z",
+        "at": "2026-10-27T12:00:00.199Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-3",
@@ -7341,18 +7486,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "c4110d101364dd7fcb9a3741d849e6d803100d3cb19ec079095c3179dbdc21a8",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "824d15fceb499a40bf700e38a92cec4dcb780a2da4675d3569b19783aa75ae55",
         "usage": {
-          "completionTokens": 60,
+          "completionTokens": 72,
           "measured": true,
           "promptTokens": 506
         }
       },
       {
-        "at": "2026-10-27T12:00:00.190Z",
+        "at": "2026-10-27T12:00:00.200Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-4",
@@ -7360,18 +7505,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "a18a6fbbec0330544c698634ce9c397b64ff3eb79436c9cc17e1702933853785",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "4c6ae16d6bcea1c68ee6170c170303941a35a130b71381aa35ed4a7ffb213e93",
         "usage": {
-          "completionTokens": 91,
+          "completionTokens": 105,
           "measured": true,
           "promptTokens": 558
         }
       },
       {
-        "at": "2026-10-27T12:00:00.191Z",
+        "at": "2026-10-27T12:00:00.201Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-5",
@@ -7382,15 +7527,15 @@
         "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "6a0ceb6ee4de45c69a6bf151de56438e4eb129a9d72ded0a7f027b2075dcf010",
+        "textHash": "66a29a74dabb4149a0f8e5d4b06bc1ef12d3a2718c75d5fd5df95496892bd478",
         "usage": {
-          "completionTokens": 77,
+          "completionTokens": 105,
           "measured": true,
           "promptTokens": 566
         }
       },
       {
-        "at": "2026-10-27T12:00:00.192Z",
+        "at": "2026-10-27T12:00:00.202Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-6",
@@ -7401,15 +7546,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "31516b07d18a71ef67bb52d0f08e5634ceb036d3a8a7bdac53743951d0ad7005",
+        "textHash": "3f5220ebf48b2e663963c09e31c524249397a5e7fa23986927ca386cc13d4e4e",
         "usage": {
-          "completionTokens": 94,
+          "completionTokens": 96,
           "measured": true,
           "promptTokens": 561
         }
       },
       {
-        "at": "2026-10-27T12:00:00.193Z",
+        "at": "2026-10-27T12:00:00.203Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-7",
@@ -7428,7 +7573,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.261Z",
+        "at": "2026-10-27T12:00:00.273Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-8",
@@ -7436,18 +7581,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "a3dd3ef3aa7fa97189da35dab7e2e2304c4eaaeadb13ccb315da612b9d5e8e99",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "313c4f415122b3c9fd9d57336c94d50535d9f3efb77d850bf4b72072b671fee9",
         "usage": {
-          "completionTokens": 70,
+          "completionTokens": 107,
           "measured": true,
           "promptTokens": 533
         }
       },
       {
-        "at": "2026-10-27T12:00:00.262Z",
+        "at": "2026-10-27T12:00:00.274Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-9",
@@ -7458,15 +7603,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "057ab3708f6d088b22dc4be89c827957bfa2e276ebda58d263c814cc0889916b",
+        "textHash": "dac6ffbc7d9409f319197fbc62e0eb73407fb995d241913344e7466398114863",
         "usage": {
-          "completionTokens": 232,
+          "completionTokens": 239,
           "measured": true,
-          "promptTokens": 1335
+          "promptTokens": 1337
         }
       },
       {
-        "at": "2026-10-27T12:00:00.263Z",
+        "at": "2026-10-27T12:00:00.275Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-10",
@@ -7474,18 +7619,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "d62c968adf77ece3ac144f688061016de480ef137992ae3ed03c954ea215582f",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "62b4dd5c532d4381e121b5b2631a9aec5987dc77fd2af546bc0f25854d305ed7",
         "usage": {
-          "completionTokens": 79,
+          "completionTokens": 105,
           "measured": true,
           "promptTokens": 553
         }
       },
       {
-        "at": "2026-10-27T12:00:00.264Z",
+        "at": "2026-10-27T12:00:00.276Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-11",
@@ -7493,10 +7638,10 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "3d6b6d98774fd3107a935310b85f649963f1984f6b8bb060dba0a0d1ac813c20",
+        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "textHash": "d9f0beee4cc3ba3bbea2a00720a1b62b9d9b718111aac6d90227b7097dfe953f",
         "usage": {
           "completionTokens": 90,
           "measured": true,
@@ -7504,7 +7649,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.267Z",
+        "at": "2026-10-27T12:00:00.279Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-12",
@@ -7523,7 +7668,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.268Z",
+        "at": "2026-10-27T12:00:00.280Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-13",
@@ -7534,15 +7679,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "266a528e09c00a81a840f390d6c959ace27133e762a0e0d2df66f7e7275811cf",
+        "textHash": "743b9e937c3a826be5e4e3ff9b914442629ba2822f72c5c247e92b92017be9ad",
         "usage": {
-          "completionTokens": 59,
+          "completionTokens": 61,
           "measured": true,
           "promptTokens": 537
         }
       },
       {
-        "at": "2026-10-27T12:00:00.269Z",
+        "at": "2026-10-27T12:00:00.281Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-14",
@@ -7561,7 +7706,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.270Z",
+        "at": "2026-10-27T12:00:00.282Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-15",
@@ -7569,18 +7714,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "512e635c959d8a4c5165e2c6285a0cd79e62a55fb0dd8568b8d3cd567e0fc03b",
+        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "textHash": "1353628ce4cb4411dc56fbc3cb75c4ef1318d21da0d1a839a8ebc09481d32734",
         "usage": {
-          "completionTokens": 57,
+          "completionTokens": 98,
           "measured": true,
           "promptTokens": 537
         }
       },
       {
-        "at": "2026-10-27T12:00:00.274Z",
+        "at": "2026-10-27T12:00:00.286Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-16",
@@ -7591,15 +7736,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "resolver",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "9dac01ecc6ca0a1ae9e5ddf9445534253d22a411ea0bf12b7bfd85edbad3250e",
+        "textHash": "e5edb413ac061f35bbbcd1c6ae1098d1704969d0ac41a5ae3dd0eb599d07214c",
         "usage": {
-          "completionTokens": 125,
+          "completionTokens": 128,
           "measured": true,
           "promptTokens": 964
         }
       },
       {
-        "at": "2026-10-27T12:00:00.275Z",
+        "at": "2026-10-27T12:00:00.287Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-17",
@@ -7618,7 +7763,7 @@
         }
       },
       {
-        "at": "2026-10-27T12:00:00.306Z",
+        "at": "2026-10-27T12:00:00.318Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-18",
@@ -7626,18 +7771,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "a5f6881da91a8416a77ad2090db30a1351a9b12d62cb403127723404ac7d62c4",
+        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "textHash": "d8a03fd2ccdf3e02ab76e58f425f2f5a4f52fc84867718e1e3efaed4949cb3ec",
         "usage": {
-          "completionTokens": 95,
+          "completionTokens": 74,
           "measured": true,
           "promptTokens": 599
         }
       },
       {
-        "at": "2026-10-27T12:00:00.307Z",
+        "at": "2026-10-27T12:00:00.319Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-19",
@@ -7645,18 +7790,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "171c883655a4454658ec4b06be08c60f84aabfb778995d466442277820b8a693",
+        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "textHash": "0cab30ee3d0e3ce444d7786f5914a39877b41c0c29316ea012233c0d9ee7b805",
         "usage": {
-          "completionTokens": 87,
+          "completionTokens": 79,
           "measured": true,
           "promptTokens": 599
         }
       },
       {
-        "at": "2026-10-27T12:00:00.308Z",
+        "at": "2026-10-27T12:00:00.320Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-20",
@@ -7664,18 +7809,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "c5d7eff863952c826cb90bf8a0f3f0e37bb0add0056991951f4e469a1b5bb5c6",
+        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "textHash": "8c015adf822e37d27b15852e0082c24361c7f25059ea18f94c42d443a81afa08",
         "usage": {
-          "completionTokens": 95,
+          "completionTokens": 81,
           "measured": true,
           "promptTokens": 619
         }
       },
       {
-        "at": "2026-10-27T12:00:00.309Z",
+        "at": "2026-10-27T12:00:00.321Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-21",
@@ -7683,18 +7828,18 @@
         "label": "recorded",
         "provider": "recorded",
         "recorded": true,
-        "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "support_checker",
-        "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "8c10d721428f82c916fca44419d5f4d069371d52941f99bb837f5ac77a318259",
+        "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+        "textHash": "3d730294fe3c1552d3278ef870e13f3dd26c9f63ab07ca8d14c85514a9131222",
         "usage": {
-          "completionTokens": 113,
+          "completionTokens": 75,
           "measured": true,
           "promptTokens": 543
         }
       },
       {
-        "at": "2026-10-27T12:00:00.359Z",
+        "at": "2026-10-27T12:00:00.371Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-22",
@@ -7705,15 +7850,15 @@
         "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
         "role": "critic",
         "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-        "textHash": "e8494e70e19c05d648fd0e4e8d32b08104f29b6c4c1c330698f40288f0eeea93",
+        "textHash": "ce5367a05a95488e4466fa51b8df4af059ae9e62c8e02fc8a729e1e777abd755",
         "usage": {
-          "completionTokens": 387,
+          "completionTokens": 682,
           "measured": true,
-          "promptTokens": 2526
+          "promptTokens": 6360
         }
       },
       {
-        "at": "2026-10-27T12:00:00.362Z",
+        "at": "2026-10-27T12:00:00.374Z",
         "dataClass": "public",
         "derives": [],
         "id": "run-lunit-k211733-1:model-23",
@@ -7724,11 +7869,11 @@
         "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
         "role": "reporter",
         "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-        "textHash": "6551f8d49a7d0e00b85c9b0d03df2ce7e40f7cf7a3df6adef8cd7a62b122fc1a",
+        "textHash": "d68b24733717f86c3fbc102768fdb43b5ec5fcd8d29737fe788f110ef812ec46",
         "usage": {
-          "completionTokens": 582,
+          "completionTokens": 468,
           "measured": true,
-          "promptTokens": 2412
+          "promptTokens": 2855
         }
       }
     ],
@@ -7777,9 +7922,9 @@
     },
     "requirements": [],
     "rules": {
-      "registryVersion": "sakaime-compiler@1.0.0",
+      "registryVersion": "sakaime-compiler@1.1.0",
       "versionsUsed": [
-        "sakaime-compiler@1.0.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
       ]
     },
     "run": {
@@ -7977,7 +8122,7 @@
         "health": "OK",
         "id": "hospital-policy",
         "kind": "hospital",
-        "lastSuccessAt": "2026-10-27T12:00:00.338Z",
+        "lastSuccessAt": "2026-10-27T12:00:00.350Z",
         "license": "constructed for this demonstration"
       },
       {
@@ -8015,11 +8160,11 @@
   "format": "sakaime.dossier",
   "formatVersion": "1.0.0",
   "manifest": {
-    "createdAt": "2026-10-27T12:00:00.365Z",
-    "dossierId": "dossier-lunit-k211733-41355e32b1",
+    "createdAt": "2026-10-27T12:00:00.377Z",
+    "dossierId": "dossier-lunit-k211733-bef30dba41",
     "format": "sakaime.dossier",
     "formatVersion": "1.0.0",
-    "root": "132caf15a46c0befbb50f4f83476dcd7ab558ad7eab2590e190da8614e7b3803",
+    "root": "cd5fb6c46ec3196af6118f93af8cd90eeb3b97f3dae469fabffa94f688d0d619",
     "sections": {
       "anchors": {
         "items": [
@@ -8249,6 +8394,14 @@
             "sha256": "08efdc84b22e6637c209d165e5352014e94d0e16eb5029b078ed4d74b0edd199"
           },
           {
+            "id": "asr_6ceede97ee0768947231",
+            "sha256": "75a6b144a85b08158bee976fb31b507eda97004009367a18f3be96b83931f4f3"
+          },
+          {
+            "id": "asr_1d22abf39af1cfeda1a0",
+            "sha256": "d20f5533fe08c49cb539accde93e82b0ecd4ca20fc5a471ce075b64047652c1f"
+          },
+          {
             "id": "asr_035d613d3c00bcd79b0d",
             "sha256": "e4647fcc3331d52272231ea43d565c8d3ea834478fe1a66fb6e45babd583bedd"
           },
@@ -8302,7 +8455,7 @@
           },
           {
             "id": "asr_3f82ab0e317e61a3ef90",
-            "sha256": "9fb83a3d2a2938f2de37ad05b5dc4b811d1e1403d3bedc5584b184186d80cc73"
+            "sha256": "144e2eb35ced892934b89892cf0c6fc1ca2158f601b009518085636fcdc5f380"
           },
           {
             "id": "asr_2eb024e5114f12d6357b",
@@ -8415,16 +8568,16 @@
       "compilerRuns": {
         "items": [
           {
-            "id": "fnd_3d9b1c90e778f0c451be0533232708ad",
-            "sha256": "edfd131211fbfd947b6ca76985dd8bef3375e8b4e19d02bd122ab1af925f7018"
+            "id": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
+            "sha256": "b92ea2f608eca644951c29b60d1ff3490cb0090387429b902af8d0fa5435d3a1"
           },
           {
-            "id": "fnd_3c64503a37a747b92b12804526b9ca22",
-            "sha256": "659e41852c55b99eaa031012216d765f9be9acbdeda2cf924b2637426eb0c27c"
+            "id": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
+            "sha256": "48d16dbab782f9c125f1f908d47aff5ceaa931b789b883805d2f510bd0620c32"
           },
           {
-            "id": "fnd_e810e9f325a32ec29b34a997ecab626e",
-            "sha256": "20e3b5e51b66a1a7409c81aa499b32dee581ef8b4a0d3b2ea9772da638a3d69a"
+            "id": "fnd_1256df0ac3c512709136323e5be4f80f",
+            "sha256": "1c66004ee6f0cf2913ef0f06e507666d13eebe7291353c92e09523eb8e526642"
           }
         ],
         "kind": "list"
@@ -8432,16 +8585,16 @@
       "counterexamples": {
         "items": [
           {
-            "id": "fnd_3d9b1c90e778f0c451be0533232708ad",
-            "sha256": "c3ec74753ed7a74fc334dfac6d0677b21cdb23ae6ee7a275a2f9dbbef585956e"
+            "id": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
+            "sha256": "e9af90d8c4aa5128788e960e716d5681810a0bd348e6f649bae59ba10b74bf8b"
           },
           {
-            "id": "fnd_3c64503a37a747b92b12804526b9ca22",
-            "sha256": "e129ad26c8b7f61a038961dae2ec916c3e733a7b7106314e007aa708d8363963"
+            "id": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
+            "sha256": "25426be00bb991821c344d20c8ddf9993ca87c5ffd2fa35ec557b38c1f9a3a95"
           },
           {
-            "id": "fnd_e810e9f325a32ec29b34a997ecab626e",
-            "sha256": "e18f1864b90fc16ead98aea9ae23129ce53dba04d16d81fcc960036e222b8917"
+            "id": "fnd_1256df0ac3c512709136323e5be4f80f",
+            "sha256": "ea508b9bfe79f0de675e3c25ec3af1360683000af0d4f99d87a1331c00715be4"
           }
         ],
         "kind": "list"
@@ -8454,107 +8607,107 @@
         "items": [
           {
             "id": "egress-run-lunit-k211733-1:model-1",
-            "sha256": "fdf58eada0692df3952bd3ca4ff957427061fce2a3b7157199c3b4fbe695e411"
+            "sha256": "70821aee6e4693d38d831742f217f2e3e34d38f18be7158ab50071461195f23e"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-2",
-            "sha256": "3893472e03860587c2bd2be800f87bc8490ca0fc85113d80da531ad6cb7013d1"
+            "sha256": "0843b3223c8d5e2f7d741671fac54afcc4e4193d22592c08578dd22a2374760c"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-3",
-            "sha256": "070d4297c72c3dd09fd0495769b893ea9c024b725182d9fff54490b7d62d6cf5"
+            "sha256": "c42a96fe69adb8e6d71ec4a56da2133d2086c648a865368eed4ebadab1952f8f"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-4",
-            "sha256": "c7520de90f5f7fbdc2cadc7f1b20500c9dccffc63b3658aa3909865397485779"
+            "sha256": "20c27e21e456996a2f5b1af101281e74b69c1fe338766ba99ecde5504ac89862"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-5",
-            "sha256": "e3d4027cb3b79223a100ec294dfc8484fca97a0c13487412f892feef11e32e62"
+            "sha256": "95ce72a89e0db26a99cf65d526d611cb3f28232f1b54afceba7a25a7269b7ccf"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-6",
-            "sha256": "b29478dfa486df5360dec53ab91bf556e7a596ef67895cce097ec9f5c667916f"
+            "sha256": "e252e4eaaca8a791a3efd63e59b3bbe63b89e12d0ae7718e537828d973fb6d5d"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-7",
-            "sha256": "1a8fa21e0ba85855d3741dcfa7dff3237ccd4049ba7a009016cda6fcbafcd664"
+            "sha256": "3777500b6ef843255fa4ade85479b962412a119218990bfcaedfaa75d1a65237"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-8",
-            "sha256": "1d44edaa39a8209ca09fd9356bf85ffe9571eb816060d5a2cdab96899302afec"
+            "sha256": "afda478ac95925f60c843b04f492f4001009216c5047ab3b6041c2955abcac23"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-9",
-            "sha256": "e4dca93998e426d7873a21a53756f66f24c36c923b3ef2a9e9c1e24b70ca180e"
+            "sha256": "9213069c813a41c3e7e9b38d3ed38df3c4d460dd07538ac13dbb88204c316e90"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-10",
-            "sha256": "063f5c02f02ee5e5423ed6cc8d0b6be87a140649cc4793ba954ce1476cbfe257"
+            "sha256": "8932bca6a9976948b67e4d4e7b4152bffb13fc9538185b6ff988891a97725b28"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-11",
-            "sha256": "0f706405e324e68ecc61a8c1d35f9408c867643db1977afd0ff0650f9b03b1e3"
+            "sha256": "77429eafe9010eeee7661aff411aad0512ac25e0383957169905ce28907397d0"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-12",
-            "sha256": "0879f7963e57fbb4876f6e82dba777baa18a1937c115f34e469344a1c7db8671"
+            "sha256": "64e62dfffccc86192b8ecade80ae2f210f62f73a2f5179d47176ed478df8447d"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-13",
-            "sha256": "5b47a6d04f58e6b60af9eadce9b43cc16a9525395d312a75533ef831631eddd4"
+            "sha256": "e8e31457854ebcdc28d340a81fa75d5180a5d0f4ef823b00087e5a9b35fe0c44"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-14",
-            "sha256": "7662a5e07a1e983682265125ed181c075ed1f057deb7e593a3af174d39dc0307"
+            "sha256": "493c0aefb8100117e1a289076b02ac877e59abe95c1a1d94c0149f325c939953"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-15",
-            "sha256": "efaaa19b92c19b7a864c8b74d2bd8162509e6d91a9e30ffa8ed9b7738e5bb599"
+            "sha256": "24f768a679147a8a28af547ead75d289e3e9e673bd2ebcf69389b60f0efe92a4"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-16",
-            "sha256": "a21d003dc301096ced769a7ede0f5802a42c4651fa5e1e70c6d82213f462e069"
+            "sha256": "584018b509841fc40ccc984e17cb06a0d992234409802ce813ddcae6e214ed92"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-17",
-            "sha256": "949ab128d4e270cfc8fd0abcff109cafc456454ce8d3fc2852b2926232912cc6"
+            "sha256": "dba25796d1cf430f8e5917094a9c964a16dee6bf8a2aebca76026320348abfe3"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-18",
-            "sha256": "1d3feae26b464ce49dd3f673630a0a300da20e889aee01eb41bdcb848ff21675"
+            "sha256": "ecc1b3a87a49df94dc70aae585ff82a4379c58b509127c1aa7389a07f9fa17af"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-19",
-            "sha256": "7f4f9b0ef515737009141cbb9fb1ac1741eef88b5ddb5f39e9a8c41fa30adcb4"
+            "sha256": "b94e747ae969314b14d4cc6a5560eb0f9aea4da3fe131d329d2794d455ebf98d"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-20",
-            "sha256": "d08ae56b2e56bc9ed2038fc905db8bc48bc3c96c14a2ebaf04a50695c9aeac3a"
+            "sha256": "6e87253d083d622319798ddaf7eecd720f1ed257714ccf28ddb9b4218ff4faa4"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-21",
-            "sha256": "71edd88a65d6fa86ba4fcb6bfb64f3d9290635ad5ced1338ca3ab7e7f6bffabd"
+            "sha256": "b4cc0e4fce189e793b93d08125b979a42184ead611c42c1ffa98cf0d36f0363a"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-22",
-            "sha256": "3e618825df4b16a86b489a9f487d624dff21b63acf1540fbd3731711da10ee3a"
+            "sha256": "01cde1f047d8296412c510d7ac8f647b8527de1668563b2fc3cb3a1433ea43f8"
           },
           {
             "id": "egress-run-lunit-k211733-1:model-23",
-            "sha256": "6fff122331472abed73d51961e221ca985a6eb8beda4345c3356fb41f89be3d0"
+            "sha256": "a466346a2fca1f5db14598a79a3be0beda628499fa822f82bab8e8a0d493a533"
           },
           {
-            "id": "egress-4fcfea85-cabc-48ee-bb54-1b58a4d16030",
-            "sha256": "3ffbe5188f7aaf45d5d5dc518cdb604c93590daab098887ac3f204443f1a981c"
+            "id": "egress-ece84cb4-6593-45e5-85d3-626a11d2865f",
+            "sha256": "913e841b03194c7708e8306fd569aab7b1161b249df28cd37ea88ca3d112ee75"
           },
           {
-            "id": "egress-0dfcb2bb-6efe-4a48-8052-dc59a440099e",
-            "sha256": "4559920284cfb5f46a5b970ddfaa87f6e1f652cc3ae3a402a684a5f5994e122c"
+            "id": "egress-01f7d49a-311c-4667-b1cb-ffd9aad396fa",
+            "sha256": "24fe3358d0daa021f7960803d46c7fe900e2b8688a8c5a44d3625eb738485ecb"
           },
           {
-            "id": "egress-4fe66a72-e182-4f9c-b046-ad21a8699670",
-            "sha256": "a48a8694f99e2dcfa5b1117f87df83d9f07c4a2c8a407cbe959e9857430b99f2"
+            "id": "egress-d282cb9a-607f-4b27-b883-29f25599fe3e",
+            "sha256": "9123b048acb7c7e6fd4f3c0b8931c882cc0e71418ee4e0b584bbd020f1f4da6f"
           }
         ],
         "kind": "list"
@@ -8643,87 +8796,95 @@
           },
           {
             "id": "eh-21",
-            "sha256": "2ecac82acd79ea4a9fdfbfd75f456d10a07c60b6d151615fd6c85be6c393a01f"
+            "sha256": "b710deb57947ca884077ed1dd7cbcbeebcf82adfdcc40130daabf7e01a18bd3e"
           },
           {
             "id": "eh-22",
-            "sha256": "8f6e57ce036dd2d7a344046721aff6cde19737cc076c10719ebd691baac8628c"
+            "sha256": "686dd13548d6d170c86b6bd6c836786412794d2cf3e92411d3dbf8f359f01273"
           },
           {
             "id": "eh-23",
-            "sha256": "4a0744fccea621d99c4318bc0a82eb5a0b66edd2817d1daf0a8aaaf99a77a2e6"
+            "sha256": "cdc5219c6312c10b5e97dd78045b7497d65c1dda740a4bb8ac7ff20218d7324d"
           },
           {
             "id": "eh-24",
-            "sha256": "66ce1339b8159a4c87562f1a9aff4e55977e57fc8d25f15c487b7cd0ccf634f2"
+            "sha256": "cffbd14af1a8c5a3620e1c5e001b056b838744e8fff979044b06136ebf2a0d84"
           },
           {
             "id": "eh-25",
-            "sha256": "bcd5ed70ab62a2a7d59cefcbeb57bc6e19ecfc3061dff5f83c74e933ec38b5f3"
+            "sha256": "5da6e4c534c8e47874d8869e8c35edef28fa7b87cf135115c3d0be28bd87b434"
           },
           {
             "id": "eh-26",
-            "sha256": "eb3643b134fe7bd5fed0ff4dcd6ccadb56f90bf6e96ba410eed4229b3a4ee46e"
+            "sha256": "75256473df773bca03cc0277f21fb845d223d86c11904ec6570c548a63cc61f2"
           },
           {
             "id": "eh-27",
-            "sha256": "4b80386d2f05811475e41432e1f4d88884e10a34fb2aabe8b18dc95d6ba98d02"
+            "sha256": "0c86ca4cd24b369cb9cedda4979ce81782b58f428256554331151f7d79a17a25"
           },
           {
             "id": "eh-28",
-            "sha256": "aaa65cc8f8862bca58743c8b3b2868c340cc0baebf9bc95fc7c12ee9a5318266"
+            "sha256": "925dd0db791c42f32c9e88ab978add1db4c4946d744cef994a05bf60ed503bdf"
           },
           {
             "id": "eh-29",
-            "sha256": "f522a1a037fe85bf2f63ae70f7e6507d0dc661000ae4d27f7c836010104b8873"
+            "sha256": "93bf203df75f5afed5bfc3a6e657b345ece358fc9b52642c041cd58476c33006"
           },
           {
             "id": "eh-30",
-            "sha256": "0b374c94a43b1679bf5ef200531ba6b549c7c998a5cb6798ea908493717349c6"
+            "sha256": "4dc48a10e4d2f6cf7113f6605c63b1dfbac1313b88439d69598a3ca9f8d3d479"
           },
           {
             "id": "eh-31",
-            "sha256": "a5b7a2c1f6fe07a297e273fab7e4cb613f9436c793e106eb13f46d488bd17d94"
+            "sha256": "c7ca2ef47531b1a6329eff7219d25de9e15ee8dc39cf1f306b6adcecbd457c8a"
           },
           {
             "id": "eh-32",
-            "sha256": "0db686786549404871a5228b96ac070e3eb365ebfef121ccc837221b4ed0cb1d"
+            "sha256": "9de7702e784bed10c4558b511dacad5da1228ea3ea6a5ca73119051afb76fcb8"
           },
           {
             "id": "eh-33",
-            "sha256": "ce380caa4137b0f3ba894d35242aca4bad7578007ce93a7bdac59d0671a0889f"
+            "sha256": "dc0d6d8e82b3d75851166bad97cefaed1c2f358bec4ecd33d792aa140fda46b1"
           },
           {
             "id": "eh-34",
-            "sha256": "d3998812b9c33d317e1046f06bf257be63c6d30d882d252b285c60e53524bf7f"
+            "sha256": "eea9ef7c8b3cd0d8cb272daf13fea2466de47627030e2e28a3948528de0965e9"
           },
           {
             "id": "eh-35",
-            "sha256": "d8d086462af39374adff90b2cc3fe48d055245b9147ded8c659adf24ea69ee02"
+            "sha256": "008429a8874c3ee8aea936980640add9693e9609cad60329654c5c4db4bc08cd"
           },
           {
             "id": "eh-36",
-            "sha256": "959bbaceef67a31f42897bcc19511024f7c5ab9ccb2213ef9deabfb8d7edd6a6"
+            "sha256": "fa6bdf19c06a59b0c6c3dcf6cf8ffc3769b56526a252ed20de042edff903dbe7"
           },
           {
             "id": "eh-37",
-            "sha256": "3f0d9f7299a70327e2fc7a3349a24d84303ec3e83356f6eb712d26b04c4e8f0e"
+            "sha256": "169dbf0a622c34e62d878a3f33c24436eb1e0db82c4ab9822ffdcb17f4ddcde2"
           },
           {
             "id": "eh-38",
-            "sha256": "72457e482e72814ad1f898da7c0956408a174c9b880e7181afe55737d939a522"
+            "sha256": "4eba10e8fcd996d3154ccdbc8fd1139c68830ce10324c7404a8571eb19032435"
           },
           {
             "id": "eh-39",
-            "sha256": "b538fd7d4eb669ed11a03a20a5596bfd9cbf89442002a09c4ee8ec24905e6867"
+            "sha256": "a7fa125a40b2039f4357817c717b4431cb3b44b5bdbe7d7074a5b6c2a94f6c30"
           },
           {
             "id": "eh-40",
-            "sha256": "68a60d773c71d3c5749f4e161a269f3d7b80c61180300731fbb18b91b10a6522"
+            "sha256": "7fbf7df588fce56f1cdb2212a4e729e33a084a752d2795f62fa81572444bdd81"
           },
           {
             "id": "eh-41",
-            "sha256": "d83d86e4d1d0f7163eb78af09f8233de12cdc88f5a7d65d74824ec72545df3d7"
+            "sha256": "4f64cb9a42e87921d44e4bbc447252c278ad52a88505de763ea4c2ba946bdaf4"
+          },
+          {
+            "id": "eh-42",
+            "sha256": "0a2bf75a9f4b84d263cc805f3ad406d6fe460151bac6c8b4166abc8c1b1b5ef7"
+          },
+          {
+            "id": "eh-43",
+            "sha256": "8ac91780f431b81fdf4dcbab57f1a34ce8ae1cdca77b62d47749755d55d20ac8"
           }
         ],
         "kind": "list"
@@ -8736,11 +8897,11 @@
           },
           {
             "id": "ev-fda-summary-hdkbadbcnh-authorization",
-            "sha256": "a780d81ecc6a5842b686fef9352afe4390c864b053b6b2a83b0f3e33d38f614f"
+            "sha256": "a95f2364edc5e6619f04a73e6dfc0e2c2ad5b423a3551b58e9d20fb3128d765b"
           },
           {
             "id": "ev-fda-summary-hdkbadbcnh-study",
-            "sha256": "f80e9405fbf888147d4098648a0e670a06e609766a50463ef7c2e0d77df166b9"
+            "sha256": "250dcb4a6488751b46a1c40fc9272a363941ea1a3b4c0bde736c23016cedd940"
           }
         ],
         "kind": "list"
@@ -8774,6 +8935,14 @@
           {
             "id": "fact_c98e0aec15ae3bd0",
             "sha256": "cff2269c44005111a293e90b3f3a80116aa766c0c0f2257d06d7e276bab3b648"
+          },
+          {
+            "id": "fact_f67688a6b6743d93",
+            "sha256": "5bed63c0f3436af9795f1232cfbd905934da1db4cddd3c94c491b9a44b17d680"
+          },
+          {
+            "id": "fact_9de01054208158a4",
+            "sha256": "8a16678bd23461507c85ab3652d29f94ae9d7b67aaab8876979a358f47c265c5"
           },
           {
             "id": "fact_887bbdcd17a418d8",
@@ -8841,16 +9010,16 @@
       "federation": {
         "items": [
           {
-            "id": "4fcfea85-cabc-48ee-bb54-1b58a4d16030",
-            "sha256": "f8e6f72843c5dbb78df02bf6a08270b8d75b762e07441985810db32bf349c81b"
+            "id": "ece84cb4-6593-45e5-85d3-626a11d2865f",
+            "sha256": "b11d267a154c4f0974db7933a5a28f50e8a1b6cf846c163497ca5a7f22f4a393"
           },
           {
-            "id": "0dfcb2bb-6efe-4a48-8052-dc59a440099e",
-            "sha256": "c605a5f03c12486eb91b933de0c04271f371e3d1071313e91aad9268916a4677"
+            "id": "01f7d49a-311c-4667-b1cb-ffd9aad396fa",
+            "sha256": "cdd0a14ee377b2f9f7d519e4da356486d8f2401ada02cee7b43d55676c4d160a"
           },
           {
-            "id": "4fe66a72-e182-4f9c-b046-ad21a8699670",
-            "sha256": "bbc903210e1455edfa6eef4fa1a2be7a604a13beb710170dbf58fcbb5ce6215a"
+            "id": "d282cb9a-607f-4b27-b883-29f25599fe3e",
+            "sha256": "0494945be0236098ba8b4ebe9541364ce8312fa9fc58d9bcf3991a048c72da87"
           }
         ],
         "kind": "list"
@@ -8858,16 +9027,16 @@
       "findings": {
         "items": [
           {
-            "id": "fnd_3d9b1c90e778f0c451be0533232708ad",
-            "sha256": "44d4db630119452a04ce3f899ba9344606c7f2e2d0101065337f8b7b77035a9d"
+            "id": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
+            "sha256": "627567a73eef8d2193900c8647d07a10b0d23a6185c01d9ae3f3d0ae9aa88a67"
           },
           {
-            "id": "fnd_3c64503a37a747b92b12804526b9ca22",
-            "sha256": "5e061afd2a715886428b8b8970fa9d560653606b61d5be317bfee2c56a961815"
+            "id": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
+            "sha256": "a8e8bc9768d31d81f41abf26ffd03a0ee2397e8efb5eabfb3c816911e914ea74"
           },
           {
-            "id": "fnd_e810e9f325a32ec29b34a997ecab626e",
-            "sha256": "e049ef4d5fc311c325a31e1ee437cfcab2be9cdb031fa872ca775c753abc2d9f"
+            "id": "fnd_1256df0ac3c512709136323e5be4f80f",
+            "sha256": "aa344fdfd6a80e488116631b1514e7c25aa783f2b59f08f053d8203a7f99eaa5"
           }
         ],
         "kind": "list"
@@ -8979,212 +9148,212 @@
             "sha256": "28501988b6aacbe2a84428bf7998d93583765c9a7e3ce313890b66395a6bb1bd"
           },
           {
-            "id": "0212da56-49e9-5d24-b661-94a1b1398f6e/START",
-            "sha256": "4b49d4a69042b2d7cfd8dc84176af5cfe37958bf755ab442be8304ba6b81c314"
+            "id": "bc0508f5-0875-5dad-820f-1fca05373a42/START",
+            "sha256": "5f58715b73db715c0504516ef310c28838519d869ca9c86fbc45d2110f967061"
           },
           {
-            "id": "0212da56-49e9-5d24-b661-94a1b1398f6e/COMPLETE",
-            "sha256": "9cfcbf323c06cc84a56d2a25f74e7a1ff450216e994e9f56745cfbb7458935ba"
+            "id": "bc0508f5-0875-5dad-820f-1fca05373a42/COMPLETE",
+            "sha256": "8cfa506c118141fb343cd47cc9214e1a31e09d95b4a80ab9013290215d0afbbd"
           },
           {
-            "id": "86a5a518-1014-52b5-8c3a-3aac7ca12901/START",
-            "sha256": "398f2108ea06ea3f488d67e540b94ec120d3011732b7dbaba09c0d3c45e2a4ff"
+            "id": "ffa647f8-b076-57c8-91e1-90ef433970d0/START",
+            "sha256": "bd40ad1ed4a2cfe0f42cb3fb48b1a948a9ad49db0b52b194507baf3fa9b55147"
           },
           {
-            "id": "86a5a518-1014-52b5-8c3a-3aac7ca12901/COMPLETE",
-            "sha256": "1d77b63e853b135c70d4d6a73abb860549ca9e0bad9106784c706ef14cfc1d78"
+            "id": "ffa647f8-b076-57c8-91e1-90ef433970d0/COMPLETE",
+            "sha256": "86172c355f30699deda489927daf0e847172b35d779201c3f3bc6051dfa10541"
           },
           {
-            "id": "0aa0c9c0-04ef-5408-a58f-ade66d650d52/START",
-            "sha256": "5e49bd9fde9a08336d494f1b88ea0bace6f51982838f9652fcf677c40aee5850"
+            "id": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02/START",
+            "sha256": "0e31f59b1467e53cba58451ef9070009d4f992e3acc7af4a4b649373d484f85e"
           },
           {
-            "id": "0aa0c9c0-04ef-5408-a58f-ade66d650d52/COMPLETE",
-            "sha256": "a646c14845bed8f067b82a7477be1424a1441d7852e9fd342e2102a2ef402cd1"
+            "id": "fe6fa24c-5d83-5a9f-963f-d42fb4f28f02/COMPLETE",
+            "sha256": "0ea390f1f8df4404e2f29eb233143fa10f739d7e81be146271283cd8fb37fc67"
           },
           {
             "id": "dcd5b4a5-7309-51ca-a8a8-f64c2488b89d/START",
-            "sha256": "323e489f8105d712c9f6d675bfe6c40440fb80847fd42bf6519230e0544c0922"
+            "sha256": "326b18b7b582b0029718f0fabe1f1bdf288dc3b9df62a6e677adf09d5e8d1551"
           },
           {
             "id": "dcd5b4a5-7309-51ca-a8a8-f64c2488b89d/COMPLETE",
-            "sha256": "4d6d6d59b42f29521c6a442f906af71500cac41a806ffcf91ea43ac95a7e84dc"
+            "sha256": "92f4c388d72987f69fb22a202a0c6bf4bd13ab63cce5f595b4700b5ef8cebcdc"
           },
           {
             "id": "65255d50-ef23-576c-99c0-03b275b5763b/START",
-            "sha256": "d118c053aa943dbf789cffb74f2d6e327b386d1a90832081dc03792cf030d89b"
+            "sha256": "d5a45130a5001297c561ec118ea60fb4cdfd48b8cdda42471bd21880bd9cc5a4"
           },
           {
             "id": "65255d50-ef23-576c-99c0-03b275b5763b/COMPLETE",
-            "sha256": "a8c69e4f6a7c9b927ac52a94642a4d9cd4c424ad1fec079e28f876da534646f7"
+            "sha256": "636c1b0b388d0eed1f8b3eecb016f558faab26142e37b058aa8102248f097826"
           },
           {
             "id": "1175bc85-3c98-5127-ad26-46a521006cd5/START",
-            "sha256": "1ca6bda14cdbb3868fe6da0b33082c72c2b1de760ecf47d61c03cfaaf81f0e78"
+            "sha256": "ce9c5fe0b99b610d7aef519d2d1f8b2e436c47fcb55e821a6e4a481534113f6c"
           },
           {
             "id": "1175bc85-3c98-5127-ad26-46a521006cd5/COMPLETE",
-            "sha256": "34e0a15975a94f4c4671874bafff3b7113101dd2ee73700f1f02b53166c7f12b"
+            "sha256": "2e025ab565affb0c3a756e9dd950a1f5e9f64006957e5a10e7fdfc02b33f7452"
           },
           {
             "id": "0d8b9a94-5dcc-53b1-b8cb-4248daef11e5/START",
-            "sha256": "6422bdd4fc5551194029cbde815126726a47faed9ba9c316509a7cd670246d40"
+            "sha256": "059ab6b14b6d364efb59841e0ad9cd0eae1ed1d144457ec70403d7548816aea8"
           },
           {
             "id": "0d8b9a94-5dcc-53b1-b8cb-4248daef11e5/COMPLETE",
-            "sha256": "f9c1309a855f4f19672175ce866e7c775b9bdc124023d15861462fc3092a9d23"
+            "sha256": "963e61cf74e89946308f0b413a382656321a674790e7778ecfc7434015c5287d"
           },
           {
             "id": "43faa412-55fc-5c68-b6fb-48f39d415bed/START",
-            "sha256": "cbd331eba12d5a74fb7a23249a954b417540a4c38be5b4f9fd835fc2f16bd402"
+            "sha256": "b80fafbeeb8f19a0086981c2e48b80b2f722057a8f50383586dec2d67d3a1bd0"
           },
           {
             "id": "43faa412-55fc-5c68-b6fb-48f39d415bed/COMPLETE",
-            "sha256": "08d16e498756cd50f8cfa8124af610df66e225b10ef851c70d2a8a26f79f310e"
+            "sha256": "f140eaaca5bf2edf699888a5493091a22ff55d5ce724b28ecb5d1cff28c66038"
           },
           {
             "id": "06269ad2-a43b-5cf5-b193-e4ddd8b47418/START",
-            "sha256": "9d36256f49d1ebc1c9b07b1fb4ac0b41181ad68f41a50a1d040ac2aea51753e6"
+            "sha256": "2db065c55f7830cf465ad3844d0aa203136206f6cbab6ebc55407d0912617618"
           },
           {
             "id": "06269ad2-a43b-5cf5-b193-e4ddd8b47418/COMPLETE",
-            "sha256": "90bfdda88baf4dc4ce1cb3c85ba2a8f4eb78578bb2c0660da1a2e3bf6c23a19e"
+            "sha256": "59e8a56eac55f9987e0a8679adae73101d5c9eb793395ed2f58cd0d2922e0625"
           },
           {
             "id": "acebb696-70fc-5802-acb6-5fb0da2aa49d/START",
-            "sha256": "cf8b85c9bc1db3fc30190011a12bb6efa0bf02ba6fd482becb8c72369badd83e"
+            "sha256": "1148a19de826c44904cab813a3abec3ab4f1bc2c1ed7b72f6ee7259618b30891"
           },
           {
             "id": "acebb696-70fc-5802-acb6-5fb0da2aa49d/COMPLETE",
-            "sha256": "225c5a43c0594d69bd7e893799684a091bc95f2bae35f0cb6dfdcfa53553b8c2"
+            "sha256": "dbd72cf7a5163da38e2192149d9fc95677d4bf4d4a1512bc114e14c91ff07f2c"
           },
           {
             "id": "e5ed3e40-e25d-58a9-b340-c5ee77820a3f/START",
-            "sha256": "06a3c5117ca7008cb88711c85279c4b145d6102f0b6e921c94f973654a43bbee"
+            "sha256": "6d131574eff04e90f6229bbb3f5be63b6e82d22ef6f1febe49a41e586d0e4db8"
           },
           {
             "id": "e5ed3e40-e25d-58a9-b340-c5ee77820a3f/COMPLETE",
-            "sha256": "d04bb7a6025dd47af6ae230bdca745db965f24b8ca70f826afa803dcfcfc30f6"
+            "sha256": "b97d0c88421613bfcebb90a4f45a89a5ed716c95f70a05e0c0ec164f5ddce9fa"
           },
           {
             "id": "5f76d0a5-43cb-5c80-8898-bed7454295ef/START",
-            "sha256": "42cd9001cfebf0d670e8f64ab26bc605e81bfaaa684c4fb4b6254db22077cba2"
+            "sha256": "0ef1170be1aca9b17178e0cf8c43b78d05133c1654f1b37f5a3a6d0d48daa803"
           },
           {
             "id": "5f76d0a5-43cb-5c80-8898-bed7454295ef/COMPLETE",
-            "sha256": "dcfbc23b0ebdb975f994f54240d2eea1a822d239a40824bea42a0cb66ab54ec0"
+            "sha256": "99fecb62f7751a8ec9bce5cf7e50ba7cf003dcbc124a89b452ab2b98c843ef16"
           },
           {
             "id": "79cc979e-8a73-5ba3-b7d2-54885aa58567/START",
-            "sha256": "634014d30d62e0a7aa8078b7daa5a2d8eb3122bb80e3e81f2b143a9ea55725a6"
+            "sha256": "44137590c25b07bc22cd01088b0ea824eece66f31977cd60c5ea645e90af21b3"
           },
           {
             "id": "79cc979e-8a73-5ba3-b7d2-54885aa58567/COMPLETE",
-            "sha256": "91139aadfee242e17e4e2e2a0bde535eb6b20a2e659245d1af29375d437849de"
+            "sha256": "09c20a54499a56ea58f45877a6fd6e5ef84879fb546c9d600e81293e40abeff2"
           },
           {
             "id": "9cca016b-bcda-58e2-839b-8feb5eb2b6cf/START",
-            "sha256": "a6fb9cc1ab930df2237fa06b7ae9b714f49c84bfe6c6bd94853af6c44b26ae44"
+            "sha256": "75febece2c83f4bec2d6eb44219c5c8c30aaff86793cde211fa6a37c5b9226f8"
           },
           {
             "id": "9cca016b-bcda-58e2-839b-8feb5eb2b6cf/COMPLETE",
-            "sha256": "566dd87c3f7cd40dab4a0f6428d683942fc206794e54a356aeb83302bc40cfc8"
+            "sha256": "2ef2efabf742ada0c4aa2db1a9da33079b947ee544b2e6c1f17bc5bd0aa97641"
           },
           {
             "id": "67361efd-294e-5da6-a033-06912f06b85d/START",
-            "sha256": "7596c5eaf7664e07149421d935317e68bd2e3b54f80bcb2352b7423c73d0b34d"
+            "sha256": "55ae54714f446a79febbcf5aa67ee03aaf180c77ec4230cf24d1c3ea5e568c9a"
           },
           {
             "id": "67361efd-294e-5da6-a033-06912f06b85d/COMPLETE",
-            "sha256": "410f8a0d0ef8eb8537d74b8de47174e6ad1df0621bf549b67f92a985dccbdec8"
+            "sha256": "4e38350f0b6d35af0f3be93c1283bdbd8dc39f08f06687ce2b4a4f06660517ea"
           },
           {
             "id": "331e9ae4-4fdc-5e88-8e28-1cd6ec6fd861/START",
-            "sha256": "2424f19d9a217b9db112905ad7798ed600f6153969222f5c418676ac349e8b6a"
+            "sha256": "673ca200ddb507ff9ecb968e0290d9380c69af8e3a5aaef100fa3f6d54f0199e"
           },
           {
             "id": "331e9ae4-4fdc-5e88-8e28-1cd6ec6fd861/COMPLETE",
-            "sha256": "f6a10d3ee04ee095eb54c2b8bd0faf00bc905630794032608604b72f24811833"
+            "sha256": "d88a000769d8f56be343bf291b6d49b9e814596b4b3736f1d5a661191735b9d7"
           },
           {
             "id": "838bf1f9-a664-5122-9bc6-ce159201488d/START",
-            "sha256": "f50f218ed16f4b86e3425543a067c57af9625a4f9657832f49e561d69977a852"
+            "sha256": "f9f03d9ec9e69cbebb76ff8a8af61ff1a50ae640fb21bb6a00d444136f93ec58"
           },
           {
             "id": "838bf1f9-a664-5122-9bc6-ce159201488d/COMPLETE",
-            "sha256": "e5cc2776d7d568a46be5925a3387e63cce80eaff96dfc1019c8a52669338caad"
+            "sha256": "2b342ca1a7ac9b5a5f7db162921aaaf36ac7d8451ef67469b182dfd00d36f13c"
           },
           {
             "id": "95f1223b-5729-5540-90df-4779c5e3dff6/START",
-            "sha256": "de312b0e50a471bca02a9a60279fc29cb575dad12a530142128c9a77d6a30012"
+            "sha256": "5ad33168ee2fb55edccf4969b882d547097de4635b1612f427febdeb2ba90fd4"
           },
           {
             "id": "95f1223b-5729-5540-90df-4779c5e3dff6/COMPLETE",
-            "sha256": "ba38884dc8524cb749f19177b85bf3c6ced4cf751e565e1101d80b1fc6a86e13"
+            "sha256": "e0154c37f1ccc4a55548487b412f6b1d229ab1a3c706f3c476395169c558bdc0"
           },
           {
             "id": "d98932b7-0dbe-5121-9c69-c3046ae53971/START",
-            "sha256": "48e07585cb529fa70bd925b932f58439f87d7e6e5451a4669ecec72363dfcc42"
+            "sha256": "8cab44d83b4a5ebe183bb509eeae92fd67a722fbc51740f8e51287d93045121e"
           },
           {
             "id": "d98932b7-0dbe-5121-9c69-c3046ae53971/COMPLETE",
-            "sha256": "59a7b58694b1884c81dd710fc953d02c25933b23ff2f56b72486e4370f5021cc"
+            "sha256": "670e5b8fcde529f163256a64ba5919430b3cc9e339dc9591a5b4ada3a985d27c"
           },
           {
             "id": "d09bd66d-8383-5e9c-bf9f-f926cd429e93/START",
-            "sha256": "e64da5e7d744a5a49d9fb2a371e29ca635f5471a37ea6b8af74bb64111f2a2d3"
+            "sha256": "c66129d086defefcb579ff0711ff7097eeefc791fb7ccc95a609e6755148c3f7"
           },
           {
             "id": "d09bd66d-8383-5e9c-bf9f-f926cd429e93/COMPLETE",
-            "sha256": "613fb1ebf4ed959b8571d3fd47f457ae9ede63de1be7d0f07844848be7399820"
+            "sha256": "8b9c0092baaaedeff2e8d8aafc6a679ef69f76c39601764285106b19b4f0873b"
           },
           {
             "id": "6c52ddad-7b12-5594-96cc-32cd4776b43a/START",
-            "sha256": "a178b31e1c77dec1fc0c9766f08f30d2df6fa6cd93a76a86fe6cf521cc0e7d63"
+            "sha256": "988cdf58af1f099287ca2ec8399f0ea8e7c621fd70f837f8f5f7f95b4bdaa427"
           },
           {
             "id": "6c52ddad-7b12-5594-96cc-32cd4776b43a/COMPLETE",
-            "sha256": "ee8533d15f4188a03363036983d72748c99db3e515d42886340c935b663aa109"
+            "sha256": "b4d422d4bad9ae15143de1e8a7260800717964c23f29b991651409da80885286"
           },
           {
             "id": "bbfa1582-b626-5a18-ab96-b514f5fd4044/START",
-            "sha256": "918871f1842cb8589bdd0904bdc33b46afe67e5cbe09348dbaf62e5a1e37f613"
+            "sha256": "aa83693bb4a90a654280b64c0ac86c69ccde8581efecfa8cb74a485e7a708017"
           },
           {
             "id": "bbfa1582-b626-5a18-ab96-b514f5fd4044/COMPLETE",
-            "sha256": "e2dada1f5b5bbac0d998fa719827444f2f8ce5d7e54013cf08cb895780376b6d"
+            "sha256": "2dd14641c1b005b663401b7235664af07bbffe56da2cb30ffb3b2139194c5dd9"
           },
           {
             "id": "64640083-b67e-58cb-824d-40982d23a49e/START",
-            "sha256": "882623e90cd2e2fb8663787c4bd04c67afab0a24c5b9dc0f5bad8cee6635980d"
+            "sha256": "12c03f0fdf53964eb5468c7d506ca4f9e38c9567477576d9fed48dcfbd4cad79"
           },
           {
             "id": "64640083-b67e-58cb-824d-40982d23a49e/COMPLETE",
-            "sha256": "db9ca3e5f0083774ddfa47a3c61dfc1d6f8bbbb322c59d19e5c0719054e77167"
+            "sha256": "e3e7fe6a37930ba47be23e4343a5f4a4b78b7ed395d8fcb017c798f029fa15d4"
           },
           {
             "id": "dcbabe98-3478-533d-bdd4-8d01db6e3db5/START",
-            "sha256": "1c531a29e7b22a7a09c58192c99da07d9be636665510de441e89e1844c04f624"
+            "sha256": "8d10ba501fe14142c5894cb6dd91229dd77f64707a5f9039144d3078ef6a154b"
           },
           {
             "id": "dcbabe98-3478-533d-bdd4-8d01db6e3db5/COMPLETE",
-            "sha256": "9e4e01449e43ba8cd39a919033024a42d530b02a9f3d24c7f74f319d41a03e61"
+            "sha256": "76cf34c5a287e100ae557db0e03ee4327b8bf7956fc32f40ab007478c2386d11"
           },
           {
             "id": "7e308b99-b931-5266-83af-0aa517567096/START",
-            "sha256": "9e99e32a8701b7f091256f189608cb84b74b8d2d1f2126c40774bbc2526ff30d"
+            "sha256": "83acad632532222286d4a3d5ec4f6b602d714604308140f6c3fa988de3f16ff2"
           },
           {
             "id": "7e308b99-b931-5266-83af-0aa517567096/COMPLETE",
-            "sha256": "80097144974106cace6352ad7ded074e21eaa645de5b7650d2b318f1bbc4bbe8"
+            "sha256": "23878abe98f0ac7db386bd6222568a68a12ee2015a75dc05599e0a500ae7ee46"
           },
           {
             "id": "f50f8da6-e647-5d11-aa4c-356eb470bba6/START",
-            "sha256": "68be2339e605520768bca916b2f600c51bb1bd8a4acfde54dd6a49fcefa4e9de"
+            "sha256": "bf69182696fa6f5b213a065de8affc8d9dc4a9de4536f0eed2d8f7f929abdfd0"
           },
           {
             "id": "f50f8da6-e647-5d11-aa4c-356eb470bba6/COMPLETE",
-            "sha256": "3ebb3eb91119fd9bcc6edbbf9c5bed122c81d7ea7a0ed2de61b7d68cf6de0946"
+            "sha256": "aee316a7d98537f80373c6703c6d1a86e62947aba15f075c6c5a27d4332c9a04"
           },
           {
             "id": "3830d2b2-c0bc-5dd3-8f73-308968a4c252/START",
@@ -9208,31 +9377,31 @@
           },
           {
             "id": "47dfd163-9d58-5a43-a843-bc58ebb16b99/COMPLETE",
-            "sha256": "60b2fbc9b4d6c8a58d2583233cd1bf9c324159c309b1fdb1aed5e64e9a6b39eb"
+            "sha256": "4cb5c8d91ecd2a6665fb2e0bc64fd52c9de8db800899ec690e1ce7e91d2f6c64"
           },
           {
-            "id": "25096902-2269-5c19-86ff-f9dae1015f07/START",
-            "sha256": "12665091b4132a3983934ae9f0bc36a3a8a90d1c4ed288e9606ca199d1527a46"
+            "id": "7a544014-475d-5f21-b31c-c8b0efebdbb6/START",
+            "sha256": "7c4eba43a27ad660a25972793a1aaafbde6a7995064896edbe2069748126802c"
           },
           {
-            "id": "25096902-2269-5c19-86ff-f9dae1015f07/COMPLETE",
-            "sha256": "3d763b94b5d377c58127da2a5a8674c268e829399f7a7676d5c569414f97aafe"
+            "id": "7a544014-475d-5f21-b31c-c8b0efebdbb6/COMPLETE",
+            "sha256": "8bfe8161575dd9817095b367e99f5eef4d65afc0d2f652c1e211423ad455b168"
           },
           {
-            "id": "3664ade3-65ea-5869-b8c5-177bd483ca9f/START",
-            "sha256": "00fc144ef4e5ccefb734f1ce7af939a9c2908df5c02a387550abc13576a59cf2"
+            "id": "20744cd9-2838-5d89-bba8-0aa9958c5978/START",
+            "sha256": "bc5f14e53d25070e647a9e5f1b880d674861bbda6e70a4ea7fe0491d5ad3e5c2"
           },
           {
-            "id": "3664ade3-65ea-5869-b8c5-177bd483ca9f/COMPLETE",
-            "sha256": "5782891901db56eb0fca32711a7d4d3b8e6859b325a7e59db19df04dd1d1ebef"
+            "id": "20744cd9-2838-5d89-bba8-0aa9958c5978/COMPLETE",
+            "sha256": "4caa86e08075e6bda6b6de4b1efd207c2400eee474084d530f200cea382027f4"
           },
           {
-            "id": "5e39ba0c-72c4-5154-9321-ff210e7a6268/START",
-            "sha256": "78aa4919a8e3ad6febca821343ea62c3909cda2c81aef3df2791ff8bcda9e141"
+            "id": "921abb7f-8273-5506-b2b4-bb1579011ef1/START",
+            "sha256": "42b88b614b72cb98df91ef1f882435b045c00b46ac05cd718bead9d7a36ba7a2"
           },
           {
-            "id": "5e39ba0c-72c4-5154-9321-ff210e7a6268/COMPLETE",
-            "sha256": "de0dd0168432659d071267dc3674a81c17b7605635cd3e1762ec63205bd6bb49"
+            "id": "921abb7f-8273-5506-b2b4-bb1579011ef1/COMPLETE",
+            "sha256": "d59f9b0636a4eeeafa57586717371e13e14bc17ec1940a9b7e962e027ac93429"
           }
         ],
         "kind": "list"
@@ -9322,95 +9491,95 @@
         "items": [
           {
             "id": "run-lunit-k211733-1:model-1",
-            "sha256": "829ff6b379c5ed47cf2696889003392a7dc9832a37e8d08c4a2877b12ce0ee04"
+            "sha256": "726a475a8058d5f1b1caad35e4608e70eba1981c5e2b253d95ca51a81f42f104"
           },
           {
             "id": "run-lunit-k211733-1:model-2",
-            "sha256": "f938055a96956a493454a9a780bea2c14a087c4d9667588dc86e0cac0996f0c8"
+            "sha256": "d78199b6ea370f1c048f4a78cead9f57c1bd18c8c5b80ee3aaf3cc1281aa7cf5"
           },
           {
             "id": "run-lunit-k211733-1:model-3",
-            "sha256": "5692904e6002585c6d20383042830fa1cd71a04ca65a89b081b8a882517aed13"
+            "sha256": "8ec94aafdaaee3b5be262fecf17e10dd3e90bd0b38bba5326a648a66d96728af"
           },
           {
             "id": "run-lunit-k211733-1:model-4",
-            "sha256": "50f25671593306dd9f470535a81efe18ea0d9acc38cc3eeaaca0e96551a332fd"
+            "sha256": "3e9ad735d62656a9b732d0daa99e171ecfc663a43507142c8ebcb2d114ada5fb"
           },
           {
             "id": "run-lunit-k211733-1:model-5",
-            "sha256": "299f60bdcad6cd6e3f63f71ad42e521c2ffe81f85271d8cd7de41ab70c4114d7"
+            "sha256": "0ee0e372ac3caaacc6cd09c11d9f8437c3a2b3ac9ebb6c551b37c637a1858c84"
           },
           {
             "id": "run-lunit-k211733-1:model-6",
-            "sha256": "46023e6e68f00f630214eeaad7dfe68d99f12e13c9033f82b196a53113bfd647"
+            "sha256": "6eb224ee459cb19bdc1c6b8e4522e45048274d948fda8ad8ef572a92d7e9aa97"
           },
           {
             "id": "run-lunit-k211733-1:model-7",
-            "sha256": "b2967b2d3a87345d0d69b54c02dd531ea47fbc51e6a9b42cef6bcf4ba35fd11a"
+            "sha256": "47f9dbc19e527f639e5908ba476dc8591644e82179cdd491d69502df627d0a08"
           },
           {
             "id": "run-lunit-k211733-1:model-8",
-            "sha256": "634513b874a9dad82d44ae18f94fea46a17ea798c0e920db09f806f4260bfe52"
+            "sha256": "36fb872a6c54cb734aeb0c0637eae7e8caa20fd3fb7f62e9fd49cad8c51e0f40"
           },
           {
             "id": "run-lunit-k211733-1:model-9",
-            "sha256": "533e5932f922999e86e165f655231794ddb8fbf5104e4a6d537fcf580ef877f9"
+            "sha256": "86d71afa03447d78e1a26d1c9ad564de36f369d00b9f736c0bf0253ad4a1b671"
           },
           {
             "id": "run-lunit-k211733-1:model-10",
-            "sha256": "e2ad074af1cc5250775ec0cb189382e6f1360fcd3c9483ac56872636536b7397"
+            "sha256": "abcc00ad9cf453949dc06b60b5d44e186e60c6a36c0ca15ff84dee43716ca8e3"
           },
           {
             "id": "run-lunit-k211733-1:model-11",
-            "sha256": "13cf5c2e25e10da5e6781637cece9867b9b20cc540c38967484d11f3ba0a81c3"
+            "sha256": "aae508bbaf65aaf2979f346454e7d069a19384e005bc62e0eb8246a47f37a260"
           },
           {
             "id": "run-lunit-k211733-1:model-12",
-            "sha256": "68d4a00c9bda4292d58e74233335093cfbe88a169a0f1afed7668e771ed9a674"
+            "sha256": "9d149d3de623395b7d6337829e4583f722b5939a1ff42492c6e16e4571b96c32"
           },
           {
             "id": "run-lunit-k211733-1:model-13",
-            "sha256": "209924d0513df1c2031251bb40740deabbce4831b2ac2da458a3c56b7f83b966"
+            "sha256": "cbcac9d977865c3780d23cef7a4a7bb90d1fee75d85b2cd186870e832d13197f"
           },
           {
             "id": "run-lunit-k211733-1:model-14",
-            "sha256": "738dbaf081ed2747f28d4389918c3d844765b9b6a3982c758ca8d5d305d55c2f"
+            "sha256": "d3d4ebeacebabc0dee2e096d20439d313d8d8ded748fbe912f4d7c96ea117a72"
           },
           {
             "id": "run-lunit-k211733-1:model-15",
-            "sha256": "04d608837b35d3aeb6e9262144ee7ff2befebcfe5223f7d254095974110ddb8f"
+            "sha256": "73f2413c6a79d6df0a495baacdb49f43d722e1e993f443a528a1a361220c7c8a"
           },
           {
             "id": "run-lunit-k211733-1:model-16",
-            "sha256": "339704f877064a34dd524060781ca189dda8021d907573ee6c50aea95313ff8a"
+            "sha256": "7da87ec2bd003e94304f8b5c83e3df7d48351fc20da53fc3b9a9191f835b8018"
           },
           {
             "id": "run-lunit-k211733-1:model-17",
-            "sha256": "913a2a6eea05c90ad8bbb30efce1ea5b9b1b6b8dbc2996dc4798863f3f6960dd"
+            "sha256": "7d43587a16a0b07351e73269c21679ed23b39085886ae96d454b7fe8651d8d9e"
           },
           {
             "id": "run-lunit-k211733-1:model-18",
-            "sha256": "66a31f62e4e8245f165a330b2a0bcfb7b7014a6970b92104e53fde893fb8156a"
+            "sha256": "9d468fad6a6052f3c73590399680e038399f487bb3993e019343107acf723bed"
           },
           {
             "id": "run-lunit-k211733-1:model-19",
-            "sha256": "07ee7276d0fd1bae872addd16d3834b7c3e362abbf6ed82e70c27affbfc059b1"
+            "sha256": "9cf6ad7ac4aba7fad8aae0d1f3b1215c85051274924c44adc63b6b8c6322d7d6"
           },
           {
             "id": "run-lunit-k211733-1:model-20",
-            "sha256": "f0b7383e620b4a586d1a66ae360e325bf677eedb7d6bbb00a1e3265b76903326"
+            "sha256": "ac6dae5abc676270de9df98aaa14ad9abc63e090ee9c2ef559f2b64b106a9aaf"
           },
           {
             "id": "run-lunit-k211733-1:model-21",
-            "sha256": "1f49d8218def978c769f4090f8e7bdd0ef90a7b936faf8cb64ae827e370c6613"
+            "sha256": "43c0e22599e6adc69251d6331664892921587d668ac0eddf489db9decd06e698"
           },
           {
             "id": "run-lunit-k211733-1:model-22",
-            "sha256": "b21ee8731de9d6315a2ab33c2d8a0fbf44cdce81577c8701bca19f3a99b72ed2"
+            "sha256": "607fa67024b127e40c1160e8b7c45db29e8f8b5e65cba5c12f9a7832a7b78b06"
           },
           {
             "id": "run-lunit-k211733-1:model-23",
-            "sha256": "57924f17728cf622c3478ad7780c496896cdef151f4430276aab986cb0cf8974"
+            "sha256": "2283c8fcca18c339fea85d777b2a96a74d43e7e2297cdfc4d7f688fdf5ac56ee"
           }
         ],
         "kind": "list"
@@ -9425,7 +9594,7 @@
       },
       "rules": {
         "kind": "singleton",
-        "sha256": "54a0323d290d0a6bf6ff0bf69d88f420c91e7e93b668e561daca089d2f1dfa1b"
+        "sha256": "db7fdcebbc46c9cafc9d81541dc9f70de29845393ec3bfd1301887d2852405c2"
       },
       "run": {
         "kind": "singleton",
@@ -9500,7 +9669,7 @@
           },
           {
             "id": "hospital-policy",
-            "sha256": "bc18019bf6dda47494bfb8f00942ab8dddcac81f829be1fb28337e2ed36a2cf1"
+            "sha256": "4d6505491e312c3d2cc9a39110e1c8b5e540eff118fb3f852b8bd3b1780f6d65"
           },
           {
             "id": "openfda-510k",
@@ -9528,6 +9697,6 @@
   },
   "signature": {
     "algorithm": "Ed25519",
-    "value": "5dYISLn4ajPnEa560HxpIPNQL1al4Rq+eGML1gPjghnvWkAGBu8Sv19mOnlxhuZrV27oqxczEj46Z3aeeSWoAg=="
+    "value": "R6u3uzdN6TzeIJZ2oMmvEul+tYY+mTRrY+1w1G1miCPz6xt16/MzowZNoeAfXKuCTPPF5ycQG0ADvQ9R+nhqCw=="
   }
 }

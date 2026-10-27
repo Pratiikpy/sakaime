@@ -1,0 +1,5 @@
+{
+  "method": "POST",
+  "path": "/api/dossier/verify",
+  "body": []
+}

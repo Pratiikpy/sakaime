@@ -3,7 +3,7 @@
   "status": 404,
   "body": {
     "error": {
-      "failure": "INVALID",
+      "failure": "NOT_FOUND",
       "message": "no case named no-such-case",
       "detail": {
         "reason": "UNKNOWN_CASE",

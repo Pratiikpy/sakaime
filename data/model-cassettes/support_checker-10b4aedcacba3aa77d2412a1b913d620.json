@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:10:15.918Z",
+  "recordedAt": "2026-10-27T13:32:03.705Z",
   "role": "support_checker",
   "requestHash": "10b4aedcacba3aa77d2412a1b913d62040db91fa6478d5621e5df00257adf014",
   "request": {
@@ -48,20 +48,20 @@
     "dataClass": "public"
   },
   "response": {
-    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports sensitivity 89.86% (95% CI: 86.72 - 93.00) for pleural effusion, which matches the asserted value 0.8986, interval [0.8672, 0.93], and context qualifier.\"\n}",
+    "text": "{\n  \"verdict\": \"supports\",\n  \"mismatches\": [],\n  \"reason\": \"The passage reports sensitivity 89.86% (95% CI: 86.72 - 93.00) for pleural effusion, which matches the assertion's value 0.8986 (89.86%), unit proportion, interval [0.8672, 0.93], and qualifier context:pleural effusion.\"\n}",
     "json": {
       "verdict": "supports",
       "mismatches": [],
-      "reason": "The passage reports sensitivity 89.86% (95% CI: 86.72 - 93.00) for pleural effusion, which matches the asserted value 0.8986, interval [0.8672, 0.93], and context qualifier."
+      "reason": "The passage reports sensitivity 89.86% (95% CI: 86.72 - 93.00) for pleural effusion, which matches the assertion's value 0.8986 (89.86%), unit proportion, interval [0.8672, 0.93], and qualifier context:pleural effusion."
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "recordedFrom": "nvidia",
     "usage": {
       "promptTokens": 558,
-      "completionTokens": 91,
+      "completionTokens": 105,
       "measured": true
     }
   },
-  "responseHash": "50b3ba7d82e859129d1878506a56e8db9e17279834cbecf51e3e5b6c09665bc6"
+  "responseHash": "b09407d4f0e51d3fda9fda255bdd565aac11af2df52a1bd237675f42bfd1bc3e"
 }

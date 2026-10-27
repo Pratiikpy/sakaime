@@ -1,0 +1,22 @@
+{
+  "request": "POST /api/dossier/verify",
+  "status": 200,
+  "body": {
+    "ok": false,
+    "checks": [
+      {
+        "name": "bundle.shape",
+        "ok": false,
+        "detail": "FAIL: the body is an array, not a dossier. A dossier is a JSON object with a \"manifest\" and a \"body\"."
+      }
+    ],
+    "failures": [
+      {
+        "item": "(body)",
+        "reason": "the body is an array, not a dossier. A dossier is a JSON object with a \"manifest\" and a \"body\"."
+      }
+    ],
+    "signatureNote": "The signature shows that this bundle has not changed since the holder of the listed key signed it. It does not show that any finding is clinically correct, and a demo key does not identify who signed.",
+    "keyKind": "demo"
+  }
+}
