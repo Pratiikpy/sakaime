@@ -18,3 +18,8 @@ evals/gate0/raw/terms/
 evals/gate0/arms/healthit/evidence_all.json
 evals/gate0/arms/healthit/vendors_all.json
 evals/gate0/arms/constat/tools_list.json
+tests/ui/.results/
+ui/dist/
+tests/ui/test-results/
+ui/node_modules/
+tests/ui/screenshots/

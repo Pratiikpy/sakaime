@@ -1,0 +1,93 @@
+/* Sakaime design tokens. Ink on white, one green accent, rust for failure (D-022).
+   Every text pair below was checked against WCAG 2.2 AA (4.5:1 for text, 3:1 for non-text). */
+
+@font-face { font-family: "Outfit"; src: url("/fonts/Outfit-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Outfit"; src: url("/fonts/Outfit-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/JetBrainsMono-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/JetBrainsMono-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+
+:root {
+  color-scheme: light;
+  --paper: #ffffff;
+  --paper-2: #f4f5f2;
+  --paper-3: #eaece7;
+  --ink: #0e1116;
+  --ink-2: #384150;
+  --ink-3: #566070;
+  --line: #d6d9d3;
+  --line-strong: #8a918a;
+  --green: #0a6b3a;
+  --green-soft: #e6f4ec;
+  --green-line: #9cd0b3;
+  --rust: #a8321a;
+  --rust-soft: #fbebe6;
+  --rust-line: #e2a898;
+  --focus: #0e1116;
+  --focus-ring: #3ddc97;
+  --shadow: 0 1px 0 rgb(14 17 22 / 0.04), 0 8px 24px -12px rgb(14 17 22 / 0.18);
+
+  --font-display: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: 1.375rem;
+  --step-3: clamp(1.625rem, 1.2rem + 1.6vw, 2.25rem);
+  --step-4: clamp(2rem, 1.3rem + 3vw, 3.5rem);
+
+  --gutter: 16px;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --measure: 68ch;
+  --page: 1180px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #0b0e0c;
+    --paper-2: #141815;
+    --paper-3: #1c211d;
+    --ink: #eef1ec;
+    --ink-2: #c3c9c2;
+    --ink-3: #9ba39a;
+    --line: #2a2f2b;
+    --line-strong: #6d756d;
+    --green: #46c987;
+    --green-soft: #10261a;
+    --green-line: #1f5a3a;
+    --rust: #ff8f73;
+    --rust-soft: #2c1510;
+    --rust-line: #6e3324;
+    --focus: #eef1ec;
+    --focus-ring: #46c987;
+    --shadow: 0 1px 0 rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.7);
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #0b0e0c;
+  --paper-2: #141815;
+  --paper-3: #1c211d;
+  --ink: #eef1ec;
+  --ink-2: #c3c9c2;
+  --ink-3: #9ba39a;
+  --line: #2a2f2b;
+  --line-strong: #6d756d;
+  --green: #46c987;
+  --green-soft: #10261a;
+  --green-line: #1f5a3a;
+  --rust: #ff8f73;
+  --rust-soft: #2c1510;
+  --rust-line: #6e3324;
+  --focus: #eef1ec;
+  --focus-ring: #46c987;
+  --shadow: 0 1px 0 rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.7);
+}
+
+@media (min-width: 720px) {
+  :root { --gutter: 28px; }
+}

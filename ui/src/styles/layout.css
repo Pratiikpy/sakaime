@@ -1,0 +1,158 @@
+/* ---------------------------------------------------------------- chrome */
+
+.chrome { background: var(--paper); border-bottom: 1px solid var(--line); }
+
+.site-header__inner {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 10px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); min-height: 44px; }
+.wordmark__mark { display: inline-flex; gap: 4px; align-items: center; }
+.wordmark__bar { display: block; height: 7px; border-radius: 1px; }
+.wordmark__bar--a { width: 22px; background: var(--ink); }
+.wordmark__bar--b { width: 10px; background: var(--green); }
+.wordmark__name { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; letter-spacing: -0.02em; }
+.wordmark__kanji { font-size: 0.8rem; color: var(--ink-3); letter-spacing: 0.08em; }
+
+.menu-button { display: inline-flex; }
+.site-nav { display: none; width: 100%; padding-bottom: 8px; }
+.site-nav.is-open { display: block; }
+.site-nav ul { list-style: none; display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+.site-nav a {
+  display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: var(--radius);
+  text-decoration: none; font-weight: 400; color: var(--ink-2);
+}
+.site-nav a:hover { background: var(--paper-2); color: var(--ink); }
+.site-nav a.is-active { color: var(--ink); font-weight: 600; box-shadow: inset 3px 0 0 var(--green); background: var(--paper-2); }
+
+@media (min-width: 900px) {
+  .menu-button { display: none; }
+  .site-nav { display: flex; width: auto; align-items: center; gap: 10px; padding: 0; }
+  .site-nav ul { flex-direction: row; margin: 0; }
+  .site-nav a.is-active { box-shadow: inset 0 -3px 0 var(--green); background: transparent; border-radius: 0; }
+  .site-nav a { padding: 0 14px; }
+}
+
+.theme-toggle { gap: 8px; }
+
+/* ---------------------------------------------------------------- run mode banner */
+
+.runmode { background: var(--paper-2); border-top: 1px solid var(--line); }
+.runmode__inner { max-width: var(--page); margin: 0 auto; padding: 8px var(--gutter); display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
+.runmode__title { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); }
+.runmode__chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; flex: 1 1 auto; }
+.runmode__meta { color: var(--ink-3); font-size: 0.75rem; margin-left: auto; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; min-height: 26px;
+  border: 1px solid var(--line-strong); border-radius: 999px; font-size: var(--step--1); line-height: 1.2;
+  background: var(--paper); color: var(--ink-2); white-space: normal;
+}
+.chip-good { border-color: var(--green-line); background: var(--green-soft); color: var(--green); }
+.chip-warn { border-color: var(--line-strong); background: var(--paper); color: var(--ink); border-style: dashed; }
+.chip-bad { border-color: var(--rust-line); background: var(--rust-soft); color: var(--rust); }
+
+/* ---------------------------------------------------------------- case sub-navigation */
+
+.case-nav { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); position: sticky; top: 0; z-index: 40; }
+.case-nav__inner { max-width: var(--page); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; gap: 14px; overflow-x: auto; scrollbar-width: thin; }
+.case-nav__id { color: var(--ink-3); white-space: nowrap; font-size: 0.8rem; }
+.case-nav ul { list-style: none; display: flex; gap: 2px; }
+.case-nav a {
+  display: flex; align-items: center; min-height: 44px; padding: 0 12px; white-space: nowrap;
+  text-decoration: none; color: var(--ink-2); font-size: 0.95rem; border-bottom: 3px solid transparent;
+}
+.case-nav a:hover { color: var(--ink); background: var(--paper-2); }
+.case-nav a.is-active { color: var(--ink); font-weight: 600; border-bottom-color: var(--green); }
+
+/* ---------------------------------------------------------------- page frame */
+
+.main { outline: none; }
+.page { max-width: var(--page); margin: 0 auto; padding: 28px var(--gutter) 72px; display: flex; flex-direction: column; gap: 40px; }
+@media (min-width: 900px) { .page { padding-top: 40px; gap: 48px; } }
+
+.site-footer { border-top: 1px solid var(--line); background: var(--paper-2); }
+.site-footer__inner { max-width: var(--page); margin: 0 auto; padding: 24px var(--gutter) 40px; display: flex; flex-direction: column; gap: 14px; font-size: 0.95rem; color: var(--ink-2); }
+.footer-links { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+
+.page-header { display: flex; flex-direction: column; gap: 10px; }
+.page-header__row { display: flex; gap: 16px 24px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+.page-title:focus { outline: none; }
+.page-title:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+.eyebrow { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--green); max-width: none; display: flex; align-items: center; gap: 10px; }
+.eyebrow::before { content: ""; width: 18px; height: 5px; background: var(--ink); display: inline-block; border-radius: 1px; }
+.lead { color: var(--ink-2); font-size: var(--step-1); max-width: 72ch; }
+.badge-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+.section { display: flex; flex-direction: column; gap: 16px; }
+.section__head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.section__title { font-size: var(--step-2); }
+.section__aside { color: var(--ink-3); font-size: 0.95rem; }
+.subhead { font-size: var(--step-0); font-weight: 600; color: var(--ink); margin-top: 6px; }
+.muted { color: var(--ink-3); }
+
+.two-col { display: grid; gap: 20px 40px; }
+@media (min-width: 900px) { .two-col { grid-template-columns: 1fr 1fr; } }
+.two-col-wide { align-items: start; }
+
+.stat-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 900px) { .stat-row { grid-template-columns: repeat(4, 1fr); } }
+.stat { border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 14px 16px; background: var(--paper); }
+.stat__value { font-family: var(--font-display); font-size: var(--step-3); font-weight: 600; line-height: 1; }
+.stat__label { margin-top: 6px; color: var(--ink-2); }
+.stat__hint { margin-top: 2px; color: var(--ink-3); font-size: var(--step--1); }
+
+/* ---------------------------------------------------------------- landing */
+
+.hero { display: flex; flex-direction: column; gap: 18px; padding-top: 4px; }
+.hero__title { font-size: var(--step-4); line-height: 1.04; letter-spacing: -0.03em; max-width: 18ch; }
+.hero__title:focus { outline: none; }
+.hero__line { display: flex; align-items: center; gap: 10px; height: 14px; }
+.hero__line .redaction-bar { height: 14px; }
+.hero__gap { width: 18px; height: 14px; border-left: 2px solid var(--ink); border-right: 2px solid var(--ink); opacity: 0.5; }
+.hero__rest { flex: 1; max-width: 360px; height: 14px; background: repeating-linear-gradient(90deg, var(--line-strong) 0 6px, transparent 6px 12px); opacity: 0.6; }
+.hero__lead { font-size: var(--step-1); color: var(--ink-2); max-width: 62ch; }
+.hero__tag { font-family: var(--font-display); font-weight: 600; font-size: var(--step-2); color: var(--green); }
+
+.block { display: flex; flex-direction: column; gap: 14px; }
+.block__title { font-size: var(--step-2); }
+.block__lead { color: var(--ink-2); }
+.block-limits { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper-2); }
+
+.strip { border: 1px solid var(--line-strong); border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column; gap: 14px; background: var(--paper); box-shadow: var(--shadow); }
+.strip__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.strip__title { font-size: var(--step-2); }
+.strip__quote { margin: 0; padding: 12px 16px; border-left: 4px solid var(--ink); background: var(--paper-2); border-radius: 0 var(--radius) var(--radius) 0; font-size: var(--step-1); }
+.strip__facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px 20px; margin: 0; }
+.strip__facts dt { font-size: var(--step--1); color: var(--ink-3); }
+.strip__facts dd { margin: 0; font-weight: 600; }
+.strip__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.strip-empty { color: var(--ink-3); }
+
+.exp-grid { list-style: none; display: grid; gap: 16px; }
+@media (min-width: 900px) { .exp-grid { grid-template-columns: repeat(3, 1fr); } }
+.exp-card { border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 8px; background: var(--paper); }
+.exp-card .icon { color: var(--green); }
+.exp-card__who { color: var(--ink-3); font-size: 0.9rem; }
+.exp-card__links { list-style: none; margin-top: auto; padding-top: 8px; }
+.exp-card__links a { display: inline-flex; gap: 6px; align-items: center; font-weight: 600; }
+
+.label-list { list-style: none; display: grid; gap: 12px; }
+@media (min-width: 900px) { .label-list { grid-template-columns: 1fr 1fr; } }
+.limits { padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; max-width: 74ch; }
+.limits li::marker { color: var(--green); }
+
+/* The Menu button only exists below the desktop breakpoint. Specificity beats .btn, which is declared later. */
+@media (min-width: 900px) { .site-header .menu-button { display: none; } }
+.label-list .label-badge { width: 100%; }
+/* Focus is moved to the heading on navigation for screen readers; a ring there is noise for everyone else. */
+.page-title:focus, .page-title:focus-visible, .hero__title:focus-visible { outline: none; box-shadow: none; }
+
+/* Flex items default to min-width:auto, which lets one wide table stretch the whole page. Contain them. */
+.page > *, .section, .table-wrap { min-width: 0; max-width: 100%; }
