@@ -35,6 +35,8 @@ import {
   type TraceEvent,
 } from "./contract.ts";
 import { mapError } from "./errors.ts";
+import { UslResponseSchema } from "./contract.ts";
+import { UslService } from "../service/usl.ts";
 import { PortError } from "../ports/index.ts";
 import type { SakaimeService } from "../service/service.ts";
 
@@ -47,6 +49,8 @@ export interface AppOptions {
   maxDossierBytes?: number;
   /** Host names accepted in the Host header. */
   allowedHosts?: string[];
+  /** Replace the semantic-layer service (tests). */
+  usl?: UslService;
 }
 
 const LinkDecisionSchema = z.object({
@@ -187,6 +191,22 @@ export function createApp(svc: SakaimeService, options: AppOptions = {}): Hono {
         await stream.writeSSE({ event: "error", data: JSON.stringify(m.body) });
       }
     });
+  });
+
+  // ------------------------------------------------------------ the semantic layer
+
+  // The Zetaris Unified Semantic Layer, read as the read-only agent identity (or replayed from recordings in sample mode). A rule that
+  // fails is part of a 200 answer; an engine that cannot be asked is a 503. caseId takes the product case id or the hospital case id.
+  const usl = options.usl ?? new UslService(svc.config);
+  app.get("/api/usl", async (c) => {
+    const given = c.req.query("caseId");
+    let request: Parameters<UslService["snapshot"]>[0] = {};
+    if (given !== undefined) {
+      if (!/^[A-Za-z0-9._-]{1,80}$/.test(given)) throw new PortError("INVALID", "caseId must be 1 to 80 letters, digits, dot, dash or underscore", { reason: "BAD_CASE_ID" });
+      const known = svc.cases.find((x) => x.spec.id === given || x.spec.hospital.caseId === given);
+      request = known ? UslService.requestFor(known.spec) : { caseId: given };
+    }
+    return ok(c, UslResponseSchema, await usl.snapshot(request));
   });
 
   // ------------------------------------------------------------ the built web app

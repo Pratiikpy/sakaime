@@ -1,0 +1,159 @@
+{
+  "format": "sakaime.usl-cassette/1",
+  "scope": "case:CASE-2026-014",
+  "recordedAt": "2026-10-27T15:36:13.595Z",
+  "readerIdentity": "agent-reader",
+  "layer": "lightning.metastore.sakaime.review_semantics",
+  "structureHash": "aa9563798e2497ab43b1b80c05963c731320dae93cf3f884d3d06ef8f359049b",
+  "steps": [
+    {
+      "key": "70b0cee04bda2ac00ffa55f36bc51e956faf64b2e54d3444b574b2fcd83ac456",
+      "statement": "SELECT case_id, product_name, intended_setting, intended_purpose, intended_age_min_years FROM lightning.metastore.sakaime.review_semantics.review_case WHERE case_id = 'CASE-2026-014'",
+      "identity": "agent-reader",
+      "columns": [
+        "case_id",
+        "product_name",
+        "intended_setting",
+        "intended_purpose",
+        "intended_age_min_years"
+      ],
+      "rawRows": [
+        [
+          "CASE-2026-014",
+          "EyeArt",
+          "primary_care",
+          "detection_aid",
+          "18"
+        ]
+      ],
+      "total": 1,
+      "queryId": "534523c0-41cf-429d-906f-bb786e741ff8",
+      "recordedElapsedMs": 710,
+      "respHash": "fa0a5921e1c7582453768b703fa96e6849621c000fedcae6f7d806b99e06872d"
+    },
+    {
+      "key": "840951dae7030b77f3cc01053acffd9c9a1a6afb7036018f03ea710976150f64",
+      "statement": "SELECT d.kind, d.term, d.canonical_term, d.is_alias, d.label, d.broader_term, d.ancestry, d.depth, d.definition, d.unit, d.value_min, d.value_max, d.prevalence_dependent, d.origin FROM lightning.metastore.sakaime.review_semantics.review_case c JOIN lightning.metastore.sakaime.review_semantics.term_definition a ON a.kind = 'setting' AND a.term = c.intended_setting JOIN lightning.metastore.sakaime.review_semantics.term_definition d ON d.kind = 'setting' AND d.is_alias = FALSE AND instr(concat('|', a.ancestry, '|'), concat('|', d.term, '|')) > 0 WHERE c.case_id = 'CASE-2026-014' UNION ALL SELECT d.kind, d.term, d.canonical_term, d.is_alias, d.label, d.broader_term, d.ancestry, d.depth, d.definition, d.unit, d.value_min, d.value_max, d.prevalence_dependent, d.origin FROM lightning.metastore.sakaime.review_semantics.review_case c JOIN lightning.metastore.sakaime.review_semantics.term_definition a ON a.kind = 'purpose' AND a.term = c.intended_purpose JOIN lightning.metastore.sakaime.review_semantics.term_definition d ON d.kind = 'purpose' AND d.is_alias = FALSE AND instr(concat('|', a.ancestry, '|'), concat('|', d.term, '|')) > 0 WHERE c.case_id = 'CASE-2026-014' UNION ALL SELECT d.kind, d.term, d.canonical_term, d.is_alias, d.label, d.broader_term, d.ancestry, d.depth, d.definition, d.unit, d.value_min, d.value_max, d.prevalence_dependent, d.origin FROM lightning.metastore.sakaime.review_semantics.term_definition d WHERE d.kind = 'metric' AND d.is_alias = FALSE AND d.term IN ('sensitivity') ORDER BY kind, depth, term",
+      "identity": "agent-reader",
+      "columns": [
+        "kind",
+        "term",
+        "canonical_term",
+        "is_alias",
+        "label",
+        "broader_term",
+        "ancestry",
+        "depth",
+        "definition",
+        "unit",
+        "value_min",
+        "value_max",
+        "prevalence_dependent",
+        "origin"
+      ],
+      "rawRows": [
+        [
+          "metric",
+          "sensitivity",
+          "sensitivity",
+          "false",
+          "sensitivity (true positive rate)",
+          null,
+          "",
+          "0",
+          "Share of people who have the target condition that the product flags, as a proportion from 0 to 1, so 0.85 means 85 percent. Recall and true positive rate are the same quantity.",
+          "proportion",
+          "0.00",
+          "1.00",
+          "false",
+          "metric-table@1"
+        ],
+        [
+          "purpose",
+          "diagnosis",
+          "diagnosis",
+          "false",
+          "diagnosis",
+          null,
+          "diagnosis",
+          "0",
+          "diagnosis. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the purposes inside it (detection aid, triage notification).",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "detection_aid",
+          "detection_aid",
+          "false",
+          "detection aid",
+          "diagnosis",
+          "diagnosis|detection_aid",
+          "1",
+          "detection aid. Sits inside diagnosis. Evidence established for it covers a claim for it and for the purposes inside it (triage notification). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "setting",
+          "any_care_setting",
+          "any_care_setting",
+          "false",
+          "any care setting",
+          null,
+          "any_care_setting",
+          "0",
+          "any care setting. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the settings inside it (hospital (any unit), emergency department, inpatient ward, intensive care unit, outpatient care (any clinic), primary care, urgent care, specialty clinic, eye care, imaging centre, home or remote care).",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "outpatient_care",
+          "outpatient_care",
+          "false",
+          "outpatient care (any clinic)",
+          "any_care_setting",
+          "any_care_setting|outpatient_care",
+          "1",
+          "outpatient care (any clinic). Sits inside any care setting. Evidence established for it covers a claim for it and for the settings inside it (primary care, urgent care, specialty clinic, eye care, imaging centre). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "primary_care",
+          "primary_care",
+          "false",
+          "primary care",
+          "outpatient_care",
+          "any_care_setting|outpatient_care|primary_care",
+          "2",
+          "primary care. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ]
+      ],
+      "total": 6,
+      "queryId": "4ecb9e0f-f2be-4436-adaa-10da431ce405",
+      "recordedElapsedMs": 3922,
+      "respHash": "cee179423e7439851ea5b70d05920c1849e88dd0bc915dc2b895bb3d2e2debe7"
+    }
+  ],
+  "stepsHash": "a55ecc4e4d09920b8ba5b89914e481d943315da0956e6d82fc809262caa71d8e"
+}

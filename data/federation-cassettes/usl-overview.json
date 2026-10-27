@@ -1,0 +1,870 @@
+{
+  "format": "sakaime.usl-cassette/1",
+  "scope": "overview",
+  "recordedAt": "2026-10-27T15:36:03.030Z",
+  "readerIdentity": "agent-reader",
+  "layer": "lightning.metastore.sakaime.review_semantics",
+  "structureHash": "aa9563798e2497ab43b1b80c05963c731320dae93cf3f884d3d06ef8f359049b",
+  "steps": [
+    {
+      "key": "e434c3e0614534039710a7042339434e59d4fdd852261056a82b2fca031d10b4",
+      "statement": "LOAD USL review_semantics NAMESPACE lightning.metastore.sakaime",
+      "identity": "agent-reader",
+      "columns": [
+        "json"
+      ],
+      "rawRows": [
+        [
+          "{\"namespace\":[\"metastore\",\"sakaime\"],\"name\":\"review_semantics\",\"tables\":[{\"name\":\"registered_study\",\"columnSpecs\":[{\"name\":\"study_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"ClinicalTrials.gov identifier, for example NCT03112005\"},{\"name\":\"title\",\"dataType\":\"\\\"varchar(500)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Brief title\"},{\"name\":\"status\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Overall status as the registry reports it\"},{\"name\":\"study_started\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Start date as written. Partial dates such as 2005-05 stay text\"},{\"name\":\"study_enrolled\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Participants enrolled, as the registry reports the count\"},{\"name\":\"study_enrolled_age_min_years\",\"dataType\":\"\\\"decimal(6,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Youngest age the eligibility criteria admit, in years. Empty when the record has no eligibility block. Empty is unknown, never zero\"},{\"name\":\"record_kind\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"full_record, or search_summary when the record came from a search result and carries no eligibility block\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[{\"name\":\"study_has_eligibility\",\"expression\":\"study_enrolled_age_min_years IS NOT NULL\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(t.nct_id, '') AS VARCHAR(20)) AS study_id, CAST(t.brief_title AS VARCHAR(500)) AS title, CAST(t.overall_status AS VARCHAR(40)) AS status, CAST(t.start_date AS VARCHAR(20)) AS study_started, CAST(t.enrollment_count AS INT) AS study_enrolled, CAST(t.minimum_age_years AS DECIMAL(6,2)) AS study_enrolled_age_min_years, CAST(t.record_kind AS VARCHAR(20)) AS record_kind FROM sk_registry.ctgov_studies t\",\"description\":\"Clinical studies from the ClinicalTrials.gov snapshot, one row per registered study\"},{\"name\":\"hospital_requirement\",\"columnSpecs\":[{\"name\":\"requirement_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Requirement identifier\"},{\"name\":\"applies_to_purpose\",\"dataType\":\"\\\"varchar(60)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Intended purpose the requirement applies to\"},{\"name\":\"dimension\",\"dataType\":\"\\\"varchar(60)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"What is required, for example validation_type or population_min_age\"},{\"name\":\"comparator\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"How the value is compared, for example equals or at_most\"},{\"name\":\"required_value\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"The value compared against\"},{\"name\":\"policy_ref\",\"dataType\":\"\\\"varchar(60)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Policy the requirement comes from\"},{\"name\":\"policy_version\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Version of that policy\"},{\"name\":\"effective_on\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Date the requirement took effect\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(r.requirement_id, '') AS VARCHAR(20)) AS requirement_id, CAST(r.applies_to_purpose AS VARCHAR(60)) AS applies_to_purpose, CAST(r.dimension AS VARCHAR(60)) AS dimension, CAST(r.comparator AS VARCHAR(20)) AS comparator, CAST(r.required_value AS VARCHAR(100)) AS required_value, CAST(r.policy_ref AS VARCHAR(60)) AS policy_ref, CAST(r.policy_version AS VARCHAR(20)) AS policy_version, CAST(r.effective_date AS DATE) AS effective_on FROM hospital.requirements r\",\"description\":\"What the hospital asks of a product for an intended purpose, one row per requirement. Constructed data\"},{\"name\":\"confirmed_evidence_link\",\"columnSpecs\":[{\"name\":\"link_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Link identifier\"},{\"name\":\"case_id\",\"dataType\":\"\\\"varchar(30)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Case the link belongs to\"},{\"name\":\"left_type\",\"dataType\":\"\\\"varchar(30)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Kind of record on the left, for example fda_submission\"},{\"name\":\"left_id\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Identifier of the left record\"},{\"name\":\"right_type\",\"dataType\":\"\\\"varchar(30)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Kind of record on the right, for example ctgov_study\"},{\"name\":\"right_id\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Identifier of the right record\"},{\"name\":\"link_class\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"CONFIRMED when a reviewer confirmed it, otherwise a candidate class\"},{\"name\":\"confirmed_on\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Date the reviewer decided\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(l.link_id, '') AS VARCHAR(20)) AS link_id, CAST(l.case_id AS VARCHAR(30)) AS case_id, CAST(l.left_type AS VARCHAR(30)) AS left_type, CAST(l.left_id AS VARCHAR(40)) AS left_id, CAST(l.right_type AS VARCHAR(30)) AS right_type, CAST(l.right_id AS VARCHAR(40)) AS right_id, CAST(l.link_class AS VARCHAR(20)) AS link_class, CAST(l.confirmed_on AS DATE) AS confirmed_on FROM hospital.evidence_links l\",\"description\":\"Links a reviewer made between a case and a public record, with the class the reviewer gave them\"},{\"name\":\"term_definition\",\"columnSpecs\":[{\"name\":\"term_id\",\"dataType\":\"\\\"varchar(100)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Kind and word, joined by a colon\"},{\"name\":\"kind\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"setting, purpose, metric or population\"},{\"name\":\"term\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"The word as a source writes it\"},{\"name\":\"canonical_term\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"The node or metric the compiler reads that word as\"},{\"name\":\"is_alias\",\"dataType\":\"\\\"boolean\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"True when the word is a spelling of another term\"},{\"name\":\"label\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Plain label\"},{\"name\":\"broader_term\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"The next broader term, for settings and purposes\"},{\"name\":\"ancestry\",\"dataType\":\"\\\"varchar(400)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Path from the broadest term to this one, separated by a vertical bar\"},{\"name\":\"depth\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Steps below the broadest term. 0 is the broadest\"},{\"name\":\"definition\",\"dataType\":\"\\\"varchar(1200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"What the term means and what evidence established for it covers\"},{\"name\":\"unit\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"proportion for a rate from 0 to 1, years for an age\"},{\"name\":\"value_min\",\"dataType\":\"\\\"decimal(4,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Lowest value the unit allows\"},{\"name\":\"value_max\",\"dataType\":\"\\\"decimal(4,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Highest value the unit allows\"},{\"name\":\"prevalence_dependent\",\"dataType\":\"\\\"boolean\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"True when the value changes with how common the condition is in the people tested\"},{\"name\":\"origin\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Where the row comes from, taxonomy and version\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[{\"name\":\"metric_proportion_bounds\",\"expression\":\"unit IS NULL OR unit <> 'proportion' OR (value_min IS NOT NULL AND value_max IS NOT NULL AND value_min >= 0 AND value_max <= 1)\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(concat(t.kind, ':', t.term), '') AS VARCHAR(100)) AS term_id, CAST(t.kind AS VARCHAR(20)) AS kind, CAST(t.term AS VARCHAR(100)) AS term, CAST(t.canonical_term AS VARCHAR(100)) AS canonical_term, CAST(t.is_alias AS BOOLEAN) AS is_alias, CAST(t.label AS VARCHAR(200)) AS label, CAST(t.broader_term AS VARCHAR(100)) AS broader_term, CAST(t.ancestry AS VARCHAR(400)) AS ancestry, CAST(t.depth AS INT) AS depth, CAST(t.definition AS VARCHAR(1200)) AS definition, CAST(t.unit AS VARCHAR(20)) AS unit, CAST(t.value_min AS DECIMAL(4,2)) AS value_min, CAST(t.value_max AS DECIMAL(4,2)) AS value_max, CAST(t.prevalence_dependent AS BOOLEAN) AS prevalence_dependent, CAST(t.origin AS VARCHAR(100)) AS origin FROM (VALUES ('setting', 'any_care_setting', 'any_care_setting', CAST(FALSE AS BOOLEAN), 'any care setting', CAST(NULL AS STRING), 'any_care_setting', CAST(0 AS INT), 'any care setting. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the settings inside it (hospital (any unit), emergency department, inpatient ward, intensive care unit, outpatient care (any clinic), primary care, urgent care, specialty clinic, eye care, imaging centre, home or remote care).', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'emergency_department', 'emergency_department', CAST(FALSE AS BOOLEAN), 'emergency department', 'hospital', 'any_care_setting|hospital|emergency_department', CAST(2 AS INT), 'emergency department. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'eye_care', 'eye_care', CAST(FALSE AS BOOLEAN), 'eye care', 'specialty_clinic', 'any_care_setting|outpatient_care|specialty_clinic|eye_care', CAST(3 AS INT), 'eye care. Sits inside specialty clinic, outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'home_or_remote', 'home_or_remote', CAST(FALSE AS BOOLEAN), 'home or remote care', 'any_care_setting', 'any_care_setting|home_or_remote', CAST(1 AS INT), 'home or remote care. Sits inside any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for the broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'hospital', 'hospital', CAST(FALSE AS BOOLEAN), 'hospital (any unit)', 'any_care_setting', 'any_care_setting|hospital', CAST(1 AS INT), 'hospital (any unit). Sits inside any care setting. Evidence established for it covers a claim for it and for the settings inside it (emergency department, inpatient ward, intensive care unit). It does not cover a claim for the broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'imaging_centre', 'imaging_centre', CAST(FALSE AS BOOLEAN), 'imaging centre', 'outpatient_care', 'any_care_setting|outpatient_care|imaging_centre', CAST(2 AS INT), 'imaging centre. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'inpatient_ward', 'inpatient_ward', CAST(FALSE AS BOOLEAN), 'inpatient ward', 'hospital', 'any_care_setting|hospital|inpatient_ward', CAST(2 AS INT), 'inpatient ward. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'intensive_care_unit', 'intensive_care_unit', CAST(FALSE AS BOOLEAN), 'intensive care unit', 'hospital', 'any_care_setting|hospital|intensive_care_unit', CAST(2 AS INT), 'intensive care unit. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'outpatient_care', 'outpatient_care', CAST(FALSE AS BOOLEAN), 'outpatient care (any clinic)', 'any_care_setting', 'any_care_setting|outpatient_care', CAST(1 AS INT), 'outpatient care (any clinic). Sits inside any care setting. Evidence established for it covers a claim for it and for the settings inside it (primary care, urgent care, specialty clinic, eye care, imaging centre). It does not cover a claim for the broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'primary_care', 'primary_care', CAST(FALSE AS BOOLEAN), 'primary care', 'outpatient_care', 'any_care_setting|outpatient_care|primary_care', CAST(2 AS INT), 'primary care. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'specialty_clinic', 'specialty_clinic', CAST(FALSE AS BOOLEAN), 'specialty clinic', 'outpatient_care', 'any_care_setting|outpatient_care|specialty_clinic', CAST(2 AS INT), 'specialty clinic. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it and for the settings inside it (eye care). It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'urgent_care', 'urgent_care', CAST(FALSE AS BOOLEAN), 'urgent care', 'outpatient_care', 'any_care_setting|outpatient_care|urgent_care', CAST(2 AS INT), 'urgent care. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'acute_setting', 'hospital', CAST(TRUE AS BOOLEAN), 'hospital (any unit)', 'any_care_setting', 'any_care_setting|hospital', CAST(1 AS INT), 'A word sources use for hospital (any unit). The taxonomy sakaime-settings@1+bridge1 reads it as hospital.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'all_settings', 'any_care_setting', CAST(TRUE AS BOOLEAN), 'any care setting', CAST(NULL AS STRING), 'any_care_setting', CAST(0 AS INT), 'A word sources use for any care setting. The taxonomy sakaime-settings@1+bridge1 reads it as any_care_setting.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'any', 'any_care_setting', CAST(TRUE AS BOOLEAN), 'any care setting', CAST(NULL AS STRING), 'any_care_setting', CAST(0 AS INT), 'A word sources use for any care setting. The taxonomy sakaime-settings@1+bridge1 reads it as any_care_setting.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'any_setting', 'any_care_setting', CAST(TRUE AS BOOLEAN), 'any care setting', CAST(NULL AS STRING), 'any_care_setting', CAST(0 AS INT), 'A word sources use for any care setting. The taxonomy sakaime-settings@1+bridge1 reads it as any_care_setting.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'breast_screening_clinic', 'specialty_clinic', CAST(TRUE AS BOOLEAN), 'specialty clinic', 'outpatient_care', 'any_care_setting|outpatient_care|specialty_clinic', CAST(2 AS INT), 'A word sources use for specialty clinic. The taxonomy sakaime-settings@1+bridge1 reads it as specialty_clinic.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'clinic', 'outpatient_care', CAST(TRUE AS BOOLEAN), 'outpatient care (any clinic)', 'any_care_setting', 'any_care_setting|outpatient_care', CAST(1 AS INT), 'A word sources use for outpatient care (any clinic). The taxonomy sakaime-settings@1+bridge1 reads it as outpatient_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'ed', 'emergency_department', CAST(TRUE AS BOOLEAN), 'emergency department', 'hospital', 'any_care_setting|hospital|emergency_department', CAST(2 AS INT), 'A word sources use for emergency department. The taxonomy sakaime-settings@1+bridge1 reads it as emergency_department.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'emergency', 'emergency_department', CAST(TRUE AS BOOLEAN), 'emergency department', 'hospital', 'any_care_setting|hospital|emergency_department', CAST(2 AS INT), 'A word sources use for emergency department. The taxonomy sakaime-settings@1+bridge1 reads it as emergency_department.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'emergency_room', 'emergency_department', CAST(TRUE AS BOOLEAN), 'emergency department', 'hospital', 'any_care_setting|hospital|emergency_department', CAST(2 AS INT), 'A word sources use for emergency department. The taxonomy sakaime-settings@1+bridge1 reads it as emergency_department.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'er', 'emergency_department', CAST(TRUE AS BOOLEAN), 'emergency department', 'hospital', 'any_care_setting|hospital|emergency_department', CAST(2 AS INT), 'A word sources use for emergency department. The taxonomy sakaime-settings@1+bridge1 reads it as emergency_department.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'eye_clinic', 'eye_care', CAST(TRUE AS BOOLEAN), 'eye care', 'specialty_clinic', 'any_care_setting|outpatient_care|specialty_clinic|eye_care', CAST(3 AS INT), 'A word sources use for eye care. The taxonomy sakaime-settings@1+bridge1 reads it as eye_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'gp', 'primary_care', CAST(TRUE AS BOOLEAN), 'primary care', 'outpatient_care', 'any_care_setting|outpatient_care|primary_care', CAST(2 AS INT), 'A word sources use for primary care. The taxonomy sakaime-settings@1+bridge1 reads it as primary_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'healthcare_facility', 'any_care_setting', CAST(TRUE AS BOOLEAN), 'any care setting', CAST(NULL AS STRING), 'any_care_setting', CAST(0 AS INT), 'A word sources use for any care setting. The taxonomy sakaime-settings@1+bridge1 reads it as any_care_setting.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'hospital_network', 'hospital', CAST(TRUE AS BOOLEAN), 'hospital (any unit)', 'any_care_setting', 'any_care_setting|hospital', CAST(1 AS INT), 'A word sources use for hospital (any unit). The taxonomy sakaime-settings@1+bridge1 reads it as hospital.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'icu', 'intensive_care_unit', CAST(TRUE AS BOOLEAN), 'intensive care unit', 'hospital', 'any_care_setting|hospital|intensive_care_unit', CAST(2 AS INT), 'A word sources use for intensive care unit. The taxonomy sakaime-settings@1+bridge1 reads it as intensive_care_unit.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'inpatient', 'inpatient_ward', CAST(TRUE AS BOOLEAN), 'inpatient ward', 'hospital', 'any_care_setting|hospital|inpatient_ward', CAST(2 AS INT), 'A word sources use for inpatient ward. The taxonomy sakaime-settings@1+bridge1 reads it as inpatient_ward.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'intensive_care', 'intensive_care_unit', CAST(TRUE AS BOOLEAN), 'intensive care unit', 'hospital', 'any_care_setting|hospital|intensive_care_unit', CAST(2 AS INT), 'A word sources use for intensive care unit. The taxonomy sakaime-settings@1+bridge1 reads it as intensive_care_unit.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'ophthalmology', 'eye_care', CAST(TRUE AS BOOLEAN), 'eye care', 'specialty_clinic', 'any_care_setting|outpatient_care|specialty_clinic|eye_care', CAST(3 AS INT), 'A word sources use for eye care. The taxonomy sakaime-settings@1+bridge1 reads it as eye_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'ophthalmology_clinic', 'eye_care', CAST(TRUE AS BOOLEAN), 'eye care', 'specialty_clinic', 'any_care_setting|outpatient_care|specialty_clinic|eye_care', CAST(3 AS INT), 'A word sources use for eye care. The taxonomy sakaime-settings@1+bridge1 reads it as eye_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'outpatient', 'outpatient_care', CAST(TRUE AS BOOLEAN), 'outpatient care (any clinic)', 'any_care_setting', 'any_care_setting|outpatient_care', CAST(1 AS INT), 'A word sources use for outpatient care (any clinic). The taxonomy sakaime-settings@1+bridge1 reads it as outpatient_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'primary', 'primary_care', CAST(TRUE AS BOOLEAN), 'primary care', 'outpatient_care', 'any_care_setting|outpatient_care|primary_care', CAST(2 AS INT), 'A word sources use for primary care. The taxonomy sakaime-settings@1+bridge1 reads it as primary_care.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('setting', 'ward', 'inpatient_ward', CAST(TRUE AS BOOLEAN), 'inpatient ward', 'hospital', 'any_care_setting|hospital|inpatient_ward', CAST(2 AS INT), 'A word sources use for inpatient ward. The taxonomy sakaime-settings@1+bridge1 reads it as inpatient_ward.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-settings@1+bridge1'), ('purpose', 'acquisition_guidance', 'acquisition_guidance', CAST(FALSE AS BOOLEAN), 'image acquisition guidance', CAST(NULL AS STRING), 'acquisition_guidance', CAST(0 AS INT), 'image acquisition guidance. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'detection_aid', 'detection_aid', CAST(FALSE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'detection aid. Sits inside diagnosis. Evidence established for it covers a claim for it and for the purposes inside it (triage notification). It does not cover a claim for the broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'diagnosis', 'diagnosis', CAST(FALSE AS BOOLEAN), 'diagnosis', CAST(NULL AS STRING), 'diagnosis', CAST(0 AS INT), 'diagnosis. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the purposes inside it (detection aid, triage notification).', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'monitoring', 'monitoring', CAST(FALSE AS BOOLEAN), 'monitoring', CAST(NULL AS STRING), 'monitoring', CAST(0 AS INT), 'monitoring. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'prognosis', 'prognosis', CAST(FALSE AS BOOLEAN), 'prognosis or risk prediction', CAST(NULL AS STRING), 'prognosis', CAST(0 AS INT), 'prognosis or risk prediction. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'screening', 'screening', CAST(FALSE AS BOOLEAN), 'screening of an unselected population', CAST(NULL AS STRING), 'screening', CAST(0 AS INT), 'screening of an unselected population. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'treatment_planning', 'treatment_planning', CAST(FALSE AS BOOLEAN), 'treatment planning', CAST(NULL AS STRING), 'treatment_planning', CAST(0 AS INT), 'treatment planning. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'triage_notification', 'triage_notification', CAST(FALSE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'triage notification. Sits inside detection aid, diagnosis. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'cad', 'detection_aid', CAST(TRUE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'A word sources use for detection aid. The taxonomy sakaime-purposes@1+bridge1 reads it as detection_aid.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'cade', 'detection_aid', CAST(TRUE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'A word sources use for detection aid. The taxonomy sakaime-purposes@1+bridge1 reads it as detection_aid.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'computer_aided_detection', 'detection_aid', CAST(TRUE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'A word sources use for detection aid. The taxonomy sakaime-purposes@1+bridge1 reads it as detection_aid.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'concurrent_reading_aid', 'detection_aid', CAST(TRUE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'A word sources use for detection aid. The taxonomy sakaime-purposes@1+bridge1 reads it as detection_aid.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'detection', 'detection_aid', CAST(TRUE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'A word sources use for detection aid. The taxonomy sakaime-purposes@1+bridge1 reads it as detection_aid.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'diagnostic', 'diagnosis', CAST(TRUE AS BOOLEAN), 'diagnosis', CAST(NULL AS STRING), 'diagnosis', CAST(0 AS INT), 'A word sources use for diagnosis. The taxonomy sakaime-purposes@1+bridge1 reads it as diagnosis.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'notification', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'prioritisation', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'prioritization', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'risk_prediction', 'prognosis', CAST(TRUE AS BOOLEAN), 'prognosis or risk prediction', CAST(NULL AS STRING), 'prognosis', CAST(0 AS INT), 'A word sources use for prognosis or risk prediction. The taxonomy sakaime-purposes@1+bridge1 reads it as prognosis.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'screening_concurrent_reading_aid', 'detection_aid', CAST(TRUE AS BOOLEAN), 'detection aid', 'diagnosis', 'diagnosis|detection_aid', CAST(1 AS INT), 'A word sources use for detection aid. The taxonomy sakaime-purposes@1+bridge1 reads it as detection_aid.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'triage', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'triage_prioritisation', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'triage_prioritization', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('purpose', 'triage_prioritization_notification', 'triage_notification', CAST(TRUE AS BOOLEAN), 'triage notification', 'detection_aid', 'diagnosis|detection_aid|triage_notification', CAST(2 AS INT), 'A word sources use for triage notification. The taxonomy sakaime-purposes@1+bridge1 reads it as triage_notification.', CAST(NULL AS STRING), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'sakaime-purposes@1+bridge1'), ('metric', 'auc', 'auc', CAST(FALSE AS BOOLEAN), 'area under the ROC curve', CAST(NULL AS STRING), '', CAST(0 AS INT), 'Area under the receiver operating characteristic curve, from 0 to 1, where 0.5 is no better than chance. It summarises every threshold, so it does not state the operating point a product runs at.', 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'npv', 'npv', CAST(FALSE AS BOOLEAN), 'negative predictive value', CAST(NULL AS STRING), '', CAST(0 AS INT), 'Share of unflagged people who do not have the target condition, as a proportion from 0 to 1. It depends on how common the condition is in the people tested, so a value measured in one population does not carry to a population with another prevalence.', 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(TRUE AS BOOLEAN), 'metric-table@1'), ('metric', 'ppv', 'ppv', CAST(FALSE AS BOOLEAN), 'positive predictive value', CAST(NULL AS STRING), '', CAST(0 AS INT), 'Share of flagged people who have the target condition, as a proportion from 0 to 1. It depends on how common the condition is in the people tested, so a value measured in one population does not carry to a population with another prevalence.', 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(TRUE AS BOOLEAN), 'metric-table@1'), ('metric', 'sensitivity', 'sensitivity', CAST(FALSE AS BOOLEAN), 'sensitivity (true positive rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), 'Share of people who have the target condition that the product flags, as a proportion from 0 to 1, so 0.85 means 85 percent. Recall and true positive rate are the same quantity.', 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'specificity', 'specificity', CAST(FALSE AS BOOLEAN), 'specificity (true negative rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), 'Share of people without the target condition that the product leaves unflagged, as a proportion from 0 to 1. True negative rate is the same quantity.', 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'area_under_roc_curve', 'auc', CAST(TRUE AS BOOLEAN), 'area under the ROC curve', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for auc. The compiler' || chr(39) || 's metric table reads it as auc.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'area_under_the_curve', 'auc', CAST(TRUE AS BOOLEAN), 'area under the ROC curve', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for auc. The compiler' || chr(39) || 's metric table reads it as auc.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'auroc', 'auc', CAST(TRUE AS BOOLEAN), 'area under the ROC curve', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for auc. The compiler' || chr(39) || 's metric table reads it as auc.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'negative_predictive_value', 'npv', CAST(TRUE AS BOOLEAN), 'negative predictive value', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for npv. The compiler' || chr(39) || 's metric table reads it as npv.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(TRUE AS BOOLEAN), 'metric-table@1'), ('metric', 'positive_predictive_value', 'ppv', CAST(TRUE AS BOOLEAN), 'positive predictive value', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for ppv. The compiler' || chr(39) || 's metric table reads it as ppv.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(TRUE AS BOOLEAN), 'metric-table@1'), ('metric', 'precision', 'ppv', CAST(TRUE AS BOOLEAN), 'positive predictive value', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for ppv. The compiler' || chr(39) || 's metric table reads it as ppv.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(TRUE AS BOOLEAN), 'metric-table@1'), ('metric', 'recall', 'sensitivity', CAST(TRUE AS BOOLEAN), 'sensitivity (true positive rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for sensitivity. The compiler' || chr(39) || 's metric table reads it as sensitivity.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'roc_auc', 'auc', CAST(TRUE AS BOOLEAN), 'area under the ROC curve', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for auc. The compiler' || chr(39) || 's metric table reads it as auc.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'tnr', 'specificity', CAST(TRUE AS BOOLEAN), 'specificity (true negative rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for specificity. The compiler' || chr(39) || 's metric table reads it as specificity.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'tpr', 'sensitivity', CAST(TRUE AS BOOLEAN), 'sensitivity (true positive rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for sensitivity. The compiler' || chr(39) || 's metric table reads it as sensitivity.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'true_negative_rate', 'specificity', CAST(TRUE AS BOOLEAN), 'specificity (true negative rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for specificity. The compiler' || chr(39) || 's metric table reads it as specificity.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('metric', 'true_positive_rate', 'sensitivity', CAST(TRUE AS BOOLEAN), 'sensitivity (true positive rate)', CAST(NULL AS STRING), '', CAST(0 AS INT), ('A name sources use for sensitivity. The compiler' || chr(39) || 's metric table reads it as sensitivity.'), 'proportion', CAST(0 AS DECIMAL(4,2)), CAST(1 AS DECIMAL(4,2)), CAST(FALSE AS BOOLEAN), 'metric-table@1'), ('population', 'adult', 'adult', CAST(FALSE AS BOOLEAN), 'adult', CAST(NULL AS STRING), '', CAST(0 AS INT), 'A word, not an age. Sources define it differently, so this layer holds no number for it. Compare the lower age bound each source states: study_enrolled_age_min_years for a study, claimed_age_min_years for a vendor claim, intended_age_min_years for a hospital case. A bound that is not stated is unknown and is never read as zero or as everyone.', 'years', CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS DECIMAL(4,2)), CAST(NULL AS BOOLEAN), 'scope-schema')) AS t(kind, term, canonical_term, is_alias, label, broader_term, ancestry, depth, definition, unit, value_min, value_max, prevalence_dependent, origin)\",\"description\":\"The words the compiler reasons with, care settings and intended purposes and metrics, with where each sits and what it means\"},{\"name\":\"device_authorization\",\"columnSpecs\":[{\"name\":\"authorization_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"FDA premarket number, for example K200667\"},{\"name\":\"applicant_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Company that applied, as FDA spells it\"},{\"name\":\"device_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Device name in the FDA record\"},{\"name\":\"product_code\",\"dataType\":\"\\\"varchar(10)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"FDA product code\"},{\"name\":\"authorized_on\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Date FDA made the decision\"},{\"name\":\"authorization_pathway\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Pathway as openFDA names it, for example Traditional or Direct\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(k.k_number, '') AS VARCHAR(20)) AS authorization_id, CAST(k.applicant AS VARCHAR(200)) AS applicant_name, CAST(k.device_name AS VARCHAR(200)) AS device_name, CAST(k.product_code AS VARCHAR(10)) AS product_code, CAST(k.decision_date AS DATE) AS authorized_on, CAST(k.clearance_type AS VARCHAR(40)) AS authorization_pathway FROM sk_registry.fda_510k k\",\"description\":\"FDA premarket decisions for devices, one row per authorization, as openFDA lists them\"},{\"name\":\"device_version_record\",\"columnSpecs\":[{\"name\":\"device_record_key\",\"dataType\":\"\\\"varchar(64)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Public device record key from the FDA device identifier database\"},{\"name\":\"authorization_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.sakaime.review_semantics.device_authorization\"],\"refColumns\":[\"authorization_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Authorization the record is filed under\"},{\"name\":\"brand_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Brand name on the record\"},{\"name\":\"listed_version\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Version or model number the record lists. A claim about another version is not covered by this record\"},{\"name\":\"version_published_on\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Date this version of the record was published\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[{\"name\":\"version_is_listed\",\"expression\":\"listed_version IS NOT NULL AND listed_version <> ''\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(u.public_device_record_key, '') AS VARCHAR(64)) AS device_record_key, CAST(u.submission_number AS VARCHAR(20)) AS authorization_id, CAST(u.brand_name AS VARCHAR(200)) AS brand_name, CAST(u.version_or_model_number AS VARCHAR(100)) AS listed_version, CAST(u.public_version_date AS DATE) AS version_published_on FROM sk_registry.fda_udi u\",\"description\":\"Software versions FDA lists for an authorization, one row per public device record\"},{\"name\":\"vendor_claim\",\"columnSpecs\":[{\"name\":\"claim_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Claim identifier in the packet\"},{\"name\":\"packet_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Packet the claim sits in\"},{\"name\":\"cited_authorization\",\"dataType\":\"\\\"varchar(20)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.sakaime.review_semantics.device_authorization\"],\"refColumns\":[\"authorization_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"FDA premarket number the claim cites\"},{\"name\":\"claimed_version\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Software version the claim is about\"},{\"name\":\"claimed_age_min_years\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Lowest age in years the claim covers. 0 means the claim names no lower bound\"},{\"name\":\"claimed_setting\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Care setting or settings the claim covers, separated by a vertical bar\"},{\"name\":\"claimed_purpose\",\"dataType\":\"\\\"varchar(60)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Intended purpose the claim states\"},{\"name\":\"claimed_equipment\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Equipment the claim covers, for example a camera model\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[{\"name\":\"claimed_age_plausible\",\"expression\":\"claimed_age_min_years IS NOT NULL AND claimed_age_min_years BETWEEN 0 AND 120\",\"cte\":{}},{\"name\":\"claim_cites_authorization\",\"expression\":\"cited_authorization IS NOT NULL AND cited_authorization <> ''\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(v.claim_id, '') AS VARCHAR(20)) AS claim_id, CAST(v.packet_id AS VARCHAR(20)) AS packet_id, CAST(v.cited_submission AS VARCHAR(20)) AS cited_authorization, CAST(v.claimed_version AS VARCHAR(20)) AS claimed_version, CAST(v.claimed_min_age_years AS INT) AS claimed_age_min_years, CAST(v.claimed_setting AS VARCHAR(100)) AS claimed_setting, CAST(v.claimed_purpose AS VARCHAR(60)) AS claimed_purpose, CAST(v.claimed_camera AS VARCHAR(100)) AS claimed_equipment FROM sk_vendor.vendor_claims v\",\"description\":\"Claims in vendor evidence packets, one row per claim. Commercial columns of the packet export are left out on purpose\"},{\"name\":\"review_case\",\"columnSpecs\":[{\"name\":\"case_id\",\"dataType\":\"\\\"varchar(30)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Hospital case identifier\"},{\"name\":\"submission_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Vendor submission under review\"},{\"name\":\"vendor_name\",\"dataType\":\"\\\"varchar(200)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Vendor name in the hospital record\"},{\"name\":\"product_name\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Product under review\"},{\"name\":\"product_version_claimed\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Version the vendor submitted\"},{\"name\":\"packet_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Evidence packet of the submission\"},{\"name\":\"cited_authorization\",\"dataType\":\"\\\"varchar(20)\\\"\",\"foreignKey\":{\"columns\":[],\"refTable\":[\"lightning.metastore.sakaime.review_semantics.device_authorization\"],\"refColumns\":[\"authorization_id\"]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"FDA premarket number the submission cites\"},{\"name\":\"intended_purpose\",\"dataType\":\"\\\"varchar(60)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Purpose the hospital intends to use the product for\"},{\"name\":\"intended_setting\",\"dataType\":\"\\\"varchar(60)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Care setting the hospital intends to use it in\"},{\"name\":\"intended_age_min_years\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Youngest age in years of the patients the hospital intends to use it for\"},{\"name\":\"deployment_date\",\"dataType\":\"\\\"date\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Planned start of use\"},{\"name\":\"case_state\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"open or closed\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[{\"name\":\"case_vocabulary_defined\",\"expression\":\"intended_setting IN ('acute_setting', 'all_settings', 'any', 'any_care_setting', 'any_setting', 'breast_screening_clinic', 'clinic', 'ed', 'emergency', 'emergency_department', 'emergency_room', 'er', 'eye_care', 'eye_clinic', 'gp', 'healthcare_facility', 'home_or_remote', 'hospital', 'hospital_network', 'icu', 'imaging_centre', 'inpatient', 'inpatient_ward', 'intensive_care', 'intensive_care_unit', 'ophthalmology', 'ophthalmology_clinic', 'outpatient', 'outpatient_care', 'primary', 'primary_care', 'specialty_clinic', 'urgent_care', 'ward') AND intended_purpose IN ('acquisition_guidance', 'cad', 'cade', 'computer_aided_detection', 'concurrent_reading_aid', 'detection', 'detection_aid', 'diagnosis', 'diagnostic', 'monitoring', 'notification', 'prioritisation', 'prioritization', 'prognosis', 'risk_prediction', 'screening', 'screening_concurrent_reading_aid', 'treatment_planning', 'triage', 'triage_notification', 'triage_prioritisation', 'triage_prioritization', 'triage_prioritization_notification')\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(c.case_id, '') AS VARCHAR(30)) AS case_id, CAST(c.submission_id AS VARCHAR(20)) AS submission_id, CAST(v.vendor_name AS VARCHAR(200)) AS vendor_name, CAST(s.product_name AS VARCHAR(100)) AS product_name, CAST(s.product_version_claimed AS VARCHAR(20)) AS product_version_claimed, CAST(s.packet_id AS VARCHAR(20)) AS packet_id, CAST(s.regulator_submission_cited AS VARCHAR(20)) AS cited_authorization, CAST(c.intended_purpose AS VARCHAR(60)) AS intended_purpose, CAST(c.intended_setting AS VARCHAR(60)) AS intended_setting, CAST(c.intended_min_age AS INT) AS intended_age_min_years, CAST(c.deployment_date AS DATE) AS deployment_date, CAST(c.state AS VARCHAR(20)) AS case_state FROM hospital.cases c JOIN hospital.submissions s ON s.submission_id = c.submission_id LEFT JOIN hospital.vendors v ON v.vendor_id = s.vendor_id\",\"description\":\"Hospital review cases with the vendor, the product and the intended use, one row per case. Constructed data\"},{\"name\":\"case_evidence_matrix\",\"columnSpecs\":[{\"name\":\"matrix_key\",\"dataType\":\"\\\"varchar(60)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Case and claim, joined by a vertical bar\"},{\"name\":\"case_id\",\"dataType\":\"\\\"varchar(30)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Hospital case\"},{\"name\":\"claim_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Vendor claim on the case packet\"},{\"name\":\"product_name\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Product under review\"},{\"name\":\"authorization_id\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"FDA premarket number the submission cites\"},{\"name\":\"listed_versions\",\"dataType\":\"\\\"varchar(400)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Versions FDA lists for that authorization, separated by a vertical bar\"},{\"name\":\"claimed_version\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Version the claim is about\"},{\"name\":\"claimed_age_min_years\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Lowest age in years the claim covers\"},{\"name\":\"intended_age_min_years\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Youngest age in years the hospital intends to use it for\"},{\"name\":\"confirmed_studies\",\"dataType\":\"\\\"integer\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Studies a reviewer confirmed for the case\"},{\"name\":\"study_enrolled_age_min_years\",\"dataType\":\"\\\"decimal(6,2)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Youngest age enrolled across the confirmed studies. Empty is unknown, never zero\"},{\"name\":\"version_listed\",\"dataType\":\"\\\"varchar(20)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"LISTED when the claimed version is among the listed versions, otherwise NOT_LISTED\"},{\"name\":\"claim_age_vs_study\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"CLAIM_BELOW_STUDY_MINIMUM when the claim reaches younger patients than the study enrolled, WITHIN_STUDY, or UNKNOWN\"},{\"name\":\"case_age_vs_study\",\"dataType\":\"\\\"varchar(40)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"NOT_COVERED_BY_STUDY when the hospital intends younger patients than the study enrolled, COVERED_BY_STUDY, or UNKNOWN\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(concat(c.case_id, '|', vc.claim_id), '') AS VARCHAR(60)) AS matrix_key, CAST(c.case_id AS VARCHAR(30)) AS case_id, CAST(vc.claim_id AS VARCHAR(20)) AS claim_id, CAST(s.product_name AS VARCHAR(100)) AS product_name, CAST(k.k_number AS VARCHAR(20)) AS authorization_id, CAST(u.udi_versions AS VARCHAR(400)) AS listed_versions, CAST(vc.claimed_version AS VARCHAR(20)) AS claimed_version, CAST(vc.claimed_min_age_years AS INT) AS claimed_age_min_years, CAST(c.intended_min_age AS INT) AS intended_age_min_years, CAST(st.confirmed_studies AS INT) AS confirmed_studies, CAST(st.study_min_age_years AS DECIMAL(6,2)) AS study_enrolled_age_min_years, CAST(CASE WHEN instr(concat('|', coalesce(u.udi_versions, ''), '|'), concat('|', vc.claimed_version, '|')) > 0 THEN 'LISTED' ELSE 'NOT_LISTED' END AS VARCHAR(20)) AS version_listed, CAST(CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN' WHEN CAST(vc.claimed_min_age_years AS DOUBLE) < st.study_min_age_years THEN 'CLAIM_BELOW_STUDY_MINIMUM' ELSE 'WITHIN_STUDY' END AS VARCHAR(40)) AS claim_age_vs_study, CAST(CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN' WHEN CAST(c.intended_min_age AS DOUBLE) >= st.study_min_age_years THEN 'COVERED_BY_STUDY' ELSE 'NOT_COVERED_BY_STUDY' END AS VARCHAR(40)) AS case_age_vs_study FROM hospital.cases c JOIN hospital.submissions s ON s.submission_id = c.submission_id JOIN sk_vendor.vendor_claims vc ON vc.packet_id = s.packet_id JOIN sk_registry.fda_510k k ON k.k_number = s.regulator_submission_cited LEFT JOIN (SELECT submission_number, concat_ws('|', sort_array(collect_set(version_or_model_number))) AS udi_versions FROM sk_registry.fda_udi GROUP BY submission_number) u ON u.submission_number = k.k_number LEFT JOIN (SELECT l.case_id, COUNT(DISTINCT t.nct_id) AS confirmed_studies, MIN(CAST(t.minimum_age_years AS DOUBLE)) AS study_min_age_years FROM hospital.evidence_links l JOIN sk_registry.ctgov_studies t ON t.nct_id = l.right_id WHERE l.link_class = 'CONFIRMED' AND l.right_type = 'ctgov_study' GROUP BY l.case_id) st ON st.case_id = c.case_id\",\"description\":\"The three silos joined once per case and claim, so a consumer reads one table. Same logic as the Evidence Matrix statement\"},{\"name\":\"collection_manifest\",\"columnSpecs\":[{\"name\":\"collection_id\",\"dataType\":\"\\\"varchar(200)\\\"\",\"primaryKey\":{\"columns\":[]},\"notNull\":{\"columns\":[]},\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Database and table of the collection, for example sk_registry.ctgov_studies\"},{\"name\":\"source_id\",\"dataType\":\"\\\"varchar(100)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Source the collection was landed from\"},{\"name\":\"expected_total\",\"dataType\":\"\\\"long\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Records the source or the landing step said the collection holds. Empty means nobody said, which is unknown\"},{\"name\":\"retrieved_total\",\"dataType\":\"\\\"long\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Records counted now in the silo table. Empty means the layer cannot count the collection\"},{\"name\":\"truncated\",\"dataType\":\"\\\"boolean\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"True when the connector reported that it stopped early\"},{\"name\":\"landed_sha256\",\"dataType\":\"\\\"varchar(64)\\\"\",\"dqAnnotations\":[],\"acAnnotations\":[],\"description\":\"Hash of the file that was landed\"}],\"unique\":[],\"foreignKeys\":[],\"checks\":[],\"ifNotExit\":false,\"namespace\":[\"lightning\",\"metastore\",\"sakaime\",\"review_semantics\"],\"dqAnnotations\":[{\"name\":\"collection_complete\",\"expression\":\"expected_total IS NOT NULL AND retrieved_total IS NOT NULL AND retrieved_total >= expected_total AND truncated = FALSE\",\"cte\":{}}],\"acAnnotations\":[],\"activateQuery\":\"SELECT CAST(COALESCE(concat(m.database_name, '.', m.table_name), '') AS VARCHAR(200)) AS collection_id, CAST(m.source_id AS VARCHAR(100)) AS source_id, CAST(m.expected_total AS BIGINT) AS expected_total, CAST(n.live_total AS BIGINT) AS retrieved_total, CAST(m.truncated AS BOOLEAN) AS truncated, CAST(m.landed_sha256 AS VARCHAR(64)) AS landed_sha256 FROM sk_registry.collection_manifest m LEFT JOIN (SELECT 'sk_registry' AS database_name, 'fda_510k' AS table_name, count(*) AS live_total FROM sk_registry.fda_510k UNION ALL SELECT 'sk_registry' AS database_name, 'fda_udi' AS table_name, count(*) AS live_total FROM sk_registry.fda_udi UNION ALL SELECT 'sk_registry' AS database_name, 'fda_classification' AS table_name, count(*) AS live_total FROM sk_registry.fda_classification UNION ALL SELECT 'sk_registry' AS database_name, 'ctgov_studies' AS table_name, count(*) AS live_total FROM sk_registry.ctgov_studies UNION ALL SELECT 'sk_registry' AS database_name, 'pubmed_articles' AS table_name, count(*) AS live_total FROM sk_registry.pubmed_articles UNION ALL SELECT 'sk_vendor' AS database_name, 'vendor_packets' AS table_name, count(*) AS live_total FROM sk_vendor.vendor_packets UNION ALL SELECT 'sk_vendor' AS database_name, 'vendor_claims' AS table_name, count(*) AS live_total FROM sk_vendor.vendor_claims) n ON n.database_name = m.database_name AND n.table_name = m.table_name\",\"description\":\"One row per landed collection. expected_total is what landing recorded, retrieved_total is counted live, a short collection fails the completeness rule\"}],\"description\":\"sakaime_structure_aa9563798e2497ab\"}"
+        ]
+      ],
+      "total": 1,
+      "queryId": "6ad31b65-9266-4d5f-97a8-3e1436512694",
+      "recordedElapsedMs": 296,
+      "respHash": "f6b4fbb2fa9a129b4950d20bfc0bc70da8d4ffa32ada2771cb32ca15261cef7e"
+    },
+    {
+      "key": "ea0a7af4fe3107002e971038f6679f811cab01c7a6975d2a2bf7062eac91140a",
+      "statement": "RUN DQ case_vocabulary_defined TABLE lightning.metastore.sakaime.review_semantics.review_case",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "case_vocabulary_defined",
+          "review_case",
+          "Custom Data Quality",
+          "7",
+          "7",
+          "0"
+        ]
+      ],
+      "total": 1,
+      "queryId": "c0c1dd7f-e770-4d3e-91be-55fdf9ac1351",
+      "recordedElapsedMs": 1505,
+      "respHash": "b304e246e2dcf44a47e213b37db763dd8168c663d1badec3c5fd572d38b1a301"
+    },
+    {
+      "key": "4da349cd4c16c073f5359fb3f123263189ed13c17ff75cb88ecd2d002643d654",
+      "statement": "RUN DQ claim_cites_authorization TABLE lightning.metastore.sakaime.review_semantics.vendor_claim",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "claim_cites_authorization",
+          "vendor_claim",
+          "Custom Data Quality",
+          "18",
+          "18",
+          "0"
+        ]
+      ],
+      "total": 1,
+      "queryId": "d0962e44-5b3c-423f-a56a-f86e7706da9d",
+      "recordedElapsedMs": 799,
+      "respHash": "be77c2e89bb53d8c3bb07ddf315860397f38ded59084f266d72d9e2d30fcc203"
+    },
+    {
+      "key": "7dedd0c1300801a9215ba6e11b17883b1947dae892d12e136b506da2c8eca80e",
+      "statement": "RUN DQ claimed_age_plausible TABLE lightning.metastore.sakaime.review_semantics.vendor_claim",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "claimed_age_plausible",
+          "vendor_claim",
+          "Custom Data Quality",
+          "18",
+          "18",
+          "0"
+        ]
+      ],
+      "total": 1,
+      "queryId": "ddae2fb9-8c11-4775-9173-9d69bf4e9535",
+      "recordedElapsedMs": 1275,
+      "respHash": "af3ab1d69425eea2eb086f64c7d7f00d5f55d669284ca3853d7df68bf29cf7a6"
+    },
+    {
+      "key": "f8363529eca6828b0e5080eca1391eb3df3908415b4e211c3d5ce7fdec518214",
+      "statement": "RUN DQ collection_complete TABLE lightning.metastore.sakaime.review_semantics.collection_manifest",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "collection_complete",
+          "collection_manifest",
+          "Custom Data Quality",
+          "7",
+          "7",
+          "0"
+        ]
+      ],
+      "total": 1,
+      "queryId": "2fadee9d-a668-4da1-a419-641794f257b1",
+      "recordedElapsedMs": 3900,
+      "respHash": "61d4a765282808167049c6baf2d1529c1ac16a465686e731ba8d7a1d8df34e45"
+    },
+    {
+      "key": "5629cdff68c63a99e95954ddb3089e0a7731ffabbe38a5be8b3b67a395974675",
+      "statement": "RUN DQ metric_proportion_bounds TABLE lightning.metastore.sakaime.review_semantics.term_definition",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "metric_proportion_bounds",
+          "term_definition",
+          "Custom Data Quality",
+          "75",
+          "75",
+          "0"
+        ]
+      ],
+      "total": 1,
+      "queryId": "575eb512-345b-415f-8148-b24b2382cfbf",
+      "recordedElapsedMs": 806,
+      "respHash": "5a54f1a9fcd851c8c43806d80a693dbd69eac468fa117079aa6a2f1545a788e6"
+    },
+    {
+      "key": "14bcd2c96169e6a629594b4644e4f0e6014d98645d0139a5d7f05228cf351af8",
+      "statement": "RUN DQ study_has_eligibility TABLE lightning.metastore.sakaime.review_semantics.registered_study",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "study_has_eligibility",
+          "registered_study",
+          "Custom Data Quality",
+          "157",
+          "14",
+          "143"
+        ]
+      ],
+      "total": 1,
+      "queryId": "1588363a-71ba-455c-9596-bcbe4f5e0551",
+      "recordedElapsedMs": 1245,
+      "respHash": "e48f2676dc1c3bbbef916b71c1aee093ffd32f8d5f3ac075b5f7ce6a358e0f08"
+    },
+    {
+      "key": "bd48d9a678a9c3d0e4384de577a55f0aa783e24afa80c8461c54db0abfccab5f",
+      "statement": "RUN DQ version_is_listed TABLE lightning.metastore.sakaime.review_semantics.device_version_record",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "table",
+        "type",
+        "total_record",
+        "valid_record",
+        "invalid_record"
+      ],
+      "rawRows": [
+        [
+          "version_is_listed",
+          "device_version_record",
+          "Custom Data Quality",
+          "20",
+          "20",
+          "0"
+        ]
+      ],
+      "total": 1,
+      "queryId": "b86fa6e3-ee9e-444e-b8b5-0da8347b284d",
+      "recordedElapsedMs": 1351,
+      "respHash": "7a599fb7d621dbeb36744505e19f2a4c914f188e4e8f240f7d3ee16043cc1b97"
+    },
+    {
+      "key": "5cdefecbbbe3717536dc348229a2ab5223d05976d34918bfb86b8bafa1f3161c",
+      "statement": "SELECT 'device_authorization' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.device_authorization UNION ALL SELECT 'device_version_record' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.device_version_record UNION ALL SELECT 'registered_study' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.registered_study UNION ALL SELECT 'vendor_claim' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.vendor_claim UNION ALL SELECT 'review_case' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.review_case UNION ALL SELECT 'hospital_requirement' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.hospital_requirement UNION ALL SELECT 'confirmed_evidence_link' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.confirmed_evidence_link UNION ALL SELECT 'case_evidence_matrix' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.case_evidence_matrix UNION ALL SELECT 'collection_manifest' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.collection_manifest UNION ALL SELECT 'term_definition' AS table_name, count(*) AS n FROM lightning.metastore.sakaime.review_semantics.term_definition",
+      "identity": "agent-reader",
+      "columns": [
+        "table_name",
+        "n"
+      ],
+      "rawRows": [
+        [
+          "device_authorization",
+          "12"
+        ],
+        [
+          "device_version_record",
+          "20"
+        ],
+        [
+          "registered_study",
+          "157"
+        ],
+        [
+          "vendor_claim",
+          "18"
+        ],
+        [
+          "review_case",
+          "7"
+        ],
+        [
+          "hospital_requirement",
+          "10"
+        ],
+        [
+          "confirmed_evidence_link",
+          "8"
+        ],
+        [
+          "case_evidence_matrix",
+          "28"
+        ],
+        [
+          "collection_manifest",
+          "7"
+        ],
+        [
+          "term_definition",
+          "75"
+        ]
+      ],
+      "total": 10,
+      "queryId": "4156e30d-b0db-4eb7-b430-6b0505304312",
+      "recordedElapsedMs": 5055,
+      "respHash": "a0274aaa9b7192ce7cb378190207b819e09bd64f316b944811abcaf0d392dfbb"
+    },
+    {
+      "key": "e4bf8354be84206f925ba1c94c21cbebb55502d1e499745156e2e557bac77cd0",
+      "statement": "SELECT collection_id, source_id, expected_total, retrieved_total, truncated FROM lightning.metastore.sakaime.review_semantics.collection_manifest ORDER BY collection_id",
+      "identity": "agent-reader",
+      "columns": [
+        "collection_id",
+        "source_id",
+        "expected_total",
+        "retrieved_total",
+        "truncated"
+      ],
+      "rawRows": [
+        [
+          "sk_registry.ctgov_studies",
+          "registry-snapshots",
+          "157",
+          "157",
+          "false"
+        ],
+        [
+          "sk_registry.fda_510k",
+          "registry-snapshots",
+          "12",
+          "12",
+          "false"
+        ],
+        [
+          "sk_registry.fda_classification",
+          "registry-snapshots",
+          "9",
+          "9",
+          "false"
+        ],
+        [
+          "sk_registry.fda_udi",
+          "registry-snapshots",
+          "20",
+          "20",
+          "false"
+        ],
+        [
+          "sk_registry.pubmed_articles",
+          "registry-snapshots",
+          "110",
+          "110",
+          "false"
+        ],
+        [
+          "sk_vendor.vendor_claims",
+          "vendor-packets",
+          "18",
+          "18",
+          "false"
+        ],
+        [
+          "sk_vendor.vendor_packets",
+          "vendor-packets",
+          "6",
+          "6",
+          "false"
+        ]
+      ],
+      "total": 7,
+      "queryId": "3401750b-fc9e-479e-a215-aae42a02a12c",
+      "recordedElapsedMs": 1387,
+      "respHash": "8640a64821c970fe30c4c0644f109f30c27d38aefe82d1a6c971a5cdcd2ab8dd"
+    },
+    {
+      "key": "7390f849f7cb8d8a8e8a5dcd03b952d36050e4af65d5222d3baa1ab7e54d4518",
+      "statement": "SELECT d.kind, d.term, d.canonical_term, d.is_alias, d.label, d.broader_term, d.ancestry, d.depth, d.definition, d.unit, d.value_min, d.value_max, d.prevalence_dependent, d.origin FROM lightning.metastore.sakaime.review_semantics.term_definition d WHERE d.is_alias = FALSE ORDER BY d.kind, d.depth, d.term",
+      "identity": "agent-reader",
+      "columns": [
+        "kind",
+        "term",
+        "canonical_term",
+        "is_alias",
+        "label",
+        "broader_term",
+        "ancestry",
+        "depth",
+        "definition",
+        "unit",
+        "value_min",
+        "value_max",
+        "prevalence_dependent",
+        "origin"
+      ],
+      "rawRows": [
+        [
+          "metric",
+          "auc",
+          "auc",
+          "false",
+          "area under the ROC curve",
+          null,
+          "",
+          "0",
+          "Area under the receiver operating characteristic curve, from 0 to 1, where 0.5 is no better than chance. It summarises every threshold, so it does not state the operating point a product runs at.",
+          "proportion",
+          "0.00",
+          "1.00",
+          "false",
+          "metric-table@1"
+        ],
+        [
+          "metric",
+          "npv",
+          "npv",
+          "false",
+          "negative predictive value",
+          null,
+          "",
+          "0",
+          "Share of unflagged people who do not have the target condition, as a proportion from 0 to 1. It depends on how common the condition is in the people tested, so a value measured in one population does not carry to a population with another prevalence.",
+          "proportion",
+          "0.00",
+          "1.00",
+          "true",
+          "metric-table@1"
+        ],
+        [
+          "metric",
+          "ppv",
+          "ppv",
+          "false",
+          "positive predictive value",
+          null,
+          "",
+          "0",
+          "Share of flagged people who have the target condition, as a proportion from 0 to 1. It depends on how common the condition is in the people tested, so a value measured in one population does not carry to a population with another prevalence.",
+          "proportion",
+          "0.00",
+          "1.00",
+          "true",
+          "metric-table@1"
+        ],
+        [
+          "metric",
+          "sensitivity",
+          "sensitivity",
+          "false",
+          "sensitivity (true positive rate)",
+          null,
+          "",
+          "0",
+          "Share of people who have the target condition that the product flags, as a proportion from 0 to 1, so 0.85 means 85 percent. Recall and true positive rate are the same quantity.",
+          "proportion",
+          "0.00",
+          "1.00",
+          "false",
+          "metric-table@1"
+        ],
+        [
+          "metric",
+          "specificity",
+          "specificity",
+          "false",
+          "specificity (true negative rate)",
+          null,
+          "",
+          "0",
+          "Share of people without the target condition that the product leaves unflagged, as a proportion from 0 to 1. True negative rate is the same quantity.",
+          "proportion",
+          "0.00",
+          "1.00",
+          "false",
+          "metric-table@1"
+        ],
+        [
+          "population",
+          "adult",
+          "adult",
+          "false",
+          "adult",
+          null,
+          "",
+          "0",
+          "A word, not an age. Sources define it differently, so this layer holds no number for it. Compare the lower age bound each source states: study_enrolled_age_min_years for a study, claimed_age_min_years for a vendor claim, intended_age_min_years for a hospital case. A bound that is not stated is unknown and is never read as zero or as everyone.",
+          "years",
+          null,
+          null,
+          null,
+          "scope-schema"
+        ],
+        [
+          "purpose",
+          "acquisition_guidance",
+          "acquisition_guidance",
+          "false",
+          "image acquisition guidance",
+          null,
+          "acquisition_guidance",
+          "0",
+          "image acquisition guidance. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "diagnosis",
+          "diagnosis",
+          "false",
+          "diagnosis",
+          null,
+          "diagnosis",
+          "0",
+          "diagnosis. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the purposes inside it (detection aid, triage notification).",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "monitoring",
+          "monitoring",
+          "false",
+          "monitoring",
+          null,
+          "monitoring",
+          "0",
+          "monitoring. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "prognosis",
+          "prognosis",
+          "false",
+          "prognosis or risk prediction",
+          null,
+          "prognosis",
+          "0",
+          "prognosis or risk prediction. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "screening",
+          "screening",
+          "false",
+          "screening of an unselected population",
+          null,
+          "screening",
+          "0",
+          "screening of an unselected population. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "treatment_planning",
+          "treatment_planning",
+          "false",
+          "treatment planning",
+          null,
+          "treatment_planning",
+          "0",
+          "treatment planning. Broadest term in this hierarchy. Evidence established for it covers a claim for it alone.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "detection_aid",
+          "detection_aid",
+          "false",
+          "detection aid",
+          "diagnosis",
+          "diagnosis|detection_aid",
+          "1",
+          "detection aid. Sits inside diagnosis. Evidence established for it covers a claim for it and for the purposes inside it (triage notification). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "triage_notification",
+          "triage_notification",
+          "false",
+          "triage notification",
+          "detection_aid",
+          "diagnosis|detection_aid|triage_notification",
+          "2",
+          "triage notification. Sits inside detection aid, diagnosis. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "setting",
+          "any_care_setting",
+          "any_care_setting",
+          "false",
+          "any care setting",
+          null,
+          "any_care_setting",
+          "0",
+          "any care setting. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the settings inside it (hospital (any unit), emergency department, inpatient ward, intensive care unit, outpatient care (any clinic), primary care, urgent care, specialty clinic, eye care, imaging centre, home or remote care).",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "home_or_remote",
+          "home_or_remote",
+          "false",
+          "home or remote care",
+          "any_care_setting",
+          "any_care_setting|home_or_remote",
+          "1",
+          "home or remote care. Sits inside any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "hospital",
+          "hospital",
+          "false",
+          "hospital (any unit)",
+          "any_care_setting",
+          "any_care_setting|hospital",
+          "1",
+          "hospital (any unit). Sits inside any care setting. Evidence established for it covers a claim for it and for the settings inside it (emergency department, inpatient ward, intensive care unit). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "outpatient_care",
+          "outpatient_care",
+          "false",
+          "outpatient care (any clinic)",
+          "any_care_setting",
+          "any_care_setting|outpatient_care",
+          "1",
+          "outpatient care (any clinic). Sits inside any care setting. Evidence established for it covers a claim for it and for the settings inside it (primary care, urgent care, specialty clinic, eye care, imaging centre). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "emergency_department",
+          "emergency_department",
+          "false",
+          "emergency department",
+          "hospital",
+          "any_care_setting|hospital|emergency_department",
+          "2",
+          "emergency department. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "imaging_centre",
+          "imaging_centre",
+          "false",
+          "imaging centre",
+          "outpatient_care",
+          "any_care_setting|outpatient_care|imaging_centre",
+          "2",
+          "imaging centre. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "inpatient_ward",
+          "inpatient_ward",
+          "false",
+          "inpatient ward",
+          "hospital",
+          "any_care_setting|hospital|inpatient_ward",
+          "2",
+          "inpatient ward. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "intensive_care_unit",
+          "intensive_care_unit",
+          "false",
+          "intensive care unit",
+          "hospital",
+          "any_care_setting|hospital|intensive_care_unit",
+          "2",
+          "intensive care unit. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "primary_care",
+          "primary_care",
+          "false",
+          "primary care",
+          "outpatient_care",
+          "any_care_setting|outpatient_care|primary_care",
+          "2",
+          "primary care. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "specialty_clinic",
+          "specialty_clinic",
+          "false",
+          "specialty clinic",
+          "outpatient_care",
+          "any_care_setting|outpatient_care|specialty_clinic",
+          "2",
+          "specialty clinic. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it and for the settings inside it (eye care). It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "urgent_care",
+          "urgent_care",
+          "false",
+          "urgent care",
+          "outpatient_care",
+          "any_care_setting|outpatient_care|urgent_care",
+          "2",
+          "urgent care. Sits inside outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "eye_care",
+          "eye_care",
+          "false",
+          "eye care",
+          "specialty_clinic",
+          "any_care_setting|outpatient_care|specialty_clinic|eye_care",
+          "3",
+          "eye care. Sits inside specialty clinic, outpatient care (any clinic), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ]
+      ],
+      "total": 26,
+      "queryId": "83918136-ae21-47e6-953e-099ccad00cc0",
+      "recordedElapsedMs": 553,
+      "respHash": "e0e5adb1de0b9a999259160b67dc2a903d939f8f0985da104dae248a5c564e16"
+    },
+    {
+      "key": "52cdec7e288a9cd5b42dd73330d8023abb1adf7f6c15c9a6d2df79a9f71023e1",
+      "statement": "SHOW NAMESPACES OR TABLES IN lightning.metastore.sakaime.review_semantics",
+      "identity": "agent-reader",
+      "columns": [
+        "name",
+        "type",
+        "usl_id",
+        "count",
+        "activated"
+      ],
+      "rawRows": [
+        [
+          "case_evidence_matrix",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "collection_manifest",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "confirmed_evidence_link",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "device_authorization",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "device_version_record",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "hospital_requirement",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "registered_study",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "review_case",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "term_definition",
+          "table",
+          null,
+          "0",
+          "true"
+        ],
+        [
+          "vendor_claim",
+          "table",
+          null,
+          "0",
+          "true"
+        ]
+      ],
+      "total": 10,
+      "queryId": "85342358-4898-4b40-982a-ad387822dee3",
+      "recordedElapsedMs": 721,
+      "respHash": "e77913b8e24743a602640f0b65eac561fbef4ab3352ed5ab56f6523b9374a95f"
+    }
+  ],
+  "stepsHash": "5b66539febbb32d4219ee1f08e04757ad405b84fbfa710afcb8a749f9c3c8eb5"
+}

@@ -1,0 +1,159 @@
+{
+  "format": "sakaime.usl-cassette/1",
+  "scope": "case:CASE-2026-018",
+  "recordedAt": "2026-10-27T15:36:24.921Z",
+  "readerIdentity": "agent-reader",
+  "layer": "lightning.metastore.sakaime.review_semantics",
+  "structureHash": "aa9563798e2497ab43b1b80c05963c731320dae93cf3f884d3d06ef8f359049b",
+  "steps": [
+    {
+      "key": "c6fb60dbe63ae358c5a303c26a4bb5be358c09a0cdb6995f09cdcbdb96e559d9",
+      "statement": "SELECT case_id, product_name, intended_setting, intended_purpose, intended_age_min_years FROM lightning.metastore.sakaime.review_semantics.review_case WHERE case_id = 'CASE-2026-018'",
+      "identity": "agent-reader",
+      "columns": [
+        "case_id",
+        "product_name",
+        "intended_setting",
+        "intended_purpose",
+        "intended_age_min_years"
+      ],
+      "rawRows": [
+        [
+          "CASE-2026-018",
+          "Viz LVO",
+          "emergency_department",
+          "triage_prioritisation",
+          "18"
+        ]
+      ],
+      "total": 1,
+      "queryId": "cea6734e-b4c1-4dd4-8a94-596fc0c36c9e",
+      "recordedElapsedMs": 862,
+      "respHash": "16d0635bc8abce78c92748377644e41d3c35f144a766f104c2220eff6c4bb117"
+    },
+    {
+      "key": "05621da03fafb33110e741bb3bf2315627ec0eb96b10a4b8a81df036ed5d40c3",
+      "statement": "SELECT d.kind, d.term, d.canonical_term, d.is_alias, d.label, d.broader_term, d.ancestry, d.depth, d.definition, d.unit, d.value_min, d.value_max, d.prevalence_dependent, d.origin FROM lightning.metastore.sakaime.review_semantics.review_case c JOIN lightning.metastore.sakaime.review_semantics.term_definition a ON a.kind = 'setting' AND a.term = c.intended_setting JOIN lightning.metastore.sakaime.review_semantics.term_definition d ON d.kind = 'setting' AND d.is_alias = FALSE AND instr(concat('|', a.ancestry, '|'), concat('|', d.term, '|')) > 0 WHERE c.case_id = 'CASE-2026-018' UNION ALL SELECT d.kind, d.term, d.canonical_term, d.is_alias, d.label, d.broader_term, d.ancestry, d.depth, d.definition, d.unit, d.value_min, d.value_max, d.prevalence_dependent, d.origin FROM lightning.metastore.sakaime.review_semantics.review_case c JOIN lightning.metastore.sakaime.review_semantics.term_definition a ON a.kind = 'purpose' AND a.term = c.intended_purpose JOIN lightning.metastore.sakaime.review_semantics.term_definition d ON d.kind = 'purpose' AND d.is_alias = FALSE AND instr(concat('|', a.ancestry, '|'), concat('|', d.term, '|')) > 0 WHERE c.case_id = 'CASE-2026-018' ORDER BY kind, depth, term",
+      "identity": "agent-reader",
+      "columns": [
+        "kind",
+        "term",
+        "canonical_term",
+        "is_alias",
+        "label",
+        "broader_term",
+        "ancestry",
+        "depth",
+        "definition",
+        "unit",
+        "value_min",
+        "value_max",
+        "prevalence_dependent",
+        "origin"
+      ],
+      "rawRows": [
+        [
+          "purpose",
+          "diagnosis",
+          "diagnosis",
+          "false",
+          "diagnosis",
+          null,
+          "diagnosis",
+          "0",
+          "diagnosis. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the purposes inside it (detection aid, triage notification).",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "detection_aid",
+          "detection_aid",
+          "false",
+          "detection aid",
+          "diagnosis",
+          "diagnosis|detection_aid",
+          "1",
+          "detection aid. Sits inside diagnosis. Evidence established for it covers a claim for it and for the purposes inside it (triage notification). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "purpose",
+          "triage_notification",
+          "triage_notification",
+          "false",
+          "triage notification",
+          "detection_aid",
+          "diagnosis|detection_aid|triage_notification",
+          "2",
+          "triage notification. Sits inside detection aid, diagnosis. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-purposes@1+bridge1"
+        ],
+        [
+          "setting",
+          "any_care_setting",
+          "any_care_setting",
+          "false",
+          "any care setting",
+          null,
+          "any_care_setting",
+          "0",
+          "any care setting. Broadest term in this hierarchy. Evidence established for it covers a claim for it and for the settings inside it (hospital (any unit), emergency department, inpatient ward, intensive care unit, outpatient care (any clinic), primary care, urgent care, specialty clinic, eye care, imaging centre, home or remote care).",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "hospital",
+          "hospital",
+          "false",
+          "hospital (any unit)",
+          "any_care_setting",
+          "any_care_setting|hospital",
+          "1",
+          "hospital (any unit). Sits inside any care setting. Evidence established for it covers a claim for it and for the settings inside it (emergency department, inpatient ward, intensive care unit). It does not cover a claim for the broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ],
+        [
+          "setting",
+          "emergency_department",
+          "emergency_department",
+          "false",
+          "emergency department",
+          "hospital",
+          "any_care_setting|hospital|emergency_department",
+          "2",
+          "emergency department. Sits inside hospital (any unit), any care setting. Evidence established for it covers a claim for it alone. It does not cover a claim for a broader term above it.",
+          null,
+          null,
+          null,
+          null,
+          "sakaime-settings@1+bridge1"
+        ]
+      ],
+      "total": 6,
+      "queryId": "20b5a24a-ee01-44c6-ac3a-32e5dbcdf7b0",
+      "recordedElapsedMs": 3332,
+      "respHash": "8a6346a2adcefb71fed35bcf16108e9fac09856c2cb54641e17af5a82f61ff7b"
+    }
+  ],
+  "stepsHash": "106ea9aab364f812cc2fb97357e786d11940f7bbb78ce1a3dcb429d8e5fb6427"
+}

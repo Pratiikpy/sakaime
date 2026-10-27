@@ -11,9 +11,9 @@
  * downstream. It is expressed twice, as a DQ rule over a manifest table (so the platform reports it) and as a code
  * check (so nothing depends on the platform being reachable). Both treat "cannot tell" as not complete.
  *
- * Not verified by us on the live engine: the output headers of RUN DQ. The Zetaris example scripts describe the
- * counts as total_records, valid_records and invalid_records; the parser accepts those and short forms, and fails as
- * DRIFTED when none is present.
+ * RUN DQ output, read from the live engine on 2026-10-27 (Zetaris 2.4.3.1): the headers are name, table, type,
+ * total_record, valid_record, invalid_record, one row per rule. The Zetaris example scripts write the counts in the
+ * plural; the parser accepts both spellings and short forms, and fails as DRIFTED when none is present.
  */
 import { PortError, type FederationResult } from "../ports/index.ts";
 import { sqlBoolean, sqlIdent, sqlQualified, sqlString } from "./sql.ts";
@@ -197,9 +197,9 @@ export interface DqRuleResult {
   invalid: number;
 }
 
-const DQ_TOTAL = ["total_records", "total", "totalrecords", "total_count"];
-const DQ_VALID = ["valid_records", "valid", "validrecords", "valid_count"];
-const DQ_INVALID = ["invalid_records", "invalid", "invalidrecords", "invalid_count"];
+const DQ_TOTAL = ["total_record", "total_records", "total", "totalrecords", "total_count"];
+const DQ_VALID = ["valid_record", "valid_records", "valid", "validrecords", "valid_count"];
+const DQ_INVALID = ["invalid_record", "invalid_records", "invalid", "invalidrecords", "invalid_count"];
 const DQ_RULE = ["rule", "rule_name", "name", "constraint"];
 
 function find(columns: readonly string[], candidates: readonly string[]): string | undefined {

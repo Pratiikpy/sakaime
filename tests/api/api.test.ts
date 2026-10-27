@@ -443,7 +443,7 @@ describe("request hygiene", () => {
   });
 
   it("lists every route of the contract", () => {
-    expect(Object.keys(ROUTES)).toHaveLength(14);
+    expect(Object.keys(ROUTES)).toHaveLength(15);
   });
 });
 

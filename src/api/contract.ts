@@ -311,6 +311,91 @@ export const ErrorBodySchema = z.object({
   }),
 });
 
+// ---------------------------------------------------------------- semantic layer (Zetaris Unified Semantic Layer)
+
+export const UslDefinitionSchema = z.object({
+  kind: z.enum(["setting", "purpose", "metric", "population"]),
+  term: z.string(),
+  canonical: z.string(),
+  isAlias: z.boolean(),
+  label: z.string(),
+  broader: z.string().nullable(),
+  /** Root-first path to the term on its hierarchy; empty for metrics and population words. */
+  ancestry: z.array(z.string()),
+  definition: z.string(),
+  unit: z.string().nullable(),
+  valueMin: z.number().nullable(),
+  valueMax: z.number().nullable(),
+  prevalenceDependent: z.boolean().nullable(),
+  source: z.string(),
+});
+
+export const UslTableSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  activated: z.boolean(),
+  rows: z.number().int().nonnegative().nullable(),
+  columns: z.array(z.object({ name: z.string(), type: z.string(), description: z.string() })),
+  /** The silo tables the layer table reads. */
+  sources: z.array(z.string()),
+  primaryKey: z.string().nullable(),
+});
+
+export const UslDqRuleSchema = z.object({
+  rule: z.string(),
+  table: z.string(),
+  kind: z.enum(["completeness", "record_completeness", "range", "identifier", "vocabulary", "definition"]),
+  description: z.string(),
+  expression: z.string(),
+  /** What a failure means for the product: a design statement, not a measurement. */
+  consequence: z.string(),
+  rowsChecked: z.number().int().nonnegative(),
+  failures: z.number().int().nonnegative(),
+  /** PASSED, FAILED (a result), or UNVERIFIABLE (the engine answered with no rows to judge). An unreachable engine is a 503, never a verdict. */
+  verdict: z.enum(["PASSED", "FAILED", "UNVERIFIABLE"]),
+  /** The RUN DQ statement's query id: the engine's own witness. */
+  queryId: z.string(),
+  elapsedMs: z.number().nonnegative(),
+});
+
+export const UslCollectionSchema = z.object({
+  collectionId: z.string(),
+  sourceId: z.string().nullable(),
+  expectedTotal: z.number().int().nullable(),
+  retrievedTotal: z.number().int().nullable(),
+  truncatedByConnector: z.boolean().nullable(),
+  status: z.enum(["COMPLETE", "TRUNCATED", "UNVERIFIABLE"]),
+  reason: z.string().nullable(),
+});
+
+/** GET /api/usl?caseId=<product case id or hospital case id>. 503 UNAVAILABLE when the layer cannot be read. */
+export const UslResponseSchema = z.object({
+  layer: z.object({ namespace: z.string(), name: z.string(), path: z.string(), structureHash: z.string() }),
+  tables: z.array(UslTableSchema),
+  /** All canonical terms, or with caseId the case's setting, purpose (each with the broader terms above) and metric. */
+  definitions: z.array(UslDefinitionSchema),
+  dqRules: z.array(UslDqRuleSchema),
+  completeness: z.object({
+    verdict: z.enum(["PASSED", "FAILED", "UNVERIFIABLE"]),
+    collections: z.array(UslCollectionSchema),
+    /** Collections that may feed evidence downstream. */
+    complete: z.array(z.string()),
+    /** Collections that may not: short, cut by the connector, or of unknown size. */
+    blocked: z.array(z.string()),
+    /** The engine's rule and the code check gave the same failures. A disagreement is a 502, not false here. */
+    codeCheckAgrees: z.boolean(),
+  }),
+  case: z.object({ caseId: z.string(), productName: z.string(), setting: z.string(), purpose: z.string(), ageMinYears: z.number().nullable() }).optional(),
+  /** Words the case names that the layer does not define. */
+  unresolved: z.array(z.object({ kind: z.enum(["setting", "purpose", "metric"]), term: z.string() })),
+  servedFrom: z.enum(["live", "cassette"]),
+  /** When the answers were read (live) or recorded (cassette). */
+  recordedAt: z.string(),
+  readerIdentity: z.string(),
+  statements: z.array(z.object({ statement: z.string(), queryId: z.string(), rows: z.number().int().nonnegative(), elapsedMs: z.number().nonnegative(), servedFrom: z.string() })),
+});
+export type UslResponse = z.infer<typeof UslResponseSchema>;
+
 /** Route table, for the server and the UI client to share. */
 export const ROUTES = {
   health: "GET /api/health",
@@ -327,6 +412,7 @@ export const ROUTES = {
   verify: "POST /api/dossier/verify",
   guard: "POST /api/guard",
   trace: "GET /api/runs/:runId/trace (application/jsonl)",
+  usl: "GET /api/usl?caseId=<optional>",
 } as const;
 
 export { SourceHealthSchema, DataClassSchema };
