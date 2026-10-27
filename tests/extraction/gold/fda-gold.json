@@ -1,5 +1,5 @@
 {
-  "_about": "Hand-labelled by one reader (the author of the extractor, not blind to its design) from the text of the 12 FDA summaries in research/feasibility/fixtures/fda. Values are what the DOCUMENT states, not what the extractor produced. 'results' lists narrative performance statements about the subject device (tables are not labelled). Fields: versions = device software version strings written in the document; ifuAge* = age limits in the Indications for Use (null = none written); studyAge* = age limits written for the study population; settings = care settings named in the Indications for Use, in the extractor's vocabulary; sampleSizes / siteCounts = counts the document gives for its studies (not exhaustive); ncts = registered trial identifiers written in the document; results[].headline = true when a reviewer would take the figure as the device's overall observed result (false for goals, subgroups, corrected analyses, reader arms, per-condition figures).",
+  "_about": "Hand-labelled by one reader (the author of the extractor, not blind to its design) from the text of the 12 FDA summaries in research/feasibility/fixtures/fda. Values are what the DOCUMENT states, not what the extractor produced. 'results' lists narrative performance statements about the subject device (tables are not labelled). Fields: versions = device software version strings written in the document; ifuAge* = age limits in the Indications for Use (null = none written); studyAge* = age limits written for the study population; settings = care settings named in the Indications for Use, in the extractor's vocabulary; sampleSizes / siteCounts = counts the document gives for its studies (not exhaustive); ncts = registered trial identifiers written in the document; results[].headline = true when a reviewer would take the figure as the device's overall observed result (false for goals, subgroups, corrected analyses, reader arms, per-condition figures). conditions / exclusions = the phrases the Indications for Use use to say which people or findings the device is for and which groups it excludes (copied as written, line breaks collapsed); diagnosticExclusions = the strength of each sentence of the indications that excludes diagnostic use ('absolute' for a plain 'not intended to be used as a diagnostic device', 'qualified' when the sentence carries a reservation such as stand-alone, primary or beyond notification); studySettings = care settings the document names as where the study took place. These four fields were added later by the same reader who wrote the extraction templates, after seeing what the templates took from these 12 documents: they are in-sample, and the recall on them says what the templates miss in documents they were written from, not how they do elsewhere.",
   "docs": {
     "DEN170073": {
       "versions": [
@@ -48,7 +48,15 @@
           "headline": true
         }
       ],
-      "notes": "The text layer has recognition errors (\"Trnth\", \"repo1ts\", \"res ectivel y\", replacement characters), but the site count and the three headline figures are readable."
+      "notes": "The text layer has recognition errors (\"Trnth\", \"repo1ts\", \"res ectivel y\", replacement characters), but the site count and the three headline figures are readable.",
+      "conditions": [
+        "suspected large vessel occlusion"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [
+        "qualified"
+      ],
+      "studySettings": []
     },
     "DEN180001": {
       "versions": [
@@ -178,7 +186,17 @@
           "headline": false
         }
       ],
-      "notes": "The indication says only adults; the summary states a target population of persons ages 22 and older."
+      "notes": "The indication says only adults; the summary states a target population of persons ages 22 and older.",
+      "conditions": [
+        "diabetes"
+      ],
+      "exclusions": [
+        "previously diagnosed with diabetic retinopathy"
+      ],
+      "diagnosticExclusions": [],
+      "studySettings": [
+        "primary care"
+      ]
     },
     "DEN190040": {
       "versions": [],
@@ -200,7 +218,13 @@
           "headline": false
         }
       ],
-      "notes": "97.85% is the share of auto-captured clips that were diagnostic, called 'specificity of the auto-capture feature': a feature statistic, not the device's diagnostic specificity."
+      "notes": "97.85% is the share of auto-captured clips that were diagnostic, called 'specificity of the auto-capture feature': a feature statistic, not the device's diagnostic specificity.",
+      "conditions": [],
+      "exclusions": [],
+      "diagnosticExclusions": [],
+      "studySettings": [
+        "hospital"
+      ]
     },
     "DEN200055": {
       "versions": [],
@@ -241,7 +265,17 @@
           "headline": true
         }
       ],
-      "notes": "Both AUC figures sit in figure text, two panels interleaved. NCT01694966 is the trial the training videos came from, not the device study."
+      "notes": "Both AUC figures sit in figure text, two panels interleaved. NCT01694966 is the trial the training videos came from, not the device study.",
+      "conditions": [
+        "patients undergoing screening and surveillance endoscopic mucosal evaluations"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [
+        "qualified"
+      ],
+      "studySettings": [
+        "hospital"
+      ]
     },
     "DEN200080": {
       "versions": [
@@ -279,7 +313,15 @@
           "headline": false
         }
       ],
-      "notes": "Reader-study arms (assisted, unassisted) and their difference. 14 of 25 PDF pages have no text layer; the text fixture holds the other 11."
+      "notes": "Reader-study arms (assisted, unassisted) and their difference. 14 of 25 PDF pages have no text layer; the text fixture holds the other 11.",
+      "conditions": [
+        "foci that are suspicious for cancer"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [
+        "qualified"
+      ],
+      "studySettings": []
     },
     "K200667": {
       "versions": [
@@ -305,7 +347,18 @@
         "NCT03112005"
       ],
       "results": [],
-      "notes": "The pivotal results are only in a stacked-cell table (Table 2); no narrative sentence states them."
+      "notes": "The pivotal results are only in a stacked-cell table (Table 2); no narrative sentence states them.",
+      "conditions": [
+        "diabetes"
+      ],
+      "exclusions": [
+        "previously diagnosed with more than mild diabetic retinopathy"
+      ],
+      "diagnosticExclusions": [],
+      "studySettings": [
+        "primary care",
+        "ophthalmology"
+      ]
     },
     "K211733": {
       "versions": [],
@@ -449,7 +502,14 @@
           "headline": false
         }
       ],
-      "notes": "Every figure belongs to one of two target findings (pleural effusion, pneumothorax), so none is a single overall result. The predicate device's figures in the same section are excluded from the labels."
+      "notes": "Every figure belongs to one of two target findings (pleural effusion, pneumothorax), so none is a single overall result. The predicate device's figures in the same section are excluded from the labels.",
+      "conditions": [
+        "pleural effusion",
+        "pneumothorax"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [],
+      "studySettings": []
     },
     "K213857": {
       "versions": [],
@@ -462,7 +522,13 @@
       "siteCounts": [],
       "ncts": [],
       "results": [],
-      "notes": "States no clinical study of its own."
+      "notes": "States no clinical study of its own.",
+      "conditions": [
+        "patients with suspected coronary artery disease"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [],
+      "studySettings": []
     },
     "K221347": {
       "versions": [
@@ -525,7 +591,13 @@
           "headline": false
         }
       ],
-      "notes": "Figures are given separately for 2D and for DBT."
+      "notes": "Figures are given separately for 2D and for DBT.",
+      "conditions": [
+        "women undergoing screening mammography and digital breast tomosynthesis"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [],
+      "studySettings": []
     },
     "K232699": {
       "versions": [],
@@ -607,7 +679,17 @@
           "headline": false
         }
       ],
-      "notes": "In the pdftotext text the inclusion age is 'age  18': the comparison glyph is missing, so the direction of the limit cannot be read. The PDF itself prints 'age >= 18' and pdfjs keeps the glyph. 0.857 and 0.842 are from the set-aside part of the development data."
+      "notes": "In the pdftotext text the inclusion age is 'age  18': the comparison glyph is missing, so the direction of the limit cannot be read. The PDF itself prints 'age >= 18' and pdfjs keeps the glyph. 0.857 and 0.842 are from the set-aside part of the development data.",
+      "conditions": [
+        "adults at risk for heart failure"
+      ],
+      "exclusions": [
+        "paced rhythm"
+      ],
+      "diagnosticExclusions": [
+        "qualified"
+      ],
+      "studySettings": []
     },
     "K240301": {
       "versions": [],
@@ -716,7 +798,11 @@
           "headline": false
         }
       ],
-      "notes": "Standalone figures are headline; the others are reader-study arms (unaided, assisted). 'MammoScreen 3' names a generation, not a software version string."
+      "notes": "Standalone figures are headline; the others are reader-study arms (unaided, assisted). 'MammoScreen 3' names a generation, not a software version string.",
+      "conditions": [],
+      "exclusions": [],
+      "diagnosticExclusions": [],
+      "studySettings": []
     },
     "K253265": {
       "versions": [],
@@ -767,7 +853,16 @@
           "kind": "goal",
           "headline": false
         }
-      ]
+      ],
+      "conditions": [
+        "Intra-abdominal free gas"
+      ],
+      "exclusions": [],
+      "diagnosticExclusions": [
+        "absolute",
+        "qualified"
+      ],
+      "studySettings": []
     }
   }
 }

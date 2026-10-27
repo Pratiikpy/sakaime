@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, compileDetailed, ruleOf, type CompileOptions } from "../../src/compiler/index.ts";
+import { RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, compileDetailed, formatPurposeExclusion, ruleOf, type CompileOptions } from "../../src/compiler/index.ts";
 import type { EvidenceItem } from "../../src/schemas/index.ts";
 import { GOOD_RESULT, OP, auth, claim, requirement, study, vendor } from "./fixtures.ts";
 
@@ -79,6 +79,15 @@ const SCENARIOS: Scenario[] = [
   { id: "R19-DATES-MISSING", where: "trace", run: () => compileDetailed(claim(), [auth({ timing: undefined }), study({ timing: undefined })]) },
   { id: "R20-STALENESS", where: "flags", run: () => compileDetailed(claim(), [auth(), study()], { policy: { stalenessWindowDays: 30 } }) },
   { id: "R21-PREDATES-AUTH", where: "trace", run: () => compileDetailed(claim({ timing: { from: "2020-01-01" } }), [auth(), study({ timing: { from: "2019-01-01" } })]) },
+  {
+    id: "R24-PURPOSE-EXPLICIT-LIMIT",
+    where: "trace",
+    run: () =>
+      compileDetailed(claim({ purpose: "diagnosis" }), [
+        auth({}, { limitations: [formatPurposeExclusion({ node: "diagnosis", strength: "absolute", sentence: "The device is not intended to be used as a diagnostic device." })] }),
+        study(),
+      ]),
+  },
   { id: "R25-PURPOSE-ESCALATION", where: "trace", run: () => compileDetailed(claim({ purpose: "diagnosis" }), [auth(), study()]) },
   { id: "R32-METRIC-ABSENT", where: "trace", run: () => compileDetailed(claim(), [auth(), study({}, [])]) },
   { id: "R33-OPERATING-POINT", where: "trace", run: () => compileDetailed(claim({ operatingPoint: "other" }), [auth(), study()]) },
@@ -93,6 +102,20 @@ const SCENARIOS: Scenario[] = [
   { id: "SAK-AUTHORITY", where: "trace", run: () => compileDetailed(claim(), [auth({}, { results: [GOOD_RESULT] }), study(), vendor()]) },
   { id: "SAK-JOINT-COVERAGE", where: "flags", run: () => compileDetailed(claim(), [auth({ settings: ["eye_care"] }), auth({ settings: ["primary_care"] }, { id: "auth-2" }), study()]) },
   { id: "SAK-UNPLACED-SETTING", where: "flags", run: () => compileDetailed(claim({ settings: ["moon base"] }), [auth(), study()]) },
+  {
+    id: "SAK-PURPOSE-QUALIFIED-LIMIT",
+    where: "flags",
+    run: () =>
+      compileDetailed(claim({ purpose: "diagnosis" }), [
+        auth({}, { limitations: [formatPurposeExclusion({ node: "diagnosis", strength: "qualified", sentence: "Output is not intended to be a stand-alone diagnostic device." })] }),
+        study(),
+      ]),
+  },
+  {
+    id: "SAK-UNPLACED-CONDITION",
+    where: "flags",
+    run: () => compileDetailed(claim({ population: { age: { min: 18 }, conditions: ["gestational diabetes mellitus"], exclusions: ["pregnancy"] } }), [auth(), study()]),
+  },
   { id: "SAK-UNPLACED-PURPOSE", where: "flags", run: () => compileDetailed(claim({ purpose: "moon base" }), [auth(), study()]) },
   {
     id: "SAK-NARROWER-AMBIGUOUS",

@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "scopeshift-a",
-    "startedAt": "2026-10-27T11:53:35.954Z",
+    "startedAt": "2026-10-27T12:56:42.458Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
@@ -10,7 +10,7 @@
     "description": "ScopeShift (A): controlled single-dimension counterfactuals over authentic scopes read by the extraction layer from real FDA summaries. Consistency between a rule table and the compiler; not clinical correctness.",
     "stalenessWindowDays": 1095,
     "studyAdequacy": "Study items are marked adequate by construction in world W2; extraction never sets the flag.",
-    "resultsHash": "63cfa65602536134"
+    "resultsHash": "31007822a6182bee"
   },
   "summaries": {
     "cases": {
@@ -20,74 +20,74 @@
       "meanClusterSize": 13.88
     },
     "exactLabel": {
-      "k": 224,
+      "k": 220,
       "n": 236,
-      "rate": 0.9491525423728814,
-      "wilsonLo": 0.9132401859497103,
-      "wilsonHi": 0.9706770527229063,
-      "clusterLo": 0.933053392324478,
-      "clusterHi": 0.9663471638655462,
+      "rate": 0.9322033898305084,
+      "wilsonLo": 0.8927205779097586,
+      "wilsonHi": 0.9578412932657779,
+      "clusterLo": 0.8779342723004695,
+      "clusterHi": 0.9755126928820309,
       "clusters": 17
     },
     "deterministicExactLabel": {
-      "k": 195,
+      "k": 182,
       "n": 195,
-      "rate": 1,
-      "wilsonLo": 0.9806807954262788,
-      "wilsonHi": 1,
-      "clusterLo": 1,
-      "clusterHi": 1,
+      "rate": 0.9333333333333333,
+      "wilsonLo": 0.8892942075041463,
+      "wilsonHi": 0.960629148531962,
+      "clusterLo": 0.8949711607786589,
+      "clusterHi": 0.9690316541865214,
       "clusters": 17
     },
     "positiveControlCorrectSupported": {
-      "k": 27,
+      "k": 23,
       "n": 27,
-      "rate": 1,
-      "wilsonLo": 0.8754449702581328,
-      "wilsonHi": 0.9999999999999998,
-      "clusterLo": 1,
-      "clusterHi": 1,
+      "rate": 0.8518518518518519,
+      "wilsonLo": 0.6752131457218702,
+      "wilsonHi": 0.9408407222375568,
+      "clusterLo": 0.7241379310344828,
+      "clusterHi": 0.9629629629629629,
       "clusters": 17
     },
     "positiveControlFalseAlarm": {
-      "k": 0,
+      "k": 4,
       "n": 27,
+      "rate": 0.14814814814814814,
+      "wilsonLo": 0.05915927776244326,
+      "wilsonHi": 0.3247868542781298,
+      "clusterLo": 0.037037037037037035,
+      "clusterHi": 0.2692307692307692,
+      "clusters": 17
+    },
+    "falseSupported": {
+      "k": 0,
+      "n": 209,
       "rate": 0,
       "wilsonLo": 0,
-      "wilsonHi": 0.12455502974186705,
-      "zeroErrorUpper95": 0.10501923017634429,
+      "wilsonHi": 0.018048451847580686,
+      "zeroErrorUpper95": 0.01423140958268787,
       "clusterLo": 0,
       "clusterHi": 0,
       "clusters": 17
     },
-    "falseSupported": {
-      "k": 12,
-      "n": 209,
-      "rate": 0.05741626794258373,
-      "wilsonLo": 0.033146149079547195,
-      "wilsonHi": 0.09766228915874195,
-      "clusterLo": 0.037914691943127965,
-      "clusterHi": 0.0748663101604278,
-      "clusters": 17
-    },
     "contestableAbstention": {
-      "k": 29,
+      "k": 41,
       "n": 41,
-      "rate": 0.7073170731707317,
-      "wilsonLo": 0.5552053227700284,
-      "wilsonHi": 0.8239081237388657,
-      "clusterLo": 0.6363636363636364,
-      "clusterHi": 0.78125,
+      "rate": 1,
+      "wilsonLo": 0.9143324298155681,
+      "wilsonHi": 0.9999999999999999,
+      "clusterLo": 1,
+      "clusterHi": 1,
       "clusters": 17
     },
     "contestableReviewExact": {
-      "k": 29,
+      "k": 38,
       "n": 41,
-      "rate": 0.7073170731707317,
-      "wilsonLo": 0.5552053227700284,
-      "wilsonHi": 0.8239081237388657,
-      "clusterLo": 0.6428571428571429,
-      "clusterHi": 0.785768398268398,
+      "rate": 0.926829268292683,
+      "wilsonLo": 0.8057255146228096,
+      "wilsonHi": 0.9748021693660901,
+      "clusterLo": 0.7631578947368421,
+      "clusterHi": 1,
       "clusters": 17
     },
     "noVerdict": {
@@ -144,8 +144,13 @@
     "byMutation": {
       "positive-control": {
         "n": 27,
-        "match": 27,
-        "mismatchIds": []
+        "match": 23,
+        "mismatchIds": [
+          "A-DEN170073-W2-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE",
+          "A-K253265-W1-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE",
+          "A-DEN200055-W2-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE",
+          "A-DEN180001-W2-positive-control: expected SUPPORTED_FOR_SCOPE, got INSUFFICIENT_EVIDENCE"
+        ]
       },
       "version-bump": {
         "n": 10,
@@ -159,8 +164,10 @@
       },
       "setting-widened": {
         "n": 5,
-        "match": 5,
-        "mismatchIds": []
+        "match": 4,
+        "mismatchIds": [
+          "A-K253265-W1-setting-widened: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE"
+        ]
       },
       "setting-unrelated": {
         "n": 5,
@@ -169,13 +176,21 @@
       },
       "setting-unplaced": {
         "n": 6,
-        "match": 6,
-        "mismatchIds": []
+        "match": 5,
+        "mismatchIds": [
+          "A-K253265-W1-setting-unplaced: expected REQUIRES_DOMAIN_REVIEW, got INSUFFICIENT_EVIDENCE"
+        ]
       },
       "purpose-escalated": {
         "n": 15,
-        "match": 15,
-        "mismatchIds": []
+        "match": 10,
+        "mismatchIds": [
+          "A-K253265-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE",
+          "A-DEN200080-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got REQUIRES_DOMAIN_REVIEW",
+          "A-K253801-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got REQUIRES_DOMAIN_REVIEW",
+          "A-K252360-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got REQUIRES_DOMAIN_REVIEW",
+          "A-K253163-W1-purpose-escalated: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+        ]
       },
       "purpose-sideways": {
         "n": 17,
@@ -184,8 +199,10 @@
       },
       "purpose-unplaced": {
         "n": 17,
-        "match": 17,
-        "mismatchIds": []
+        "match": 16,
+        "mismatchIds": [
+          "A-K253265-W1-purpose-unplaced: expected REQUIRES_DOMAIN_REVIEW, got INSUFFICIENT_EVIDENCE"
+        ]
       },
       "date-before-authorization": {
         "n": 12,
@@ -194,20 +211,9 @@
       },
       "date-past-window": {
         "n": 12,
-        "match": 0,
+        "match": 11,
         "mismatchIds": [
-          "A-K200667-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K223357-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K221347-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K253265-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K240301-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K213857-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K232699-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K253801-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K252360-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K253825-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K250680-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
-          "A-K253163-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE"
+          "A-K253265-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got INSUFFICIENT_EVIDENCE"
         ]
       },
       "product-replaced": {
@@ -242,8 +248,12 @@
       },
       "age-min-lowered": {
         "n": 7,
-        "match": 7,
-        "mismatchIds": []
+        "match": 4,
+        "mismatchIds": [
+          "A-DEN170073-W2-age-min-lowered: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE",
+          "A-DEN200055-W2-age-min-lowered: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE",
+          "A-DEN180001-W2-age-min-lowered: expected SUPPORTED_ONLY_FOR_NARROWER_SCOPE, got INSUFFICIENT_EVIDENCE"
+        ]
       },
       "date-past-window-dated-study": {
         "n": 6,
@@ -424,11 +434,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2020-08-03, and the claimed period ends 2023-09-02: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -625,11 +635,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2023-06-16, and the claimed period ends 2026-07-15: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -843,11 +853,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2022-08-03, and the claimed period ends 2025-09-01: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -1284,11 +1294,11 @@
       "dimension": "none",
       "expected": "SUPPORTED_FOR_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "population is unknown"
       ]
     },
     {
@@ -1335,11 +1345,11 @@
       "dimension": "population",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "population is only partly covered; the evidenced part is stated as the supported scope"
+        "population is unknown"
       ]
     },
     {
@@ -1355,7 +1365,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "version is not covered by any evidence"
+        "version is not covered by any evidence",
+        "population is unknown"
       ]
     },
     {
@@ -1367,11 +1378,11 @@
       "dimension": "none",
       "expected": "SUPPORTED_FOR_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "population is unknown"
       ]
     },
     {
@@ -1399,11 +1410,11 @@
       "dimension": "setting",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "setting is only partly covered; the evidenced part is stated as the supported scope"
+        "population is unknown"
       ]
     },
     {
@@ -1419,6 +1430,7 @@
       "error": null,
       "match": true,
       "basis": [
+        "population is unknown",
         "setting is not covered by any evidence"
       ]
     },
@@ -1431,12 +1443,11 @@
       "dimension": "setting",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
-        "setting needs a reviewer to place a term"
+        "population is unknown"
       ]
     },
     {
@@ -1448,11 +1459,11 @@
       "dimension": "purpose",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+        "population is unknown"
       ]
     },
     {
@@ -1468,6 +1479,7 @@
       "error": null,
       "match": true,
       "basis": [
+        "population is unknown",
         "purpose is not covered by any evidence"
       ]
     },
@@ -1480,12 +1492,11 @@
       "dimension": "purpose",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
-        "purpose needs a reviewer to place a term"
+        "population is unknown"
       ]
     },
     {
@@ -1513,11 +1524,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
       "match": false,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "population is unknown"
       ]
     },
     {
@@ -1655,7 +1666,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "R20-STALENESS: The newest study evidence is dated 2025-11-06, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+        "R20-STALENESS: The newest authorization record is dated 2025-11-06, and the claimed period ends 2028-12-05: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+        "R20-STALENESS: The newest study evidence is dated 2025-11-06, and the claimed period ends 2028-12-05: longer than the configured staleness window. Whether it is still representative is a reviewer judgement."
       ]
     },
     {
@@ -1748,11 +1760,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2024-08-01, and the claimed period ends 2027-08-31: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -1890,7 +1902,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "R20-STALENESS: The newest study evidence is dated 2024-08-01, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+        "R20-STALENESS: The newest authorization record is dated 2024-08-01, and the claimed period ends 2027-08-31: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+        "R20-STALENESS: The newest study evidence is dated 2024-08-01, and the claimed period ends 2027-08-31: longer than the configured staleness window. Whether it is still representative is a reviewer judgement."
       ]
     },
     {
@@ -1950,11 +1963,11 @@
       "dimension": "purpose",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+        "SAK-PURPOSE-QUALIFIED-LIMIT: The authorization record limits diagnosis with a reservation the compiler does not interpret (\"Paige Prostate is an adjunctive computer-assisted methodology and its output should not be used as the primary diagnosis.\"); the claim is for diagnosis. Whether the claim runs past the limit is a reviewer judgement."
       ]
     },
     {
@@ -2206,11 +2219,11 @@
       "dimension": "none",
       "expected": "SUPPORTED_FOR_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "population is unknown"
       ]
     },
     {
@@ -2256,11 +2269,11 @@
       "dimension": "population",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "population is only partly covered; the evidenced part is stated as the supported scope"
+        "population is unknown"
       ]
     },
     {
@@ -2304,11 +2317,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2022-10-14, and the claimed period ends 2025-11-12: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -2455,11 +2468,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2023-09-28, and the claimed period ends 2026-10-27: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -2597,7 +2610,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "R20-STALENESS: The newest study evidence is dated 2023-09-28, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+        "R20-STALENESS: The newest authorization record is dated 2023-09-28, and the claimed period ends 2026-10-27: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+        "R20-STALENESS: The newest study evidence is dated 2023-09-28, and the claimed period ends 2026-10-27: longer than the configured staleness window. Whether it is still representative is a reviewer judgement."
       ]
     },
     {
@@ -2778,11 +2792,11 @@
       "dimension": "none",
       "expected": "SUPPORTED_FOR_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "population is unknown"
       ]
     },
     {
@@ -2828,11 +2842,11 @@
       "dimension": "population",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "INSUFFICIENT_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "population is only partly covered; the evidenced part is stated as the supported scope"
+        "population is unknown"
       ]
     },
     {
@@ -2848,7 +2862,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "version is not covered by any evidence"
+        "version is not covered by any evidence",
+        "population is unknown"
       ]
     },
     {
@@ -2995,11 +3010,11 @@
       "dimension": "purpose",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+        "SAK-PURPOSE-QUALIFIED-LIMIT: The authorization record limits diagnosis with a reservation the compiler does not interpret (\"The ECG-AI Cardiac Amyloidosis 12-Lead Algorithm is not intended to be a stand-alone diagnostic device for cardiac amyloidosis nor to replace current clinical practice guidelines.\"); the claim is for diagnosis. Whether the claim runs past the limit is a reviewer judgement."
       ]
     },
     {
@@ -3060,11 +3075,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2026-04-07, and the claimed period ends 2029-05-06: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -3196,11 +3211,11 @@
       "dimension": "purpose",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+        "SAK-PURPOSE-QUALIFIED-LIMIT: The authorization record limits diagnosis with a reservation the compiler does not interpret (\"ECG-AI PH 12-Lead algorithm is not intended to be a stand-alone diagnostic device for pulmonary hypertension or replace current clinical practice guidelines.\"); the claim is for diagnosis. Whether the claim runs past the limit is a reviewer judgement."
       ]
     },
     {
@@ -3261,11 +3276,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2026-03-28, and the claimed period ends 2029-04-26: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -3435,7 +3450,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "R20-STALENESS: The newest study evidence is dated 2026-03-28, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+        "R20-STALENESS: The newest authorization record is dated 2026-03-28, and the claimed period ends 2029-04-26: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+        "R20-STALENESS: The newest study evidence is dated 2026-03-28, and the claimed period ends 2029-04-26: longer than the configured staleness window. Whether it is still representative is a reviewer judgement."
       ]
     },
     {
@@ -3528,11 +3544,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2026-06-15, and the claimed period ends 2029-07-14: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -3762,11 +3778,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2026-04-30, and the claimed period ends 2029-05-29: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -3920,7 +3936,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "R20-STALENESS: The newest study evidence is dated 2026-04-30, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+        "R20-STALENESS: The newest authorization record is dated 2026-04-30, and the claimed period ends 2029-05-29: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+        "R20-STALENESS: The newest study evidence is dated 2026-04-30, and the claimed period ends 2029-05-29: longer than the configured staleness window. Whether it is still representative is a reviewer judgement."
       ]
     },
     {
@@ -3997,11 +4014,11 @@
       "dimension": "purpose",
       "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
       "contestable": false,
-      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
       "error": null,
-      "match": true,
+      "match": false,
       "basis": [
-        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+        "explicit authorization limit, purpose: the authorization record excludes diagnosis (\"The device does not alter the original medical image and is not intended to be used as a diagnostic device.\"); the claim is for diagnosis (R24-PURPOSE-EXPLICIT-LIMIT)"
       ]
     },
     {
@@ -4062,11 +4079,11 @@
       "dimension": "timing",
       "expected": "REQUIRES_DOMAIN_REVIEW",
       "contestable": true,
-      "emitted": "SUPPORTED_FOR_SCOPE",
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
       "error": null,
-      "match": false,
+      "match": true,
       "basis": [
-        "every required dimension is contained, no required source is lost, and no review flag is raised"
+        "R20-STALENESS: The newest authorization record is dated 2026-04-22, and the claimed period ends 2029-05-21: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement."
       ]
     },
     {
@@ -4204,7 +4221,8 @@
       "error": null,
       "match": true,
       "basis": [
-        "R20-STALENESS: The newest study evidence is dated 2026-04-22, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+        "R20-STALENESS: The newest authorization record is dated 2026-04-22, and the claimed period ends 2029-05-21: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.",
+        "R20-STALENESS: The newest study evidence is dated 2026-04-22, and the claimed period ends 2029-05-21: longer than the configured staleness window. Whether it is still representative is a reviewer judgement."
       ]
     }
   ]

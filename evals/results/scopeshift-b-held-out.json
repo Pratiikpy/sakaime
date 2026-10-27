@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "scopeshift-b",
-    "startedAt": "2026-10-27T11:57:04.736Z",
+    "startedAt": "2026-10-27T12:56:46.267Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
@@ -14,15 +14,18 @@
       "B4": 1
     },
     "promptHash": "86cc344953e649c76d5ad5a040a969de35f99257345ac0b5c1b57869964c9abc",
-    "adapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6",
+    "adapterHash": "842836dce0e74c618c5273416a04f4da72ba5f6b1d554408f46f4d61ec809467",
     "adapter": {
-      "version": "1",
+      "version": "2",
       "requiredDimensions": "The dimensions the claim states: product always, version, setting, purpose and timing when the claim names them, population when it states an age, conditions or exclusions, metric when it states a performance. A dimension the claim is silent on is not asserted (ANSWER-KEY.md, semantics 1).",
       "dependencies": "Every claim declares an authorization record and a study as required: the question is always whether the authorization and the evidence the regulator reviewed (or the published study) cover the use. Without the declaration the compiler lets only the authorization support a dimension when the claim states no number.",
       "stalenessWindowDays": 1095,
       "stalenessWindowNote": "A hospital policy supplied to every arm, 3 years, an assumption and not a standard; a case may carry its own.",
       "versionsFromSameDocument": true,
       "versionsNote": "A study item in an FDA summary inherits the version strings written elsewhere in the same summary. The inference is recorded on the item.",
+      "datesFromSameDocument": true,
+      "datesNote": "A study item in an FDA summary that states no date of its own is dated with the decision date of the same summary: the regulator had reviewed the study by then, so the date is an upper bound on when the evidence existed. The inference is recorded on the item.",
+      "stalenessNote2": "The staleness window of the hospital policy now applies to the authorization record as well as to dated study evidence (compiler rule R20, design inference).",
       "purposeFromExtraction": "Extracted purpose terms are mapped to taxonomy nodes (vocabulary.ts); the broadest node wins, then a fixed priority.",
       "sourceHealth": "All sources reported OK: the fault drills of FailureShift test the other states.",
       "computedAt": "2026-10-27T00:00:00.000Z"
@@ -40,7 +43,7 @@
         "retried": 0
       }
     },
-    "resultsHash": "31217cf93d125aa3"
+    "resultsHash": "d3bb154173e73e06"
   },
   "summaries": {
     "heldout.V.n": {
@@ -53,49 +56,49 @@
       }
     },
     "heldout.V.exact": {
-      "k": 6,
+      "k": 9,
       "n": 20,
-      "rate": 0.3,
-      "wilsonLo": 0.1454772448676043,
-      "wilsonHi": 0.5189728183535235,
-      "clusterLo": 0.15,
-      "clusterHi": 0.45,
+      "rate": 0.45,
+      "wilsonLo": 0.2581978582556243,
+      "wilsonHi": 0.6579146575496577,
+      "clusterLo": 0.3,
+      "clusterHi": 0.6,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261027
     },
     "heldout.V.acceptable": {
-      "k": 12,
+      "k": 14,
       "n": 20,
-      "rate": 0.6,
-      "wilsonLo": 0.3865815007622531,
-      "wilsonHi": 0.781193467627183,
-      "clusterLo": 0.4,
-      "clusterHi": 0.75,
+      "rate": 0.7,
+      "wilsonLo": 0.4810271816464765,
+      "wilsonHi": 0.8545227551323956,
+      "clusterLo": 0.55,
+      "clusterHi": 0.9,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261028
     },
     "heldout.V.exactClear": {
-      "k": 2,
+      "k": 4,
       "n": 9,
-      "rate": 0.2222222222222222,
-      "wilsonLo": 0.06322510711784671,
-      "wilsonHi": 0.5474110308930111,
-      "clusterLo": 0,
-      "clusterHi": 0.4444444444444444,
+      "rate": 0.4444444444444444,
+      "wilsonLo": 0.18877852109766452,
+      "wilsonHi": 0.733348706504507,
+      "clusterLo": 0.1111111111111111,
+      "clusterHi": 0.7777777777777778,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261029
     },
     "heldout.V.exactContestable": {
-      "k": 4,
+      "k": 5,
       "n": 11,
-      "rate": 0.36363636363636365,
-      "wilsonLo": 0.15166471095367573,
-      "wilsonHi": 0.6461988254921511,
-      "clusterLo": 0.1,
-      "clusterHi": 0.5833333333333334,
+      "rate": 0.45454545454545453,
+      "wilsonLo": 0.21271271622459764,
+      "wilsonHi": 0.719908462590678,
+      "clusterLo": 0.2,
+      "clusterHi": 0.6153846153846154,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261030
@@ -114,11 +117,11 @@
       "seed": 20261031
     },
     "heldout.V.criticalMismatchRecall": {
-      "k": 11,
+      "k": 12,
       "n": 15,
-      "rate": 0.7333333333333333,
-      "wilsonLo": 0.4804956594401943,
-      "wilsonHi": 0.8910254667430761
+      "rate": 0.8,
+      "wilsonLo": 0.5481455128483065,
+      "wilsonHi": 0.9295245065301844
     },
     "heldout.V.criticalMismatchDimensionRecall": {
       "k": 14,
@@ -128,37 +131,36 @@
       "wilsonHi": 0.9881331045067315
     },
     "heldout.V.falseAlarm": {
-      "k": 5,
+      "k": 4,
       "n": 5,
-      "rate": 1,
-      "wilsonLo": 0.5655175352168251,
-      "wilsonHi": 1,
-      "clusterLo": 1,
+      "rate": 0.8,
+      "wilsonLo": 0.37553462976252533,
+      "wilsonHi": 0.9637758913675698,
+      "clusterLo": 0.4,
       "clusterHi": 1,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261032
     },
     "heldout.V.correctSupported": {
-      "k": 0,
+      "k": 1,
       "n": 5,
-      "rate": 0,
-      "wilsonLo": 0,
-      "wilsonHi": 0.43448246478317476,
-      "zeroErrorUpper95": 0.4507197283469412,
+      "rate": 0.2,
+      "wilsonLo": 0.03622410863243014,
+      "wilsonHi": 0.6244653702374747,
       "clusterLo": 0,
-      "clusterHi": 0,
+      "clusterHi": 0.6,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261033
     },
     "heldout.V.correctAbstention": {
-      "k": 12,
+      "k": 11,
       "n": 12,
-      "rate": 1,
-      "wilsonLo": 0.7575059933447592,
-      "wilsonHi": 1,
-      "clusterLo": 1,
+      "rate": 0.9166666666666666,
+      "wilsonLo": 0.646120088858883,
+      "wilsonHi": 0.9851349055950829,
+      "clusterLo": 0.7272727272727273,
       "clusterHi": 1,
       "clusters": 5,
       "resamples": 2000,
@@ -169,9 +171,10 @@
       "n": 20
     },
     "heldout.V.emittedLabels": {
-      "INSUFFICIENT_EVIDENCE": 17,
-      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2,
-      "REQUIRES_DOMAIN_REVIEW": 1
+      "INSUFFICIENT_EVIDENCE": 14,
+      "REQUIRES_DOMAIN_REVIEW": 2,
+      "SUPPORTED_FOR_SCOPE": 1,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 3
     },
     "heldout.V-noident.n": {
       "cases": 20,
@@ -183,49 +186,49 @@
       }
     },
     "heldout.V-noident.exact": {
-      "k": 6,
+      "k": 9,
       "n": 20,
-      "rate": 0.3,
-      "wilsonLo": 0.1454772448676043,
-      "wilsonHi": 0.5189728183535235,
-      "clusterLo": 0.15,
-      "clusterHi": 0.45,
+      "rate": 0.45,
+      "wilsonLo": 0.2581978582556243,
+      "wilsonHi": 0.6579146575496577,
+      "clusterLo": 0.3,
+      "clusterHi": 0.6,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261027
     },
     "heldout.V-noident.acceptable": {
-      "k": 12,
+      "k": 14,
       "n": 20,
-      "rate": 0.6,
-      "wilsonLo": 0.3865815007622531,
-      "wilsonHi": 0.781193467627183,
-      "clusterLo": 0.4,
-      "clusterHi": 0.75,
+      "rate": 0.7,
+      "wilsonLo": 0.4810271816464765,
+      "wilsonHi": 0.8545227551323956,
+      "clusterLo": 0.55,
+      "clusterHi": 0.9,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261028
     },
     "heldout.V-noident.exactClear": {
-      "k": 2,
+      "k": 4,
       "n": 9,
-      "rate": 0.2222222222222222,
-      "wilsonLo": 0.06322510711784671,
-      "wilsonHi": 0.5474110308930111,
-      "clusterLo": 0,
-      "clusterHi": 0.4444444444444444,
+      "rate": 0.4444444444444444,
+      "wilsonLo": 0.18877852109766452,
+      "wilsonHi": 0.733348706504507,
+      "clusterLo": 0.1111111111111111,
+      "clusterHi": 0.7777777777777778,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261029
     },
     "heldout.V-noident.exactContestable": {
-      "k": 4,
+      "k": 5,
       "n": 11,
-      "rate": 0.36363636363636365,
-      "wilsonLo": 0.15166471095367573,
-      "wilsonHi": 0.6461988254921511,
-      "clusterLo": 0.1,
-      "clusterHi": 0.5833333333333334,
+      "rate": 0.45454545454545453,
+      "wilsonLo": 0.21271271622459764,
+      "wilsonHi": 0.719908462590678,
+      "clusterLo": 0.2,
+      "clusterHi": 0.6153846153846154,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261030
@@ -244,11 +247,11 @@
       "seed": 20261031
     },
     "heldout.V-noident.criticalMismatchRecall": {
-      "k": 11,
+      "k": 12,
       "n": 15,
-      "rate": 0.7333333333333333,
-      "wilsonLo": 0.4804956594401943,
-      "wilsonHi": 0.8910254667430761
+      "rate": 0.8,
+      "wilsonLo": 0.5481455128483065,
+      "wilsonHi": 0.9295245065301844
     },
     "heldout.V-noident.criticalMismatchDimensionRecall": {
       "k": 14,
@@ -258,37 +261,36 @@
       "wilsonHi": 0.9881331045067315
     },
     "heldout.V-noident.falseAlarm": {
-      "k": 5,
+      "k": 4,
       "n": 5,
-      "rate": 1,
-      "wilsonLo": 0.5655175352168251,
-      "wilsonHi": 1,
-      "clusterLo": 1,
+      "rate": 0.8,
+      "wilsonLo": 0.37553462976252533,
+      "wilsonHi": 0.9637758913675698,
+      "clusterLo": 0.4,
       "clusterHi": 1,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261032
     },
     "heldout.V-noident.correctSupported": {
-      "k": 0,
+      "k": 1,
       "n": 5,
-      "rate": 0,
-      "wilsonLo": 0,
-      "wilsonHi": 0.43448246478317476,
-      "zeroErrorUpper95": 0.4507197283469412,
+      "rate": 0.2,
+      "wilsonLo": 0.03622410863243014,
+      "wilsonHi": 0.6244653702374747,
       "clusterLo": 0,
-      "clusterHi": 0,
+      "clusterHi": 0.6,
       "clusters": 5,
       "resamples": 2000,
       "seed": 20261033
     },
     "heldout.V-noident.correctAbstention": {
-      "k": 12,
+      "k": 11,
       "n": 12,
-      "rate": 1,
-      "wilsonLo": 0.7575059933447592,
-      "wilsonHi": 1,
-      "clusterLo": 1,
+      "rate": 0.9166666666666666,
+      "wilsonLo": 0.646120088858883,
+      "wilsonHi": 0.9851349055950829,
+      "clusterLo": 0.7272727272727273,
       "clusterHi": 1,
       "clusters": 5,
       "resamples": 2000,
@@ -299,9 +301,10 @@
       "n": 20
     },
     "heldout.V-noident.emittedLabels": {
-      "INSUFFICIENT_EVIDENCE": 17,
-      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2,
-      "REQUIRES_DOMAIN_REVIEW": 1
+      "INSUFFICIENT_EVIDENCE": 14,
+      "REQUIRES_DOMAIN_REVIEW": 2,
+      "SUPPORTED_FOR_SCOPE": 1,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 3
     },
     "heldout.B1.n": {
       "cases": 20,
@@ -1143,46 +1146,46 @@
       },
       {
         "arm": "B1",
-        "b": 4,
-        "c": 5,
-        "p": 1,
+        "b": 6,
+        "c": 4,
+        "p": 0.7539062500000018,
         "pHolm": 1,
-        "diff": -0.05,
-        "diffLo": -0.15,
-        "diffHi": 0,
+        "diff": 0.1,
+        "diffLo": 0,
+        "diffHi": 0.2,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
         "arm": "B2",
-        "b": 4,
-        "c": 5,
-        "p": 1,
+        "b": 6,
+        "c": 4,
+        "p": 0.7539062500000018,
         "pHolm": 1,
-        "diff": -0.05,
-        "diffLo": -0.15,
-        "diffHi": 0,
+        "diff": 0.1,
+        "diffLo": 0,
+        "diffHi": 0.2,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
         "arm": "B3",
-        "b": 4,
-        "c": 11,
-        "p": 0.11846923828125025,
-        "pHolm": 0.5923461914062512,
-        "diff": -0.35,
-        "diffLo": -0.45,
-        "diffHi": -0.25,
+        "b": 5,
+        "c": 9,
+        "p": 0.4239501953125007,
+        "pHolm": 1,
+        "diff": -0.2,
+        "diffLo": -0.35,
+        "diffHi": -0.05,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
         "arm": "B4",
-        "b": 3,
-        "c": 9,
-        "p": 0.1459960937500003,
-        "pHolm": 0.5923461914062512,
-        "diff": -0.3,
-        "diffLo": -0.5,
-        "diffHi": -0.1,
+        "b": 5,
+        "c": 8,
+        "p": 0.5810546875000012,
+        "pHolm": 1,
+        "diff": -0.15,
+        "diffLo": -0.35,
+        "diffHi": 0.05,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       }
     ],
@@ -1511,14 +1514,12 @@
                 },
                 {
                   "id": "HO-CA-04",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
-                  "exact": false,
-                  "acceptable": false,
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
-                  "namedDimensions": [
-                    "timing"
-                  ],
+                  "namedDimensions": [],
                   "detail": null
                 },
                 {
@@ -1622,14 +1623,12 @@
                 },
                 {
                   "id": "HO-SE-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
                   "status": "ok",
-                  "exact": false,
-                  "acceptable": false,
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
-                  "namedDimensions": [
-                    "setting"
-                  ],
+                  "namedDimensions": [],
                   "detail": null
                 },
                 {
@@ -1640,8 +1639,7 @@
                   "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
@@ -1653,7 +1651,7 @@
                   "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "setting"
+                    "metric"
                   ],
                   "detail": null
                 },
@@ -1697,9 +1695,9 @@
                 },
                 {
                   "id": "HO-EF-03",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
-                  "exact": false,
+                  "exact": true,
                   "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
@@ -1774,14 +1772,12 @@
                 },
                 {
                   "id": "HO-CA-04",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
-                  "exact": false,
-                  "acceptable": false,
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
-                  "namedDimensions": [
-                    "timing"
-                  ],
+                  "namedDimensions": [],
                   "detail": null
                 },
                 {
@@ -1885,14 +1881,12 @@
                 },
                 {
                   "id": "HO-SE-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
                   "status": "ok",
-                  "exact": false,
-                  "acceptable": false,
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
-                  "namedDimensions": [
-                    "setting"
-                  ],
+                  "namedDimensions": [],
                   "detail": null
                 },
                 {
@@ -1903,8 +1897,7 @@
                   "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
@@ -1916,7 +1909,7 @@
                   "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "setting"
+                    "metric"
                   ],
                   "detail": null
                 },
@@ -1960,9 +1953,9 @@
                 },
                 {
                   "id": "HO-EF-03",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
-                  "exact": false,
+                  "exact": true,
                   "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
@@ -3490,12 +3483,10 @@
             "population": "UNKNOWN: The claim does not state a patient population, so nothing can be concluded about it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: The claim does not state a intended purpose, so nothing can be concluded about it.",
-            "timing": "UNKNOWN: The authorization record is in force from 2026-04-07 with no stated end and covers the use from 2030-07-01. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "timing": "CONTAINED: The authorization record is in force from 2026-04-07 with no stated end and covers the use from 2030-07-01. Study evidence dated 2026-04-07 existed before the use from 2030-07-01 begins.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
-          "unknownOrOpen": [
-            "timing:UNKNOWN"
-          ]
+          "unknownOrOpen": []
         },
         "V|HO-PH-01": {
           "error": null,
@@ -3589,7 +3580,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from screening population undergoing screening mammography cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3629,7 +3620,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from screening population undergoing screening mammography cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: The purpose term \"autonomous_reading\" cannot be placed in the purpose taxonomy, so no containment is decided. A reviewer must place it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3671,14 +3662,12 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "setting": "CONTAINED: The claimed care setting (hospital (any unit)) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
-          "unknownOrOpen": [
-            "setting:UNKNOWN"
-          ]
+          "unknownOrOpen": []
         },
         "V|HO-SE-02": {
           "error": null,
@@ -3691,14 +3680,13 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record alone the claim is only partly covered; against the studies alone it is only partly covered.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed inpatient ward.",
+            "setting": "CONTAINED: The claimed care setting (inpatient ward) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:PARTIAL",
-            "setting:UNKNOWN"
+            "population:PARTIAL"
           ]
         },
         "V|HO-SE-03": {
@@ -3712,13 +3700,13 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "setting": "CONTAINED: The claimed care setting (hospital (any unit)) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
-            "metric": "UNKNOWN: ppa is reported only by records that do not cover the claimed scope or are not among the evidence the claim depends on."
+            "metric": "DISJOINT: A study result lies below the claim: ev_65c02a2376ce7ecb: ppa 0.794 (CI 0.742 to 0.846) against the claimed minimum 0.85. Whether it counts against the claim is not settled: the adequacy of the study is not established."
           },
           "unknownOrOpen": [
-            "setting:UNKNOWN"
+            "metric:DISJOINT"
           ]
         },
         "V|HO-SE-04": {
@@ -3732,7 +3720,7 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
-            "setting": "DISJOINT: The claim is for primary care; the evidence concerns emergency department, hospital (any unit), which does not contain it.",
+            "setting": "DISJOINT: The claim is for primary care; the evidence concerns hospital (any unit), which does not contain it. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
@@ -3751,14 +3739,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for contrast enhanced abdominal ct; the evidence covers appendicitis.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN"
           ]
         },
@@ -3772,14 +3760,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct, non-contrast abdominal ct cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for contrast enhanced abdominal ct, non contrast abdominal ct; the evidence covers appendicitis.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN"
           ]
         },
@@ -3793,14 +3781,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for contrast enhanced abdominal ct; the evidence covers appendicitis.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN",
             "purpose:PARTIAL"
           ]
@@ -3815,10 +3803,10 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast enhanced abdominal ct cannot be placed inside anything.",
             "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed hospital (any unit) cannot be placed inside anything.",
             "purpose": "UNKNOWN: No evidence record in use states a intended purpose, so the claimed triage notification cannot be placed inside anything.",
-            "timing": "DISJOINT: The authorization record took effect 2026-04-22; the use from 2026-01-01 begins before that. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "timing": "DISJOINT: The authorization record took effect 2026-04-22; the use from 2026-01-01 begins before that. The earliest study evidence is dated 2026-04-22, after the use from 2026-01-01 begins; no study existed at the claimed start.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
@@ -3902,12 +3890,10 @@
             "population": "UNKNOWN: The claim does not state a patient population, so nothing can be concluded about it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: The claim does not state a intended purpose, so nothing can be concluded about it.",
-            "timing": "UNKNOWN: The authorization record is in force from 2026-04-07 with no stated end and covers the use from 2030-07-01. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "timing": "CONTAINED: The authorization record is in force from 2026-04-07 with no stated end and covers the use from 2030-07-01. Study evidence dated 2026-04-07 existed before the use from 2030-07-01 begins.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
-          "unknownOrOpen": [
-            "timing:UNKNOWN"
-          ]
+          "unknownOrOpen": []
         },
         "V-noident|HO-PH-01": {
           "error": null,
@@ -4001,7 +3987,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from screening population undergoing screening mammography cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4041,7 +4027,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from screening population undergoing screening mammography cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: The purpose term \"autonomous_reading\" cannot be placed in the purpose taxonomy, so no containment is decided. A reviewer must place it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4083,14 +4069,12 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "setting": "CONTAINED: The claimed care setting (hospital (any unit)) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
-          "unknownOrOpen": [
-            "setting:UNKNOWN"
-          ]
+          "unknownOrOpen": []
         },
         "V-noident|HO-SE-02": {
           "error": null,
@@ -4103,14 +4087,13 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record alone the claim is only partly covered; against the studies alone it is only partly covered.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed inpatient ward.",
+            "setting": "CONTAINED: The claimed care setting (inpatient ward) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:PARTIAL",
-            "setting:UNKNOWN"
+            "population:PARTIAL"
           ]
         },
         "V-noident|HO-SE-03": {
@@ -4124,13 +4107,13 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "setting": "CONTAINED: The claimed care setting (hospital (any unit)) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
-            "metric": "UNKNOWN: ppa is reported only by records that do not cover the claimed scope or are not among the evidence the claim depends on."
+            "metric": "DISJOINT: A study result lies below the claim: ev_65c02a2376ce7ecb: ppa 0.794 (CI 0.742 to 0.846) against the claimed minimum 0.85. Whether it counts against the claim is not settled: the adequacy of the study is not established."
           },
           "unknownOrOpen": [
-            "setting:UNKNOWN"
+            "metric:DISJOINT"
           ]
         },
         "V-noident|HO-SE-04": {
@@ -4144,7 +4127,7 @@
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
             "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
-            "setting": "DISJOINT: The claim is for primary care; the evidence concerns emergency department, hospital (any unit), which does not contain it.",
+            "setting": "DISJOINT: The claim is for primary care; the evidence concerns hospital (any unit), which does not contain it. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
@@ -4163,14 +4146,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for contrast enhanced abdominal ct; the evidence covers appendicitis.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN"
           ]
         },
@@ -4184,14 +4167,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct, non-contrast abdominal ct cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for contrast enhanced abdominal ct, non contrast abdominal ct; the evidence covers appendicitis.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN"
           ]
         },
@@ -4205,14 +4188,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for contrast enhanced abdominal ct; the evidence covers appendicitis.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN",
             "purpose:PARTIAL"
           ]
@@ -4227,10 +4210,10 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast enhanced abdominal ct cannot be placed inside anything.",
             "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed hospital (any unit) cannot be placed inside anything.",
             "purpose": "UNKNOWN: No evidence record in use states a intended purpose, so the claimed triage notification cannot be placed inside anything.",
-            "timing": "DISJOINT: The authorization record took effect 2026-04-22; the use from 2026-01-01 begins before that. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "timing": "DISJOINT: The authorization record took effect 2026-04-22; the use from 2026-01-01 begins before that. The earliest study evidence is dated 2026-04-22, after the use from 2026-01-01 begins; no study existed at the claimed start.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [

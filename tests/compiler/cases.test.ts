@@ -199,8 +199,9 @@ describe("Viz LVO DEN170073: one De Novo, eleven GUDID versions, a trial that ci
 
   it("holds a diagnosis claim to the notification-only indication as a narrower scope", () => {
     // DEN170073 section F: "Identification of suspected findings is not for diagnostic use beyond notification."
-    // The registry's R24 would call a diagnosis claim CONTRADICTED on that explicit negation. The evidence schema carries no
-    // structured negation, so this build reports the narrower scope instead and does not parse the sentence.
+    // R24 calls a diagnosis claim CONTRADICTED on that explicit negation, but only when the reader has written it into the
+    // authorization record in the structured form (limits.ts; tests/compiler/limits.test.ts). This record carries no such form, so
+    // the compiler does not parse the sentence and reports the narrower scope (R25).
     const r = run({ ...claim("1.0"), ...noPerf, use: { ...claim("1.0").use, purpose: "diagnosis" } }, [authorization, { ...registry, scope: { ...registry.scope, versions: ["1.0"] } }]);
     expect(r.finding.label).toBe("SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
     expect(r.finding.supportedScope).toMatchObject({ purpose: "triage_notification" });

@@ -11,6 +11,7 @@
  */
 import { EvidenceItemSchema, type EvidenceItem, type EvidenceResult } from "../schemas/scope.ts";
 import type { Scope } from "../schemas/scope.ts";
+import { formatPurposeExclusion } from "../compiler/limits.ts";
 import { hashOf } from "../util/canonical.ts";
 import { isUsable } from "./verify.ts";
 import type { CheckedAssertion } from "./types.ts";
@@ -26,6 +27,12 @@ export interface ConversionOptions {
    * link from a result to a version is an inference. When on, the inference is stated in the item's limitations.
    */
   versionsFromSameDocument?: boolean;
+  /**
+   * Date a study item with the decision date of the authorization read from the SAME document. A decision summary describes
+   * studies the regulator had reviewed by the decision, so the date is an upper bound on when the evidence existed, which is what
+   * the study's timing means. Off by default; when on, the item says so in its limitations. A study item with its own date keeps it.
+   */
+  datesFromSameDocument?: boolean;
 }
 
 export interface ConversionNote {
@@ -50,6 +57,7 @@ const NON_HEADLINE = new Set([
 
 const PURPOSE_ORDER = ["triage", "prioritization", "notification", "detection", "screening", "concurrent reading aid", "diagnostic aid", "guidance"];
 const FULL_DATE = /^\d{4}-\d{2}-\d{2}$/;
+const NO_EXCLUSION = /^\s*(?:none|n\/a|not\s+applicable|no\s+exclusions?)\s*[.;]?\s*$/i;
 
 /** Qualifiers that stop a result from being the device's overall observed figure. */
 export function blockingQualifiers(a: CheckedAssertion): string[] {
@@ -121,11 +129,12 @@ export function toEvidenceItems(kept: CheckedAssertion[], options: ConversionOpt
     if (age.min !== undefined || age.max !== undefined) population.age = age;
     const conditions = distinct(by("population.condition").map((r) => (use(r), String(r.assertion.value))));
     if (conditions.length) population.conditions = conditions;
-    const exclusions = distinct(by("population.exclusion_criterion").map((r) => (use(r), String(r.assertion.value))));
+    // "None." in an exclusion list means there are no exclusions; it is not a group of people.
+    const exclusions = distinct(by("population.exclusion_criterion").filter((r) => !NO_EXCLUSION.test(String(r.assertion.value))).map((r) => (use(r), String(r.assertion.value))));
     if (exclusions.length) population.exclusions = exclusions;
     if (Object.keys(population).length) scope.population = population;
 
-    const settings = distinct(by("indication.setting_term").map((r) => (use(r), String(r.assertion.value))));
+    const settings = distinct([...by("indication.setting_term"), ...by("study.setting_term")].map((r) => (use(r), String(r.assertion.value))));
     if (settings.length) scope.settings = settings;
 
     const purposes = by("indication.purpose_term");
@@ -142,6 +151,18 @@ export function toEvidenceItems(kept: CheckedAssertion[], options: ConversionOpt
     for (const r of dateRows) {
       if (!FULL_DATE.test(String(r.assertion.value))) {
         notes.push({ subjectId: g.subjectId, kind: "partial_date_dropped", message: `${r.assertion.predicate} "${String(r.assertion.value)}" has no day and is left out of timing` });
+      }
+    }
+    let datedByDocument: string | undefined;
+    if (full.length === 0 && g.type === "study" && options.datesFromSameDocument === true) {
+      const same = usable.filter(
+        (r) => r.assertion.subjectId === g.subjectId && r.assertion.assertionType === "authorization" && FULL_DATE.test(String(r.assertion.value)) && /^authorization\.(decision_date|letter_date)$/.test(r.assertion.predicate),
+      );
+      const picked = same.find((r) => r.assertion.predicate === "authorization.decision_date") ?? same[0];
+      if (picked) {
+        scope.timing = { from: String(picked.assertion.value) };
+        datedByDocument = String(picked.assertion.value);
+        use(picked);
       }
     }
     if (full.length) {
@@ -182,6 +203,10 @@ export function toEvidenceItems(kept: CheckedAssertion[], options: ConversionOpt
       limitations.push(String(r.assertion.value).replace(/\s+/g, " ").trim());
       use(r);
     }
+    for (const r of by("indication.purpose_exclusion")) {
+      limitations.push(formatPurposeExclusion({ node: String(r.assertion.value), strength: quals(r).includes("qualified") ? "qualified" : "absolute", sentence: r.anchor.text }));
+      use(r);
+    }
     for (const r of by("study.clinical_tests")) {
       limitations.push("the source states that clinical testing was not conducted");
       use(r);
@@ -196,6 +221,9 @@ export function toEvidenceItems(kept: CheckedAssertion[], options: ConversionOpt
     }
     if (inherited.length > 0 && versions.length === 0) {
       limitations.push(`version ${inherited.join(", ")} is named elsewhere in the same document; the passages that report these results do not name a version`);
+    }
+    if (datedByDocument) {
+      limitations.push(`dated ${datedByDocument}, the decision date of the document that describes it: the study existed by then; its own date is not stated`);
     }
     if (g.type === "authorization" && options.absentFields?.includes("device.version") && versions.length === 0) {
       limitations.push("no software version is stated in the source");

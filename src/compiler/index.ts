@@ -26,6 +26,8 @@ export { compile, compileDetailed, type CompileDetail, type DimensionReason } fr
 export { recompute, applyPatch, diffFindings, ClaimPatchSchema, type ClaimPatch, type Counterfactual, type FindingDiff } from "./counterfactual.ts";
 export { staleFindings, supersede } from "./impact.ts";
 export { describeAssessment, summarise } from "./explain.ts";
+export { formatPurposeExclusion, parsePurposeExclusion, type PurposeExclusion, type PurposeExclusionStrength } from "./limits.ts";
+export { CONDITION_SYNONYMS, NARROWING_MODIFIERS, normCondition, relateCondition, type ConditionRelation, type SynonymEntry } from "./conditions.ts";
 export { CompilerInputError, RuleVersionMismatchError, CompileOptionsSchema, type CompileOptions } from "./input.ts";
 export { CompilerInvariantError } from "./engine.ts";
 export { COMPILER_VERSION, RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, ruleOf, type Rule, type RuleTag } from "./rules.ts";

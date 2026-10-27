@@ -44,7 +44,15 @@ export const SERVICE_PURPOSES = TaxonomySchema.parse({
   aliases: { ...DEFAULT_PURPOSE_TAXONOMY.aliases, ...PURPOSE_ALIASES },
 });
 
+/**
+ * The review policy of the services. A staleness window is a hospital choice and no standard sets one (compiler rule R20), so the
+ * compiler has no default. These services configure one: three years. It is our design inference, not a requirement: evidence or an
+ * authorization record dated longer than this before the end of a claimed period raises a review flag, and a hospital that wants another
+ * window changes it here. Nothing else in the policy is configured, because no source gives a sample-size or interval-width threshold.
+ */
+export const SERVICE_POLICY = { stalenessWindowDays: 1095 } as const;
+
 /** Compile options every service call shares. The rule version these produce is what a dossier records. */
-export function baseCompileOptions(): Pick<CompileOptions, "taxonomies"> {
-  return { taxonomies: { settings: SERVICE_SETTINGS, purposes: SERVICE_PURPOSES } };
+export function baseCompileOptions(): Pick<CompileOptions, "taxonomies" | "policy"> {
+  return { taxonomies: { settings: SERVICE_SETTINGS, purposes: SERVICE_PURPOSES }, policy: { ...SERVICE_POLICY } };
 }

@@ -23,13 +23,17 @@ export async function sampleService(service?: ServiceOverrides, extra: { env?: R
  */
 export const EXPECTED_LABELS: Record<string, Record<string, string>> = {
   "eyeart-k200667": {
-    "CASE-2026-014.intended": "INSUFFICIENT_EVIDENCE",
-    "CLM-EA-01": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    // The readers now carry the authorization's condition and exclusion. The claims that name diabetic retinopathy as the population meet the
+    // exclusion of patients previously diagnosed with more than mild diabetic retinopathy, and the compiler cannot place those two wordings
+    // (SAK-UNPLACED-CONDITION), so a reviewer must; before, the exclusion was not read and these were narrower scopes. The headline question
+    // (use from 2027) also meets the service's staleness window (R20).
+    "CASE-2026-014.intended": "REQUIRES_DOMAIN_REVIEW",
+    "CLM-EA-01": "REQUIRES_DOMAIN_REVIEW",
     "CLM-EA-02": "REQUIRES_DOMAIN_REVIEW",
     "CLM-EA-03": "INSUFFICIENT_EVIDENCE",
     "CLM-EA-04": "INSUFFICIENT_EVIDENCE",
     "CLM-EA-05": "REQUIRES_DOMAIN_REVIEW",
-    "CLM-EA-06": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+    "CLM-EA-06": "REQUIRES_DOMAIN_REVIEW",
   },
   "lunit-k211733": {
     "CASE-2026-016.intended": "INSUFFICIENT_EVIDENCE",

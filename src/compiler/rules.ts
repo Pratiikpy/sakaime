@@ -20,7 +20,7 @@ import type { Dimension } from "../schemas/index.ts";
  */
 
 /** Bump when any rule's behaviour changes. Part of every Finding as `ruleVersion`. */
-export const COMPILER_VERSION = "sakaime-compiler@1.0.0";
+export const COMPILER_VERSION = "sakaime-compiler@1.1.0";
 
 export type RuleTag = "deterministic" | "flag";
 
@@ -159,6 +159,21 @@ export const RULES: readonly Rule[] = [
     citations: ["K250694 letter date 2025-11-25 versus received 2025-10-28 (distinct dates)"],
   }),
   r({
+    id: "R24-PURPOSE-EXPLICIT-LIMIT",
+    registryId: "R24",
+    name: "Claimed purpose runs past an explicit exclusion in the authorization record",
+    summary:
+      "A claimed purpose that is the excluded purpose, or more consequential than it, contradicts an authorization record that excludes that purpose outright. Only the form written by the reader (limits.ts) counts, with the verbatim sentence kept; a reservation such as stand-alone, primary or beyond notification is not interpreted and goes to a reviewer.",
+    tag: "deterministic",
+    dimension: "purpose",
+    basis: "standard-concept",
+    citations: [
+      "DEN170073 decision summary, F.1 and F.3: not for diagnostic use beyond notification",
+      "K250694 indications: not intended to be used as a diagnostic device",
+      "IMDRF SaMD N41 section 6.1: ordinal intended-use classes",
+    ],
+  }),
+  r({
     id: "R25-PURPOSE-ESCALATION",
     registryId: "R25",
     name: "Claimed purpose is more consequential than the evidenced purpose",
@@ -228,7 +243,8 @@ export const RULES: readonly Rule[] = [
     id: "R20-STALENESS",
     registryId: "R20",
     name: "Evidence is older than the configured staleness window",
-    summary: "Raised only when the caller configures a window. No standard sets one, so there is no default.",
+    summary:
+      "Raised only when the caller configures a window; the newest study evidence and the newest authorization record are each measured against it. No standard sets a window, so the compiler has no default and the services configure a documented one (design inference). Reading it for an authorization record is also design inference: an authorization does not lapse by age, and the flag asks whether a later authorization, a modification or a recall has changed the authorized use.",
     tag: "flag",
     dimension: "timing",
     basis: "standard-concept",
@@ -333,6 +349,25 @@ export const RULES: readonly Rule[] = [
     citations: [],
   }),
   r({
+    id: "SAK-UNPLACED-CONDITION",
+    name: "Condition wording cannot be placed against the evidence",
+    summary:
+      "A claimed condition shares terms with a condition or exclusion of the evidence but is not the same phrase after normalisation, curated synonyms and the closed list of narrowing modifiers: UNKNOWN plus a review flag, never CONTAINED.",
+    tag: "flag",
+    dimension: "population",
+    basis: "design-inference",
+    citations: [],
+  }),
+  r({
+    id: "SAK-PURPOSE-QUALIFIED-LIMIT",
+    name: "Purpose exclusion with a reservation the compiler does not interpret",
+    summary: "An authorization record excludes the claimed purpose with a qualifier (stand-alone, primary, solely, beyond notification): the claim goes to a reviewer, never to CONTRADICTED.",
+    tag: "flag",
+    dimension: "purpose",
+    basis: "design-inference",
+    citations: [],
+  }),
+  r({
     id: "SAK-NARROWER-AMBIGUOUS",
     name: "No single narrower scope can be stated",
     summary:
@@ -383,7 +418,6 @@ export const UNIMPLEMENTED_REGISTRY_RULES: Readonly<Record<string, string>> = {
   R18: "needs user roles and the prescription-only condition",
   R22: "needs the care-pathway stage at which the product is used",
   R23: "needs the prediction horizon on both sides",
-  R24: "needs a structured explicit negation in the indications for use",
   R26: "needs the evaluated role (standalone or human-AI team)",
   R27: "needs the claim level and the evidence level",
   R28: "needs whether clinical testing was conducted",

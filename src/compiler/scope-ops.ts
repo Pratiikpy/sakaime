@@ -1,8 +1,10 @@
-import type { ExpertFlag, Population, Scope } from "../schemas/index.ts";
+import type { EvidenceItem, ExpertFlag, Population, Scope } from "../schemas/index.ts";
+import { normCondition, relateCondition, relateToSet } from "./conditions.ts";
+import { parsePurposeExclusion } from "./limits.ts";
 import { gapsOf, intersect, intersectLists, listContains, mergeIntervals, renderAge, renderAges, renderGap, type Interval } from "./intervals.ts";
 import { Hierarchy } from "./taxonomy.ts";
 import type { Explicit, Ops, Outcome } from "./types.ts";
-import { diffSets, intersectSets, list, normText, normVersion, setOf, sortedUnique, subsetOf, unionSets, worst } from "./util.ts";
+import { diffSets, intersectSets, list, normVersion, setOf, sortedUnique, subsetOf, unionSets, worst } from "./util.ts";
 
 const ambiguous = (dimension: "population" | "purpose", why: string): ExpertFlag => ({
   ruleId: "SAK-NARROWER-AMBIGUOUS",
@@ -85,6 +87,11 @@ export interface PopV {
   age?: Interval[];
   conditions?: Set<string>;
   exclusions?: Set<string>;
+  /**
+   * Condition phrases that two layers (authorization and study) state in wordings the code cannot place against each other.
+   * They are not part of the intersection, and a claimed condition related to one of them goes to a reviewer.
+   */
+  unplaced?: Set<string>;
 }
 
 function popOf(p: Population | undefined): PopV | undefined {
@@ -92,9 +99,9 @@ function popOf(p: Population | undefined): PopV | undefined {
   const out: PopV = {};
   const a = p.age;
   if (a && (a.min !== undefined || a.max !== undefined)) out.age = [{ lo: a.min ?? 0, hi: a.max ?? Infinity }];
-  const conditions = setOf(p.conditions, normText);
+  const conditions = setOf(p.conditions, normCondition);
   if (conditions) out.conditions = conditions;
-  const exclusions = setOf(p.exclusions, normText);
+  const exclusions = setOf(p.exclusions, normCondition);
   if (exclusions) out.exclusions = exclusions;
   return out.age || out.conditions || out.exclusions ? out : undefined;
 }
@@ -107,6 +114,8 @@ interface Part {
   explicit: Explicit[];
   apply?: (n: PopV) => void;
   ambiguousWhy?: string;
+  /** Phrases the code could not place against the evidence: a reviewer must. */
+  unplaced?: string[];
 }
 
 function agePart(c: Interval[] | undefined, e: Interval[] | undefined): Part | undefined {
@@ -139,23 +148,50 @@ function agePart(c: Interval[] | undefined, e: Interval[] | undefined): Part | u
   return part;
 }
 
-function conditionsPart(c: Set<string> | undefined, e: Set<string> | undefined, excl: Set<string>): Part | undefined {
+function conditionsPart(c: Set<string> | undefined, e: Set<string> | undefined, excl: Set<string>, unplacedByLayers: Set<string>): Part | undefined {
   if (!c && !e) return undefined;
   if (!c) return { relation: "UNKNOWN", detail: "The claim names no conditions, so coverage of the target condition cannot be judged.", rules: ["SAK-CLAIM-UNSPECIFIED"], explicit: [] };
-  if (!e) return { relation: "UNKNOWN", detail: "The evidence names no target condition.", rules: ["R11-POP-UNDESCRIBED"], explicit: [] };
-  const excluded = intersectSets(c, excl);
-  const covered = new Set([...c].filter((x) => e.has(x) && !excl.has(x)));
+  if (!e && unplacedByLayers.size === 0) return { relation: "UNKNOWN", detail: "The evidence names no target condition.", rules: ["R11-POP-UNDESCRIBED"], explicit: [] };
+  const stated = e ?? new Set<string>();
+
+  // Each claimed phrase is placed against what the evidence excludes first, then against what it covers. A phrase placed
+  // against neither, but sharing a content word with something, is not guessed at.
+  const covered = new Set<string>();
+  const excluded = new Set<string>();
+  const pending = new Set<string>();
+  for (const x of c) {
+    const ex = relateToSet(x, excl);
+    if (ex.relation === "equal" || ex.relation === "narrower") {
+      excluded.add(x);
+      continue;
+    }
+    const cov = relateToSet(x, stated);
+    if (cov.relation === "equal" || cov.relation === "narrower") {
+      covered.add(x);
+      continue;
+    }
+    if (ex.relation === "related" || cov.relation === "related" || relateToSet(x, unplacedByLayers).relation !== "unrelated") pending.add(x);
+  }
   const uncovered = diffSets(c, covered);
   const explicit: Explicit[] = excluded.size
     ? [{ ruleId: "R10-POP-LABEL-EXCLUDED", text: `the record excludes ${list(excluded)}, which the claim includes` }]
     : [];
   if (uncovered.size === 0) {
-    return { relation: "CONTAINED", detail: `The evidence covers ${list(e)}; the claim (${list(c)}) lies inside it.`, rules: [], explicit: [] };
+    return { relation: "CONTAINED", detail: `The evidence covers ${list(stated)}; the claim (${list(c)}) lies inside it.`, rules: [], explicit: [] };
+  }
+  if (pending.size > 0) {
+    return {
+      relation: "UNKNOWN",
+      detail: `The claimed condition${pending.size > 1 ? "s" : ""} ${list(pending)} cannot be placed against what the evidence states (${list(new Set([...stated, ...excl, ...unplacedByLayers]))}): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place ${pending.size > 1 ? "them" : "it"}.`,
+      rules: [],
+      explicit,
+      unplaced: [...pending].sort(),
+    };
   }
   if (covered.size === 0) {
     return {
       relation: "DISJOINT",
-      detail: `The claim is for ${list(c)}; the evidence covers ${list(e)}${excluded.size ? ` and excludes ${list(excluded)}` : ""}.`,
+      detail: `The claim is for ${list(c)}; the evidence covers ${list(stated)}${excluded.size ? ` and excludes ${list(excluded)}` : ""}.`,
       rules: ["R09-POP-DISJOINT"],
       explicit,
     };
@@ -166,15 +202,41 @@ function conditionsPart(c: Set<string> | undefined, e: Set<string> | undefined, 
     detail: `The evidence covers ${list(covered)} of the claimed ${list(c)}; it does not cover ${list(uncovered)}.`,
     rules: ["R08-POP-SUBSET"],
     explicit,
-    apply: (n) => void (n.conditions = covered),
+    // A group the evidence excluded stays excluded in the narrower scope, so the narrower scope is itself fully covered.
+    apply: (n) => {
+      n.conditions = covered;
+      if (excluded.size) n.exclusions = unionSets(n.exclusions ?? new Set(), excluded);
+    },
   };
 }
 
 function exclusionsPart(c: PopV, e: PopV): Part | undefined {
   if (!e.exclusions || e.exclusions.size === 0) return undefined;
-  const unhandled = diffSets(diffSets(e.exclusions, c.exclusions ?? new Set()), c.conditions ?? new Set());
+  const claimExcl = c.exclusions ?? new Set<string>();
+  const claimConds = c.conditions ?? new Set<string>();
+  const handled = new Set<string>();
+  const pending = new Set<string>();
+  for (const x of e.exclusions) {
+    // The claim excludes at least this group, or names it itself (the conditions part then reports the clash).
+    const byExclusion = relateToSet(x, claimExcl).relation;
+    if (byExclusion === "equal" || byExclusion === "narrower" || claimConds.has(x)) {
+      handled.add(x);
+      continue;
+    }
+    if (byExclusion === "related" || relateToSet(x, claimConds).relation !== "unrelated") pending.add(x);
+  }
+  const unhandled = diffSets(e.exclusions, handled);
   if (unhandled.size === 0) {
     return { relation: "CONTAINED", detail: "Every group the evidence excluded is also excluded or not claimed.", rules: [], explicit: [] };
+  }
+  if (pending.size > 0) {
+    return {
+      relation: "UNKNOWN",
+      detail: `The evidence excluded ${list(pending)}; the claim words a related group differently (${list(new Set([...claimExcl, ...claimConds]))}) and the compiler does not guess whether they are the same group. A reviewer must place ${pending.size > 1 ? "them" : "it"}.`,
+      rules: [],
+      explicit: [],
+      unplaced: [...pending].sort(),
+    };
   }
   return {
     relation: "PARTIAL",
@@ -208,6 +270,24 @@ function popToScope(v: PopV): Partial<Scope> {
   return { population: p };
 }
 
+/** Intersection of the conditions two layers state. A phrase placed as equal or narrower keeps the narrower one; related phrases that cannot be placed are set aside. */
+function meetConditions(a: Set<string>, b: Set<string>): { kept: Set<string>; unplaced: Set<string> } {
+  const kept = new Set<string>();
+  const unplaced = new Set<string>();
+  for (const x of a) {
+    for (const y of b) {
+      const r = relateCondition(x, y);
+      if (r === "equal" || r === "narrower") kept.add(x);
+      else if (relateCondition(y, x) === "narrower") kept.add(y);
+      else if (r === "related") {
+        unplaced.add(x);
+        unplaced.add(y);
+      }
+    }
+  }
+  return { kept, unplaced };
+}
+
 export const populationOps: Ops<PopV> = {
   dimension: "population",
   claim: (use) => popOf(use.population),
@@ -221,20 +301,30 @@ export const populationOps: Ops<PopV> = {
     // Several records: a group counts as excluded if any record excluded it. This can only lose coverage, never invent it.
     const exclusions = a.exclusions && b.exclusions ? unionSets(a.exclusions, b.exclusions) : (a.exclusions ?? b.exclusions);
     if (exclusions) out.exclusions = exclusions;
+    const unplaced = a.unplaced && b.unplaced ? unionSets(a.unplaced, b.unplaced) : (a.unplaced ?? b.unplaced);
+    if (unplaced) out.unplaced = unplaced;
     return out;
   },
   meet(a, b) {
     const out: PopV = {};
     const age = a.age && b.age ? intersectLists(a.age, b.age) : (a.age ?? b.age);
     if (age) out.age = age;
-    const conditions = a.conditions && b.conditions ? intersectSets(a.conditions, b.conditions) : (a.conditions ?? b.conditions);
-    if (conditions) out.conditions = conditions;
+    let unplaced = a.unplaced && b.unplaced ? unionSets(a.unplaced, b.unplaced) : (a.unplaced ?? b.unplaced);
+    if (a.conditions && b.conditions) {
+      const m = meetConditions(a.conditions, b.conditions);
+      out.conditions = m.kept;
+      if (m.unplaced.size) unplaced = unionSets(unplaced ?? new Set<string>(), m.unplaced);
+    } else {
+      const conditions = a.conditions ?? b.conditions;
+      if (conditions) out.conditions = conditions;
+    }
+    if (unplaced && unplaced.size) out.unplaced = unplaced;
     const exclusions = a.exclusions && b.exclusions ? unionSets(a.exclusions, b.exclusions) : (a.exclusions ?? b.exclusions);
     if (exclusions) out.exclusions = exclusions;
     return out;
   },
   relate(c, e) {
-    const parts = [agePart(c.age, e.age), conditionsPart(c.conditions, e.conditions, e.exclusions ?? new Set()), exclusionsPart(c, e)].filter(
+    const parts = [agePart(c.age, e.age), conditionsPart(c.conditions, e.conditions, e.exclusions ?? new Set<string>(), e.unplaced ?? new Set<string>()), exclusionsPart(c, e)].filter(
       (p): p is Part => p !== undefined,
     );
     if (parts.length === 0) {
@@ -247,6 +337,19 @@ export const populationOps: Ops<PopV> = {
     const detail = parts.map((p) => p.detail).join(" ");
     const out: Outcome<PopV> = { relation, detail, ruleIds, flags: [], explicit };
     if (gap) out.gap = gap;
+    if (relation === "UNKNOWN") {
+      const terms = sortedUnique(parts.flatMap((p) => p.unplaced ?? []));
+      // UNKNOWN because a wording could not be placed, not because the evidence is silent
+      if (terms.length > 0 && parts.every((p) => p.relation !== "UNKNOWN" || p.unplaced !== undefined)) {
+        out.pending = true;
+        out.term = terms.join('", "');
+        out.flags.push({
+          ruleId: "SAK-UNPLACED-CONDITION",
+          dimension: "population",
+          reason: `"${terms.join('", "')}" cannot be placed against the condition wording of the evidence by the closed rules of the compiler (normal form, curated synonyms, closed list of narrowing modifiers); it is not guessed to be inside or outside.`,
+        });
+      }
+    }
     if (relation === "PARTIAL") {
       const ambiguousPart = parts.find((p) => p.ambiguousWhy);
       if (ambiguousPart) {
@@ -279,7 +382,13 @@ interface HierarchyKind {
   multi: boolean;
 }
 
-function hierarchyOps(h: Hierarchy, kind: HierarchyKind, read: (s: Scope) => string[] | undefined, toScope: (keys: string[]) => Partial<Scope>): Ops<Set<string>> {
+function hierarchyOps(
+  h: Hierarchy,
+  kind: HierarchyKind,
+  read: (s: Scope) => string[] | undefined,
+  toScope: (keys: string[]) => Partial<Scope>,
+  limits?: Ops<Set<string>>["limits"],
+): Ops<Set<string>> {
   const resolve = (raw: string[] | undefined): Set<string> | undefined => {
     if (!raw || raw.length === 0) return undefined;
     return new Set(raw.map((x) => h.resolve(x).key));
@@ -372,6 +481,7 @@ function hierarchyOps(h: Hierarchy, kind: HierarchyKind, read: (s: Scope) => str
       }
       return out;
     },
+    ...(limits ? { limits } : {}),
     isEmpty: (v) => v.size === 0,
     render: (v) => h.render(v),
     toScope: (v) => toScope(h.maximal(v)),
@@ -387,12 +497,51 @@ export function settingOps(h: Hierarchy): Ops<Set<string>> {
   );
 }
 
+/**
+ * R24. An authorization record that excludes a purpose in words (written into its limitations in the form of limits.ts) contradicts
+ * a claim of that purpose or of a more consequential one: in the purpose taxonomy the broader node is the more consequential, so a
+ * claimed node that is the excluded node or one of its ancestors runs past the limit. A claim of a narrower purpose does not.
+ * A qualified exclusion ("stand-alone", "primary", "beyond notification") is not interpreted: the claim goes to a reviewer.
+ */
+function purposeLimits(h: Hierarchy): NonNullable<Ops<Set<string>>["limits"]> {
+  return (claimed, items) => {
+    const explicit: Explicit[] = [];
+    const flags: ExpertFlag[] = [];
+    const seen = new Set<string>();
+    for (const item of items) {
+      for (const text of item.limitations) {
+        const ex = parsePurposeExclusion(text);
+        if (!ex) continue;
+        const node = h.resolve(ex.node);
+        if (!node.placed) continue;
+        for (const k of [...claimed].sort()) {
+          if (!(k === node.key || h.covers(k, node.key))) continue;
+          const key = `${item.id}|${k}|${node.key}|${ex.strength}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          if (ex.strength === "absolute") {
+            explicit.push({ ruleId: "R24-PURPOSE-EXPLICIT-LIMIT", text: `the authorization record excludes ${h.label(node.key)} ("${ex.sentence}"); the claim is for ${h.label(k)}` });
+          } else {
+            flags.push({
+              ruleId: "SAK-PURPOSE-QUALIFIED-LIMIT",
+              dimension: "purpose",
+              reason: `The authorization record limits ${h.label(node.key)} with a reservation the compiler does not interpret ("${ex.sentence}"); the claim is for ${h.label(k)}. Whether the claim runs past the limit is a reviewer judgement.`,
+            });
+          }
+        }
+      }
+    }
+    return { explicit, flags };
+  };
+}
+
 export function purposeOps(h: Hierarchy): Ops<Set<string>> {
   return hierarchyOps(
     h,
     { dimension: "purpose", noun: "purpose", unplacedRule: "SAK-UNPLACED-PURPOSE", partialRule: "R25-PURPOSE-ESCALATION", disjointRule: "SAK-PURPOSE-DISJOINT", multi: false },
     (s) => (s.purpose ? [s.purpose] : undefined),
     (keys) => (keys.length === 1 ? { purpose: keys[0]! } : {}),
+    purposeLimits(h),
   );
 }
 

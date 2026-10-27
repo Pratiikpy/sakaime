@@ -9,8 +9,9 @@
 import { parseAgeBounds } from "./age.ts";
 import { detectOcrDamage } from "./document.ts";
 import { GROUP_TERMS, PURPOSE_TERMS, SETTING_TERMS } from "./lexicon.ts";
+import { diagnosticExclusion, populationPhrases } from "./population.ts";
 import { findSections, type Section } from "./sections.ts";
-import { add, collapse, extractStudy, extractVersionStrings, spanContaining, spansOf, type Builder } from "./study.ts";
+import { add, collapse, extractStudy, extractVersionStrings, pageComparesDevices, spanContaining, spansOf, type Builder } from "./study.ts";
 import type { Span } from "./text.ts";
 import type { DocumentText, ExtractionResult, PageText } from "./types.ts";
 import { verifyProposals, type VerifyOptions } from "./verify.ts";
@@ -62,6 +63,10 @@ const FIELDS = [
   "indication.setting_term",
   "indication.purpose_term",
   "indication.limitation",
+  "population.condition",
+  "population.exclusion_criterion",
+  "indication.purpose_exclusion",
+  "study.setting_term",
   "study.design",
   "study.sample_size",
   "study.site_count",
@@ -223,8 +228,31 @@ function extractIndications(b: Builder): void {
       if (LIMITATION_CUE.test(sentence)) {
         add(b, body.page, s, { predicate: "indication.limitation", value: collapse(sentence), assertionType: "authorization" });
       }
+      for (const hit of populationPhrases(sentence)) {
+        add(b, body.page, s, { predicate: hit.predicate, value: hit.value, assertionType: "authorization", detail: { qualifiers: [hit.pattern] } });
+      }
+      const exclusion = diagnosticExclusion(sentence);
+      if (exclusion) {
+        add(b, body.page, s, { predicate: "indication.purpose_exclusion", value: "diagnosis", assertionType: "authorization", detail: { qualifiers: [exclusion] } });
+      }
       const eq = /indicated\s+for\s+use\s+with\s+(?:the\s+)?([^.]{3,120}?)(?:\s+in\s+(?:both\s+)?[^.]*)?\./i.exec(sentence);
       if (eq?.[1]) add(b, body.page, s, { predicate: "indication.compatible_equipment", value: collapse(eq[1]), assertionType: "authorization" });
+    }
+  }
+}
+
+/**
+ * The "Intended patient population" statement of a 510(k) summary sits outside the indications block, as its own sentence. It is read
+ * wherever it stands except on a page that sets the subject and a predicate device side by side, where the column is not known.
+ */
+function extractIntendedPopulation(b: Builder): void {
+  for (const page of b.doc.pages) {
+    if (page.textLayer === "absent" || pageComparesDevices(page.text)) continue;
+    for (const span of spansOf(page)) {
+      const sentence = page.text.slice(span.start, span.end);
+      for (const hit of populationPhrases(sentence, ["population-of"])) {
+        add(b, page, span, { predicate: hit.predicate, value: hit.value, assertionType: "authorization", detail: { qualifiers: [hit.pattern] } });
+      }
     }
   }
 }
@@ -299,6 +327,7 @@ export async function parseFdaSummary(doc: DocumentText, options: FdaSummaryOpti
 
   extractIdentity(b);
   extractIndications(b);
+  extractIntendedPopulation(b);
   const counters = { unbound: 0, unresolvedRows: 0 };
   extractStudy(b, counters);
 

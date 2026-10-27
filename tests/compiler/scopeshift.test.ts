@@ -1,6 +1,6 @@
 import fc from "fast-check";
 import { describe, expect, it } from "vitest";
-import { compileDetailed, type CompileOptions } from "../../src/compiler/index.ts";
+import { compileDetailed, normCondition, type CompileOptions } from "../../src/compiler/index.ts";
 import type { Dimension, EvidenceItem, Label, Scope } from "../../src/schemas/index.ts";
 import { arbScope, ancestorsOrSelf, purposesH, settingsH } from "./arbitraries.ts";
 import { GOOD_RESULT, OP, auth, claim, study } from "./fixtures.ts";
@@ -80,12 +80,12 @@ const MUTATIONS: Mutation[] = [
   {
     name: "condition added",
     apply: (w) => withUse(w, { population: { ...w.E.population!, conditions: [...w.E.population!.conditions!, "a condition nobody studied"] } }),
-    expect: (w) => ({ label: "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", dimensions: ["population"], check: (f) => expect((f.supportedScope as Scope).population!.conditions).toEqual([...w.E.population!.conditions!].sort()) }),
+    expect: (w) => ({ label: "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", dimensions: ["population"], check: (f) => expect((f.supportedScope as Scope).population!.conditions).toEqual([...w.E.population!.conditions!.map(normCondition)].sort()) }),
   },
   {
     name: "exclusion dropped",
     apply: (w) => (w.E.population!.exclusions?.length ? withUse(w, { population: { age: w.E.population!.age, conditions: w.E.population!.conditions } }) : undefined),
-    expect: (w) => ({ label: "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", dimensions: ["population"], check: (f) => expect((f.supportedScope as Scope).population!.exclusions).toEqual([...w.E.population!.exclusions!].sort()) }),
+    expect: (w) => ({ label: "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", dimensions: ["population"], check: (f) => expect((f.supportedScope as Scope).population!.exclusions).toEqual([...w.E.population!.exclusions!.map(normCondition)].sort()) }),
   },
   {
     name: "population left unspecified",
@@ -233,7 +233,8 @@ describe("ScopeShift (A): one mutated dimension", () => {
   it("every mutated claim shows both sides of the mismatch", () => {
     const w = MUTATIONS.find((x) => x.name === "condition added")!.apply(world(arbSample()))!;
     const m = evaluate(w).finding.mismatches[0]!;
-    expect(m.claimed).toMatch(/a condition nobody studied/);
+    // conditions are shown in their normal form (filler words such as "a" are dropped)
+    expect(m.claimed).toMatch(/condition nobody studied/);
     expect(m.established).toMatch(/authorization record: .*study: /);
   });
 });

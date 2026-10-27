@@ -131,12 +131,15 @@ describe("EyeArt K200667, the case with a registry study", () => {
     expect(fdaStudy.results).toEqual([]);
   });
 
-  it("the headline question stops at INSUFFICIENT_EVIDENCE because no result attaches to the claimed scope, and says what would settle it", () => {
+  it("the headline question goes to a reviewer because the use begins long after the authorization, and its population is only partly covered", () => {
+    // Before the readers carried the authorization's condition and exclusion and the service configured a staleness window, this stopped at
+    // INSUFFICIENT_EVIDENCE for lack of a population statement. Now the population is partly covered (the indications exclude patients previously
+    // diagnosed with more than mild diabetic retinopathy) and the intended use begins in 2027, more than the configured window after the 2020
+    // decision (rule R20, applied to the authorization record and to the study evidence of the same document).
     const head = eye().results[0]!;
-    expect(head.finding.label).toBe("INSUFFICIENT_EVIDENCE");
-    const metric = head.finding.mechanicalCoverage.find((m) => m.dimension === "metric")!;
-    expect(metric.relation).toBe("UNKNOWN");
-    expect(head.detail.reasons.find((r) => r.dimension === "metric")!.text).toMatch(/do not cover the claimed scope/);
+    expect(head.finding.label).toBe("REQUIRES_DOMAIN_REVIEW");
+    expect(head.finding.expertReviewFlags.filter((f) => f.ruleId === "R20-STALENESS")).toHaveLength(2);
+    expect(head.finding.mechanicalCoverage.find((m) => m.dimension === "population")!.relation).toBe("PARTIAL");
   });
 
   it("an overreaching vendor claim is held to the hospital's own requirements read through Zetaris", () => {

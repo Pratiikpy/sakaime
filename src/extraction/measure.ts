@@ -34,6 +34,16 @@ export interface GoldDoc {
   siteCounts: number[];
   ncts: string[];
   results: GoldResult[];
+  /**
+   * Optional, added later. Absent in a gold file that predates them, and then the field is not scored.
+   * conditions / exclusions: phrases of the Indications for Use naming the people or findings the device is for and the groups it excludes.
+   * diagnosticExclusions: the strength of each sentence of the indications that excludes diagnostic use.
+   * studySettings: care settings the document names as where the study took place.
+   */
+  conditions?: string[];
+  exclusions?: string[];
+  diagnosticExclusions?: ("absolute" | "qualified")[];
+  studySettings?: string[];
   notes?: string;
 }
 
@@ -189,6 +199,25 @@ export function measureFda(gold: Gold, runs: Record<string, FdaSummaryExtraction
     ids.map((id) => usable(runs[id] as FdaSummaryExtraction, "document.cites_nct").map((k) => String(k.assertion.value))),
   );
 
+  // fields added later: scored only when the gold carries them
+  const phrase = (x: string) => x.replace(/\s+/g, " ").trim().toLowerCase();
+  const optional = (name: keyof Pick<GoldDoc, "conditions" | "exclusions" | "diagnosticExclusions" | "studySettings">, field: string, read: (run: FdaSummaryExtraction) => string[], norm: (x: string) => string = phrase): FieldReport[] => {
+    if (!ids.every((id) => (gold.docs[id] as GoldDoc)[name] !== undefined)) return [];
+    return [
+      setScore(
+        field,
+        ids.map((id) => [...new Set(((gold.docs[id] as GoldDoc)[name] as string[]).map(norm))]),
+        ids.map((id) => [...new Set(read(runs[id] as FdaSummaryExtraction).map(norm))]),
+      ),
+    ];
+  };
+  const added = [
+    ...optional("conditions", "population conditions in the indications", (r) => usable(r, "population.condition").map((k) => String(k.assertion.value))),
+    ...optional("exclusions", "excluded groups in the indications", (r) => usable(r, "population.exclusion_criterion").map((k) => String(k.assertion.value))),
+    ...optional("diagnosticExclusions", "sentences excluding diagnostic use, by strength", (r) => usable(r, "indication.purpose_exclusion").map((k) => (k.detail.qualifiers ?? []).includes("qualified") ? "qualified" : "absolute"), (x) => x),
+    ...optional("studySettings", "care settings named for the study", (r) => usable(r, "study.setting_term").map((k) => String(k.assertion.value))),
+  ];
+
   // performance statements
   let rg = 0;
   let re = 0;
@@ -275,7 +304,7 @@ export function measureFda(gold: Gold, runs: Record<string, FdaSummaryExtraction
   }
 
   return {
-    perField: [versions, ifuMin, ifuMax, stMin, stMax, settings, samples, sites, ncts, results],
+    perField: [versions, ifuMin, ifuMax, stMin, stMax, settings, ...added, samples, sites, ncts, results],
     headline: score(hg, he, htp, he - htp),
     checks,
     perDoc,

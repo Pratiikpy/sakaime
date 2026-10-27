@@ -1,15 +1,15 @@
 {
   "meta": {
     "suite": "failureshift",
-    "startedAt": "2026-10-27T08:38:20.945Z",
+    "startedAt": "2026-10-27T12:57:26.550Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
       "consistency"
     ],
     "description": "FailureShift: fault injection through the real ports. Share of drills ending in the correct state; each drill's expected and observed state is listed.",
-    "adapterHash": "4875f320bcb31abc",
-    "resultsHash": "fde29082ff5a594f"
+    "adapterHash": "1415c80ca352587a",
+    "resultsHash": "483bec49ba2f9c8f"
   },
   "summaries": {
     "drills": {
@@ -17,10 +17,10 @@
       "correct": 157,
       "baseCases": [
         "EA-01",
-        "EA-05",
         "GI-01",
         "GI-02",
         "AN-01",
+        "AN-02",
         "ID-01",
         "ID-02",
         "AUTH-K200667",
@@ -78,9 +78,9 @@
       "timeline": {
         "controlApiUp": "FORBIDDEN",
         "apiStopped": "UNAVAILABLE",
-        "msToFailure": 4009,
+        "msToFailure": 5,
         "classifiedHealth": "UNAVAILABLE",
-        "restoredAfterMs": 15418
+        "restoredAfterMs": 12364
       }
     },
     "scoutGuard": {
@@ -178,78 +178,6 @@
       "fault": "the regulator source is older than its refresh window (STALE)",
       "surface": "compiler sourceHealth",
       "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_FOR_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"STALE: the authorization source cannot be relied on right now. 1 suppl\"",
-      "pass": true
-    },
-    {
-      "id": "A-fda-off-EA-05",
-      "category": "source states",
-      "fault": "the regulator source (authorization records) is unavailable",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"UNAVAILABLE: the authorization source cannot be relied on right now. 1\"",
-      "pass": true
-    },
-    {
-      "id": "A-registry-off-EA-05",
-      "category": "source states",
-      "fault": "the registry/study source is unavailable (study declared required)",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded study:required; reason \"UNAVAILABLE: the study source cannot be relied on right now. 1 supplie\"",
-      "pass": true
-    },
-    {
-      "id": "A-both-off-EA-05",
-      "category": "source states",
-      "fault": "regulator and registry are both unavailable",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required,study:required; reason \"UNAVAILABLE: the authorization source cannot be relied on right now. 1\"",
-      "pass": true
-    },
-    {
-      "id": "A-source-empty-EA-05",
-      "category": "source states",
-      "fault": "the regulator source answered and has no record (EMPTY)",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"EMPTY: none found in source fda-510k on 2026-10-27. This is a statemen\"",
-      "pass": true
-    },
-    {
-      "id": "A-source-drifted-EA-05",
-      "category": "source states",
-      "fault": "the regulator response changed shape (DRIFTED)",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"DRIFTED: the authorization source cannot be relied on right now. 1 sup\"",
-      "pass": true
-    },
-    {
-      "id": "A-source-forbidden-EA-05",
-      "category": "source states",
-      "fault": "access to the regulator source is refused (FORBIDDEN)",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"FORBIDDEN: the authorization source cannot be relied on right now. 1 s\"",
-      "pass": true
-    },
-    {
-      "id": "A-source-blocked-EA-05",
-      "category": "source states",
-      "fault": "scripted access is refused by the provider (BLOCKED)",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
-      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"BLOCKED: the authorization source cannot be relied on right now. 1 sup\"",
-      "pass": true
-    },
-    {
-      "id": "A-source-stale-EA-05",
-      "category": "source states",
-      "fault": "the regulator source is older than its refresh window (STALE)",
-      "surface": "compiler sourceHealth",
-      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
       "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"STALE: the authorization source cannot be relied on right now. 1 suppl\"",
       "pass": true
     },
@@ -466,6 +394,78 @@
       "fault": "the regulator source is older than its refresh window (STALE)",
       "surface": "compiler sourceHealth",
       "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_FOR_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"STALE: the authorization source cannot be relied on right now. 1 suppl\"",
+      "pass": true
+    },
+    {
+      "id": "A-fda-off-AN-02",
+      "category": "source states",
+      "fault": "the regulator source (authorization records) is unavailable",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"UNAVAILABLE: the authorization source cannot be relied on right now. 1\"",
+      "pass": true
+    },
+    {
+      "id": "A-registry-off-AN-02",
+      "category": "source states",
+      "fault": "the registry/study source is unavailable (study declared required)",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded study:required; reason \"UNAVAILABLE: the study source cannot be relied on right now. 1 supplie\"",
+      "pass": true
+    },
+    {
+      "id": "A-both-off-AN-02",
+      "category": "source states",
+      "fault": "regulator and registry are both unavailable",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required,study:required; reason \"UNAVAILABLE: the authorization source cannot be relied on right now. 1\"",
+      "pass": true
+    },
+    {
+      "id": "A-source-empty-AN-02",
+      "category": "source states",
+      "fault": "the regulator source answered and has no record (EMPTY)",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"EMPTY: none found in source fda-510k on 2026-10-27. This is a statemen\"",
+      "pass": true
+    },
+    {
+      "id": "A-source-drifted-AN-02",
+      "category": "source states",
+      "fault": "the regulator response changed shape (DRIFTED)",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"DRIFTED: the authorization source cannot be relied on right now. 1 sup\"",
+      "pass": true
+    },
+    {
+      "id": "A-source-forbidden-AN-02",
+      "category": "source states",
+      "fault": "access to the regulator source is refused (FORBIDDEN)",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"FORBIDDEN: the authorization source cannot be relied on right now. 1 s\"",
+      "pass": true
+    },
+    {
+      "id": "A-source-blocked-AN-02",
+      "category": "source states",
+      "fault": "scripted access is refused by the provider (BLOCKED)",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
+      "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"BLOCKED: the authorization source cannot be relied on right now. 1 sup\"",
+      "pass": true
+    },
+    {
+      "id": "A-source-stale-AN-02",
+      "category": "source states",
+      "fault": "the regulator source is older than its refresh window (STALE)",
+      "surface": "compiler sourceHealth",
+      "expected": "INSUFFICIENT_EVIDENCE with the reason in degraded (baseline SUPPORTED_ONLY_FOR_NARROWER_SCOPE)",
       "observed": "INSUFFICIENT_EVIDENCE; degraded authorization:required; reason \"STALE: the authorization source cannot be relied on right now. 1 suppl\"",
       "pass": true
     },
@@ -947,7 +947,7 @@
       "pass": true
     },
     {
-      "id": "B-context-stopped-EA-05",
+      "id": "B-context-stopped-GI-01",
       "category": "federation port",
       "fault": "HTTP 400 stopped SparkContext (a healthy container that cannot query)",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -956,7 +956,7 @@
       "pass": true
     },
     {
-      "id": "B-context-stopped-GI-01",
+      "id": "B-context-stopped-GI-02",
       "category": "federation port",
       "fault": "HTTP 400 stopped SparkContext (a healthy container that cannot query)",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -974,7 +974,7 @@
       "pass": true
     },
     {
-      "id": "B-connection-dropped-EA-05",
+      "id": "B-connection-dropped-GI-01",
       "category": "federation port",
       "fault": "the socket is closed without an answer",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -983,7 +983,7 @@
       "pass": true
     },
     {
-      "id": "B-connection-dropped-GI-01",
+      "id": "B-connection-dropped-GI-02",
       "category": "federation port",
       "fault": "the socket is closed without an answer",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1001,7 +1001,7 @@
       "pass": true
     },
     {
-      "id": "B-timeout-EA-05",
+      "id": "B-timeout-GI-01",
       "category": "federation port",
       "fault": "the engine accepts and does not answer inside the attempt timeout",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1010,7 +1010,7 @@
       "pass": true
     },
     {
-      "id": "B-timeout-GI-01",
+      "id": "B-timeout-GI-02",
       "category": "federation port",
       "fault": "the engine accepts and does not answer inside the attempt timeout",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1028,7 +1028,7 @@
       "pass": true
     },
     {
-      "id": "B-truncated-EA-05",
+      "id": "B-truncated-GI-01",
       "category": "federation port",
       "fault": "the engine reports 9 rows and sends 3",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1037,7 +1037,7 @@
       "pass": true
     },
     {
-      "id": "B-truncated-GI-01",
+      "id": "B-truncated-GI-02",
       "category": "federation port",
       "fault": "the engine reports 9 rows and sends 3",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1055,7 +1055,7 @@
       "pass": true
     },
     {
-      "id": "B-partial-EA-05",
+      "id": "B-partial-GI-01",
       "category": "federation port",
       "fault": "the engine returns more rows than the limit it was given",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1064,7 +1064,7 @@
       "pass": true
     },
     {
-      "id": "B-partial-GI-01",
+      "id": "B-partial-GI-02",
       "category": "federation port",
       "fault": "the engine returns more rows than the limit it was given",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1082,7 +1082,7 @@
       "pass": true
     },
     {
-      "id": "B-unsupported-predicate-EA-05",
+      "id": "B-unsupported-predicate-GI-01",
       "category": "federation port",
       "fault": "the engine refuses a predicate it does not support",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1091,7 +1091,7 @@
       "pass": true
     },
     {
-      "id": "B-unsupported-predicate-GI-01",
+      "id": "B-unsupported-predicate-GI-02",
       "category": "federation port",
       "fault": "the engine refuses a predicate it does not support",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1109,7 +1109,7 @@
       "pass": true
     },
     {
-      "id": "B-no-access-EA-05",
+      "id": "B-no-access-GI-01",
       "category": "federation port",
       "fault": "the identity has no access to the table",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1118,7 +1118,7 @@
       "pass": true
     },
     {
-      "id": "B-no-access-GI-01",
+      "id": "B-no-access-GI-02",
       "category": "federation port",
       "fault": "the identity has no access to the table",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1136,7 +1136,7 @@
       "pass": true
     },
     {
-      "id": "B-bad-credential-EA-05",
+      "id": "B-bad-credential-GI-01",
       "category": "federation port",
       "fault": "the API key is refused",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1145,7 +1145,7 @@
       "pass": true
     },
     {
-      "id": "B-bad-credential-GI-01",
+      "id": "B-bad-credential-GI-02",
       "category": "federation port",
       "fault": "the API key is refused",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1163,7 +1163,7 @@
       "pass": true
     },
     {
-      "id": "B-empty-result-EA-05",
+      "id": "B-empty-result-GI-01",
       "category": "federation port",
       "fault": "the engine answers with zero rows",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1172,7 +1172,7 @@
       "pass": true
     },
     {
-      "id": "B-empty-result-GI-01",
+      "id": "B-empty-result-GI-02",
       "category": "federation port",
       "fault": "the engine answers with zero rows",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1190,7 +1190,7 @@
       "pass": true
     },
     {
-      "id": "B-drifted-body-EA-05",
+      "id": "B-drifted-body-GI-01",
       "category": "federation port",
       "fault": "HTTP 200 whose body is not the documented shape",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1199,7 +1199,7 @@
       "pass": true
     },
     {
-      "id": "B-drifted-body-GI-01",
+      "id": "B-drifted-body-GI-02",
       "category": "federation port",
       "fault": "HTTP 200 whose body is not the documented shape",
       "surface": "ZetarisPort over HTTP, then compiler",
@@ -1240,7 +1240,7 @@
       "fault": "the real local Zetaris API container (sakaime-zetaris-api-1) is stopped",
       "surface": "ZetarisPort against the real stack",
       "expected": "UNAVAILABLE (with the API up the same port reports FORBIDDEN for the unknown key, so an outage is distinguishable from a refusal); the stack answers SELECT 1 again afterwards",
-      "observed": "API up: FORBIDDEN; API stopped: UNAVAILABLE after 4009 ms; classified UNAVAILABLE; restored after 15418 ms",
+      "observed": "API up: FORBIDDEN; API stopped: UNAVAILABLE after 5 ms; classified UNAVAILABLE; restored after 12364 ms",
       "pass": true
     },
     {
@@ -1249,7 +1249,7 @@
       "fault": "the support-check model returns invalid-json",
       "surface": "extraction verifyProposals with a model second opinion",
       "expected": "the rules-only result stands: no assertion is upgraded because the model failed",
-      "observed": "37 model calls; usable 37 vs 37 without a model; upgraded by the fault: 0",
+      "observed": "60 model calls; usable 60 vs 60 without a model; upgraded by the fault: 0",
       "pass": true
     },
     {
@@ -1258,7 +1258,7 @@
       "fault": "the support-check model returns no answer (timeout)",
       "surface": "extraction verifyProposals with a model second opinion",
       "expected": "the rules-only result stands: no assertion is upgraded because the model failed",
-      "observed": "37 model calls; usable 37 vs 37 without a model; upgraded by the fault: 0",
+      "observed": "60 model calls; usable 60 vs 60 without a model; upgraded by the fault: 0",
       "pass": true
     },
     {
@@ -1267,7 +1267,7 @@
       "fault": "the support-check model returns wrong-schema",
       "surface": "extraction verifyProposals with a model second opinion",
       "expected": "the rules-only result stands: no assertion is upgraded because the model failed",
-      "observed": "37 model calls; usable 37 vs 37 without a model; upgraded by the fault: 0",
+      "observed": "60 model calls; usable 60 vs 60 without a model; upgraded by the fault: 0",
       "pass": true
     },
     {
@@ -1276,7 +1276,7 @@
       "fault": "the support-check model returns empty",
       "surface": "extraction verifyProposals with a model second opinion",
       "expected": "the rules-only result stands: no assertion is upgraded because the model failed",
-      "observed": "37 model calls; usable 37 vs 37 without a model; upgraded by the fault: 0",
+      "observed": "60 model calls; usable 60 vs 60 without a model; upgraded by the fault: 0",
       "pass": true
     },
     {

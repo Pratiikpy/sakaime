@@ -1,17 +1,17 @@
 {
   "meta": {
     "suite": "adapter-log",
-    "startedAt": "2026-10-27T11:53:47.759Z",
+    "startedAt": "2026-10-27T12:57:00.964Z",
     "node": "v24.20.0",
     "seed": 0,
     "class": [
       "builder-labelled"
     ],
     "description": "Adapter choices compared on the 26 development claims, with the score at each. Frozen adapter hash recorded below.",
-    "frozenAdapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6"
+    "frozenAdapterHash": "842836dce0e74c618c5273416a04f4da72ba5f6b1d554408f46f4d61ec809467"
   },
   "summaries": {
-    "frozenAdapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6"
+    "frozenAdapterHash": "842836dce0e74c618c5273416a04f4da72ba5f6b1d554408f46f4d61ec809467"
   },
   "revisions": [
     {
@@ -19,7 +19,7 @@
       "change": "the compiler's own default dependencies (authorization, plus a study when the claim states a number)",
       "evidence": "extracted",
       "exact": "8/26",
-      "acceptable": "9/26",
+      "acceptable": "10/26",
       "falseSupported": 0
     },
     {
@@ -34,8 +34,8 @@
       "revision": "r1",
       "change": "every claim declares authorization and study as required (the setting that was frozen)",
       "evidence": "extracted",
-      "exact": "8/26",
-      "acceptable": "9/26",
+      "exact": "9/26",
+      "acceptable": "11/26",
       "falseSupported": 0
     },
     {

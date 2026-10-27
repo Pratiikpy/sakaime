@@ -8,7 +8,7 @@
  */
 import { pageSpans } from "./document.ts";
 import { parseAgeBounds } from "./age.ts";
-import { DEVELOPMENT } from "./lexicon.ts";
+import { DEVELOPMENT, SETTING_TERMS } from "./lexicon.ts";
 import { sectionAt, type Section } from "./sections.ts";
 import { scanStatements, type StatBinding } from "./stats.ts";
 import { COUNT_STOP, unitClass } from "./support.ts";
@@ -52,6 +52,10 @@ const COUNT_RE = new RegExp(
   "gi",
 );
 const VENDOR_RE = /(\d{1,3}(?:\.\d+)?)\s?%\s+(GE|Siemens|Philips|Toshiba|Canon|Hologic|Fujifilm|Fuji|Topcon|Zeiss|Terason|Olympus|Pentax|Fujinon|Samsung|Carestream|Agfa|Konica|Epson|Nidek|Optos|Medtronic)\b/g;
+/** A sentence that places a study somewhere: where participants were enrolled, which sites ran it. */
+const SITE_CUE = /\b(?:enrolled|recruited|study\s+sites?|sites?|cent(?:er|re)s?|conducted|took\s+place|settings?)\b/i;
+/** A line that is a subgroup heading, not a sentence that mentions subgroup analyses. From it on, the page reports results by subgroup; a sentence the layout cut in two still belongs to it. */
+const SUBGROUP_HEADING = /^[ \t]*(?:Table\s+\d+\s*:\s*)?Subgroup\s+Analys[ei]s\b[^\n.]{0,60}$/im;
 export const STANDARD_CONTEXT = /\b(IEC|ISO|ANSI|AAMI|DICOM|HL7|UL\s?\d|CFR|guidance|standard|OMB)\b/i;
 
 
@@ -110,9 +114,11 @@ export function extractStudy(b: Builder, counters: { unbound: number; unresolved
     if (page.textLayer === "absent") continue;
     if (b.pageFilter && !b.pageFilter(page.page)) continue;
     const spans = spansOf(page);
+    const subgroupFrom = SUBGROUP_HEADING.exec(page.text)?.index;
     for (const span of spans) {
       const sentence = page.text.slice(span.start, span.end);
       const section = sectionAt(b.sections, page.page, span.start);
+      const inSubgroupRegion = subgroupFrom !== undefined && span.start >= subgroupFrom;
       const inIfu = section?.kind === "indications" && !STUDY_CUE.test(sentence);
       // in a journal abstract every sentence is about the study; elsewhere a cue word is needed
       const cue = STUDY_CUE.test(sentence) || b.doc.origin === "fields" || section?.kind === "performance" || section?.kind === "clinical";
@@ -160,6 +166,13 @@ export function extractStudy(b: Builder, counters: { unbound: number; unresolved
         }
       }
 
+      // where the study took place, in the document's own words
+      if (cue && !isPredicateSentence && SITE_CUE.test(sentence)) {
+        for (const [term, re] of SETTING_TERMS) {
+          if (re.test(sentence)) add(b, page, span, { predicate: "study.setting_term", value: term, assertionType: "study" });
+        }
+      }
+
       // counts: sample sizes and site counts
       if (cue) {
         COUNT_RE.lastIndex = 0;
@@ -194,12 +207,12 @@ export function extractStudy(b: Builder, counters: { unbound: number; unresolved
       const scan = scanStatements(sentence, { prose: b.doc.origin === "fields", agreementAcronyms: spellsOutAgreement });
       counters.unbound += scan.unbound.length;
       if (/\S {3,}\S/.test(sentence) && scan.bindings.some((x) => x.qualifiers.includes("multi_value_row"))) counters.unresolvedRows++;
-      for (const binding of scan.bindings) addBinding(b, page, span, sentence, binding);
+      for (const binding of scan.bindings) addBinding(b, page, span, sentence, binding, inSubgroupRegion);
     }
   }
 }
 
-function addBinding(b: Builder, page: PageText, span: Span, sentence: string, binding: StatBinding): void {
+function addBinding(b: Builder, page: PageText, span: Span, sentence: string, binding: StatBinding, inSubgroupRegion = false): void {
   // A table row with several values across columns cannot be attributed to a subgroup without its header: not extracted.
   if (binding.qualifiers.includes("multi_value_row")) return;
   const numbers: NumberClaim[] = [{ value: binding.value, form: binding.form }];
@@ -211,6 +224,8 @@ function addBinding(b: Builder, page: PageText, span: Span, sentence: string, bi
     quoteSpan = { start: Math.max(span.start, span.start + binding.quoteStart - 200), end: Math.min(span.end, span.start + binding.quoteEnd + 120) };
   }
   const qualifiers = [...binding.qualifiers];
+  // Under a subgroup heading every figure is a subgroup figure, including the half of a sentence the layout cut off from its lead.
+  if (inSubgroupRegion && !qualifiers.includes("subgroup")) qualifiers.push("subgroup");
   // A page that lays the proposed and the predicate device side by side: a number there may belong to either column.
   if (pageComparesDevices(page.text)) qualifiers.push("comparison_table");
   // "For 2D, the sensitivity is ..." / "In DBT, ...": the result belongs to the named condition, not to the whole study

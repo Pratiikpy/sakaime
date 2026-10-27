@@ -40,6 +40,7 @@ export const GROUP_TERMS: [string, RegExp][] = [
 
 export const TERM_PREDICATES: Record<string, [string, RegExp][]> = {
   "indication.setting_term": SETTING_TERMS,
+  "study.setting_term": SETTING_TERMS,
   "indication.purpose_term": PURPOSE_TERMS,
   "population.group_term": GROUP_TERMS,
 };

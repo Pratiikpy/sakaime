@@ -74,7 +74,7 @@ lines.push(FIRST_RUN);
 lines.push("");
 const held = await runHeldOut(process.env.SAKAIME_HELDOUT_DIR);
 if (held) {
-  lines.push("After the fixes (extras adjudicated; every extra was a real subgroup figure from K253801):");
+  lines.push("After the fixes (extras adjudicated). The K253801 subgroup figures that the first fix left as a second headline (sensitivity 0.806 beside 0.789, the sentence cut in two by the table layout) are now read as subgroup figures because they sit under the 'Subgroup Analyses' heading of their page; the new population and study-setting fields have no gold for these five documents and are not scored here:");
   lines.push("");
   lines.push(format(held.report));
   lines.push("");
@@ -113,7 +113,9 @@ lines.push("- Text-layer damage defeats some sentences. DEN170073 and DEN200055 
 lines.push("- A lost comparison glyph hides the direction of a limit. The pdftotext text of K232699 reads 'age  18' (the greater-or-equal sign is missing), so no age limit is extracted from that text and the parser does not guess a direction; pdfjs keeps the glyph and reads the limit from the PDF. K250680's form page loses the sign too, and its summary page keeps it.");
 lines.push("- Comparison tables that set the proposed and predicate devices side by side are flagged `comparison_table`; figures on those pages are UNCHECKED, not used.");
 lines.push("- No fixture states that clinical testing was not conducted, so that rule is covered by a unit test on a constructed sentence only.");
-lines.push("- Clinical conditions in the indications (for example 'diabetic retinopathy') are not extracted; only age, setting, purpose and population group terms are.");
+lines.push("- Conditions, excluded groups and the diagnostic-use exclusions of the indications are read by the templates in `src/extraction/population.ts` (each names the text it was written from). A condition worded in a way no template covers is not extracted and stays absent: 'foci that are suspicious for cancer' (DEN200080) is the miss in the development gold. A sentence that excludes diagnostic use outside the indications block (DEN200055, 'not intended to be used as a stand-alone diagnostic device') is not read.");
+lines.push("- The study's care setting is read only from a sentence that places the study (enrolled, sites, centers, conducted, took place, setting). A study that does not say where it took place has no setting, and the compiler then cannot tie its results to a claimed setting.");
+lines.push("- The new fields (population conditions, excluded groups, diagnostic-use exclusions, study settings) were labelled in the gold after the templates had been written from the same 12 documents. Their scores are in-sample and say what the templates miss in documents they were written from, not how they do elsewhere.");
 lines.push("");
 writeFileSync(join(import.meta.dirname, "RESULTS.md"), lines.join("\n"));
 console.log(formatReport(report));

@@ -72,7 +72,8 @@ export async function assembleEvidence(input: AssembleInput): Promise<AssembledE
     identity: readonly string[] = [],
   ): Promise<void> => {
     const absent = Object.entries(ex.fields).filter(([, v]) => v.status === "absent").map(([k]) => k);
-    const converted = toEvidenceItems(kept, { absentFields: absent, versionsFromSameDocument });
+    // A decision summary describes studies the regulator had reviewed by its decision date, so the summary's studies are dated by it (the same record that gives them their version).
+    const converted = toEvidenceItems(kept, { absentFields: absent, versionsFromSameDocument, datesFromSameDocument: versionsFromSameDocument });
     notes.push(...converted.notes);
     for (const raw of converted.items) {
       // The reader's id is a hash of subject and type, so two records of one type would collide. Name the item for its record.

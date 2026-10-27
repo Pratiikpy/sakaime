@@ -11,6 +11,7 @@ import { parseAgeBounds, parseRegistryAge } from "./age.ts";
 import { DEVELOPMENT, TERM_PREDICATES } from "./lexicon.ts";
 import { parseNumberToken } from "./document.ts";
 import { buildKey, numericTokens } from "./normalize.ts";
+import { diagnosticExclusion } from "./population.ts";
 import { scanStatements, METRICS, type Metric, type StatBinding } from "./stats.ts";
 import type { ProposedAssertion, ResultDetail, RuleOutcome, SupportReport, SupportState } from "./types.ts";
 
@@ -392,6 +393,16 @@ export function assessSupport(passage: string, claim: SupportClaim, ctx: Support
       ok: wants ? negated : !negated,
       detail: negated ? "the passage says clinical testing was not conducted or not required" : "the passage does not say that clinical testing was not conducted",
     });
+  } else if (p === "indication.purpose_exclusion") {
+    const found = diagnosticExclusion(passage);
+    const wants = claim.detail?.qualifiers?.includes("qualified") ? "qualified" : "absolute";
+    rules.push({
+      rule: "purpose_exclusion",
+      ok: found === wants,
+      detail: found === undefined ? "the passage does not exclude diagnostic use" : found === wants ? `the passage excludes diagnostic use (${found})` : `the passage excludes diagnostic use as ${found}, not ${wants}`,
+    });
+    const subj = subjectRule(passage, ctx);
+    if (subj) rules.push(subj);
   } else if (TERM_PREDICATES[p] && typeof claim.value === "string") {
     const entry = TERM_PREDICATES[p]?.find(([term]) => term === claim.value);
     const ok = entry ? entry[1].test(passage) : buildKey(passage).key.toLowerCase().includes(buildKey(String(claim.value)).key.toLowerCase());

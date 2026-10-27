@@ -23,6 +23,10 @@ The FDA summary parser (`src/extraction/fda-summary.ts`) was run over the 12 sum
 | age minimum of the study population | 5 | 4 | 4 | 0 | 1 | 1.000 | 0.800 |
 | age maximum of the study population | 1 | 1 | 1 | 0 | 0 | 1.000 | 1.000 |
 | care settings in the indications | 7 | 7 | 7 | 0 | 0 | 1.000 | 1.000 |
+| population conditions in the indications | 11 | 10 | 10 | 0 | 1 | 1.000 | 0.909 |
+| excluded groups in the indications | 3 | 3 | 3 | 0 | 0 | 1.000 | 1.000 |
+| sentences excluding diagnostic use, by strength | 6 | 5 | 5 | 0 | 1 | 1.000 | 0.833 |
+| care settings named for the study | 5 | 5 | 5 | 0 | 0 | 1.000 | 1.000 |
 | study sample sizes (recall only) | 23 | 64 | 23 | 0 (+41 other) | 0 | n/a | 1.000 |
 | study site counts (recall only) | 9 | 10 | 9 | 0 (+1 other) | 0 | n/a | 1.000 |
 | registered trial identifiers | 3 | 3 | 3 | 0 | 0 | 1.000 | 1.000 |
@@ -51,6 +55,8 @@ The 12 PDFs were fetched again from the URLs in `research/feasibility/fixtures/M
 
 The one wrong study-age minimum is K253265: pdfjs reads a jumbled fragment of a criteria table ('adults/transitional adults >= 18 years ... Slice thickness'), which repeats the 18 of the indication; the gold does not list it as a study limit. The four missed performance figures are the two AUC labels printed inside a figure (DEN200055) and two reader-arm figures (K240301) whose sentences pdfjs orders differently from pdftotext; the cause is reading order, not the rules.
 
+This section is carried over from the run made before the population, exclusion and study-setting fields existed: the 12 development PDFs are not on the machine that regenerated this file (only DEN180001 is committed), so the pdfjs run was not repeated and has no scores for those fields.
+
 ## Documents the parser was not developed on (pdfjs, 5 PDFs)
 
 Five 510(k) summaries fetched after the parser was written (K253801, K252360, K253825, K250680, K253163; URLs and labels in `gold/fda-heldout-gold.json`). They were read through pdfjs, not pdftotext. The PDFs are not committed; `SAKAIME_HELDOUT_DIR=<dir> npx tsx tests/extraction/run-heldout.ts --verbose` reproduces the numbers.
@@ -70,7 +76,7 @@ First run, before the fixes that run exposed (extra figures not yet adjudicated,
 | performance statements (metric, value, kind) | 16 | 17 | 11 | 6 | 5 | 0.647 | 0.688 |
 | headline results (overall observed figures) | 10 | 12 | 8 | 4 | 2 | 0.667 | 0.800 |
 
-After the fixes (extras adjudicated; every extra was a real subgroup figure from K253801):
+After the fixes (extras adjudicated). The K253801 subgroup figures that the first fix left as a second headline (sensitivity 0.806 beside 0.789, the sentence cut in two by the table layout) are now read as subgroup figures because they sit under the 'Subgroup Analyses' heading of their page; the new population and study-setting fields have no gold for these five documents and are not scored here:
 
 | field | gold | extracted | correct | wrong | missed | precision | recall |
 |---|---|---|---|---|---|---|---|
@@ -84,7 +90,7 @@ After the fixes (extras adjudicated; every extra was a real subgroup figure from
 | study site counts (recall only) | 3 | 3 | 3 | 0 (+0 other) | 0 | n/a | 1.000 |
 | registered trial identifiers | 0 | 0 | 0 | 0 | 0 | n/a | n/a |
 | performance statements (metric, value, kind) | 16 | 27 | 13 | 0 | 3 | 1.000 | 0.813 |
-| headline results (overall observed figures) | 10 | 12 | 10 | 2 | 0 | 0.833 | 1.000 |
+| headline results (overall observed figures) | 10 | 10 | 10 | 0 | 0 | 1.000 | 1.000 |
 
 What the first run exposed: a version number printed in the predicate's block was read as the subject's (K253825); a subject and predicate version in one table row (K252360); a lost ≥ glyph on one page and the symbol on another (K250680); positive and negative percent agreement used instead of sensitivity and specificity (K250680); subgroup tables read as overall figures (K253801); a sentence giving the subject's and the predicate's figures together (K253163), where the predicate's must not be used.
 
@@ -92,11 +98,11 @@ What the first run exposed: a version number printed in the predicate's block wa
 
 | | count |
 |---|---|
-| assertions proposed by the parser | 353 |
+| assertions proposed by the parser | 404 |
 | discarded for having no quote | 0 |
-| check 1, quote-exists: passed | 353 |
+| check 1, quote-exists: passed | 404 |
 | check 1, quote-exists: failed (dropped) | 0 |
-| check 2, semantic support: PASS | 342 |
+| check 2, semantic support: PASS | 393 |
 | check 2, semantic support: FAIL | 4 |
 | check 2, semantic support: UNCHECKED | 7 |
 
@@ -106,18 +112,18 @@ The quote-exists check is satisfied by construction for these extractions, becau
 
 | document | proposed | usable (both checks passed) |
 |---|---|---|
-| DEN170073 | 28 | 28 |
-| DEN180001 | 51 | 51 |
-| DEN190040 | 14 | 14 |
-| DEN200055 | 23 | 23 |
-| DEN200080 | 19 | 19 |
-| K200667 | 37 | 37 |
-| K211733 | 48 | 37 |
-| K213857 | 4 | 4 |
-| K221347 | 24 | 24 |
-| K232699 | 34 | 34 |
+| DEN170073 | 32 | 32 |
+| DEN180001 | 56 | 56 |
+| DEN190040 | 15 | 15 |
+| DEN200055 | 25 | 25 |
+| DEN200080 | 20 | 20 |
+| K200667 | 60 | 60 |
+| K211733 | 50 | 39 |
+| K213857 | 5 | 5 |
+| K221347 | 25 | 25 |
+| K232699 | 39 | 39 |
 | K240301 | 22 | 22 |
-| K253265 | 49 | 49 |
+| K253265 | 55 | 55 |
 
 Fields searched for and not found stay absent; the parser never fills one in. For each document the status of every searched field is in `FdaSummaryExtraction.fields`.
 
@@ -128,4 +134,6 @@ Fields searched for and not found stay absent; the parser never fills one in. Fo
 - A lost comparison glyph hides the direction of a limit. The pdftotext text of K232699 reads 'age  18' (the greater-or-equal sign is missing), so no age limit is extracted from that text and the parser does not guess a direction; pdfjs keeps the glyph and reads the limit from the PDF. K250680's form page loses the sign too, and its summary page keeps it.
 - Comparison tables that set the proposed and predicate devices side by side are flagged `comparison_table`; figures on those pages are UNCHECKED, not used.
 - No fixture states that clinical testing was not conducted, so that rule is covered by a unit test on a constructed sentence only.
-- Clinical conditions in the indications (for example 'diabetic retinopathy') are not extracted; only age, setting, purpose and population group terms are.
+- Conditions, excluded groups and the diagnostic-use exclusions of the indications are read by the templates in `src/extraction/population.ts` (each names the text it was written from). A condition worded in a way no template covers is not extracted and stays absent: 'foci that are suspicious for cancer' (DEN200080) is the miss in the development gold. A sentence that excludes diagnostic use outside the indications block (DEN200055, 'not intended to be used as a stand-alone diagnostic device') is not read.
+- The study's care setting is read only from a sentence that places the study (enrolled, sites, centers, conducted, took place, setting). A study that does not say where it took place has no setting, and the compiler then cannot tie its results to a claimed setting.
+- The new fields (population conditions, excluded groups, diagnostic-use exclusions, study settings) were labelled in the gold after the templates had been written from the same 12 documents. Their scores are in-sample and say what the templates miss in documents they were written from, not how they do elsewhere.

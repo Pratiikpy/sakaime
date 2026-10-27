@@ -4,7 +4,7 @@ export type Layer = "authorization" | "study";
 
 /** A limit stated by the authorization record that the claim runs past. Only these can produce CONTRADICTED from an authorization. */
 export interface Explicit {
-  ruleId: "R10-POP-LABEL-EXCLUDED" | "R21-PREDATES-AUTH";
+  ruleId: "R10-POP-LABEL-EXCLUDED" | "R21-PREDATES-AUTH" | "R24-PURPOSE-EXPLICIT-LIMIT";
   text: string;
 }
 
@@ -36,6 +36,11 @@ export interface Ops<V> {
   /** Combine what two layers establish: the claim must lie inside both. */
   meet(a: V, b: V): V;
   relate(claimed: V, established: V): Outcome<V>;
+  /**
+   * Limits the authorization records state outside the dimension's value, such as a purpose they exclude in words. Read from the
+   * records in force whatever role the claim gives the type, like the explicit limits above.
+   */
+  limits?(claimed: V, items: readonly EvidenceItem[]): { explicit: Explicit[]; flags: ExpertFlag[] };
   /** True when two layers have nothing in common on this dimension. */
   isEmpty(v: V): boolean;
   render(v: V): string;

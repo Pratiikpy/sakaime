@@ -114,6 +114,30 @@ export function evaluateTiming(pools: Pools, use: Scope): DimResult {
     }
   }
 
+  // Staleness of the authorization record itself. An authorization does not expire, but a later authorization, a modification or a
+  // recall can change what the authorized use is, and nothing in the record says so. Under a configured window the compiler therefore
+  // asks a reviewer to confirm that the record is still the current one. No standard sets the window (R20), so with none
+  // configured nothing is raised.
+  const staleAfter = pools.options.policy.stalenessWindowDays;
+  if (staleAfter !== undefined) {
+    const inForce = windowItems.filter((i) => {
+      const w = windowOf(i);
+      return w.lo <= period.hi && period.lo <= w.hi;
+    });
+    const dated = inForce.map((i) => i.scope.timing?.from).filter((x): x is string => x !== undefined);
+    if (dated.length > 0) {
+      const latest = Math.max(...dated.map(dayNumber));
+      const age = period.hi - latest;
+      if (age > staleAfter) {
+        flags.push({
+          ruleId: "R20-STALENESS",
+          dimension,
+          reason: `The newest authorization record is dated ${day(latest)}, and the claimed period ends ${day(period.hi)}: longer than the configured staleness window. An authorization does not lapse by age, but a later authorization, a modification or a recall can change the authorized use and the record would not show it. Whether this record is still the current one is a reviewer judgement.`,
+        });
+      }
+    }
+  }
+
   // Explicit effective-date limit: read from every usable authorization record, whatever role the claim gives the type.
   const limitFroms = pools.limitWindowAuth.map((i) => i.scope.timing?.from).filter((x): x is string => x !== undefined);
   const limitHasOpenStart = pools.limitWindowAuth.some((i) => i.scope.timing && i.scope.timing.from === undefined);
@@ -141,7 +165,7 @@ export function evaluateTiming(pools: Pools, use: Scope): DimResult {
         flags.push({
           ruleId: "R20-STALENESS",
           dimension,
-          reason: `The newest study evidence is dated ${day(latest)}, ${age} days before the end of the claimed period; the configured window is ${window} days. Whether it is still representative is a reviewer judgement.`,
+          reason: `The newest study evidence is dated ${day(latest)}, and the claimed period ends ${day(period.hi)}: longer than the configured staleness window. Whether it is still representative is a reviewer judgement.`,
         });
       }
     } else {

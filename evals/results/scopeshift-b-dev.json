@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "scopeshift-b",
-    "startedAt": "2026-10-27T11:56:54.250Z",
+    "startedAt": "2026-10-27T12:56:43.594Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
@@ -14,15 +14,18 @@
       "B4": 1
     },
     "promptHash": "86cc344953e649c76d5ad5a040a969de35f99257345ac0b5c1b57869964c9abc",
-    "adapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6",
+    "adapterHash": "842836dce0e74c618c5273416a04f4da72ba5f6b1d554408f46f4d61ec809467",
     "adapter": {
-      "version": "1",
+      "version": "2",
       "requiredDimensions": "The dimensions the claim states: product always, version, setting, purpose and timing when the claim names them, population when it states an age, conditions or exclusions, metric when it states a performance. A dimension the claim is silent on is not asserted (ANSWER-KEY.md, semantics 1).",
       "dependencies": "Every claim declares an authorization record and a study as required: the question is always whether the authorization and the evidence the regulator reviewed (or the published study) cover the use. Without the declaration the compiler lets only the authorization support a dimension when the claim states no number.",
       "stalenessWindowDays": 1095,
       "stalenessWindowNote": "A hospital policy supplied to every arm, 3 years, an assumption and not a standard; a case may carry its own.",
       "versionsFromSameDocument": true,
       "versionsNote": "A study item in an FDA summary inherits the version strings written elsewhere in the same summary. The inference is recorded on the item.",
+      "datesFromSameDocument": true,
+      "datesNote": "A study item in an FDA summary that states no date of its own is dated with the decision date of the same summary: the regulator had reviewed the study by then, so the date is an upper bound on when the evidence existed. The inference is recorded on the item.",
+      "stalenessNote2": "The staleness window of the hospital policy now applies to the authorization record as well as to dated study evidence (compiler rule R20, design inference).",
       "purposeFromExtraction": "Extracted purpose terms are mapped to taxonomy nodes (vocabulary.ts); the broadest node wins, then a fixed priority.",
       "sourceHealth": "All sources reported OK: the fault drills of FailureShift test the other states.",
       "computedAt": "2026-10-27T00:00:00.000Z"
@@ -40,7 +43,7 @@
         "retried": 0
       }
     },
-    "resultsHash": "4438a01f8b14fddb"
+    "resultsHash": "b4b8e8d7c56291f7"
   },
   "summaries": {
     "dev.V.n": {
@@ -53,25 +56,25 @@
       }
     },
     "dev.V.exact": {
-      "k": 8,
-      "n": 26,
-      "rate": 0.3076923076923077,
-      "wilsonLo": 0.16501315595463767,
-      "wilsonHi": 0.4998825832219837,
-      "clusterLo": 0.18518518518518517,
-      "clusterHi": 0.45,
-      "clusters": 12,
-      "resamples": 2000,
-      "seed": 20261027
-    },
-    "dev.V.acceptable": {
       "k": 9,
       "n": 26,
       "rate": 0.34615384615384615,
       "wilsonLo": 0.1941223032294052,
       "wilsonHi": 0.5377942881118918,
-      "clusterLo": 0.2,
-      "clusterHi": 0.5384615384615384,
+      "clusterLo": 0.21428571428571427,
+      "clusterHi": 0.46153846153846156,
+      "clusters": 12,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "dev.V.acceptable": {
+      "k": 11,
+      "n": 26,
+      "rate": 0.4230769230769231,
+      "wilsonLo": 0.2554444331365656,
+      "wilsonHi": 0.6105138625340828,
+      "clusterLo": 0.2857142857142857,
+      "clusterHi": 0.5790570175438591,
       "clusters": 12,
       "resamples": 2000,
       "seed": 20261028
@@ -89,13 +92,13 @@
       "seed": 20261029
     },
     "dev.V.exactContestable": {
-      "k": 7,
+      "k": 8,
       "n": 12,
-      "rate": 0.5833333333333334,
-      "wilsonLo": 0.31951131254954973,
-      "wilsonHi": 0.8067396863412435,
-      "clusterLo": 0.3333333333333333,
-      "clusterHi": 0.8333333333333334,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.39062208887279953,
+      "wilsonHi": 0.8618799089087867,
+      "clusterLo": 0.36363636363636365,
+      "clusterHi": 0.9230769230769231,
       "clusters": 11,
       "resamples": 2000,
       "seed": 20261030
@@ -114,11 +117,11 @@
       "seed": 20261031
     },
     "dev.V.criticalMismatchRecall": {
-      "k": 9,
+      "k": 13,
       "n": 20,
-      "rate": 0.45,
-      "wilsonLo": 0.2581978582556243,
-      "wilsonHi": 0.6579146575496577
+      "rate": 0.65,
+      "wilsonLo": 0.43285427668523624,
+      "wilsonHi": 0.818808175898918
     },
     "dev.V.criticalMismatchDimensionRecall": {
       "k": 15,
@@ -153,12 +156,12 @@
       "seed": 20261033
     },
     "dev.V.correctAbstention": {
-      "k": 13,
+      "k": 12,
       "n": 13,
-      "rate": 1,
-      "wilsonLo": 0.7719046276458016,
-      "wilsonHi": 0.9999999999999999,
-      "clusterLo": 1,
+      "rate": 0.9230769230769231,
+      "wilsonLo": 0.6668604907890041,
+      "wilsonHi": 0.9862895787574435,
+      "clusterLo": 0.75,
       "clusterHi": 1,
       "clusters": 11,
       "resamples": 2000,
@@ -169,7 +172,9 @@
       "n": 26
     },
     "dev.V.emittedLabels": {
-      "INSUFFICIENT_EVIDENCE": 26
+      "REQUIRES_DOMAIN_REVIEW": 7,
+      "INSUFFICIENT_EVIDENCE": 17,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2
     },
     "dev.V-M1.n": {
       "cases": 26,
@@ -186,8 +191,8 @@
       "rate": 0.6153846153846154,
       "wilsonLo": 0.4253485008511553,
       "wilsonHi": 0.7757140556428721,
-      "clusterLo": 0.4782608695652174,
-      "clusterHi": 0.75,
+      "clusterLo": 0.48148148148148145,
+      "clusterHi": 0.7727272727272727,
       "clusters": 12,
       "resamples": 2000,
       "seed": 20261027
@@ -198,31 +203,31 @@
       "rate": 0.6923076923076923,
       "wilsonLo": 0.5001174167780164,
       "wilsonHi": 0.8349868440453624,
-      "clusterLo": 0.5416666666666666,
-      "clusterHi": 0.8275862068965517,
+      "clusterLo": 0.5624375000000001,
+      "clusterHi": 0.8461538461538461,
       "clusters": 12,
       "resamples": 2000,
       "seed": 20261028
     },
     "dev.V-M1.exactClear": {
-      "k": 7,
+      "k": 6,
       "n": 14,
-      "rate": 0.5,
-      "wilsonLo": 0.26799202452413634,
-      "wilsonHi": 0.7320079754758637,
-      "clusterLo": 0.19968750000000057,
-      "clusterHi": 0.7692307692307693,
+      "rate": 0.42857142857142855,
+      "wilsonLo": 0.21380798904474121,
+      "wilsonHi": 0.6740935542034926,
+      "clusterLo": 0.15384615384615385,
+      "clusterHi": 0.7272727272727273,
       "clusters": 10,
       "resamples": 2000,
       "seed": 20261029
     },
     "dev.V-M1.exactContestable": {
-      "k": 9,
+      "k": 10,
       "n": 12,
-      "rate": 0.75,
-      "wilsonLo": 0.46769466506643426,
-      "wilsonHi": 0.9110583316059453,
-      "clusterLo": 0.45454545454545453,
+      "rate": 0.8333333333333334,
+      "wilsonLo": 0.5519691377470266,
+      "wilsonHi": 0.9530348578161463,
+      "clusterLo": 0.5833333333333334,
       "clusterHi": 1,
       "clusters": 11,
       "resamples": 2000,
@@ -242,18 +247,18 @@
       "seed": 20261031
     },
     "dev.V-M1.criticalMismatchRecall": {
-      "k": 16,
+      "k": 17,
       "n": 20,
-      "rate": 0.8,
-      "wilsonLo": 0.5839825677481064,
-      "wilsonHi": 0.919342337420202
+      "rate": 0.85,
+      "wilsonLo": 0.6395811352592431,
+      "wilsonHi": 0.9476312541037835
     },
     "dev.V-M1.criticalMismatchDimensionRecall": {
-      "k": 16,
+      "k": 17,
       "n": 20,
-      "rate": 0.8,
-      "wilsonLo": 0.5839825677481064,
-      "wilsonHi": 0.919342337420202
+      "rate": 0.85,
+      "wilsonLo": 0.6395811352592431,
+      "wilsonHi": 0.9476312541037835
     },
     "dev.V-M1.falseAlarm": {
       "k": 5,
@@ -292,16 +297,15 @@
       "seed": 20261034
     },
     "dev.V-M1.noVerdict": {
-      "k": 1,
+      "k": 0,
       "n": 26
     },
     "dev.V-M1.emittedLabels": {
       "SUPPORTED_FOR_SCOPE": 4,
       "REQUIRES_DOMAIN_REVIEW": 2,
       "INSUFFICIENT_EVIDENCE": 15,
-      "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 3,
-      "NONE": 1,
-      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 1
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2,
+      "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 3
     },
     "dev.V-noident.n": {
       "cases": 26,
@@ -313,25 +317,25 @@
       }
     },
     "dev.V-noident.exact": {
-      "k": 8,
-      "n": 26,
-      "rate": 0.3076923076923077,
-      "wilsonLo": 0.16501315595463767,
-      "wilsonHi": 0.4998825832219837,
-      "clusterLo": 0.18518518518518517,
-      "clusterHi": 0.45,
-      "clusters": 12,
-      "resamples": 2000,
-      "seed": 20261027
-    },
-    "dev.V-noident.acceptable": {
       "k": 9,
       "n": 26,
       "rate": 0.34615384615384615,
       "wilsonLo": 0.1941223032294052,
       "wilsonHi": 0.5377942881118918,
-      "clusterLo": 0.2,
-      "clusterHi": 0.5384615384615384,
+      "clusterLo": 0.21428571428571427,
+      "clusterHi": 0.46153846153846156,
+      "clusters": 12,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "dev.V-noident.acceptable": {
+      "k": 11,
+      "n": 26,
+      "rate": 0.4230769230769231,
+      "wilsonLo": 0.2554444331365656,
+      "wilsonHi": 0.6105138625340828,
+      "clusterLo": 0.2857142857142857,
+      "clusterHi": 0.5790570175438591,
       "clusters": 12,
       "resamples": 2000,
       "seed": 20261028
@@ -349,13 +353,13 @@
       "seed": 20261029
     },
     "dev.V-noident.exactContestable": {
-      "k": 7,
+      "k": 8,
       "n": 12,
-      "rate": 0.5833333333333334,
-      "wilsonLo": 0.31951131254954973,
-      "wilsonHi": 0.8067396863412435,
-      "clusterLo": 0.3333333333333333,
-      "clusterHi": 0.8333333333333334,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.39062208887279953,
+      "wilsonHi": 0.8618799089087867,
+      "clusterLo": 0.36363636363636365,
+      "clusterHi": 0.9230769230769231,
       "clusters": 11,
       "resamples": 2000,
       "seed": 20261030
@@ -381,11 +385,11 @@
       "wilsonHi": 0.818808175898918
     },
     "dev.V-noident.criticalMismatchDimensionRecall": {
-      "k": 14,
+      "k": 13,
       "n": 20,
-      "rate": 0.7,
-      "wilsonLo": 0.4810271816464765,
-      "wilsonHi": 0.8545227551323956
+      "rate": 0.65,
+      "wilsonLo": 0.43285427668523624,
+      "wilsonHi": 0.818808175898918
     },
     "dev.V-noident.falseAlarm": {
       "k": 9,
@@ -413,12 +417,12 @@
       "seed": 20261033
     },
     "dev.V-noident.correctAbstention": {
-      "k": 13,
+      "k": 12,
       "n": 13,
-      "rate": 1,
-      "wilsonLo": 0.7719046276458016,
-      "wilsonHi": 0.9999999999999999,
-      "clusterLo": 1,
+      "rate": 0.9230769230769231,
+      "wilsonLo": 0.6668604907890041,
+      "wilsonHi": 0.9862895787574435,
+      "clusterLo": 0.75,
       "clusterHi": 1,
       "clusters": 11,
       "resamples": 2000,
@@ -429,7 +433,9 @@
       "n": 26
     },
     "dev.V-noident.emittedLabels": {
-      "INSUFFICIENT_EVIDENCE": 26
+      "REQUIRES_DOMAIN_REVIEW": 8,
+      "INSUFFICIENT_EVIDENCE": 16,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2
     },
     "dev.B1.n": {
       "cases": 26,
@@ -1258,12 +1264,12 @@
       {
         "arm": "V-M1",
         "b": 0,
-        "c": 8,
-        "p": 0.007812500000000002,
-        "pHolm": 0.046875000000000014,
-        "diff": -0.3077,
-        "diffLo": -0.5295,
-        "diffHi": -0.0833,
+        "c": 7,
+        "p": 0.015625000000000003,
+        "pHolm": 0.09375000000000003,
+        "diff": -0.2692,
+        "diffLo": -0.5217,
+        "diffHi": -0.0714,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
@@ -1279,55 +1285,57 @@
       },
       {
         "arm": "B1",
-        "b": 7,
+        "b": 8,
         "c": 8,
         "p": 1,
         "pHolm": 1,
-        "diff": -0.0385,
-        "diffLo": -0.25,
-        "diffHi": 0.1668,
+        "diff": 0,
+        "diffLo": -0.2274,
+        "diffHi": 0.2,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
         "arm": "B2",
-        "b": 5,
+        "b": 6,
         "c": 7,
-        "p": 0.7744140625000022,
+        "p": 1,
         "pHolm": 1,
-        "diff": -0.0769,
-        "diffLo": -0.3001,
-        "diffHi": 0.1364,
+        "diff": -0.0385,
+        "diffLo": -0.2917,
+        "diffHi": 0.1786,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
         "arm": "B3",
-        "b": 7,
+        "b": 8,
         "c": 10,
-        "p": 0.6290588378906254,
+        "p": 0.814529418945311,
         "pHolm": 1,
-        "diff": -0.1154,
-        "diffLo": -0.32,
-        "diffHi": 0.0476,
+        "diff": -0.0769,
+        "diffLo": -0.2963,
+        "diffHi": 0.087,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       },
       {
         "arm": "B4",
-        "b": 5,
+        "b": 6,
         "c": 9,
-        "p": 0.4239501953125007,
+        "p": 0.6072387695312504,
         "pHolm": 1,
-        "diff": -0.1538,
-        "diffLo": -0.2857,
-        "diffHi": 0,
+        "diff": -0.1154,
+        "diffLo": -0.2727,
+        "diffHi": 0.0435,
         "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
       }
     ],
     "dev.gate0Rule": {
       "sakaimeArm": "V (M2: extraction, identity layer, compiler) - the G2 result",
-      "sakaimeExact": 0.3077,
+      "sakaimeExact": 0.3462,
       "sakaimeFalseSupported": 0,
       "sakaimeEmittedLabels": {
-        "INSUFFICIENT_EVIDENCE": 26
+        "REQUIRES_DOMAIN_REVIEW": 7,
+        "INSUFFICIENT_EVIDENCE": 17,
+        "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2
       },
       "rivals": [
         {
@@ -1346,9 +1354,9 @@
           "run": 1,
           "exactAccuracy": 0.3846,
           "falseSupported": 9,
-          "sameVerdictAsSakaime": 10,
+          "sameVerdictAsSakaime": 7,
           "claims": 26,
-          "shareSame": 0.3846,
+          "shareSame": 0.2692,
           "T_A": false,
           "T_B": false
         },
@@ -1357,9 +1365,9 @@
           "run": 1,
           "exactAccuracy": 0.4231,
           "falseSupported": 7,
-          "sameVerdictAsSakaime": 1,
+          "sameVerdictAsSakaime": 3,
           "claims": 26,
-          "shareSame": 0.0385,
+          "shareSame": 0.1154,
           "T_A": false,
           "T_B": false
         },
@@ -1368,9 +1376,9 @@
           "run": 2,
           "exactAccuracy": 0.4615,
           "falseSupported": 6,
-          "sameVerdictAsSakaime": 1,
+          "sameVerdictAsSakaime": 3,
           "claims": 26,
-          "shareSame": 0.0385,
+          "shareSame": 0.1154,
           "T_A": false,
           "T_B": false
         },
@@ -1379,9 +1387,9 @@
           "run": 3,
           "exactAccuracy": 0.4615,
           "falseSupported": 7,
-          "sameVerdictAsSakaime": 2,
+          "sameVerdictAsSakaime": 4,
           "claims": 26,
-          "shareSame": 0.0769,
+          "shareSame": 0.1538,
           "T_A": false,
           "T_B": false
         },
@@ -1390,9 +1398,9 @@
           "run": 1,
           "exactAccuracy": 0.4615,
           "falseSupported": 5,
-          "sameVerdictAsSakaime": 4,
+          "sameVerdictAsSakaime": 6,
           "claims": 26,
-          "shareSame": 0.1538,
+          "shareSame": 0.2308,
           "T_A": false,
           "T_B": false
         }
@@ -1417,9 +1425,8 @@
           "SUPPORTED_FOR_SCOPE": 4,
           "REQUIRES_DOMAIN_REVIEW": 2,
           "INSUFFICIENT_EVIDENCE": 15,
-          "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 3,
-          "NONE": 1,
-          "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 1
+          "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2,
+          "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 3
         },
         "rivals": [
           {
@@ -1449,9 +1456,9 @@
             "run": 1,
             "exactAccuracy": 0.4231,
             "falseSupported": 7,
-            "sameVerdictAsSakaime": 6,
+            "sameVerdictAsSakaime": 7,
             "claims": 26,
-            "shareSame": 0.2308,
+            "shareSame": 0.2692,
             "T_A": false,
             "T_B": false
           },
@@ -1460,9 +1467,9 @@
             "run": 2,
             "exactAccuracy": 0.4615,
             "falseSupported": 6,
-            "sameVerdictAsSakaime": 7,
+            "sameVerdictAsSakaime": 8,
             "claims": 26,
-            "shareSame": 0.2692,
+            "shareSame": 0.3077,
             "T_A": false,
             "T_B": false
           },
@@ -1471,9 +1478,9 @@
             "run": 3,
             "exactAccuracy": 0.4615,
             "falseSupported": 7,
-            "sameVerdictAsSakaime": 7,
+            "sameVerdictAsSakaime": 8,
             "claims": 26,
-            "shareSame": 0.2692,
+            "shareSame": 0.3077,
             "T_A": false,
             "T_B": false
           },
@@ -1482,9 +1489,9 @@
             "run": 1,
             "exactAccuracy": 0.4615,
             "falseSupported": 5,
-            "sameVerdictAsSakaime": 6,
+            "sameVerdictAsSakaime": 7,
             "claims": 26,
-            "shareSame": 0.2308,
+            "shareSame": 0.2692,
             "T_A": false,
             "T_B": false
           }
@@ -1837,40 +1844,37 @@
               "rows": [
                 {
                   "id": "EA-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
                 {
                   "id": "EA-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
                 {
                   "id": "EA-03",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
-                  "exact": false,
-                  "acceptable": false,
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
@@ -1883,14 +1887,13 @@
                   "falseSupported": false,
                   "namedDimensions": [
                     "population",
-                    "setting",
                     "purpose"
                   ],
                   "detail": null
                 },
                 {
                   "id": "EA-05",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2072,7 +2075,7 @@
                 },
                 {
                   "id": "GI-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2085,7 +2088,7 @@
                 },
                 {
                   "id": "GI-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2125,7 +2128,7 @@
                 },
                 {
                   "id": "AN-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2137,23 +2140,22 @@
                 },
                 {
                   "id": "ID-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
                 {
                   "id": "ID-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
-                  "acceptable": false,
+                  "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
                     "population",
@@ -2231,10 +2233,10 @@
                 },
                 {
                   "id": "EA-05",
-                  "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
-                  "exact": true,
-                  "acceptable": true,
+                  "exact": false,
+                  "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
                     "population"
@@ -2476,13 +2478,15 @@
                 },
                 {
                   "id": "AN-02",
-                  "emitted": null,
-                  "status": "unavailable",
-                  "exact": false,
-                  "acceptable": false,
+                  "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
-                  "namedDimensions": [],
-                  "detail": "CompilerInvariantError: compiler invariant violated: the narrower scope derived for population is itself PARTIAL"
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
                 },
                 {
                   "id": "ID-01",
@@ -2532,40 +2536,37 @@
               "rows": [
                 {
                   "id": "EA-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
                 {
                   "id": "EA-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
                 {
                   "id": "EA-03",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
-                  "exact": false,
-                  "acceptable": false,
+                  "exact": true,
+                  "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
@@ -2578,14 +2579,13 @@
                   "falseSupported": false,
                   "namedDimensions": [
                     "population",
-                    "setting",
                     "purpose"
                   ],
                   "detail": null
                 },
                 {
                   "id": "EA-05",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2766,7 +2766,7 @@
                 },
                 {
                   "id": "GI-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2779,7 +2779,7 @@
                 },
                 {
                   "id": "GI-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2806,7 +2806,7 @@
                 },
                 {
                   "id": "AN-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2818,7 +2818,7 @@
                 },
                 {
                   "id": "AN-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
@@ -2830,27 +2830,25 @@
                 },
                 {
                   "id": "ID-01",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
                   "acceptable": false,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
                 {
                   "id": "ID-02",
-                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
                   "status": "ok",
                   "exact": false,
-                  "acceptable": false,
+                  "acceptable": true,
                   "falseSupported": false,
                   "namedDimensions": [
-                    "population",
-                    "setting"
+                    "population"
                   ],
                   "detail": null
                 },
@@ -4700,15 +4698,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed eye care, primary care.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or; the claim does not exclude those groups. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care, primary care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V|EA-02": {
@@ -4723,15 +4720,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. The claim is for diabetes mellitus; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed primary care.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. The claimed condition diabetes mellitus cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or; the claim does not exclude those groups. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (primary care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V|EA-03": {
@@ -4746,15 +4742,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed eye care, primary care.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or; the claim does not exclude those groups. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care, primary care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
-            "timing": "CONTAINED: The authorization record is in force from 2020-08-03 with no stated end and covers the use from 2026-11-01. Study evidence dated 2017-04-17 existed before the use from 2026-11-01 begins.",
+            "timing": "CONTAINED: The authorization record is in force from 2020-08-03 with no stated end and covers the use from 2026-11-01. Study evidence dated 2020-08-03 existed before the use from 2026-11-01 begins.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V|EA-04": {
@@ -4769,15 +4764,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for diabetes mellitus, previously diagnosed diabetic retinopathy under treatment; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed eye care.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The claimed conditions diabetes mellitus, history of diagnosed diabetic retinopathy under treatment cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place them. The evidence excluded history of more than mild diabetic retinopathy; the claim words a related group differently (diabetes mellitus, history of diagnosed diabetic retinopathy under treatment) and the compiler does not guess whether they are the same group. A reviewer must place it. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN",
+            "population:UNKNOWN",
             "purpose:DISJOINT"
           ]
         },
@@ -4793,7 +4787,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K223357).",
             "version": "CONTAINED: The claimed version (2.2.0) is among the versions the evidence covers (2.1.0, 2.2.0).",
-            "population": "UNKNOWN: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The evidence covers diabetes mellitus of the claimed diabetes mellitus, history of mild diabetic retinopathy; it does not cover history of mild diabetic retinopathy. The evidence excluded history of diabetic retinopathy; the claim words a related group differently (diabetes mellitus, history of mild diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place it. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4816,14 +4810,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K221347).",
             "version": "CONTAINED: The claimed version (1.7.2) is among the versions the evidence covers (1.7.2).",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded none.; the claim does not exclude that group.",
+            "population": "UNKNOWN: The authorization record (conditions: women undergoing screening mammography and digital breast tomosynthesis) and the studies (ages 40 to 74; conditions: breast cancer) have no patient population in common, and the claim is for conditions: women undergoing screening mammography. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -4840,14 +4834,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K221347).",
             "version": "CONTAINED: The claimed version (1.7.2) is among the versions the evidence covers (1.7.2).",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded none.; the claim does not exclude that group.",
+            "population": "UNKNOWN: The authorization record (conditions: women undergoing screening mammography and digital breast tomosynthesis) and the studies (ages 40 to 74; conditions: breast cancer) have no patient population in common, and the claim is for conditions: women undergoing screening mammography. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed screening program.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -4866,7 +4860,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K211733).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 1.0 cannot be placed inside anything.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: pleural effusion, pneumothorax cannot be placed inside anything.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed conditions: pleural effusion, pneumothorax.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4892,7 +4886,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K211733).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 3.9.0.1 cannot be placed inside anything.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: tuberculosis cannot be placed inside anything.",
+            "population": "DISJOINT: The claim is for tuberculosis; the evidence covers pleural effusion, pneumothorax.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "DISJOINT: The claim is for screening of an unselected population; the evidence concerns triage notification, which does not contain it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4900,7 +4894,7 @@
           },
           "unknownOrOpen": [
             "version:UNKNOWN",
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "purpose:DISJOINT"
           ]
         },
@@ -4919,7 +4913,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K211733).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 1.0 cannot be placed inside anything.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: pleural effusion, pneumothorax, pulmonary nodule cannot be placed inside anything.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed conditions: pleural effusion, pneumothorax, pulmonary nodule.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4950,7 +4944,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN170073).",
             "version": "CONTAINED: The claimed version (1.0) is among the versions the evidence covers (1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 40 and above) lies inside it. The claim is for suspected large vessel occlusion; the evidence covers stroke, ischemic. The evidence excluded unable to undergo a brain imaging (i.e. severe contrast medium allergy, claustrophobia); the claim does not exclude that group.",
+            "population": "DISJOINT: The authorization record (conditions: suspected large vessel occlusion) and the studies (ages 18 and above; conditions: stroke ischemic; excluding: unable to undergo brain imaging i e severe contrast medium allergy claustrophobia) have no patient population in common, and the claim is for ages 40 and above; conditions: suspected large vessel occlusion. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4981,7 +4975,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN170073).",
             "version": "DISJOINT: The claim is for version 1.11; the evidence covers version 1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 40 and above) lies inside it. The claim is for suspected large vessel occlusion; the evidence covers stroke, ischemic. The evidence excluded unable to undergo a brain imaging (i.e. severe contrast medium allergy, claustrophobia); the claim does not exclude that group.",
+            "population": "DISJOINT: The authorization record (conditions: suspected large vessel occlusion) and the studies (ages 18 and above; conditions: stroke ischemic; excluding: unable to undergo brain imaging i e severe contrast medium allergy claustrophobia) have no patient population in common, and the claim is for ages 40 and above; conditions: suspected large vessel occlusion. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5012,7 +5006,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253265).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intra-abdominal free gas.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intra abdominal free gas.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5042,14 +5036,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253265).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intracranial hemorrhage.",
+            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for intracranial hemorrhage; the evidence covers intra abdominal free gas.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "setting:UNKNOWN"
           ]
         },
@@ -5067,7 +5061,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K240301).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 3 cannot be placed inside anything.",
-            "population": "DISJOINT: The evidence covers ages 50 to 74; the claim (ages 50 to 74) lies inside it. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded deprived of liberty by judicial or administrative order,, participant whose mammogram images have at least one of the following defects: poor quality of the images, non-standard mammography (projection, magnification, compression), ml/lm/sio/xccl or xccm view., pregnant or breastfeeding,, with a history of breast surgery (breast reduction or surgery for benign lesion),, with clinical symptoms of breast cancer,, with medical conditions that may interfere with her ability to understand the requirements of the protocol or give informed consent,, woman with breast implants,; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The evidence covers ages 50 to 74; the claim (ages 50 to 74) lies inside it. The claimed condition women undergoing screening mammography cannot be placed against what the evidence states (breast cancer, deprived of liberty by judicial or administrative order, participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view, pregnant or breastfeeding, with clinical symptom of breast cancer, with history of breast surgery breast reduction or surgery for benign lesion, with medical condition that may interfere with her ability to understand requirement of protocol or give informed consent, woman with breast implant): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view; the claim words a related group differently (women undergoing screening mammography) and the compiler does not guess whether they are the same group. A reviewer must place it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5075,7 +5069,7 @@
           },
           "unknownOrOpen": [
             "version:UNKNOWN",
-            "population:DISJOINT"
+            "population:UNKNOWN"
           ]
         },
         "V|MS-02": {
@@ -5092,7 +5086,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K240301).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 3 cannot be placed inside anything.",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded deprived of liberty by judicial or administrative order,, participant whose mammogram images have at least one of the following defects: poor quality of the images, non-standard mammography (projection, magnification, compression), ml/lm/sio/xccl or xccm view., pregnant or breastfeeding,, with a history of breast surgery (breast reduction or surgery for benign lesion),, with clinical symptoms of breast cancer,, with medical conditions that may interfere with her ability to understand the requirements of the protocol or give informed consent,, woman with breast implants,; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The claimed condition women undergoing screening mammography cannot be placed against what the evidence states (breast cancer, deprived of liberty by judicial or administrative order, participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view, pregnant or breastfeeding, with clinical symptom of breast cancer, with history of breast surgery breast reduction or surgery for benign lesion, with medical condition that may interfere with her ability to understand requirement of protocol or give informed consent, woman with breast implant): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view; the claim words a related group differently (women undergoing screening mammography) and the compiler does not guess whether they are the same group. A reviewer must place it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: The purpose term \"autonomous_reading\" cannot be placed in the purpose taxonomy, so no containment is decided. A reviewer must place it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5100,7 +5094,7 @@
           },
           "unknownOrOpen": [
             "version:UNKNOWN",
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "purpose:UNKNOWN"
           ]
         },
@@ -5118,7 +5112,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200080).",
             "version": "CONTAINED: The claimed version (2.1.501) is among the versions the evidence covers (2.1.501).",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide images cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide image cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5142,7 +5136,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200080).",
             "version": "CONTAINED: The claimed version (2.1.501) is among the versions the evidence covers (2.1.501).",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide images cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide image cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5167,14 +5161,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200055).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for colorectal cancer screening or post-polypectomy surveillance; the evidence covers colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma. The evidence excluded absolute contraindications to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo-obstruction, inflammatory bowel disease (ibd) surveillance procedures, known active colitis (ulcerative colitis, crohn's colitis, diverticulitis, infective colitis), known colonic strictures (meaning that the colonoscopy maybe incomplete), known presence of colorectal cancer or polyposis syndromes, patients lacking capacity to give informed consent, patients on antithrombotic therapy, precluding polyp resection., patients referred with polyps identified on bowel scope procedure, patients who are attending for a planned therapeutic procedure or assessment of a known lesion, patients who are on clopidogrel, warfarin, or other antiplatelet agents or anticoagulants who have not stopped this for the procedure (as polyps cannot be removed and thus histology cannot be confirmed), patients who were not able or refused to give informed written consent., patients with inadequate bowel preparation (defined as boston bowel preparation scale \\> 2 in any colonic segment)., patients with previous colonic resection., subjects with personal history of crc, or ibd.; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed endoscopy unit cannot be placed inside anything.",
+            "population": "UNKNOWN: The authorization record (conditions: patient undergoing screening and surveillance endoscopic mucosal evaluation) and the studies (ages 18 and above; conditions: colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma; excluding: absolute contraindication to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo obstruction, inflammatory bowel disease surveillance procedure, known active colitis ulcerative colitis crohn s colitis diverticulitis infective colitis, known colonic stricture meaning that colonoscopy maybe incomplete, known presence of colorectal cancer or polyposis syndrome, patient lacking capacity to give informed consent, patient on antithrombotic therapy precluding polyp resection, patient referred with polyp identified on bowel scope procedure, patient who are attending for planned therapeutic procedure or assessment of known lesion, patient who are on clopidogrel warfarin or other antiplatelet agent or anticoagulant who have not stopped this for procedure as polyp cannot be removed and thus histology cannot be confirmed, patient who were not able or refused to give informed written consent, patient with inadequate bowel preparation defined as boston bowel preparation scale 2 in any colonic segment, patient with previous colonic resection, subject with personal history of crc or ibd) have no patient population in common, and the claim is for ages 18 and above; conditions: colorectal cancer screening or post polypectomy surveillance. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "UNKNOWN: The care setting term \"endoscopy_unit\" cannot be placed in the care setting taxonomy, so no containment is decided. A reviewer must place it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -5193,14 +5187,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200055).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 45 to 75) lies inside it. The claim is for colorectal cancer screening or post-polypectomy surveillance; the evidence covers colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma. The evidence excluded absolute contraindications to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo-obstruction, inflammatory bowel disease (ibd) surveillance procedures, known active colitis (ulcerative colitis, crohn's colitis, diverticulitis, infective colitis), known colonic strictures (meaning that the colonoscopy maybe incomplete), known presence of colorectal cancer or polyposis syndromes, patients lacking capacity to give informed consent, patients on antithrombotic therapy, precluding polyp resection., patients referred with polyps identified on bowel scope procedure, patients who are attending for a planned therapeutic procedure or assessment of a known lesion, patients who are on clopidogrel, warfarin, or other antiplatelet agents or anticoagulants who have not stopped this for the procedure (as polyps cannot be removed and thus histology cannot be confirmed), patients who were not able or refused to give informed written consent., patients with inadequate bowel preparation (defined as boston bowel preparation scale \\> 2 in any colonic segment)., patients with previous colonic resection., subjects with personal history of crc, or ibd.; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed endoscopy unit cannot be placed inside anything.",
+            "population": "UNKNOWN: The authorization record (conditions: patient undergoing screening and surveillance endoscopic mucosal evaluation) and the studies (ages 18 and above; conditions: colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma; excluding: absolute contraindication to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo obstruction, inflammatory bowel disease surveillance procedure, known active colitis ulcerative colitis crohn s colitis diverticulitis infective colitis, known colonic stricture meaning that colonoscopy maybe incomplete, known presence of colorectal cancer or polyposis syndrome, patient lacking capacity to give informed consent, patient on antithrombotic therapy precluding polyp resection, patient referred with polyp identified on bowel scope procedure, patient who are attending for planned therapeutic procedure or assessment of known lesion, patient who are on clopidogrel warfarin or other antiplatelet agent or anticoagulant who have not stopped this for procedure as polyp cannot be removed and thus histology cannot be confirmed, patient who were not able or refused to give informed written consent, patient with inadequate bowel preparation defined as boston bowel preparation scale 2 in any colonic segment, patient with previous colonic resection, subject with personal history of crc or ibd) have no patient population in common, and the claim is for ages 45 to 75; conditions: colorectal cancer screening or post polypectomy surveillance. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "UNKNOWN: The care setting term \"endoscopy_unit\" cannot be placed in the care setting taxonomy, so no containment is decided. A reviewer must place it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -5220,7 +5214,7 @@
           "dimensions": {
             "product": "UNKNOWN: The study records do not state a product, so the measured results cannot be tied to the claimed device:fda:K213857.",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 3 cannot be placed inside anything.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: suspected stable coronary artery disease cannot be placed inside anything.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed conditions: suspected stable coronary artery disease.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: No evidence record in use states a intended purpose, so the claimed prognosis or risk prediction cannot be placed inside anything.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5246,7 +5240,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K232699).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed ages 18 and above; conditions: adults at risk for heart failure; excluding: paced rhythm cannot be placed inside anything.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: adult at risk for heart failure; excluding: paced rhythm.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (screening of an unselected population) lies inside what the evidence establishes (screening of an unselected population).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5269,7 +5263,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K232699).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed ages 18 and above; conditions: adults at risk for heart failure, paced rhythm cannot be placed inside anything.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: adult at risk for heart failure, paced rhythm.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (screening of an unselected population) lies inside what the evidence establishes (screening of an unselected population).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5296,15 +5290,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN180001).",
             "version": "CONTAINED: The claimed version (2.0.0) is among the versions the evidence covers (2.0.0).",
-            "population": "DISJOINT: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers diabetic retinopathy. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for dr or dme., diagnosed with macular edema, severe non-proliferative retinopathy, proliferative retinopathy, radiation retinopathy, or retinal vein occlusion., history of laser treatment of the retina or injections into either eye, or any history of retinal surgery., participant has a condition that, in the opinion of the investigator, would preclude participation in the study (e.g., unstable medical status including blood pressure or glycemic control, microphthalmia or previous enucleation)., participant is contraindicated for imaging by fundus imaging systems used in the study:, participant is hypersensitive to light, participant is taking medication that causes photosensitivity, participant recently underwent photodynamic therapy (pdt), persistent vision loss, blurred vision, or floaters.; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed primary care cannot be placed inside anything.",
+            "population": "UNKNOWN: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diabetic retinopathy, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion, history of diabetic retinopathy, history of laser treatment of retina or injection into either eye or any history of retinal surgery, participant has condition that in opinion of investigator would preclude participation in study e g unstable medical status including blood pressure or glycemic control microphthalmia or previous enucleation, participant is contraindicated for imaging by fundus imaging system used in study, participant is hypersensitive to light, participant is taking medication that cause photosensitivity, participant recently underwent photodynamic therapy, persistent vision loss blurred vision or floater): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion; the claim words a related group differently (diabetes mellitus, history of diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place them. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (primary care) lies inside what the evidence establishes (primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V|ID-02": {
@@ -5324,15 +5317,15 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN180001).",
             "version": "CONTAINED: The claimed version (2.0.0) is among the versions the evidence covers (2.0.0).",
-            "population": "DISJOINT: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers diabetic retinopathy. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for dr or dme., diagnosed with macular edema, severe non-proliferative retinopathy, proliferative retinopathy, radiation retinopathy, or retinal vein occlusion., history of laser treatment of the retina or injections into either eye, or any history of retinal surgery., participant has a condition that, in the opinion of the investigator, would preclude participation in the study (e.g., unstable medical status including blood pressure or glycemic control, microphthalmia or previous enucleation)., participant is contraindicated for imaging by fundus imaging systems used in the study:, participant is hypersensitive to light, participant is taking medication that causes photosensitivity, participant recently underwent photodynamic therapy (pdt), persistent vision loss, blurred vision, or floaters.; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed eye care, primary care cannot be placed inside anything.",
+            "population": "UNKNOWN: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diabetic retinopathy, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion, history of diabetic retinopathy, history of laser treatment of retina or injection into either eye or any history of retinal surgery, participant has condition that in opinion of investigator would preclude participation in study e g unstable medical status including blood pressure or glycemic control microphthalmia or previous enucleation, participant is contraindicated for imaging by fundus imaging system used in study, participant is hypersensitive to light, participant is taking medication that cause photosensitivity, participant recently underwent photodynamic therapy, persistent vision loss blurred vision or floater): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion; the claim words a related group differently (diabetes mellitus, history of diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place them. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "PARTIAL: The evidence covers primary care; the claim also asks for eye care, which the evidence does not establish.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN",
+            "setting:PARTIAL"
           ]
         },
         "V|CP-01": {
@@ -5350,7 +5343,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN190040).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim also asks for ages below 18. The claim names no conditions, so coverage of the target condition cannot be judged. The evidence excluded patients experiencing a known or suspected acute cardiac event, patients must not meet any of the following exclusion criteria to participate in the trial:, patients unwilling or unable to give written informed consent, patients who have undergone pneumonectomy, patients with severe chest wall abnormalities, unable to lie flat for study; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim also asks for ages below 18. The claim names no conditions, so coverage of the target condition cannot be judged. The evidence excluded patient experiencing known or suspected acute cardiac event, patient must not meet any of following exclusion criteria to participate in trial, patient unwilling or unable to give written informed consent, patient who have undergone pneumonectomy, patient with severe chest wall abnormality, unable to lie flat for study; the claim does not exclude those groups.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (image acquisition guidance) lies inside what the evidence establishes (image acquisition guidance).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5436,7 +5429,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence covers diabetes mellitus of the claimed diabetes mellitus, previously diagnosed diabetic retinopathy under treatment; it does not cover previously diagnosed diabetic retinopathy under treatment. The evidence excluded previously diagnosed with more than mild diabetic retinopathy; the claim does not exclude that group. Against the authorization record alone the claim is only partly covered; against the studies alone it is undecided.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The claimed condition history of diagnosed diabetic retinopathy under treatment cannot be placed against what the evidence states (diabetes mellitus, history of more than mild diabetic retinopathy): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of more than mild diabetic retinopathy; the claim words a related group differently (diabetes mellitus, history of diagnosed diabetic retinopathy under treatment) and the compiler does not guess whether they are the same group. A reviewer must place it. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "CONTAINED: The claimed care setting (eye care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5458,14 +5451,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K223357).",
             "version": "CONTAINED: The claimed version (2.2.0) is among the versions the evidence covers (2.2.0).",
-            "population": "PARTIAL: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The evidence covers diabetes mellitus of the claimed diabetes mellitus, prior mild diabetic retinopathy; it does not cover prior mild diabetic retinopathy. The evidence excluded previously diagnosed with diabetic retinopathy; the claim does not exclude that group. Against the authorization record alone the claim is undecided; against the studies alone it is only partly covered.",
+            "population": "UNKNOWN: The evidence covers ages 22 and above; the claim (ages 22 and above) lies inside it. The evidence covers diabetes mellitus of the claimed diabetes mellitus, history of mild diabetic retinopathy; it does not cover history of mild diabetic retinopathy. The evidence excluded history of diabetic retinopathy; the claim words a related group differently (diabetes mellitus, history of mild diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place it. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:PARTIAL"
+            "population:UNKNOWN"
           ]
         },
         "V-M1|TR-01": {
@@ -5638,7 +5631,7 @@
           "dimensions": {
             "product": "UNKNOWN: The study records do not state a product, so the measured results cannot be tied to the claimed device:fda:K253265.",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intra-abdominal free gas.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intra abdominal free gas.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5660,7 +5653,7 @@
           "dimensions": {
             "product": "UNKNOWN: The study records do not state a product, so the measured results cannot be tied to the claimed device:fda:K253265.",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for intracranial hemorrhage; the evidence covers intra-abdominal free gas.",
+            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for intracranial hemorrhage; the evidence covers intra abdominal free gas.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5728,7 +5721,7 @@
           "dimensions": {
             "product": "UNKNOWN: No evidence record in use states a product, so the claimed device:fda:DEN200080 cannot be placed inside anything.",
             "version": "DISJOINT: The claim is for version 2.1.501; the evidence covers version alpha. Nothing in the evidence speaks for the claimed version.",
-            "population": "CONTAINED: The evidence covers prostate needle biopsy whole slide images; the claim (prostate needle biopsy whole slide images) lies inside it.",
+            "population": "CONTAINED: The evidence covers prostate needle biopsy whole slide image; the claim (prostate needle biopsy whole slide image) lies inside it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5749,7 +5742,7 @@
           "dimensions": {
             "product": "UNKNOWN: The study records do not state a product, so the measured results cannot be tied to the claimed device:fda:DEN200080.",
             "version": "UNKNOWN: The study records do not state a software version, so the measured results cannot be tied to the claimed 2.1.501.",
-            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed conditions: prostate needle biopsy whole slide images.",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed conditions: prostate needle biopsy whole slide image.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5772,7 +5765,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200055).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "PARTIAL: The evidence covers ages 40 to 80; the claim also asks for ages 18 to below 40 and ages above 80. The evidence covers colorectal cancer screening or post-polypectomy surveillance; the claim (colorectal cancer screening or post-polypectomy surveillance) lies inside it. Against the authorization record alone the claim is undecided; against the studies alone it is only partly covered.",
+            "population": "PARTIAL: The evidence covers ages 40 to 80; the claim also asks for ages 18 to below 40 and ages above 80. The evidence covers colorectal cancer screening or post polypectomy surveillance; the claim (colorectal cancer screening or post polypectomy surveillance) lies inside it. Against the authorization record alone the claim is undecided; against the studies alone it is only partly covered.",
             "setting": "CONTAINED: The claimed care setting (endoscopy unit) lies inside what the evidence establishes (endoscopy unit).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5793,7 +5786,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200055).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "CONTAINED: The evidence covers ages 40 to 80; the claim (ages 45 to 75) lies inside it. The evidence covers colorectal cancer screening or post-polypectomy surveillance; the claim (colorectal cancer screening or post-polypectomy surveillance) lies inside it.",
+            "population": "CONTAINED: The evidence covers ages 40 to 80; the claim (ages 45 to 75) lies inside it. The evidence covers colorectal cancer screening or post polypectomy surveillance; the claim (colorectal cancer screening or post polypectomy surveillance) lies inside it.",
             "setting": "CONTAINED: The claimed care setting (endoscopy unit) lies inside what the evidence establishes (endoscopy unit).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5812,7 +5805,7 @@
           "dimensions": {
             "product": "UNKNOWN: The study records do not state a product, so the measured results cannot be tied to the claimed device:fda:K213857.",
             "version": "DISJOINT: The claim is for version 3; the evidence covers version 3.plus. Nothing in the evidence speaks for the claimed version.",
-            "population": "DISJOINT: The authorization record (conditions: coronary artery disease) and the studies (conditions: suspected stable coronary artery disease) have no patient population in common, and the claim is for conditions: suspected stable coronary artery disease. Against the authorization record alone the claim is not covered; against the studies alone it is covered.",
+            "population": "UNKNOWN: The authorization record (conditions: coronary artery disease) and the studies (conditions: suspected stable coronary artery disease) have no patient population in common, and the claim is for conditions: suspected stable coronary artery disease. Against the authorization record alone the claim is undecided; against the studies alone it is covered.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (prognosis or risk prediction) lies inside what the evidence establishes (prognosis or risk prediction).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5821,7 +5814,7 @@
           "unknownOrOpen": [
             "product:UNKNOWN",
             "version:DISJOINT",
-            "population:DISJOINT"
+            "population:UNKNOWN"
           ]
         },
         "V-M1|AN-01": {
@@ -5835,7 +5828,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K232699).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence covers adults at risk for heart failure; the claim (adults at risk for heart failure) lies inside it. Every group the evidence excluded is also excluded or not claimed.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence covers adult at risk for heart failure; the claim (adult at risk for heart failure) lies inside it. Every group the evidence excluded is also excluded or not claimed.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (screening of an unselected population) lies inside what the evidence establishes (screening of an unselected population).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -5844,15 +5837,25 @@
           "unknownOrOpen": []
         },
         "V-M1|AN-02": {
-          "error": "CompilerInvariantError: compiler invariant violated: the narrower scope derived for population is itself PARTIAL",
+          "error": null,
           "itemsUsed": 2,
           "recordsUsed": [
             "ev.an.fda",
             "ev.an.study"
           ],
           "recordsExcluded": [],
-          "dimensions": {},
-          "unknownOrOpen": []
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K232699).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "PARTIAL: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence covers adult at risk for heart failure of the claimed adult at risk for heart failure, paced rhythm; it does not cover paced rhythm. Every group the evidence excluded is also excluded or not claimed. Against the authorization record alone the claim is undecided; against the studies alone it is only partly covered.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (screening of an unselected population) lies inside what the evidence establishes (screening of an unselected population).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:PARTIAL"
+          ]
         },
         "V-M1|ID-01": {
           "error": null,
@@ -5927,15 +5930,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed eye care, primary care.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or; the claim does not exclude those groups. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care, primary care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|EA-02": {
@@ -5950,15 +5952,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. The claim is for diabetes mellitus; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed primary care.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. The claimed condition diabetes mellitus cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or; the claim does not exclude those groups. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (primary care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|EA-03": {
@@ -5973,15 +5974,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed eye care, primary care.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or; the claim does not exclude those groups. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care, primary care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
-            "timing": "CONTAINED: The authorization record is in force from 2020-08-03 with no stated end and covers the use from 2026-11-01. Study evidence dated 2017-04-17 existed before the use from 2026-11-01 begins.",
+            "timing": "CONTAINED: The authorization record is in force from 2020-08-03 with no stated end and covers the use from 2026-11-01. Study evidence dated 2020-08-03 existed before the use from 2026-11-01 begins.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|EA-04": {
@@ -5996,15 +5996,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K200667).",
             "version": "CONTAINED: The claimed version (2.1.0) is among the versions the evidence covers (2.1.0).",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for diabetes mellitus, previously diagnosed diabetic retinopathy under treatment; the evidence covers diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed eye care.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The claimed conditions diabetes mellitus, history of diagnosed diabetic retinopathy under treatment cannot be placed against what the evidence states (diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, history of macular edema or retinal vascular vein or artery occlusion, history of more than mild diabetic retinopathy, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place them. The evidence excluded history of more than mild diabetic retinopathy; the claim words a related group differently (diabetes mellitus, history of diagnosed diabetic retinopathy under treatment) and the compiler does not guess whether they are the same group. A reviewer must place it. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care) lies inside what the evidence establishes (eye care, primary care).",
             "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN",
+            "population:UNKNOWN",
             "purpose:DISJOINT"
           ]
         },
@@ -6019,7 +6018,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K223357).",
             "version": "CONTAINED: The claimed version (2.2.0) is among the versions the evidence covers (2.1.0, 2.2.0).",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The evidence covers diabetes mellitus of the claimed diabetes mellitus, history of mild diabetic retinopathy; it does not cover history of mild diabetic retinopathy. The evidence excluded history of diabetic retinopathy; the claim words a related group differently (diabetes mellitus, history of mild diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place it. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6041,14 +6040,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K221347).",
             "version": "CONTAINED: The claimed version (1.7.2) is among the versions the evidence covers (1.7.2).",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded none.; the claim does not exclude that group.",
+            "population": "UNKNOWN: The authorization record (conditions: women undergoing screening mammography and digital breast tomosynthesis) and the studies (ages 40 to 80; conditions: breast cancer) have no patient population in common, and the claim is for conditions: women undergoing screening mammography. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -6064,14 +6063,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K221347).",
             "version": "CONTAINED: The claimed version (1.7.2) is among the versions the evidence covers (1.7.2).",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded none.; the claim does not exclude that group.",
+            "population": "UNKNOWN: The authorization record (conditions: women undergoing screening mammography and digital breast tomosynthesis) and the studies (ages 40 to 80; conditions: breast cancer) have no patient population in common, and the claim is for conditions: women undergoing screening mammography. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed screening program.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -6089,7 +6088,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K211733).",
             "version": "DISJOINT: The claim is for version 1.0; the evidence covers version 3.1.0.0, 3.9.0.1. Nothing in the evidence speaks for the claimed version.",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for pleural effusion, pneumothorax; the evidence covers tuberculosis. The evidence excluded currently being treated for tb, pregnant women, recently received a tb diagnosed (not yet on treatment); the claim does not exclude those groups.",
+            "population": "DISJOINT: The authorization record (conditions: pleural effusion, pneumothorax) and the studies (ages 18 and above; conditions: tuberculosis; excluding: currently being treated for tb, pregnant women, recently received tb diagnosed not yet on treatment) have no patient population in common, and the claim is for conditions: pleural effusion, pneumothorax. Against the authorization record alone the claim is covered; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6114,14 +6113,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K211733).",
             "version": "CONTAINED: The claimed version (3.9.0.1) is among the versions the evidence covers (3.1.0.0, 3.9.0.1).",
-            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence covers tuberculosis; the claim (tuberculosis) lies inside it. The evidence excluded currently being treated for tb, pregnant women, recently received a tb diagnosed (not yet on treatment); the claim does not exclude those groups.",
+            "population": "DISJOINT: The authorization record (conditions: pleural effusion, pneumothorax) and the studies (ages 18 and above; conditions: tuberculosis; excluding: currently being treated for tb, pregnant women, recently received tb diagnosed not yet on treatment) have no patient population in common, and the claim is for conditions: tuberculosis. Against the authorization record alone the claim is not covered; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "DISJOINT: The claim is for screening of an unselected population; the evidence concerns triage notification, which does not contain it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
+            "population:DISJOINT",
             "purpose:DISJOINT"
           ]
         },
@@ -6139,7 +6138,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K211733).",
             "version": "DISJOINT: The claim is for version 1.0; the evidence covers version 3.1.0.0, 3.9.0.1. Nothing in the evidence speaks for the claimed version.",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for pleural effusion, pneumothorax, pulmonary nodule; the evidence covers tuberculosis. The evidence excluded currently being treated for tb, pregnant women, recently received a tb diagnosed (not yet on treatment); the claim does not exclude those groups.",
+            "population": "DISJOINT: The authorization record (conditions: pleural effusion, pneumothorax) and the studies (ages 18 and above; conditions: tuberculosis; excluding: currently being treated for tb, pregnant women, recently received tb diagnosed not yet on treatment) have no patient population in common, and the claim is for conditions: pleural effusion, pneumothorax, pulmonary nodule. Against the authorization record alone the claim is only partly covered; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6169,7 +6168,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN170073).",
             "version": "CONTAINED: The claimed version (1.0) is among the versions the evidence covers (1.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 40 and above) lies inside it. The claim is for suspected large vessel occlusion; the evidence covers acute ischemic stroke (ais), stroke workflow and clinical outcome parameters, stroke, ischemic. The evidence excluded a subject may not be included in the study if any of the following exclusion criteria are met:, disagreement between neuroradiologist and stroke specialist or neurointerventionalist relative to presence of a stroke., other serious, advanced, or terminal illness (investigator judgment) requiring treatment that significantly delays initiating transfer and/or treatment for stroke., patients with incomplete data on the electronic medical record., poor or incomplete cta imaging data., unable to undergo a brain imaging (i.e. severe contrast medium allergy, claustrophobia); the claim does not exclude those groups.",
+            "population": "DISJOINT: The authorization record (conditions: suspected large vessel occlusion) and the studies (ages 18 and above; conditions: acute ischemic stroke, stroke ischemic, stroke workflow and clinical outcome parameter; excluding: disagreement between neuroradiologist and stroke specialist or neurointerventionalist relative to presence of stroke, other serious advanced or terminal illness investigator judgment requiring treatment that significantly delay initiating transfer and or treatment for stroke, patient with incomplete data on electronic medical record, poor or incomplete cta imaging data, subject may not be included in study if any of following exclusion criteria are met, unable to undergo brain imaging i e severe contrast medium allergy claustrophobia) have no patient population in common, and the claim is for ages 40 and above; conditions: suspected large vessel occlusion. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6199,7 +6198,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN170073).",
             "version": "DISJOINT: The claim is for version 1.11; the evidence covers version 1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 40 and above) lies inside it. The claim is for suspected large vessel occlusion; the evidence covers acute ischemic stroke (ais), stroke workflow and clinical outcome parameters, stroke, ischemic. The evidence excluded a subject may not be included in the study if any of the following exclusion criteria are met:, disagreement between neuroradiologist and stroke specialist or neurointerventionalist relative to presence of a stroke., other serious, advanced, or terminal illness (investigator judgment) requiring treatment that significantly delays initiating transfer and/or treatment for stroke., patients with incomplete data on the electronic medical record., poor or incomplete cta imaging data., unable to undergo a brain imaging (i.e. severe contrast medium allergy, claustrophobia); the claim does not exclude those groups.",
+            "population": "DISJOINT: The authorization record (conditions: suspected large vessel occlusion) and the studies (ages 18 and above; conditions: acute ischemic stroke, stroke ischemic, stroke workflow and clinical outcome parameter; excluding: disagreement between neuroradiologist and stroke specialist or neurointerventionalist relative to presence of stroke, other serious advanced or terminal illness investigator judgment requiring treatment that significantly delay initiating transfer and or treatment for stroke, patient with incomplete data on electronic medical record, poor or incomplete cta imaging data, subject may not be included in study if any of following exclusion criteria are met, unable to undergo brain imaging i e severe contrast medium allergy claustrophobia) have no patient population in common, and the claim is for ages 40 and above; conditions: suspected large vessel occlusion. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6213,7 +6212,7 @@
         },
         "V-noident|BC-01": {
           "error": null,
-          "itemsUsed": 8,
+          "itemsUsed": 9,
           "recordsUsed": [
             "fda:K253265",
             "pubmed:41444826",
@@ -6229,20 +6228,20 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253265).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intra-abdominal free gas.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intra abdominal free gas.",
+            "setting": "DISJOINT: The authorization record (hospital (any unit)) and the studies (outpatient care (any clinic), point of care) have no care setting in common, and the claim is for hospital (any unit). Against the authorization record alone the claim is covered; against the studies alone it is undecided.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
             "population:UNKNOWN",
-            "setting:UNKNOWN"
+            "setting:DISJOINT"
           ]
         },
         "V-noident|BC-02": {
           "error": null,
-          "itemsUsed": 8,
+          "itemsUsed": 9,
           "recordsUsed": [
             "fda:K253265",
             "pubmed:41444826",
@@ -6258,15 +6257,15 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253265).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The study records do not state a patient population, so the measured results cannot be tied to the claimed ages 18 and above; conditions: intracranial hemorrhage.",
-            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for intracranial hemorrhage; the evidence covers intra abdominal free gas.",
+            "setting": "DISJOINT: The authorization record (hospital (any unit)) and the studies (outpatient care (any clinic), point of care) have no care setting in common, and the claim is for hospital (any unit). Against the authorization record alone the claim is covered; against the studies alone it is undecided.",
             "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (triage notification).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:UNKNOWN",
-            "setting:UNKNOWN"
+            "population:DISJOINT",
+            "setting:DISJOINT"
           ]
         },
         "V-noident|MS-01": {
@@ -6282,7 +6281,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K240301).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 3 cannot be placed inside anything.",
-            "population": "DISJOINT: The evidence covers ages 40 to 74; the claim (ages 50 to 74) lies inside it. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded deprived of liberty by judicial or administrative order,, participant whose mammogram images have at least one of the following defects: poor quality of the images, non-standard mammography (projection, magnification, compression), ml/lm/sio/xccl or xccm view., pregnant or breastfeeding,, with a history of breast surgery (breast reduction or surgery for benign lesion),, with clinical symptoms of breast cancer,, with medical conditions that may interfere with her ability to understand the requirements of the protocol or give informed consent,, woman with breast implants,; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The evidence covers ages 40 to 74; the claim (ages 50 to 74) lies inside it. The claimed condition women undergoing screening mammography cannot be placed against what the evidence states (breast cancer, deprived of liberty by judicial or administrative order, participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view, pregnant or breastfeeding, with clinical symptom of breast cancer, with history of breast surgery breast reduction or surgery for benign lesion, with medical condition that may interfere with her ability to understand requirement of protocol or give informed consent, woman with breast implant): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view; the claim words a related group differently (women undergoing screening mammography) and the compiler does not guess whether they are the same group. A reviewer must place it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6290,7 +6289,7 @@
           },
           "unknownOrOpen": [
             "version:UNKNOWN",
-            "population:DISJOINT"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|MS-02": {
@@ -6306,7 +6305,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K240301).",
             "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 3 cannot be placed inside anything.",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for women undergoing screening mammography; the evidence covers breast cancer. The evidence excluded deprived of liberty by judicial or administrative order,, participant whose mammogram images have at least one of the following defects: poor quality of the images, non-standard mammography (projection, magnification, compression), ml/lm/sio/xccl or xccm view., pregnant or breastfeeding,, with a history of breast surgery (breast reduction or surgery for benign lesion),, with clinical symptoms of breast cancer,, with medical conditions that may interfere with her ability to understand the requirements of the protocol or give informed consent,, woman with breast implants,; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The claimed condition women undergoing screening mammography cannot be placed against what the evidence states (breast cancer, deprived of liberty by judicial or administrative order, participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view, pregnant or breastfeeding, with clinical symptom of breast cancer, with history of breast surgery breast reduction or surgery for benign lesion, with medical condition that may interfere with her ability to understand requirement of protocol or give informed consent, woman with breast implant): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded participant whose mammogram image have at least one of following defect poor quality of image non standard mammography projection magnification compression ml lm sio xccl or xccm view; the claim words a related group differently (women undergoing screening mammography) and the compiler does not guess whether they are the same group. A reviewer must place it.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: The purpose term \"autonomous_reading\" cannot be placed in the purpose taxonomy, so no containment is decided. A reviewer must place it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6314,7 +6313,7 @@
           },
           "unknownOrOpen": [
             "version:UNKNOWN",
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "purpose:UNKNOWN"
           ]
         },
@@ -6331,7 +6330,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200080).",
             "version": "CONTAINED: The claimed version (2.1.501) is among the versions the evidence covers (2.1.501).",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide images cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide image cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6354,7 +6353,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200080).",
             "version": "CONTAINED: The claimed version (2.1.501) is among the versions the evidence covers (2.1.501).",
-            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide images cannot be placed inside anything.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: prostate needle biopsy whole slide image cannot be placed inside anything.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6378,14 +6377,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200055).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for colorectal cancer screening or post-polypectomy surveillance; the evidence covers colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma. The evidence excluded absolute contraindications to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo-obstruction, inflammatory bowel disease (ibd) surveillance procedures, known active colitis (ulcerative colitis, crohn's colitis, diverticulitis, infective colitis), known colonic strictures (meaning that the colonoscopy maybe incomplete), known presence of colorectal cancer or polyposis syndromes, patients lacking capacity to give informed consent, patients on antithrombotic therapy, precluding polyp resection., patients referred with polyps identified on bowel scope procedure, patients who are attending for a planned therapeutic procedure or assessment of a known lesion, patients who are on clopidogrel, warfarin, or other antiplatelet agents or anticoagulants who have not stopped this for the procedure (as polyps cannot be removed and thus histology cannot be confirmed), patients who were not able or refused to give informed written consent., patients with inadequate bowel preparation (defined as boston bowel preparation scale \\> 2 in any colonic segment)., patients with previous colonic resection., subjects with personal history of crc, or ibd.; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed endoscopy unit cannot be placed inside anything.",
+            "population": "UNKNOWN: The authorization record (conditions: patient undergoing screening and surveillance endoscopic mucosal evaluation) and the studies (ages 18 and above; conditions: colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma; excluding: absolute contraindication to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo obstruction, inflammatory bowel disease surveillance procedure, known active colitis ulcerative colitis crohn s colitis diverticulitis infective colitis, known colonic stricture meaning that colonoscopy maybe incomplete, known presence of colorectal cancer or polyposis syndrome, patient lacking capacity to give informed consent, patient on antithrombotic therapy precluding polyp resection, patient referred with polyp identified on bowel scope procedure, patient who are attending for planned therapeutic procedure or assessment of known lesion, patient who are on clopidogrel warfarin or other antiplatelet agent or anticoagulant who have not stopped this for procedure as polyp cannot be removed and thus histology cannot be confirmed, patient who were not able or refused to give informed written consent, patient with inadequate bowel preparation defined as boston bowel preparation scale 2 in any colonic segment, patient with previous colonic resection, subject with personal history of crc or ibd) have no patient population in common, and the claim is for ages 18 and above; conditions: colorectal cancer screening or post polypectomy surveillance. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "UNKNOWN: The care setting term \"endoscopy_unit\" cannot be placed in the care setting taxonomy, so no containment is decided. A reviewer must place it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -6403,14 +6402,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN200055).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 45 to 75) lies inside it. The claim is for colorectal cancer screening or post-polypectomy surveillance; the evidence covers colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma. The evidence excluded absolute contraindications to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo-obstruction, inflammatory bowel disease (ibd) surveillance procedures, known active colitis (ulcerative colitis, crohn's colitis, diverticulitis, infective colitis), known colonic strictures (meaning that the colonoscopy maybe incomplete), known presence of colorectal cancer or polyposis syndromes, patients lacking capacity to give informed consent, patients on antithrombotic therapy, precluding polyp resection., patients referred with polyps identified on bowel scope procedure, patients who are attending for a planned therapeutic procedure or assessment of a known lesion, patients who are on clopidogrel, warfarin, or other antiplatelet agents or anticoagulants who have not stopped this for the procedure (as polyps cannot be removed and thus histology cannot be confirmed), patients who were not able or refused to give informed written consent., patients with inadequate bowel preparation (defined as boston bowel preparation scale \\> 2 in any colonic segment)., patients with previous colonic resection., subjects with personal history of crc, or ibd.; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed endoscopy unit cannot be placed inside anything.",
+            "population": "UNKNOWN: The authorization record (conditions: patient undergoing screening and surveillance endoscopic mucosal evaluation) and the studies (ages 18 and above; conditions: colon cancer, colonic polyp, colorectal adenoma, colorectal adenomatous polyp, colorectal polyp, colorectal ssa, sessile colonic polyp, sessile serrated adenoma; excluding: absolute contraindication to colonoscopy, confirmed or expected pregnancy, established or suspected large bowel obstruction or pseudo obstruction, inflammatory bowel disease surveillance procedure, known active colitis ulcerative colitis crohn s colitis diverticulitis infective colitis, known colonic stricture meaning that colonoscopy maybe incomplete, known presence of colorectal cancer or polyposis syndrome, patient lacking capacity to give informed consent, patient on antithrombotic therapy precluding polyp resection, patient referred with polyp identified on bowel scope procedure, patient who are attending for planned therapeutic procedure or assessment of known lesion, patient who are on clopidogrel warfarin or other antiplatelet agent or anticoagulant who have not stopped this for procedure as polyp cannot be removed and thus histology cannot be confirmed, patient who were not able or refused to give informed written consent, patient with inadequate bowel preparation defined as boston bowel preparation scale 2 in any colonic segment, patient with previous colonic resection, subject with personal history of crc or ibd) have no patient population in common, and the claim is for ages 45 to 75; conditions: colorectal cancer screening or post polypectomy surveillance. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "UNKNOWN: The care setting term \"endoscopy_unit\" cannot be placed in the care setting taxonomy, so no containment is decided. A reviewer must place it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
+            "population:UNKNOWN",
             "setting:UNKNOWN"
           ]
         },
@@ -6429,7 +6428,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K213857).",
             "version": "DISJOINT: The claim is for version 3; the evidence covers version 0.81. Nothing in the evidence speaks for the claimed version.",
-            "population": "DISJOINT: The claim states no age range, so age coverage cannot be judged. The claim is for suspected stable coronary artery disease; the evidence covers tuberculosis. The evidence excluded currently being treated for tb, pregnant women, recently received a tb diagnosed (not yet on treatment); the claim does not exclude those groups.",
+            "population": "DISJOINT: The authorization record (conditions: patient with suspected coronary artery disease) and the studies (ages 18 and above; conditions: tuberculosis; excluding: currently being treated for tb, pregnant women, recently received tb diagnosed not yet on treatment) have no patient population in common, and the claim is for conditions: suspected stable coronary artery disease. Against the authorization record alone the claim is undecided; against the studies alone it is not covered.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "UNKNOWN: No evidence record in use states a intended purpose, so the claimed prognosis or risk prediction cannot be placed inside anything.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -6453,14 +6452,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K232699).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for adults at risk for heart failure; the evidence covers cardiac disease, ventricular ejection fraction. The evidence excluded a paced rhythm, an ecg signal shorter than 10 seconds or that is not interpretable, an echocardiogram is considered technically challenging, known history of heart failure with reduced ejection fraction, known history of lvef ≤ 40%, known history of systolic heart failure, no research authorization provided, only qualitative interpretation of left ventricular systolic function available (i.e., \"decreased ef\") without a numerical value., opted out of electronic health record-based research; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The authorization record (conditions: adult at risk for heart failure; excluding: paced rhythm) and the studies (ages 18 and above; conditions: cardiac disease, ventricular ejection fraction; excluding: ecg signal shorter than 10 second or that is not interpretable, echocardiogram is considered technically challenging, known history of heart failure with reduced ejection fraction, known history of left ventricular ejection fraction 40, known history of systolic heart failure, no research authorization provided, only qualitative interpretation of left ventricular systolic function available i e decreased ef without numerical value, opted out of electronic health record based research, paced rhythm) have no patient population in common, and the claim is for ages 18 and above; conditions: adult at risk for heart failure; excluding: paced rhythm. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (screening of an unselected population) lies inside what the evidence establishes (screening of an unselected population).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|AN-02": {
@@ -6475,14 +6474,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K232699).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The claim is for adults at risk for heart failure, paced rhythm; the evidence covers cardiac disease, ventricular ejection fraction. The evidence excluded a paced rhythm, an ecg signal shorter than 10 seconds or that is not interpretable, an echocardiogram is considered technically challenging, known history of heart failure with reduced ejection fraction, known history of lvef ≤ 40%, known history of systolic heart failure, no research authorization provided, only qualitative interpretation of left ventricular systolic function available (i.e., \"decreased ef\") without a numerical value., opted out of electronic health record-based research; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The authorization record (conditions: adult at risk for heart failure; excluding: paced rhythm) and the studies (ages 18 and above; conditions: cardiac disease, ventricular ejection fraction; excluding: ecg signal shorter than 10 second or that is not interpretable, echocardiogram is considered technically challenging, known history of heart failure with reduced ejection fraction, known history of left ventricular ejection fraction 40, known history of systolic heart failure, no research authorization provided, only qualitative interpretation of left ventricular systolic function available i e decreased ef without numerical value, opted out of electronic health record based research, paced rhythm) have no patient population in common, and the claim is for ages 18 and above; conditions: adult at risk for heart failure, paced rhythm. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (screening of an unselected population) lies inside what the evidence establishes (screening of an unselected population).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|ID-01": {
@@ -6501,15 +6500,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN180001).",
             "version": "CONTAINED: The claimed version (2.0.0) is among the versions the evidence covers (2.0.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers breast cancer, diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for dr or dme., diagnosed with macular edema, severe non-proliferative retinopathy, proliferative retinopathy, radiation retinopathy, or retinal vein occlusion., history of laser treatment of the retina or injections into either eye, or any history of retinal surgery., history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, none., participant has a condition that, in the opinion of the investigator, would preclude participation in the study (e.g., unstable medical status including blood pressure or glycemic control, microphthalmia or previous enucleation)., participant is contraindicated for imaging by fundus imaging systems used in the study:, participant is hypersensitive to light, participant is taking medication that causes photosensitivity, participant recently underwent photodynamic therapy (pdt), persistent vision loss, blurred vision, or floaters., persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed primary care cannot be placed inside anything.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion, history of diabetic retinopathy, history of laser treatment of retina or injection into either eye or any history of retinal surgery, history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, participant has condition that in opinion of investigator would preclude participation in study e g unstable medical status including blood pressure or glycemic control microphthalmia or previous enucleation, participant is contraindicated for imaging by fundus imaging system used in study, participant is hypersensitive to light, participant is taking medication that cause photosensitivity, participant recently underwent photodynamic therapy, persistent vision loss blurred vision or floater, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion; the claim words a related group differently (diabetes mellitus, history of diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place them. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (primary care) lies inside what the evidence establishes (outpatient care (any clinic)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|ID-02": {
@@ -6528,15 +6526,14 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN180001).",
             "version": "CONTAINED: The claimed version (2.0.0) is among the versions the evidence covers (2.0.0).",
-            "population": "DISJOINT: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claim is for diabetes mellitus; the evidence covers breast cancer, diabetic eye problems, diabetic macular edema, diabetic retinopathy. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for dr or dme., diagnosed with macular edema, severe non-proliferative retinopathy, proliferative retinopathy, radiation retinopathy, or retinal vein occlusion., history of laser treatment of the retina or injections into either eye, or any history of retinal surgery., history of macular edema or retinal vascular (vein or artery) occlusion;, history of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;, none., participant has a condition that, in the opinion of the investigator, would preclude participation in the study (e.g., unstable medical status including blood pressure or glycemic control, microphthalmia or previous enucleation)., participant is contraindicated for imaging by fundus imaging systems used in the study:, participant is hypersensitive to light, participant is taking medication that causes photosensitivity, participant recently underwent photodynamic therapy (pdt), persistent vision loss, blurred vision, or floaters., persistent visual impairment in one or both eyes;, subject has a condition or is in a situation which in the opinion of the investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs., subject has contraindications for mydriatic medications or is unwilling or unable to dilate;, subject is contraindicated for fundus photography (for example, has light sensitivity);, subject is currently enrolled in an interventional study of an investigational device or drug; or; the claim does not exclude those groups.",
-            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed eye care, primary care cannot be placed inside anything.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 22 and above) lies inside it. The claimed condition diabetes mellitus cannot be placed against what the evidence states (currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diabetes mellitus, diabetic eye problem, diabetic macular edema, diabetic retinopathy, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion, history of diabetic retinopathy, history of laser treatment of retina or injection into either eye or any history of retinal surgery, history of macular edema or retinal vascular vein or artery occlusion, history of ocular injection laser treatment of retina or intraocular surgery other than cataract surgery without complication, participant has condition that in opinion of investigator would preclude participation in study e g unstable medical status including blood pressure or glycemic control microphthalmia or previous enucleation, participant is contraindicated for imaging by fundus imaging system used in study, participant is hypersensitive to light, participant is taking medication that cause photosensitivity, participant recently underwent photodynamic therapy, persistent vision loss blurred vision or floater, persistent visual impairment in one or both eye, subject has condition or is in situation which in opinion of investigator might confound study result may interfere significantly with subject s participation in study or may result in ungradable clinical reference standard photograph, subject has contraindication for mydriatic medication or is unwilling or unable to dilate, subject is contraindicated for fundus photography for example has light sensitivity, subject is currently enrolled in interventional study of investigational device or drug or): the wordings share terms but are not the same phrase, and the compiler does not guess a containment. A reviewer must place it. The evidence excluded currently participating in another investigational eye study and actively receiving investigational product for diabetic retinopathy or dme, diagnosed with macular edema severe non proliferative retinopathy proliferative retinopathy radiation retinopathy or retinal vein occlusion; the claim words a related group differently (diabetes mellitus, history of diabetic retinopathy) and the compiler does not guess whether they are the same group. A reviewer must place them. Against the authorization record alone the claim is undecided; against the studies alone it is undecided.",
+            "setting": "CONTAINED: The claimed care setting (eye care, primary care) lies inside what the evidence establishes (outpatient care (any clinic)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
             "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
           },
           "unknownOrOpen": [
-            "population:DISJOINT",
-            "setting:UNKNOWN"
+            "population:UNKNOWN"
           ]
         },
         "V-noident|CP-01": {
@@ -6553,7 +6550,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:DEN190040).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim also asks for ages below 18. The claim names no conditions, so coverage of the target condition cannot be judged. The evidence excluded patients experiencing a known or suspected acute cardiac event, patients experiencing a known or suspected acute cardiac event eligibility criteria for phases ii and iii of this study will be finalized once results from phase i are available. the current plan is to have similar criteria for phases ii and iii., patients must not meet any of the following exclusion criteria to participate in the trial:, patients unwilling or unable to give written informed consent, patients who have undergone pneumonectomy, patients with severe chest wall abnormalities, significant anatomical abnormality, recent trauma, or recent thoracic/abdominal surgery that would limit the ability to obtain adequate images, subjects unwilling or unable to give written informed consent, unable to lie flat for study; the claim does not exclude those groups.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim also asks for ages below 18. The claim names no conditions, so coverage of the target condition cannot be judged. The evidence excluded patient experiencing known or suspected acute cardiac event, patient experiencing known or suspected acute cardiac event eligibility criteria for phase ii and iii of this study will be finalized once result from phase i are available current plan is to have similar criteria for phase ii and iii, patient must not meet any of following exclusion criteria to participate in trial, patient unwilling or unable to give written informed consent, patient who have undergone pneumonectomy, patient with severe chest wall abnormality, significant anatomical abnormality recent trauma or recent thoracic abdominal surgery that would limit ability to obtain adequate image, subject unwilling or unable to give written informed consent, unable to lie flat for study; the claim does not exclude those groups.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (image acquisition guidance) lies inside what the evidence establishes (image acquisition guidance).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",

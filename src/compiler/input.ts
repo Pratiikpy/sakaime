@@ -14,6 +14,7 @@ import {
   type EvidenceItem,
   type SourceHealth,
 } from "../schemas/index.ts";
+import { normCondition } from "./conditions.ts";
 import { COMPILER_VERSION } from "./rules.ts";
 import { DEFAULT_PURPOSE_TAXONOMY, DEFAULT_SETTING_TAXONOMY, Hierarchy, TaxonomySchema, normMetric } from "./taxonomy.ts";
 import { cmp, isCalendarDate, normKey, normText, normVersion, sortedUnique } from "./util.ts";
@@ -157,8 +158,8 @@ function canonScope<S extends EvidenceItem["scope"]>(s: S): S {
   if (s.operatingPoint !== undefined) out["operatingPoint"] = normText(s.operatingPoint);
   if (s.population) {
     const p: Record<string, unknown> = { ...s.population };
-    if (s.population.conditions) p["conditions"] = sortedUnique(s.population.conditions.map(normText));
-    if (s.population.exclusions) p["exclusions"] = sortedUnique(s.population.exclusions.map(normText));
+    if (s.population.conditions) p["conditions"] = sortedUnique(s.population.conditions.map(normCondition));
+    if (s.population.exclusions) p["exclusions"] = sortedUnique(s.population.exclusions.map(normCondition));
     out["population"] = p;
   }
   return out as S;

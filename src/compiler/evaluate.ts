@@ -2,7 +2,7 @@ import type { Relation, Scope } from "../schemas/index.ts";
 import type { EvidenceItem } from "../schemas/index.ts";
 import type { Pools } from "./pools.ts";
 import { DIMENSION_NOUN, UNSPECIFIED_EVIDENCE_RULE, genericRequest } from "./requests.ts";
-import type { DimResult, Ops, Outcome } from "./types.ts";
+import type { DimResult, Explicit, Ops, Outcome } from "./types.ts";
 import { sortedUnique } from "./util.ts";
 
 const REL_WORDS: Record<Relation, string> = {
@@ -93,7 +93,9 @@ export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): Dim
 
   // Explicit limits are read from every authorization record in force, whether or not the claim lists the type as required.
   const limits = fold(ops, layers.limit);
-  const explicit = limits.v !== undefined ? ops.relate(c, limits.v).explicit : [];
+  const explicit: Explicit[] = limits.v !== undefined ? [...ops.relate(c, limits.v).explicit] : [];
+  const stated = ops.limits?.(c, layers.limit) ?? { explicit: [], flags: [] };
+  explicit.push(...stated.explicit);
 
   // A study silent on the dimension leaves the results unattached, unless the authorization already rules the claim out.
   if (layers.studyMustSpeak && S.v === undefined && A.v !== undefined && ops.relate(c, A.v).relation !== "DISJOINT") {
@@ -152,7 +154,7 @@ export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): Dim
     anchorIds,
     reason,
     ruleIds: out.ruleIds,
-    flags: out.flags,
+    flags: [...out.flags, ...stated.flags],
     explicit,
     pending: out.pending ?? false,
   };

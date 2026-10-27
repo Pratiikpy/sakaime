@@ -181,7 +181,8 @@ describe("critic", () => {
     expect(confirmed[0]).toMatchObject({ status: "confirmed", source: "model", kind: "wrong_version" });
     expect(confirmed[0]!.check).toMatch(/the code agrees/);
 
-    const real = eye.find((x) => x.claim.id === "CLM-EA-01")!; // narrower scope, supported, version contained
+    // A supported finding whose version is contained. The recorded EyeArt claims now go to review (the authorization's exclusion is read), so the label is set as in the test above.
+    const real = forge(eye.find((x) => x.claim.id === "CLM-EA-01")!, "SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
     const dismissed = vetObjections({ objections: [{ ref: "CLM-EA-01", kind: "wrong_version", dimension: "version", text: "I think the release is wrong." }] }, [real], anchors);
     expect(dismissed[0]!.status).toBe("dismissed");
 

@@ -27,7 +27,7 @@ import {
 
 /** The adapter's decisions, in words. A change here is a new adapter hash and, after the first held-out run, an erratum. */
 export const ADAPTER = {
-  version: "1",
+  version: "2",
   requiredDimensions:
     "The dimensions the claim states: product always, version, setting, purpose and timing when the claim names them, population when it states an age, conditions or exclusions, metric when it states a performance. A dimension the claim is silent on is not asserted (ANSWER-KEY.md, semantics 1).",
   dependencies:
@@ -36,6 +36,9 @@ export const ADAPTER = {
   stalenessWindowNote: "A hospital policy supplied to every arm, 3 years, an assumption and not a standard; a case may carry its own.",
   versionsFromSameDocument: true,
   versionsNote: "A study item in an FDA summary inherits the version strings written elsewhere in the same summary. The inference is recorded on the item.",
+  datesFromSameDocument: true,
+  datesNote: "A study item in an FDA summary that states no date of its own is dated with the decision date of the same summary: the regulator had reviewed the study by then, so the date is an upper bound on when the evidence existed. The inference is recorded on the item.",
+  stalenessNote2: "The staleness window of the hospital policy now applies to the authorization record as well as to dated study evidence (compiler rule R20, design inference).",
   purposeFromExtraction: "Extracted purpose terms are mapped to taxonomy nodes (vocabulary.ts); the broadest node wins, then a fixed priority.",
   sourceHealth: "All sources reported OK: the fault drills of FailureShift test the other states.",
   computedAt: "2026-10-27T00:00:00.000Z",
@@ -177,7 +180,7 @@ export async function runV(c: EvalCase, retrieval: Retrieval, cfg: VConfig, hand
       const absentFields = Object.entries(fda.fields)
         .filter(([, v]) => v.status === "absent")
         .map(([k]) => k);
-      items.push(...toEvidenceItems(fda.extraction.kept, { absentFields, versionsFromSameDocument: ADAPTER.versionsFromSameDocument }).items);
+      items.push(...toEvidenceItems(fda.extraction.kept, { absentFields, versionsFromSameDocument: ADAPTER.versionsFromSameDocument, datesFromSameDocument: ADAPTER.datesFromSameDocument }).items);
       usedRecords.push(retrieval.fda.id);
       for (const cand of retrieval.candidates) {
         const link = cfg.identity === "off" || cand.verdict === "LINK";

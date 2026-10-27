@@ -43,6 +43,10 @@ export function genericRequest(c: RequestContext): string {
       return `State the ${noun} the claim covers. The claim as written leaves it open, and an open ${noun} is never read as covering everything.`;
     }
     if (c.cause === "pending") {
+      if (c.dimension === "population") {
+        const stated = (c.established ?? "").length > 240 ? `${(c.established ?? "").slice(0, 237)}...` : (c.established ?? "");
+        return `A reviewer must decide whether ${c.term ? `"${c.term}"` : "the claimed condition"} is the population the evidence describes${stated ? ` (${stated})` : ""}. The wordings share terms, the compiler's closed rules do not place them, and no document from the vendor settles it.`;
+      }
       return `A reviewer must place ${c.term ? `"${c.term}"` : "the term"} in the ${noun} taxonomy. No document from the vendor settles that.`;
     }
     switch (c.dimension) {
