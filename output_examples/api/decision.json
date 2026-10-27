@@ -7,13 +7,13 @@
       "history": "decision",
       "seq": 1,
       "idempotencyKey": "example-decision-0001",
-      "requestHash": "d0d6bdae55827058b4741ffc35b1160f1d94a5e98c7b28a2b47bc94753f029c8",
+      "requestHash": "b86f8d02b9df2f2a870287fef5f10509101ba4e63356058db83842f4f679b0b3",
       "claimId": "CLM-EA-07",
-      "findingId": "fnd_9b1c9d9d0a3a8749c0fbbfcd12e19a04",
+      "findingId": "fnd_84576d5c740811d9409f68e869eddf40",
       "action": "narrow",
       "resultingState": "narrowed",
       "reviewer": "reviewer",
-      "at": "2026-10-27T12:00:00.812Z",
+      "at": "2026-10-27T12:00:00.819Z",
       "note": "Use only for the narrower scope the compiler states.",
       "narrowedScope": {
         "product": "device:fda:K200667",
@@ -45,7 +45,7 @@
         "purpose": "detection_aid"
       },
       "prevHash": "0000000000000000000000000000000000000000000000000000000000000000",
-      "hash": "33b7738094d6a20dcb541e807857628499d958a0a3f2d72dd8196402567ca6df"
+      "hash": "24f31c334cc8acfb0a1987ad158fd859ef98398b75e818e7119dac9a2a78d69f"
     },
     "replayed": false,
     "reviewerState": "narrowed"

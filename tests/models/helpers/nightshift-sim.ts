@@ -64,7 +64,10 @@ export class NightshiftSim {
   reply(req: RecordedRequest, opts: SimOptions, signer: SimKey = this.key): Record<string, unknown> {
     this.n += 1;
     const body = req.body as { model: string; messages: { role: string; content: string }[] };
-    const lastUser = [...body.messages].reverse().find((m) => m.role === "user")?.content ?? "";
+    // The receipt's "prompt", as the installed 1.2.3 builds it (measured 2026-10-27): the non-system messages joined by one
+    // newline, and only the last 4000 characters when longer. prompt_chars is its length, prompt_preview its first 180.
+    const joined = body.messages.filter((m) => m.role !== "system").map((m) => m.content).join(String.fromCharCode(10));
+    const lastUser = joined.length > 4000 ? joined.slice(joined.length - 4000) : joined;
     const model = body.model;
     const routed = opts.routedModel ?? model;
     const id = `chatcmpl-sim-${this.n}-${Math.random().toString(16).slice(2, 8)}`;

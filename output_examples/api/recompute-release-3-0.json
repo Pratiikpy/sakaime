@@ -3,7 +3,7 @@
   "status": 200,
   "body": {
     "before": {
-      "id": "fnd_c269748406e829063722545595d3862f",
+      "id": "fnd_49b196801db9be121b8ee97d6c741bcb",
       "claimId": "CLM-EA-01",
       "label": "SUPPORTED_FOR_SCOPE",
       "mechanicalCoverage": [
@@ -43,7 +43,6 @@
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
             "anc_be0ec3944cb0820161a2",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_c984a3350728b10dcc8a",
             "anc_d4b68776e58b44cd9a99",
@@ -67,36 +66,17 @@
           "dimension": "version",
           "relation": "CONTAINED",
           "claimed": "2.1.0",
-          "established": "authorization record: 2.1.0; study: 2.1.0",
+          "established": "study: 2.1.0",
           "anchorIds": [
-            "anc_1232a9143dd65848b568",
-            "anc_234a910d4d2fade6cdbc",
-            "anc_308101da491e88521805",
-            "anc_390c2563a7afd18e7588",
             "anc_462692aadc28ef30f0f6",
-            "anc_4740ea4717571e5ac8a5",
-            "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
-            "anc_66d005d3bedd4aae3135",
-            "anc_69990fd2af61cc462477",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
-            "anc_9121a3ef73171435f91a",
-            "anc_98cb9e5f0ef023a5a525",
-            "anc_b8a3535dabc5c75d8365",
-            "anc_b92b7d27c794df791491",
-            "anc_c2d801903bd388a2c956",
-            "anc_c7791085dddb0c340655",
-            "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
-            "anc_f1eb887e6cc6fb4c7630",
-            "anc_f26f233379908399f279",
-            "anc_f4969ef1238b9b804bec"
+            "anc_f1eb887e6cc6fb4c7630"
           ],
           "evidenceIds": [
-            "ev-fda-summary-bfcphhfchh-authorization",
-            "ev-fda-summary-bfcphhfchh-study",
             "ev-pubmed-article-homjefkphi-study"
           ]
         },
@@ -135,7 +115,6 @@
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
             "anc_be0ec3944cb0820161a2",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_c984a3350728b10dcc8a",
             "anc_d4b68776e58b44cd9a99",
@@ -176,7 +155,6 @@
             "anc_98cb9e5f0ef023a5a525",
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
@@ -198,7 +176,6 @@
           "anchorIds": [
             "anc_4740ea4717571e5ac8a5",
             "anc_b8a3535dabc5c75d8365",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_d4b68776e58b44cd9a99"
           ],
@@ -257,7 +234,6 @@
         "fact_963f572fe1a20eba",
         "fact_a1ecaeed33d2f4a9",
         "fact_a215e94fdb2bb529",
-        "fact_a8638f6ee53a4b09",
         "fact_a8c1c185e875cb47",
         "fact_ac3aad99ebaae210",
         "fact_b3053f0e2de522b1",
@@ -289,10 +265,10 @@
       "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
       "traceId": "run-eyeart-k200667-1",
       "reviewerState": "unreviewed",
-      "computedAt": "2026-10-27T12:00:00.122Z"
+      "computedAt": "2026-10-27T12:00:00.121Z"
     },
     "after": {
-      "id": "fnd_cf94efe84d37c190a7c44a4a728df326",
+      "id": "fnd_740e84574c742bb1c5c981d1c3a36662",
       "claimId": "CLM-EA-01",
       "label": "INSUFFICIENT_EVIDENCE",
       "mechanicalCoverage": [
@@ -332,7 +308,6 @@
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
             "anc_be0ec3944cb0820161a2",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_c984a3350728b10dcc8a",
             "anc_d4b68776e58b44cd9a99",
@@ -356,36 +331,17 @@
           "dimension": "version",
           "relation": "DISJOINT",
           "claimed": "3.0",
-          "established": "authorization record: 2.1.0; study: 2.1.0",
+          "established": "study: 2.1.0",
           "anchorIds": [
-            "anc_1232a9143dd65848b568",
-            "anc_234a910d4d2fade6cdbc",
-            "anc_308101da491e88521805",
-            "anc_390c2563a7afd18e7588",
             "anc_462692aadc28ef30f0f6",
-            "anc_4740ea4717571e5ac8a5",
-            "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
-            "anc_66d005d3bedd4aae3135",
-            "anc_69990fd2af61cc462477",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
-            "anc_9121a3ef73171435f91a",
-            "anc_98cb9e5f0ef023a5a525",
-            "anc_b8a3535dabc5c75d8365",
-            "anc_b92b7d27c794df791491",
-            "anc_c2d801903bd388a2c956",
-            "anc_c7791085dddb0c340655",
-            "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
-            "anc_f1eb887e6cc6fb4c7630",
-            "anc_f26f233379908399f279",
-            "anc_f4969ef1238b9b804bec"
+            "anc_f1eb887e6cc6fb4c7630"
           ],
           "evidenceIds": [
-            "ev-fda-summary-bfcphhfchh-authorization",
-            "ev-fda-summary-bfcphhfchh-study",
             "ev-pubmed-article-homjefkphi-study"
           ]
         },
@@ -424,7 +380,6 @@
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
             "anc_be0ec3944cb0820161a2",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_c984a3350728b10dcc8a",
             "anc_d4b68776e58b44cd9a99",
@@ -465,7 +420,6 @@
             "anc_98cb9e5f0ef023a5a525",
             "anc_b8a3535dabc5c75d8365",
             "anc_b92b7d27c794df791491",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
@@ -487,7 +441,6 @@
           "anchorIds": [
             "anc_4740ea4717571e5ac8a5",
             "anc_b8a3535dabc5c75d8365",
-            "anc_c2d801903bd388a2c956",
             "anc_c7791085dddb0c340655",
             "anc_d4b68776e58b44cd9a99"
           ],
@@ -514,39 +467,22 @@
           "dimension": "version",
           "relation": "DISJOINT",
           "claimed": "3.0",
-          "established": "authorization record: 2.1.0; study: 2.1.0",
+          "established": "study: 2.1.0",
           "anchorIds": [
-            "anc_1232a9143dd65848b568",
-            "anc_234a910d4d2fade6cdbc",
-            "anc_308101da491e88521805",
-            "anc_390c2563a7afd18e7588",
             "anc_462692aadc28ef30f0f6",
-            "anc_4740ea4717571e5ac8a5",
-            "anc_53eedca52991c2cab31a",
             "anc_5e16728c90c8aad74263",
             "anc_64d09a9a8cdf345618ae",
-            "anc_66d005d3bedd4aae3135",
-            "anc_69990fd2af61cc462477",
             "anc_705f0766e0e0aa843f2e",
             "anc_8ad9255cf37c34a27658",
-            "anc_9121a3ef73171435f91a",
-            "anc_98cb9e5f0ef023a5a525",
-            "anc_b8a3535dabc5c75d8365",
-            "anc_b92b7d27c794df791491",
-            "anc_c2d801903bd388a2c956",
-            "anc_c7791085dddb0c340655",
-            "anc_d4b68776e58b44cd9a99",
             "anc_e8b0344ca0c55a8f21d2",
-            "anc_f1eb887e6cc6fb4c7630",
-            "anc_f26f233379908399f279",
-            "anc_f4969ef1238b9b804bec"
+            "anc_f1eb887e6cc6fb4c7630"
           ]
         }
       ],
       "requiredEvidence": [
         {
           "dimension": "version",
-          "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (authorization record: 2.1.0; study: 2.1.0) in the model or only in the build, with performance data for 3.0. The authorization record limits the software version to 2.1.0; the study records state 2.1.0."
+          "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (study: 2.1.0) in the model or only in the build, with performance data for 3.0."
         }
       ],
       "contraryDispositions": [],
@@ -584,7 +520,6 @@
         "fact_963f572fe1a20eba",
         "fact_a1ecaeed33d2f4a9",
         "fact_a215e94fdb2bb529",
-        "fact_a8638f6ee53a4b09",
         "fact_a8c1c185e875cb47",
         "fact_ac3aad99ebaae210",
         "fact_b3053f0e2de522b1",
@@ -616,7 +551,7 @@
       "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
       "traceId": "run-eyeart-k200667-1",
       "reviewerState": "unreviewed",
-      "computedAt": "2026-10-27T12:00:00.122Z"
+      "computedAt": "2026-10-27T12:00:00.121Z"
     },
     "changed": [
       {
@@ -664,7 +599,6 @@
           "anc_b8a3535dabc5c75d8365",
           "anc_b92b7d27c794df791491",
           "anc_be0ec3944cb0820161a2",
-          "anc_c2d801903bd388a2c956",
           "anc_c7791085dddb0c340655",
           "anc_c984a3350728b10dcc8a",
           "anc_d4b68776e58b44cd9a99",
@@ -681,33 +615,16 @@
         "dimension": "version",
         "relation": "DISJOINT",
         "claimed": "3.0",
-        "established": "authorization record: 2.1.0; study: 2.1.0",
-        "reason": "The claim is for version 3.0; the evidence covers version 2.1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
+        "established": "study: 2.1.0",
+        "reason": "The claim is for version 3.0; the evidence covers version 2.1.0. Nothing in the evidence speaks for the claimed version.",
         "anchorIds": [
-          "anc_1232a9143dd65848b568",
-          "anc_234a910d4d2fade6cdbc",
-          "anc_308101da491e88521805",
-          "anc_390c2563a7afd18e7588",
           "anc_462692aadc28ef30f0f6",
-          "anc_4740ea4717571e5ac8a5",
-          "anc_53eedca52991c2cab31a",
           "anc_5e16728c90c8aad74263",
           "anc_64d09a9a8cdf345618ae",
-          "anc_66d005d3bedd4aae3135",
-          "anc_69990fd2af61cc462477",
           "anc_705f0766e0e0aa843f2e",
           "anc_8ad9255cf37c34a27658",
-          "anc_9121a3ef73171435f91a",
-          "anc_98cb9e5f0ef023a5a525",
-          "anc_b8a3535dabc5c75d8365",
-          "anc_b92b7d27c794df791491",
-          "anc_c2d801903bd388a2c956",
-          "anc_c7791085dddb0c340655",
-          "anc_d4b68776e58b44cd9a99",
           "anc_e8b0344ca0c55a8f21d2",
-          "anc_f1eb887e6cc6fb4c7630",
-          "anc_f26f233379908399f279",
-          "anc_f4969ef1238b9b804bec"
+          "anc_f1eb887e6cc6fb4c7630"
         ]
       },
       {
@@ -746,7 +663,6 @@
           "anc_b8a3535dabc5c75d8365",
           "anc_b92b7d27c794df791491",
           "anc_be0ec3944cb0820161a2",
-          "anc_c2d801903bd388a2c956",
           "anc_c7791085dddb0c340655",
           "anc_c984a3350728b10dcc8a",
           "anc_d4b68776e58b44cd9a99",
@@ -782,7 +698,6 @@
           "anc_98cb9e5f0ef023a5a525",
           "anc_b8a3535dabc5c75d8365",
           "anc_b92b7d27c794df791491",
-          "anc_c2d801903bd388a2c956",
           "anc_c7791085dddb0c340655",
           "anc_d4b68776e58b44cd9a99",
           "anc_e8b0344ca0c55a8f21d2",
@@ -800,7 +715,6 @@
         "anchorIds": [
           "anc_4740ea4717571e5ac8a5",
           "anc_b8a3535dabc5c75d8365",
-          "anc_c2d801903bd388a2c956",
           "anc_c7791085dddb0c340655",
           "anc_d4b68776e58b44cd9a99"
         ]

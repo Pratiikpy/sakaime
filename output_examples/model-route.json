@@ -1,0 +1,102 @@
+{
+  "format": "sakaime.model-route/1",
+  "note": "How the model leg of the committed sample run was answered. Counts come from re-reading the recordings and from the replayed run, not from the recording session.",
+  "recordings": {
+    "total": 61,
+    "madeThroughNightshift": 61,
+    "madeThroughNvidiaDirectly": 0,
+    "receiptReverified": 61,
+    "receiptRejected": [],
+    "withoutReceipt": 0
+  },
+  "receiptKeyId": [
+    "e92caae86b5f702e"
+  ],
+  "nightshiftVersion": null,
+  "modelsThatAnswered": {
+    "nvidia/nemotron-3-ultra-550b-a55b": 29,
+    "nvidia/nemotron-3.5-lightning-30b-a3b": 32
+  },
+  "replayedRun": [
+    {
+      "caseId": "eyeart-k200667",
+      "modelReplies": 14,
+      "receiptedAndReverified": 14,
+      "share": 1,
+      "byRole": {
+        "planner": {
+          "replies": 1,
+          "receipted": 1
+        },
+        "support_checker": {
+          "replies": 11,
+          "receipted": 11
+        },
+        "critic": {
+          "replies": 1,
+          "receipted": 1
+        },
+        "reporter": {
+          "replies": 1,
+          "receipted": 1
+        }
+      }
+    },
+    {
+      "caseId": "lunit-k211733",
+      "modelReplies": 23,
+      "receiptedAndReverified": 23,
+      "share": 1,
+      "byRole": {
+        "planner": {
+          "replies": 1,
+          "receipted": 1
+        },
+        "support_checker": {
+          "replies": 18,
+          "receipted": 18
+        },
+        "resolver": {
+          "replies": 2,
+          "receipted": 2
+        },
+        "critic": {
+          "replies": 1,
+          "receipted": 1
+        },
+        "reporter": {
+          "replies": 1,
+          "receipted": 1
+        }
+      }
+    },
+    {
+      "caseId": "transpara-k221347",
+      "modelReplies": 23,
+      "receiptedAndReverified": 23,
+      "share": 1,
+      "byRole": {
+        "planner": {
+          "replies": 1,
+          "receipted": 1
+        },
+        "support_checker": {
+          "replies": 18,
+          "receipted": 18
+        },
+        "resolver": {
+          "replies": 2,
+          "receipted": 2
+        },
+        "critic": {
+          "replies": 1,
+          "receipted": 1
+        },
+        "reporter": {
+          "replies": 1,
+          "receipted": 1
+        }
+      }
+    }
+  ]
+}

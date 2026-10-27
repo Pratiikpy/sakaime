@@ -1,0 +1,601 @@
+{
+  "capturedFrom": "the installed Nightshift 1.2.3 receipt log (receipts.jsonl), 2026-10-27",
+  "note": "Receipts for requests whose user message was longer than 4000 characters. The prompts are public-class critic prompts of the sample run. The envelope is the signed receipt exactly as Nightshift logged it.",
+  "receipts": [
+    {
+      "receiptId": "rcpt_req_8zatjfva",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "prompt": "{\"findings\":[{\"ref\":\"CASE-2026-019.intended\",\"label\":\"INSUFFICIENT_EVIDENCE\",\"claimedUse\":{\"product\":\"device:fda:K221347\",\"versions\":[\"1.7.2\"],\"population\":{\"age\":{\"min\":40}},\"settings\":[\"breast_screening_clinic\"],\"purpose\":\"detection_aid\",\"timing\":{\"from\":\"2027-04-01\"}},\"dimensions\":[{\"dimension\":\"product\",\"relation\":\"CONTAINED\",\"claimed\":\"device:fda:K221347\",\"established\":\"authorization record: device:fda:K221347; study: device:fda:K221347\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"version\",\"relation\":\"CONTAINED\",\"claimed\":\"1.7.2\",\"established\":\"authorization record: 1.7.2; study: 1.7.2\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"population\",\"relation\":\"UNKNOWN\",\"claimed\":\"ages 40 and above\",\"established\":\"authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"setting\",\"relation\":\"UNKNOWN\",\"claimed\":\"specialty clinic\",\"established\":\"authorization record: any care setting, hospital (any unit)\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"detection aid\",\"established\":\"authorization record: detection aid\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"timing\",\"relation\":\"CONTAINED\",\"claimed\":\"use from 2027-04-01\",\"established\":\"authorization record: in force from 2022-08-03 with no stated end; study: newest evidence dated 2022-08-03\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"metric\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]}],\"requiredEvidence\":[\"population: From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on \",\"setting: From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report.\"],\"flags\":[\"The newest authorization record is dated 2022-08-03, and the claimed period ends 2027-04-01: longer than the configured staleness window. An authorization does \",\"The newest study evidence is dated 2022-08-03, and the claimed period ends 2027-04-01: longer than the configured staleness window. Whether it is still represen\"],\"lostEvidence\":[],\"supportedScope\":null},{\"ref\":\"CLM-TR-01\",\"label\":\"INSUFFICIENT_EVIDENCE\",\"claimedUse\":{\"product\":\"device:fda:K221347\",\"versions\":[\"1.7.2\"],\"population\":{\"age\":{\"min\":40}},\"settings\":[\"breast_screening_clinic\"],\"purpose\":\"detection_aid\"},\"dimensions\":[{\"dimension\":\"product\",\"relation\":\"CONTAINED\",\"claimed\":\"device:fda:K221347\",\"established\":\"authorization record: device:fda:K221347; study: device:fda:K221347\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"version\",\"relation\":\"CONTAINED\",\"claimed\":\"1.7.2\",\"established\":\"authorization record: 1.7.2; study: 1.7.2\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"population\",\"relation\":\"UNKNOWN\",\"claimed\":\"ages 40 and above\",\"established\":\"authorization record: conditions: women undergoing screening mammography and digital breast tomosynthesis\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"setting\",\"relation\":\"UNKNOWN\",\"claimed\":\"specialty clinic\",\"established\":\"authorization record: any care setting, hospital (any unit)\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"detection aid\",\"established\":\"authorization record: detection aid\",\"anchors\":[\"Re: K221347\",\"Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breas\"]},{\"dimension\":\"timing\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]},{\"dimension\":\"metric\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]}],\"requiredEvidence\":[\"population: From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on \",\"setting: From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report.\"],\"flags\":[],\"lostEvidence\":[],\"supportedScope\":null}]}",
+      "envelope": {
+        "body": {
+          "llama_cpp_ref": "08659901c43b51de735740f1cf61bb82fbe0c4e4",
+          "manifest_hash": "",
+          "receipt": {
+            "app": "node",
+            "app_policy": {
+              "app": "node",
+              "cross_check": "auto",
+              "has_rule": true,
+              "lanes": null,
+              "mode_coerced": false,
+              "premium_budget": null,
+              "privacy": "cloud-ok",
+              "race_width": 6,
+              "requested_mode": "auto",
+              "routed_mode": "auto"
+            },
+            "autopilot": {
+              "ctx_dropped": [],
+              "ctx_unfilterable": false,
+              "envelope": {
+                "allocatable_mb": 0,
+                "pressure": "unknown",
+                "remaining_mb": 0,
+                "used_mb": 0
+              },
+              "needs": {
+                "coding": false,
+                "tools": false,
+                "vision": false
+              },
+              "prompt_tokens": 1806,
+              "scout": {
+                "candidates": [
+                  {
+                    "id": "SECURITY",
+                    "score": 17
+                  },
+                  {
+                    "id": "CONFIG_GENERATOR",
+                    "score": 17
+                  },
+                  {
+                    "id": "PARALLEL_OPTIMIZER",
+                    "score": 10
+                  }
+                ],
+                "category": "Security",
+                "confident": false,
+                "mode": "SECURITY",
+                "ms": 2.83,
+                "score": 17,
+                "source": "detected",
+                "tier": "C"
+              },
+              "tier_hint": null,
+              "why": [
+                "scout read SECURITY (not confident — no tier opinion)",
+                "~1806 prompt tokens — lanes whose slot cannot hold them are not asked"
+              ]
+            },
+            "bar": null,
+            "budget_degrade": null,
+            "cache": {
+              "losers_reclaimed": 0,
+              "partials_reclaimed": 0,
+              "status": "miss"
+            },
+            "consensus": {
+              "agree": 1,
+              "coherence": null,
+              "detail": "answered by a top-tier model",
+              "label": "frontier answer",
+              "level": "solo",
+              "raced": 1,
+              "tone": "blue",
+              "verified": null
+            },
+            "consensus_escalation": null,
+            "cost": {
+              "actual_usd": 0,
+              "baseline": {
+                "label": "Nemotron 3 Ultra 550B A55B",
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "source": "mode-default-frontier"
+              },
+              "naive_usd": 0,
+              "race_overhead_usd": 0,
+              "verifier_usd": 0
+            },
+            "created_at": 1793113286004,
+            "cross_check": {
+              "app": "node",
+              "blocking": false,
+              "checks": [
+                {
+                  "message": "No destructive ops detected.",
+                  "status": "passed",
+                  "type": "destructive_action"
+                },
+                {
+                  "message": "No PII/credential detected in response.",
+                  "status": "passed",
+                  "type": "pii_guard"
+                },
+                {
+                  "message": "Not a tool call.",
+                  "status": "skipped",
+                  "type": "schema_validity"
+                },
+                {
+                  "message": "Factual claim requested but response lacks citation markers.",
+                  "status": "warning",
+                  "type": "citation_consistency"
+                }
+              ],
+              "destructive": false,
+              "raw_risk": "medium",
+              "recommended_action": "show_warning",
+              "reflex_ms": 0.06,
+              "requires_review": false,
+              "risk_level": "medium",
+              "status": "warning",
+              "verifier": "deterministic/schema+regex",
+              "verifier_error": null,
+              "verifier_model": null,
+              "verifier_ms": 0,
+              "verifier_ran": false,
+              "verifier_tokens": null,
+              "verifier_verdict": null
+            },
+            "debate": null,
+            "decision_id": "req_8zatjfva",
+            "deliberation": null,
+            "egress": {
+              "coverage": "pattern_floor",
+              "destination": "nvidia",
+              "never_eligible": [],
+              "sent": {
+                "context_sources": [
+                  "messages"
+                ],
+                "prompt_chars": 4000,
+                "redacted": []
+              },
+              "withheld": []
+            },
+            "eligible": null,
+            "error": "",
+            "fusion": null,
+            "gen_verifier": null,
+            "graded_weight": null,
+            "hmem": null,
+            "host_pressure": {
+              "battery": null,
+              "pressure": {
+                "battery": {
+                  "hard": 0.5,
+                  "label": "nominal",
+                  "score": 0.18,
+                  "sensor": "battery%, charging",
+                  "soft": 0.3
+                },
+                "cpu": {
+                  "hard": 0.9,
+                  "label": "nominal",
+                  "score": 0.34,
+                  "sensor": "30s load avg",
+                  "soft": 0.7
+                },
+                "gpu": {
+                  "hard": 0.92,
+                  "label": "nominal",
+                  "score": 0.38,
+                  "sensor": "GPU + VRAM",
+                  "soft": 0.75
+                },
+                "memory": {
+                  "hard": 0.85,
+                  "label": "warm",
+                  "score": 0.51,
+                  "sensor": "committed/swap",
+                  "soft": 0.7
+                },
+                "network": {
+                  "hard": 0.85,
+                  "label": "nominal",
+                  "score": 0.12,
+                  "sensor": "RTT to providers",
+                  "soft": 0.5
+                },
+                "quota": {
+                  "hard": 0.95,
+                  "label": "nominal",
+                  "score": 0.28,
+                  "sensor": "per-key window",
+                  "soft": 0.8
+                },
+                "thermal": {
+                  "hard": 0.8,
+                  "label": "nominal",
+                  "score": 0.22,
+                  "sensor": "thermal API",
+                  "soft": 0.55
+                }
+              },
+              "thermal": "nominal"
+            },
+            "job": null,
+            "mcp": null,
+            "method": null,
+            "mode": "auto",
+            "optimistic": null,
+            "phases": [
+              {
+                "coherence": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "ms": 23992,
+                "outputTps": 16.630543514504833,
+                "phase": "final_synthesis",
+                "reflex_decided_in_ms": 0.2,
+                "tier": "C",
+                "tokensIn": 1870,
+                "tokensOut": 399
+              }
+            ],
+            "privacy": {
+              "path": "cloud-ok",
+              "redaction": {
+                "applied": false,
+                "spans": 0
+              }
+            },
+            "prompt_preview": "breas\"]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"detection aid\",\"established\":\"authorization record: detection aid\",\"anchors\":[\"Re: K221347\",\"Transpara® software i",
+            "quality_race": null,
+            "reasoning_scaffold": null,
+            "receipt_id": "rcpt_req_8zatjfva",
+            "refine": null,
+            "request_id": "chatcmpl-b063c116-c309-4d12-9009-849356d8ec99",
+            "requested_mode": "meterless/auto",
+            "routing": {
+              "confidence": null,
+              "escalated": null,
+              "escalated_on_divergence": false,
+              "hedge": null,
+              "hedges_skipped": 0,
+              "of": 1,
+              "policy": "learned-router",
+              "predicted": "nvidia/nemotron-3-ultra-550b-a55b",
+              "reason": "single-candidate",
+              "width": 1,
+              "winner": "nvidia/nemotron-3-ultra-550b-a55b"
+            },
+            "savings": {
+              "amount": 0,
+              "baseline_source": "mode-default-frontier",
+              "currency": "USD",
+              "vs": "Nemotron 3 Ultra 550B A55B"
+            },
+            "schema": "meterless.compute_receipt.v1",
+            "score": null,
+            "scorecard": null,
+            "status": "ok",
+            "summary": "ok · Nemotron 3 Ultra 550B A55B · miss · $0.0000 saved",
+            "synthesis": null,
+            "test_time_compute": null,
+            "tool_degraded": null,
+            "unmet": null,
+            "usage": {
+              "input_tokens": 1870,
+              "latency_ms": 23992,
+              "output_tokens": 399,
+              "output_tps": 16.630543514504833,
+              "total_tokens": 2269
+            },
+            "verdict": null,
+            "verification": null,
+            "winning_route": {
+              "kind": "cloud",
+              "label": "Nemotron 3 Ultra 550B A55B",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "provider": "nvidia",
+              "tier": "C"
+            }
+          },
+          "signer": "meterlessd",
+          "ts_ms": 1793113286011
+        },
+        "pubkey_b64": "ofrH8+vl65oCrnFhdIv3cum842j5iHgWvb+B363fcb4=",
+        "sig_b64": "o4cwyJ9rdJGITCV5U6tB3+3y1bQZeaT3L7woGtgBoYe4cN+hbKPx+azwCkiSONM3oF9Q2GMsJBlPksA53K/GCQ=="
+      }
+    },
+    {
+      "receiptId": "rcpt_req_7cse3jlr",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b",
+      "prompt": "{\"findings\":[{\"ref\":\"CASE-2026-016.intended\",\"label\":\"INSUFFICIENT_EVIDENCE\",\"claimedUse\":{\"product\":\"device:fda:K211733\",\"versions\":[\"1.0\"],\"population\":{\"age\":{\"min\":18}},\"settings\":[\"emergency_department\"],\"purpose\":\"triage_prioritisation\",\"timing\":{\"from\":\"2027-02-01\"}},\"dimensions\":[{\"dimension\":\"product\",\"relation\":\"CONTAINED\",\"claimed\":\"device:fda:K211733\",\"established\":\"authorization record: device:fda:K211733; study: device:fda:K211733\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"For pneumothorax, the results are as follows: ROC AUC 0.9630 (95% CI: 0.9521 - 0.9739), Sensitivity 88.92% (95% CI: 85.60 - 92.24) and Specificity 90.51% (95% C\"]},{\"dimension\":\"version\",\"relation\":\"UNKNOWN\",\"claimed\":\"1.0\",\"established\":null,\"anchors\":[]},{\"dimension\":\"population\",\"relation\":\"UNKNOWN\",\"claimed\":\"ages 18 and above\",\"established\":\"authorization record: conditions: pleural effusion, pneumothorax\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"Lunit INSIGHT CXR Triage is a radiological computer-assisted triage and notification software that analyzes adult chest X-ray images for the presence of pre-spe\"]},{\"dimension\":\"setting\",\"relation\":\"UNKNOWN\",\"claimed\":\"emergency department\",\"established\":null,\"anchors\":[]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"triage notification\",\"established\":\"authorization record: triage notification\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"Lunit INSIGHT CXR Triage is a radiological computer-assisted triage and notification software that analyzes adult chest X-ray images for the presence of pre-spe\"]},{\"dimension\":\"timing\",\"relation\":\"CONTAINED\",\"claimed\":\"use from 2027-02-01\",\"established\":\"authorization record: in force from 2021-11-10 with no stated end; study: newest evidence dated 2021-11-10\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"For pneumothorax, the results are as follows: ROC AUC 0.9630 (95% CI: 0.9521 - 0.9739), Sensitivity 88.92% (95% CI: 85.60 - 92.24) and Specificity 90.51% (95% C\"]},{\"dimension\":\"metric\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]}],\"requiredEvidence\":[\"version: From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter.\",\"population: From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on \",\"setting: From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report.\"],\"flags\":[\"The newest authorization record is dated 2021-11-10, and the claimed period ends 2027-02-01: longer than the configured staleness window. An authorization does \",\"The newest study evidence is dated 2021-11-10, and the claimed period ends 2027-02-01: longer than the configured staleness window. Whether it is still represen\"],\"lostEvidence\":[\"requirement (required)\"],\"supportedScope\":null},{\"ref\":\"CLM-LU-01\",\"label\":\"INSUFFICIENT_EVIDENCE\",\"claimedUse\":{\"product\":\"device:fda:K211733\",\"versions\":[\"1.0\"],\"population\":{\"age\":{\"min\":18}},\"settings\":[\"emergency_department\"],\"purpose\":\"triage_prioritisation\"},\"dimensions\":[{\"dimension\":\"product\",\"relation\":\"CONTAINED\",\"claimed\":\"device:fda:K211733\",\"established\":\"authorization record: device:fda:K211733; study: device:fda:K211733\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"For pneumothorax, the results are as follows: ROC AUC 0.9630 (95% CI: 0.9521 - 0.9739), Sensitivity 88.92% (95% CI: 85.60 - 92.24) and Specificity 90.51% (95% C\"]},{\"dimension\":\"version\",\"relation\":\"UNKNOWN\",\"claimed\":\"1.0\",\"established\":null,\"anchors\":[]},{\"dimension\":\"population\",\"relation\":\"UNKNOWN\",\"claimed\":\"ages 18 and above\",\"established\":\"authorization record: conditions: pleural effusion, pneumothorax\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"Lunit INSIGHT CXR Triage is a radiological computer-assisted triage and notification software that analyzes adult chest X-ray images for the presence of pre-spe\"]},{\"dimension\":\"setting\",\"relation\":\"UNKNOWN\",\"claimed\":\"emergency department\",\"established\":null,\"anchors\":[]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"triage notification\",\"established\":\"authorization record: triage notification\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"Lunit INSIGHT CXR Triage is a radiological computer-assisted triage and notification software that analyzes adult chest X-ray images for the presence of pre-spe\"]},{\"dimension\":\"timing\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]},{\"dimension\":\"metric\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]}],\"requiredEvidence\":[\"version: From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter.\",\"population: From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on \",\"setting: From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report.\"],\"flags\":[],\"lostEvidence\":[\"requirement (required)\"],\"supportedScope\":null},{\"ref\":\"CLM-LU-02\",\"label\":\"INSUFFICIENT_EVIDENCE\",\"claimedUse\":{\"product\":\"device:fda:K211733\",\"versions\":[\"2.0\"],\"population\":{\"age\":{\"min\":18}},\"settings\":[\"emergency_department\",\"outpatient_care\"],\"purpose\":\"triage_prioritisation\"},\"dimensions\":[{\"dimension\":\"product\",\"relation\":\"CONTAINED\",\"claimed\":\"device:fda:K211733\",\"established\":\"authorization record: device:fda:K211733; study: device:fda:K211733\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"For pneumothorax, the results are as follows: ROC AUC 0.9630 (95% CI: 0.9521 - 0.9739), Sensitivity 88.92% (95% CI: 85.60 - 92.24) and Specificity 90.51% (95% C\"]},{\"dimension\":\"version\",\"relation\":\"UNKNOWN\",\"claimed\":\"2.0\",\"established\":null,\"anchors\":[]},{\"dimension\":\"population\",\"relation\":\"UNKNOWN\",\"claimed\":\"ages 18 and above\",\"established\":\"authorization record: conditions: pleural effusion, pneumothorax\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"Lunit INSIGHT CXR Triage is a radiological computer-assisted triage and notification software that analyzes adult chest X-ray images for the presence of pre-spe\"]},{\"dimension\":\"setting\",\"relation\":\"UNKNOWN\",\"claimed\":\"emergency department, outpatient care (any clinic)\",\"established\":null,\"anchors\":[]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"triage notification\",\"established\":\"authorization record: triage notification\",\"anchors\":[\"Re: K211733 Trade/Device Name: Lunit INSIGHT CXR Triage Regulation Number: 21 CFR 892.2080 Regulation Name: Radiological computer aided triage and notification \",\"Lunit INSIGHT CXR Triage is a radiological computer-assisted triage and notification software that analyzes adult chest X-ray images for the presence of pre-spe\"]},{\"dimension\":\"timing\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]},{\"dimension\":\"metric\",\"relation\":\"UNKNOWN\",\"claimed\":null,\"established\":null,\"anchors\":[]}],\"requiredEvidence\":[\"version: From the vendor: the software version evaluated in the study and the version the authorization covers, quoted from the study report or the authorization letter.\",\"population: From the vendor: the study's inclusion and exclusion criteria and a table of the evaluated participants by age and condition, or the authorization's wording on \",\"setting: From the vendor: the care settings and the number of sites in which the study was run, quoted from the study report.\"],\"flags\":[],\"lostEvidence\":[\"requirement (required)\"],\"supportedScope\":null}]}",
+      "envelope": {
+        "body": {
+          "llama_cpp_ref": "08659901c43b51de735740f1cf61bb82fbe0c4e4",
+          "manifest_hash": "",
+          "receipt": {
+            "app": "node",
+            "app_policy": {
+              "app": "node",
+              "cross_check": "auto",
+              "has_rule": true,
+              "lanes": null,
+              "mode_coerced": false,
+              "premium_budget": null,
+              "privacy": "cloud-ok",
+              "race_width": 6,
+              "requested_mode": "auto",
+              "routed_mode": "auto"
+            },
+            "autopilot": {
+              "ctx_dropped": [],
+              "ctx_unfilterable": false,
+              "envelope": {
+                "allocatable_mb": 0,
+                "pressure": "unknown",
+                "remaining_mb": 0,
+                "used_mb": 0
+              },
+              "needs": {
+                "coding": false,
+                "tools": false,
+                "vision": false
+              },
+              "prompt_tokens": 2606,
+              "scout": {
+                "candidates": [
+                  {
+                    "id": "SECURITY",
+                    "score": 17
+                  },
+                  {
+                    "id": "CONFIG_GENERATOR",
+                    "score": 11
+                  },
+                  {
+                    "id": "RELEASE_MANAGER",
+                    "score": 7
+                  }
+                ],
+                "category": "Security",
+                "confident": true,
+                "mode": "SECURITY",
+                "ms": 2.62,
+                "score": 17,
+                "source": "detected",
+                "tier": "C"
+              },
+              "tier_hint": "C",
+              "why": [
+                "scout read SECURITY",
+                "tier hint C (raised on auto)",
+                "~2606 prompt tokens — lanes whose slot cannot hold them are not asked"
+              ]
+            },
+            "bar": null,
+            "budget_degrade": null,
+            "cache": {
+              "losers_reclaimed": 0,
+              "partials_reclaimed": 0,
+              "status": "miss"
+            },
+            "consensus": {
+              "agree": 1,
+              "coherence": null,
+              "detail": "answered by a top-tier model",
+              "label": "frontier answer",
+              "level": "solo",
+              "raced": 1,
+              "tone": "blue",
+              "verified": null
+            },
+            "consensus_escalation": null,
+            "cost": {
+              "actual_usd": 0,
+              "baseline": {
+                "label": "Nemotron 3 Ultra 550B A55B",
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "source": "mode-default-frontier"
+              },
+              "naive_usd": 0,
+              "race_overhead_usd": 0,
+              "verifier_usd": 0
+            },
+            "created_at": 1793113254177,
+            "cross_check": {
+              "app": "node",
+              "blocking": false,
+              "checks": [
+                {
+                  "message": "No destructive ops detected.",
+                  "status": "passed",
+                  "type": "destructive_action"
+                },
+                {
+                  "message": "No PII/credential detected in response.",
+                  "status": "passed",
+                  "type": "pii_guard"
+                },
+                {
+                  "message": "Not a tool call.",
+                  "status": "skipped",
+                  "type": "schema_validity"
+                },
+                {
+                  "message": "Factual claim requested but response lacks citation markers.",
+                  "status": "warning",
+                  "type": "citation_consistency"
+                }
+              ],
+              "destructive": false,
+              "raw_risk": "medium",
+              "recommended_action": "show_warning",
+              "reflex_ms": 0.06,
+              "requires_review": false,
+              "risk_level": "medium",
+              "status": "warning",
+              "verifier": "deterministic/schema+regex",
+              "verifier_error": null,
+              "verifier_model": null,
+              "verifier_ms": 0,
+              "verifier_ran": false,
+              "verifier_tokens": null,
+              "verifier_verdict": null
+            },
+            "debate": null,
+            "decision_id": "req_7cse3jlr",
+            "deliberation": null,
+            "egress": {
+              "coverage": "pattern_floor",
+              "destination": "nvidia",
+              "never_eligible": [],
+              "sent": {
+                "context_sources": [
+                  "messages"
+                ],
+                "prompt_chars": 4000,
+                "redacted": []
+              },
+              "withheld": []
+            },
+            "eligible": null,
+            "error": "",
+            "fusion": null,
+            "gen_verifier": null,
+            "graded_weight": null,
+            "hmem": null,
+            "host_pressure": {
+              "battery": null,
+              "pressure": {
+                "battery": {
+                  "hard": 0.5,
+                  "label": "nominal",
+                  "score": 0.18,
+                  "sensor": "battery%, charging",
+                  "soft": 0.3
+                },
+                "cpu": {
+                  "hard": 0.9,
+                  "label": "nominal",
+                  "score": 0.34,
+                  "sensor": "30s load avg",
+                  "soft": 0.7
+                },
+                "gpu": {
+                  "hard": 0.92,
+                  "label": "nominal",
+                  "score": 0.38,
+                  "sensor": "GPU + VRAM",
+                  "soft": 0.75
+                },
+                "memory": {
+                  "hard": 0.85,
+                  "label": "warm",
+                  "score": 0.51,
+                  "sensor": "committed/swap",
+                  "soft": 0.7
+                },
+                "network": {
+                  "hard": 0.85,
+                  "label": "nominal",
+                  "score": 0.12,
+                  "sensor": "RTT to providers",
+                  "soft": 0.5
+                },
+                "quota": {
+                  "hard": 0.95,
+                  "label": "nominal",
+                  "score": 0.28,
+                  "sensor": "per-key window",
+                  "soft": 0.8
+                },
+                "thermal": {
+                  "hard": 0.8,
+                  "label": "nominal",
+                  "score": 0.22,
+                  "sensor": "thermal API",
+                  "soft": 0.55
+                }
+              },
+              "thermal": "nominal"
+            },
+            "job": null,
+            "mcp": null,
+            "method": null,
+            "mode": "auto",
+            "optimistic": null,
+            "phases": [
+              {
+                "coherence": null,
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "ms": 18693,
+                "outputTps": 20.167977317712513,
+                "phase": "final_synthesis",
+                "reflex_decided_in_ms": 0.2,
+                "tier": "C",
+                "tokensIn": 2969,
+                "tokensOut": 377
+              }
+            ],
+            "privacy": {
+              "path": "cloud-ok",
+              "redaction": {
+                "applied": false,
+                "spans": 0
+              }
+            },
+            "prompt_preview": "d\":\"emergency department\",\"established\":null,\"anchors\":[]},{\"dimension\":\"purpose\",\"relation\":\"CONTAINED\",\"claimed\":\"triage notification\",\"established\":\"authorization record: triage",
+            "quality_race": null,
+            "reasoning_scaffold": null,
+            "receipt_id": "rcpt_req_7cse3jlr",
+            "refine": null,
+            "request_id": "chatcmpl-fa201c3d-776d-4741-8def-ab79870aefc7",
+            "requested_mode": "meterless/auto",
+            "routing": {
+              "confidence": null,
+              "escalated": null,
+              "escalated_on_divergence": false,
+              "hedge": null,
+              "hedges_skipped": 0,
+              "of": 1,
+              "policy": "learned-router",
+              "predicted": "nvidia/nemotron-3-ultra-550b-a55b",
+              "reason": "single-candidate",
+              "width": 1,
+              "winner": "nvidia/nemotron-3-ultra-550b-a55b"
+            },
+            "savings": {
+              "amount": 0,
+              "baseline_source": "mode-default-frontier",
+              "currency": "USD",
+              "vs": "Nemotron 3 Ultra 550B A55B"
+            },
+            "schema": "meterless.compute_receipt.v1",
+            "score": null,
+            "scorecard": null,
+            "status": "ok",
+            "summary": "ok · Nemotron 3 Ultra 550B A55B · miss · $0.0000 saved",
+            "synthesis": null,
+            "test_time_compute": null,
+            "tool_degraded": null,
+            "unmet": null,
+            "usage": {
+              "input_tokens": 2969,
+              "latency_ms": 18693,
+              "output_tokens": 377,
+              "output_tps": 20.167977317712513,
+              "total_tokens": 3346
+            },
+            "verdict": null,
+            "verification": null,
+            "winning_route": {
+              "kind": "cloud",
+              "label": "Nemotron 3 Ultra 550B A55B",
+              "model": "nvidia/nemotron-3-ultra-550b-a55b",
+              "provider": "nvidia",
+              "tier": "C"
+            }
+          },
+          "signer": "meterlessd",
+          "ts_ms": 1793113254182
+        },
+        "pubkey_b64": "ofrH8+vl65oCrnFhdIv3cum842j5iHgWvb+B363fcb4=",
+        "sig_b64": "uNN9kPrwfJSbyjCxmanhb0axZBCBki1jn72WO9g09DckJtO5gUiEkgtNp79awPnAcksg0OimQkeKKqz4SRb7BQ=="
+      }
+    }
+  ]
+}

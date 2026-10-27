@@ -378,12 +378,14 @@ describe("the investigation with a scripted model (a test double standing in for
     expect(run.results.map((r) => [r.claim.id, r.finding.label])).toEqual(plain.results.map((r) => [r.claim.id, r.finding.label]));
   });
 
-  it("every model call carries a memory scope no other call carries, the public data class, and no vendor sentence", () => {
+  it("every model call carries a memory scope no other call carries, a data class that matches what the prompt holds, and no vendor sentence", () => {
     expect(model.asked.length).toBeGreaterThan(2);
     const scopes = model.asked.map((m) => m.memoryScope);
     expect(new Set(scopes).size).toBe(scopes.length);
     expect(scopes.every((s) => typeof s === "string" && s.length > 8)).toBe(true);
-    expect(model.asked.every((m) => m.dataClass === "public")).toBe(true);
+    // The planner, critic and reporter prompts carry the vendor packet's structured fields and the hospital's intended use, so they are
+    // vendor-confidential and the egress policy must decide; the passages and identity fields the other roles see are public records.
+    for (const m of model.asked) expect(m.dataClass, m.role).toBe(["planner", "critic", "reporter"].includes(m.role) ? "vendor-confidential" : "public");
     const vendorSentences = run.spec.claims.map((c) => c.text);
     for (const m of model.asked) for (const v of vendorSentences) expect(`${m.system}\n${m.user}`).not.toContain(v);
     expect(new Set(model.asked.map((m) => m.role))).toEqual(expect.objectContaining(new Set(["planner", "critic", "reporter"])));

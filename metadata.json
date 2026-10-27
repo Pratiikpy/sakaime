@@ -54,21 +54,21 @@
       "decisions": ["docs/04-meterless-plan.md"],
       "integration_working": true,
       "in_use_case": true,
-      "use_case_note": "The sponsor conformance runners pass on our implementations (H-MEM 13/13, World Model 8/8, Markovian 8/8). Scout has no sponsor runner; our grader is stricter and its held-out results are weak on unseen wording (see tests/engines/scout/RESULTS.md). The recorded run reached models through the NVIDIA API; the Nightshift client is built and was tested against the installed Nightshift, but is not the route of the recorded run.",
+      "use_case_note": "The sponsor conformance runners pass on our implementations (H-MEM 13/13, World Model 8/8, Markovian 8/8). Scout has no sponsor runner; our grader is stricter and its held-out results are weak on unseen wording (see tests/engines/scout/RESULTS.md). Every model reply of the committed sample run was answered through the installed Nightshift 1.2.3 (61 of 61 recordings carry a signed compute receipt that re-verifies against the pinned key id; see output_examples/model-route.json). Receipts show where a reply was routed, not that it is true.",
       "engines": ["H-MEM", "World Model", "Markovian", "Scout Intent"],
-      "provider": "none"
+      "provider": "nightshift"
     },
     "nvidia": {
       "status": "working",
       "how": "Nemotron 3.5 Lightning 30B serves the high-volume roles (planner, discoverer, resolver, extractor second opinion, reporter) and Nemotron 3 Ultra 550B serves the critic and identity adjudication, with structured-output validation and bounded retries.",
       "where": ["src/models/", "src/agents/"],
-      "evidence": ["src/models/roles.ts", "data/model-cassettes/", "tests/models/"],
+      "evidence": ["src/models/roles.ts", "data/model-cassettes/", "output_examples/model-route.json", "tests/models/"],
       "decisions": ["docs/DECISIONS.md"],
       "integration_working": true,
       "in_use_case": true,
-      "use_case_note": "Recorded replies in data/model-cassettes were made against the real route on 2026-10-27. Model proposals never become facts without a deterministic check.",
+      "use_case_note": "Nemotron is reached through Nightshift, which routes to NVIDIA: the recorded replies in data/model-cassettes were made through the installed Nightshift on 2026-10-27 and each carries the signed receipt that names the Nemotron model that answered. NVIDIA's API is used directly only if Nightshift cannot be reached or its receipt fails, and then the reply is labelled nvidia and unreceipted. Model proposals never become facts without a deterministic check.",
       "models": ["nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia/nemotron-3-ultra-550b-a55b"],
-      "route": "build.nvidia.com"
+      "route": "via-meterless"
     },
     "cursor": {
       "status": "planned",

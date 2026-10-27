@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T14:19:22.830Z",
+  "recordedAt": "2026-10-27T15:38:45.692Z",
   "role": "planner",
   "requestHash": "b67c74ad55a8cae536314b412fd062206e04303338ae8c3aef1dabfae64b207c",
   "request": {
@@ -65,18 +65,19 @@
       }
     },
     "maxTokens": 900,
-    "dataClass": "public"
+    "dataClass": "vendor-confidential",
+    "constructedDemoData": true
   },
   "response": {
-    "text": "{\n  \"subQuestions\": [\n    \"What is the analytical and clinical performance of EyeArt v2.1.0 and v3.0 in detecting diabetic retinopathy across the specified age ranges and exclusion criteria?\",\n    \"How does the sensitivity and specificity of EyeArt compare to the claimed performance metrics (sensitivity >= 0.85, sensitivity >= 0.96) in real-world primary care and eye care settings?\",\n    \"What are the published study results or clinical trial data regarding the use of EyeArt in primary care and emergency department settings for diabetic retinopathy detection and triage?\",\n    \"Are there any ongoing or completed clinical trials (e.g., on ClinicalTrials.gov) that evaluate EyeArt's performance in the specified populations and settings?\",\n    \"What is the real-world evidence regarding the impact of exclusions (e.g., prior more than mild diabetic retinopathy, macular edema, retinal vascular occlusion) on EyeArt's detection accuracy?\",\n    \"How does EyeArt perform in subjects with additional conditions such as persistent visual impairment, history of ocular injections/laser treatment, or contraindications for mydriatic medications?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"Eyenuk\",\n      \"product\": \"EyeArt\",\n      \"condition\": \"diabetic retinopathy\",\n      \"reason\": \"Identify any clinical trials that evaluate EyeArt's performance in the specified populations and settings, which may not be captured by the existing planned searches.\"\n    },\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"Eyenuk\",\n      \"product\": \"EyeArt\",\n      \"condition\": \"sensitivity specificity diabetic retinopathy\",\n      \"reason\": \"Retrieve peer-reviewed studies that report sensitivity, specificity, and other performance metrics for EyeArt in diabetic retinopathy detection, complementing the existing search.\"\n    }\n  ]\n}",
+    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy of EyeArt version 2.1.0 for detecting diabetic retinopathy in primary care settings?\",\n    \"How does EyeArt version 3.0 perform in detecting diabetic retinopathy compared to version 2.1.0?\",\n    \"What are the real-world usability and limitations of EyeArt in primary care and eye care settings, particularly regarding exclusions and ungradable images?\",\n    \"What is the sensitivity and specificity of EyeArt for detecting more than mild diabetic retinopathy in routine clinical practice?\",\n    \"Are there published clinical studies or trial data evaluating EyeArt's performance in emergency department or inpatient ward settings for triage prioritisation?\",\n    \"What is the impact of patient exclusion criteria on the generalisability of EyeArt's performance?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"Eyenuk\",\n      \"product\": \"EyeArt\",\n      \"condition\": \"diabetic retinopathy\",\n      \"reason\": \"Identify any ongoing or completed clinical trials evaluating EyeArt's diagnostic performance in real-world settings.\"\n    },\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"Eyenuk\",\n      \"product\": \"EyeArt\",\n      \"condition\": \"diabetic retinopathy\",\n      \"reason\": \"Retrieve peer-reviewed studies on EyeArt's accuracy, safety, and clinical utility for diabetic retinopathy detection.\"\n    }\n  ]\n}",
     "json": {
       "subQuestions": [
-        "What is the analytical and clinical performance of EyeArt v2.1.0 and v3.0 in detecting diabetic retinopathy across the specified age ranges and exclusion criteria?",
-        "How does the sensitivity and specificity of EyeArt compare to the claimed performance metrics (sensitivity >= 0.85, sensitivity >= 0.96) in real-world primary care and eye care settings?",
-        "What are the published study results or clinical trial data regarding the use of EyeArt in primary care and emergency department settings for diabetic retinopathy detection and triage?",
-        "Are there any ongoing or completed clinical trials (e.g., on ClinicalTrials.gov) that evaluate EyeArt's performance in the specified populations and settings?",
-        "What is the real-world evidence regarding the impact of exclusions (e.g., prior more than mild diabetic retinopathy, macular edema, retinal vascular occlusion) on EyeArt's detection accuracy?",
-        "How does EyeArt perform in subjects with additional conditions such as persistent visual impairment, history of ocular injections/laser treatment, or contraindications for mydriatic medications?"
+        "What is the diagnostic accuracy of EyeArt version 2.1.0 for detecting diabetic retinopathy in primary care settings?",
+        "How does EyeArt version 3.0 perform in detecting diabetic retinopathy compared to version 2.1.0?",
+        "What are the real-world usability and limitations of EyeArt in primary care and eye care settings, particularly regarding exclusions and ungradable images?",
+        "What is the sensitivity and specificity of EyeArt for detecting more than mild diabetic retinopathy in routine clinical practice?",
+        "Are there published clinical studies or trial data evaluating EyeArt's performance in emergency department or inpatient ward settings for triage prioritisation?",
+        "What is the impact of patient exclusion criteria on the generalisability of EyeArt's performance?"
       ],
       "extraSearches": [
         {
@@ -84,25 +85,408 @@
           "vendor": "Eyenuk",
           "product": "EyeArt",
           "condition": "diabetic retinopathy",
-          "reason": "Identify any clinical trials that evaluate EyeArt's performance in the specified populations and settings, which may not be captured by the existing planned searches."
+          "reason": "Identify any ongoing or completed clinical trials evaluating EyeArt's diagnostic performance in real-world settings."
         },
         {
           "source": "pubmed-eutils",
           "vendor": "Eyenuk",
           "product": "EyeArt",
-          "condition": "sensitivity specificity diabetic retinopathy",
-          "reason": "Retrieve peer-reviewed studies that report sensitivity, specificity, and other performance metrics for EyeArt in diabetic retinopathy detection, complementing the existing search."
+          "condition": "diabetic retinopathy",
+          "reason": "Retrieve peer-reviewed studies on EyeArt's accuracy, safety, and clinical utility for diabetic retinopathy detection."
         }
       ]
     },
     "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "recordedFrom": "nvidia",
+    "recordedFrom": "nightshift",
     "usage": {
-      "promptTokens": 4254,
-      "completionTokens": 734,
+      "promptTokens": 4220,
+      "completionTokens": 595,
       "measured": true
+    },
+    "receipt": {
+      "receiptId": "rcpt_req_fr9njan0",
+      "decisionId": "req_fr9njan0",
+      "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider": "nvidia",
+      "latencyMs": 6080,
+      "hmem": 0,
+      "signature": "T3ruoWMeHy40vF7V5qghb194LVGkrkMhH0P6xt30FFJMmjHZaxi3cN6Ll2tc+3LX6SyCZWZNcAVRUKRU22ASBw==",
+      "keyId": "e92caae86b5f702e",
+      "requestHash": "5d9ef5efcb9cedb228a10df668355acf71cc7861c9514137507e866ab12984a9",
+      "responseHash": "c4af16aca8bc763462835a37e643e89a73d06d5640763e52ab799bccd75976c1",
+      "raw": {
+        "envelope": {
+          "body": {
+            "llama_cpp_ref": "08659901c43b51de735740f1cf61bb82fbe0c4e4",
+            "manifest_hash": "",
+            "receipt": {
+              "app": "node",
+              "app_policy": {
+                "app": "node",
+                "cross_check": "auto",
+                "has_rule": true,
+                "lanes": null,
+                "mode_coerced": false,
+                "premium_budget": null,
+                "privacy": "cloud-ok",
+                "race_width": 6,
+                "requested_mode": "auto",
+                "routed_mode": "auto"
+              },
+              "autopilot": {
+                "ctx_dropped": [],
+                "ctx_unfilterable": false,
+                "envelope": {
+                  "allocatable_mb": 0,
+                  "pressure": "unknown",
+                  "remaining_mb": 0,
+                  "used_mb": 0
+                },
+                "needs": {
+                  "coding": false,
+                  "tools": false,
+                  "vision": false
+                },
+                "prompt_tokens": 2139,
+                "scout": {
+                  "candidates": [
+                    {
+                      "id": "EXPLAIN",
+                      "score": 15
+                    },
+                    {
+                      "id": "RELEASE_MANAGER",
+                      "score": 14
+                    },
+                    {
+                      "id": "OPTIMIZER",
+                      "score": 11
+                    }
+                  ],
+                  "category": "Help",
+                  "confident": false,
+                  "mode": "EXPLAIN",
+                  "ms": 4.95,
+                  "score": 15,
+                  "source": "detected",
+                  "tier": "B"
+                },
+                "tier_hint": null,
+                "why": [
+                  "scout read EXPLAIN (not confident — no tier opinion)",
+                  "~2139 prompt tokens — lanes whose slot cannot hold them are not asked"
+                ]
+              },
+              "bar": null,
+              "budget_degrade": null,
+              "cache": {
+                "losers_reclaimed": 0,
+                "partials_reclaimed": 0,
+                "status": "miss"
+              },
+              "consensus": {
+                "agree": 1,
+                "coherence": null,
+                "detail": "one model handled this — no cross-model agreement to check",
+                "label": "single route",
+                "level": "solo",
+                "raced": 1,
+                "tone": "neutral",
+                "verified": null
+              },
+              "consensus_escalation": null,
+              "cost": {
+                "actual_usd": 0,
+                "baseline": {
+                  "label": "Nemotron 3 Ultra 550B A55B",
+                  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                  "source": "mode-default-frontier"
+                },
+                "naive_usd": 0,
+                "race_overhead_usd": 0,
+                "verifier_usd": 0
+              },
+              "created_at": 1793115525676,
+              "cross_check": {
+                "app": "node",
+                "blocking": false,
+                "checks": [],
+                "recommended_action": "allow",
+                "reflex_ms": 0.03,
+                "risk_level": "low",
+                "skip_reason": "tier_a_chat",
+                "status": "skipped",
+                "verifier": "none",
+                "verifier_model": null,
+                "verifier_ms": 0,
+                "verifier_ran": false,
+                "verifier_verdict": null
+              },
+              "debate": null,
+              "decision_id": "req_fr9njan0",
+              "deliberation": null,
+              "egress": {
+                "coverage": "pattern_floor",
+                "destination": "nvidia",
+                "never_eligible": [],
+                "sent": {
+                  "context_sources": [
+                    "messages"
+                  ],
+                  "prompt_chars": 4000,
+                  "redacted": []
+                },
+                "withheld": []
+              },
+              "eligible": null,
+              "error": "",
+              "fusion": null,
+              "gen_verifier": null,
+              "graded_weight": null,
+              "hmem": null,
+              "host_pressure": {
+                "battery": null,
+                "pressure": {
+                  "battery": {
+                    "hard": 0.5,
+                    "label": "nominal",
+                    "score": 0.18,
+                    "sensor": "battery%, charging",
+                    "soft": 0.3
+                  },
+                  "cpu": {
+                    "hard": 0.9,
+                    "label": "nominal",
+                    "score": 0.34,
+                    "sensor": "30s load avg",
+                    "soft": 0.7
+                  },
+                  "gpu": {
+                    "hard": 0.92,
+                    "label": "nominal",
+                    "score": 0.38,
+                    "sensor": "GPU + VRAM",
+                    "soft": 0.75
+                  },
+                  "memory": {
+                    "hard": 0.85,
+                    "label": "warm",
+                    "score": 0.51,
+                    "sensor": "committed/swap",
+                    "soft": 0.7
+                  },
+                  "network": {
+                    "hard": 0.85,
+                    "label": "nominal",
+                    "score": 0.12,
+                    "sensor": "RTT to providers",
+                    "soft": 0.5
+                  },
+                  "quota": {
+                    "hard": 0.95,
+                    "label": "nominal",
+                    "score": 0.28,
+                    "sensor": "per-key window",
+                    "soft": 0.8
+                  },
+                  "thermal": {
+                    "hard": 0.8,
+                    "label": "nominal",
+                    "score": 0.22,
+                    "sensor": "thermal API",
+                    "soft": 0.55
+                  }
+                },
+                "thermal": "nominal"
+              },
+              "job": null,
+              "mcp": null,
+              "method": null,
+              "mode": "auto",
+              "optimistic": null,
+              "phases": [
+                {
+                  "coherence": null,
+                  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                  "ms": 6080,
+                  "outputTps": 51.48026315789473,
+                  "phase": "final_synthesis",
+                  "reflex_decided_in_ms": 0.2,
+                  "tier": "A",
+                  "tokensIn": 2294,
+                  "tokensOut": 313
+                }
+              ],
+              "privacy": {
+                "path": "cloud-ok",
+                "redaction": {
+                  "applied": false,
+                  "spans": 0
+                }
+              },
+              "prompt_preview": "],\"purpose\":\"detection_aid\"},\"performance\":null},{\"id\":\"CLM-EA-06\",\"use\":{\"product\":\"device:fda:K200667\",\"versions\":[\"2.1.0\"],\"population\":{\"age\":{\"min\":22},\"conditions\":[\"diabetic",
+              "quality_race": null,
+              "reasoning_scaffold": null,
+              "receipt_id": "rcpt_req_fr9njan0",
+              "refine": null,
+              "request_id": "chatcmpl-6e5743bb-f801-431f-ad5a-a19757f174e1",
+              "requested_mode": "meterless/auto",
+              "routing": {
+                "confidence": null,
+                "escalated": null,
+                "escalated_on_divergence": false,
+                "hedge": null,
+                "hedges_skipped": 0,
+                "of": 1,
+                "policy": "learned-router",
+                "predicted": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                "reason": "single-candidate",
+                "width": 1,
+                "winner": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              },
+              "savings": {
+                "amount": 0,
+                "baseline_source": "mode-default-frontier",
+                "currency": "USD",
+                "vs": "Nemotron 3 Ultra 550B A55B"
+              },
+              "schema": "meterless.compute_receipt.v1",
+              "score": null,
+              "scorecard": null,
+              "status": "ok",
+              "summary": "ok · Nemotron 3.5 Lightning 30B A3B · miss · $0.0000 saved",
+              "synthesis": null,
+              "test_time_compute": null,
+              "tool_degraded": null,
+              "unmet": null,
+              "usage": {
+                "input_tokens": 2294,
+                "latency_ms": 6080,
+                "output_tokens": 313,
+                "output_tps": 51.48026315789473,
+                "total_tokens": 2607
+              },
+              "verdict": null,
+              "verification": null,
+              "winning_route": {
+                "kind": "cloud",
+                "label": "Nemotron 3.5 Lightning 30B A3B",
+                "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                "provider": "nvidia",
+                "tier": "A"
+              }
+            },
+            "signer": "meterlessd",
+            "ts_ms": 1793115525681
+          },
+          "pubkey_b64": "ofrH8+vl65oCrnFhdIv3cum842j5iHgWvb+B363fcb4=",
+          "sig_b64": "T3ruoWMeHy40vF7V5qghb194LVGkrkMhH0P6xt30FFJMmjHZaxi3cN6Ll2tc+3LX6SyCZWZNcAVRUKRU22ASBw=="
+        },
+        "tier": "A",
+        "kind": "cloud",
+        "app": "node",
+        "requestId": "chatcmpl-6e5743bb-f801-431f-ad5a-a19757f174e1",
+        "signedAtMs": 1793115525681,
+        "keyPinned": true,
+        "nightshiftVersion": "1.2.3",
+        "hashesComputedLocally": true,
+        "verification": {
+          "verifiedAt": "2026-10-27T15:38:45.691Z",
+          "origin": "live",
+          "checks": [
+            {
+              "name": "schema",
+              "passed": true,
+              "detail": "meterless.compute_receipt.v1"
+            },
+            {
+              "name": "signature",
+              "passed": true,
+              "detail": "Ed25519 over the envelope body verified (key e92caae86b5f702e)"
+            },
+            {
+              "name": "key",
+              "passed": true,
+              "detail": "key e92caae86b5f702e is pinned to the installed application"
+            },
+            {
+              "name": "outer-matches-signed",
+              "passed": true,
+              "detail": "the unsigned fields agree with the signed receipt"
+            },
+            {
+              "name": "status",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "not-cached",
+              "passed": true,
+              "detail": "cache status miss"
+            },
+            {
+              "name": "not-replayed",
+              "passed": true,
+              "detail": "receipt id and decision id not seen before"
+            },
+            {
+              "name": "routed-model",
+              "passed": true,
+              "detail": "nvidia/nemotron-3.5-lightning-30b-a3b answered, as requested"
+            },
+            {
+              "name": "tier",
+              "passed": true,
+              "detail": "tier A named (no expectation set for this model)"
+            },
+            {
+              "name": "app",
+              "passed": true,
+              "detail": "app node named (no expectation set)"
+            },
+            {
+              "name": "request-id",
+              "passed": true,
+              "detail": "the signed request id is this completion's id"
+            },
+            {
+              "name": "memory-scope",
+              "passed": true,
+              "detail": "the echoed scope is the one sent"
+            },
+            {
+              "name": "hmem",
+              "passed": true,
+              "detail": "no remembered context was added"
+            },
+            {
+              "name": "request-binding",
+              "passed": true,
+              "detail": "prompt length and preview match what was sent (last 4000 characters); this receipt carries no request or response hash"
+            },
+            {
+              "name": "response-binding",
+              "passed": true,
+              "detail": "the token counts agree with the reply's usage"
+            },
+            {
+              "name": "fresh",
+              "passed": true,
+              "detail": "signed 0 s ago"
+            },
+            {
+              "name": "lane",
+              "passed": true,
+              "detail": "cloud for a remote call"
+            }
+          ]
+        },
+        "earlierReceiptIds": [
+          "rcpt_req_rdk3pbkb"
+        ]
+      }
     }
   },
-  "responseHash": "6b5bee690add42321975fa4918003480e86bfc84f6bb9d09c1575442008b5654"
+  "responseHash": "5082a44dd7df7a85fef63e363e7913b6cf07502d78ba094769dbecde8832b210"
 }

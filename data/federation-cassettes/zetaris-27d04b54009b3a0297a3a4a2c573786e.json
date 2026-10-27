@@ -1,0 +1,19 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "27d04b54009b3a0297a3a4a2c573786ebae0a2a892cef0d9e973595c33435491",
+  "statement": "SELECT DISTINCT UPPER(TRIM(CAST(k_number AS STRING))) AS v FROM sk_registry.fda_510k WHERE UPPER(TRIM(CAST(k_number AS STRING))) IN ('K221347')",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.574Z",
+  "columns": [
+    "v"
+  ],
+  "rawRows": [
+    [
+      "K221347"
+    ]
+  ],
+  "total": 1,
+  "queryId": "aedb7f18-0b1b-477f-9e59-c9a8e42713e0",
+  "recordedElapsedMs": 147,
+  "respHash": "86b8f3a045610c1fffc961e33cff57fde5de574141ce90d00c4bac78c6b132a9"
+}

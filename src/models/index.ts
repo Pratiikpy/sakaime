@@ -9,6 +9,8 @@ export { ChatModelClient } from "./client.ts";
 export { ProviderChain } from "./chain.ts";
 export { RecordedModelPort, RecordingModelPort, CASSETTE_SCHEMA } from "./cassette.ts";
 export { promptKey } from "./keys.ts";
+export { auditCassettes, describeAudit, describeAuditChecks } from "./audit.ts";
+export type { CassetteAudit } from "./audit.ts";
 export {
   RoleMap,
   DEFAULT_ROLE_SPECS,

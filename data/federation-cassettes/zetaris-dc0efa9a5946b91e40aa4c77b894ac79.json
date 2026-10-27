@@ -1,0 +1,38 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "dc0efa9a5946b91e40aa4c77b894ac7979dcdc43e08a45ca68ff8eea55052d81",
+  "statement": "SHOW TABLES IN sk_onboarded",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.566Z",
+  "columns": [
+    "table_identifier",
+    "catalog_name",
+    "catalog_type"
+  ],
+  "rawRows": [
+    [
+      "sk_onboarded.s_study_97e63be11cef",
+      "sk_onboarded",
+      "Lightning Database"
+    ],
+    [
+      "sk_onboarded.s_authorization_2eb54b9c42c8",
+      "sk_onboarded",
+      "Lightning Database"
+    ],
+    [
+      "sk_onboarded.s_performance_d696a7b41562",
+      "sk_onboarded",
+      "Lightning Database"
+    ],
+    [
+      "sk_onboarded.s_authorization_a05f59930dd8",
+      "sk_onboarded",
+      "Lightning Database"
+    ]
+  ],
+  "total": 4,
+  "queryId": "a49648bb-bd4a-4346-b7ba-b177f3ce681c",
+  "recordedElapsedMs": 109,
+  "respHash": "6b3a340cfa2e6b7f4bbc4307c7f113366ef6197c366a4b9737bc6dc59abd45e7"
+}

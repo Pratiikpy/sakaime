@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:12:49.861Z",
+  "recordedAt": "2026-10-27T15:40:20.909Z",
   "role": "planner",
   "requestHash": "1ae7070bd87c33a8a9678e594b10b607627c12c934388d7f253c3b16bb69e43e",
   "request": {
@@ -65,44 +65,424 @@
       }
     },
     "maxTokens": 900,
-    "dataClass": "public"
+    "dataClass": "vendor-confidential",
+    "constructedDemoData": true
   },
   "response": {
-    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy (sensitivity, specificity, AUC) of Transpara version 1.7.2 as a detection aid in women aged 40+ undergoing screening mammography?\",\n    \"Does Transpara improve radiologist performance (cancer detection rate, recall rate, reading time) when used as a concurrent reading aid in screening programs?\",\n    \"What is the standalone performance of Transpara compared to radiologist-only reading and combined AI-radiologist reading in screening populations?\",\n    \"Are there any studies evaluating Transpara performance across different breast density categories (BI-RADS a-d) in screening mammography?\",\n    \"What are the false positive and false negative rates of Transpara in real-world screening settings, and how do they vary by lesion type (masses, calcifications, architectural distortions)?\",\n    \"Has Transpara been validated in prospective clinical trials or multi-center retrospective studies with histologically confirmed outcomes in screening populations?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"ScreenPoint\",\n      \"product\": \"Transpara\",\n      \"condition\": \"breast cancer screening\",\n      \"reason\": \"Broader search for screening-specific studies that may not include 'mammography' in query but evaluate Transpara in screening populations\"\n    },\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"ScreenPoint\",\n      \"product\": \"Transpara\",\n      \"condition\": \"breast neoplasm\",\n      \"reason\": \"Capture clinical trials using MeSH term 'breast neoplasm' that may evaluate Transpara for cancer detection but not explicitly mention mammography in condition field\"\n    }\n  ]\n}",
+    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy of the Transpara mammography system (version 1.7.2) for breast cancer detection in women aged 40 and older?\",\n    \"Are there published clinical studies or trial data evaluating the safety and performance of the Transpara system in real-world breast screening clinic settings?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"ScreenPoint\",\n      \"product\": \"Transpara\",\n      \"condition\": \"breast cancer detection\",\n      \"reason\": \"Identify clinical studies reporting diagnostic accuracy and performance metrics for the Transpara system in breast screening populations.\"\n    },\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"ScreenPoint\",\n      \"product\": \"Transpara\",\n      \"condition\": \"diagnostic accuracy\",\n      \"reason\": \"Locate ongoing or completed clinical trials that assess the diagnostic accuracy and safety of the Transpara mammography system.\"\n    }\n  ]\n}",
     "json": {
       "subQuestions": [
-        "What is the diagnostic accuracy (sensitivity, specificity, AUC) of Transpara version 1.7.2 as a detection aid in women aged 40+ undergoing screening mammography?",
-        "Does Transpara improve radiologist performance (cancer detection rate, recall rate, reading time) when used as a concurrent reading aid in screening programs?",
-        "What is the standalone performance of Transpara compared to radiologist-only reading and combined AI-radiologist reading in screening populations?",
-        "Are there any studies evaluating Transpara performance across different breast density categories (BI-RADS a-d) in screening mammography?",
-        "What are the false positive and false negative rates of Transpara in real-world screening settings, and how do they vary by lesion type (masses, calcifications, architectural distortions)?",
-        "Has Transpara been validated in prospective clinical trials or multi-center retrospective studies with histologically confirmed outcomes in screening populations?"
+        "What is the diagnostic accuracy of the Transpara mammography system (version 1.7.2) for breast cancer detection in women aged 40 and older?",
+        "Are there published clinical studies or trial data evaluating the safety and performance of the Transpara system in real-world breast screening clinic settings?"
       ],
       "extraSearches": [
         {
           "source": "pubmed-eutils",
           "vendor": "ScreenPoint",
           "product": "Transpara",
-          "condition": "breast cancer screening",
-          "reason": "Broader search for screening-specific studies that may not include 'mammography' in query but evaluate Transpara in screening populations"
+          "condition": "breast cancer detection",
+          "reason": "Identify clinical studies reporting diagnostic accuracy and performance metrics for the Transpara system in breast screening populations."
         },
         {
           "source": "clinicaltrials-v2",
           "vendor": "ScreenPoint",
           "product": "Transpara",
-          "condition": "breast neoplasm",
-          "reason": "Capture clinical trials using MeSH term 'breast neoplasm' that may evaluate Transpara for cancer detection but not explicitly mention mammography in condition field"
+          "condition": "diagnostic accuracy",
+          "reason": "Locate ongoing or completed clinical trials that assess the diagnostic accuracy and safety of the Transpara mammography system."
         }
       ]
     },
-    "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "recordedFrom": "nvidia",
+    "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "recordedFrom": "nightshift",
     "usage": {
-      "promptTokens": 659,
-      "completionTokens": 359,
+      "promptTokens": 1552,
+      "completionTokens": 380,
       "measured": true
+    },
+    "receipt": {
+      "receiptId": "rcpt_req_sxotau97",
+      "decisionId": "req_sxotau97",
+      "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider": "nvidia",
+      "latencyMs": 4521,
+      "hmem": 0,
+      "signature": "l3Ge+NC5SP8B4sIonDGiFLWzIJzQ99mfab0Vp6dzXHipYEs93Rt9omTlTaxw3cAMWDMLDuMJ1VPomNrw1LlmDA==",
+      "keyId": "e92caae86b5f702e",
+      "requestHash": "7d7bc089d548fe2c1bff75863d04d6b7bcfe0e25b73b86ff76b10c5dfd8a7a3c",
+      "responseHash": "5dff0b0c74bcc371718e5a4f6d3a2a3e7eb7f9958038e1a9425455baa342bbac",
+      "raw": {
+        "envelope": {
+          "body": {
+            "llama_cpp_ref": "08659901c43b51de735740f1cf61bb82fbe0c4e4",
+            "manifest_hash": "",
+            "receipt": {
+              "app": "node",
+              "app_policy": {
+                "app": "node",
+                "cross_check": "auto",
+                "has_rule": true,
+                "lanes": null,
+                "mode_coerced": false,
+                "premium_budget": null,
+                "privacy": "cloud-ok",
+                "race_width": 6,
+                "requested_mode": "auto",
+                "routed_mode": "auto"
+              },
+              "autopilot": {
+                "ctx_dropped": [],
+                "ctx_unfilterable": false,
+                "envelope": {
+                  "allocatable_mb": 0,
+                  "pressure": "unknown",
+                  "remaining_mb": 0,
+                  "used_mb": 0
+                },
+                "needs": {
+                  "coding": false,
+                  "tools": false,
+                  "vision": false
+                },
+                "prompt_tokens": 812,
+                "scout": {
+                  "candidates": [
+                    {
+                      "id": "RELEASE_MANAGER",
+                      "score": 14
+                    },
+                    {
+                      "id": "OPTIMIZER",
+                      "score": 11
+                    },
+                    {
+                      "id": "CONFIG_GENERATOR",
+                      "score": 11
+                    }
+                  ],
+                  "category": "Collab",
+                  "confident": true,
+                  "mode": "RELEASE_MANAGER",
+                  "ms": 1.31,
+                  "score": 14,
+                  "source": "detected",
+                  "tier": "B"
+                },
+                "tier_hint": null,
+                "why": [
+                  "scout read RELEASE_MANAGER",
+                  "~812 prompt tokens — lanes whose slot cannot hold them are not asked"
+                ]
+              },
+              "bar": null,
+              "budget_degrade": null,
+              "cache": {
+                "losers_reclaimed": 0,
+                "partials_reclaimed": 0,
+                "status": "miss"
+              },
+              "consensus": {
+                "agree": 1,
+                "coherence": null,
+                "detail": "one model handled this — no cross-model agreement to check",
+                "label": "single route",
+                "level": "solo",
+                "raced": 1,
+                "tone": "neutral",
+                "verified": null
+              },
+              "consensus_escalation": null,
+              "cost": {
+                "actual_usd": 0,
+                "baseline": {
+                  "label": "Nemotron 3 Ultra 550B A55B",
+                  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                  "source": "mode-default-frontier"
+                },
+                "naive_usd": 0,
+                "race_overhead_usd": 0,
+                "verifier_usd": 0
+              },
+              "created_at": 1793115620895,
+              "cross_check": {
+                "app": "node",
+                "blocking": false,
+                "checks": [],
+                "recommended_action": "allow",
+                "reflex_ms": 0.02,
+                "risk_level": "low",
+                "skip_reason": "tier_a_chat",
+                "status": "skipped",
+                "verifier": "none",
+                "verifier_model": null,
+                "verifier_ms": 0,
+                "verifier_ran": false,
+                "verifier_verdict": null
+              },
+              "debate": null,
+              "decision_id": "req_sxotau97",
+              "deliberation": null,
+              "egress": {
+                "coverage": "pattern_floor",
+                "destination": "nvidia",
+                "never_eligible": [],
+                "sent": {
+                  "context_sources": [
+                    "messages"
+                  ],
+                  "prompt_chars": 2025,
+                  "redacted": []
+                },
+                "withheld": []
+              },
+              "eligible": null,
+              "error": "",
+              "fusion": null,
+              "gen_verifier": null,
+              "graded_weight": null,
+              "hmem": null,
+              "host_pressure": {
+                "battery": null,
+                "pressure": {
+                  "battery": {
+                    "hard": 0.5,
+                    "label": "nominal",
+                    "score": 0.18,
+                    "sensor": "battery%, charging",
+                    "soft": 0.3
+                  },
+                  "cpu": {
+                    "hard": 0.9,
+                    "label": "nominal",
+                    "score": 0.34,
+                    "sensor": "30s load avg",
+                    "soft": 0.7
+                  },
+                  "gpu": {
+                    "hard": 0.92,
+                    "label": "nominal",
+                    "score": 0.38,
+                    "sensor": "GPU + VRAM",
+                    "soft": 0.75
+                  },
+                  "memory": {
+                    "hard": 0.85,
+                    "label": "warm",
+                    "score": 0.51,
+                    "sensor": "committed/swap",
+                    "soft": 0.7
+                  },
+                  "network": {
+                    "hard": 0.85,
+                    "label": "nominal",
+                    "score": 0.12,
+                    "sensor": "RTT to providers",
+                    "soft": 0.5
+                  },
+                  "quota": {
+                    "hard": 0.95,
+                    "label": "nominal",
+                    "score": 0.28,
+                    "sensor": "per-key window",
+                    "soft": 0.8
+                  },
+                  "thermal": {
+                    "hard": 0.8,
+                    "label": "nominal",
+                    "score": 0.22,
+                    "sensor": "thermal API",
+                    "soft": 0.55
+                  }
+                },
+                "thermal": "nominal"
+              },
+              "job": null,
+              "mcp": null,
+              "method": null,
+              "mode": "auto",
+              "optimistic": null,
+              "phases": [
+                {
+                  "coherence": null,
+                  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                  "ms": 4521,
+                  "outputTps": 47.777040477770406,
+                  "phase": "final_synthesis",
+                  "reflex_decided_in_ms": 0.2,
+                  "tier": "A",
+                  "tokensIn": 893,
+                  "tokensOut": 216
+                }
+              ],
+              "privacy": {
+                "path": "cloud-ok",
+                "redaction": {
+                  "applied": false,
+                  "spans": 0
+                }
+              },
+              "prompt_preview": "{\"vendor\":\"ScreenPoint\",\"vendorAliases\":[\"ScreenPoint Medical\",\"Screenpoint Medical B.V.\"],\"product\":\"Transpara\",\"condition\":\"mammography\",\"submission\":\"K221347\",\"alreadyPlanned\":[",
+              "quality_race": null,
+              "reasoning_scaffold": null,
+              "receipt_id": "rcpt_req_sxotau97",
+              "refine": null,
+              "request_id": "chatcmpl-79c7a3b6-f7ec-4ad0-8836-2eeaac727548",
+              "requested_mode": "meterless/auto",
+              "routing": {
+                "confidence": null,
+                "escalated": null,
+                "escalated_on_divergence": false,
+                "hedge": null,
+                "hedges_skipped": 0,
+                "of": 1,
+                "policy": "learned-router",
+                "predicted": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                "reason": "single-candidate",
+                "width": 1,
+                "winner": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              },
+              "savings": {
+                "amount": 0,
+                "baseline_source": "mode-default-frontier",
+                "currency": "USD",
+                "vs": "Nemotron 3 Ultra 550B A55B"
+              },
+              "schema": "meterless.compute_receipt.v1",
+              "score": null,
+              "scorecard": null,
+              "status": "ok",
+              "summary": "ok · Nemotron 3.5 Lightning 30B A3B · miss · $0.0000 saved",
+              "synthesis": null,
+              "test_time_compute": null,
+              "tool_degraded": null,
+              "unmet": null,
+              "usage": {
+                "input_tokens": 893,
+                "latency_ms": 4521,
+                "output_tokens": 216,
+                "output_tps": 47.777040477770406,
+                "total_tokens": 1109
+              },
+              "verdict": null,
+              "verification": null,
+              "winning_route": {
+                "kind": "cloud",
+                "label": "Nemotron 3.5 Lightning 30B A3B",
+                "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                "provider": "nvidia",
+                "tier": "A"
+              }
+            },
+            "signer": "meterlessd",
+            "ts_ms": 1793115620900
+          },
+          "pubkey_b64": "ofrH8+vl65oCrnFhdIv3cum842j5iHgWvb+B363fcb4=",
+          "sig_b64": "l3Ge+NC5SP8B4sIonDGiFLWzIJzQ99mfab0Vp6dzXHipYEs93Rt9omTlTaxw3cAMWDMLDuMJ1VPomNrw1LlmDA=="
+        },
+        "tier": "A",
+        "kind": "cloud",
+        "app": "node",
+        "requestId": "chatcmpl-79c7a3b6-f7ec-4ad0-8836-2eeaac727548",
+        "signedAtMs": 1793115620900,
+        "keyPinned": true,
+        "nightshiftVersion": "1.2.3",
+        "hashesComputedLocally": true,
+        "verification": {
+          "verifiedAt": "2026-10-27T15:40:20.908Z",
+          "origin": "live",
+          "checks": [
+            {
+              "name": "schema",
+              "passed": true,
+              "detail": "meterless.compute_receipt.v1"
+            },
+            {
+              "name": "signature",
+              "passed": true,
+              "detail": "Ed25519 over the envelope body verified (key e92caae86b5f702e)"
+            },
+            {
+              "name": "key",
+              "passed": true,
+              "detail": "key e92caae86b5f702e is pinned to the installed application"
+            },
+            {
+              "name": "outer-matches-signed",
+              "passed": true,
+              "detail": "the unsigned fields agree with the signed receipt"
+            },
+            {
+              "name": "status",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "not-cached",
+              "passed": true,
+              "detail": "cache status miss"
+            },
+            {
+              "name": "not-replayed",
+              "passed": true,
+              "detail": "receipt id and decision id not seen before"
+            },
+            {
+              "name": "routed-model",
+              "passed": true,
+              "detail": "nvidia/nemotron-3.5-lightning-30b-a3b answered, as requested"
+            },
+            {
+              "name": "tier",
+              "passed": true,
+              "detail": "tier A named (no expectation set for this model)"
+            },
+            {
+              "name": "app",
+              "passed": true,
+              "detail": "app node named (no expectation set)"
+            },
+            {
+              "name": "request-id",
+              "passed": true,
+              "detail": "the signed request id is this completion's id"
+            },
+            {
+              "name": "memory-scope",
+              "passed": true,
+              "detail": "the echoed scope is the one sent"
+            },
+            {
+              "name": "hmem",
+              "passed": true,
+              "detail": "no remembered context was added"
+            },
+            {
+              "name": "request-binding",
+              "passed": true,
+              "detail": "prompt length and preview match what was sent; this receipt carries no request or response hash"
+            },
+            {
+              "name": "response-binding",
+              "passed": true,
+              "detail": "the token counts agree with the reply's usage"
+            },
+            {
+              "name": "fresh",
+              "passed": true,
+              "detail": "signed 0 s ago"
+            },
+            {
+              "name": "lane",
+              "passed": true,
+              "detail": "cloud for a remote call"
+            }
+          ]
+        },
+        "earlierReceiptIds": [
+          "rcpt_req_ivdcsgrh"
+        ]
+      }
     }
   },
-  "responseHash": "a03866717d1970515b3cd998753149364d6fd98bf69c0a5c09b6974fba32baf8"
+  "responseHash": "fac4d530ba8932737901405f11a9c5c9f735c18cad4efffbb6605450fa4cc1e3"
 }

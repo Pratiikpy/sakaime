@@ -28,6 +28,11 @@ export interface ConsentGrant {
   destinations: string[];
   grantedBy: string;
   reason: string;
+  /**
+   * True when the subject's data is constructed demo data (no real vendor packet, no patient data). Only then may a prompt
+   * made under this consent be written to a recording that is committed to a public repository.
+   */
+  synthetic?: true;
   grantedAt: string;
   expiresAt: string;
 }
@@ -66,7 +71,7 @@ export class ConsentLedger {
     return (this.options.now ?? (() => new Date()))();
   }
 
-  grant(input: { subject: string; destinations?: string[]; grantedBy: string; reason: string; ttlMs: number }): ConsentGrant {
+  grant(input: { subject: string; destinations?: string[]; grantedBy: string; reason: string; ttlMs: number; synthetic?: boolean }): ConsentGrant {
     if (!input.subject.trim()) throw new PortError("INVALID", "a consent must name its subject (for example case:K123456)");
     if (!input.grantedBy.trim()) throw new PortError("INVALID", "a consent must name who granted it");
     if (!input.reason.trim()) throw new PortError("INVALID", "a consent must record why it was granted");
@@ -79,12 +84,17 @@ export class ConsentLedger {
       destinations: input.destinations && input.destinations.length > 0 ? [...input.destinations] : ["*"],
       grantedBy: input.grantedBy,
       reason: input.reason,
+      ...(input.synthetic ? { synthetic: true as const } : {}),
       grantedAt: at.toISOString(),
       expiresAt: new Date(at.getTime() + input.ttlMs).toISOString(),
     };
     this.grants.set(grant.id, grant);
     this.append({ op: "grant", grant });
     return grant;
+  }
+
+  get(id: string): ConsentGrant | undefined {
+    return this.grants.get(id);
   }
 
   revoke(id: string, by: string): boolean {

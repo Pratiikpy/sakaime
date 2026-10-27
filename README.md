@@ -77,7 +77,7 @@ Code owns calculations, labels and checks. Nemotron proposes (mappings, extracti
 |---|---|---|---|
 | **Zetaris** | Federates three silo types in one statement; discovers sources from its catalog; a Unified Semantic Layer queried as a read-only identity; a completeness data-quality rule; masking for reviewers not assigned to a case | `src/federation/`, `src/discovery/`, `infra/zetaris/` | `infra/zetaris/GATES.md`, on a real 2.4.3.1 stack: Z-HEAD, Z-REST, Z-POL (two defects found), Z-CAT, Z-AUD (with limits), Z-TT, Z-USL, Z-PDF and the kill drill pass; Z-NL (natural-language-to-SQL) is blocked in this build |
 | **Meterless** | H-MEM keeps confirmed links, accepted mappings and precedents; the World Model reconstructs history and marks exactly the dependent findings stale; Markovian reads long documents; Scout Intent guards every request and signs export contracts | `src/engines/`, `third_party/meterless/` | Sponsor conformance runners pass: H-MEM 13/13, World Model 8/8, Markovian 8/8; ablations in `tests/engines/ABLATIONS.md` |
-| **NVIDIA Nemotron** | Planner, discoverer, resolver, extractor second opinion, critic and reporter roles; Lightning 30B for volume, Ultra 550B for the critic | `src/models/` | Receipt log and role map in `src/models/roles.ts`; recorded replies in `data/model-cassettes/` |
+| **NVIDIA Nemotron**, through **Nightshift** | Planner, discoverer, resolver, extractor second opinion, critic and reporter roles; Lightning 30B for volume, Ultra 550B for the critic. Nightshift is the primary route: every reply of the committed sample run was answered through the installed Nightshift 1.2.3 and carries its signed compute receipt, re-verified at start-up against the pinned key id (61 of 61); NVIDIA's API answers only if Nightshift is unreachable or a receipt fails, and the reply is then labelled `nvidia` and unreceipted | `src/models/` | Role map in `src/models/roles.ts`; recorded replies and receipts in `data/model-cassettes/`; route summary in `output_examples/model-route.json` |
 
 Cursor is optional for this hackathon and was not used.
 
@@ -116,7 +116,7 @@ Every number below comes from a results file under [`evals/results/`](evals/resu
 
 ## Live mode
 
-Needs Docker for the Zetaris stack and a model route (the NVIDIA API or the installed Nightshift). Follow [`infra/zetaris/README.md`](infra/zetaris/README.md) to start the stack, put the key names from `.env.example` into `.env`, then run `npm run serve` without `SAMPLE_MODE`. `npm run record:sample` re-records the cassettes from a live run.
+Needs Docker for the Zetaris stack and a model route. Set `NIGHTSHIFT_API_KEY` to the installed Nightshift's application token for the primary route (the receipt key id is read from its receipt log, or pin it with `NIGHTSHIFT_RECEIPT_KEY_ID`); `NVIDIA_API_KEY` adds the labelled fallback, and `SAKAIME_MODEL_FALLBACK=off` removes it. Follow [`infra/zetaris/README.md`](infra/zetaris/README.md) to start the stack, put the key names from `.env.example` into `.env`, then run `npm run serve` without `SAMPLE_MODE`. `npm run record:sample` re-records the cassettes from a live run.
 
 ## Repository
 

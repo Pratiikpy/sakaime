@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T13:37:26.462Z",
+  "recordedAt": "2026-10-27T15:40:39.247Z",
   "role": "critic",
   "requestHash": "fd41566f083bbb42ccf55ea09eed5957ad3d33de40af2fc98bd05d3d9e2bd108",
   "request": {
@@ -62,52 +62,462 @@
       }
     },
     "maxTokens": 1200,
-    "dataClass": "public"
+    "dataClass": "vendor-confidential",
+    "constructedDemoData": true
   },
   "response": {
-    "text": "{\"objections\":[{\"ref\":\"CASE-2026-019.intended\",\"kind\":\"unsupported_leap\",\"dimension\":\"timing\",\"text\":\"The finding claims the authorization supports use from 2027-04-01, but the cited anchor only states the authorization is in force from 2022-08-03 with no stated end date, not that it specifically supports a future start date of 2027-04-01.\"},{\"ref\":\"CASE-2026-019.intended\",\"kind\":\"unsupported_leap\",\"dimension\":\"population\",\"text\":\"The finding claims the population is 'ages 40 and above' but the established evidence only states 'women undergoing screening mammography and digital breast tomosynthesis' without specifying a minimum age of 40.\"},{\"ref\":\"CASE-2026-019.intended\",\"kind\":\"unsupported_leap\",\"dimension\":\"setting\",\"text\":\"The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader and does not specifically support a specialty clinic limitation.\"},{\"ref\":\"CLM-TR-01\",\"kind\":\"unsupported_leap\",\"dimension\":\"population\",\"text\":\"The finding claims the population is 'ages 40 and above' but the established evidence only states 'women undergoing screening mammography and digital breast tomosynthesis' without specifying a minimum age of 40.\"},{\"ref\":\"CLM-TR-01\",\"kind\":\"unsupported_leap\",\"dimension\":\"setting\",\"text\":\"The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader and does not specifically support a specialty clinic limitation.\"}]}",
+    "text": "{\"objections\":[{\"ref\":\"CASE-2026-019.intended\",\"kind\":\"unsupported_leap\",\"dimension\":\"timing\",\"text\":\"The finding claims the authorization supports use from 2027-04-01, but the cited anchor only states the authorization is in force from 2022-08-03 with no stated end date, which does not establish a specific future start date.\"},{\"ref\":\"CASE-2026-019.intended\",\"kind\":\"scope_widening\",\"dimension\":\"population\",\"text\":\"The finding claims the population is 'ages 40 and above' but the established evidence only states 'women undergoing screening mammography and digital breast tomosynthesis' without specifying a minimum age of 40.\"},{\"ref\":\"CASE-2026-019.intended\",\"kind\":\"scope_widening\",\"dimension\":\"setting\",\"text\":\"The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader than a specialty clinic.\"},{\"ref\":\"CLM-TR-01\",\"kind\":\"scope_widening\",\"dimension\":\"population\",\"text\":\"The finding claims the population is 'ages 40 and above' but the established evidence only states 'women undergoing screening mammography and digital breast tomosynthesis' without specifying a minimum age of 40.\"},{\"ref\":\"CLM-TR-01\",\"kind\":\"scope_widening\",\"dimension\":\"setting\",\"text\":\"The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader than a specialty clinic.\"}]}",
     "json": {
       "objections": [
         {
           "ref": "CASE-2026-019.intended",
           "kind": "unsupported_leap",
           "dimension": "timing",
-          "text": "The finding claims the authorization supports use from 2027-04-01, but the cited anchor only states the authorization is in force from 2022-08-03 with no stated end date, not that it specifically supports a future start date of 2027-04-01."
+          "text": "The finding claims the authorization supports use from 2027-04-01, but the cited anchor only states the authorization is in force from 2022-08-03 with no stated end date, which does not establish a specific future start date."
         },
         {
           "ref": "CASE-2026-019.intended",
-          "kind": "unsupported_leap",
+          "kind": "scope_widening",
           "dimension": "population",
           "text": "The finding claims the population is 'ages 40 and above' but the established evidence only states 'women undergoing screening mammography and digital breast tomosynthesis' without specifying a minimum age of 40."
         },
         {
           "ref": "CASE-2026-019.intended",
-          "kind": "unsupported_leap",
+          "kind": "scope_widening",
           "dimension": "setting",
-          "text": "The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader and does not specifically support a specialty clinic limitation."
+          "text": "The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader than a specialty clinic."
         },
         {
           "ref": "CLM-TR-01",
-          "kind": "unsupported_leap",
+          "kind": "scope_widening",
           "dimension": "population",
           "text": "The finding claims the population is 'ages 40 and above' but the established evidence only states 'women undergoing screening mammography and digital breast tomosynthesis' without specifying a minimum age of 40."
         },
         {
           "ref": "CLM-TR-01",
-          "kind": "unsupported_leap",
+          "kind": "scope_widening",
           "dimension": "setting",
-          "text": "The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader and does not specifically support a specialty clinic limitation."
+          "text": "The finding claims the setting is 'specialty clinic' but the established evidence states 'any care setting, hospital (any unit)' which is broader than a specialty clinic."
         }
       ]
     },
     "requestedModel": "nvidia/nemotron-3-ultra-550b-a55b",
     "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
-    "recordedFrom": "nvidia",
+    "recordedFrom": "nightshift",
     "usage": {
-      "promptTokens": 1870,
-      "completionTokens": 389,
+      "promptTokens": 4170,
+      "completionTokens": 736,
       "measured": true
+    },
+    "receipt": {
+      "receiptId": "rcpt_req_j3xfcufj",
+      "decisionId": "req_j3xfcufj",
+      "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+      "provider": "nvidia",
+      "latencyMs": 8288,
+      "hmem": 0,
+      "signature": "2ydGvVl6xofIYRUMTBX5l1+cNsfEuKFXmvawPigbQKGibbaR4OkUmoRMellIZVdqPAeeuboPAwm0SyxOtclZCQ==",
+      "keyId": "e92caae86b5f702e",
+      "requestHash": "beb4c593ff3732f748727425fa442aa21c3035ab48b4ae3802aafcfcc9ed6228",
+      "responseHash": "d3e646194b85ebd522d857d20a40757e03e5d7d5e3c7d4f4ab82d5cf4945f6eb",
+      "raw": {
+        "envelope": {
+          "body": {
+            "llama_cpp_ref": "08659901c43b51de735740f1cf61bb82fbe0c4e4",
+            "manifest_hash": "",
+            "receipt": {
+              "app": "node",
+              "app_policy": {
+                "app": "node",
+                "cross_check": "auto",
+                "has_rule": true,
+                "lanes": null,
+                "mode_coerced": false,
+                "premium_budget": null,
+                "privacy": "cloud-ok",
+                "race_width": 6,
+                "requested_mode": "auto",
+                "routed_mode": "auto"
+              },
+              "autopilot": {
+                "ctx_dropped": [],
+                "ctx_unfilterable": false,
+                "envelope": {
+                  "allocatable_mb": 0,
+                  "pressure": "unknown",
+                  "remaining_mb": 0,
+                  "used_mb": 0
+                },
+                "needs": {
+                  "coding": false,
+                  "tools": false,
+                  "vision": false
+                },
+                "prompt_tokens": 2223,
+                "scout": {
+                  "candidates": [
+                    {
+                      "id": "SECURITY",
+                      "score": 17
+                    },
+                    {
+                      "id": "CONFIG_GENERATOR",
+                      "score": 11
+                    },
+                    {
+                      "id": "PARALLEL_OPTIMIZER",
+                      "score": 10
+                    }
+                  ],
+                  "category": "Security",
+                  "confident": true,
+                  "mode": "SECURITY",
+                  "ms": 3.11,
+                  "score": 17,
+                  "source": "detected",
+                  "tier": "C"
+                },
+                "tier_hint": "C",
+                "why": [
+                  "scout read SECURITY",
+                  "tier hint C (raised on auto)",
+                  "~2223 prompt tokens — lanes whose slot cannot hold them are not asked"
+                ]
+              },
+              "bar": null,
+              "budget_degrade": null,
+              "cache": {
+                "losers_reclaimed": 0,
+                "partials_reclaimed": 0,
+                "status": "miss"
+              },
+              "consensus": {
+                "agree": 1,
+                "coherence": null,
+                "detail": "answered by a top-tier model",
+                "label": "frontier answer",
+                "level": "solo",
+                "raced": 1,
+                "tone": "blue",
+                "verified": null
+              },
+              "consensus_escalation": null,
+              "cost": {
+                "actual_usd": 0,
+                "baseline": {
+                  "label": "Nemotron 3 Ultra 550B A55B",
+                  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                  "source": "mode-default-frontier"
+                },
+                "naive_usd": 0,
+                "race_overhead_usd": 0,
+                "verifier_usd": 0
+              },
+              "created_at": 1793115639231,
+              "cross_check": {
+                "app": "node",
+                "blocking": false,
+                "checks": [
+                  {
+                    "message": "No destructive ops detected.",
+                    "status": "passed",
+                    "type": "destructive_action"
+                  },
+                  {
+                    "message": "No PII/credential detected in response.",
+                    "status": "passed",
+                    "type": "pii_guard"
+                  },
+                  {
+                    "message": "Tool call matches declared schema.",
+                    "status": "passed",
+                    "type": "schema_validity"
+                  },
+                  {
+                    "message": "Factual claim requested but response lacks citation markers.",
+                    "status": "warning",
+                    "type": "citation_consistency"
+                  }
+                ],
+                "destructive": false,
+                "raw_risk": "medium",
+                "recommended_action": "show_warning",
+                "reflex_ms": 0.08,
+                "requires_review": false,
+                "risk_level": "medium",
+                "status": "warning",
+                "verifier": "deterministic/schema+regex",
+                "verifier_error": null,
+                "verifier_model": null,
+                "verifier_ms": 0,
+                "verifier_ran": false,
+                "verifier_tokens": null,
+                "verifier_verdict": null
+              },
+              "debate": null,
+              "decision_id": "req_j3xfcufj",
+              "deliberation": null,
+              "egress": {
+                "coverage": "pattern_floor",
+                "destination": "nvidia",
+                "never_eligible": [],
+                "sent": {
+                  "context_sources": [
+                    "messages"
+                  ],
+                  "prompt_chars": 4000,
+                  "redacted": []
+                },
+                "withheld": []
+              },
+              "eligible": null,
+              "error": "",
+              "fusion": null,
+              "gen_verifier": null,
+              "graded_weight": null,
+              "hmem": null,
+              "host_pressure": {
+                "battery": null,
+                "pressure": {
+                  "battery": {
+                    "hard": 0.5,
+                    "label": "nominal",
+                    "score": 0.18,
+                    "sensor": "battery%, charging",
+                    "soft": 0.3
+                  },
+                  "cpu": {
+                    "hard": 0.9,
+                    "label": "nominal",
+                    "score": 0.34,
+                    "sensor": "30s load avg",
+                    "soft": 0.7
+                  },
+                  "gpu": {
+                    "hard": 0.92,
+                    "label": "nominal",
+                    "score": 0.38,
+                    "sensor": "GPU + VRAM",
+                    "soft": 0.75
+                  },
+                  "memory": {
+                    "hard": 0.85,
+                    "label": "warm",
+                    "score": 0.51,
+                    "sensor": "committed/swap",
+                    "soft": 0.7
+                  },
+                  "network": {
+                    "hard": 0.85,
+                    "label": "nominal",
+                    "score": 0.12,
+                    "sensor": "RTT to providers",
+                    "soft": 0.5
+                  },
+                  "quota": {
+                    "hard": 0.95,
+                    "label": "nominal",
+                    "score": 0.28,
+                    "sensor": "per-key window",
+                    "soft": 0.8
+                  },
+                  "thermal": {
+                    "hard": 0.8,
+                    "label": "nominal",
+                    "score": 0.22,
+                    "sensor": "thermal API",
+                    "soft": 0.55
+                  }
+                },
+                "thermal": "nominal"
+              },
+              "job": null,
+              "mcp": null,
+              "method": null,
+              "mode": "auto",
+              "optimistic": null,
+              "phases": [
+                {
+                  "coherence": null,
+                  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                  "ms": 8288,
+                  "outputTps": 44.28088803088803,
+                  "phase": "final_synthesis",
+                  "reflex_decided_in_ms": 0.2,
+                  "tier": "C",
+                  "tokensIn": 2300,
+                  "tokensOut": 367
+                }
+              ],
+              "privacy": {
+                "path": "cloud-ok",
+                "redaction": {
+                  "applied": false,
+                  "spans": 0
+                }
+              },
+              "prompt_preview": "reast_screening_clinic\"],\"purpose\":\"detection_aid\"},\"dimensions\":[{\"dimension\":\"product\",\"relation\":\"CONTAINED\",\"claimed\":\"device:fda:K221347\",\"established\":\"authorization record: ",
+              "quality_race": null,
+              "reasoning_scaffold": null,
+              "receipt_id": "rcpt_req_j3xfcufj",
+              "refine": null,
+              "request_id": "chatcmpl-920b3f63-6083-48f7-9b33-3bdc3acb9ac6",
+              "requested_mode": "meterless/auto",
+              "routing": {
+                "confidence": null,
+                "escalated": null,
+                "escalated_on_divergence": false,
+                "hedge": null,
+                "hedges_skipped": 0,
+                "of": 1,
+                "policy": "learned-router",
+                "predicted": "nvidia/nemotron-3-ultra-550b-a55b",
+                "reason": "single-candidate",
+                "width": 1,
+                "winner": "nvidia/nemotron-3-ultra-550b-a55b"
+              },
+              "savings": {
+                "amount": 0,
+                "baseline_source": "mode-default-frontier",
+                "currency": "USD",
+                "vs": "Nemotron 3 Ultra 550B A55B"
+              },
+              "schema": "meterless.compute_receipt.v1",
+              "score": null,
+              "scorecard": null,
+              "status": "ok",
+              "summary": "ok · Nemotron 3 Ultra 550B A55B · miss · $0.0000 saved",
+              "synthesis": null,
+              "test_time_compute": null,
+              "tool_degraded": null,
+              "unmet": null,
+              "usage": {
+                "input_tokens": 2300,
+                "latency_ms": 8288,
+                "output_tokens": 367,
+                "output_tps": 44.28088803088803,
+                "total_tokens": 2667
+              },
+              "verdict": null,
+              "verification": null,
+              "winning_route": {
+                "kind": "cloud",
+                "label": "Nemotron 3 Ultra 550B A55B",
+                "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                "provider": "nvidia",
+                "tier": "C"
+              }
+            },
+            "signer": "meterlessd",
+            "ts_ms": 1793115639237
+          },
+          "pubkey_b64": "ofrH8+vl65oCrnFhdIv3cum842j5iHgWvb+B363fcb4=",
+          "sig_b64": "2ydGvVl6xofIYRUMTBX5l1+cNsfEuKFXmvawPigbQKGibbaR4OkUmoRMellIZVdqPAeeuboPAwm0SyxOtclZCQ=="
+        },
+        "tier": "C",
+        "kind": "cloud",
+        "app": "node",
+        "requestId": "chatcmpl-920b3f63-6083-48f7-9b33-3bdc3acb9ac6",
+        "signedAtMs": 1793115639237,
+        "keyPinned": true,
+        "nightshiftVersion": "1.2.3",
+        "hashesComputedLocally": true,
+        "verification": {
+          "verifiedAt": "2026-10-27T15:40:39.246Z",
+          "origin": "live",
+          "checks": [
+            {
+              "name": "schema",
+              "passed": true,
+              "detail": "meterless.compute_receipt.v1"
+            },
+            {
+              "name": "signature",
+              "passed": true,
+              "detail": "Ed25519 over the envelope body verified (key e92caae86b5f702e)"
+            },
+            {
+              "name": "key",
+              "passed": true,
+              "detail": "key e92caae86b5f702e is pinned to the installed application"
+            },
+            {
+              "name": "outer-matches-signed",
+              "passed": true,
+              "detail": "the unsigned fields agree with the signed receipt"
+            },
+            {
+              "name": "status",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "not-cached",
+              "passed": true,
+              "detail": "cache status miss"
+            },
+            {
+              "name": "not-replayed",
+              "passed": true,
+              "detail": "receipt id and decision id not seen before"
+            },
+            {
+              "name": "routed-model",
+              "passed": true,
+              "detail": "nvidia/nemotron-3-ultra-550b-a55b answered, as requested"
+            },
+            {
+              "name": "tier",
+              "passed": true,
+              "detail": "tier C named (no expectation set for this model)"
+            },
+            {
+              "name": "app",
+              "passed": true,
+              "detail": "app node named (no expectation set)"
+            },
+            {
+              "name": "request-id",
+              "passed": true,
+              "detail": "the signed request id is this completion's id"
+            },
+            {
+              "name": "memory-scope",
+              "passed": true,
+              "detail": "the echoed scope is the one sent"
+            },
+            {
+              "name": "hmem",
+              "passed": true,
+              "detail": "no remembered context was added"
+            },
+            {
+              "name": "request-binding",
+              "passed": true,
+              "detail": "prompt length and preview match what was sent (last 4000 characters); this receipt carries no request or response hash"
+            },
+            {
+              "name": "response-binding",
+              "passed": true,
+              "detail": "the token counts agree with the reply's usage"
+            },
+            {
+              "name": "fresh",
+              "passed": true,
+              "detail": "signed 0 s ago"
+            },
+            {
+              "name": "lane",
+              "passed": true,
+              "detail": "cloud for a remote call"
+            }
+          ]
+        },
+        "earlierReceiptIds": [
+          "rcpt_req_5ebuww4z"
+        ]
+      }
     }
   },
-  "responseHash": "7eab391192a4964e2a028ff6a731cc1eb41cf1918f9386df9a2b4baa20ef86fc"
+  "responseHash": "6fc3211f3358117d7701ea874b92b7ba3a21e184bd4649e2256359aa51ae4597"
 }

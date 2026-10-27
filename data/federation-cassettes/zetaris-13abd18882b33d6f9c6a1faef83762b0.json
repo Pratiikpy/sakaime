@@ -1,0 +1,28 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "13abd18882b33d6f9c6a1faef83762b0cb66f844d004308e252fb5b62e238970",
+  "statement": "SHOW TABLES IN sk_docs",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.565Z",
+  "columns": [
+    "table_identifier",
+    "catalog_name",
+    "catalog_type"
+  ],
+  "rawRows": [
+    [
+      "sk_docs.fda_summaries",
+      "sk_docs",
+      "Lightning Database"
+    ],
+    [
+      "sk_docs.fda_summaries_default",
+      "sk_docs",
+      "Lightning Database"
+    ]
+  ],
+  "total": 2,
+  "queryId": "7c7f3d1c-f8af-43f8-9780-4cf1b235f4ef",
+  "recordedElapsedMs": 151,
+  "respHash": "795b0548a3e6dfe97a9bd7292df88184b9ae147d3e9a581701dc64ac71cbd07d"
+}

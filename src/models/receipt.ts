@@ -20,7 +20,15 @@ import type { LaneLocation } from "./types.ts";
  * user message, the token counts, and the id of the chat completion (`request_id`). Those are what binds it to a call.
  * A valid receipt therefore shows where a call was routed and that this runtime wrote the receipt; it does not commit to
  * the reply text, and it shows origin, never truth.
+ *
+ * What the receipt's "prompt" is (measured against the installed 1.2.3 on 2026-10-27, not documented): the user and assistant
+ * messages of the request, system messages left out, joined by one separator character, and when that text is longer than
+ * 4000 characters only its LAST 4000. `egress.sent.prompt_chars` is the length of that text and `prompt_preview` is its first
+ * 180 characters. A request that is one user message under 4000 characters therefore matches the message exactly, which is all
+ * the first version of this check handled; a structured call that needed a repair (user, assistant, user) and any long prompt
+ * did not match, and the check rejected 13 of 60 genuine Nightshift replies while recording the sample run.
  */
+export const RECEIPT_PROMPT_WINDOW_CHARS = 4000;
 
 export const RECEIPT_SCHEMA = "meterless.compute_receipt.v1";
 const SPKI_ED25519_PREFIX = Buffer.from("302a300506032b6570032100", "hex");
@@ -71,8 +79,10 @@ export interface ReceiptContext {
   memoryScope: string;
   /** The `id` of the chat completion that carried the receipt. */
   responseId?: string;
-  /** The text of the last user message sent: what the receipt's prompt length and preview describe. */
+  /** The text of the last user message sent. Used alone when `conversation` is not given. */
   lastUserText: string;
+  /** The contents of every non-system message sent on this attempt, in order: what the receipt's prompt length and preview describe. */
+  conversation?: readonly string[];
   /** SHA-256 of the request body and of the reply text, taken locally. */
   requestHash: string;
   responseHash: string;
@@ -399,13 +409,28 @@ export function verifyLiveReceipt(meterless: unknown, ctx: ReceiptContext, polic
   const sent = isObj(signed["egress"]) && isObj(signed["egress"]["sent"]) ? signed["egress"]["sent"] : undefined;
   // prompt_chars counts UTF-16 code units, the same as a JS string's length (checked live with an emoji, 2026-10-27).
   const chars = sent && typeof sent["prompt_chars"] === "number" ? sent["prompt_chars"] : undefined;
-  if (chars !== undefined && chars !== ctx.lastUserText.length) {
-    return reject("BINDING_MISMATCH", "request-binding", `the receipt records a ${chars}-character prompt; the last user message sent has ${ctx.lastUserText.length}`, withId);
-  }
   const preview = str(signed["prompt_preview"]);
+  const promptText = (ctx.conversation ?? [ctx.lastUserText]).join("\n");
+  const total = promptText.length;
+  let window = promptText;
+  if (chars !== undefined) {
+    if (chars === total) window = promptText;
+    else if (total > RECEIPT_PROMPT_WINDOW_CHARS && chars === RECEIPT_PROMPT_WINDOW_CHARS) window = promptText.slice(total - RECEIPT_PROMPT_WINDOW_CHARS);
+    else {
+      return reject(
+        "BINDING_MISMATCH",
+        "request-binding",
+        `the receipt records a ${chars}-character prompt; the messages sent make ${total}${total > RECEIPT_PROMPT_WINDOW_CHARS ? ` (${RECEIPT_PROMPT_WINDOW_CHARS} when only the last ${RECEIPT_PROMPT_WINDOW_CHARS} are kept)` : ""}`,
+        withId,
+      );
+    }
+  } else if (total > RECEIPT_PROMPT_WINDOW_CHARS) {
+    window = promptText.slice(total - RECEIPT_PROMPT_WINDOW_CHARS);
+  }
   if (preview !== undefined) {
-    const head = preview.replace(/(?:\.\.\.|…)$/u, "");
-    if (!ctx.lastUserText.startsWith(head)) return reject("BINDING_MISMATCH", "request-binding", "the receipt's prompt preview is not the start of the last user message sent", withId);
+    // Whichever whitespace character joins two messages in the receipt's text, a preview that spans the join still matches.
+    const head = preview.replace(/(?:\.\.\.|…)$/u, "").replace(/\s/gu, " ");
+    if (!window.replace(/\s/gu, " ").startsWith(head)) return reject("BINDING_MISMATCH", "request-binding", "the receipt's prompt preview is not the start of the prompt text that was sent", withId);
   }
   const hashes = [
     ["request_hash", ctx.requestHash],
@@ -418,7 +443,7 @@ export function verifyLiveReceipt(meterless: unknown, ctx: ReceiptContext, polic
     hashesCarried += 1;
     if (theirs.replace(/^sha256:/, "") !== ours) return reject("BINDING_MISMATCH", "request-binding", `the receipt's ${field} is not the hash taken here`, withId);
   }
-  pass("request-binding", `prompt length${preview !== undefined ? " and preview" : ""} match what was sent${hashesCarried > 0 ? `; ${hashesCarried} hash field(s) match` : "; this receipt carries no request or response hash"}`);
+  pass("request-binding", `prompt length${preview !== undefined ? " and preview" : ""} match what was sent${window.length < total ? ` (last ${window.length} characters)` : ""}${hashesCarried > 0 ? `; ${hashesCarried} hash field(s) match` : "; this receipt carries no request or response hash"}`);
 
   const u = isObj(signed["usage"]) ? signed["usage"] : undefined;
   const inTok = u && typeof u["input_tokens"] === "number" ? u["input_tokens"] : undefined;

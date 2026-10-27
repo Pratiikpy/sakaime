@@ -3,7 +3,7 @@ import { join } from "node:path";
 import { z } from "zod";
 import { PortError, type ComputeReceipt, type ModelPort, type ModelRequest, type ModelResponse } from "../ports/index.ts";
 import { hashOf } from "../util/canonical.ts";
-import type { ForbiddenValues } from "./egress.ts";
+import type { ConsentLedger, ForbiddenValues } from "./egress.ts";
 import { promptKey } from "./keys.ts";
 import { verifyStoredReceipt, type ReceiptLedger, type ReceiptPolicy } from "./receipt.ts";
 import type { TraceSink } from "./trace.ts";
@@ -12,8 +12,9 @@ import type { SakaimeModelRequest } from "./types.ts";
 /*
  * Cassettes: recorded model replies keyed by request hash.
  *
- * A cassette holds the prompt and the reply, so it may hold only public-class content. The recorder refuses everything
- * else. Replay never invents: a request with no recording fails with UNAVAILABLE and the reason "no recording".
+ * A cassette holds the prompt and the reply, so it may hold only public-class content, or vendor-confidential content that
+ * was sent under a consent which says the data is constructed demo data (and then the entry says so). The recorder refuses
+ * everything else. Replay never invents: a request with no recording fails with UNAVAILABLE and the reason "no recording".
  * Replayed answers are labelled `recorded: true` and `provider: "recorded"` everywhere they are shown.
  */
 
@@ -47,7 +48,9 @@ const CassetteSchema = z
         user: z.string(),
         jsonSchema: z.record(z.unknown()).optional(),
         maxTokens: z.number().optional(),
-        dataClass: z.literal("public"),
+        /** `vendor-confidential` appears only on constructed demo data recorded under a synthetic consent; see `constructedDemoData`. */
+        dataClass: z.enum(["public", "vendor-confidential"]),
+        constructedDemoData: z.literal(true).optional(),
       })
       .strict(),
     response: z
@@ -135,14 +138,16 @@ export class RecordedModelPort implements ModelPort {
       const policy = this.options.receiptPolicy;
       const check = policy ? verifyStoredReceipt(stored, { requestedModel: file.response.requestedModel }, policy) : undefined;
       if (check?.ok) {
-        receipt = { ...stored, raw: { ...stored.raw, replayVerification: { verifiedAt: new Date().toISOString(), origin: "recorded", checks: check.checks } } };
+        // No wall-clock time is written here: the replay's output must be byte-identical from one run to the next. When it was
+        // re-checked is the time of the replay, which the ledger holds.
+        receipt = { ...stored, raw: { ...stored.raw, replayVerification: { origin: "recorded", checks: check.checks } } };
         this.options.ledger?.accept({
           receiptId: stored.receiptId,
           ...(stored.decisionId ? { decisionId: stored.decisionId } : {}),
           keyId: check.keyId,
           model: stored.routedModel,
           tier: String(stored.raw["tier"] ?? ""),
-          at: new Date().toISOString(),
+          at: (this.options.ledger?.now() ?? new Date()).toISOString(),
           requestHash: stored.requestHash ?? "",
           responseHash: stored.responseHash ?? "",
           origin: "recorded",
@@ -183,6 +188,8 @@ export class RecordingModelPort implements ModelPort {
       dir: string;
       trace: TraceSink;
       forbidden: ForbiddenValues;
+      /** Needed to record vendor-confidential prompts: the consent they were sent under must be synthetic. */
+      consents?: ConsentLedger;
       now?: () => Date;
     },
   ) {}
@@ -197,7 +204,14 @@ export class RecordingModelPort implements ModelPort {
     };
     if (response.recorded) return skip("the reply was itself a replay");
     if (response.provider === "recorded") return skip("the reply was itself a replay");
-    if (request.dataClass !== "public") return skip(`the request is ${request.dataClass}; a cassette holds public content only`);
+    let constructedDemoData = false;
+    if (request.dataClass === "vendor-confidential") {
+      const grant = request.consentToken ? this.options.consents?.get(request.consentToken) : undefined;
+      if (!grant?.synthetic) return skip("the request is vendor-confidential and was not sent under a consent that declares the data constructed; a cassette holds public content or constructed demo data only");
+      constructedDemoData = true;
+    } else if (request.dataClass !== "public") {
+      return skip(`the request is ${request.dataClass}; a cassette holds public content only`);
+    }
     const texts = [request.system, request.user, response.text, JSON.stringify(response.json ?? null)];
     if (texts.some((t) => this.options.forbidden.scan(t).length > 0)) return skip("the exchange holds a value that must not be written to disk");
 
@@ -220,7 +234,8 @@ export class RecordingModelPort implements ModelPort {
         user: request.user,
         ...(request.jsonSchema ? { jsonSchema: request.jsonSchema } : {}),
         ...(request.maxTokens !== undefined ? { maxTokens: request.maxTokens } : {}),
-        dataClass: "public",
+        dataClass: constructedDemoData ? "vendor-confidential" : "public",
+        ...(constructedDemoData ? { constructedDemoData: true as const } : {}),
       },
       response: body,
       responseHash: hashOf(body),

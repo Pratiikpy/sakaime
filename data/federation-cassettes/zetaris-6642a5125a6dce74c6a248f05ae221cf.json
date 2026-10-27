@@ -1,0 +1,48 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "6642a5125a6dce74c6a248f05ae221cf1ffada9b8ad1769b608fefd503466041",
+  "statement": "SHOW TABLES IN sk_registry",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.567Z",
+  "columns": [
+    "table_identifier",
+    "catalog_name",
+    "catalog_type"
+  ],
+  "rawRows": [
+    [
+      "sk_registry.fda_udi",
+      "sk_registry",
+      "Lightning Database"
+    ],
+    [
+      "sk_registry.fda_classification",
+      "sk_registry",
+      "Lightning Database"
+    ],
+    [
+      "sk_registry.ctgov_studies",
+      "sk_registry",
+      "Lightning Database"
+    ],
+    [
+      "sk_registry.pubmed_articles",
+      "sk_registry",
+      "Lightning Database"
+    ],
+    [
+      "sk_registry.fda_510k",
+      "sk_registry",
+      "Lightning Database"
+    ],
+    [
+      "sk_registry.collection_manifest",
+      "sk_registry",
+      "Lightning Database"
+    ]
+  ],
+  "total": 6,
+  "queryId": "abd9e0b6-6578-48a4-8c21-ac95c54180eb",
+  "recordedElapsedMs": 91,
+  "respHash": "d8667487db1aaa0a9d00e44063d83876a05834e81aad61baac839534d40d56e1"
+}

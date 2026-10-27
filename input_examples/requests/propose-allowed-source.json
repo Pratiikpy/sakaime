@@ -1,0 +1,8 @@
+{
+  "method": "POST",
+  "path": "/api/sources/propose",
+  "body": {
+    "description": "FDA device identifier records for the Transpara breast-screening software, to read its software version labels.",
+    "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K221347%22&limit=100"
+  }
+}

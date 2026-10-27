@@ -400,6 +400,28 @@
       }
     },
     {
+      "requestHash": "e4df91ecd8a6ad0094bf3871281be20c1418435c507f99c643448cf9ba475e5c",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Eyenuk%22+AND+%22EyeArt%22+AND+%22version+3.0%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvqgg0f4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T12:00:00.039Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
       "requestHash": "8f1fca7a89a06cc7171492b6ea82103f106d4a096d787ebd171b02d99d8fab31",
       "request": {
         "method": "GET",
@@ -415,6 +437,28 @@
         "bytes": 1909
       },
       "recordedAt": "2026-10-27T10:10:36.473Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "49fcfde8a77e40cda12521c247cf91feea57dc31f15034d688f96db0695299bb",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit%22+AND+%22INSIGHT+CXR%22+AND+%22diagnostic+accuracy%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvqgg0f4-gzip\""
+        },
+        "sha256": "22095ee4ac149976ce2d0b58da79ed71b278fb9606eea026e896085d79c589a9",
+        "bytes": 476
+      },
+      "recordedAt": "2026-10-27T12:00:00.217Z",
       "recordedAtPrecision": "instant",
       "origin": {
         "kind": "live-recording",
@@ -532,6 +576,28 @@
       }
     },
     {
+      "requestHash": "73a9aebd79ac12f28f042a471206e4872582c447dad562d67a744d7dd578de5c",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22diagnostic+accuracy%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvqgg0f4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T12:00:00.427Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
       "requestHash": "02435285daa83424e465241840c295db86ca32f0aad8d1e28774ff731bbb5733",
       "request": {
         "method": "GET",
@@ -547,6 +613,28 @@
         "bytes": 1546
       },
       "recordedAt": "2026-10-27T10:13:18.725Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "19cb75c3b9bd033e20c8a0de55ef55b2d020aae012cec0de68280f733f22369f",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ScreenPoint%22+AND+%22Transpara%22+AND+%22mammography+outcomes%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json",
+          "etag": "\"0/0.34.1/mvqgg0f4-gzip\""
+        },
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T12:00:00.426Z",
       "recordedAtPrecision": "instant",
       "origin": {
         "kind": "live-recording",
@@ -933,6 +1021,27 @@
       }
     },
     {
+      "requestHash": "98837c9cbea7dc11b3f29a4cc3b87d7cb2ac6f568a8e83d30fd69a635bbbcd10",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Eyenuk%22%5Btiab%5D+AND+%22EyeArt%22%5Btiab%5D+AND+%22diagnostic+accuracy%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "1fff0b103e4712146c7cece853579fa916dd4e6ac81b4b3a8fb47b0ddbde68e3",
+        "bytes": 313
+      },
+      "recordedAt": "2026-10-27T12:00:00.036Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
       "requestHash": "aa9e1ed67fab82bf0c95a9f4849e98aa7b2a87538ab3b08524db26361f6e165f",
       "request": {
         "method": "GET",
@@ -1017,6 +1126,48 @@
       }
     },
     {
+      "requestHash": "04fa1de6c4a606453b5b4fd75fd97f3d00566f805c5a0789a32febad0d3fbfdd",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Lunit%22%5Btiab%5D+AND+%22INSIGHT+CXR%22%5Btiab%5D+AND+%22false+positive+rate%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "b4dcb01200162051ba4ee083d22a69a86e82d4ffbda67b2f4544a27f21be471b",
+        "bytes": 273
+      },
+      "recordedAt": "2026-10-27T12:00:00.220Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "030afe784075c15f23b78d2e1cbb420970f7663728504902204118fce12297ad",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22ScreenPoint%22%5Btiab%5D+AND+%22Transpara%22%5Btiab%5D+AND+%22breast+cancer+detection%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "575a8c8961681e610ffb833333f753bf65cf83d2dc8c7b7fa82918694740f1a8",
+        "bytes": 292
+      },
+      "recordedAt": "2026-10-27T12:00:00.424Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
       "requestHash": "cf207845516b2189564778987c960a6f70a8b3efc1932f15207015825ebb091e",
       "request": {
         "method": "GET",
@@ -1052,6 +1203,27 @@
         "bytes": 367
       },
       "recordedAt": "2026-10-27T09:45:31.783Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "sakaime-service"
+      }
+    },
+    {
+      "requestHash": "e3eca3899010339eb7797d61b0189ac0461fe83bbafd7abd1eee323c0eaf48c6",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22ScreenPoint%22%5Btiab%5D+AND+%22Transpara%22%5Btiab%5D+AND+%22diagnostic+accuracy+breast+cancer%22%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "8697af82887a60d2c59677ab66768d04bfe1d41a04f2032ee999d6d5f2fcc3df",
+        "bytes": 396
+      },
+      "recordedAt": "2026-10-27T12:00:00.429Z",
       "recordedAtPrecision": "instant",
       "origin": {
         "kind": "live-recording",

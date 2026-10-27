@@ -8,7 +8,7 @@
  * recording in sample mode abstains visibly (a rule path, a templated sentence) and is never answered by invention.
  */
 import { readdirSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import type { z } from "zod";
 import { Investigation, type InvestigationResult } from "../agents/investigation.ts";
 import { Guard } from "../agents/guard.ts";
@@ -38,7 +38,7 @@ import {
   type ExportLedger,
 } from "../dossier/index.ts";
 import { ReviewLedger } from "../identity/index.ts";
-import { createModelStack, type ModelStack } from "../models/index.ts";
+import { auditCassettes, createModelStack, describeAudit, describeAuditChecks, verifyStoredReceipt, type CassetteAudit, type ModelStack } from "../models/index.ts";
 import { PortError, type FederationPort, type ModelPort } from "../ports/index.ts";
 import type { Finding, Link } from "../schemas/index.ts";
 import { baseCompileOptions } from "./bridge.ts";
@@ -47,6 +47,7 @@ import { Budget } from "./budget.ts";
 import { buildCaseDossier, dossierSigner, recomputeFn, requiredDimensionsOf } from "./bundle.ts";
 import { loadCases, type LoadedCase } from "./cases.ts";
 import { SERVICE_VERSION, loadConfig, loadDotEnv, replaysSources, resumesRecording, type ConfigOverrides, type ServiceConfig } from "./config.ts";
+import { ConsentingModelPort } from "./consent.ts";
 import { ResumingModelPort } from "./resume.ts";
 import { createFederation, type FederationSetup } from "./federation.ts";
 import { FaultInjectingModel, resolveTarget, type FaultPlan } from "./faults.ts";
@@ -123,6 +124,7 @@ export class SakaimeService {
   private fedCheck: { at: number; reachable: boolean } | undefined;
   private onboarding: Onboarding | undefined;
   private resuming: ResumingModelPort | undefined;
+  private cassetteAudit: CassetteAudit | undefined;
 
   private constructor(
     readonly config: ServiceConfig,
@@ -151,7 +153,13 @@ export class SakaimeService {
     let note: string | undefined;
     if (so.model === undefined) {
       try {
-        stack = await createModelStack({ env: config.env, mode: config.sample ? "recorded" : config.record ? "record" : "live", cassetteDir: config.dirs.modelCassettes });
+        stack = await createModelStack({
+          env: config.env,
+          mode: config.sample ? "recorded" : config.record ? "record" : "live",
+          cassetteDir: config.dirs.modelCassettes,
+          // The key id the committed recordings were signed under, so a machine without Nightshift can still re-verify them.
+          trustedKeyFile: join(dirname(config.dirs.sampleRun), "receipt-key.json"),
+        });
       } catch (error) {
         note = error instanceof PortError ? error.message : errorMessage(error);
       }
@@ -170,12 +178,54 @@ export class SakaimeService {
     return this.stack?.port;
   }
 
+  /** Read once: every recording's route and whether its receipt still verifies against the pinned key. */
+  private audit(): CassetteAudit {
+    return (this.cassetteAudit ??= auditCassettes(this.config.dirs.modelCassettes, { trustedKeyIds: this.stack?.keyIds ?? [] }));
+  }
+
+  /**
+   * Which route answered model calls in a live or recording run, from what the stack actually did: Nightshift when it
+   * answered anything or nothing was asked yet, NVIDIA only when Nightshift is not configured or every answer so far came
+   * from the fallback.
+   */
+  private liveRoute(): { model: "nightshift" | "nvidia"; nightshiftAnswered: number; nvidiaAnswered: number } {
+    const calls = this.stack?.trace.of("model.call") ?? [];
+    const nightshiftAnswered = calls.filter((c) => c["provider"] === "nightshift").length;
+    const nvidiaAnswered = calls.filter((c) => c["provider"] === "nvidia").length;
+    const model = !this.stack?.nightshift || (nightshiftAnswered === 0 && nvidiaAnswered > 0) ? "nvidia" : "nightshift";
+    return { model, nightshiftAnswered, nvidiaAnswered };
+  }
+
   async runMode(): Promise<RunMode> {
     const notes: string[] = [];
-    const recordings = this.config.sample ? countJson(this.config.dirs.modelCassettes) : 0;
-    const model: RunMode["model"] = this.overrides.model === null || !this.modelPort() || (this.config.sample && recordings === 0 && !this.overrides.model) ? "off" : this.config.sample || this.stack?.mode === "recorded" ? "recorded" : this.stack?.nightshift ? "nightshift" : "nvidia";
+    const replaying = this.config.sample || this.stack?.mode === "recorded";
+    const audit = this.config.sample ? this.audit() : undefined;
+    const recordings = audit?.total ?? 0;
+    const off = this.overrides.model === null || !this.modelPort() || (this.config.sample && recordings === 0 && !this.overrides.model);
+    const route = off || replaying ? undefined : this.liveRoute();
+    const model: RunMode["model"] = off ? "off" : replaying ? "recorded" : (route as NonNullable<typeof route>).model;
     if (model === "off") notes.push(`no model route: ${this.config.sample && !this.modelNote ? "no model recordings are committed for sample mode" : (this.modelNote ?? "none configured")}; the rule path is used for planning, critique and prose`);
-    if (model === "recorded") notes.push(`model answers are replayed from ${recordings} recordings made against the real route; a question with no recording abstains`);
+    if (model === "recorded" && audit) {
+      notes.push(describeAudit(audit), ...(describeAuditChecks(audit) ? [describeAuditChecks(audit) as string] : []), "a question with no recording abstains instead of being answered");
+      for (const r of audit.receiptRejected.slice(0, 3)) notes.push(`the receipt stored with ${r.file} did not re-verify (${r.reason}); that reply is shown as unreceipted`);
+    } else if (model === "recorded") {
+      notes.push("model answers are replayed from recordings; a question with no recording abstains instead of being answered");
+    }
+    if (this.stack && route) {
+      // O-22: say which provider is in use, and why it is not Nightshift when it is not.
+      for (const n of this.stack.notes.filter((x) => /^(Nightshift (is not|was not)|NVIDIA's API is configured)/.test(x))) notes.push(n);
+      const fallbacks = this.stack.trace.of("model.provider_fallback");
+      if (fallbacks.length > 0) {
+        const why = String(fallbacks[0]?.["reason"] ?? "").slice(0, 140);
+        notes.push(`${fallbacks.length} model call${fallbacks.length === 1 ? "" : "s"} fell back from Nightshift to NVIDIA's API (first reason: ${why}); ${route.nvidiaAnswered === 1 ? "that answer is" : "those answers are"} labelled nvidia and carry no receipt`);
+      }
+      const rejected = this.stack.ledger.rejected();
+      if (rejected.length > 0) {
+        const codes = [...new Set(rejected.map((r) => r.code))].join(", ");
+        const memory = this.stack.ledger.excludedForMemory().length;
+        notes.push(`${rejected.length} Nightshift receipt${rejected.length === 1 ? " was" : "s were"} rejected (${codes}) and the call${rejected.length === 1 ? " was" : "s were"} excluded${memory > 0 ? `; ${memory} showed remembered context` : ""}`);
+      }
+    }
     if (this.federation.mode === "off") notes.push(`no federation engine: ${this.federation.notes[0] ?? "not configured"}; the hospital's requirements cannot be read`);
     if (this.federation.mode === "cassette") notes.push("Zetaris answers are replayed from recordings of the real engine");
     if (this.config.sample) notes.push("every public source is read from recordings dated 2026-10-27");
@@ -185,13 +235,15 @@ export class SakaimeService {
         if (!notes.includes(n)) notes.push(n);
       }
     }
+    // Reachable means a probe or a call succeeded, not that a key is configured. A replay contacts nothing, so it claims nothing.
+    const nightshiftReachable = !replaying && Boolean(this.stack?.nightshift) && (this.stack?.nightshift?.availability()?.status === "ok" || (route?.nightshiftAnswered ?? 0) > 0);
     return {
       sample: this.config.sample,
       federation: this.federation.mode,
       model,
       sources: this.config.sample ? "cassette" : "live",
       zetarisReachable: await this.zetarisReachable(),
-      nightshiftReachable: Boolean(this.stack?.nightshift),
+      nightshiftReachable,
       degradedNotes: notes,
     };
   }
@@ -254,7 +306,11 @@ export class SakaimeService {
     this.traces.set(runId, trace);
 
     if (!this.config.sample && this.stack) await this.stack.beginRun().catch(() => undefined);
-    const base = this.modelPort();
+    const port = this.modelPort();
+    // Prompts that carry a vendor packet reach a remote model only under a recorded consent. A replay sends nothing anywhere, so it
+    // records no consent; a live or recording run records one for a constructed case and presents it with each such request.
+    const leaves = Boolean(port) && !this.config.sample && this.stack !== undefined && this.stack.mode !== "recorded";
+    const base = port && leaves && this.stack ? new ConsentingModelPort(port, { ledger: this.stack.consents, caseId: spec.id, constructedNotice: spec.constructedNotice, remoteDestinations: () => this.stack!.policy.mode().lanes.filter((l) => l.location === "remote").map((l) => l.destination) }) : port;
     const modelOff = options.faults?.drill === "model_off";
     const logged = base || modelOff ? new LoggedModelPort(modelOff ? new FaultInjectingModel() : base!, { clock: this.config.clock, timeoutMs: this.config.limits.callTimeoutMs, ...(options.signal ? { signal: options.signal } : {}), idPrefix: "model" }) : undefined;
 
@@ -457,7 +513,7 @@ export class SakaimeService {
     const links = (rec.result.wb.links?.links ?? []).map((l) => l.link);
     const signer = dossierSigner(this.config);
     const bundle = buildCaseDossier({ run: rec.result, config: this.config, signer, decisions: rec.decisions.entries(), links, archive: rec.archive });
-    const verify = { recompute: recomputeFn };
+    const verify = this.verifyOptions();
     // The export guard: a dossier leaves only with a signed contract Scout issued for this case and this reviewer. The contract is
     // issued now, for this request, and redeemed at once, so a lifetime of five minutes cannot run out between the two.
     const issued = await this.guard.issueExportContract(reviewer, caseId);
@@ -480,6 +536,24 @@ export class SakaimeService {
     return { bundle, contents: outcome.contents, exportId: outcome.exportId, replayed: outcome.replayed };
   }
 
+  /**
+   * What a dossier is checked with: the compiler, and the compute receipts stored with its model replies. A receipt is accepted only
+   * if its Ed25519 signature verifies, it was signed by a key pinned on this machine (the installed Nightshift's, or the key id
+   * committed beside the recordings), it names the model that was requested, and it shows no remembered context. With no key pinned
+   * a receipt is rejected, not waved through: a receipt that cannot be checked is not shown as receipted.
+   */
+  private verifyOptions(): { recompute: typeof recomputeFn; verifyReceipt: NonNullable<Parameters<typeof verifyDossier>[1]["verifyReceipt"]> } {
+    const trusted = this.stack?.keyIds ?? [];
+    return {
+      recompute: recomputeFn,
+      verifyReceipt: (receipt, reply) => {
+        if (trusted.length === 0) return { valid: false, reason: "no receipt signing key is pinned on this machine, so the receipt's signature cannot be tied to the Nightshift installation" };
+        const check = verifyStoredReceipt(receipt, { requestedModel: reply.requestedModel }, { trustedKeyIds: trusted });
+        return check.ok ? { valid: true } : { valid: false, reason: check.reason };
+      },
+    };
+  }
+
   async verify(bundle: unknown): Promise<VerifyResponse> {
     // Whatever parses as JSON is checked. Something that is not a dossier is a failed check with the reason, the same answer for an
     // array, a number, null and an object with the wrong parts, never a different status for each.
@@ -488,7 +562,7 @@ export class SakaimeService {
       const reason = `the body is ${what}, not a dossier. A dossier is a JSON object with a "manifest" and a "body".`;
       return { ok: false, checks: [{ name: "bundle.shape", ok: false, detail: `FAIL: ${reason}` }], failures: [{ item: "(body)", reason }], signatureNote: SIGNATURE_STATEMENT, keyKind: "demo" };
     }
-    const result = await verifyDossier(bundle, { recompute: recomputeFn });
+    const result = await verifyDossier(bundle, this.verifyOptions());
     const key = (bundle as { manifest?: { signing?: { keyStatus?: string } } }).manifest?.signing?.keyStatus;
     return {
       ok: result.ok,

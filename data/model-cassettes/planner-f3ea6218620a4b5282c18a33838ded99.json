@@ -1,6 +1,6 @@
 {
   "schema": "sakaime.model-cassette/1",
-  "recordedAt": "2026-10-27T10:09:47.457Z",
+  "recordedAt": "2026-10-27T15:39:38.826Z",
   "role": "planner",
   "requestHash": "f3ea6218620a4b5282c18a33838ded9969ebcfcfdee217198670a4a4cb8c6b83",
   "request": {
@@ -65,44 +65,428 @@
       }
     },
     "maxTokens": 900,
-    "dataClass": "public"
+    "dataClass": "vendor-confidential",
+    "constructedDemoData": true
   },
   "response": {
-    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy of Lunit INSIGHT CXR for detecting lung abnormalities in emergency department patients?\",\n    \"How does the performance of Lunit INSIGHT CXR version 2.0 compare to version 1.0 in triage prioritisation across emergency department and outpatient care settings?\",\n    \"What are the reported false positive and false negative rates of Lunit INSIGHT CXR in real-world clinical studies?\",\n    \"How does Lunit INSIGHT CXR impact patient outcomes, such as time to treatment or length of stay, when used for triage prioritisation?\",\n    \"What is the inter-observer agreement and reader variability when using Lunit INSIGHT CXR for chest X-ray interpretation?\",\n    \"Are there any safety concerns or adverse events associated with the use of Lunit INSIGHT CXR in clinical practice?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"Lunit\",\n      \"product\": \"INSIGHT CXR\",\n      \"condition\": \"triage\",\n      \"reason\": \"Identify ongoing or completed clinical trials evaluating the device's performance in triage settings.\"\n    },\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"Lunit\",\n      \"product\": \"INSIGHT CXR\",\n      \"condition\": \"diagnostic accuracy\",\n      \"reason\": \"Retrieve peer-reviewed studies reporting diagnostic accuracy metrics such as sensitivity, specificity, and AUC for Lunit INSIGHT CXR.\"\n    }\n  ]\n}",
+    "text": "{\n  \"subQuestions\": [\n    \"What is the diagnostic accuracy of INSIGHT CXR for detecting lung abnormalities in emergency department patients?\",\n    \"How does INSIGHT CXR performance vary across different patient age groups and clinical settings?\",\n    \"What are the reported false positive and false negative rates of INSIGHT CXR in real-world or clinical trial settings?\",\n    \"How does INSIGHT CXR compare to standard radiologist interpretation in terms of sensitivity and specificity?\",\n    \"What is the impact of INSIGHT CXR on clinical decision-making and patient outcomes in emergency and outpatient care?\",\n    \"Are there any safety concerns or adverse events associated with INSIGHT CXR use?\"\n  ],\n  \"extraSearches\": [\n    {\n      \"source\": \"clinicaltrials-v2\",\n      \"vendor\": \"Lunit\",\n      \"product\": \"INSIGHT CXR\",\n      \"condition\": \"diagnostic accuracy\",\n      \"reason\": \"Identify clinical trial evidence on diagnostic performance of INSIGHT CXR\"\n    },\n    {\n      \"source\": \"pubmed-eutils\",\n      \"vendor\": \"Lunit\",\n      \"product\": \"INSIGHT CXR\",\n      \"condition\": \"false positive rate\",\n      \"reason\": \"Find published studies reporting false positive rates for INSIGHT CXR\"\n    }\n  ]\n}",
     "json": {
       "subQuestions": [
-        "What is the diagnostic accuracy of Lunit INSIGHT CXR for detecting lung abnormalities in emergency department patients?",
-        "How does the performance of Lunit INSIGHT CXR version 2.0 compare to version 1.0 in triage prioritisation across emergency department and outpatient care settings?",
-        "What are the reported false positive and false negative rates of Lunit INSIGHT CXR in real-world clinical studies?",
-        "How does Lunit INSIGHT CXR impact patient outcomes, such as time to treatment or length of stay, when used for triage prioritisation?",
-        "What is the inter-observer agreement and reader variability when using Lunit INSIGHT CXR for chest X-ray interpretation?",
-        "Are there any safety concerns or adverse events associated with the use of Lunit INSIGHT CXR in clinical practice?"
+        "What is the diagnostic accuracy of INSIGHT CXR for detecting lung abnormalities in emergency department patients?",
+        "How does INSIGHT CXR performance vary across different patient age groups and clinical settings?",
+        "What are the reported false positive and false negative rates of INSIGHT CXR in real-world or clinical trial settings?",
+        "How does INSIGHT CXR compare to standard radiologist interpretation in terms of sensitivity and specificity?",
+        "What is the impact of INSIGHT CXR on clinical decision-making and patient outcomes in emergency and outpatient care?",
+        "Are there any safety concerns or adverse events associated with INSIGHT CXR use?"
       ],
       "extraSearches": [
         {
           "source": "clinicaltrials-v2",
           "vendor": "Lunit",
           "product": "INSIGHT CXR",
-          "condition": "triage",
-          "reason": "Identify ongoing or completed clinical trials evaluating the device's performance in triage settings."
+          "condition": "diagnostic accuracy",
+          "reason": "Identify clinical trial evidence on diagnostic performance of INSIGHT CXR"
         },
         {
           "source": "pubmed-eutils",
           "vendor": "Lunit",
           "product": "INSIGHT CXR",
-          "condition": "diagnostic accuracy",
-          "reason": "Retrieve peer-reviewed studies reporting diagnostic accuracy metrics such as sensitivity, specificity, and AUC for Lunit INSIGHT CXR."
+          "condition": "false positive rate",
+          "reason": "Find published studies reporting false positive rates for INSIGHT CXR"
         }
       ]
     },
     "requestedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
     "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
-    "recordedFrom": "nvidia",
+    "recordedFrom": "nightshift",
     "usage": {
-      "promptTokens": 1783,
-      "completionTokens": 599,
+      "promptTokens": 1743,
+      "completionTokens": 503,
       "measured": true
+    },
+    "receipt": {
+      "receiptId": "rcpt_req_td1eoc6w",
+      "decisionId": "req_td1eoc6w",
+      "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+      "provider": "nvidia",
+      "latencyMs": 9071,
+      "hmem": 0,
+      "signature": "iZQ3siUc5f9jiXHC6q9OlggGJPCGsaLGAoaioho7vTSQTBiRPGRHRiQ9Zr3QLfxAKHTs8IeuBPA+GuI0IoBIBQ==",
+      "keyId": "e92caae86b5f702e",
+      "requestHash": "4a698f015dfcf7ce3ad13b3ff11bcc3612b05ce8c5b399ae18417e99f8d56d4f",
+      "responseHash": "414edca40d7a2554a7fc6417d50e8f6f6e2c03ebfd42596c0d2251aa76d777ed",
+      "raw": {
+        "envelope": {
+          "body": {
+            "llama_cpp_ref": "08659901c43b51de735740f1cf61bb82fbe0c4e4",
+            "manifest_hash": "",
+            "receipt": {
+              "app": "node",
+              "app_policy": {
+                "app": "node",
+                "cross_check": "auto",
+                "has_rule": true,
+                "lanes": null,
+                "mode_coerced": false,
+                "premium_budget": null,
+                "privacy": "cloud-ok",
+                "race_width": 6,
+                "requested_mode": "auto",
+                "routed_mode": "auto"
+              },
+              "autopilot": {
+                "ctx_dropped": [],
+                "ctx_unfilterable": false,
+                "envelope": {
+                  "allocatable_mb": 0,
+                  "pressure": "unknown",
+                  "remaining_mb": 0,
+                  "used_mb": 0
+                },
+                "needs": {
+                  "coding": false,
+                  "tools": false,
+                  "vision": false
+                },
+                "prompt_tokens": 921,
+                "scout": {
+                  "candidates": [
+                    {
+                      "id": "EXPLAIN",
+                      "score": 15
+                    },
+                    {
+                      "id": "OPTIMIZER",
+                      "score": 11
+                    },
+                    {
+                      "id": "CONFIG_GENERATOR",
+                      "score": 11
+                    }
+                  ],
+                  "category": "Help",
+                  "confident": true,
+                  "mode": "EXPLAIN",
+                  "ms": 1.71,
+                  "score": 15,
+                  "source": "detected",
+                  "tier": "B"
+                },
+                "tier_hint": null,
+                "why": [
+                  "scout read EXPLAIN",
+                  "~921 prompt tokens — lanes whose slot cannot hold them are not asked"
+                ]
+              },
+              "bar": null,
+              "budget_degrade": null,
+              "cache": {
+                "losers_reclaimed": 0,
+                "partials_reclaimed": 0,
+                "status": "miss"
+              },
+              "consensus": {
+                "agree": 1,
+                "coherence": null,
+                "detail": "one model handled this — no cross-model agreement to check",
+                "label": "single route",
+                "level": "solo",
+                "raced": 1,
+                "tone": "neutral",
+                "verified": null
+              },
+              "consensus_escalation": null,
+              "cost": {
+                "actual_usd": 0,
+                "baseline": {
+                  "label": "Nemotron 3 Ultra 550B A55B",
+                  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+                  "source": "mode-default-frontier"
+                },
+                "naive_usd": 0,
+                "race_overhead_usd": 0,
+                "verifier_usd": 0
+              },
+              "created_at": 1793115578817,
+              "cross_check": {
+                "app": "node",
+                "blocking": false,
+                "checks": [],
+                "recommended_action": "allow",
+                "reflex_ms": 0.02,
+                "risk_level": "low",
+                "skip_reason": "tier_a_chat",
+                "status": "skipped",
+                "verifier": "none",
+                "verifier_model": null,
+                "verifier_ms": 0,
+                "verifier_ran": false,
+                "verifier_verdict": null
+              },
+              "debate": null,
+              "decision_id": "req_td1eoc6w",
+              "deliberation": null,
+              "egress": {
+                "coverage": "pattern_floor",
+                "destination": "nvidia",
+                "never_eligible": [],
+                "sent": {
+                  "context_sources": [
+                    "messages"
+                  ],
+                  "prompt_chars": 2461,
+                  "redacted": []
+                },
+                "withheld": []
+              },
+              "eligible": null,
+              "error": "",
+              "fusion": null,
+              "gen_verifier": null,
+              "graded_weight": null,
+              "hmem": null,
+              "host_pressure": {
+                "battery": null,
+                "pressure": {
+                  "battery": {
+                    "hard": 0.5,
+                    "label": "nominal",
+                    "score": 0.18,
+                    "sensor": "battery%, charging",
+                    "soft": 0.3
+                  },
+                  "cpu": {
+                    "hard": 0.9,
+                    "label": "nominal",
+                    "score": 0.34,
+                    "sensor": "30s load avg",
+                    "soft": 0.7
+                  },
+                  "gpu": {
+                    "hard": 0.92,
+                    "label": "nominal",
+                    "score": 0.38,
+                    "sensor": "GPU + VRAM",
+                    "soft": 0.75
+                  },
+                  "memory": {
+                    "hard": 0.85,
+                    "label": "warm",
+                    "score": 0.51,
+                    "sensor": "committed/swap",
+                    "soft": 0.7
+                  },
+                  "network": {
+                    "hard": 0.85,
+                    "label": "nominal",
+                    "score": 0.12,
+                    "sensor": "RTT to providers",
+                    "soft": 0.5
+                  },
+                  "quota": {
+                    "hard": 0.95,
+                    "label": "nominal",
+                    "score": 0.28,
+                    "sensor": "per-key window",
+                    "soft": 0.8
+                  },
+                  "thermal": {
+                    "hard": 0.8,
+                    "label": "nominal",
+                    "score": 0.22,
+                    "sensor": "thermal API",
+                    "soft": 0.55
+                  }
+                },
+                "thermal": "nominal"
+              },
+              "job": null,
+              "mcp": null,
+              "method": null,
+              "mode": "auto",
+              "optimistic": null,
+              "phases": [
+                {
+                  "coherence": null,
+                  "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                  "ms": 9071,
+                  "outputTps": 29.76518575680741,
+                  "phase": "final_synthesis",
+                  "reflex_decided_in_ms": 0.2,
+                  "tier": "A",
+                  "tokensIn": 1023,
+                  "tokensOut": 270
+                }
+              ],
+              "privacy": {
+                "path": "cloud-ok",
+                "redaction": {
+                  "applied": false,
+                  "spans": 0
+                }
+              },
+              "prompt_preview": "{\"vendor\":\"Lunit\",\"vendorAliases\":[\"Lunit, Inc.\"],\"product\":\"INSIGHT CXR\",\"condition\":null,\"submission\":\"K211733\",\"alreadyPlanned\":[{\"source\":\"openfda-510k\",\"query\":{\"k_number\":\"K2",
+              "quality_race": null,
+              "reasoning_scaffold": null,
+              "receipt_id": "rcpt_req_td1eoc6w",
+              "refine": null,
+              "request_id": "chatcmpl-d1ac3a5a-e03c-461d-a94c-356ecdb56f55",
+              "requested_mode": "meterless/auto",
+              "routing": {
+                "confidence": null,
+                "escalated": null,
+                "escalated_on_divergence": false,
+                "hedge": null,
+                "hedges_skipped": 0,
+                "of": 1,
+                "policy": "learned-router",
+                "predicted": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                "reason": "single-candidate",
+                "width": 1,
+                "winner": "nvidia/nemotron-3.5-lightning-30b-a3b"
+              },
+              "savings": {
+                "amount": 0,
+                "baseline_source": "mode-default-frontier",
+                "currency": "USD",
+                "vs": "Nemotron 3 Ultra 550B A55B"
+              },
+              "schema": "meterless.compute_receipt.v1",
+              "score": null,
+              "scorecard": null,
+              "status": "ok",
+              "summary": "ok · Nemotron 3.5 Lightning 30B A3B · miss · $0.0000 saved",
+              "synthesis": null,
+              "test_time_compute": null,
+              "tool_degraded": null,
+              "unmet": null,
+              "usage": {
+                "input_tokens": 1023,
+                "latency_ms": 9071,
+                "output_tokens": 270,
+                "output_tps": 29.76518575680741,
+                "total_tokens": 1293
+              },
+              "verdict": null,
+              "verification": null,
+              "winning_route": {
+                "kind": "cloud",
+                "label": "Nemotron 3.5 Lightning 30B A3B",
+                "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+                "provider": "nvidia",
+                "tier": "A"
+              }
+            },
+            "signer": "meterlessd",
+            "ts_ms": 1793115578820
+          },
+          "pubkey_b64": "ofrH8+vl65oCrnFhdIv3cum842j5iHgWvb+B363fcb4=",
+          "sig_b64": "iZQ3siUc5f9jiXHC6q9OlggGJPCGsaLGAoaioho7vTSQTBiRPGRHRiQ9Zr3QLfxAKHTs8IeuBPA+GuI0IoBIBQ=="
+        },
+        "tier": "A",
+        "kind": "cloud",
+        "app": "node",
+        "requestId": "chatcmpl-d1ac3a5a-e03c-461d-a94c-356ecdb56f55",
+        "signedAtMs": 1793115578820,
+        "keyPinned": true,
+        "nightshiftVersion": "1.2.3",
+        "hashesComputedLocally": true,
+        "verification": {
+          "verifiedAt": "2026-10-27T15:39:38.825Z",
+          "origin": "live",
+          "checks": [
+            {
+              "name": "schema",
+              "passed": true,
+              "detail": "meterless.compute_receipt.v1"
+            },
+            {
+              "name": "signature",
+              "passed": true,
+              "detail": "Ed25519 over the envelope body verified (key e92caae86b5f702e)"
+            },
+            {
+              "name": "key",
+              "passed": true,
+              "detail": "key e92caae86b5f702e is pinned to the installed application"
+            },
+            {
+              "name": "outer-matches-signed",
+              "passed": true,
+              "detail": "the unsigned fields agree with the signed receipt"
+            },
+            {
+              "name": "status",
+              "passed": true,
+              "detail": "ok"
+            },
+            {
+              "name": "not-cached",
+              "passed": true,
+              "detail": "cache status miss"
+            },
+            {
+              "name": "not-replayed",
+              "passed": true,
+              "detail": "receipt id and decision id not seen before"
+            },
+            {
+              "name": "routed-model",
+              "passed": true,
+              "detail": "nvidia/nemotron-3.5-lightning-30b-a3b answered, as requested"
+            },
+            {
+              "name": "tier",
+              "passed": true,
+              "detail": "tier A named (no expectation set for this model)"
+            },
+            {
+              "name": "app",
+              "passed": true,
+              "detail": "app node named (no expectation set)"
+            },
+            {
+              "name": "request-id",
+              "passed": true,
+              "detail": "the signed request id is this completion's id"
+            },
+            {
+              "name": "memory-scope",
+              "passed": true,
+              "detail": "the echoed scope is the one sent"
+            },
+            {
+              "name": "hmem",
+              "passed": true,
+              "detail": "no remembered context was added"
+            },
+            {
+              "name": "request-binding",
+              "passed": true,
+              "detail": "prompt length and preview match what was sent; this receipt carries no request or response hash"
+            },
+            {
+              "name": "response-binding",
+              "passed": true,
+              "detail": "the token counts agree with the reply's usage"
+            },
+            {
+              "name": "fresh",
+              "passed": true,
+              "detail": "signed 0 s ago"
+            },
+            {
+              "name": "lane",
+              "passed": true,
+              "detail": "cloud for a remote call"
+            }
+          ]
+        },
+        "earlierReceiptIds": [
+          "rcpt_req_775bn0go"
+        ]
+      }
     }
   },
-  "responseHash": "aa0b7b0ec9167fd88b3bfe577114d2a3e979efd2ea9f175bf8c2ca30e232bb18"
+  "responseHash": "91d02f9a285b25dbbd05f6b67b471c0ee615391c791e7ef652d9abc234c4ad0e"
 }

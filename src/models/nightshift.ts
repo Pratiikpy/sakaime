@@ -103,6 +103,7 @@ export class NightshiftClient extends ChatModelClient {
         memoryScope: ctx.scope,
         ...(ctx.reply.id ? { responseId: ctx.reply.id } : {}),
         lastUserText: ctx.lastUserText,
+        conversation: ctx.conversation,
         requestHash: ctx.requestHash,
         responseHash: ctx.responseHash,
         ...(ctx.reply.usage ? { usage: ctx.reply.usage } : {}),

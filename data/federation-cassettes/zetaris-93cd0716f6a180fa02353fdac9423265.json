@@ -1,0 +1,19 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "93cd0716f6a180fa02353fdac94232654939eb5286575867291329cca3743856",
+  "statement": "SELECT DISTINCT UPPER(TRIM(CAST(product_code AS STRING))) AS v FROM sk_registry.fda_classification WHERE UPPER(TRIM(CAST(product_code AS STRING))) IN ('QDQ')",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.571Z",
+  "columns": [
+    "v"
+  ],
+  "rawRows": [
+    [
+      "QDQ"
+    ]
+  ],
+  "total": 1,
+  "queryId": "ccf05ab8-0956-4a7b-a3c3-f45b3eb8b4df",
+  "recordedElapsedMs": 218,
+  "respHash": "b893d9110411008e78719afb3976e95451c3e34edff4a60cc9d81ff73f759e95"
+}

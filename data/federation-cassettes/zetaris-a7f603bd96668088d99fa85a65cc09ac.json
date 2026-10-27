@@ -1,0 +1,63 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "a7f603bd96668088d99fa85a65cc09ac39517a8bc7b488498a707e0071f7392b",
+  "statement": "SHOW TABLES IN hospital",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.570Z",
+  "columns": [
+    "table_identifier",
+    "catalog_name",
+    "catalog_type"
+  ],
+  "rawRows": [
+    [
+      "HOSPITAL.case_assignments",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.cases",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.decisions",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.evidence_links",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.precedents",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.requirements",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.reviewers",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.submissions",
+      "HOSPITAL",
+      "Data Source"
+    ],
+    [
+      "HOSPITAL.vendors",
+      "HOSPITAL",
+      "Data Source"
+    ]
+  ],
+  "total": 9,
+  "queryId": "85230a8f-a94c-4327-aeb5-e369cf475d5b",
+  "recordedElapsedMs": 80,
+  "respHash": "be2f6fcb6520fd7b0e973622f748e21565101c8d9199864432ac27c0367832c8"
+}

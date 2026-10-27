@@ -1,0 +1,23 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "979e6b458df1f7e8a862b1f983ad0ae20703ad8c65719026d08aa75c57a1ba8d",
+  "statement": "SHOW DATASOURCES",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.563Z",
+  "columns": [
+    "name",
+    "description",
+    "id"
+  ],
+  "rawRows": [
+    [
+      "hospital",
+      "Synthetic_hospital_review_database_constructed",
+      "6"
+    ]
+  ],
+  "total": 1,
+  "queryId": "f8bb2c45-99fd-4176-97e8-584ab69bdf9e",
+  "recordedElapsedMs": 90,
+  "respHash": "04d62292988277d218bb4889e2c8fbfd0f81779474079155c5beb8e6fba22c2a"
+}

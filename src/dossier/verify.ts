@@ -696,7 +696,15 @@ async function semanticChecks(c: Collector, body: DossierBody, options: VerifyOp
       if (m.provider === "recorded" && !m.recorded) fail(item, "provider is recorded but the reply is not marked recorded");
       if (m.recorded && m.label !== "recorded") fail(item, `reply is recorded but labelled ${m.label}`);
       if (!m.recorded && m.label === "recorded") fail(item, "reply is labelled recorded but is not marked recorded");
-      if (m.provider === "recorded" && m.receipt !== undefined) fail(item, "a recorded reply cannot carry a live receipt");
+      // A replayed reply may carry the ORIGINAL signed receipt of the live call it replays, and then it is checked like any other
+      // receipt. What it may not carry is a receipt that is not that: one with no signed envelope, or whose envelope signs a different
+      // receipt or model than the one stored. This is a structural check; the signature and the pinned key are checked by the
+      // supplied receipt verifier.
+      if (m.provider === "nightshift" && !m.recorded && m.receipt === undefined) fail(item, "a live reply labelled nightshift carries no receipt: it is Nightshift's only if its signed receipt is attached");
+      if (m.provider === "recorded" && m.receipt !== undefined) {
+        const problem = originalReceiptProblem(m.receipt);
+        if (problem) fail(item, `a recorded reply carries a receipt that is not the original signed one: ${problem}`);
+      }
       if (m.receipt && m.receipt.routedModel !== m.routedModel) fail(item, `receipt routed model ${m.receipt.routedModel} differs from the reply's ${m.routedModel}`);
     }
   });
@@ -823,4 +831,22 @@ function describeCoverage(body: DossierBody): string {
   const cov = body.receiptCoverage;
   const pct = cov.coverage === null ? "no model-derived fields" : `${Math.round(cov.coverage * 100)}% of model-derived fields receipted`;
   return `receipt coverage recomputed: ${pct} (${cov.fields.receipted} of ${cov.fields.total}); ${cov.replies.recorded} recorded, ${cov.replies.live} live replies`;
+}
+
+/**
+ * Whether a receipt stored with a replayed reply is structurally the signed receipt of a live call: it holds the signed envelope,
+ * and what the envelope signs is the receipt id and the model the stored receipt names. Returns the problem, or undefined.
+ */
+function originalReceiptProblem(receipt: ComputeReceipt): string | undefined {
+  const raw = receipt.raw as Record<string, unknown> | null | undefined;
+  const envelope = raw && typeof raw === "object" ? (raw["envelope"] as Record<string, unknown> | undefined) : undefined;
+  if (!envelope || typeof envelope !== "object") return "it holds no signed envelope";
+  if (typeof envelope["sig_b64"] !== "string" || typeof envelope["pubkey_b64"] !== "string") return "its envelope has no signature or public key";
+  const body = envelope["body"] as Record<string, unknown> | undefined;
+  const signed = body && typeof body === "object" ? (body["receipt"] as Record<string, unknown> | undefined) : undefined;
+  if (!signed || typeof signed !== "object") return "its envelope signs no receipt";
+  if (signed["receipt_id"] !== receipt.receiptId) return "the envelope signs a different receipt id";
+  const route = signed["winning_route"] as Record<string, unknown> | undefined;
+  if (!route || route["model"] !== receipt.routedModel) return "the envelope signs a different model";
+  return undefined;
 }

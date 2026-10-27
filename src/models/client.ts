@@ -33,6 +33,8 @@ export interface ReplyContext {
   scope: string;
   reply: ChatReply;
   lastUserText: string;
+  /** The contents of every non-system message sent on this attempt, in order. */
+  conversation: readonly string[];
   requestHash: string;
   responseHash: string;
   lane: LaneDescriptor;
@@ -286,6 +288,7 @@ export abstract class ChatModelClient implements ModelPort {
         scope: `${base}.a${reply.attempts}`,
         reply,
         lastUserText: lastUser,
+        conversation: messages.filter((m) => m.role !== "system").map((m) => m.content),
         requestHash: textHash(reply.requestJson),
         responseHash: textHash(reply.content),
         lane,

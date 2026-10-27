@@ -5,7 +5,7 @@
     "drill": "zetaris_off",
     "before": [
       {
-        "id": "fnd_1c0237f7dc76ff107701977476e68580",
+        "id": "fnd_32f9f38585a6102d002a0fb1f12a00c3",
         "claimId": "CASE-2026-014.intended",
         "label": "REQUIRES_DOMAIN_REVIEW",
         "mechanicalCoverage": [
@@ -45,7 +45,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -69,36 +68,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -137,7 +117,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -178,7 +157,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -200,7 +178,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -240,7 +217,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -324,7 +300,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -378,7 +353,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -410,10 +384,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.120Z"
+        "computedAt": "2026-10-27T12:00:00.119Z"
       },
       {
-        "id": "fnd_c269748406e829063722545595d3862f",
+        "id": "fnd_49b196801db9be121b8ee97d6c741bcb",
         "claimId": "CLM-EA-01",
         "label": "SUPPORTED_FOR_SCOPE",
         "mechanicalCoverage": [
@@ -453,7 +427,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -477,36 +450,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -545,7 +499,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -586,7 +539,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -608,7 +560,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -667,7 +618,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -699,10 +649,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.122Z"
+        "computedAt": "2026-10-27T12:00:00.121Z"
       },
       {
-        "id": "fnd_d5e1a6720dd7a3aa0404b1020b3d0727",
+        "id": "fnd_5bc6053bae2cea35adfb69861741d7f8",
         "claimId": "CLM-EA-02",
         "label": "REQUIRES_DOMAIN_REVIEW",
         "mechanicalCoverage": [
@@ -742,7 +692,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -766,36 +715,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -834,7 +764,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -875,7 +804,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -897,7 +825,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -960,7 +887,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1014,7 +940,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -1046,10 +971,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.124Z"
+        "computedAt": "2026-10-27T12:00:00.123Z"
       },
       {
-        "id": "fnd_a046346e6439c3f61575cf58a99dd03b",
+        "id": "fnd_40a20c95e9cd3dceb140507b0a55bf99",
         "claimId": "CLM-EA-03",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -1089,7 +1014,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1113,36 +1037,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -1181,7 +1086,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1222,7 +1126,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -1244,7 +1147,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -1307,7 +1209,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1342,7 +1243,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -1395,7 +1295,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -1428,10 +1327,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.132Z"
+        "computedAt": "2026-10-27T12:00:00.131Z"
       },
       {
-        "id": "fnd_b741dfca2c9f7fa10cb1fe4d824e6a03",
+        "id": "fnd_5821d77d21345fe0142f7e946aea3407",
         "claimId": "CLM-EA-04",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -1471,7 +1370,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1495,36 +1393,17 @@
             "dimension": "version",
             "relation": "DISJOINT",
             "claimed": "3.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -1563,7 +1442,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1604,7 +1482,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -1626,7 +1503,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -1658,32 +1534,15 @@
             "dimension": "version",
             "relation": "DISJOINT",
             "claimed": "3.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ]
           },
           {
@@ -1721,7 +1580,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1737,7 +1595,7 @@
         "requiredEvidence": [
           {
             "dimension": "version",
-            "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (authorization record: 2.1.0; study: 2.1.0) in the model or only in the build, with performance data for 3.0. The authorization record limits the software version to 2.1.0; the study records state 2.1.0."
+            "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (study: 2.1.0) in the model or only in the build, with performance data for 3.0."
           },
           {
             "dimension": "population",
@@ -1779,7 +1637,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -1811,10 +1668,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.134Z"
+        "computedAt": "2026-10-27T12:00:00.133Z"
       },
       {
-        "id": "fnd_857811fd59649554b6430093efbc3917",
+        "id": "fnd_8bb5680c2371db4a2265a50ad4bd8479",
         "claimId": "CLM-EA-05",
         "label": "REQUIRES_DOMAIN_REVIEW",
         "mechanicalCoverage": [
@@ -1854,7 +1711,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1878,36 +1734,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -1946,7 +1783,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -1987,7 +1823,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -2009,7 +1844,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -2072,7 +1906,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2126,7 +1959,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -2158,10 +1990,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.136Z"
+        "computedAt": "2026-10-27T12:00:00.135Z"
       },
       {
-        "id": "fnd_56760f97d2cf98fa9b693842c02eeb62",
+        "id": "fnd_63a60ea455ec6fa2799b63ed794e484b",
         "claimId": "CLM-EA-06",
         "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
         "supportedScope": {
@@ -2230,7 +2062,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2254,36 +2085,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -2322,7 +2134,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2363,7 +2174,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -2385,7 +2195,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -2443,7 +2252,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2463,7 +2271,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ]
@@ -2512,7 +2319,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -2542,10 +2348,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.138Z"
+        "computedAt": "2026-10-27T12:00:00.137Z"
       },
       {
-        "id": "fnd_9b1c9d9d0a3a8749c0fbbfcd12e19a04",
+        "id": "fnd_84576d5c740811d9409f68e869eddf40",
         "claimId": "CLM-EA-07",
         "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
         "supportedScope": {
@@ -2614,7 +2420,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2638,36 +2443,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -2706,7 +2492,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2747,7 +2532,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -2769,7 +2553,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -2827,7 +2610,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2881,7 +2663,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -2913,10 +2694,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.140Z"
+        "computedAt": "2026-10-27T12:00:00.139Z"
       },
       {
-        "id": "fnd_10de7b5733d302eb9e60e6c075b9d76a",
+        "id": "fnd_bd1deb9277b481592c35b951942caf1e",
         "claimId": "CLM-EA-08",
         "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
         "mechanicalCoverage": [
@@ -2956,7 +2737,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -2980,36 +2760,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -3048,7 +2809,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3089,7 +2849,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -3111,7 +2870,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -3169,7 +2927,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3223,7 +2980,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -3255,10 +3011,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.142Z"
+        "computedAt": "2026-10-27T12:00:00.141Z"
       },
       {
-        "id": "fnd_c3ba4c496333ac7cadb3de13afee9872",
+        "id": "fnd_b8d29b724f7dba31b33b6f8559d10c8c",
         "claimId": "CLM-EA-09",
         "label": "REQUIRES_DOMAIN_REVIEW",
         "mechanicalCoverage": [
@@ -3298,7 +3054,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3322,36 +3077,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -3390,7 +3126,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3431,7 +3166,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -3453,7 +3187,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -3534,7 +3267,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3588,7 +3320,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -3620,10 +3351,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.144Z"
+        "computedAt": "2026-10-27T12:00:00.143Z"
       },
       {
-        "id": "fnd_9fac30a4a71d795a256db9ced87ba521",
+        "id": "fnd_044f619151dd545ae5109178ba04f2ce",
         "claimId": "CLM-EA-10",
         "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
         "supportedScope": {
@@ -3692,7 +3423,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3716,36 +3446,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -3784,7 +3495,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3825,7 +3535,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -3847,7 +3556,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -3905,7 +3613,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -3959,7 +3666,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -3991,12 +3697,12 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-1",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.146Z"
+        "computedAt": "2026-10-27T12:00:00.145Z"
       }
     ],
     "after": [
       {
-        "id": "fnd_5bc6972c51a832f582fc11c6b05ba64a",
+        "id": "fnd_dc25b3916fc5f81123cc4b6739db3fcb",
         "claimId": "CASE-2026-014.intended",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -4036,7 +3742,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4060,36 +3765,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -4128,7 +3814,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4169,7 +3854,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -4191,7 +3875,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -4231,7 +3914,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4315,7 +3997,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4366,7 +4047,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -4402,10 +4082,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.740Z"
+        "computedAt": "2026-10-27T12:00:00.747Z"
       },
       {
-        "id": "fnd_99e6cf3effc8bf295a7d3fa3b924d5f3",
+        "id": "fnd_9b81f873f55f5a838a652c317f40222f",
         "claimId": "CLM-EA-01",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -4445,7 +4125,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4469,36 +4148,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -4537,7 +4197,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4578,7 +4237,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -4600,7 +4258,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -4656,7 +4313,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -4692,10 +4348,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.743Z"
+        "computedAt": "2026-10-27T12:00:00.750Z"
       },
       {
-        "id": "fnd_db4a6d7c16c62ec707e5c42cec8ef31f",
+        "id": "fnd_5a91a2efe082c1668211bfdeed82d1fe",
         "claimId": "CLM-EA-02",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -4735,7 +4391,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4759,36 +4414,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -4827,7 +4463,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4868,7 +4503,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -4890,7 +4524,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -4948,7 +4581,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -4999,7 +4631,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -5035,10 +4666,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.746Z"
+        "computedAt": "2026-10-27T12:00:00.753Z"
       },
       {
-        "id": "fnd_5ec5ff214c6184d3b324dad4d71c4d09",
+        "id": "fnd_d33c73d6d5c55836319c0a04dd5ec508",
         "claimId": "CLM-EA-03",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -5078,7 +4709,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5102,36 +4732,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -5170,7 +4781,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5211,7 +4821,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -5233,7 +4842,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -5291,7 +4899,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5326,7 +4933,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -5378,7 +4984,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -5414,10 +5019,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.749Z"
+        "computedAt": "2026-10-27T12:00:00.756Z"
       },
       {
-        "id": "fnd_61448b2e3404bff0da3944c9a9996a88",
+        "id": "fnd_abf7100e6182e18791646ee1fd183a84",
         "claimId": "CLM-EA-04",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -5457,7 +5062,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5481,36 +5085,17 @@
             "dimension": "version",
             "relation": "DISJOINT",
             "claimed": "3.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -5549,7 +5134,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5590,7 +5174,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -5612,7 +5195,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -5639,32 +5221,15 @@
             "dimension": "version",
             "relation": "DISJOINT",
             "claimed": "3.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ]
           },
           {
@@ -5702,7 +5267,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5718,7 +5282,7 @@
         "requiredEvidence": [
           {
             "dimension": "version",
-            "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (authorization record: 2.1.0; study: 2.1.0) in the model or only in the build, with performance data for 3.0. The authorization record limits the software version to 2.1.0; the study records state 2.1.0."
+            "request": "From the vendor: study results for software version 3.0, or a written change-control statement saying whether 3.0 differs from the evaluated version (study: 2.1.0) in the model or only in the build, with performance data for 3.0."
           },
           {
             "dimension": "population",
@@ -5757,7 +5321,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -5793,10 +5356,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.752Z"
+        "computedAt": "2026-10-27T12:00:00.759Z"
       },
       {
-        "id": "fnd_737c2b1b92d39a004929993d039b19a3",
+        "id": "fnd_0e704036f895e1ff860898ffab7ef76c",
         "claimId": "CLM-EA-05",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -5836,7 +5399,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5860,36 +5422,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -5928,7 +5471,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -5969,7 +5511,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -5991,7 +5532,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -6049,7 +5589,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6100,7 +5639,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -6136,10 +5674,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.755Z"
+        "computedAt": "2026-10-27T12:00:00.762Z"
       },
       {
-        "id": "fnd_3f5aae6d0ee2a59550f3bc030878e6ac",
+        "id": "fnd_6a3ec89ffaf93fcd23a5d497bb2427fd",
         "claimId": "CLM-EA-06",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -6179,7 +5717,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6203,36 +5740,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -6271,7 +5789,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6312,7 +5829,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -6334,7 +5850,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -6392,7 +5907,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6412,7 +5926,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ]
@@ -6460,7 +5973,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -6496,10 +6008,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.758Z"
+        "computedAt": "2026-10-27T12:00:00.765Z"
       },
       {
-        "id": "fnd_6b5820b4553e4a69cf71c0a4200b4cf4",
+        "id": "fnd_e20c6dd5f7c983c7a035e67e11e46386",
         "claimId": "CLM-EA-07",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -6539,7 +6051,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6563,36 +6074,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -6631,7 +6123,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6672,7 +6163,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -6694,7 +6184,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -6752,7 +6241,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6803,7 +6291,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -6839,10 +6326,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.761Z"
+        "computedAt": "2026-10-27T12:00:00.768Z"
       },
       {
-        "id": "fnd_ad73877985f53bd5c3bb9c19c2bbbe85",
+        "id": "fnd_2f78eefbd045e9a5a801ecabd1d189ab",
         "claimId": "CLM-EA-08",
         "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
         "mechanicalCoverage": [
@@ -6882,7 +6369,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -6906,36 +6392,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -6974,7 +6441,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7015,7 +6481,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -7037,7 +6502,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -7095,7 +6559,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7146,7 +6609,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -7182,10 +6644,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.764Z"
+        "computedAt": "2026-10-27T12:00:00.771Z"
       },
       {
-        "id": "fnd_89f5ee95ad7da5125685d5d11457fdb1",
+        "id": "fnd_d1e03534558067d297f3b9513875061e",
         "claimId": "CLM-EA-09",
         "label": "REQUIRES_DOMAIN_REVIEW",
         "mechanicalCoverage": [
@@ -7225,7 +6687,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7249,36 +6710,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -7317,7 +6759,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7358,7 +6799,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -7380,7 +6820,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -7461,7 +6900,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7512,7 +6950,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -7548,10 +6985,10 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.767Z"
+        "computedAt": "2026-10-27T12:00:00.774Z"
       },
       {
-        "id": "fnd_15e4d5d42fc3ed5bf13fe34acdc4e716",
+        "id": "fnd_e67757c16c0303b2f394ef47f2018898",
         "claimId": "CLM-EA-10",
         "label": "INSUFFICIENT_EVIDENCE",
         "mechanicalCoverage": [
@@ -7591,7 +7028,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7615,36 +7051,17 @@
             "dimension": "version",
             "relation": "CONTAINED",
             "claimed": "2.1.0",
-            "established": "authorization record: 2.1.0; study: 2.1.0",
+            "established": "study: 2.1.0",
             "anchorIds": [
-              "anc_1232a9143dd65848b568",
-              "anc_234a910d4d2fade6cdbc",
-              "anc_308101da491e88521805",
-              "anc_390c2563a7afd18e7588",
               "anc_462692aadc28ef30f0f6",
-              "anc_4740ea4717571e5ac8a5",
-              "anc_53eedca52991c2cab31a",
               "anc_5e16728c90c8aad74263",
               "anc_64d09a9a8cdf345618ae",
-              "anc_66d005d3bedd4aae3135",
-              "anc_69990fd2af61cc462477",
               "anc_705f0766e0e0aa843f2e",
               "anc_8ad9255cf37c34a27658",
-              "anc_9121a3ef73171435f91a",
-              "anc_98cb9e5f0ef023a5a525",
-              "anc_b8a3535dabc5c75d8365",
-              "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
-              "anc_c7791085dddb0c340655",
-              "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
-              "anc_f1eb887e6cc6fb4c7630",
-              "anc_f26f233379908399f279",
-              "anc_f4969ef1238b9b804bec"
+              "anc_f1eb887e6cc6fb4c7630"
             ],
             "evidenceIds": [
-              "ev-fda-summary-bfcphhfchh-authorization",
-              "ev-fda-summary-bfcphhfchh-study",
               "ev-pubmed-article-homjefkphi-study"
             ]
           },
@@ -7683,7 +7100,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7724,7 +7140,6 @@
               "anc_98cb9e5f0ef023a5a525",
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99",
               "anc_e8b0344ca0c55a8f21d2",
@@ -7746,7 +7161,6 @@
             "anchorIds": [
               "anc_4740ea4717571e5ac8a5",
               "anc_b8a3535dabc5c75d8365",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_d4b68776e58b44cd9a99"
             ],
@@ -7804,7 +7218,6 @@
               "anc_b8a3535dabc5c75d8365",
               "anc_b92b7d27c794df791491",
               "anc_be0ec3944cb0820161a2",
-              "anc_c2d801903bd388a2c956",
               "anc_c7791085dddb0c340655",
               "anc_c984a3350728b10dcc8a",
               "anc_d4b68776e58b44cd9a99",
@@ -7855,7 +7268,6 @@
           "fact_963f572fe1a20eba",
           "fact_a1ecaeed33d2f4a9",
           "fact_a215e94fdb2bb529",
-          "fact_a8638f6ee53a4b09",
           "fact_a8c1c185e875cb47",
           "fact_ac3aad99ebaae210",
           "fact_b3053f0e2de522b1",
@@ -7891,21 +7303,21 @@
         "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1",
         "traceId": "run-eyeart-k200667-3",
         "reviewerState": "unreviewed",
-        "computedAt": "2026-10-27T12:00:00.770Z"
+        "computedAt": "2026-10-27T12:00:00.777Z"
       }
     ],
     "staleFindingIds": [
-      "fnd_1c0237f7dc76ff107701977476e68580",
-      "fnd_c269748406e829063722545595d3862f",
-      "fnd_d5e1a6720dd7a3aa0404b1020b3d0727",
-      "fnd_a046346e6439c3f61575cf58a99dd03b",
-      "fnd_b741dfca2c9f7fa10cb1fe4d824e6a03",
-      "fnd_857811fd59649554b6430093efbc3917",
-      "fnd_56760f97d2cf98fa9b693842c02eeb62",
-      "fnd_9b1c9d9d0a3a8749c0fbbfcd12e19a04",
-      "fnd_10de7b5733d302eb9e60e6c075b9d76a",
-      "fnd_c3ba4c496333ac7cadb3de13afee9872",
-      "fnd_9fac30a4a71d795a256db9ced87ba521"
+      "fnd_32f9f38585a6102d002a0fb1f12a00c3",
+      "fnd_49b196801db9be121b8ee97d6c741bcb",
+      "fnd_5bc6053bae2cea35adfb69861741d7f8",
+      "fnd_40a20c95e9cd3dceb140507b0a55bf99",
+      "fnd_5821d77d21345fe0142f7e946aea3407",
+      "fnd_8bb5680c2371db4a2265a50ad4bd8479",
+      "fnd_63a60ea455ec6fa2799b63ed794e484b",
+      "fnd_84576d5c740811d9409f68e869eddf40",
+      "fnd_bd1deb9277b481592c35b951942caf1e",
+      "fnd_b8d29b724f7dba31b33b6f8559d10c8c",
+      "fnd_044f619151dd545ae5109178ba04f2ce"
     ],
     "narrative": "The federation engine was stopped: the statement failed with UNAVAILABLE and no row was invented. Evidence of type requirement was not read. Labels that changed: CASE-2026-014.intended: REQUIRES_DOMAIN_REVIEW -> INSUFFICIENT_EVIDENCE; CLM-EA-01: SUPPORTED_FOR_SCOPE -> INSUFFICIENT_EVIDENCE; CLM-EA-02: REQUIRES_DOMAIN_REVIEW -> INSUFFICIENT_EVIDENCE; CLM-EA-05: REQUIRES_DOMAIN_REVIEW -> INSUFFICIENT_EVIDENCE; CLM-EA-06: SUPPORTED_ONLY_FOR_NARROWER_SCOPE -> INSUFFICIENT_EVIDENCE; CLM-EA-07: SUPPORTED_ONLY_FOR_NARROWER_SCOPE -> INSUFFICIENT_EVIDENCE; CLM-EA-10: SUPPORTED_ONLY_FOR_NARROWER_SCOPE -> INSUFFICIENT_EVIDENCE. No claim that requires the lost evidence is supported; claims that do not require it did not change. 11 findings relied on facts from the lost source and are marked stale.",
     "invariantHeld": true,
@@ -7917,7 +7329,9 @@
       "zetarisReachable": true,
       "nightshiftReachable": false,
       "degradedNotes": [
-        "model answers are replayed from 60 recordings made against the real route; a question with no recording abstains",
+        "model answers are replayed from 61 recordings made through Nightshift (signed receipts)",
+        "61 of 61 recorded receipts were re-verified when this service started (Ed25519 signature, key id e92caae86b5f702e pinned in data/sample/receipt-key.json, routed model equal to the requested model, no remembered context); answering models: nvidia/nemotron-3-ultra-550b-a55b x29, nvidia/nemotron-3.5-lightning-30b-a3b x32",
+        "a question with no recording abstains instead of being answered",
         "Zetaris answers are replayed from recordings of the real engine",
         "every public source is read from recordings dated 2026-10-27"
       ]

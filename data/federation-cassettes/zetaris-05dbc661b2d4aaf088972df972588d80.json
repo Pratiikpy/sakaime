@@ -1,0 +1,28 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "05dbc661b2d4aaf088972df972588d80225ec06db54224b1fb4edb38b366909f",
+  "statement": "SHOW TABLES IN sk_vendor",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.569Z",
+  "columns": [
+    "table_identifier",
+    "catalog_name",
+    "catalog_type"
+  ],
+  "rawRows": [
+    [
+      "sk_vendor.vendor_packets",
+      "sk_vendor",
+      "Lightning Database"
+    ],
+    [
+      "sk_vendor.vendor_claims",
+      "sk_vendor",
+      "Lightning Database"
+    ]
+  ],
+  "total": 2,
+  "queryId": "797145f2-e2cf-4d92-8fe3-6bbdd5748d05",
+  "recordedElapsedMs": 125,
+  "respHash": "41d629443d30d021670e20f31d8bb6a3907dd15436afa1d8cb9b8d8f6519b31f"
+}

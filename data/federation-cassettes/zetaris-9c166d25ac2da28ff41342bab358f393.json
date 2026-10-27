@@ -1,0 +1,43 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "9c166d25ac2da28ff41342bab358f393c9af2afc49bd115b3d695a830e1d199f",
+  "statement": "SHOW LIGHTNING DATABASES",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.562Z",
+  "columns": [
+    "name",
+    "description",
+    "id"
+  ],
+  "rawRows": [
+    [
+      "sk_docs",
+      "FDA_summary_PDFs_read_through_the_PDF_filestore_format",
+      "240"
+    ],
+    [
+      "sk_onboarded",
+      "Sources_onboarded_by_the_discovery_fabric",
+      "2981"
+    ],
+    [
+      "sk_registry",
+      "Regulator_and_registry_snapshots_normalised_from_recorded_public_records",
+      "92"
+    ],
+    [
+      "sk_rest",
+      "Small_bounded_JSON_endpoints_for_the_REST_table_gate",
+      "264"
+    ],
+    [
+      "sk_vendor",
+      "Vendor_packet_exports_constructed",
+      "203"
+    ]
+  ],
+  "total": 5,
+  "queryId": "96848e20-15d6-4356-9720-ea700540c1be",
+  "recordedElapsedMs": 72,
+  "respHash": "1ff17d0aed802f005e747d36382e122960da9fdb555b59db5bad0547144f1aaa"
+}

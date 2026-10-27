@@ -1,0 +1,19 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "58e88194811e992a62c77fbe0c0e30c1135f80e2fb2373ed9a252c6d1cc729d4",
+  "statement": "SELECT DISTINCT UPPER(TRIM(CAST(applicant AS STRING))) AS v FROM sk_registry.fda_510k WHERE UPPER(TRIM(CAST(applicant AS STRING))) IN ('SCREENPOINT MEDICAL B.V.')",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.575Z",
+  "columns": [
+    "v"
+  ],
+  "rawRows": [
+    [
+      "SCREENPOINT MEDICAL B.V."
+    ]
+  ],
+  "total": 1,
+  "queryId": "9162f440-ad8a-4c30-b7a5-f0ec9471d32c",
+  "recordedElapsedMs": 156,
+  "respHash": "b6db6f4cbf1df066da358df24453a593d662c6349ef8bbe4618460eee2d07174"
+}

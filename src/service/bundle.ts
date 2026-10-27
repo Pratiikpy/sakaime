@@ -224,10 +224,13 @@ export function buildCaseDossier(input: BundleInput): DossierBundle {
       at: m.at,
       subjectKind: "model" as const,
       subjectId: m.id,
-      dataClass: "public" as const,
+      dataClass: m.dataClass,
       route: m.recorded ? ("none" as const) : ("remote" as const),
       decision: "allowed" as const,
-      reason: "public-class content only: structured claim fields and regulator, registry and publication text. The vendor claim sentences never enter a prompt.",
+      reason:
+        m.dataClass === "public"
+          ? "public-class content only: regulator, registry and publication text and the identity fields of public records."
+          : `${m.recorded ? "Replayed from a recording, so nothing left this machine in this run. The recorded call" : "This call"} carried the vendor packet's structured claim fields and the hospital's intended use, which are vendor-confidential. It was allowed to reach the remote model only under a recorded consent that names this case and declares its data constructed demo data. The vendor claim sentences never enter a prompt.`,
     })),
     ...federation.map((q) => ({ id: `egress-${q.queryId}`, at: q.at, subjectKind: "federation" as const, subjectId: q.queryId, dataClass: "public" as const, route: "local" as const, decision: "allowed" as const, reason: "read-only statement run as the agent identity; confidential columns are denied or masked by policy and are not selected" })),
   ];

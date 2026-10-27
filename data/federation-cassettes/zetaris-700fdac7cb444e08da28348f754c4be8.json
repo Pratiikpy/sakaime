@@ -1,0 +1,15 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "700fdac7cb444e08da28348f754c4be86d2cdaf023337edafa1b6a8d0f3a2296",
+  "statement": "SELECT DISTINCT UPPER(TRIM(CAST(applicant AS STRING))) AS v FROM sk_registry.fda_510k WHERE UPPER(TRIM(CAST(applicant AS STRING))) IN ('RADIOLOGICAL COMPUTER ASSISTED DETECTION/DIAGNOSIS SOFTWARE FOR LESIONS SUSPICIOUS FOR CANCER')",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.573Z",
+  "columns": [
+    "v"
+  ],
+  "rawRows": [],
+  "total": 0,
+  "queryId": "87ac4ffe-29bb-46d8-8721-fe42b094c4e1",
+  "recordedElapsedMs": 115,
+  "respHash": "4e57f9636ab0727ff43b9abe9765e5a466f991a793fabda0ad165c5fe5230f4d"
+}

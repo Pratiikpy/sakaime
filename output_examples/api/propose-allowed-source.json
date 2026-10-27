@@ -1,0 +1,754 @@
+{
+  "request": "POST /api/sources/propose",
+  "status": 200,
+  "body": {
+    "id": "b77b9d57edcc19f30e6bd8793911464f8f1388435a0ffc0b258869185cbf0397",
+    "outcome": "held_for_review",
+    "reason": "4 findings for a reviewer: public_version_date as decision_date: the name \"public_version_date\" and the description do not say this column is decision_date; the values alone cannot tell it from a similar field | public_version_number as software_version: the name \"public_version_number\" and the description do not say this column is software_version; the values alone cannot tell it from a similar field | version_or_model_number as software_version: \"public_version_number\" and \"version_or_model_number\" are both proposed as software_version",
+    "stages": [
+      {
+        "stage": "authorization",
+        "status": "passed",
+        "summary": "api.fda.gov is on the allowlist (source card openfda-510k); DNS was not checked in this mode",
+        "detail": {
+          "host": "api.fda.gov",
+          "port": 443,
+          "grantedBy": "openfda-510k",
+          "https": true,
+          "dnsChecked": false
+        }
+      },
+      {
+        "stage": "capability_discovery",
+        "status": "passed",
+        "summary": "source card openfda-510k read (identifier fields k_number, product_code, applicant, device_name; public data; CC0 per open.fda.gov/license); Zetaris lists 6 databases",
+        "detail": {
+          "card": {
+            "id": "openfda-510k",
+            "kind": "regulator",
+            "identifierFields": [
+              "k_number",
+              "product_code",
+              "applicant",
+              "device_name"
+            ],
+            "supportedPredicates": [
+              "k_number:eq",
+              "k_number:in",
+              "applicant:phrase",
+              "device_name:phrase",
+              "product_code:eq"
+            ],
+            "rateLimit": {
+              "requests": 240,
+              "perSeconds": 60,
+              "perDay": 1000,
+              "basis": "open.fda.gov/apis/authentication, no key: 240 requests per minute and 1,000 per day per IP (read 2026-10-27, FEASIBILITY-REPORT s7)"
+            },
+            "cadenceHours": null,
+            "license": "CC0 per open.fda.gov/license, with the openFDA disclaimer not to rely on it for medical decisions",
+            "dataClass": "public",
+            "verifiedOn": "2026-10-27",
+            "notVerified": 4
+          },
+          "zetaris": {
+            "reachable": true,
+            "databases": [
+              "sk_docs",
+              "sk_onboarded",
+              "sk_registry",
+              "sk_rest",
+              "sk_vendor",
+              "hospital"
+            ],
+            "onboardedTables": [],
+            "queryIds": [
+              "96848e20-15d6-4356-9720-ea700540c1be",
+              "f8bb2c45-99fd-4176-97e8-584ab69bdf9e",
+              "7c7f3d1c-f8af-43f8-9780-4cf1b235f4ef",
+              "a49648bb-bd4a-4346-b7ba-b177f3ce681c",
+              "abd9e0b6-6578-48a4-8c21-ac95c54180eb",
+              "944199b2-9d82-4078-b0a3-af833902335e",
+              "797145f2-e2cf-4d92-8fe3-6bbdd5748d05",
+              "85230a8f-a94c-4327-aeb5-e369cf475d5b"
+            ]
+          }
+        }
+      },
+      {
+        "stage": "bounded_probe",
+        "status": "passed",
+        "summary": "1 records, 47 fields (json); schema e948e2963e9d",
+        "detail": {
+          "http": {
+            "finalUrl": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K221347%22&limit=100",
+            "status": 200,
+            "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd",
+            "at": "2026-10-27T12:00:00.540Z",
+            "redirects": 0,
+            "servedFrom": "recorded"
+          },
+          "format": "json",
+          "container": "results",
+          "rows": 1,
+          "columns": [
+            "has_donation_id_number",
+            "mri_safety",
+            "record_status",
+            "is_labeled_as_nrl",
+            "is_rx",
+            "commercial_distribution_status",
+            "device_description",
+            "public_device_record_key",
+            "has_serial_number",
+            "public_version_date",
+            "sterilization.is_sterile",
+            "sterilization.is_sterilization_prior_use",
+            "is_direct_marking_exempt",
+            "public_version_number",
+            "labeler_duns_number",
+            "is_labeled_as_no_nrl",
+            "identifiers[].id",
+            "identifiers[].type",
+            "identifiers[].issuing_agency",
+            "is_single_use",
+            "is_otc",
+            "version_or_model_number",
+            "has_manufacturing_date",
+            "brand_name",
+            "is_combination_product",
+            "is_kit",
+            "product_codes[].code",
+            "product_codes[].name",
+            "product_codes[].openfda.device_name",
+            "product_codes[].openfda.medical_specialty_description",
+            "product_codes[].openfda.regulation_number",
+            "product_codes[].openfda.device_class",
+            "premarket_submissions[].submission_number",
+            "premarket_submissions[].supplement_number",
+            "device_count_in_base_package",
+            "is_pm_exempt",
+            "has_lot_or_batch_number",
+            "company_name",
+            "public_version_status",
+            "has_expiration_date",
+            "is_hct_p",
+            "gmdn_terms[].code",
+            "gmdn_terms[].name",
+            "gmdn_terms[].definition",
+            "gmdn_terms[].implantable",
+            "gmdn_terms[].code_status",
+            "publish_date"
+          ],
+          "bytes": 4077,
+          "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd",
+          "declaredTotal": 1,
+          "schemaHash": "e948e2963e9d7aae1124631b648ca5c3350595aa0b13e3bcee6b47d1c3948074",
+          "shape": {
+            "has_donation_id_number": "boolean",
+            "mri_safety": "string",
+            "record_status": "string",
+            "is_labeled_as_nrl": "boolean",
+            "is_rx": "boolean",
+            "commercial_distribution_status": "string",
+            "device_description": "string",
+            "public_device_record_key": "string",
+            "has_serial_number": "boolean",
+            "public_version_date": "date",
+            "sterilization.is_sterile": "boolean",
+            "sterilization.is_sterilization_prior_use": "boolean",
+            "is_direct_marking_exempt": "boolean",
+            "public_version_number": "number",
+            "labeler_duns_number": "number",
+            "is_labeled_as_no_nrl": "boolean",
+            "identifiers[].id": "number",
+            "identifiers[].type": "string",
+            "identifiers[].issuing_agency": "string",
+            "is_single_use": "boolean",
+            "is_otc": "boolean",
+            "version_or_model_number": "string",
+            "has_manufacturing_date": "boolean",
+            "brand_name": "string",
+            "is_combination_product": "boolean",
+            "is_kit": "boolean",
+            "product_codes[].code": "string",
+            "product_codes[].name": "string",
+            "product_codes[].openfda.device_name": "string",
+            "product_codes[].openfda.medical_specialty_description": "string",
+            "product_codes[].openfda.regulation_number": "number",
+            "product_codes[].openfda.device_class": "number",
+            "premarket_submissions[].submission_number": "string",
+            "premarket_submissions[].supplement_number": "number",
+            "device_count_in_base_package": "number",
+            "is_pm_exempt": "boolean",
+            "has_lot_or_batch_number": "boolean",
+            "company_name": "string",
+            "public_version_status": "string",
+            "has_expiration_date": "boolean",
+            "is_hct_p": "boolean",
+            "gmdn_terms[].code": "number",
+            "gmdn_terms[].name": "string",
+            "gmdn_terms[].definition": "string",
+            "gmdn_terms[].implantable": "boolean",
+            "gmdn_terms[].code_status": "string",
+            "publish_date": "date"
+          },
+          "sample": [
+            {
+              "has_donation_id_number": "false",
+              "mri_safety": "Labeling does not contain MRI Safety Information",
+              "record_status": "Published",
+              "is_labeled_as_nrl": "false",
+              "is_rx": "false",
+              "commercial_distribution_status": "In Commercial Distribution",
+              "device_description": "Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breast tomosynthesis exams from compatible FFDM and DBT systems, to identify regions suspicious for breast cancer and assess their likelihood of malignancy. Output of the device includes locations of calcifications groups and soft-tissue regions, with scores indicating the likelihood that cancer is present, and an exam score indicating the likelihood that cancer is present in the exam. Patient management decisions should not be made solely on the basis of analysis by Transpara®.",
+              "public_device_record_key": "e0b0f886-193f-469e-9ee6-77228f16c3a3",
+              "has_serial_number": "true",
+              "public_version_date": "2026-05-14",
+              "sterilization.is_sterile": "false",
+              "sterilization.is_sterilization_prior_use": "false",
+              "is_direct_marking_exempt": "false",
+              "public_version_number": "2",
+              "labeler_duns_number": "491352982",
+              "is_labeled_as_no_nrl": "false",
+              "identifiers[].id": "08720387058013",
+              "identifiers[].type": "Primary",
+              "identifiers[].issuing_agency": "GS1",
+              "is_single_use": "false",
+              "is_otc": "false",
+              "version_or_model_number": "1.7.2",
+              "has_manufacturing_date": "true",
+              "brand_name": "Transpara",
+              "is_combination_product": "false",
+              "is_kit": "false",
+              "product_codes[].code": "QDQ",
+              "product_codes[].name": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicious For Cancer",
+              "product_codes[].openfda.device_name": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicious For Cancer",
+              "product_codes[].openfda.medical_specialty_description": "Radiology",
+              "product_codes[].openfda.regulation_number": "892.2090",
+              "product_codes[].openfda.device_class": "2",
+              "premarket_submissions[].submission_number": "K221347",
+              "premarket_submissions[].supplement_number": "000",
+              "device_count_in_base_package": "1",
+              "is_pm_exempt": "false",
+              "has_lot_or_batch_number": "false",
+              "company_name": "Screenpoint Medical B.V.",
+              "public_version_status": "Update",
+              "has_expiration_date": "false",
+              "is_hct_p": "false",
+              "gmdn_terms[].code": "63386",
+              "gmdn_terms[].name": "X-ray image interpretive software",
+              "gmdn_terms[].definition": "An interpretive software program intended to be used to analyse non-dental x-ray images (e.g., chest, mammograms, tomograms) to detect and localize suspected abnormalities (e.g., tumours, emphysema, tuberculosis, blunted costophrenic angle) and possibly provide results as clinically relevant tags. It typically utilizes artificial intelligence (AI) and deep learning techniques, and may be compatible with radiology information systems, data formats, and medical imaging software programs [e.g., picture archiving and communication system (PACS), digital imaging and communications in medicine (DICOM) format].",
+              "gmdn_terms[].implantable": "false",
+              "gmdn_terms[].code_status": "Active",
+              "publish_date": "2023-03-03"
+            }
+          ]
+        }
+      },
+      {
+        "stage": "mapping_proposal",
+        "status": "passed",
+        "summary": "nvidia/nemotron-3.5-lightning-30b-a3b proposed 11 mappings (replayed from a recording); the validator decides",
+        "detail": {
+          "proposer": "model",
+          "recorded": true,
+          "model": {
+            "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "provider": "recorded",
+            "receiptId": "rcpt_req_1kd5qioy",
+            "promptTokens": 2338,
+            "completionTokens": 1700
+          },
+          "proposals": [
+            {
+              "sourceField": "public_version_date",
+              "canonicalField": "decision_date",
+              "confidence": 0.6,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "public_version_number",
+              "canonicalField": "software_version",
+              "confidence": 0.9,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "identifiers[].id",
+              "canonicalField": "udi_di",
+              "confidence": 0.8,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "version_or_model_number",
+              "canonicalField": "software_version",
+              "confidence": 0.95,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "brand_name",
+              "canonicalField": "brand_name",
+              "confidence": 1,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "product_codes[].code",
+              "canonicalField": "product_code",
+              "confidence": 0.9,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "product_codes[].openfda.device_name",
+              "canonicalField": "device_name",
+              "confidence": 0.9,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "product_codes[].openfda.device_class",
+              "canonicalField": "device_class",
+              "confidence": 0.8,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "premarket_submissions[].submission_number",
+              "canonicalField": "submission_number",
+              "confidence": 1,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "company_name",
+              "canonicalField": "applicant",
+              "confidence": 1,
+              "proposer": "model"
+            },
+            {
+              "sourceField": "publish_date",
+              "canonicalField": "decision_date",
+              "confidence": 0.6,
+              "proposer": "model"
+            }
+          ],
+          "dropped": [],
+          "flagged": [],
+          "disagreements": [],
+          "promptBytes": 8287,
+          "dataClass": "public"
+        }
+      },
+      {
+        "stage": "semantic_validation",
+        "status": "held",
+        "summary": "4 findings need a reviewer: public_version_date: the name \"public_version_date\" and the description do not say this column is decision_date; the values alone cannot tell it from a similar field",
+        "detail": {
+          "recordKind": "authorization",
+          "keyField": "submission_number",
+          "fields": [
+            {
+              "sourceField": "public_version_date",
+              "canonicalField": "decision_date",
+              "check": "needs_review",
+              "proposer": "model",
+              "unit": "ISO date",
+              "findings": [
+                {
+                  "rule": "uncorroborated",
+                  "severity": "hold",
+                  "message": "the name \"public_version_date\" and the description do not say this column is decision_date; the values alone cannot tell it from a similar field"
+                },
+                {
+                  "rule": "duplicate-target",
+                  "severity": "hold",
+                  "message": "\"public_version_date\" and \"publish_date\" are both proposed as decision_date"
+                }
+              ]
+            },
+            {
+              "sourceField": "public_version_number",
+              "canonicalField": "software_version",
+              "check": "needs_review",
+              "proposer": "model",
+              "findings": [
+                {
+                  "rule": "uncorroborated",
+                  "severity": "hold",
+                  "message": "the name \"public_version_number\" and the description do not say this column is software_version; the values alone cannot tell it from a similar field"
+                },
+                {
+                  "rule": "duplicate-target",
+                  "severity": "hold",
+                  "message": "\"public_version_number\" and \"version_or_model_number\" are both proposed as software_version"
+                }
+              ]
+            },
+            {
+              "sourceField": "identifiers[].id",
+              "canonicalField": "udi_di",
+              "check": "renamed",
+              "proposer": "model",
+              "findings": []
+            },
+            {
+              "sourceField": "version_or_model_number",
+              "canonicalField": "software_version",
+              "check": "needs_review",
+              "proposer": "model",
+              "findings": [
+                {
+                  "rule": "duplicate-target",
+                  "severity": "hold",
+                  "message": "\"public_version_number\" and \"version_or_model_number\" are both proposed as software_version"
+                }
+              ]
+            },
+            {
+              "sourceField": "brand_name",
+              "canonicalField": "brand_name",
+              "check": "ok",
+              "proposer": "model",
+              "findings": []
+            },
+            {
+              "sourceField": "product_codes[].code",
+              "canonicalField": "product_code",
+              "check": "renamed",
+              "proposer": "model",
+              "findings": [
+                {
+                  "rule": "join",
+                  "severity": "note",
+                  "message": "1 of 1 distinct values join to sk_registry.fda_classification.product_code"
+                }
+              ],
+              "join": {
+                "checked": 1,
+                "matched": 1,
+                "rate": 1,
+                "target": "sk_registry.fda_classification.product_code",
+                "queryId": "ccf05ab8-0956-4a7b-a3c3-f45b3eb8b4df",
+                "servedFrom": "cassette"
+              }
+            },
+            {
+              "sourceField": "product_codes[].openfda.device_name",
+              "canonicalField": "device_name",
+              "check": "ok",
+              "proposer": "model",
+              "findings": [
+                {
+                  "rule": "join",
+                  "severity": "note",
+                  "message": "0 of 1 distinct values join to sk_registry.fda_510k.device_name"
+                }
+              ],
+              "join": {
+                "checked": 1,
+                "matched": 0,
+                "rate": 0,
+                "target": "sk_registry.fda_510k.device_name",
+                "queryId": "a2ff4f4d-9fae-4001-b378-1f612ba76755",
+                "servedFrom": "cassette"
+              }
+            },
+            {
+              "sourceField": "product_codes[].openfda.device_class",
+              "canonicalField": "device_class",
+              "check": "ok",
+              "proposer": "model",
+              "findings": []
+            },
+            {
+              "sourceField": "premarket_submissions[].submission_number",
+              "canonicalField": "submission_number",
+              "check": "ok",
+              "proposer": "model",
+              "findings": [
+                {
+                  "rule": "join",
+                  "severity": "note",
+                  "message": "1 of 1 distinct values join to sk_registry.fda_510k.k_number"
+                }
+              ],
+              "join": {
+                "checked": 1,
+                "matched": 1,
+                "rate": 1,
+                "target": "sk_registry.fda_510k.k_number",
+                "queryId": "aedb7f18-0b1b-477f-9e59-c9a8e42713e0",
+                "servedFrom": "cassette"
+              }
+            },
+            {
+              "sourceField": "company_name",
+              "canonicalField": "applicant",
+              "check": "renamed",
+              "proposer": "model",
+              "findings": [
+                {
+                  "rule": "join",
+                  "severity": "note",
+                  "message": "1 of 1 distinct values join to sk_registry.fda_510k.applicant"
+                }
+              ],
+              "join": {
+                "checked": 1,
+                "matched": 1,
+                "rate": 1,
+                "target": "sk_registry.fda_510k.applicant",
+                "queryId": "9162f440-ad8a-4c30-b7a5-f0ec9471d32c",
+                "servedFrom": "cassette"
+              }
+            },
+            {
+              "sourceField": "publish_date",
+              "canonicalField": "decision_date",
+              "check": "needs_review",
+              "proposer": "model",
+              "unit": "ISO date",
+              "findings": [
+                {
+                  "rule": "uncorroborated",
+                  "severity": "hold",
+                  "message": "the name \"publish_date\" and the description do not say this column is decision_date; the values alone cannot tell it from a similar field"
+                },
+                {
+                  "rule": "duplicate-target",
+                  "severity": "hold",
+                  "message": "\"public_version_date\" and \"publish_date\" are both proposed as decision_date"
+                }
+              ]
+            }
+          ],
+          "tableFindings": [],
+          "duplicates": {
+            "exact": 0,
+            "conflicting": 0
+          },
+          "agreement": [
+            {
+              "field": "device_name",
+              "column": "device_name",
+              "compared": 1,
+              "agreed": 0,
+              "rate": 0,
+              "example": {
+                "key": "K221347",
+                "source": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicio",
+                "held": "Transpara 1.7.2"
+              },
+              "queryId": "cfa4c535-d54d-4c0a-8bb9-65ac00f999c9"
+            },
+            {
+              "field": "applicant",
+              "column": "applicant",
+              "compared": 1,
+              "agreed": 1,
+              "rate": 1,
+              "queryId": "cfa4c535-d54d-4c0a-8bb9-65ac00f999c9"
+            },
+            {
+              "field": "product_code",
+              "column": "product_code",
+              "compared": 1,
+              "agreed": 1,
+              "rate": 1,
+              "queryId": "cfa4c535-d54d-4c0a-8bb9-65ac00f999c9"
+            },
+            {
+              "field": "decision_date",
+              "column": "decision_date",
+              "compared": 1,
+              "agreed": 0,
+              "rate": 0,
+              "example": {
+                "key": "K221347",
+                "source": "2026-05-14",
+                "held": "2022-08-03"
+              },
+              "queryId": "cfa4c535-d54d-4c0a-8bb9-65ac00f999c9"
+            },
+            {
+              "field": "device_class",
+              "column": "device_class",
+              "compared": 1,
+              "agreed": 1,
+              "rate": 1,
+              "queryId": "cfa4c535-d54d-4c0a-8bb9-65ac00f999c9"
+            }
+          ],
+          "unmapped": [
+            "has_donation_id_number",
+            "mri_safety",
+            "record_status",
+            "is_labeled_as_nrl",
+            "is_rx",
+            "commercial_distribution_status",
+            "device_description",
+            "public_device_record_key",
+            "has_serial_number",
+            "sterilization.is_sterile",
+            "sterilization.is_sterilization_prior_use",
+            "is_direct_marking_exempt",
+            "labeler_duns_number",
+            "is_labeled_as_no_nrl",
+            "identifiers[].type",
+            "identifiers[].issuing_agency",
+            "is_single_use",
+            "is_otc",
+            "has_manufacturing_date",
+            "is_combination_product",
+            "is_kit",
+            "product_codes[].name",
+            "product_codes[].openfda.medical_specialty_description",
+            "product_codes[].openfda.regulation_number",
+            "premarket_submissions[].supplement_number",
+            "device_count_in_base_package",
+            "is_pm_exempt",
+            "has_lot_or_batch_number",
+            "public_version_status",
+            "has_expiration_date",
+            "is_hct_p",
+            "gmdn_terms[].code",
+            "gmdn_terms[].name",
+            "gmdn_terms[].definition",
+            "gmdn_terms[].implantable",
+            "gmdn_terms[].code_status"
+          ],
+          "discarded": []
+        }
+      },
+      {
+        "stage": "human_review",
+        "status": "held",
+        "summary": "held for a reviewer: 4 columns",
+        "detail": {
+          "ticket": "b77b9d57edcc19f30e6bd8793911464f8f1388435a0ffc0b258869185cbf0397",
+          "holds": [
+            {
+              "sourceField": "public_version_date",
+              "canonicalField": "decision_date",
+              "signatures": [
+                "uncorroborated#name",
+                "duplicate-target#decision_date"
+              ]
+            },
+            {
+              "sourceField": "public_version_number",
+              "canonicalField": "software_version",
+              "signatures": [
+                "uncorroborated#name",
+                "duplicate-target#software_version"
+              ]
+            },
+            {
+              "sourceField": "version_or_model_number",
+              "canonicalField": "software_version",
+              "signatures": [
+                "duplicate-target#software_version"
+              ]
+            },
+            {
+              "sourceField": "publish_date",
+              "canonicalField": "decision_date",
+              "signatures": [
+                "uncorroborated#name",
+                "duplicate-target#decision_date"
+              ]
+            }
+          ],
+          "tableHolds": [],
+          "needsDateChoice": []
+        }
+      },
+      {
+        "stage": "registration",
+        "status": "pending",
+        "summary": "waiting for a reviewer before registration"
+      },
+      {
+        "stage": "monitoring",
+        "status": "pending",
+        "summary": "waiting for a reviewer before monitoring"
+      }
+    ],
+    "mapping": [
+      {
+        "sourceField": "public_version_date",
+        "canonicalField": "decision_date",
+        "unit": "ISO date",
+        "confidence": 0.6,
+        "check": "needs_review",
+        "reason": "the name \"public_version_date\" and the description do not say this column is decision_date; the values alone cannot tell it from a similar field"
+      },
+      {
+        "sourceField": "public_version_number",
+        "canonicalField": "software_version",
+        "confidence": 0.9,
+        "check": "needs_review",
+        "reason": "the name \"public_version_number\" and the description do not say this column is software_version; the values alone cannot tell it from a similar field"
+      },
+      {
+        "sourceField": "identifiers[].id",
+        "canonicalField": "udi_di",
+        "confidence": 0.8,
+        "check": "renamed"
+      },
+      {
+        "sourceField": "version_or_model_number",
+        "canonicalField": "software_version",
+        "confidence": 0.95,
+        "check": "needs_review",
+        "reason": "\"public_version_number\" and \"version_or_model_number\" are both proposed as software_version"
+      },
+      {
+        "sourceField": "brand_name",
+        "canonicalField": "brand_name",
+        "confidence": 1,
+        "check": "ok"
+      },
+      {
+        "sourceField": "product_codes[].code",
+        "canonicalField": "product_code",
+        "confidence": 0.9,
+        "check": "renamed",
+        "reason": "1 of 1 distinct values join to sk_registry.fda_classification.product_code"
+      },
+      {
+        "sourceField": "product_codes[].openfda.device_name",
+        "canonicalField": "device_name",
+        "confidence": 0.9,
+        "check": "ok",
+        "reason": "0 of 1 distinct values join to sk_registry.fda_510k.device_name"
+      },
+      {
+        "sourceField": "product_codes[].openfda.device_class",
+        "canonicalField": "device_class",
+        "confidence": 0.8,
+        "check": "ok"
+      },
+      {
+        "sourceField": "premarket_submissions[].submission_number",
+        "canonicalField": "submission_number",
+        "confidence": 1,
+        "check": "ok",
+        "reason": "1 of 1 distinct values join to sk_registry.fda_510k.k_number"
+      },
+      {
+        "sourceField": "company_name",
+        "canonicalField": "applicant",
+        "confidence": 1,
+        "check": "renamed",
+        "reason": "1 of 1 distinct values join to sk_registry.fda_510k.applicant"
+      },
+      {
+        "sourceField": "publish_date",
+        "canonicalField": "decision_date",
+        "unit": "ISO date",
+        "confidence": 0.6,
+        "check": "needs_review",
+        "reason": "the name \"publish_date\" and the description do not say this column is decision_date; the values alone cannot tell it from a similar field"
+      }
+    ],
+    "schemaHash": "e948e2963e9d7aae1124631b648ca5c3350595aa0b13e3bcee6b47d1c3948074",
+    "recorded": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "9c9652214fad1caa88ae3750a97ad377195f6ae1e94331c5b9799eb98a19a6d4",
+  "statement": "SELECT UPPER(TRIM(CAST(k_number AS STRING))) AS held_key, CAST(device_name AS STRING) AS h_device_name, CAST(applicant AS STRING) AS h_applicant, CAST(product_code AS STRING) AS h_product_code, CAST(decision_date AS STRING) AS h_decision_date, CAST(device_class AS STRING) AS h_device_class FROM sk_registry.fda_510k WHERE UPPER(TRIM(CAST(k_number AS STRING))) IN ('K221347')",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.576Z",
+  "columns": [
+    "held_key",
+    "h_device_name",
+    "h_applicant",
+    "h_product_code",
+    "h_decision_date",
+    "h_device_class"
+  ],
+  "rawRows": [
+    [
+      "K221347",
+      "Transpara 1.7.2",
+      "Screenpoint Medical B.V.",
+      "QDQ",
+      "2022-08-03",
+      "2"
+    ]
+  ],
+  "total": 1,
+  "queryId": "cfa4c535-d54d-4c0a-8bb9-65ac00f999c9",
+  "recordedElapsedMs": 154,
+  "respHash": "4781d94bef65b256c4d540b7295ebbc06e0eae85b77f2c5af0df471b77b7e8cc"
+}

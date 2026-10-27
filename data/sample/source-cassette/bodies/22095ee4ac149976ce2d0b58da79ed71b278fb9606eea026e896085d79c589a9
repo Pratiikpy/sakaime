@@ -1,0 +1,3 @@
+{"totalCount":1,"studies":[
+{"protocolSection":{"identificationModule":{"nctId":"NCT06075836","briefTitle":"AI Assisted Detection of Chest X-Rays"},"statusModule":{"overallStatus":"COMPLETED","startDateStruct":{"date":"2023-10-31"}},"sponsorCollaboratorsModule":{"leadSponsor":{"name":"Oxford University Hospitals NHS Trust"}},"designModule":{"enrollmentInfo":{"count":33}},"armsInterventionsModule":{"interventions":[{"name":"Cases reading"},{"name":"Ground truthing"}]}}}
+]}

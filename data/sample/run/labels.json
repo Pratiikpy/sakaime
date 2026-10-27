@@ -5,8 +5,8 @@
       "claims": [
         {
           "claimId": "CASE-2026-014.intended",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_1c0237f7dc76ff107701977476e68580",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_32f9f38585a6102d002a0fb1f12a00c3",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -21,8 +21,8 @@
         },
         {
           "claimId": "CLM-EA-01",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_c269748406e829063722545595d3862f",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_49b196801db9be121b8ee97d6c741bcb",
           "label": "SUPPORTED_FOR_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -37,8 +37,8 @@
         },
         {
           "claimId": "CLM-EA-02",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_d5e1a6720dd7a3aa0404b1020b3d0727",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_5bc6053bae2cea35adfb69861741d7f8",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -53,8 +53,8 @@
         },
         {
           "claimId": "CLM-EA-03",
-          "dependsOnFacts": 59,
-          "findingId": "fnd_a046346e6439c3f61575cf58a99dd03b",
+          "dependsOnFacts": 58,
+          "findingId": "fnd_40a20c95e9cd3dceb140507b0a55bf99",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -69,8 +69,8 @@
         },
         {
           "claimId": "CLM-EA-04",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_b741dfca2c9f7fa10cb1fe4d824e6a03",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_5821d77d21345fe0142f7e946aea3407",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -85,8 +85,8 @@
         },
         {
           "claimId": "CLM-EA-05",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_857811fd59649554b6430093efbc3917",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_8bb5680c2371db4a2265a50ad4bd8479",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -101,8 +101,8 @@
         },
         {
           "claimId": "CLM-EA-06",
-          "dependsOnFacts": 56,
-          "findingId": "fnd_56760f97d2cf98fa9b693842c02eeb62",
+          "dependsOnFacts": 55,
+          "findingId": "fnd_63a60ea455ec6fa2799b63ed794e484b",
           "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -117,8 +117,8 @@
         },
         {
           "claimId": "CLM-EA-07",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_9b1c9d9d0a3a8749c0fbbfcd12e19a04",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_84576d5c740811d9409f68e869eddf40",
           "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -133,8 +133,8 @@
         },
         {
           "claimId": "CLM-EA-08",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_10de7b5733d302eb9e60e6c075b9d76a",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_bd1deb9277b481592c35b951942caf1e",
           "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -149,8 +149,8 @@
         },
         {
           "claimId": "CLM-EA-09",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_c3ba4c496333ac7cadb3de13afee9872",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_b8d29b724f7dba31b33b6f8559d10c8c",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -165,8 +165,8 @@
         },
         {
           "claimId": "CLM-EA-10",
-          "dependsOnFacts": 60,
-          "findingId": "fnd_9fac30a4a71d795a256db9ced87ba521",
+          "dependsOnFacts": 59,
+          "findingId": "fnd_044f619151dd545ae5109178ba04f2ce",
           "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -225,7 +225,7 @@
         },
         {
           "id": "lnk-dfec1b65e7b06dcb",
-          "state": "CONFIRMED",
+          "state": "AMBIGUOUS",
           "type": "SAME_MARKETED_VERSION"
         }
       ],
@@ -658,8 +658,8 @@
       "claims": [
         {
           "claimId": "CASE-2026-019.intended",
-          "dependsOnFacts": 16,
-          "findingId": "fnd_c2d1a13af41f87a09b2971d0e37abeb0",
+          "dependsOnFacts": 17,
+          "findingId": "fnd_febc4dfce14cc06308f4fdebafc11456",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -674,8 +674,8 @@
         },
         {
           "claimId": "CLM-TR-01",
-          "dependsOnFacts": 16,
-          "findingId": "fnd_843bbe3ea655d7267a67201ffe7ed944",
+          "dependsOnFacts": 17,
+          "findingId": "fnd_96175f335ad760b5119ad857ccbec653",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -911,7 +911,7 @@
       ]
     }
   ],
-  "digest": "506531116b88245a4b2fb305f7a3b2ea17ce7fa8b78ac124ae86471f4d90206a",
+  "digest": "baaeabc59ae4f3f69ff5b19547887cfd5dd3e5247776584c8f9df1e12e85c1cb",
   "format": "sakaime.sample-run/1",
   "note": "Labels, relations, federation statements and record hashes of the sample run. Sample mode must reproduce this byte for byte."
 }

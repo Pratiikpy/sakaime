@@ -1,0 +1,38 @@
+{
+  "format": "sakaime.federation-cassette/1",
+  "key": "988c37153bd92d723953b5b6c4114c68ab25211a019617b36bd9a2e7f9deb3b9",
+  "statement": "SHOW TABLES IN sk_rest",
+  "identity": "default",
+  "recordedAt": "2026-10-27T12:00:00.568Z",
+  "columns": [
+    "table_identifier",
+    "catalog_name",
+    "catalog_type"
+  ],
+  "rawRows": [
+    [
+      "sk_rest.ctgov_eyeart_static",
+      "sk_rest",
+      "Lightning Database"
+    ],
+    [
+      "sk_rest.fda_510k_k200667_static",
+      "sk_rest",
+      "Lightning Database"
+    ],
+    [
+      "sk_rest.ctgov_eyeart_live",
+      "sk_rest",
+      "Lightning Database"
+    ],
+    [
+      "sk_rest.fda_510k_k200667_live",
+      "sk_rest",
+      "Lightning Database"
+    ]
+  ],
+  "total": 4,
+  "queryId": "944199b2-9d82-4078-b0a3-af833902335e",
+  "recordedElapsedMs": 100,
+  "respHash": "c6d802d79485953857bd96143c1b4efc23dbb3f42aed08600c84a4b5fb11acf1"
+}

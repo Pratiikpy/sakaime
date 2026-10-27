@@ -196,11 +196,36 @@ describe("live versus recorded labels", () => {
     expect(reasons(c, "models.labels")[0]?.reason).toBe("reply is labelled recorded but is not marked recorded");
   });
 
-  it("fails a recorded reply that carries a live receipt, and a receipt for a different model", async () => {
+  it("fails a recorded reply that carries a receipt which is not the original signed one, and a receipt for a different model", async () => {
     const a = await check((b) => (b.models[1].receipt = { receiptId: "r", routedModel: "constructed-model-small", raw: {} }));
-    expect(reasons(a, "models.labels").map((f) => f.reason)).toContain("a recorded reply cannot carry a live receipt");
+    expect(reasons(a, "models.labels").map((f) => f.reason)).toContain("a recorded reply carries a receipt that is not the original signed one: it holds no signed envelope");
     const c = await check((b) => (b.models[0].receipt.routedModel = "other-model"));
     expect(reasons(c, "models.labels")[0]?.reason).toMatch(/receipt routed model other-model differs/);
+  });
+
+  it("accepts a recorded reply that carries the original signed receipt of the live call it replays", async () => {
+    const envelope = (id: string, model: string) => ({ body: { receipt: { receipt_id: id, winning_route: { model } } }, pubkey_b64: "AAAA", sig_b64: "BBBB" });
+    const ok = await check((b) => (b.models[1].receipt = { receiptId: "rcpt-9", routedModel: "constructed-model-small", raw: { envelope: envelope("rcpt-9", "constructed-model-small") } }));
+    expect(reasons(ok, "models.labels")).toEqual([]);
+    // an envelope that signs another receipt id, another model, or lacks its signature is not the original
+    const otherId = await check((b) => (b.models[1].receipt = { receiptId: "rcpt-9", routedModel: "constructed-model-small", raw: { envelope: envelope("rcpt-other", "constructed-model-small") } }));
+    expect(reasons(otherId, "models.labels")[0]?.reason).toMatch(/signs a different receipt id/);
+    const otherModel = await check((b) => (b.models[1].receipt = { receiptId: "rcpt-9", routedModel: "constructed-model-small", raw: { envelope: envelope("rcpt-9", "another-model") } }));
+    expect(reasons(otherModel, "models.labels")[0]?.reason).toMatch(/signs a different model/);
+    const unsigned = await check((b) => (b.models[1].receipt = { receiptId: "rcpt-9", routedModel: "constructed-model-small", raw: { envelope: { body: envelope("rcpt-9", "constructed-model-small").body } } }));
+    expect(reasons(unsigned, "models.labels")[0]?.reason).toMatch(/no signature or public key/);
+  });
+
+  it("fails a live reply labelled nightshift that has lost its receipt", async () => {
+    const r = await check((b) => delete b.models[0].receipt);
+    expect(reasons(r, "models.labels").map((f) => f.reason)).toContain("a live reply labelled nightshift carries no receipt: it is Nightshift's only if its signed receipt is attached");
+  });
+
+  it("hands every receipt to the supplied verifier, so a forged signature on a replayed reply is rejected", async () => {
+    const envelope = { body: { receipt: { receipt_id: "rcpt-9", winning_route: { model: "constructed-model-small" } } }, pubkey_b64: "AAAA", sig_b64: "BBBB" };
+    const body = forge((b) => (b.models[1].receipt = { receiptId: "rcpt-9", routedModel: "constructed-model-small", raw: { envelope } }));
+    const result = await verifyDossier(body, { ...verifyOptions, verifyReceipt: (r) => ({ valid: r.receiptId !== "rcpt-9", reason: "the signature does not match" }) });
+    expect(result.failures.find((f) => f.check === "receipts.verify")?.reason).toMatch(/rcpt-9 rejected: the signature does not match/);
   });
 
   it("fails a federation result served from a cassette but labelled live", async () => {

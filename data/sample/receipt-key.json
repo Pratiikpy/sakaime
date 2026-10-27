@@ -1,0 +1,7 @@
+{
+  "schema": "sakaime.receipt-key-pin/1",
+  "keyId": "e92caae86b5f702e",
+  "nightshiftVersion": "1.2.3",
+  "recordings": 61,
+  "note": "The key id (first 16 hex characters of the SHA-256 of the Ed25519 public key) of the Nightshift installation that made the model recordings. Sample mode accepts a stored receipt only if its signature verifies and it was signed by this key. A receipt shows where a reply was routed and that this runtime signed it; it does not commit to the reply text, and it shows origin, not truth. Compare the key id with the one in your own installation's receipt log to see whether the recordings came from the same installation."
+}

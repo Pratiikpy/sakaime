@@ -15,7 +15,7 @@
  */
 import { supersede } from "../compiler/index.ts";
 import { PortError, type ModelResponse } from "../ports/index.ts";
-import type { Finding } from "../schemas/index.ts";
+import type { DataClass, Finding } from "../schemas/index.ts";
 import { allClaims } from "../service/cases.ts";
 import type { AssembledEvidence } from "../service/assemble.ts";
 import type { ReadStep, StepOutcome } from "../service/reader.ts";
@@ -191,7 +191,12 @@ export class Investigation {
 
   // ---------------------------------------------------------------- model helper
 
-  private async ask(role: string, prompt: { system: string; user: string }, schema: Record<string, unknown>, maxTokens: number, purpose: string): Promise<{ json: unknown; response: ModelResponse } | undefined> {
+  /**
+   * `dataClass` is the highest class in the prompt. The planner, critic and reporter prompts carry the vendor packet's structured
+   * claim fields and the hospital's intended use, so they are vendor-confidential and the egress policy decides whether they may
+   * leave. Only a prompt built from public records alone is public.
+   */
+  private async ask(role: string, prompt: { system: string; user: string }, schema: Record<string, unknown>, maxTokens: number, purpose: string, dataClass: DataClass): Promise<{ json: unknown; response: ModelResponse } | undefined> {
     const model = this.wb.env.model;
     if (!model || this.env.coreOnly) {
       this.planNotes.push(`${role}: no model call (${this.env.coreOnly ? "core-only run" : (this.env.modelNote ?? "no model is configured")}); the rule path was used`);
@@ -199,7 +204,7 @@ export class Investigation {
     }
     try {
       this.env.budget.spend("model", purpose);
-      const response = await model.complete({ role, system: prompt.system, user: prompt.user, jsonSchema: schema, maxTokens, dataClass: "public", memoryScope: this.env.newScope() });
+      const response = await model.complete({ role, system: prompt.system, user: prompt.user, jsonSchema: schema, maxTokens, dataClass, memoryScope: this.env.newScope() });
       const json = response.json ?? parseJson(response.text);
       return { json, response };
     } catch (error) {
@@ -256,6 +261,7 @@ export class Investigation {
       PLAN_JSON_SCHEMA,
       900,
       "plan",
+      "vendor-confidential",
     );
     if (asked) {
       const vetted = vetSuggestion(asked.json, this.spec, [...steps, ...disc.steps]);
@@ -447,7 +453,7 @@ export class Investigation {
     this.say("critic", `code checks on ${results.length} findings: ${notes.filter((n) => n.status === "confirmed").length} confirmed objections, ${notes.filter((n) => n.status === "info").length} open facts for the reviewer`, { notes: notes.map((n) => ({ id: n.id, kind: n.kind, status: n.status, findingId: n.findingId })) });
 
     const prompt = criticPrompt(results.map((r) => findingView(r, anchors)));
-    const asked = await this.ask("critic", prompt, CRITIC_JSON_SCHEMA, 1200, "critique");
+    const asked = await this.ask("critic", prompt, CRITIC_JSON_SCHEMA, 1200, "critique", "vendor-confidential");
     if (asked) {
       const vetted = vetObjections(asked.json, results, anchors);
       notes.push(...vetted);
@@ -490,7 +496,7 @@ export class Investigation {
     const results = this.wb.results;
     const anchors = new Map(this.wb.assembled!.anchors.map((a) => [a.id, a]));
     const ctx = { findings: results.map((r) => r.finding), claims: new Map(results.map((r) => [r.finding.claimId, r.compiled])), anchors };
-    const asked = await this.ask("reporter", reportPrompt(results, anchors), REPORT_JSON_SCHEMA, 2200, "report");
+    const asked = await this.ask("reporter", reportPrompt(results, anchors), REPORT_JSON_SCHEMA, 2200, "report", "vendor-confidential");
     const sentences = (asked?.json as { sentences?: unknown[] } | undefined)?.sentences;
     this.prose = composeProse(
       results,

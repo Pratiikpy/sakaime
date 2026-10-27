@@ -18,7 +18,8 @@
  * Needs the local Zetaris stack (infra/zetaris) and a model route. Public-class content only is recorded: regulator,
  * registry and publication text and structured claim fields; vendor claim sentences never enter a prompt.
  */
-import { cpSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { cpSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { auditCassettes, defaultReceiptLogPath, readInstalledKeyId, readInstalledNightshiftVersion } from "../src/models/index.ts";
 import { CassetteStore } from "../src/sources/index.ts";
@@ -37,6 +38,19 @@ const liveSources = process.argv.includes("--live-sources");
 const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
 if (!liveSources && !replayOnly) process.env["SAKAIME_SOURCES"] = "cassette";
 if (resume) process.env["SAKAIME_RESUME"] = "1";
+// A recording starts with no memory of earlier onboarding answers: the onboarding ledger would otherwise return a stored answer
+// without asking the model or the engine, and nothing would be recorded for the replay to reproduce.
+if (!replayOnly && !process.env["SAKAIME_STATE_DIR"]) process.env["SAKAIME_STATE_DIR"] = mkdtempSync(join(tmpdir(), "sakaime-record-"));
+
+/**
+ * The three "Add a source" examples of the Sources screen. The first is the real flow: authorise, probe the public API, discover
+ * the Zetaris catalog, propose a mapping with the model, check it, land the snapshot and register it. The other two end at stage 1.
+ */
+const ONBOARDING_EXAMPLES = [
+  { name: "allowed", description: "FDA device identifier records for the Transpara breast-screening software, to read its software version labels.", url: "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K221347%22&limit=100" },
+  { name: "metadata", description: "Instance metadata for the host machine.", url: "https://169.254.169.254/latest/meta-data/" },
+  { name: "unlisted", description: "A vendor-hosted results file that is not on the allowlist.", url: "https://results.unlisted-vendor.example/trial-export.json" },
+] as const;
 
 const sha = (b: Uint8Array | string): string => createHash("sha256").update(b).digest("hex");
 
@@ -94,6 +108,15 @@ async function main(): Promise<void> {
       if (r.wb.summaryDoc) docs.push(r.wb.summaryDoc);
       console.log(`${id}: ${r.status} in ${Math.round((Date.now() - started) / 1000)} s; ${r.results.map((x) => `${x.claim.id}=${x.finding.label}`).join(" ")}`);
     }
+    if (only.length === 0) {
+      // The object store of the local Zetaris stack, which the landing stage writes to while recording.
+      if (!process.env["SAKAIME_OBJECT_STORE_URL"]) process.env["SAKAIME_OBJECT_STORE_URL"] = `http://127.0.0.1:${process.env["SAKAIME_S3_PORT"] ?? "19190"}`;
+      for (const ex of ONBOARDING_EXAMPLES) {
+        const started = Date.now();
+        const r = await live.proposeSource({ description: ex.description, url: ex.url });
+        console.log(`onboarding ${ex.name}: ${r.outcome} in ${Math.round((Date.now() - started) / 1000)} s${r.reason ? ` (${r.reason.slice(0, 160)})` : ""}; stages ${r.stages.map((x) => `${x.stage}:${x.status}`).join(" ")}`);
+      }
+    }
     (live.sources.recording as CassetteStore | undefined)?.save();
     if (!replaysSources(cfg)) recordDocuments(cfg, docs);
     live.close();
@@ -109,6 +132,13 @@ async function main(): Promise<void> {
     const r = await sample.investigate(c.spec.id);
     runs.push(r);
     console.log(`replay ${c.spec.id}: ${r.status}`);
+  }
+  // "Add a source" in sample mode: the same three requests, answered from the recordings of the real run.
+  if (only.length === 0 || replayOnly) {
+    for (const ex of ONBOARDING_EXAMPLES) {
+      const r = await sample.proposeSource({ description: ex.description, url: ex.url });
+      console.log(`replay onboarding ${ex.name}: ${r.outcome}; stages ${r.stages.map((x) => `${x.stage}:${x.status}`).join(" ")}`);
+    }
   }
   const rec = recordedRun(runs);
   console.log("recorded run written to", writeRecordedRun(cfg.dirs.sampleRun, rec));
@@ -244,6 +274,7 @@ async function writeApiExamples(sample: SakaimeService, cfg: ServiceConfig): Pro
     { name: "decision", method: "POST", path: "/api/cases/eyeart-k200667/decision", body: decisionBody },
     { name: "decision-replayed", method: "POST", path: "/api/cases/eyeart-k200667/decision", body: decisionBody },
     { name: "drill-source-off-no-target", method: "POST", path: "/api/cases/eyeart-k200667/drill", body: { drill: "source_off" } },
+    { name: "propose-allowed-source", method: "POST", path: "/api/sources/propose", body: { description: ONBOARDING_EXAMPLES[0].description, url: ONBOARDING_EXAMPLES[0].url } },
     { name: "propose-metadata-address", method: "POST", path: "/api/sources/propose", body: { description: "Instance metadata of the host", url: "http://169.254.169.254/latest/meta-data/" } },
     { name: "verify-not-a-dossier", method: "POST", path: "/api/dossier/verify", body: [] },
     { name: "error-unknown-case", method: "GET", path: "/api/cases/no-such-case" },

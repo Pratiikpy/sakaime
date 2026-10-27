@@ -114,7 +114,16 @@ describe("EyeArt K200667, the case with a registry study", () => {
     expect(paper.link.state).toBe("CONFIRMED");
     expect(paper.derived).toBe(true);
     expect(paper.link.basis.join(" ")).toMatch(/chaining two confirmed links/);
-    expect(links.find((l) => l.link.type === "SAME_MARKETED_VERSION")!.link.state).toBe("CONFIRMED");
+    // The release link is not confirmed in this recording, and the reason is a model reply, not the rules. Nemotron's second opinion on
+    // the FDA summary's own sentence ("EyeArt (software version v2.1.0)") answered does_not_support for device.version 2.1.0, reading
+    // "v2.1.0" against "2.1.0" as a difference. A model can reject a fact but never admit one, so the pattern-extracted fact is dropped
+    // from the evidence, the link loses its corroboration and stays AMBIGUOUS, and the labels that depend on the release do not change
+    // (they were already unsupported on other dimensions). An earlier recording through NVIDIA's API passed the same sentence.
+    const release = links.find((l) => l.link.type === "SAME_MARKETED_VERSION")!;
+    expect(release.link.state).toBe("AMBIGUOUS");
+    expect(release.link.basis.join(" ")).toMatch(/corroboration is missing/);
+    const rejected = eye().wb.evidenceRecords().assertions.filter((a) => a.predicate === "device.version" && a.value === "2.1.0" && a.extractionMethod === "pattern");
+    expect(rejected.some((a) => a.supportVerified === "FAIL")).toBe(true);
   });
 
   it("keeps registry studies that only share the product name as candidates and does not use them", () => {
