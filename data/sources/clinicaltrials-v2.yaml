@@ -1,0 +1,44 @@
+id: clinicaltrials-v2
+title: ClinicalTrials.gov API v2
+kind: registry
+connector: clinicaltrials-v2
+baseUrl: https://clinicaltrials.gov/api/v2
+hosts:
+  - host: clinicaltrials.gov
+    pathPrefixes: ["/api/v2/"]
+auth: none
+politeness:
+  requests: 3
+  perSeconds: 1
+  basis: "our own pacing; the registry's published limit is NOT VERIFIED"
+identifierFields: [protocolSection.identificationModule.nctId, protocolSection.identificationModule.secondaryIdInfos]
+supportedPredicates:
+  - nctId:eq
+  - query.term:text
+  - query.intr:text
+  - query.spons:text
+license: "Public registry data; terms of use NOT VERIFIED"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  search:
+    - { path: studies, type: array }
+    - { path: totalCount, type: number, optional: true }
+    - { path: "studies[].protocolSection.identificationModule.nctId", type: string }
+  study:
+    - { path: protocolSection.identificationModule.nctId, type: string }
+    - { path: protocolSection.statusModule.overallStatus, type: string }
+    - { path: hasResults, type: boolean, optional: true }
+probe:
+  operation: study
+  query: { nct_id: NCT03112005 }
+  description: "A known registered study (EyeArt pivotal, NCT03112005)."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s7: a search with no match returns 200 with an empty studies array; a malformed id or pageSize returns 400 with a plain message; GET /api/v2/version gave apiVersion 2.0.5 and dataTimestamp 2026-10-26T09:00:04."
+    - "Recorded responses: fourteen study records, a study id the registry does not hold (404, plain text 'NCT number ... not found'), twenty-seven searches (several with no studies), and a 400 for a non-numeric pageSize."
+  notVerified:
+    - "Published rate limit and terms of use: the documentation page is rendered by JavaScript and returned no text."
+    - "Update cadence. The dataTimestamp looks daily but no schedule was read."
+    - "Searching the intervention field by device name misses studies that name the device only in the description (EyeArt, MASAI and GI Genius were all missed that way), so an EMPTY result from an intervention search means none found in that field."

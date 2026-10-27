@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "false",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "Paige Prostate is a software only device intended to assist pathologists in the detection of foci that are suspicious for cancer during the review of scanned whole slide images (WSI) from prostate needle biopsies prepared from hematoxylin & eosin (H&E) stained formalin-fixed paraffin embedded (FFPE) tissue. After initial diagnostic review of the WSI by the pathologist, if Paige Prostate detects tissue morphology suspicious for cancer, it provides coordinates (X,Y) on a single location on the image with the highest likelihood of having cancer for further review by the pathologist.",
+      "public_device_record_key": "50574731-36b3-45e1-bd64-5204f3bef0bc",
+      "has_serial_number": "true",
+      "public_version_date": "2021-11-18",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "1",
+      "labeler_duns_number": "081368558",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00860007599118",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.X",
+      "has_manufacturing_date": "false",
+      "brand_name": "Paige Prostate",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QPN",
+          "name": "Software Algorithm Device To Assist Users In Digital Pathology",
+          "openfda": {
+            "device_name": "Software Algorithm Device To Assist Users In Digital Pathology",
+            "medical_specialty_description": "Pathology",
+            "regulation_number": "864.3750",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN200080",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "false",
+      "company_name": "PAIGE.AI, INC.",
+      "public_version_status": "New",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "58721",
+          "name": "Histology/cytology/microbiology image-analysis interpretive software IVD",
+          "definition": "An interpretive software program with image analysis algorithms [e.g., artificial intelligence (AI)-based] intended to be used in a digital pathology or microbiology laboratory to assist in the analysis of clinical specimens (e.g., biopsy, blood smear, urine) and/or microbial cultures for the quantitative/qualitative detection of cell markers (e.g., hormone receptors), changes in tissue architecture and/or cell morphological/physiological characteristics [e.g., nucleus size, cytoplasmic granularity, rate of cell division], and/or infectious microorganisms associated with a disease (e.g., breast cancer, malaria, UTI). Results are also interpreted by a clinician to guide patient management.",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2021-11-10"
+    }
+  ]
+}

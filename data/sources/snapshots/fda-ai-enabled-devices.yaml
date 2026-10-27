@@ -1,0 +1,31 @@
+id: fda-ai-enabled-devices
+file: fda-ai-enabled-devices.csv
+sha256: b1efeb680371f44cae574ae5a5aa548ac8a63391e6888a007b17177d17527880
+bytes: 141468
+sourceUrl: https://www.fda.gov/media/178541/download?attachment
+capturedOn: 2026-10-27
+capturedBy: the safe fetcher in src/sources (Node HTTPS GET, one request,
+  redirects not followed)
+sourceLastModified: 2026-09-04T11:54:09.000Z
+contentCurrentAsOf: 2026-09-04
+rows: 1614
+columns:
+  - Date of Final Decision
+  - Submission Number
+  - Device
+  - Company
+  - Panel (Lead)
+  - Primary Product Code
+notes:
+  - The bytes are pinned exactly as served, CRLF line endings included.
+  - "The feasibility probe's browser capture (sha256
+    315672a00715b7c076b6ca79807cce028e2e7f21f79bab73e6bc841671c112af, 141,730
+    bytes) carries 69 lines with a stray A-circumflex before a registered or
+    trademark sign. That was introduced by the capture, not by FDA: decoding the
+    capture as UTF-8 and encoding it as windows-1252 reproduces these bytes
+    exactly. Row content is otherwise identical."
+  - The FDA list page was reported as blocked for scripted access on 2026-10-27
+    (redirect to an abuse-detection page for curl and urllib). This request,
+    made from Node later the same day, was served. Whether that is stable is NOT
+    VERIFIED, so the snapshot is still treated as a stale pinned copy.
+  - FDA states the list is not a comprehensive resource.

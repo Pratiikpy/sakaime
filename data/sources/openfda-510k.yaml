@@ -1,0 +1,50 @@
+id: openfda-510k
+title: openFDA device 510(k) and De Novo clearances
+kind: regulator
+connector: openfda-510k
+baseUrl: https://api.fda.gov/device/510k.json
+hosts:
+  - host: api.fda.gov
+    pathPrefixes: ["/device/"]
+auth: none
+rateLimit:
+  requests: 240
+  perSeconds: 60
+  perDay: 1000
+  basis: "open.fda.gov/apis/authentication, no key: 240 requests per minute and 1,000 per day per IP (read 2026-10-27, FEASIBILITY-REPORT s7)"
+rateLimitGroup: openfda
+identifierFields: [k_number, product_code, applicant, device_name]
+supportedPredicates:
+  - k_number:eq
+  - k_number:in
+  - applicant:phrase
+  - device_name:phrase
+  - product_code:eq
+license: "CC0 per open.fda.gov/license, with the openFDA disclaimer not to rely on it for medical decisions"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  main:
+    - { path: meta.last_updated, type: string }
+    - { path: meta.results.total, type: number }
+    - { path: results, type: array }
+    - { path: "results[].k_number", type: string }
+    - { path: "results[].device_name", type: string }
+    - { path: "results[].applicant", type: string }
+    - { path: "results[].decision_date", type: string }
+    - { path: "results[].product_code", type: string }
+probe:
+  operation: main
+  query: { k_number: K200667 }
+  description: "A known clearance (EyeArt, K200667) that returned exactly one record on 2026-10-27."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s2: 1,593 of 1,593 K and DEN numbers on the FDA AI list resolved with k_number:(K1 OR K2 ...) in batches of 25, zero errors."
+    - "Recorded responses: twelve lookups by K or DEN number; the NOT_FOUND body for an unknown number; a 400 for a bad limit; a 500 for an unparseable search; and an HTML 404 for a wrong path."
+    - "Live request 2026-10-27: applicant:\"Eyenuk, Inc.\" AND device_name:\"EyeArt\" returned two records (K200667 and K223357), so the phrase predicates work on this endpoint."
+  notVerified:
+    - "product_code:eq against this endpoint was not exercised (it was exercised against the classification endpoint only); the connector builds it but it is unconfirmed here."
+    - "Update cadence. meta.last_updated was 2026-10-19 on 2026-10-27; no published schedule was read."
+    - "Whether a key raises the limits for this use; none was requested."
+    - "No indications text, software version or study field exists on this endpoint (observed); it is an identity and decision record only."

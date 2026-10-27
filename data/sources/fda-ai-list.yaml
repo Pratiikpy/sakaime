@@ -1,0 +1,36 @@
+id: fda-ai-list
+title: FDA list of AI-enabled medical devices (pinned snapshot)
+kind: regulator
+connector: fda-ai-list
+baseUrl: https://www.fda.gov/media/178541/download?attachment
+hosts:
+  - host: www.fda.gov
+    pathPrefixes: ["/media/", "/medical-devices/"]
+auth: none
+politeness:
+  requests: 1
+  perSeconds: 5
+  basis: "our own pacing for the single status probe; the page is behind bot protection"
+identifierFields: [Submission Number, Primary Product Code, Company, Device]
+supportedPredicates: []
+license: "US government work; reuse terms NOT VERIFIED"
+dataClass: public
+schemaVersion: "1"
+access: pinned-snapshot
+snapshot:
+  manifest: snapshots/fda-ai-enabled-devices.yaml
+probe:
+  operation: live-status
+  query: {}
+  description: "One request for the CSV without following redirects. A redirect to the abuse-detection page means BLOCKED for scripts."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s1: scripted fetch (curl and urllib, with our UA, a browser UA and the default UA) gets a 302 or 301 to /apology_objects/abuse-detection-apology.html for the page and a 404 for the CSV; a real browser session loads the page and fetches the CSV (HTTP 200, text/csv)."
+    - "Live request 2026-10-27, later the same day: one Node GET with the fetcher's User-Agent, redirects not followed, was answered 200 text/csv, 141,468 bytes, Last-Modified Fri, 04 Sep 2026 11:54:09 GMT. That byte-exact copy is the pinned snapshot; the probe's browser capture (141,730 bytes) differed only by a windows-1252 decoding step."
+    - "The page states 'Content current as of 09/04/2026'."
+  notVerified:
+    - "Whether scripted access keeps working. It was refused for curl and urllib and served to Node on the same day, so the snapshot is still treated as stale and the live list is not fetched by default."
+    - "The Excel and XML downloads were never fetched, and whether they match the CSV was not checked."
+    - "Update cadence. FDA states the list is not a comprehensive resource and that devices without a published decision summary are added later."
+    - "Reuse terms."

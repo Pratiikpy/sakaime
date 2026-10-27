@@ -1,0 +1,3642 @@
+{
+  "version": 1,
+  "name": "public-evidence-2026-10-27",
+  "description": "Real responses recorded on 2026-10-27 by the feasibility probe (read-only GET, no keys), plus later live recordings marked as such. Replayed offline; every body is verified against its hash on load.",
+  "entries": [
+    {
+      "requestHash": "73deee323e6f78e70c708e5073b5460b0402901fe05c705cd01f0418719d580a",
+      "request": {
+        "method": "GET",
+        "url": "https://api.crossref.org/works/10.1001/jamacardio.2021.0185"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "sha256": "5d61c61ae06020f0444c1a60713ffa9bc9c1b7ff7ef181cb8c20847e38f3040f",
+        "bytes": 13565
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/crossref_10.1001_jamacardio.2021.0185.json"
+      }
+    },
+    {
+      "requestHash": "3feb46c0ad1ae7c7f00ff893ce5dfaaa1f991b1616f9ab09c9e8bd9ab25c8201",
+      "request": {
+        "method": "GET",
+        "url": "https://api.crossref.org/works/10.1001/jamanetworkopen.2021.34281"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "text/plain"
+        },
+        "sha256": "ae8462e3af85ca7577aaa97ff22a194f9dfd7fada58cf4944b53d2fdfa7b1f92",
+        "bytes": 19
+      },
+      "recordedAt": "2026-10-27T05:09:31.580Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "dbd33603e370d5eba7c73fb3bf52c76923b9c709eabea583dea70f11dee481b1",
+      "request": {
+        "method": "GET",
+        "url": "https://api.crossref.org/works?query.bibliographic=EyeArt%20pivotal%20evaluation%20referrable%20diabetic%20retinopathy&rows=3&select=DOI,title,issued,relation"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json"
+        },
+        "sha256": "a02d57cd4afe7c8a2a219ac04162ec7b7ba911a2a89cdaf0e76d9e51dd554910",
+        "bytes": 808
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/crossref_search_eyeart.json"
+      }
+    },
+    {
+      "requestHash": "24c036e41661f83856d12eb734cfaf90610a8ac0f5ffb655c95da40e2a02d407",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=applicant%3A%22Eyenuk%2C+Inc.%22+AND+device_name%3A%22EyeArt%22&limit=25"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"c19-QvnqVpcXWGGkvVDBGshCtsK6cmw\""
+        },
+        "sha256": "d5dff4eec78fc30161b56943f5a49b364d34770b8ca596643dceb513759f2dc3",
+        "bytes": 3097
+      },
+      "recordedAt": "2026-10-27T05:27:18.703Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "b1f37f4f04a10b23b49375ddcf5c9017618f786ea9f85fc29bbc2a4028e377e9",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=device_name:("
+      },
+      "response": {
+        "status": 500,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"1e1-9jxm4UjHxfEQshtsiaqDjTQNMDI\""
+        },
+        "sha256": "c63ee041710626e54471b71b7ed53601cb201f98e100941fbd1a38e23677b0c8",
+        "bytes": 481
+      },
+      "recordedAt": "2026-10-27T05:09:18.141Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "10d45dae5f5c7d15d14b24fd53e0671927d7ba5d73b1e1b5d71d4041b5f7e789",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:DEN170073"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "766f45164e51c74566bb671bc0ba35a57714fd8d7857389b3d7e5644f51196cd",
+        "bytes": 2534
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_DEN170073.json"
+      }
+    },
+    {
+      "requestHash": "b5aeb3c73956375e9b19880d2c6cfeef890d67bd80a202c3062ef11c07facc67",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:DEN180001"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "d3f8007f170156dbd5615fb57a4d5e298ff7b50ce52adc1adc8438618dc614ca",
+        "bytes": 1765
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_DEN180001.json"
+      }
+    },
+    {
+      "requestHash": "c998e7797021241da6d0bc65f140469477b47c2cde77fc17058b3030e4ff3804",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:DEN190040"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "1b871bf81c1296206c8e12e85190cfc30dd13e6ac44e1cbabc8487e551e17bac",
+        "bytes": 1829
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_DEN190040.json"
+      }
+    },
+    {
+      "requestHash": "b8048b400d1af743c91bedf95ecbd9b141f574eba952b5ae3419b1fb9e5b480e",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:DEN200055"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "fff4bff5ebed19672da4299419ba6c696016e1f3eae43ee214b75d2e3ad02be0",
+        "bytes": 2313
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_DEN200055.json"
+      }
+    },
+    {
+      "requestHash": "4b5d439cc5ca67579f109cf6c8869c659b6013ad415a53e87f906c37106acc59",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:DEN200080"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "5fb2d7e1e7e22667183c5ffc51ecf9b64b130c38061547622d440bda98ff445c",
+        "bytes": 1723
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_DEN200080.json"
+      }
+    },
+    {
+      "requestHash": "c16a38e989804806f2d942e9b1c275d3df0860dfd531968b8fce836b5cb18662",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K000000"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da",
+        "bytes": 80
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K253265.json"
+      }
+    },
+    {
+      "requestHash": "bc8c394b4673723b3486e01fee84f696cddb326b57b76cdf9888949f55802e1f",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K200667"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "7d5e109b9f6a31221de53ae6f375a3cb9dfebbb5542d7c61c2e75c46798e2f3e",
+        "bytes": 1807
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K200667.json"
+      }
+    },
+    {
+      "requestHash": "fe93013b0bd4aa307dae421a1b3493efbba5f0c6903b73258cfa7497d34159cb",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K211733"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "562b26a634d838bac9fffb129538989d9ea55dcb114c767210a30805e4407a7c",
+        "bytes": 2721
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K211733.json"
+      }
+    },
+    {
+      "requestHash": "cdd99f5b1790c69fe08ebe54619c2db5173f37628ba8066d7ab8462e1f2e40f6",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K213857"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "08958ef3e3ae1fa2d22c66c52b1832148fab170e86148f8e7fdbed397e792d9d",
+        "bytes": 1764
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K213857.json"
+      }
+    },
+    {
+      "requestHash": "7ab27f3873de489be173b406a6505437f6c5bfae3de2afb2d18588b74af26a35",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K221347"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "b68cbf306b82a27cec6fb0a264487e3708a84f8d6f06f937b36351e3ea3896c4",
+        "bytes": 2249
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K221347.json"
+      }
+    },
+    {
+      "requestHash": "bb99e8da7f67ee26c947f7145cde04ba0140396c52d779ae276fedfc31379871",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K232699"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "4e80db9edee197675e8f0863b07e607a6770a177418a5b4090b8f26451fe2535",
+        "bytes": 1994
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K232699.json"
+      }
+    },
+    {
+      "requestHash": "0f997bbd1d173c591494f5f63dc67b26eca4d470f674f2e4b66059a02b0f0336",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K240301"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "effd1b7d1293a7f0b26179b29becc7190465c19faa60b3b40fb2dc4c4ec56136",
+        "bytes": 2219
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K240301.json"
+      }
+    },
+    {
+      "requestHash": "c55743a8ca318f2dcad506e1c9256d3713084230f11290791bf3f8b490eda4b4",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K253265"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "451946a3e28f5d459474a33e517dd9869dc76f3a8ce78a8417851d87a48bca32",
+        "bytes": 2574
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/510k_K253265.json"
+      }
+    },
+    {
+      "requestHash": "1c4bd938d70bc0d8d5a697f719465c1e48b96c1edcb1f4483483ba223d82b48f",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/510k.json?search=k_number:K253265&limit=abc"
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"5f-ki1m5wG4ds0MG6T91nJxP5pY1fA\""
+        },
+        "sha256": "b84a4f1837a5ea60fddf53ad08bbfbec826cad718f020db31a08bc9bba2a4ff6",
+        "bytes": 95
+      },
+      "recordedAt": "2026-10-27T05:09:20.771Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "dfa31cc866d55db4131306778ee5d35c4fa9c014dd761bca63adbd83d6b5c82c",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:PIB"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "b93a0ac8b2f303a2bf7dbc6eb1cbafb835dea097dcc79f697d91408156c73c1e",
+        "bytes": 1789
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_PIB.json"
+      }
+    },
+    {
+      "requestHash": "904fcdd9c4c0c0f960457f85180ede0b73d5e357d4323cca4c09222cb849c3cf",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:PJA"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "069037f129af1abc503193b91041105c220a692f1f9747135af31e5edb8a05a7",
+        "bytes": 1715
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_PJA.json"
+      }
+    },
+    {
+      "requestHash": "fd7097f63a0d74060963dcfe6cf02cccd1b337158a83c620fe9e77e18353aed3",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QAS"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "5995115fd823e6f688b783b412bafaa1eb9a1f64373616aef04841aac841df10",
+        "bytes": 4568
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QAS.json"
+      }
+    },
+    {
+      "requestHash": "9e8ab4a7cf1e8bd7df56f866a311133fda9cea6a6ef8df32fd3802a1ad5d4e71",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QDQ"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "d0b98424be75c845fe9f4c13b04b4b50a84939ee658c7497660cc2b712d916ce",
+        "bytes": 3292
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QDQ.json"
+      }
+    },
+    {
+      "requestHash": "a04b7c7176249ecf784a5efeef5b17c2924803b6d3401be8435e236c86fd8fde",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QFM"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "3d6eb839b1a01a719b20631ac1dfd03b913c6998fff2dc8c93a050dcabed22e7",
+        "bytes": 3696
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QFM.json"
+      }
+    },
+    {
+      "requestHash": "70fd7c78c95bdc5e605b5c7c3c30cffa082e39ef1fb3318b49c47b1fbe749f6c",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QJU"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "c1f85fc3109051ff0f6b27ce1ce2b26c66d5b42f4306d88c54f633883af3fedf",
+        "bytes": 2020
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QJU.json"
+      }
+    },
+    {
+      "requestHash": "c8400b76350a1ed25bea9bf95a42ee0d97c02545e75c886eaf9a7b860e10fa25",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QNP"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "84df9538a8b2a780c503b447aac7ecdd87192e503c6fad4c4adc78aa51201943",
+        "bytes": 2747
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QNP.json"
+      }
+    },
+    {
+      "requestHash": "5a4979ec6cba51215e7f997481717425edde34a67cb94f47445790ba0e6de439",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QPN"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "fd2129b7120f34ac64f7b7268dd9a884567ce948fa125f87cd3271886187290a",
+        "bytes": 1834
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QPN.json"
+      }
+    },
+    {
+      "requestHash": "c170ff8d540e94550dc988b1e3305c94de153a533e760a176ec5a9d47bda4c92",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/classification.json?search=product_code:QYE"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "e02131f3c9da0ae845eeb3a4bfa759ee3c9f02abde3ff8d5fff8fabd638db276",
+        "bytes": 1880
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/classification_QYE.json"
+      }
+    },
+    {
+      "requestHash": "a4bd91266f1fb26af1fe1b111e5a9e0385ceda0edb19d121e19732b37de12744",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/notanendpoint.json?search=k_number:K200667"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "text/html; charset=utf-8"
+        },
+        "sha256": "83785a03c2290d1d959a3d91e6ea96903d50f8478f4972f80be3ec2331f2b327",
+        "bytes": 164
+      },
+      "recordedAt": "2026-10-27T05:09:15.332Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "d81872cd45067cd228c3180d71bcfc4d7fc94be78a3269b8b3bb8b2bc3f86163",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/pma.json?search=pma_number:P130020&limit=2"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "3a456c87ee5c4731fd990da3890a2be9b06bc64c1d660c752c7e67a430bc2ff1",
+        "bytes": 5404
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/pma_P130020.json"
+      }
+    },
+    {
+      "requestHash": "55c60cc0a2ea1bcbda3ed4552d302972a86d64aa613953e1522c76239289e0a9",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/pma.json?search=product_code:QDQ&limit=1"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da",
+        "bytes": 80
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/pma_QDQ.json"
+      }
+    },
+    {
+      "requestHash": "20e2a126727a6aaff5b996e127befd4ddaf3c9d51a53ef020367e413e2d34229",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=company_name%3A%22Eyenuk%2C+Inc.%22+AND+brand_name%3A%22EyeArt%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8",
+          "etag": "W/\"c86-P5gumXXLPTcLJliMnl50ugaNa3Y\""
+        },
+        "sha256": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a",
+        "bytes": 3206
+      },
+      "recordedAt": "2026-10-27T05:27:21.423Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "3689cf1f2ba597cea2297974069af31c7905bc51f9ee0a236ae3a444613edf4d",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN170073%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "a2652e072d581ba699bd935dcbb9193692dc76bbf3cf765dd2b512231e90ee80",
+        "bytes": 34206
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_DEN170073.json"
+      }
+    },
+    {
+      "requestHash": "90d051b3c4e6fa99ed2c4011e19b5f96659593bf4531e7111ab5b2931134f4d2",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN180001%22&limit=100"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da",
+        "bytes": 80
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_DEN180001.json"
+      }
+    },
+    {
+      "requestHash": "13250a4599c338538c3ca8ff1f240d1d553d74115be4869e26700381cea295d6",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN190040%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "2ad4c4711b49b675844a4060ff2442c820453975101ced8518eeeb310a0194c5",
+        "bytes": 7198
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_DEN190040.json"
+      }
+    },
+    {
+      "requestHash": "adb1a88a46b0da4ec841470874892f230728f3aa393e9a64dca4bce0b5d06eef",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN200055%22&limit=100"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da",
+        "bytes": 80
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_DEN200055.json"
+      }
+    },
+    {
+      "requestHash": "8dae9b2848343e18c69e28fd7cbd19038d924169e43a582249dd959b2a317540",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN200080%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "0094bed7a212012bf1793b4a547422c91d9444834ad18b1425da6f04a71a55be",
+        "bytes": 4079
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_DEN200080.json"
+      }
+    },
+    {
+      "requestHash": "3024862445757e47a0ba17a3459bdf16d70cd4bc40fd6d010984bec4ae2edde3",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K200667%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a",
+        "bytes": 3206
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K200667.json"
+      }
+    },
+    {
+      "requestHash": "21256b8e3cda233ae7dcaa3a9f966b955bda69ec7bef20e85aec1e0eb4df10f8",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K211733%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "9e2f4f4e5f017fb9f2842fe848ecc7b7d23fd0b1abb1770e90185a4dfa7212bc",
+        "bytes": 6289
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K211733.json"
+      }
+    },
+    {
+      "requestHash": "eb1752b25d3d1cb642be848d9445bcf52f49333672b2032a435ccb3c26bdbfc1",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K213857%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "bb2d1cd11dc08d34e714d384ab52f347971c4ecf2e59afa2d01a336f42ffb7fe",
+        "bytes": 4591
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K213857.json"
+      }
+    },
+    {
+      "requestHash": "20873b032084ad663b9b1d964e1bd110dddbd96f9ef3d9d6778addb5d47bb11b",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K221347%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd",
+        "bytes": 4077
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K221347.json"
+      }
+    },
+    {
+      "requestHash": "9179db9f7b17c66124866792460d4d96867b2d5d45aefefc84e5ce1846558959",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K232699%22&limit=100"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "5c995f51ec86a390b1922e591aa22da4e20bedd42ebf0a1bf65bb468f286ca9e",
+        "bytes": 4751
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K232699.json"
+      }
+    },
+    {
+      "requestHash": "b57479bb1c32cbf686a6614b27c5eeb2034def47ff344bf6d25f8e352f91d8f8",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K240301%22&limit=100"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da",
+        "bytes": 80
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K240301.json"
+      }
+    },
+    {
+      "requestHash": "86fd67b47e7c12457f2e3df91ff7582e1d75d9d164eec5c3aa28a5d0a27b8c5a",
+      "request": {
+        "method": "GET",
+        "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K253265%22&limit=100"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da",
+        "bytes": 80
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/openfda/udi_K253265.json"
+      }
+    },
+    {
+      "requestHash": "4dc46ae41bc158e7bfd565a6d37e629461e993bc07676e6f8e389fcebaf90d9f",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT02963441"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "515d2a0d8646c3563f96a32a65cab58336666d3fa2916f12b930ec61b7d053f4",
+        "bytes": 26431
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT02963441.json"
+      }
+    },
+    {
+      "requestHash": "bb4cb7e9be003ad19f7d7b091b9f670fb6ef2350b215e8bf9fb3147dec88bdfb",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT03112005"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "f7fad8837f858972313e6d1b3cfbca4b293920480d8666c5f3353a7c92948801",
+        "bytes": 8907
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT03112005.json"
+      }
+    },
+    {
+      "requestHash": "d4d1e25c03e364249d241546e82829472e5832e758a13b38aa2d5089a721429e",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT03705650"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "80d9f71a7a473a2d581e1816ef69f10f2addd1ffbb5817208ed6f9d113ce0788",
+        "bytes": 6521
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT03705650.json"
+      }
+    },
+    {
+      "requestHash": "444fcfdb11fd0982ed2a44c263fa9c73247c725a5fcc10eefbbab958413a8d00",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT03897140"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "84f2b9fb60f3801745f3f403ac0badc44822a3c83cba013268afc107575158f8",
+        "bytes": 9776
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT03897140.json"
+      }
+    },
+    {
+      "requestHash": "f281f1b251323eda2d10f6cc0fcc1e08389405f3bd7a6d15bf896bbf57f7c00d",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04079478"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "8c242d99d3390382a3479409500a350786e5221e22950436f61bea8561d1bed8",
+        "bytes": 5894
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT04079478.json"
+      }
+    },
+    {
+      "requestHash": "f59f983f3daca01487e56cf2cbbb689fd45f2f2795875c4496f88ca5f124a677",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04142879"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "1256b184b77a424ec9184c4548bfb01bba2bad8467c9f3f13aa2e895c98e2e3f",
+        "bytes": 10724
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT04142879.json"
+      }
+    },
+    {
+      "requestHash": "9e6cce14c654776aab15cd32c7bfc3a69d491ec1e8b26f0c90c2b25d243f17ab",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04608617"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "3447479ec1049cbef0be3a78e3fb453c59a943df3247855de2da7325fe2bae00",
+        "bytes": 9668
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT04608617.json"
+      }
+    },
+    {
+      "requestHash": "cc70efe71ea33d1c5ef8564f4272f437dccf53be5e954f9af8c36c15ff7f0883",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04723758"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "16952030a6b1e0e04486aca559893dfadc64e8d4b5f492d857dbd1c96419d27b",
+        "bytes": 26894
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT04723758.json"
+      }
+    },
+    {
+      "requestHash": "2294d2a631c5ed9c93fdb935494f04e55706dd36262e7548b1895d40a9674b98",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04838756"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "69a8b8b908c5ea1a8eb05f954561a5ceb1497afaf84eb291b500e9a1de090d9f",
+        "bytes": 9470
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT04838756.json"
+      }
+    },
+    {
+      "requestHash": "05272270f771b95ec92f70337c75727abe396026f5b29a67d5bdd58d3b6f4da4",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT04963218"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "69ed3dec8eed938459e607329bba7f58aa3793dfd19fe1d2c42e5d5072b04d5c",
+        "bytes": 6336
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT04963218.json"
+      }
+    },
+    {
+      "requestHash": "03e2b92430c651adc347a0e5546f6a802da0ab3f80f13c36f381fcb89c83f837",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT05800132"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+        "bytes": 9086
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT05800132.json"
+      }
+    },
+    {
+      "requestHash": "013a0a87870a4b4c29ff89092cc6551de64ea66f643254e3a3e0321794204561",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT05838456"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "29c164acab4cbc114fa866732b4d9c387909bb62a4c5dade646d4ab3cc1947ff",
+        "bytes": 29646
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT05838456.json"
+      }
+    },
+    {
+      "requestHash": "e8c41827ccc7e6335007f59815e564dd19cc6b7f6d8a4f91068ebb5692f48c55",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT05867407"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "6a5a48935bf03c2776f3ec9a93c9b4ee6d70bd7b2ea8847e405ca64ab982ae54",
+        "bytes": 7799
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT05867407.json"
+      }
+    },
+    {
+      "requestHash": "405c1516182b6140ec492a9f47fbd5594ff4232b746c1b24eb3fb5caa4115d65",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT06401434"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "4c252c02277bfee932b9330ade528c290e236b3469c4c71420366a44b9fc577a",
+        "bytes": 12172
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/study_NCT06401434.json"
+      }
+    },
+    {
+      "requestHash": "3c45ccf20e68836068c8f62e73d4978d5228a709d31c4b369e98c34e28323f28",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies/NCT99999999"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "text/plain; charset=UTF-8",
+          "etag": "\"0/0.34.1/mvp105r4\""
+        },
+        "sha256": "ab3ed2be5234e20ad8798d53deab17ebc40dd91d73dc29c3fe8fec4526e5e06b",
+        "bytes": 32
+      },
+      "recordedAt": "2026-10-27T05:09:22.699Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "7ad91e4b4a23574301b246d52fde8459b921b82e492dcf232989cbe98cbbd4d3",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?pageSize=abc"
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "content-type": "text/plain; charset=UTF-8",
+          "etag": "\"0/0.34.1/mvp105r4-gzip\""
+        },
+        "sha256": "deb89850df267a3651efbffa6814eb7c8ef808fd8f95e71e6b1422f0bac09a99",
+        "bytes": 76
+      },
+      "recordedAt": "2026-10-27T05:09:24.616Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "b76fc3e27fbdee63127012909e3c5fdec0045d485a35be30e610a9537a66052a",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.intr=%22Caption+Guidance%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_caption_intr.json"
+      }
+    },
+    {
+      "requestHash": "76911599817f324b64fae901e6e598028c3f7e367cd328c7c35d8b58b8f97e20",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.intr=Aidoc+OR+BriefCase&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "8b9f32bdaac95d728004cbad8a495ed7247547b7b7dba231b7f768fdd9ff6a8c",
+        "bytes": 1518
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_aidoc_intr.json"
+      }
+    },
+    {
+      "requestHash": "454bf67c6ca97f0e7d6e74ebabcdf7dc7b9507b6b065dd5948dd006a5e68a37f",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.intr=EyeArt&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "cbb2d27ad905a7fef77f6b74c4d65dade77bdeb2f0efb78a8734d67b6ad86ecb",
+        "bytes": 2850
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_eyeart_intr.json"
+      }
+    },
+    {
+      "requestHash": "e3ccb741afd90df84c20ed9b38f1563e6b21a1071133be286e6522ad42c58339",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.intr=IDx-DR&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "66c8a3501792fb5d9c2d8c9cdb4074287454616d8dd321e4be8046038e162af1",
+        "bytes": 1938
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_idxdr_intr.json"
+      }
+    },
+    {
+      "requestHash": "32c60bfb91465e7a1a2f7b0e40ecfe71d76b63d848e0f01abb4b6da1b106a59b",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.intr=Viz.ai+OR+ContaCT+OR+%22Viz+LVO%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "2c4a5c13f818acdf75ea70656c10467f94e7b3f18ea796d61c59d418ae51274a",
+        "bytes": 8029
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_viz_intr.json"
+      }
+    },
+    {
+      "requestHash": "2e0a8265beac04e93422bf0274fc4f180a86884c6a0541d09bdfe7ee1f818963",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.spons=HeartFlow&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "92b872b45853c0b3f1bf9c9ff1e3cd960d57e25d6b4c14552691cc2cafbf705a",
+        "bytes": 7159
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_heartflow_spons.json"
+      }
+    },
+    {
+      "requestHash": "3fbdc85f7ce66d5d53d92dd13782560483363182624f09bb0497887526ece349",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.spons=Paige.AI&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_paige3.json"
+      }
+    },
+    {
+      "requestHash": "fa977d7fdd6eee878683675bb5485e2b071d6c2f2a2aa8a9082153e6da166d9c",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Aidoc%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "c3951edf31131a9231f162cb6c8a484f52ebefc7ab51cb2834fad548d4e0306d",
+        "bytes": 490
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_aidoc_quoted.json"
+      }
+    },
+    {
+      "requestHash": "7c56e2fb3ac158254ef843268418af4774b50f103540313589754671b74b6ad9",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ContaCT%22+AND+stroke&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "ee6afd0ba061923aafd17bcf78d70a8e6dfb36a6288ca6d51215c6d98e267a5c",
+        "bytes": 7606
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_contact_stroke.json"
+      }
+    },
+    {
+      "requestHash": "33dd2c00b25457c41bbeb75f488753bae8e9833b9a2eec06f5e22c568ed321e2",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22DEN200055%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_paige3.json"
+      }
+    },
+    {
+      "requestHash": "c42e20579b710b2a7b053c746d3977fb1ab723367ae5286b707e2d47ca337434",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22GI+Genius%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "c9ce273287b641dd48ce6247966503a79064fc22d831ec966cc7c8d63c5d3ac0",
+        "bytes": 7382
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_gigenius.json"
+      }
+    },
+    {
+      "requestHash": "43226d2524fd78fee7bc6f1c8b6362328656ec36c0c58f1423d52c50e2a4cb66",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit+INSIGHT%22+OR+%22Lunit%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "afa24e642e2c188a63bf53cc8ea6e2b280a2461b8531461daa9d6666d6813f76",
+        "bytes": 6273
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_lunit.json"
+      }
+    },
+    {
+      "requestHash": "ac05c4b12cfec1584b3b2bd65475d64d5a765d1f4a2ff71e426af61b0c666b67",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Paige+Prostate%22+OR+%22Paige.AI%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_paige.json"
+      }
+    },
+    {
+      "requestHash": "60d4c979429c3c353cde504c7429ec2dac25579e72239bbafb8c0297f1ce717b",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Viz+LVO%22+OR+%22Viz.ai%22+OR+%22Viz+ICH%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "0a2bc52fde9e2b38403d11445f94245957a6b3c43dce46c5a4e0e511a6fd41bf",
+        "bytes": 3496
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_viz_lvo.json"
+      }
+    },
+    {
+      "requestHash": "65fcf231f7eeb887e3a2f8c254f2ff4a6348732a571dabf9b2a9bbeb6733f660",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Viz.ai%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "0a2bc52fde9e2b38403d11445f94245957a6b3c43dce46c5a4e0e511a6fd41bf",
+        "bytes": 3496
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_viz_quoted.json"
+      }
+    },
+    {
+      "requestHash": "c36d44281b40b0cd550b2a5dda94d3efc8b30a820d2af8b54ef1fc81a973f8d2",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=Aidoc+OR+BriefCase&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "0164f12e436b93472ea907e72e99924762afd963cbcf1c2bb0313185c6701627",
+        "bytes": 3291
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_aidoc_term.json"
+      }
+    },
+    {
+      "requestHash": "e7c5675831b2975c82c42c6ab87927bdf31328592092ba439433e9ca6590bf38",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=Anumana+OR+%22AI-ECG%22+%22low+ejection+fraction%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "321f6fe00e3f11aeeca51cea9fe1148097da3b7bf0737e57182867f7aa6fc960",
+        "bytes": 2978
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_anumana.json"
+      }
+    },
+    {
+      "requestHash": "21e3e5aca8772a2774883bf34d442537bfd51580324d99bb39225171a232518a",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=Caption+Health+OR+%22Bay+Labs%22+OR+%22Caption+Guidance%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "03e6dc92a7fd7917f2bb4364627b6b316f9530887179fe853b73b0945bddd670",
+        "bytes": 7492
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_caption_term.json"
+      }
+    },
+    {
+      "requestHash": "d8d34c34502b87fcb00cc8a2bad38a81c1d97c4a7495187309e33d5ea2d5b762",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=EyeArt&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "cbb2d27ad905a7fef77f6b74c4d65dade77bdeb2f0efb78a8734d67b6ad86ecb",
+        "bytes": 2850
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_eyeart_term.json"
+      }
+    },
+    {
+      "requestHash": "c27f34af266c9a4a280051d9966dfbc88fd15088217979e3b43d2d3dfcd3e485",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=HeartFlow+OR+FFRct&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "1b6304662cc21bf6673e55f610627e203467f64ee0231ae4c46fc716a40f77d5",
+        "bytes": 7189
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_heartflow.json"
+      }
+    },
+    {
+      "requestHash": "fdc28bd00581c8649432039d39b357a4c193bd01ae3adcde85f69cebae21696a",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=IDx-DR+OR+%22Digital+Diagnostics%22+OR+LumineticsCore&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "79b9c95cc777e30a4f980da78f2272bc8b671ddb3d0c7a88df56e0fec25937fa",
+        "bytes": 7071
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_idxdr_term.json"
+      }
+    },
+    {
+      "requestHash": "779671ebde2df3b8739f48c70d202a1ca14c91ba03482148e1f2d7c1e77f0e69",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=K200667&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_paige3.json"
+      }
+    },
+    {
+      "requestHash": "9776518b85080e9c96eeb4e3f88a58fa58bce2df19d4a0b282a4cdbaa6c8a99a",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=K232699&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_paige3.json"
+      }
+    },
+    {
+      "requestHash": "dbdf69f65f3f870b6707517583d17ebfabb264596b19a84efca4fa8b7eab3f9a",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=MammoScreen+OR+Therapixel&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "1c981fa8bca53f2b279c1f6650c6249c25ada020a0322dbe395989d2434771df",
+        "bytes": 1545
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_mammoscreen.json"
+      }
+    },
+    {
+      "requestHash": "47579b0e2209c480827686748d49d12518295f5a60cc2d588fc0b9364684792c",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=Paige+AND+prostate+AND+%22artificial+intelligence%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8",
+        "bytes": 31
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_paige2.json"
+      }
+    },
+    {
+      "requestHash": "370924543370f53822c2bbbe5e6ef498ca1df3eb3f5dd91e07bce1446f69af52",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=Transpara&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "eeabdf9916ea7b1f86c44dc029b47a71bbe21965a6026a2a0f3c5b9c221e5e79",
+        "bytes": 3329
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_transpara.json"
+      }
+    },
+    {
+      "requestHash": "23edc06159b7f0a2e6b3e2b42db21d9a6d1edd39c85788bf8172538886baf2bc",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/studies?query.term=Viz.ai+OR+ContaCT&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "be52ec1003ef99e5fe940ca980f87321b423cd7e71737111a88bacebb1f55220",
+        "bytes": 7599
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/search_viz_term.json"
+      }
+    },
+    {
+      "requestHash": "8e6942b672b2a4d438c3fe14ac9b4b5b5b0d837deb15cf5ded851aa62aa96745",
+      "request": {
+        "method": "GET",
+        "url": "https://clinicaltrials.gov/api/v2/version"
+      },
+      "response": {
+        "status": 200,
+        "headers": {},
+        "sha256": "d80879b5507519b30e013dea4e430e53ff5e79bae016ef4e34c51cc22a77162e",
+        "bytes": 71
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/ctgov/version.json"
+      }
+    },
+    {
+      "requestHash": "68603488c0fded3d67e374cbc94b66171a85e332737f218ab42e06934597699e",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=29311033%2C24486266%2C29688569%2C41494674%2C33322917%2C35246403&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "78702eac065608d45bbffde41e665b0fa9b8f442c95aa46e38d0838c680db375",
+        "bytes": 87871
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_heartflow2.xml"
+      }
+    },
+    {
+      "requestHash": "85ff708a4e4ffbc42fcae043d1b8df6d0427c086dcb401a6ff75b46219e78113",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30898381%2C32159424&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "c0208800bc63d87db2dd78701c23f2028f3129f60dec568c91bbe516a61ff406",
+        "bytes": 27466
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_mammoscreen.xml"
+      }
+    },
+    {
+      "requestHash": "0d6e40750495de673e03bb497ba0f7c4b5458a1c15891dcb834ee8d6c1de9c08",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31828361%2C33819478%2C41444826%2C34117018%2C40796469%2C35316621%2C41230302&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "d9e4cccc58468412fc0419c0c00541f144adff0d8e2bca81d0b6580abd1164b8",
+        "bytes": 105000
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_briefcase2.xml"
+      }
+    },
+    {
+      "requestHash": "98cd548cf53df7627cd455d28c51f2b4cfce0af43af04509296ba7ba50e3553c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33599681%2C33819478%2C41444826%2C40335883&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "58b31cde5ff8aa2aaba77cb7932a508ae09c274f533e92b8df6d04fcb1269b95",
+        "bytes": 94929
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_misc1.xml"
+      }
+    },
+    {
+      "requestHash": "d44683719355304a6b6c25b247463f8c1a082a18805ee15f29dd1ffe3e5475de",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33599681%2C40700992&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "c8e412effa8529509b840ffe2a3ef6aa4eb9409101a15c4295c71cfd3d17f31c",
+        "bytes": 38972
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_caption2.xml"
+      }
+    },
+    {
+      "requestHash": "5a14cc4803ad28ed86b83d2f3725683b1a3f353e426b98ac9e63ce2e5de80113",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34779843%2C37847478%2C41528924%2C36345378%2C39430352%2C31335200%2C38783384%2C39272631%2C41140908%2C41257814&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634",
+        "bytes": 224644
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_eyeart.xml"
+      }
+    },
+    {
+      "requestHash": "99edb86cef09e34aa713dc73ebd63eb6cca2a69672943ee071223b0273a84497",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34779843&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "05b93b0c4df6b68cf9369c5b9b2c5f7ab7e2d074825b2ca6f3ef63fdfd0cf268",
+        "bytes": 29165
+      },
+      "recordedAt": "2026-10-27T05:09:28.992Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "ce9e9edd814b16d6c44789225843395b11f0dbb253237196325ce812c0d7ddd2",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=35798450%2C41583583%2C41585395%2C40854043%2C42605679%2C38979609%2C40345798&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "f4a4c70a544fb860329cc984d2c29a0285e493577670d62a6920fc5802bdd558",
+        "bytes": 87967
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_viz2.xml"
+      }
+    },
+    {
+      "requestHash": "8f062559d6f1e22771d516472875d44c3b2b156cae08a30aed13fb5ad58e9ac3",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=37002130%2C39747044%2C36697958%2C15649736%2C22465162&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "d52a879fe939aa838c87ac783cdde00cd2322e05523c42ddc89bacfdff682fdb",
+        "bytes": 81882
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_synchronise.xml"
+      }
+    },
+    {
+      "requestHash": "6871896f542e828a07693b05f1e058041826826596df5e2c0898a7cf4abec9f0",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39054214%2C33377794%2C40998336%2C31005545%2C34523009%2C35361151&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "ddda56d336f161757f9ed0bb4b9cd493ddb78a5923d2559bd14cc2b00299924c",
+        "bytes": 60341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_heartflow.xml"
+      }
+    },
+    {
+      "requestHash": "db71aa8819ef88f329bc0db8baecbb6c1e7e8f9dbf7d4c7bcbc1287d77a23db8",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39153491%2C32371116%2C38618982%2C39033774%2C34187845%2C41246784&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "d27b0e3383ce35b1b40957a32f6a58eb61ed61184d48b3eb212a54904ba5b02d",
+        "bytes": 92404
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_gigenius.xml"
+      }
+    },
+    {
+      "requestHash": "fd74b5a31d2a52346b081ed1875b90a1e320cafbb87abc144b86c97e6fae393d",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39466926%2C33904171%2C38179884%2C33782551%2C32393768%2C41423376&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "fecd609d4b919e9c9d64352e6cab95646eccf4dad5d7b2609137183da096ff51",
+        "bytes": 81969
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_paige.xml"
+      }
+    },
+    {
+      "requestHash": "7a1a567668d0ca53a8530b9700112cf720b622f1dea7d83329b819e69ac2fddc",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39904652%2C37541274%2C32052311%2C30898381%2C38853221%2C41375079&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf",
+        "bytes": 88187
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_transpara.xml"
+      }
+    },
+    {
+      "requestHash": "f76a167fd2bef5c2b5d326b85dc282675491432fa7f1affeb5da8530a5dd8239",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40771296%2C23130488&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "a0b0573cc9aa5f2cebac5630f92fb3be3fad39be581d7488c9695bb94245e85f",
+        "bytes": 81453
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/ef_caption.xml"
+      }
+    },
+    {
+      "requestHash": "7e1c86c555d76b674db39667b7e0f73e8e01ff1caba72ad3bbd161ea7187547c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=99999999&retmode=xml"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/xml; charset=UTF-8"
+        },
+        "sha256": "996c1320ff78ec5e849a600685b8f4d3b9bb39290e0fcc18f159b3f5c372a2f7",
+        "bytes": 205
+      },
+      "recordedAt": "2026-10-27T05:09:26.698Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "3a4714916863f5d270071c177c739353985cf33bbe3ea72912a792d4c5ef932b",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22NCT03112005%22%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "5ccdd7d0999836752a516404c811acd742c8cfe003ecc863391d688e015f8e55",
+        "bytes": 298
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_NCT03112005.json"
+      }
+    },
+    {
+      "requestHash": "1795ed50ad5b728ec902846dba21c6386c455b7880c5df0e8cfdf9f489ce239a",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22Caption+Guidance%22%5Btiab%5D+OR+%22Caption+Health%22%5Btiab%5D+OR+EchoGPS%5Btiab%5D+OR+%22Bay+Labs%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "e42bacaa6e407cb829f0f1ccf82efb8b2ca45715b729bf65bb5a156402acd8fc",
+        "bytes": 409
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_caption.json"
+      }
+    },
+    {
+      "requestHash": "ad9e66111f0d6ca1561278fff255a9fb11ea5360c25b1ceba3174d5428259d1d",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22GI+Genius%22%5Btiab%5D+OR+%22GI-Genius%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "b072171c337ec12d7fb939ccafe6d0f1db38c5e9a546e1b6be4ac73ee9c028ce",
+        "bytes": 410
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_gigenius.json"
+      }
+    },
+    {
+      "requestHash": "b1226fd6d99c0ff461b4b40be8b32fba75ac1e17c7c53a18154aa6e9755d3fc2",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22IDx-DR%22%5Btiab%5D+OR+LumineticsCore%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7f61c596f6ca9c2e95318a06c8be7cfedb25049d390d542fde845eee9e130088",
+        "bytes": 443
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_idxdr.json"
+      }
+    },
+    {
+      "requestHash": "bbe4a6428d6730646afcf9121f712889106bd11ada7b98a2e42668401c107374",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22INSIGHT+CXR%22%5Btiab%5D+OR+%22Lunit+INSIGHT%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7f2cf532b554ac7f6033f1aaa0635c8ad7fd5c75f75eeb2c365c37fb61a063e5",
+        "bytes": 447
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_lunitcxr.json"
+      }
+    },
+    {
+      "requestHash": "7b153bb47632c484626a22539b76426c809a9f24e2f9b5dda384680b6c301250",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22Paige+Prostate%22%5Btiab%5D+OR+%28Paige%5Btiab%5D+AND+prostate%5Btiab%5D+AND+%22artificial+intelligence%22%5Btiab%5D%29%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7cc61abaa34891e6a4b68db0cc458234dcc712ca5908b7fa134fc12eeae73418",
+        "bytes": 503
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_paige.json"
+      }
+    },
+    {
+      "requestHash": "932ad11c9ffef0a6d6622f5e51ce04798909e213cee008d1898012f383816a69",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22Viz+LVO%22%5Btiab%5D+OR+%22Viz.ai%22%5Btiab%5D+OR+ContaCT%5Btiab%5D+OR+%22Viz.AI%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "54bace6cc786a131d5e5c6cd786dc3e53c27eeeeecbd682e14d343e4bf094c62",
+        "bytes": 501
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_viz.json"
+      }
+    },
+    {
+      "requestHash": "1bf680d9d80656bccf9af70e9b100afc385c78e94f90e9c79aedeca399fd28e9",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22Viz.ai%22%5BAll+Fields%5D+OR+%22Viz+LVO%22%5BAll+Fields%5D+OR+%22ContaCT%22%5Btiab%5D+AND+stroke%5Btiab%5D+OR+%22Viz.AI%22%5Btiab%5D+AND+stroke%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "5e6ecc9f64c2ed0e975b65e8dd3753e8a268e764c03fe046cb4a60a071dac020",
+        "bytes": 559
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_viz2.json"
+      }
+    },
+    {
+      "requestHash": "48935968bcf55a60357b6d94866c045081953c8bdf339f61947e5bf7cd0f0846",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28%22large+vessel+occlusion%22%5Btiab%5D+AND+%28Viz%5Btiab%5D+OR+ContaCT%5Btiab%5D%29%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "706181413b2cb43e244d0c3009bf5bb3d87bd592bf304413ae85b8e945280f92",
+        "bytes": 483
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_viz3.json"
+      }
+    },
+    {
+      "requestHash": "f649499a981c36fc5d63ae1f6dd30d33418a5cbdc5c243d708f51199485d72d3",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28Aidoc%5Btiab%5D+AND+%28triage%5Btiab%5D+OR+CT%5Btiab%5D%29+AND+%28sensitivity%5Btiab%5D%29%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "08af154a844d03e0a34316a8f63c60fdf148769366ad1f146b0661a6bea2cae6",
+        "bytes": 477
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_briefcase2.json"
+      }
+    },
+    {
+      "requestHash": "0be0836ba17ae392375d5e35b44cbae00866ceeaaec2a26f43a67cc3110c5d43",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28Aidoc%5Btiab%5D+OR+BriefCase%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "c3a953407fe3b8f673b7cd1c826af7ccec968c93d4c59ad67cad93982d7cdafd",
+        "bytes": 437
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_briefcase.json"
+      }
+    },
+    {
+      "requestHash": "0510b754a33acc8fa9ce648af753432b72a5a4f8f8aa5276740ad72bfbdb0256",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28Anumana%5Btiab%5D+OR+%28%28%22AI-ECG%22%5Btiab%5D+OR+%22AI-enabled+ECG%22%5Btiab%5D%29+AND+%22low+ejection+fraction%22%5Btiab%5D%29%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "0d638c7ea260077f77f19727f592f02f5ae64a1de0e89ba7eb730a3cc4f95a47",
+        "bytes": 524
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_anumana.json"
+      }
+    },
+    {
+      "requestHash": "44ac5a1dd43e3c8bf94b2b490e1acfb3d456908ff5fc860f2a6bbc1c838b0f0b",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28FFRCT%5Btiab%5D+OR+%22FFR-CT%22%5Btiab%5D+OR+%22CT-FFR%22%5Btiab%5D+OR+%22CT-derived+fractional+flow+reserve%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7756e7ada3e0ca1920e9d89765bc114b4a945f61a72850a4def67665da4cdd4d",
+        "bytes": 524
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_ffrct_generic.json"
+      }
+    },
+    {
+      "requestHash": "30b0d5c8ede88aa8a3da98ae69cd5fa43f3f506276f290a735e9b59d819d7de6",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28HeartFlow%5Btiab%5D+AND+%28FFRCT%5Btiab%5D+OR+%22fractional+flow+reserve%22%5Btiab%5D%29%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "1b9285d7d7ca1eb8c374fe780cc9f21e41491bf672bf18098b17996734f54c95",
+        "bytes": 487
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_heartflow2.json"
+      }
+    },
+    {
+      "requestHash": "57c70a4329372e3cadd7de45c7f9e109d35070c090dee32de238419595a4c837",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28HeartFlow%5Btiab%5D+OR+FFRCT%5Btiab%5D+OR+%22FFR-CT%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "6ac05cf7d9ada8fb36cc1d6a94d0960b6c488fda6871114927ea661a4f17204d",
+        "bytes": 468
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_heartflow.json"
+      }
+    },
+    {
+      "requestHash": "29c16768d8bc9f4d75b8b143fa103db7b5507de2b009da77cc73f28168937517",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28MammoScreen%5Btiab%5D+OR+Therapixel%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "d9c492e8ba31d4f51b083d4155b32773f0eca69d2123d959a8d85334fff686fa",
+        "bytes": 244
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_mammoscreen.json"
+      }
+    },
+    {
+      "requestHash": "8d212307a81780cdce5ceeaac6e5d61d90fe887c9648ba2278a09e094723d5e3",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28SYNCHRONISE%5Btiab%5D+OR+%22Viz+LVO%22%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "e168e8c178344e628f2b796373a1cd951345dbf92792eb23befff951120d3b75",
+        "bytes": 441
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_synchronise.json"
+      }
+    },
+    {
+      "requestHash": "b584ca029c2113f62d5ed18d00ae7854865a08a023f95f85ccace5b0f43a66f7",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28Transpara%5Btiab%5D+AND+%28mammography%5Btiab%5D+OR+breast%5Btiab%5D%29%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "8705c8097656d128488d6df789123d358d1c1396907bf78e73043d7f92617b45",
+        "bytes": 454
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_transpara.json"
+      }
+    },
+    {
+      "requestHash": "ea4c66573d75e35c1f9d989908a530197ac99f627c5ced81aa8cbe1a9ad971da",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%28echocardiography%5Btiab%5D+AND+%22deep+learning%22%5Btiab%5D+AND+%28guidance%5Btiab%5D+OR+novice%2A%5Btiab%5D%29+AND+%28Caption%5Btiab%5D+OR+%22Bay+Labs%22%5Btiab%5D+OR+%22artificial+intelligence%22%5Btiab%5D%29+AND+nurses%5Btiab%5D%29&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "c76bd39c9a23bb472c4f763c55fab5d044f94729267c080e70e5029fe138ff82",
+        "bytes": 534
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_caption2.json"
+      }
+    },
+    {
+      "requestHash": "26d211dac60227575a792510a088e0c8ce83123a1301009b2c485c4fa3d85e66",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=BriefCase%5Btiab%5D&retmax=5&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "e74c56c742ba71fa9aeefe9cba21cd0da8fadae9da68a49f380fdb25d3448ee0",
+        "bytes": 241
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_iso_BriefCase_tiab.json"
+      }
+    },
+    {
+      "requestHash": "f28cc2b01aafc4f304e0a5c72bf26cc6308b9d8bc44b350089c2ddac3f727f37",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Caption%5Btiab%5D&retmax=5&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "27ae9ad61e001a9bb8285a2d3fb07117581626d60c35a8411c7947c8e5f95adc",
+        "bytes": 241
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_iso_Caption_tiab.json"
+      }
+    },
+    {
+      "requestHash": "0513c0fda5a0c1f28f6733ccfe53ead62bd6889411ad79e6a57a28098db3ceb0",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=ContaCT%5Btiab%5D&retmax=5&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "f6c05d1ab6846adad4a3384e8f84870504e9f73622af484e66291a1859afd1a5",
+        "bytes": 244
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_iso_ContaCT_tiab.json"
+      }
+    },
+    {
+      "requestHash": "9aafd0264704105f7ae23b221a6001d849d0bae56c99d289351150074ddfcdbc",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=EyeArt%5Btiab%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "0edee2a74e1d0d2576fbb1284405be8a23ade7055af0e17aac67f3e8c94113f4",
+        "bytes": 405
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_eyeart.json"
+      }
+    },
+    {
+      "requestHash": "53bd3d9931ddac9c7d4c63d8a809203f714b7bd324640d134a1ffc93ca395fe8",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT02963441%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "60591158b323e7442ef99e6debe4dcb0ced3eab80e249909b688b2c5cf9c6c62",
+        "bytes": 204
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT02963441.json"
+      }
+    },
+    {
+      "requestHash": "09c9d5127bbcf37b5b265d317fdcf14bb2719dc14b18c48fb7881f5eeae39b83",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT02963441&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "f9b2398e578a531fc0ac2b28375249d1d614fc34b24c95246b6baa231246a153",
+        "bytes": 195
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT02963441.json"
+      }
+    },
+    {
+      "requestHash": "78625a94cb172d9694a34587e08ee077d7d9158ce2534cfa41d67d5a1eba43c1",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03112005%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "f158fc1d0a2969be62008067b27b24eddff99d2e576cf3e93f69376908156291",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT03112005.json"
+      }
+    },
+    {
+      "requestHash": "8a8ec330216ba90a8be11e79f6bbcfecbb69eb7fe2a9d58cc6cef322a52a9d4c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03112005&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "f90410efa72024e71ddec1262ed56c692bc3890cfbe9f993ded647d4ea3bc0ea",
+        "bytes": 195
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT03112005.json"
+      }
+    },
+    {
+      "requestHash": "b966a16908910505887d87b66398603aee0cbafb193b629ffc26631c58c3a436",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03705650%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "0fa609a20dee5782096424ec911afda34450665d71ea18a48a344d794f123576",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT03705650.json"
+      }
+    },
+    {
+      "requestHash": "4e707e44fd99bd655a69c4419283b6f87d94e0b2389c85653e391f078969df02",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03705650&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "041133618511e6995ba079a2243fd0962127fbb41183288a5770e9779771316b",
+        "bytes": 286
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT03705650.json"
+      }
+    },
+    {
+      "requestHash": "8d3498ab2e57834b0fc06a1493e6079256abe9492cabe18f5038f863968f0fb4",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04079478%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7c1fe3e08ff90af44b543c07617f53437c910fd3dd224571aad3b2fbb9a54134",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT04079478.json"
+      }
+    },
+    {
+      "requestHash": "c62216dae0e5ae3c8d46cafb231e539e225fa984d31c5a7b26797a237b5b8f25",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04079478&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "54bd79efb30c320b2ff5b8925021a8458597924db195122889441f33f58cc117",
+        "bytes": 286
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT04079478.json"
+      }
+    },
+    {
+      "requestHash": "1ef91a62f3e0c81887f431621965c9fb5674bc7e99cd5a43dd7623d0a57ba10c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04142879%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "9f87748bd2ff583d1dc5c5e9fe08a0209a52825e4a0ecb8b8a85262fb8a5a662",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT04142879.json"
+      }
+    },
+    {
+      "requestHash": "d68cd9e136590f09e6f2da79e3def00b9dc79fb2bad135dbc55d49c82f306eca",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04142879&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "d946d51354e5e58f09b5b5c21b9db77f249017e29cc385e572bc053955a9c20a",
+        "bytes": 286
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT04142879.json"
+      }
+    },
+    {
+      "requestHash": "39866b017ce53dde114185ce9f212eb398a3cb80b77909c05d4c5acea8a6e54d",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04608617%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "3c0d474dfd479c88edb4ca773c71fccfc7da7ac02f12f9633eacfaffbd35bcaf",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT04608617.json"
+      }
+    },
+    {
+      "requestHash": "782de85d966cce5540c21e13401df5b0f5267d7cea21afd8af839c4109fe0753",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04608617&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "199be70e8ddc43e7e7d4df258c806828f0324a84ae507242402479b408e675bd",
+        "bytes": 286
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT04608617.json"
+      }
+    },
+    {
+      "requestHash": "3a99e550ae41b154247e2c0080356718cf4e466a0aa452febcdef59000e37627",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04838756%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "7ef70429fdd15f038e375c44c1d7b993874bf2f49fb5ff3ffd76097f72d34afe",
+        "bytes": 226
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT04838756.json"
+      }
+    },
+    {
+      "requestHash": "b464636a96328205b5d57576cb218826992ccaa458ae89b7a32e80c40030768b",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04838756&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "d56566a098472aa09b1a253d8f469aaa2a851c4a000000e8cc56a94d30cf7c91",
+        "bytes": 217
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT04838756.json"
+      }
+    },
+    {
+      "requestHash": "55941c277384fc84d435f3155e46fa4a7bc77a9de77762b96c7203284f99c98f",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04963218%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "863378f7ec7432683974dfe9364a865b886bffed337edc48451e55e688eb55e8",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT04963218.json"
+      }
+    },
+    {
+      "requestHash": "6abf7845ef8bab791ac2d636ee989f7ed9f9f382d43779b242d69a10321df853",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT04963218&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "1ba64e48c07246cb680191457ad550d7664205fa4e641575c71a9cf79feb0d71",
+        "bytes": 286
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT04963218.json"
+      }
+    },
+    {
+      "requestHash": "7e216a87da1571b13f3a6b7cce4d0b4bc4fea5d42c8f29359c2c54e27c1bdd37",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT05800132%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "80f37f8dfb06fc9b8b9875c23888ef13af8c9565c6857f34259f126476cca7ff",
+        "bytes": 341
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT05800132.json"
+      }
+    },
+    {
+      "requestHash": "04e7286765ccf3053cc70fc4d317a2f112261535a2660de70386a9061f1340dd",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT05800132&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "0a649ea5e26828452584422307029f2e5571ad7f59b25b3e47b745ad687916a2",
+        "bytes": 286
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT05800132.json"
+      }
+    },
+    {
+      "requestHash": "f18af754cd8bf3441eb05d6df3bc8f99e93e63d0042270c0daac850bcfe7e0ff",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT05838456%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "0083c5c039d64da71dcb33ce22b56f229bf1be52d849578143245afc17cc3d3d",
+        "bytes": 204
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT05838456.json"
+      }
+    },
+    {
+      "requestHash": "ff6e493a9cea0e88d074789382995bf17d6c77589a7c38a376d84a2e6968287c",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT05838456&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "95bd60c25847387dd85dac5780829a9e631316e9bea4092412a102a5900bd972",
+        "bytes": 195
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT05838456.json"
+      }
+    },
+    {
+      "requestHash": "201b2fe9138077147686e87780593312d7b3a05f3fb58243d741bb98aa0b435f",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT05867407%5Bsi%5D&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "47865eecabda7dfe659bfdd30f5b8562bf42217bbe4e6856bf057b9e0da96fb2",
+        "bytes": 204
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_si_NCT05867407.json"
+      }
+    },
+    {
+      "requestHash": "91f6b555c33b3ddb7b5aa78f39ced2f247eedbf60bb53cdb3e908369e8562c4d",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT05867407&retmax=20&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "2bc8753793981db1d939cd0939d016e4bbe6bc406a31a4c70067f5c87072eef2",
+        "bytes": 195
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_all_NCT05867407.json"
+      }
+    },
+    {
+      "requestHash": "6182673c95d3f1f359b00bbe75ff33ea8e4ca77ff2a86240dd87dcf8ff38024e",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Viz.ai%5Btiab%5D&retmax=15&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "c875eb21244169e90604772995072403144a6226dd81eca41c9122e36485d831",
+        "bytes": 350
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_vizai.json"
+      }
+    },
+    {
+      "requestHash": "58b2331c1d46f436608ac292832156c632fa2808580ebb06e596e5962549c4f5",
+      "request": {
+        "method": "GET",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Viz.ai%5Btiab%5D&retmax=5&retmode=json&sort=relevance"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=UTF-8"
+        },
+        "sha256": "948ad31bc7e71d0ea9d18b4b391374df295aebfffa714498a8420dbc512ab93d",
+        "bytes": 239
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/pubmed/es_iso_Viz.ai_tiab.json"
+      }
+    },
+    {
+      "requestHash": "f8707401a33c06d687e21035a75e61ad019e5a9397b4eff5429c6172190305ec",
+      "request": {
+        "method": "GET",
+        "url": "https://www.accessdata.fda.gov/cdrh_docs/pdfs20/K200667.pdf"
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "content-type": "text/html",
+          "last-modified": "Wed, 22 Jul 2026 01:54:03 GMT",
+          "etag": "\"6681b949c0501c19972668c05b91a9ce:1784685255.242142\""
+        },
+        "sha256": "e49125b35874947bf03fcee5bfc055000b543c7c38d17077056582e3e8d336c6",
+        "bytes": 17737
+      },
+      "recordedAt": "2026-10-27T05:09:33.662Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    },
+    {
+      "requestHash": "4f96de565a23a30c83726444d7bc036679f4092c6f1b44efed124c8150227675",
+      "request": {
+        "method": "GET",
+        "url": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN180001.pdf"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/pdf"
+        },
+        "sha256": "9b4a978bf52a1c3aa5871d014d0d9b214ada70c884a9a311fa11a7e266ee7e38",
+        "bytes": 142581
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/fda/DEN180001_denovo_summary.pdf"
+      }
+    },
+    {
+      "requestHash": "343710919be6d2bf5772c3f80111115d927a2977f791a29348d97f6495088586",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22BriefCase%22+AND+Aidoc&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "ad1c303686657085dda739ee7c1e8a94f176204d4b4d0928edbc62b98247768e",
+        "bytes": 8938
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_briefcase.json"
+      }
+    },
+    {
+      "requestHash": "4da24d3640afead1bfcabb43263fb36735a7bd9ce73188a8bd89299abcf5c5a0",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Caption+Guidance%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "9a36603946a99a5db8ca94c16fc0fb44eb02106a93e66fd4cd225775b5e48e71",
+        "bytes": 8460
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_caption_guidance.json"
+      }
+    },
+    {
+      "requestHash": "7d0c95e8a7d0b1064578a2a51049881ee3df52992f24ccbeff596477652b9a2f",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22DEN170073%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "9c622b218039c9c117298a792a5a6bc79ec26420b950bea3984ce11fc305af7a",
+        "bytes": 7349
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_DEN170073.json"
+      }
+    },
+    {
+      "requestHash": "a917241676f1439f3e574b628b2b77181496ca6a1c92f5aac9e7411818619005",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22DEN180001%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "ae2c1af1562f100ab62dcedf87fa53e86bb822af898edfbc1d7a5fdea21c0c24",
+        "bytes": 8708
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_DEN180001.json"
+      }
+    },
+    {
+      "requestHash": "28d86733a74b752e580115796b42eb8ffed8074c9cde85596c4f42eef3a9ff25",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22DEN190040%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "f28fd55cfa3ae519750339fbd6f824e897ed81f3133d3017dacbd3bd184c2b57",
+        "bytes": 5246
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_DEN190040.json"
+      }
+    },
+    {
+      "requestHash": "d553c2b15cd7fec66820f6ecb8a85e66c924bee14e22a81702430ad9658523ba",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22DEN200055%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "2a372201c48f7cbebd233a7522be880c4ab692f6b5c6a2b8af31920d2d227ace",
+        "bytes": 1008
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_DEN200055.json"
+      }
+    },
+    {
+      "requestHash": "c2a2fcee6e247a7c22ccf386fcf5de2fa9e383f0fdcf0b8ea339d1b749430646",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22DEN200080%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "2b7f31981920f14c20fa63bee1485e21c7a9569007a40123e5bca3da525e07ca",
+        "bytes": 3913
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_DEN200080.json"
+      }
+    },
+    {
+      "requestHash": "f37fe18761e061c6cc97edc5235a1cc6528f82c46f11ff30021be2582a905b7a",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22IDx-DR%22+OR+%22LumineticsCore%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "ddbfcf46830ab0aa8c9048edbb404e427e820c04c6eda6161b8cc3fb770bccf2",
+        "bytes": 9031
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_idxdr.json"
+      }
+    },
+    {
+      "requestHash": "799d0ca7128b096b585df5a70c93ab027c2016f29bc01bd393e648bfde50e2f2",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22INSIGHT+CXR%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "80dc32a6f93358125f24d869cb0e972bb7db5df978dc06d505532eba3c8d1fec",
+        "bytes": 9707
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_lunit.json"
+      }
+    },
+    {
+      "requestHash": "e9231bc445da22eb4fd7719ae732fa046ada7fbb3a2b33156baeec242b382f99",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K200667%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "a28593d8eb012b393bdc62f2f1d5afb32df8dacb04af3de14efa601c59402061",
+        "bytes": 1024
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K200667.json"
+      }
+    },
+    {
+      "requestHash": "624d205632f212b6b05775330330f174b641ffa5288f0372c45f7d052e9b4204",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K211733%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "72d1efeb79d1b95f6b67647b2d6c180577c72c47f551f670517d7425ab91a71b",
+        "bytes": 174
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K211733.json"
+      }
+    },
+    {
+      "requestHash": "b1ce710bb5c111adce5b5128439963d04d41b46306fbc902e8ada5b552992c57",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K213857%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "84c0c19b190047b768a342d053f2478404ccb02f21674f611c1a0b855c85f613",
+        "bytes": 174
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K213857.json"
+      }
+    },
+    {
+      "requestHash": "1cd8ea76ac77c20c68bf4d2f8efb56f1b25813911bd95919d6bed972850ee2c6",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K221347%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "41b5d92e14fbdab1490786f7976bcbc7f1c17f4fa31998b5eca2ee7b208b4144",
+        "bytes": 174
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K221347.json"
+      }
+    },
+    {
+      "requestHash": "99d4bba7041265ce95b051dd9202b6d9643c5168e7467c965e696c9d8c203785",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K232699%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "b27de667dbd48ef4228e84d0416752f61cd5f7db4227c72495d0f388ae8155ab",
+        "bytes": 1118
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K232699.json"
+      }
+    },
+    {
+      "requestHash": "97032af68cc8a0f4bbb342621ee4b9d5d336568218852b4d59e301583152ec04",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K240301%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "9bd5c8b767704c0f5ce40bc6a0c01f399a7dd89b0370c44a3c5210caddc60513",
+        "bytes": 3514
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K240301.json"
+      }
+    },
+    {
+      "requestHash": "5015ff9d6deaa8f27a94f1053a0f98b68aa6b9d4fe05d136ebcfc42f7ad56cf9",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K253265%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "0ebcf2b9c5337ad138ee867741720578f49e412479cf78ddf7f3fb84f9390d75",
+        "bytes": 174
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_K253265.json"
+      }
+    },
+    {
+      "requestHash": "c292e1855f3c9c23d90a5cce4d7a1b5b7971b58c774172d0a64058dc3b566d37",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22MammoScreen%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "7becd1786d2107a920e87cc60f314bd0244aa8f85e5bd126a0475b8f6c97c38f",
+        "bytes": 9397
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_mammoscreen.json"
+      }
+    },
+    {
+      "requestHash": "32a80ff5a4e0a27d4f7a3c26b173966e828d1d29e0cfc465a6d36d94693c0532",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22NCT04079478%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "dfb873e6e03803e35fcd6ec1816467ae3e19d3d159e302cc86c7f3b196152e57",
+        "bytes": 178
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_NCT04079478.json"
+      }
+    },
+    {
+      "requestHash": "6c3ffa13911bba310213c2a7a968176e80fefc944fa84b3cae813b0acf12974c",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22NCT04608617%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "2eba93e47bd0f2f88e0c48fb354dfd5a12ae479910b4db8657f93d3a897ddd1a",
+        "bytes": 1983
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_NCT04608617.json"
+      }
+    },
+    {
+      "requestHash": "854bac6205ce726660bb90223591a29c98e4d9ece4a868f1ca59a46c054af883",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Paige+Prostate%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "bd8bc542cf400134bd309b5a05ec3464fd8b417cae568612f8f1ce4df230bb2b",
+        "bytes": 8694
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_paige.json"
+      }
+    },
+    {
+      "requestHash": "66c7b7d642fb7b7d1fb65febd86fec185fe52af48f369ae7f85d270e189619e3",
+      "request": {
+        "method": "GET",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Viz+LVO%22+OR+%22Viz.ai%22&format=json&pageSize=10&resultType=lite"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "application/json;charset=UTF-8"
+        },
+        "sha256": "b1ed61ade1e55d60802ba940d574fff5354ecfbb57daad377e4b23d3c53cf31e",
+        "bytes": 9552
+      },
+      "recordedAt": "2026-10-27T00:00:00.000Z",
+      "recordedAtPrecision": "day",
+      "origin": {
+        "kind": "feasibility-fixture",
+        "ref": "research/feasibility/fixtures/europepmc/ep_viz.json"
+      }
+    },
+    {
+      "requestHash": "212945acf5eb74bef81f1d25fdba34f686983496282448c7ac9e10417ba5f243",
+      "request": {
+        "method": "GET",
+        "url": "https://www.fda.gov/media/178541/download?attachment"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "content-type": "text/csv; charset=UTF-8",
+          "last-modified": "Fri, 04 Sep 2026 11:54:09 GMT"
+        },
+        "sha256": "b1efeb680371f44cae574ae5a5aa548ac8a63391e6888a007b17177d17527880",
+        "bytes": 141468
+      },
+      "recordedAt": "2026-10-27T05:09:50.346Z",
+      "recordedAtPrecision": "instant",
+      "origin": {
+        "kind": "live-recording",
+        "ref": "src/sources/cli.ts record"
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=24140073%2C29083649%2C35183401%2C17903620%2C34952419%2C32490693%2C37616500%2C26307632&retmode=xml",
+      "reason": "body is 121834 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=28763550%2C38025255%2C31594798%2C35753814%2C30941084%2C40335883%2C34142090&retmode=xml",
+      "reason": "body is 120626 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31304320%2C32393768%2C33782551%2C33904171%2C32371116%2C34187845%2C39153491%2C41547169%2C40276542%2C33606779%2C40233023%2C37450425&retmode=xml",
+      "reason": "body is 231071 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31594798%2C40335883%2C36574318%2C41542251%2C39246948%2C34142090%2C38346817%2C39766381%2C36457286%2C39832899%2C41901663%2C40483553&retmode=xml",
+      "reason": "body is 236443 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31710842%2C41547169%2C33958795%2C22408297%2C40484925%2C41326714&retmode=xml",
+      "reason": "body is 152003 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31828361%2C40796469%2C33819478%2C1122766%2C41298111%2C36862835%2C30251484%2C40771296&retmode=xml",
+      "reason": "body is 167468 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39272631%2C41140908%2C32109029%2C42107714%2C40144136%2C42397780%2C38656241%2C39986640&retmode=xml",
+      "reason": "body is 152654 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40529749%2C35202417%2C33606779%2C40233023%2C39144030%2C37450425&retmode=xml",
+      "reason": "body is 133926 bytes, over the 112640-byte repository budget"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Viz.ai%22%5Btiab%5D&retmax=5&retmode=json&sort=relevance",
+      "reason": "saved file pubmed/es_iso_Viz.ai_tiab.json no longer matches the logged hash (another request wrote to the same file)"
+    },
+    {
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03705650&retmax=20&retmode=json&sort=relevance",
+      "reason": "no HTTP response (status -1: the request timed out or failed)"
+    },
+    {
+      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=DEN180001",
+      "reason": "host or path is not covered by a source card"
+    },
+    {
+      "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K211733",
+      "reason": "host or path is not covered by a source card"
+    }
+  ],
+  "unsaved": {
+    "api.crossref.org": 1,
+    "api.fda.gov": 139,
+    "clinicaltrials.gov": 4,
+    "www.accessdata.fda.gov": 85
+  }
+}

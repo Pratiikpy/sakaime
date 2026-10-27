@@ -1,0 +1,101 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 25,
+      "total": 2
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "city": "Los Angeles",
+      "advisory_committee_description": "Ophthalmic",
+      "address_1": "5850 Canoga Ave.",
+      "address_2": "Suite 250",
+      "statement_or_summary": "Summary",
+      "product_code": "PIB",
+      "openfda": {
+        "device_name": "Diabetic Retinopathy Detection Device",
+        "medical_specialty_description": "Ophthalmic",
+        "regulation_number": "886.1100",
+        "device_class": "2",
+        "registration_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ],
+        "fei_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ]
+      },
+      "zip_code": "91367",
+      "applicant": "Eyenuk, Inc.",
+      "decision_date": "2020-08-03",
+      "decision_code": "SESE",
+      "country_code": "US",
+      "device_name": "EyeArt",
+      "advisory_committee": "OP",
+      "contact": "Kaushal  Solanki",
+      "expedited_review_flag": "",
+      "k_number": "K200667",
+      "state": "CA",
+      "date_received": "2020-03-13",
+      "review_advisory_committee": "OP",
+      "postal_code": "91367",
+      "decision_description": "Substantially Equivalent",
+      "clearance_type": "Traditional"
+    },
+    {
+      "third_party_flag": "N",
+      "city": "Los Angeles",
+      "advisory_committee_description": "Ophthalmic",
+      "address_1": "5850 Canoga Ave.",
+      "address_2": "Suite 250",
+      "statement_or_summary": "Summary",
+      "product_code": "PIB",
+      "openfda": {
+        "device_name": "Diabetic Retinopathy Detection Device",
+        "medical_specialty_description": "Ophthalmic",
+        "regulation_number": "886.1100",
+        "device_class": "2",
+        "registration_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ],
+        "fei_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ]
+      },
+      "zip_code": "91367",
+      "applicant": "Eyenuk, Inc.",
+      "decision_date": "2023-06-16",
+      "decision_code": "SESE",
+      "country_code": "US",
+      "device_name": "EyeArt v2.2.0",
+      "advisory_committee": "OP",
+      "contact": "Kaushal  Solanki",
+      "expedited_review_flag": "",
+      "k_number": "K223357",
+      "state": "CA",
+      "date_received": "2022-11-02",
+      "review_advisory_committee": "OP",
+      "postal_code": "91367",
+      "decision_description": "Substantially Equivalent",
+      "clearance_type": "Traditional"
+    }
+  ]
+}

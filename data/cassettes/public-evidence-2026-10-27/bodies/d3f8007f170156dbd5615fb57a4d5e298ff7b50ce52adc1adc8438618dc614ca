@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "city": "Iowa City",
+      "advisory_committee_description": "Ophthalmic",
+      "address_1": "458 Hwy. 1 W.",
+      "address_2": "",
+      "statement_or_summary": "",
+      "product_code": "PIB",
+      "openfda": {
+        "device_name": "Diabetic Retinopathy Detection Device",
+        "medical_specialty_description": "Ophthalmic",
+        "regulation_number": "886.1100",
+        "device_class": "2",
+        "registration_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ],
+        "fei_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ]
+      },
+      "zip_code": "52246",
+      "applicant": "Idx, LLC",
+      "decision_date": "2018-04-11",
+      "decision_code": "DENG",
+      "country_code": "US",
+      "device_name": "IDx-DR",
+      "advisory_committee": "OP",
+      "contact": "Michael D. Abramoff",
+      "expedited_review_flag": "",
+      "k_number": "DEN180001",
+      "state": "IA",
+      "date_received": "2018-01-12",
+      "review_advisory_committee": "OP",
+      "postal_code": "52246",
+      "decision_description": "Unknown",
+      "clearance_type": "Direct"
+    }
+  ]
+}

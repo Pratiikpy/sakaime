@@ -1,0 +1,40 @@
+id: crossref
+title: Crossref REST API (works)
+kind: literature
+connector: crossref
+baseUrl: https://api.crossref.org
+hosts:
+  - host: api.crossref.org
+    pathPrefixes: ["/works"]
+auth: none
+rateLimit:
+  requests: 5
+  perSeconds: 1
+  basis: "x-rate-limit-limit: 5 with a 1s interval, observed in response headers 2026-10-27 (public pool)"
+maxConcurrent: 1
+identifierFields: [DOI]
+supportedPredicates:
+  - doi:eq
+  - query.bibliographic:text
+license: "Metadata reuse licence NOT VERIFIED; the documentation page states only that its own site content is CC BY 4.0"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  work:
+    - { path: status, type: string }
+    - { path: message.DOI, type: string }
+  search:
+    - { path: status, type: string }
+    - { path: message.items, type: array }
+probe:
+  operation: work
+  query: { doi: "10.1001/jamacardio.2021.0185" }
+  description: "A known DOI (JAMA Cardiology, 2021)."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "Recorded responses: a works lookup by DOI, a bibliographic search, and a 404 with the text 'Resource not found.' for a DOI Crossref does not hold. The response headers seen by the feasibility probe carried x-rate-limit-limit 5, interval 1s and x-concurrency-limit 1 (FEASIBILITY-REPORT s7); the headers are not stored in the cassette."
+  notVerified:
+    - "Metadata reuse licence."
+    - "Crossref returned no abstract, funder or relation links for the one JAMA Cardiology DOI tried; it is useful for DOI resolution and dates, not for device-to-study links."
+    - "Not every registered DOI is held by Crossref; a 404 here means not found at Crossref, not that the DOI is invalid."

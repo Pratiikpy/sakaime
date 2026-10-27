@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "life_sustain_support_flag": "N",
+      "gmp_exempt_flag": "N",
+      "summary_malfunction_reporting": "Ineligible",
+      "product_code": "QNP",
+      "openfda": {
+        "k_number": [
+          "K251126",
+          "K252178",
+          "K240781",
+          "K213686",
+          "K241508",
+          "DEN200055",
+          "K231143",
+          "K211951",
+          "K252586",
+          "K233964",
+          "K241887",
+          "K253664",
+          "K230658",
+          "K211326",
+          "K252853",
+          "K240044",
+          "K223473",
+          "K260724",
+          "K260133",
+          "K261369",
+          "K260567",
+          "K244023",
+          "K230751"
+        ],
+        "registration_number": [
+          "3030626336",
+          "3011050570",
+          "3018901422",
+          "3031983124",
+          "3016591389",
+          "3042225166",
+          "3001722928",
+          "9610877",
+          "3018899987",
+          "3003775006",
+          "3002808148",
+          "8010047",
+          "3016432796"
+        ],
+        "fei_number": [
+          "3008185830",
+          "3030626336",
+          "3011050570",
+          "3018901422",
+          "3031983124",
+          "3016591389",
+          "3042225166",
+          "3001722928",
+          "3018899987",
+          "3003775006",
+          "3002808148",
+          "3016432796",
+          "3002807795"
+        ]
+      },
+      "review_panel": "GU",
+      "medical_specialty": "GU",
+      "device_name": "Gastrointesinal Lesion Software Detection System",
+      "review_code": "",
+      "unclassified_reason": "",
+      "medical_specialty_description": "Gastroenterology, Urology",
+      "device_class": "2",
+      "definition": "A gastrointestinal lesion software detection system is a computer-assisted detection device used in conjunction with endoscopy for the detection of abnormal lesions in the gastrointestinal tract. This device with advanced software algorithms brings attention to images to aid in the detection of lesions. The device may contain hardware to support interfacing with an endoscope.",
+      "regulation_number": "876.1520",
+      "implant_flag": "N",
+      "submission_type_id": "1"
+    }
+  ]
+}

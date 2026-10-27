@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "life_sustain_support_flag": "N",
+      "gmp_exempt_flag": "N",
+      "summary_malfunction_reporting": "Ineligible",
+      "product_code": "QDQ",
+      "openfda": {
+        "k_number": [
+          "K261517",
+          "K211541",
+          "K242652",
+          "K260320",
+          "K241831",
+          "K243688",
+          "K182373",
+          "K230096",
+          "K192854",
+          "K221449",
+          "K212783",
+          "K193229",
+          "K253825",
+          "K240301",
+          "K240417",
+          "K241747",
+          "K203822",
+          "K201019",
+          "K192287",
+          "K251873",
+          "K231470",
+          "K251474",
+          "K260898",
+          "K210670",
+          "K243679",
+          "K210404",
+          "K181704",
+          "K240697",
+          "K221347",
+          "K242683",
+          "K241770",
+          "K211678",
+          "K220105",
+          "K243341",
+          "K260714",
+          "K260086",
+          "K253682",
+          "K253796",
+          "K191994",
+          "K260303"
+        ],
+        "registration_number": [
+          "3016819165",
+          "3026970882",
+          "3025343020",
+          "3023522713",
+          "3021230777",
+          "3030412475",
+          "3015173173",
+          "3005496266",
+          "3042248552",
+          "3016759115",
+          "3018733944"
+        ],
+        "fei_number": [
+          "3016819165",
+          "3026970882",
+          "3025343020",
+          "3023522713",
+          "3021230777",
+          "3030412475",
+          "3015173173",
+          "3005496266",
+          "3042248552",
+          "3016759115",
+          "3018733944"
+        ]
+      },
+      "review_panel": "RA",
+      "medical_specialty": "RA",
+      "device_name": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicious For Cancer",
+      "review_code": "",
+      "unclassified_reason": "",
+      "medical_specialty_description": "Radiology",
+      "device_class": "2",
+      "definition": "A radiological computer assisted detection and diagnostic software for suspected lesions is an image processing device intended to aid in the detection, localization, and characterization of lesions suspicious for cancer on acquired medical images (e.g., mammography , MR, CT, ultrasound, radiography). The device detects, identifies and characterizes lesions suspicious for cancer based on features or information extracted from the images, and may provide information about the presence, location, and characteristics of the lesion to the user. Primary diagnostic and patient management decisions are made by the clinical user.",
+      "regulation_number": "892.2090",
+      "implant_flag": "N",
+      "submission_type_id": "1"
+    }
+  ]
+}

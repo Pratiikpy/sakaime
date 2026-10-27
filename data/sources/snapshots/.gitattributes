@@ -1,0 +1,2 @@
+# Pinned snapshot bytes are hashed. Git must never rewrite line endings or filter them.
+* -text -diff

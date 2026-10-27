@@ -1,0 +1,3 @@
+# Recorded response bytes are hashed. Git must never rewrite line endings or filter them.
+**/bodies/* -text -diff
+**/index.json text eol=lf

@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "life_sustain_support_flag": "N",
+      "gmp_exempt_flag": "N",
+      "summary_malfunction_reporting": "Ineligible",
+      "product_code": "QJU",
+      "openfda": {
+        "k_number": [
+          "K201992",
+          "K260780",
+          "K243065",
+          "K200755",
+          "DEN190040",
+          "K260338",
+          "K261042",
+          "K223347",
+          "K242807",
+          "K251416"
+        ],
+        "registration_number": [
+          "3040362673",
+          "3032008018",
+          "3029923647",
+          "3018394847"
+        ],
+        "fei_number": [
+          "3040362673",
+          "3032008018",
+          "3029923647",
+          "3018394847"
+        ]
+      },
+      "review_panel": "RA",
+      "medical_specialty": "RA",
+      "device_name": "Image Acquisition And/Or Optimization Guided By Artificial Intelligence",
+      "review_code": "",
+      "unclassified_reason": "",
+      "medical_specialty_description": "Radiology",
+      "device_class": "2",
+      "definition": "A radiological acquisition and/or optimization guidance system is a device that is intended to aid in the acquisition and/or optimization of images and/or diagnostic signals. The device interfaces with the acquisition system, analyzes its output, and provides guidance and/or feedback to the operator for improving image and/or signal quality.",
+      "regulation_number": "892.2100",
+      "implant_flag": "N",
+      "submission_type_id": "1"
+    }
+  ]
+}

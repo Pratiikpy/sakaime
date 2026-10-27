@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "The HeartFlow Analysis is AI-based medical device software developed for the clinical quantitative and qualitative analysis of CT DICOM data. It is a tool for the analysis of CT DICOM-compliant cardiac images and data, to assess the anatomy and function of the coronary arteries in the risk stratification and evaluation of coronary artery disease.\nThe software displays coronary anatomy and functional information using graphics and text, including computed and derived quantities of percent stenosis, plaque volumes, blood flow, pressure and velocity, to aid the clinician in the assessment and treatment planning of coronary artery disease.\nThe HeartFlow Analysis is performed on previously physician-acquired image data and are unrelated to acquisition equipment and clinical workstations.",
+      "public_device_record_key": "b267b434-e20a-48cb-9bed-b72ef165d7fe",
+      "has_serial_number": "true",
+      "public_version_date": "2022-12-29",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "1",
+      "labeler_duns_number": "804411283",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00853341006060",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "FFRct version 3",
+      "has_manufacturing_date": "true",
+      "brand_name": "HeartFlow Analysis",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "LLZ",
+          "name": "System, Image Processing, Radiological",
+          "openfda": {
+            "device_name": "System, Image Processing, Radiological",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2050",
+            "device_class": "2"
+          }
+        },
+        {
+          "code": "PJA",
+          "name": "Coronary Vascular Physiologic Simulation Software",
+          "openfda": {
+            "device_name": "Coronary Vascular Physiologic Simulation Software",
+            "medical_specialty_description": "Cardiovascular",
+            "regulation_number": "870.1415",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "K213857",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "6502410500",
+          "email": "support@heartflow.com"
+        }
+      ],
+      "company_name": "Heartflow, Inc.",
+      "public_version_status": "New",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "61213",
+          "name": "Vascular modelling software",
+          "definition": "A stand-alone software application intended to aid assessment of vascular stenosis and/or endovascular interventions, by producing a three-dimensional (3-D) cardiovascular model which has features of predicted blood flow data and/or endovascular device deployments. It typically uses computed tomography (CT) images and may be intended as an alternative to invasive techniques (i.e., invasive blood pressure, invasive fractional flow reserve, angiography); it is not intended to store patient records. It is designed to be installed on an off-the-shelf computer/smart device.",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2022-12-21"
+    }
+  ]
+}

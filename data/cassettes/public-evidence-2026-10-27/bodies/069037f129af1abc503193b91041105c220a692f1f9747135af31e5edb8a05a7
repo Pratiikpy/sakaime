@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "life_sustain_support_flag": "N",
+      "gmp_exempt_flag": "N",
+      "summary_malfunction_reporting": "Ineligible",
+      "product_code": "PJA",
+      "openfda": {
+        "k_number": [
+          "DEN130045",
+          "K152733",
+          "K213857",
+          "K190925",
+          "K203329",
+          "K182035",
+          "K262015",
+          "K161772",
+          "K250902",
+          "K213657"
+        ],
+        "registration_number": [
+          "3025430791",
+          "3021637148"
+        ],
+        "fei_number": [
+          "3025430791",
+          "3021637148"
+        ]
+      },
+      "review_panel": "CV",
+      "medical_specialty": "CV",
+      "device_name": "Coronary Vascular Physiologic Simulation Software",
+      "review_code": "",
+      "unclassified_reason": "",
+      "medical_specialty_description": "Cardiovascular",
+      "device_class": "2",
+      "definition": "A coronary vascular physiologic simulation software device is intended to aid in the identification of functionally significant cardiovascular disease.",
+      "regulation_number": "870.1415",
+      "implant_flag": "N",
+      "submission_type_id": "1"
+    }
+  ]
+}

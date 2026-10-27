@@ -1,0 +1,39 @@
+id: europepmc
+title: Europe PMC REST search
+kind: literature
+connector: europepmc
+baseUrl: https://www.ebi.ac.uk/europepmc/webservices/rest
+hosts:
+  - host: www.ebi.ac.uk
+    pathPrefixes: ["/europepmc/webservices/rest/"]
+auth: none
+politeness:
+  requests: 5
+  perSeconds: 1
+  basis: "our own pacing; no rate-limit header was seen and the published limit is NOT VERIFIED"
+identifierFields: [pmid, pmcid, doi]
+supportedPredicates:
+  - "query:full-text phrase"
+  - "query:identifier phrase"
+license: "Metadata free to use; full-text licence varies per article (open-access subset only)"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  search:
+    - { path: hitCount, type: number }
+    - { path: resultList.result, type: array }
+    - { path: "resultList.result[].source", type: string }
+    - { path: "resultList.result[].id", type: string }
+probe:
+  operation: search
+  query: { identifier: K200667 }
+  description: "An exact submission number that matched one article on 2026-10-27."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s5 and s7: a full-text search for an exact K or DEN number returns articles mentioning it; an empty query returns 200 with hitCount 0."
+    - "Recorded responses: twenty-one searches, five of them with hitCount 0."
+  notVerified:
+    - "Published rate limits."
+    - "Fuzzy matching adds noise (MammoWave for MammoScreen; accession-number noise for K240301): hits are candidates until a person or a verifier reads them."
+    - "Full-text licence per article."

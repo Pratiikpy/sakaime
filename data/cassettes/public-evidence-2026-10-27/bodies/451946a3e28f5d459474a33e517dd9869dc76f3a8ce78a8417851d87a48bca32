@@ -1,0 +1,88 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "city": "Tell-Aviv",
+      "advisory_committee_description": "Radiology",
+      "address_1": "3 Aminadav St.",
+      "address_2": "",
+      "statement_or_summary": "Summary",
+      "product_code": "QAS",
+      "openfda": {
+        "registration_number": [
+          "3017210169",
+          "3034656245",
+          "3017604664",
+          "3021915828",
+          "3023702863",
+          "3015763655",
+          "3016727312",
+          "3017840913",
+          "3014665798",
+          "3017489096",
+          "3014938447",
+          "3007301305",
+          "3035495311",
+          "3021032044",
+          "3011205675",
+          "3012453401",
+          "3014678441",
+          "3004977335",
+          "3038177848"
+        ],
+        "fei_number": [
+          "3017210169",
+          "3034656245",
+          "3017604664",
+          "3021915828",
+          "3023702863",
+          "3015763655",
+          "3016727312",
+          "3017840913",
+          "3014665798",
+          "3017489096",
+          "3014269683",
+          "3014938447",
+          "3007301305",
+          "3035495311",
+          "3021032044",
+          "3012453401",
+          "3014678441",
+          "3004977335",
+          "3038177848"
+        ],
+        "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+        "medical_specialty_description": "Radiology",
+        "regulation_number": "892.2080",
+        "device_class": "2"
+      },
+      "zip_code": "6706703",
+      "applicant": "Aidoc Medical , Ltd.",
+      "decision_date": "2025-11-06",
+      "decision_code": "SESE",
+      "country_code": "IL",
+      "device_name": "BriefCase-Triage",
+      "advisory_committee": "RA",
+      "contact": "Amalia  Schreier",
+      "expedited_review_flag": "",
+      "k_number": "K253265",
+      "state": "",
+      "date_received": "2025-09-29",
+      "review_advisory_committee": "RA",
+      "postal_code": "6706703",
+      "decision_description": "Substantially Equivalent",
+      "clearance_type": "Special"
+    }
+  ]
+}

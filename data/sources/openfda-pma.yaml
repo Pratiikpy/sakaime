@@ -1,0 +1,43 @@
+id: openfda-pma
+title: openFDA premarket approval (PMA) records and supplements
+kind: regulator
+connector: openfda-pma
+baseUrl: https://api.fda.gov/device/pma.json
+hosts:
+  - host: api.fda.gov
+    pathPrefixes: ["/device/"]
+auth: none
+rateLimit:
+  requests: 240
+  perSeconds: 60
+  perDay: 1000
+  basis: "open.fda.gov/apis/authentication, no key: 240 requests per minute and 1,000 per day per IP, shared with the other openFDA endpoints (read 2026-10-27)"
+rateLimitGroup: openfda
+identifierFields: [pma_number, supplement_number, product_code, applicant, trade_name]
+supportedPredicates:
+  - pma_number:eq
+license: "CC0 per open.fda.gov/license, with the openFDA disclaimer not to rely on it for medical decisions"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  main:
+    - { path: meta.last_updated, type: string }
+    - { path: meta.results.total, type: number }
+    - { path: results, type: array }
+    - { path: "results[].pma_number", type: string }
+    - { path: "results[].supplement_number", type: string }
+    - { path: "results[].applicant", type: string }
+probe:
+  operation: main
+  query: { pma_number: P130020 }
+  limit: 2
+  description: "A known PMA (P130020) that returned supplement records on 2026-10-27."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s2: pma_number:P130020 returns per-supplement ao_statement and supplement_reason."
+    - "Recorded responses: pma_number:P130020 (limit 2) and a product_code search for a 510(k) code, which returned the NOT_FOUND body."
+  notVerified:
+    - "Only one of the 21 PMA numbers on the FDA AI list was tested, and no PMA device was linked to studies."
+    - "Search on applicant, trade_name and generic_name against this endpoint was not exercised."
+    - "Update cadence; no published schedule was read."

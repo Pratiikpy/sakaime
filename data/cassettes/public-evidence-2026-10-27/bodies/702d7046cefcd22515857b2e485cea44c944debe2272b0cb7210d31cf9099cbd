@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "false",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "Transpara® software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breast tomosynthesis exams from compatible FFDM and DBT systems, to identify regions suspicious for breast cancer and assess their likelihood of malignancy. Output of the device includes locations of calcifications groups and soft-tissue regions, with scores indicating the likelihood that cancer is present, and an exam score indicating the likelihood that cancer is present in the exam. Patient management decisions should not be made solely on the basis of analysis by Transpara®.",
+      "public_device_record_key": "e0b0f886-193f-469e-9ee6-77228f16c3a3",
+      "has_serial_number": "true",
+      "public_version_date": "2026-05-14",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "2",
+      "labeler_duns_number": "491352982",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "08720387058013",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.7.2",
+      "has_manufacturing_date": "true",
+      "brand_name": "Transpara",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QDQ",
+          "name": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicious For Cancer",
+          "openfda": {
+            "device_name": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicious For Cancer",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2090",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "K221347",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "false",
+      "company_name": "Screenpoint Medical B.V.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "63386",
+          "name": "X-ray image interpretive software",
+          "definition": "An interpretive software program intended to be used to analyse non-dental x-ray images (e.g., chest, mammograms, tomograms) to detect and localize suspected abnormalities (e.g., tumours, emphysema, tuberculosis, blunted costophrenic angle) and possibly provide results as clinically relevant tags. It typically utilizes artificial intelligence (AI) and deep learning techniques, and may be compatible with radiology information systems, data formats, and medical imaging software programs [e.g., picture archiving and communication system (PACS), digital imaging and communications in medicine (DICOM) format].",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2023-03-03"
+    }
+  ]
+}

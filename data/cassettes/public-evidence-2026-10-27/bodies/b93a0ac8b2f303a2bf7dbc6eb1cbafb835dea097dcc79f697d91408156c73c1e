@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "life_sustain_support_flag": "N",
+      "gmp_exempt_flag": "N",
+      "summary_malfunction_reporting": "Eligible",
+      "product_code": "PIB",
+      "openfda": {
+        "k_number": [
+          "K240058",
+          "K200667",
+          "K253704",
+          "K223357",
+          "K213037",
+          "K221183",
+          "K203629",
+          "DEN180001"
+        ],
+        "registration_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ],
+        "fei_number": [
+          "",
+          "3014579028",
+          "3025301728",
+          "3013924858"
+        ]
+      },
+      "review_panel": "OP",
+      "medical_specialty": "OP",
+      "device_name": "Diabetic Retinopathy Detection Device",
+      "review_code": "",
+      "unclassified_reason": "",
+      "medical_specialty_description": "Ophthalmic",
+      "device_class": "2",
+      "definition": "A retinal diagnostic software device is a prescription software device that incorporates an adaptive algorithm to evaluate ophthalmic images for diagnostic screening to identify retinal diseases or conditions.",
+      "regulation_number": "886.1100",
+      "implant_flag": "N",
+      "submission_type_id": "1"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "error": {
+    "code": "SERVER_ERROR",
+    "message": "Check your request and try again",
+    "details": "[parse_exception] parse_exception: Encountered \"<EOF>\" at line 1, column 13.\nWas expecting one of:\n    <NOT> ...\n    \"+\" ...\n    \"-\" ...\n    <BAREOPER> ...\n    \"(\" ...\n    \"*\" ...\n    <QUOTED> ...\n    <TERM> ...\n    <PREFIXTERM> ...\n    <WILDTERM> ...\n    <REGEXPTERM> ...\n    \"[\" ...\n    \"{\" ...\n    <NUMBER> ...\n    <TERM> ...\n    "
+  }
+}

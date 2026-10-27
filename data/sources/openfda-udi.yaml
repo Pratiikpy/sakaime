@@ -1,0 +1,45 @@
+id: openfda-udi
+title: openFDA Global UDI Database (GUDID) device records
+kind: regulator
+connector: openfda-udi
+baseUrl: https://api.fda.gov/device/udi.json
+hosts:
+  - host: api.fda.gov
+    pathPrefixes: ["/device/"]
+auth: none
+rateLimit:
+  requests: 240
+  perSeconds: 60
+  perDay: 1000
+  basis: "open.fda.gov/apis/authentication, no key: 240 requests per minute and 1,000 per day per IP, shared with the other openFDA endpoints (read 2026-10-27)"
+rateLimitGroup: openfda
+identifierFields: [premarket_submissions.submission_number, identifiers.id, version_or_model_number, brand_name, company_name]
+supportedPredicates:
+  - premarket_submissions.submission_number:eq
+  - company_name:phrase
+  - brand_name:phrase
+license: "CC0 per open.fda.gov/license, with the openFDA disclaimer not to rely on it for medical decisions"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  main:
+    - { path: meta.last_updated, type: string }
+    - { path: meta.results.total, type: number }
+    - { path: results, type: array }
+    - { path: "results[].public_device_record_key", type: string }
+    - { path: "results[].premarket_submissions", type: array }
+    - { path: "results[].version_or_model_number", type: string, optional: true }
+    - { path: "results[].brand_name", type: string, optional: true }
+probe:
+  operation: main
+  query: { submission_number: K200667 }
+  description: "A known submission with a GUDID record (EyeArt, version label 2.1.0)."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s2: 851 of 1,593 AI-list submissions have at least one GUDID record (53.4%); 306 of those carry more than one distinct version label."
+    - "Recorded responses: udi lookups for twelve submissions, four of them the NOT_FOUND body."
+    - "Live request 2026-10-27: company_name:\"Eyenuk, Inc.\" AND brand_name:\"EyeArt\" returned the EyeArt record (version 2.1.0), so the phrase predicates work on this endpoint."
+  notVerified:
+    - "GUDID completeness beyond the counts above. A submission with no record here means no GUDID record found, not that the device has no version."
+    - "Update cadence. meta.last_updated was 2026-10-01 on 2026-10-27; no published schedule was read."

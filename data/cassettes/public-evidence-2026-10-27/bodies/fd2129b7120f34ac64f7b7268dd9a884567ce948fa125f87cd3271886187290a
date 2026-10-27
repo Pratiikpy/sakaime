@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "life_sustain_support_flag": "N",
+      "gmp_exempt_flag": "N",
+      "summary_malfunction_reporting": "Ineligible",
+      "product_code": "QPN",
+      "openfda": {
+        "k_number": [
+          "K241232",
+          "DEN200080"
+        ],
+        "registration_number": [
+          "3029787717",
+          "3017125738"
+        ],
+        "fei_number": [
+          "3029787717",
+          "3017125738"
+        ]
+      },
+      "review_panel": "PA",
+      "medical_specialty": "PA",
+      "device_name": "Software Algorithm Device To Assist Users In Digital Pathology",
+      "review_code": "",
+      "unclassified_reason": "",
+      "medical_specialty_description": "Pathology",
+      "device_class": "2",
+      "definition": "A software algorithm device to assist users in digital pathology is an in vitro diagnostic device intended to evaluate acquired scanned pathology whole slide images. The device uses software algorithms to provide information to the user about presence, location, and characteristics of areas of the image with clinical implications. Information from this device is intended to assist the user in determining a pathology diagnosis.",
+      "regulation_number": "864.3750",
+      "implant_flag": "N",
+      "submission_type_id": "1"
+    }
+  ]
+}

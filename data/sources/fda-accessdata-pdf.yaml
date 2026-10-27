@@ -1,0 +1,33 @@
+id: fda-accessdata-pdf
+title: FDA decision summary PDFs (accessdata.fda.gov)
+kind: regulator
+connector: fda-pdf
+baseUrl: https://www.accessdata.fda.gov/cdrh_docs/
+hosts:
+  - host: www.accessdata.fda.gov
+    pathPrefixes: ["/cdrh_docs/"]
+auth: none
+politeness:
+  requests: 2
+  perSeconds: 1
+  basis: "our own pacing; no limit was seen in the feasibility probe"
+identifierFields: [k_number, den_number]
+supportedPredicates:
+  - "submission_number:url-pattern"
+license: "US government work; reuse terms NOT VERIFIED"
+dataClass: public
+schemaVersion: "1"
+probe:
+  operation: pdf
+  query: { submission_number: DEN180001 }
+  description: "A known De Novo decision summary (IDx-DR); the first bytes must be %PDF."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s3 and s7: 510(k) summaries are at /cdrh_docs/pdf{YY}/K{YYNNNN}.pdf and De Novo summaries at /cdrh_docs/reviews/DEN{...}.pdf; 49 of 50 random AI-list entries resolved by that pattern; an unknown path returns 404 with a 17,737-byte HTML page, so %PDF must be checked as well as the status."
+    - "Recorded: the DEN180001 PDF (142,581 bytes, sha256 9b4a978b...) and the 404 HTML 'Page Not Found' page (17,737 bytes) for a path that does not exist."
+    - "Live request 2026-10-27: a Range request for the first 1,024 bytes of that PDF was answered 206, so the status probe asks for a range. The same host redirected a request whose User-Agent contained a URL, and a request with curl's default User-Agent, to /apology_objects/abuse-detection-apology.html; the fetcher's User-Agent therefore carries no URL."
+  notVerified:
+    - "The URL pattern for PMA summaries; the connector refuses a P number rather than guess."
+    - "Reuse terms."
+    - "Text extraction is not done here. The summary is sponsor-written and not standardised (performance goals redacted as (b)(4), OCR ligature damage), so the document parser owns that step."

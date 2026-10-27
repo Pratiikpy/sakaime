@@ -1,0 +1,40 @@
+id: pubmed-eutils
+title: PubMed E-utilities (esearch and efetch)
+kind: literature
+connector: pubmed
+baseUrl: https://eutils.ncbi.nlm.nih.gov/entrez/eutils
+hosts:
+  - host: eutils.ncbi.nlm.nih.gov
+    pathPrefixes: ["/entrez/eutils/"]
+auth: none
+rateLimit:
+  requests: 3
+  perSeconds: 1
+  basis: "X-Ratelimit-Limit: 3 response header on a keyless request, observed 2026-10-27 (FEASIBILITY-REPORT s7)"
+identifierFields: [PMID, DOI, PMCID, DataBank ClinicalTrials.gov accession]
+supportedPredicates:
+  - "term:[tiab]"
+  - "term:[si]"
+  - "term:[All Fields]"
+  - pmid:eq
+license: "NLM-held records; reuse terms are per publisher and are NOT VERIFIED in detail"
+dataClass: public
+schemaVersion: "1"
+responseContracts:
+  esearch:
+    - { path: esearchresult.count, type: string }
+    - { path: esearchresult.idlist, type: array }
+probe:
+  operation: efetch
+  query: { pmid: "34779843" }
+  description: "A known article (the EyeArt pivotal evaluation, PMID 34779843)."
+verification:
+  verifiedOn: "2026-10-27"
+  evidence:
+    - "FEASIBILITY-REPORT s7: zero hits returns 200 with count 0 and \"No items found.\"; efetch of a bad PMID returns 200 with an empty PubmedArticleSet."
+    - "Recorded responses: forty-seven esearch results and fifteen efetch batches, including an efetch for a PMID that does not exist (200, empty PubmedArticleSet)."
+  notVerified:
+    - "Behaviour on HTTP 429. The probe kept to about two requests per second and never provoked one."
+    - "Reuse terms for abstracts and full text."
+    - "A search by NCT number finds the paper for only some trials: [si] and free text each missed trials the other found, so an EMPTY NCT search means none found by that query form."
+    - "Bare product names flood results (ContaCT[tiab] returned 446,198 records); the connector refuses a product query without a vendor."
