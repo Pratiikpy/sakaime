@@ -10,6 +10,7 @@ import { Icon } from "../components/Icon";
 import { Section, useDocTitle } from "../components/ui";
 import { ASSERTION_NAME, DRILL_META, LABEL_META } from "../lib/vocab";
 import { shortHash } from "../lib/format";
+import { claimName } from "../lib/explain";
 
 type Drill = (typeof DRILLS)[number];
 type Outcome = { ok: true; res: DrillResponse } | { ok: false; error: ApiError };
@@ -58,7 +59,7 @@ function Delta({ before, after }: { before?: Finding; after: Finding }) {
   );
 }
 
-function ResultPanel({ drill, r }: { drill: Drill; r: DrillResponse }) {
+function ResultPanel({ drill, r, c }: { drill: Drill; r: DrillResponse; c: CaseDetail }) {
   const cs = checks(drill, r);
   const allOk = cs.every((c) => c.ok);
   return (
@@ -70,7 +71,8 @@ function ResultPanel({ drill, r }: { drill: Drill; r: DrillResponse }) {
         {r.after.map((a) => {
           const b = r.before.find((x) => x.id === a.id) ?? r.before.find((x) => x.claimId === a.claimId);
           return (
-            <li key={a.id}>
+            <li key={a.id} data-claim={a.claimId}>
+              {r.after.length > 1 && <p className="drill-findings__name">{claimName(c, a)}</p>}
               <Delta before={b} after={a} />
               <p className="muted">
                 {LABEL_META[a.label].words}
@@ -255,8 +257,12 @@ function Body({ c }: { c: CaseDetail }) {
                       </tr>
                     );
                   }
-                  const a = o.res.after[0];
-                  const b = o.res.before[0];
+                  const a = o.res.after.find((x) => x.claimId === c.claim.id) ?? o.res.after[0];
+                  const b = a ? (o.res.before.find((x) => x.id === a.id) ?? o.res.before.find((x) => x.claimId === a.claimId)) : undefined;
+                  const moved = o.res.after.filter((x) => {
+                    const was = o.res.before.find((y) => y.id === x.id) ?? o.res.before.find((y) => y.claimId === x.claimId);
+                    return was && was.label !== x.label;
+                  }).length;
                   const ok = checks(d, o.res).every((x) => x.ok);
                   return (
                     <tr key={d} data-drill={d} data-held={ok}>
@@ -266,7 +272,10 @@ function Body({ c }: { c: CaseDetail }) {
                         </button>
                       </th>
                       <td data-label="Answer before">{b ? <LabelBadge label={b.label} size="sm" /> : "none"}</td>
-                      <td data-label="Answer after">{a ? <LabelBadge label={a.label} size="sm" /> : "none"}</td>
+                      <td data-label="Answer after">
+                        {a ? <LabelBadge label={a.label} size="sm" /> : "none"}
+                        {o.res.after.length > 1 && <p className="cell-sub">{moved === 0 ? `None of the ${o.res.after.length} claims moved` : `${moved} of ${o.res.after.length} claims moved`}</p>}
+                      </td>
                       <td data-label="Out of date" className="num">{o.res.staleFindingIds.length}</td>
                       <td data-label="Checks">
                         <span className={`status-pill tone-${ok ? "good" : "bad"}`}>
@@ -291,7 +300,7 @@ function Body({ c }: { c: CaseDetail }) {
         {selected && !sel && <EmptyState title="This drill has not run" icon="play">Press its Run button.</EmptyState>}
         {sel && !sel.ok && <ErrorState error={sel.error} />}
         {sel && sel.ok && selected && (
-          <ResultPanel drill={selected} r={sel.res} />
+          <ResultPanel drill={selected} r={sel.res} c={c} />
         )}
         {sel && sel.ok && (
           <p className="muted drill-mode" data-testid="drill-mode">

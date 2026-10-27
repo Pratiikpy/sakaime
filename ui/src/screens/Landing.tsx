@@ -5,7 +5,9 @@ import type { CaseDetail, CaseSummary } from "../api/types";
 import { LabelBadge, ProvenanceBadge } from "../components/badges";
 import { Icon } from "../components/Icon";
 import { ErrorState, Loading } from "../components/feedback";
+import { Why } from "../components/Why";
 import { Redaction, useDocTitle } from "../components/ui";
+import { headlineFinding } from "../lib/explain";
 import { DIMENSION_NAME, LABEL_META } from "../lib/vocab";
 import { formatDate, plural } from "../lib/format";
 
@@ -28,7 +30,7 @@ function LiveStrip() {
       </div>
     );
   }
-  const finding = detail.data?.findings[0];
+  const finding = detail.data ? headlineFinding(detail.data) : undefined;
   const dims = finding ? (detail.data?.dimensions[finding.id] ?? []) : [];
   const open = dims.filter((d) => d.relation !== "CONTAINED");
   return (
@@ -64,6 +66,12 @@ function LiveStrip() {
           <dd>{formatDate(pick.updatedAt)}</dd>
         </div>
       </dl>
+      {detail.data && finding && (
+        <div className="strip__why">
+          <h4 className="strip__why-title">Why this answer, and what would change it</h4>
+          <Why c={detail.data} f={finding} maxDims={3} maxAsks={2} heading={false} />
+        </div>
+      )}
       <div className="strip__actions">
         {finding ? (
           <Link className="btn btn-primary" to={`/cases/${encodeURIComponent(pick.id)}/claims/${encodeURIComponent(finding.id)}`}>

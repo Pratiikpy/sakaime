@@ -6,7 +6,9 @@ import { LabelBadge, RelationBadge } from "../components/badges";
 import { CaseGate, CaseHeader } from "../components/CaseGate";
 import { EmptyState, ErrorState, Loading, useAnnounce } from "../components/feedback";
 import { Icon } from "../components/Icon";
-import { CopyButton, Section, useDocTitle } from "../components/ui";
+import { Clamp, CopyButton, Section, useDocTitle } from "../components/ui";
+import { Why } from "../components/Why";
+import { headlineFinding } from "../lib/explain";
 import { DIMENSION_NAME, LABEL_META, PURPOSE_SUGGESTIONS, RELATION_META, SETTING_SUGGESTIONS } from "../lib/vocab";
 import { formatMs } from "../lib/format";
 
@@ -118,7 +120,9 @@ function Result({ r, c }: { r: RecomputeResponse; c: CaseDetail }) {
               <strong>{DIMENSION_NAME[d.dimension]}</strong>
               <RelationBadge relation={d.relation} />
             </div>
-            <p className="muted">{d.reason}</p>
+            <p className="muted">
+              <Clamp text={d.reason} lines={3} />
+            </p>
           </li>
         ))}
       </ul>
@@ -138,7 +142,9 @@ function Result({ r, c }: { r: RecomputeResponse; c: CaseDetail }) {
                   <strong>{DIMENSION_NAME[q.dimension as Dimension]}</strong>
                   <CopyButton text={text} what="request" label="Copy request" />
                 </div>
-                <p className="missing-item__req">{q.request}</p>
+                <p className="missing-item__req">
+                  <Clamp text={q.request} lines={3} />
+                </p>
               </li>
             );
           })}
@@ -208,7 +214,7 @@ function LabBody({ c }: { c: CaseDetail }) {
   }, [patchKey, caseId]);
 
   const set = <K extends keyof Form>(k: K, v: Form[K]) => setForm((f) => ({ ...f, [k]: v }));
-  const finding = c.findings[0];
+  const finding = headlineFinding(c);
   const changedAny = !("error" in patch) && (Object.keys(patch).length > 0 || !!form.asOf);
 
   return (
@@ -314,6 +320,7 @@ function LabBody({ c }: { c: CaseDetail }) {
               <div className="lab-baseline" data-testid="lab-baseline">
                 <LabelBadge label={finding.label} size="lg" showGloss />
                 <p className="muted">This is the answer for the claim as written. Change a field on the left and it recomputes.</p>
+                <Why c={c} f={finding} />
               </div>
             )}
             {!error && changedAny && !result && busy && <Loading label="Recomputing" rows={3} />}

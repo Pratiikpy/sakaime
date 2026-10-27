@@ -51,7 +51,7 @@
 .dim-good { border-left-color: var(--green); }
 .dim-partial { border-left-color: var(--green-line); }
 .dim-bad { border-left-color: var(--rust); }
-.dim-unknown { border-left-color: var(--ink-3); border-left-style: dotted; }
+.dim-unknown { border-left-color: var(--ink-3); }
 .dim-row__head { display: flex; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; align-items: flex-start; }
 .dim-row__name { font-size: var(--step-1); }
 .dim-row__q { color: var(--ink-3); font-size: 0.9rem; }
@@ -240,3 +240,60 @@
 .lab-result { display: flex; flex-direction: column; gap: 10px; }
 .lab-result .subhead { margin-top: 14px; }
 .lab-result .lab-summary { margin: 4px 0; }
+
+/* ---------------------------------------------------------------- clamp, why, case overview (real data is long) */
+
+.clamp { overflow-wrap: anywhere; }
+.clamp.is-clamped { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: var(--lines, 3); line-clamp: var(--lines, 3); overflow: hidden; }
+.linkish { background: none; border: 0; padding: 0 2px; min-height: 28px; color: var(--green); font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; font-size: 0.9rem; }
+.linkish:hover { text-decoration-thickness: 2px; }
+@media (max-width: 899px) { .linkish { min-height: 44px; padding: 0 6px; } }
+
+.why { display: flex; flex-direction: column; gap: 12px; }
+.why__lead { font-size: var(--step-1); color: var(--ink); max-width: 70ch; }
+.why__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.why__list > li { display: grid; gap: 4px 16px; padding: 10px 14px; border: 1px solid var(--line); border-left: 4px solid var(--line-strong); border-radius: var(--radius); background: var(--paper); }
+.why__list > li.muted { border: 0; padding: 0; background: none; }
+@media (min-width: 760px) { .why__list > li:not(.muted) { grid-template-columns: 220px 1fr; align-items: start; } }
+.why__dim { display: flex; flex-direction: column; gap: 4px; align-items: flex-start; }
+.why__reason { color: var(--ink-2); min-width: 0; }
+.why__settle { display: flex; flex-direction: column; gap: 6px; }
+.why__settle .plain-list li { color: var(--ink-2); }
+.why__settle .plain-list strong { color: var(--ink); }
+
+.strip__why { border-top: 1px solid var(--line); padding-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.strip__why-title { font-size: var(--step-0); }
+.strip__why .why__lead { font-size: var(--step-0); }
+
+.finding-card-head { border-width: 1.5px; box-shadow: var(--shadow); }
+.finding-card-compact { gap: 12px; padding: 16px 18px; }
+.finding-card__name { font-size: var(--step-1); }
+.finding-card__says { color: var(--ink-2); font-size: 0.92rem; margin-top: 2px; max-width: 60ch; }
+.finding-card__actions { align-items: center; flex-wrap: wrap; }
+.finding-card-compact .why__lead { font-size: var(--step-0); }
+.finding-card-compact .decision-form { margin-top: 8px; }
+
+.missing-group { display: flex; flex-direction: column; gap: 8px; }
+.missing-group + .missing-group { margin-top: 10px; }
+
+.finding-switch { display: flex; align-items: baseline; gap: 10px 16px; flex-wrap: wrap; margin: 4px 0 22px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper-2); }
+.finding-switch__label { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); }
+.finding-switch ul { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; }
+.finding-switch a { display: flex; flex-direction: column; gap: 0; min-height: 44px; justify-content: center; padding: 4px 12px; border: 1.5px solid var(--line-strong); border-radius: var(--radius); background: var(--paper); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.finding-switch a:hover { border-color: var(--ink); }
+.finding-switch a.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.finding-switch__word { font-weight: 400; font-size: 0.78rem; opacity: 0.9; }
+
+.anchor-more { margin-top: 12px; }
+.dim-list + .subhead, .subhead + .dim-list { margin-top: 10px; }
+[data-testid="dimensions"] > .subhead { margin: 18px 0 10px; font-size: var(--step-1); }
+[data-testid="dimensions"] > .subhead:first-child { margin-top: 4px; }
+.dim-row .sidebyside dd { min-width: 0; }
+
+.runmode__notes { flex: 1 1 100%; font-size: 0.85rem; color: var(--ink-2); }
+.runmode__notes summary { cursor: pointer; min-height: 32px; display: flex; align-items: center; }
+.runmode__notes ul { margin: 4px 0 6px 1.2em; display: flex; flex-direction: column; gap: 2px; }
+@media (max-width: 899px) { .runmode__notes summary { min-height: 44px; } }
+.drill-findings__name { font-weight: 600; margin-bottom: 4px; }
+.finding-card__why { color: var(--ink); max-width: 70ch; }
+.dim-row__reason > span { min-width: 0; flex: 1 1 auto; }

@@ -1,5 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
-import { ready, watch } from "./helpers";
+import { expect, type Page } from "@playwright/test";
+import { test, primaryCase, ready, watch } from "./helpers";
 
 /** The main flow with the keyboard alone: no mouse, visible focus at every step. */
 
@@ -21,7 +21,9 @@ async function tabTo(page: Page, matcher: (text: string) => boolean, max = 80) {
   throw new Error("focus never reached the target");
 }
 
-test("keyboard only: skip link, open a case, read the X-ray, recompute in the lab, record a decision", async ({ page }) => {
+test("keyboard only: skip link, open a case, read the X-ray, recompute in the lab, record a decision", async ({ page, request }) => {
+  const detail = await primaryCase(request);
+  const id = encodeURIComponent(detail.summary.id);
   const w = watch(page);
   await page.goto("/");
   await ready(page);
@@ -51,12 +53,12 @@ test("keyboard only: skip link, open a case, read the X-ray, recompute in the la
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\/lab$/);
   await page.locator("#lab-age-min").focus();
-  await page.keyboard.type("22");
+  await page.keyboard.type("40");
   await expect(page.getByTestId("lab-summary")).toBeVisible();
   await expect(page.getByTestId("announcer")).toContainText("Recomputed with no model call");
 
   // A decision, with the arrow keys on the radio group.
-  await page.goto("/cases/ea-01");
+  await page.goto(`/cases/${id}`);
   await ready(page);
   await page.getByRole("radio", { name: /Accept/ }).focus();
   expect(await focusRing(page)).toBe("ring");
@@ -77,6 +79,7 @@ test("keyboard only: skip link, open a case, read the X-ray, recompute in the la
 
 test("keyboard only: add a source and read the refusal", async ({ page }) => {
   const w = watch(page);
+  w.allow(/status of 422/); // a refusal is an HTTP 4xx on the real service, and the browser logs it
   await page.goto("/sources");
   await ready(page);
   await page.locator("#src-desc").focus();
@@ -86,12 +89,12 @@ test("keyboard only: add a source and read the refusal", async ({ page }) => {
   await page.keyboard.press("Tab");
   await expect(page.getByRole("button", { name: "Onboard this source" })).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page.locator('[data-outcome="declined"]')).toBeVisible({ timeout: 10_000 });
+  await expect(page.locator('[data-outcome="declined"], [data-testid="onboarding-error"]').first()).toBeVisible({ timeout: 10_000 });
   w.assertClean();
 });
 
-test("focus order follows the visual order on the lab", async ({ page }) => {
-  await page.goto("/cases/ea-02/lab");
+test("focus order follows the visual order on the lab", async ({ page, request }) => {
+  await page.goto(`/cases/${encodeURIComponent((await primaryCase(request)).summary.id)}/lab`);
   await ready(page);
   const order: string[] = [];
   for (let i = 0; i < 80; i++) {
@@ -102,9 +105,10 @@ test("focus order follows the visual order on the lab", async ({ page }) => {
   expect(order.slice(0, 7)).toEqual(["lab-versions", "lab-age-min", "lab-age-max", "lab-purpose", "lab-date", "lab-threshold", "lab-asof"]);
 });
 
-test("zoomed to 200% the main screens stay usable with no sideways scroll", async ({ page }) => {
+test("zoomed to 200% the main screens stay usable with no sideways scroll", async ({ page, request }) => {
+  const id = encodeURIComponent((await primaryCase(request)).summary.id);
   await page.setViewportSize({ width: 720, height: 450 }); // 1440 x 900 at 200%
-  for (const p of ["/", "/cases/ea-02/claims", "/cases/ea-02/lab", "/sources"]) {
+  for (const p of ["/", `/cases/${id}`, `/cases/${id}/claims`, `/cases/${id}/lab`, "/sources"]) {
     await page.goto(p);
     await ready(page);
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

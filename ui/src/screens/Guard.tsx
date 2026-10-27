@@ -1,5 +1,6 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { api, ApiError } from "../api/client";
+import { useResource } from "../api/hooks";
 import type { GuardResponse } from "../api/types";
 import { EmptyState, ErrorState, Notice, useAnnounce } from "../components/feedback";
 import { Icon } from "../components/Icon";
@@ -7,8 +8,14 @@ import { PageHeader, Section, useDocTitle } from "../components/ui";
 
 type Origin = "reviewer" | "document";
 
-const EXAMPLES: { id: string; title: string; origin: Origin; text: string }[] = [
-  { id: "question", title: "An ordinary question", origin: "reviewer", text: "Is the claim supported for patients aged 18 to 21 in an emergency department?" },
+/** A question names what it is about. The reference is read from the first case the service holds, so the example is answerable. */
+const examples = (ref: string | undefined): { id: string; title: string; origin: Origin; text: string }[] => [
+  {
+    id: "question",
+    title: "An ordinary question",
+    origin: "reviewer",
+    text: `${ref ? `For ${ref}, is` : "Is"} the claim supported for patients aged 18 to 21 in an emergency department?`,
+  },
   {
     id: "injection",
     title: "A document giving orders",
@@ -85,6 +92,9 @@ export function Guard() {
   const [result, setResult] = useState<{ res: GuardResponse; sent: string; origin: Origin } | null>(null);
   const [reveal, setReveal] = useState(false);
   const announce = useAnnounce();
+  const cases = useResource("cases", (s) => api.cases(s));
+  const ref = /K\d{6}/.exec(cases.data?.map((c) => c.productLabel).join(" ") ?? "")?.[0];
+  const EXAMPLES = useMemo(() => examples(ref), [ref]);
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
@@ -95,7 +105,7 @@ export function Guard() {
     try {
       const res = await api.guard({ text, origin });
       setResult({ res, sent: text, origin });
-      announce(res.allowed ? "The guard let this text through." : `The guard held this text back. ${res.message}`);
+      announce(res.allowed ? "The guard let this text through." : res.findings.length > 0 ? `The guard held this text back. ${res.message}` : `The guard needs more detail. ${res.message}`);
     } catch (err) {
       const apiErr = err instanceof ApiError ? err : new ApiError("UNAVAILABLE", "The guard could not be reached.", 0);
       setError(apiErr);
@@ -186,7 +196,7 @@ export function Guard() {
                 <div className={`outcome outcome-${result.res.allowed ? "good" : "bad"}`}>
                   <Icon name={result.res.allowed ? "check" : "block"} size={22} />
                   <div>
-                    <h3 className="outcome__title">{result.res.allowed ? "Passed the guard" : "Held back"}</h3>
+                    <h3 className="outcome__title">{result.res.allowed ? "Passed the guard" : result.res.findings.length > 0 ? "Held back" : "Needs more detail"}</h3>
                     <p data-testid="guard-message">{result.res.message}</p>
                     <p className="muted">
                       Read as: <code className="mono">{result.res.intent}</code> from {result.origin === "document" ? "a document" : "a reviewer"}.
@@ -220,9 +230,13 @@ export function Guard() {
                       </>
                     )}
                   </>
-                ) : (
+                ) : result.res.allowed ? (
                   <Notice tone="good" title="Nothing reacted">
                     No layer found an instruction, a patient identifier or a hidden-text trick in this text. That is not a promise about the document's meaning, only that it asked for nothing.
+                  </Notice>
+                ) : (
+                  <Notice tone="info" title="Nothing in the text was set aside">
+                    No layer found an instruction, a patient identifier or a hidden-text trick. The request could not be acted on as written; the message above says what is missing.
                   </Notice>
                 )}
               </div>

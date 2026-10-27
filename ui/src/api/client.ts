@@ -40,7 +40,8 @@ async function parseError(res: Response): Promise<ApiError> {
   }
   try {
     const body = ErrorBodySchema.parse(JSON.parse(text));
-    return new ApiError(body.error.failure, body.error.message, res.status, body.error.detail);
+    // An HTTP 404 means the thing is not there, whatever failure word the body carries; it reads as "not found", never as an outage.
+    return new ApiError(res.status === 404 ? "NOT_FOUND" : body.error.failure, body.error.message, res.status, body.error.detail);
   } catch {
     // Not our error body. A proxy error page or an empty reply means the service did not answer.
     if (res.status >= 500 || res.status === 0) {

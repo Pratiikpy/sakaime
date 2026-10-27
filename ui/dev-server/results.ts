@@ -4,8 +4,10 @@
  * has the expected shape yields no row instead of a guessed one.
  */
 import { existsSync, readFileSync } from "node:fs";
-import { join } from "node:path";
-import { REPO } from "./world.ts";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const REPO = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
 export interface ResultRow {
   id: string;
@@ -148,18 +150,121 @@ function gate0Rows(): ResultRow[] {
   }
 }
 
+interface Rate {
+  k: number;
+  n: number;
+  rate: number | null;
+  wilsonLo?: number;
+  wilsonHi?: number;
+}
+
+/**
+ * Headline figures from the evaluation runs in evals/results. Each row names the file and key it was read from. A missing file or
+ * key yields no row, never a guessed one, and the limits text repeats what the run's own report says about what the figure is not.
+ */
+function evalRows(): ResultRow[] {
+  const wanted: { file: string; path: string[]; id: string; group: string; measure: string; limits: string }[] = [
+    {
+      file: "scopeshift-a.json",
+      path: ["exactLabel"],
+      id: "scopeshift-a-exact",
+      group: "The rules against a rule table",
+      measure: "Answers that match the rule table on controlled one-change cases",
+      limits: "Consistency check on 236 cases over 18 real FDA summaries, 17 device families. It shows the code does what the table says, not that the table is clinically right.",
+    },
+    {
+      file: "scopeshift-a.json",
+      path: ["falseSupported"],
+      id: "scopeshift-a-false-supported",
+      group: "The rules against a rule table",
+      measure: "Cases called supported although the key withholds support",
+      limits: "Same 236 cases. Lower is better; this is the safety measure, and it is not zero.",
+    },
+    {
+      file: "scopeshift-b-held-out.json",
+      path: ["heldout.V.exact"],
+      id: "scopeshift-b-exact",
+      group: "The whole pipeline on documents held out from development",
+      measure: "Answers that match the builder's key (exact label)",
+      limits: "Five held-out devices, key sealed before the run. Labels by one builder, not independent reviewers. The shortfall is in the hand-off from document reading to the rules, not in the rules themselves.",
+    },
+    {
+      file: "scopeshift-b-held-out.json",
+      path: ["heldout.V.falseSupported"],
+      id: "scopeshift-b-false-supported",
+      group: "The whole pipeline on documents held out from development",
+      measure: "Claims called supported although the key withholds support",
+      limits: "Same held-out set. Zero here is partly because the pipeline abstains on most claims; read it with the exact-label row.",
+    },
+    {
+      file: "scopeshift-b-held-out.json",
+      path: ["heldout.V.falseAlarm"],
+      id: "scopeshift-b-false-alarm",
+      group: "The whole pipeline on documents held out from development",
+      measure: "Well-supported claims that were flagged",
+      limits: "Same held-out set; a small number of claims.",
+    },
+    {
+      file: "timeshift.json",
+      path: ["staleSetEqualsDependentSet"],
+      id: "timeshift-stale-set",
+      group: "Changes after a finding was made",
+      measure: "Cases where the findings marked out of date are exactly the dependent ones",
+      limits: "Consistency check on 27 constructed changes over 5 devices.",
+    },
+    {
+      file: "failureshift.json",
+      path: ["correctState"],
+      id: "failureshift-correct",
+      group: "Failure behaviour",
+      measure: "Drills that end in the correct state",
+      limits: "157 drills over 11 base cases. A source that could not be reached is never read as a source with nothing in it.",
+    },
+    {
+      file: "discoveryshift.json",
+      path: ["full.run1.correct"],
+      id: "discoveryshift-full",
+      group: "Finding and mapping new sources",
+      measure: "New sources mapped, held or declined correctly",
+      limits: "100 scored cases from 4 base sources; the interval across base sources is wide. Labels by one builder.",
+    },
+  ];
+  const out: ResultRow[] = [];
+  for (const w of wanted) {
+    const raw = read(`evals/results/${w.file}`);
+    if (!raw) continue;
+    try {
+      const summaries = (JSON.parse(raw) as { summaries?: Record<string, unknown> }).summaries ?? {};
+      // Result files use either a flat dotted key ("heldout.V.exact") or a plain one.
+      const v = (summaries[w.path.join(".")] ?? w.path.reduce<unknown>((o, k) => (o as Record<string, unknown> | undefined)?.[k], summaries)) as Rate | undefined;
+      if (!v || typeof v.k !== "number" || typeof v.n !== "number" || typeof v.rate !== "number") continue;
+      out.push({
+        id: w.id,
+        group: w.group,
+        measure: w.measure,
+        status: "measured",
+        value: v.rate.toFixed(3),
+        denominator: `${v.k}/${v.n}`,
+        ...(typeof v.wilsonLo === "number" && typeof v.wilsonHi === "number" ? { interval: `Wilson ${v.wilsonLo.toFixed(3)} to ${v.wilsonHi.toFixed(3)}` } : {}),
+        limits: w.limits,
+        source: `evals/results/${w.file}`,
+      });
+    } catch {
+      // An unreadable file yields no rows.
+    }
+  }
+  return out;
+}
+
 const PLANNED: [string, string][] = [
-  ["False-supported rate on a held-out set", "The safety measure: claims called supported that the key says are not."],
-  ["Critical mismatches found, against the strongest baseline", "Recall on claims with a known mismatch."],
-  ["False-alarm rate", "Well-supported claims that were flagged."],
-  ["Correct answers of Supported", "So that refusing everything cannot look good."],
-  ["Correct abstention when a source is switched off", "Across the whole drill suite."],
-  ["Findings recomputed after a change", "Exactly the dependent findings, and no others."],
+  ["Critical mismatches found, against the strongest baseline", "Recall on claims with a known mismatch, on a set larger than the 26 constructed claims."],
+  ["Correct answers of Supported on real vendor claims", "So that refusing everything cannot look good. The constructed positive controls are in the rows above."],
+  ["Agreement of an independent clinician with the builder's keys", "No clinician has read any key."],
   ["Reviewer study: time and correctness with and without the tool", "Needs independent reviewers, which have not been found."],
 ];
 
 export function buildResults(): { generatedAt: string; note: string; rows: ResultRow[] } {
-  const measured = [...identityRows(), ...scoutRows(), ...extractionRows(), ...gate0Rows()];
+  const measured = [...evalRows(), ...identityRows(), ...scoutRows(), ...extractionRows(), ...gate0Rows()];
   const planned: ResultRow[] = PLANNED.map(([measure, limits], i) => ({
     id: `planned-${i + 1}`,
     group: "Planned, not yet measured",
@@ -169,7 +274,7 @@ export function buildResults(): { generatedAt: string; note: string; rows: Resul
   }));
   return {
     generatedAt: new Date().toISOString(),
-    note: "Each figure below is read from a result file in the repository when this page is served. Nothing on this page is typed in.",
+    note: "Each figure below is read from a result file in the repository when the app is built. Nothing on this page is typed in.",
     rows: [...measured, ...planned],
   };
 }

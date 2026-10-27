@@ -1,8 +1,9 @@
-import { expect, test } from "@playwright/test";
-import { SCREENS, ready } from "./helpers";
+import { expect } from "@playwright/test";
+import { test, primaryCase, ready, screensFor } from "./helpers";
 
 for (const width of [360, 390, 768, 1024, 1440]) {
-  test(`no sideways page scroll at ${width}px on any screen`, async ({ page }) => {
+  test(`no sideways page scroll at ${width}px on any screen`, async ({ page, request }) => {
+    const SCREENS = screensFor((await primaryCase(request)).summary.id);
     await page.setViewportSize({ width, height: 800 });
     for (const s of SCREENS) {
       await page.goto(s.path);
@@ -20,7 +21,8 @@ for (const width of [360, 390, 768, 1024, 1440]) {
   });
 }
 
-test("on a phone, buttons and disclosure summaries are at least 44px tall", async ({ page }) => {
+test("on a phone, buttons and disclosure summaries are at least 44px tall", async ({ page, request }) => {
+  const SCREENS = screensFor((await primaryCase(request)).summary.id);
   await page.setViewportSize({ width: 390, height: 844 });
   const small: string[] = [];
   for (const s of SCREENS) {

@@ -44,7 +44,8 @@ function chipsFor(mode: RunMode): Chip[] {
   if (!mode.nightshiftReachable && mode.model === "nightshift") {
     chips.push({ id: "nr", icon: "unplugged", words: "Nightshift unreachable", title: "The Nightshift route did not answer its last probe.", tone: "bad" });
   }
-  mode.degradedNotes.forEach((note, i) => chips.push({ id: `d${i}`, icon: "warn", words: `Degraded: ${note}`, title: note, tone: "warn" }));
+  // In a sample run the notes explain what is replayed; they are not faults, so they sit behind a disclosure instead of as warnings.
+  if (!mode.sample) mode.degradedNotes.forEach((note, i) => chips.push({ id: `d${i}`, icon: "warn", words: `Degraded: ${note}`, title: note, tone: "warn" }));
   return chips;
 }
 
@@ -70,6 +71,16 @@ export function RunModeBanner() {
             </li>
           ))}
         </ul>
+        {health.data?.mode.sample && (
+          <details className="runmode__notes" data-testid="run-mode-notes">
+            <summary>Sample mode: every reading on these screens is replayed from recordings. Nothing is fetched live. What that means</summary>
+            <ul>
+              {health.data.mode.degradedNotes.map((n) => (
+                <li key={n}>{n}</li>
+              ))}
+            </ul>
+          </details>
+        )}
         {health.data && (
           <span className="runmode__meta mono" title="Application and rule-registry versions">
             v{health.data.version} · rules {health.data.ruleVersion.split("+")[0]}

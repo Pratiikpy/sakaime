@@ -3,6 +3,7 @@ import type { CaseDetail, Finding } from "../api/types";
 import { findingTypes } from "../lib/format";
 import { DIMENSION_NAME, FINDING_TYPES } from "../lib/vocab";
 import { Icon } from "./Icon";
+import { Clamp } from "./ui";
 import { RelationBadge } from "./badges";
 
 export function FindingTypeTags({ c, finding }: { c: CaseDetail; finding: Finding }) {
@@ -34,11 +35,11 @@ export function Counterexample({ finding }: { finding: Finding }) {
           <dl className="sidebyside">
             <div>
               <dt>The claim says</dt>
-              <dd>{m.claimed ?? "Not stated"}</dd>
+              <dd><Clamp text={m.claimed ?? "Not stated"} /></dd>
             </div>
             <div>
               <dt>The evidence establishes</dt>
-              <dd>{m.established ?? "Not stated"}</dd>
+              <dd><Clamp text={m.established ?? "Not stated"} /></dd>
             </div>
           </dl>
         </li>

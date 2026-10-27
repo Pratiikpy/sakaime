@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { api, ApiError } from "../api/client";
 import { invalidate } from "../api/hooks";
 import type { CaseDetail, Finding, MissingEvidenceItem, TimelineEvent } from "../api/types";
 import { LabelBadge, ProvenanceBadge } from "../components/badges";
 import { CaseGate, CaseHeader } from "../components/CaseGate";
-import { Counterexample, FindingTypeTags, XrayLink } from "../components/FindingBits";
+import { FindingTypeTags, XrayLink } from "../components/FindingBits";
 import { EmptyState, ErrorState, Notice, useAnnounce } from "../components/feedback";
 import { Icon } from "../components/Icon";
-import { CopyButton, Section, useDocTitle } from "../components/ui";
+import { Clamp, CopyButton, Disclosure, Section, useDocTitle } from "../components/ui";
+import { Why, whyLead } from "../components/Why";
+import { claimName, claimSummary, headlineFinding, otherFindings } from "../lib/explain";
 import { DECISION_ACTIONS, DIMENSION_NAME } from "../lib/vocab";
 import { formatDateTime, newKey, plural } from "../lib/format";
 import { REVIEWER_STATE_WORDS } from "./ReviewDesk";
@@ -79,7 +81,7 @@ function DecisionForm({ caseId, finding, onRecorded }: { caseId: string; finding
   );
 }
 
-function MissingEvidence({ items }: { items: MissingEvidenceItem[] }) {
+function MissingEvidence({ items, c }: { items: MissingEvidenceItem[]; c: CaseDetail }) {
   if (items.length === 0) {
     return (
       <EmptyState title="Nothing is missing" icon="check">
@@ -87,20 +89,39 @@ function MissingEvidence({ items }: { items: MissingEvidenceItem[] }) {
       </EmptyState>
     );
   }
+  const byFinding = new Map<string, MissingEvidenceItem[]>();
+  for (const m of items) byFinding.set(m.findingId, [...(byFinding.get(m.findingId) ?? []), m]);
   return (
     <>
-      <p className="muted">Each draft is specific enough to send. Sakaime never sends anything: copy a draft and send it yourself.</p>
+      <p className="muted">
+        This is the useful part when the answer is "not enough evidence": exactly what to ask for, written so it can be sent. Sakaime never sends anything: copy a draft and send it
+        yourself.
+      </p>
       <ul className="missing-list" data-testid="missing-evidence">
-        {items.map((m, i) => (
-          <li key={`${m.findingId}-${m.dimension}-${i}`} className="missing-item">
-            <div className="missing-item__head">
-              <strong>{DIMENSION_NAME[m.dimension]}</strong>
-              <CopyButton text={m.draft} what="vendor request draft" label="Copy draft" />
-            </div>
-            <p className="missing-item__req">{m.request}</p>
-            <blockquote className="draft">{m.draft}</blockquote>
-          </li>
-        ))}
+        {[...byFinding.entries()].map(([fid, list]) => {
+          const f = c.findings.find((x) => x.id === fid);
+          return (
+            <li key={fid} className="missing-group">
+              <h3 className="subhead">{f ? claimName(c, f) : "Finding"}</h3>
+              <ul className="plain-list">
+                {list.map((m, i) => (
+                  <li key={`${m.findingId}-${m.dimension}-${i}`} className="missing-item">
+                    <div className="missing-item__head">
+                      <strong>{DIMENSION_NAME[m.dimension]}</strong>
+                      <CopyButton text={m.draft} what={`vendor request draft, ${DIMENSION_NAME[m.dimension].toLowerCase()}`} label="Copy draft" />
+                    </div>
+                    <p className="missing-item__req">
+                      <Clamp text={m.request} lines={2} />
+                    </p>
+                    <Disclosure summary="Show the full draft" className="disclosure-small">
+                      <blockquote className="draft">{m.draft}</blockquote>
+                    </Disclosure>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
     </>
   );
@@ -150,56 +171,111 @@ function ChangedSince({ events }: { events: TimelineEvent[] }) {
   );
 }
 
+function ReviewState({ f, testId }: { f: Finding; testId: string }) {
+  return (
+    <span className="muted" data-testid={testId}>
+      Review state: {REVIEWER_STATE_WORDS[f.reviewerState] ?? f.reviewerState}
+    </span>
+  );
+}
+
+/** One vendor claim: what it says where it differs, the answer, and the decision form only when the reviewer asks for it. */
+function VendorClaim({ c, f, onRecorded }: { c: CaseDetail; f: Finding; onRecorded: () => void }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <li className="finding-card finding-card-compact" data-finding={f.id} data-claim={f.claimId}>
+      <div className="finding-card__head">
+        <div>
+          <h3 className="finding-card__name">{claimName(c, f)}</h3>
+          <p className="finding-card__says">{claimSummary(c, f)}</p>
+        </div>
+        <LabelBadge label={f.label} />
+      </div>
+      <p className="finding-card__why">{whyLead(c, f)}</p>
+      <Disclosure summary="Which parts are open, and what would settle it" className="disclosure-small">
+        <Why c={c} f={f} maxDims={3} maxAsks={2} heading={false} showLead={false} />
+      </Disclosure>
+      <div className="finding-card__actions">
+        <XrayLink caseId={c.summary.id} findingId={f.id}>
+          Open the claim X-ray
+        </XrayLink>
+        <ReviewState f={f} testId="claim-reviewer-state" />
+      </div>
+      <Disclosure summary="Record a decision on this claim" onToggle={setOpen}>
+        {open && <DecisionForm caseId={c.summary.id} finding={f} onRecorded={onRecorded} />}
+      </Disclosure>
+    </li>
+  );
+}
+
 function Body({ c, reload }: { c: CaseDetail; reload: () => void }) {
   const caseId = c.summary.id;
   const timeline = [...c.timeline];
+  const head = headlineFinding(c);
+  const others = otherFindings(c);
   return (
     <>
       <CaseHeader
         c={c}
         screen="Decide"
         lead={
-          <blockquote className="claim-quote">
+          <blockquote className="claim-quote" data-testid="claim-text">
             <p>{c.claimText}</p>
           </blockquote>
         }
       />
-      <Section id="findings" title="Findings" aside={<span className="muted">{plural(c.findings.length, "finding")}</span>}>
-        {c.findings.length === 0 ? (
-          <EmptyState title="No finding yet" icon="file">The compiler has not produced a finding for this claim.</EmptyState>
-        ) : (
-          <ul className="finding-list">
-            {c.findings.map((f) => (
-              <li key={f.id} className="finding-card" data-finding={f.id}>
-                <div className="finding-card__head">
-                  <LabelBadge label={f.label} size="lg" showGloss />
-                  <span className="muted" data-testid="reviewer-state">
-                    Review state: {REVIEWER_STATE_WORDS[f.reviewerState] ?? f.reviewerState}
-                  </span>
-                </div>
-                <FindingTypeTags c={c} finding={f} />
-                <Counterexample finding={f} />
-                {f.degraded.length > 0 && (
-                  <Notice tone="warn" title="Sources lost while computing">
-                    <ul className="plain-list">
-                      {f.degraded.map((d, i) => (
-                        <li key={i}>
-                          <strong>{d.sourceType}</strong> ({d.dependency}): {d.reason}
-                        </li>
-                      ))}
-                    </ul>
-                  </Notice>
-                )}
-                <div className="finding-card__actions">
-                  <XrayLink caseId={caseId} findingId={f.id}>
-                    Open the claim X-ray
-                  </XrayLink>
-                </div>
-                <DecisionForm caseId={caseId} finding={f} onRecorded={reload} />
-              </li>
+      {!head ? (
+        <Section id="findings" title="The answer">
+          <EmptyState title="No finding yet" icon="file">
+            The compiler has not produced a finding for this claim.
+          </EmptyState>
+        </Section>
+      ) : (
+        <Section id="answer" title="The answer for this use">
+          <div className="finding-card finding-card-head" data-finding={head.id} data-claim={head.claimId}>
+            <div className="finding-card__head">
+              <LabelBadge label={head.label} size="lg" showGloss />
+              <ReviewState f={head} testId="reviewer-state" />
+            </div>
+            <FindingTypeTags c={c} finding={head} />
+            <Why c={c} f={head} />
+            {head.degraded.length > 0 && (
+              <Notice tone="warn" title="Sources lost while computing">
+                <ul className="plain-list">
+                  {head.degraded.map((d, i) => (
+                    <li key={i}>
+                      <strong>{d.sourceType}</strong> ({d.dependency}): {d.reason}
+                    </li>
+                  ))}
+                </ul>
+              </Notice>
+            )}
+            <div className="finding-card__actions">
+              <XrayLink caseId={caseId} findingId={head.id}>
+                Open the claim X-ray
+              </XrayLink>
+              <Link className="btn btn-secondary" to={`/cases/${encodeURIComponent(caseId)}/lab`}>
+                Change the use in the lab <Icon name="arrow" size={16} />
+              </Link>
+            </div>
+            <DecisionForm caseId={caseId} finding={head} onRecorded={reload} />
+          </div>
+        </Section>
+      )}
+
+      {others.length > 0 && (
+        <Section id="claims" title="The vendor's claims, checked against the same evidence" aside={<span className="muted">{plural(others.length, "claim")}</span>}>
+          <p className="muted">Each claim in the vendor packet is compared with the same regulator and study records. Open any one to see the exact passages.</p>
+          <ul className="finding-list" data-testid="vendor-claims">
+            {others.map((f) => (
+              <VendorClaim key={f.id} c={c} f={f} onRecorded={reload} />
             ))}
           </ul>
-        )}
+        </Section>
+      )}
+
+      <Section id="missing" title="Missing-evidence list" aside={<span className="muted">{plural(c.missingEvidence.length, "request")}</span>}>
+        <MissingEvidence items={c.missingEvidence} c={c} />
       </Section>
 
       <div className="two-col two-col-wide">
@@ -210,10 +286,6 @@ function Body({ c, reload }: { c: CaseDetail; reload: () => void }) {
           <History events={timeline} />
         </Section>
       </div>
-
-      <Section id="missing" title="Missing-evidence list" aside={<span className="muted">{plural(c.missingEvidence.length, "request")}</span>}>
-        <MissingEvidence items={c.missingEvidence} />
-      </Section>
 
       {c.summary.claimConstructed && (
         <Notice tone="info" title="About this claim">
@@ -227,5 +299,9 @@ function Body({ c, reload }: { c: CaseDetail; reload: () => void }) {
 export function CaseOverview() {
   const { id = "" } = useParams();
   useDocTitle(`Case ${id}`);
-  return <CaseGate id={id} screen="Decide">{(c, reload) => <Body c={c} reload={reload} />}</CaseGate>;
+  return (
+    <CaseGate id={id} screen="Decide">
+      {(c, reload) => <Body c={c} reload={reload} />}
+    </CaseGate>
+  );
 }

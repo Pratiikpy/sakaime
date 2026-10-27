@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import type { AnchorView, CaseDetail, DimensionView, Finding } from "../api/types";
 import { LabelBadge, LinkStateBadge, ProvenanceBadge, RelationBadge } from "../components/badges";
@@ -5,16 +6,11 @@ import { CaseGate, CaseHeader } from "../components/CaseGate";
 import { Counterexample, FindingTypeTags } from "../components/FindingBits";
 import { EmptyState, Notice } from "../components/feedback";
 import { Icon } from "../components/Icon";
-import { Disclosure, Mono, Section, useDocTitle } from "../components/ui";
+import { Clamp, Disclosure, Mono, Section, useDocTitle } from "../components/ui";
+import { Why } from "../components/Why";
 import { ASSERTION_NAME, CANDIDATE_CLASS_NAME, DIMENSION_NAME, DIMENSION_QUESTION, LABEL_META, LINK_TYPE_NAME, RELATION_META } from "../lib/vocab";
+import { claimName, claimSummary, dimensionsOf, headlineFinding, rankAnchors } from "../lib/explain";
 import { formatDate, formatDateTime, plural, shortHash, sideText } from "../lib/format";
-
-function dimensionsOf(c: CaseDetail, f: Finding): DimensionView[] {
-  const given = c.dimensions[f.id];
-  if (given && given.length > 0) return given;
-  // The server did not send views for this finding. Fall back to the mechanical coverage so the screen still shows the facts.
-  return f.mechanicalCoverage.map((m) => ({ dimension: m.dimension, relation: m.relation, claimed: m.claimed, established: m.established, reason: "The service did not send a plain-language reason for this dimension.", anchorIds: m.anchorIds }));
-}
 
 function Anchor({ a }: { a: AnchorView }) {
   const where = a.page !== undefined ? `page ${a.page}` : a.jsonPath ? `field ${a.jsonPath}` : "location not stated";
@@ -28,7 +24,7 @@ function Anchor({ a }: { a: AnchorView }) {
         {a.sourcePublishedAt && <span className="anchor__chip">Published {formatDate(a.sourcePublishedAt)}</span>}
       </figcaption>
       <blockquote className="anchor__quote">
-        <mark>{a.text}</mark>
+        <Clamp text={a.text} lines={8} tag="mark" />
       </blockquote>
       <p className="anchor__rules">
         {a.ruleIds.length > 0 ? (
@@ -45,6 +41,29 @@ function Anchor({ a }: { a: AnchorView }) {
         </span>
       </p>
     </figure>
+  );
+}
+
+const ANCHORS_FIRST = 4;
+
+/** The passages a rule used come first. A long list shows its first few and opens on request, so 40 passages never bury the page. */
+function AnchorList({ anchors }: { anchors: AnchorView[] }) {
+  const [all, setAll] = useState(false);
+  const ranked = rankAnchors(anchors);
+  const shown = all ? ranked : ranked.slice(0, ANCHORS_FIRST);
+  return (
+    <>
+      <div className="anchor-list">
+        {shown.map((a) => (
+          <Anchor key={a.id} a={a} />
+        ))}
+      </div>
+      {ranked.length > ANCHORS_FIRST && (
+        <button type="button" className="btn btn-secondary btn-sm anchor-more" aria-expanded={all} onClick={() => setAll((v) => !v)}>
+          {all ? `Show only the first ${ANCHORS_FIRST}` : `Show the other ${ranked.length - ANCHORS_FIRST} passages`}
+        </button>
+      )}
+    </>
   );
 }
 
@@ -65,23 +84,26 @@ function DimensionRow({ d, anchors }: { d: DimensionView; anchors: AnchorView[] 
       <dl className="sidebyside">
         <div>
           <dt>The claim says</dt>
-          <dd data-side="claimed">{sideText(d.claimed)}</dd>
+          <dd data-side="claimed">
+            <Clamp text={sideText(d.claimed)} />
+          </dd>
         </div>
         <div>
           <dt>The evidence establishes</dt>
-          <dd data-side="established">{sideText(d.established)}</dd>
+          <dd data-side="established">
+            <Clamp text={sideText(d.established)} />
+          </dd>
         </div>
       </dl>
       <p className="dim-row__reason">
-        <Icon name="info" size={14} /> <span>{d.reason}</span>
+        <Icon name="info" size={14} />
+        <span>
+          <Clamp text={d.reason} lines={3} />
+        </span>
       </p>
       {anchors.length > 0 ? (
         <Disclosure summary={`Show the exact evidence (${plural(anchors.length, "passage")})`} className="dim-anchors">
-          <div className="anchor-list">
-            {anchors.map((a) => (
-              <Anchor key={a.id} a={a} />
-            ))}
-          </div>
+          <AnchorList anchors={anchors} />
         </Disclosure>
       ) : (
         <p className="muted dim-row__noanchor">No passage bears on this dimension. That is why it cannot be settled.</p>
@@ -257,6 +279,32 @@ function Contrary({ f }: { f: Finding }) {
   );
 }
 
+/** A case holds the reviewer's own question and each vendor claim; this moves between them without going back to the case. */
+function FindingSwitch({ c, current }: { c: CaseDetail; current: string }) {
+  const head = headlineFinding(c);
+  const ordered = [...c.findings].sort((a, b) => (a === head ? -1 : b === head ? 1 : 0));
+  return (
+    <nav className="finding-switch" aria-label="Which claim to read">
+      <p className="finding-switch__label">Claim</p>
+      <ul>
+        {ordered.map((x) => (
+          <li key={x.id}>
+            <Link
+              to={`/cases/${encodeURIComponent(c.summary.id)}/claims/${encodeURIComponent(x.id)}`}
+              aria-current={x.id === current ? "page" : undefined}
+              className={x.id === current ? "is-active" : undefined}
+              title={claimSummary(c, x)}
+            >
+              <span>{claimName(c, x)}</span>
+              <span className="finding-switch__word">{LABEL_META[x.label].words}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
 function Body({ c, findingId }: { c: CaseDetail; findingId: string }) {
   const f = c.findings.find((x) => x.id === findingId);
   if (!f) {
@@ -270,6 +318,8 @@ function Body({ c, findingId }: { c: CaseDetail; findingId: string }) {
     );
   }
   const dims = dimensionsOf(c, f);
+  const short = dims.filter((d) => d.relation !== "CONTAINED");
+  const covered = dims.filter((d) => d.relation === "CONTAINED");
   const byId = new Map(c.anchors.map((a) => [a.id, a]));
   const meta = LABEL_META[f.label];
   return (
@@ -284,11 +334,14 @@ function Body({ c, findingId }: { c: CaseDetail; findingId: string }) {
         }
       />
 
+      {c.findings.length > 1 && <FindingSwitch c={c} current={f.id} />}
+
       <Section id="answer" title="The answer">
         <div className="answer-card" data-label={f.label}>
           <LabelBadge label={f.label} size="lg" />
           <p className="answer-card__gloss">{meta.gloss}</p>
           <FindingTypeTags c={c} finding={f} />
+          <Why c={c} f={f} maxDims={0} maxAsks={0} />
           <p className="answer-card__tech mono">
             {f.label} · rules {f.ruleVersion.split("+")[0]} · finding {shortHash(f.id, 12)}
             {f.computedAt ? ` · computed ${formatDateTime(f.computedAt)}` : ""}
@@ -328,11 +381,28 @@ function Body({ c, findingId }: { c: CaseDetail; findingId: string }) {
             ))}
           </dl>
         </details>
-        <ol className="dim-list" data-testid="dimensions">
-          {dims.map((d) => (
-            <DimensionRow key={d.dimension} d={d} anchors={d.anchorIds.map((id) => byId.get(id)).filter((a): a is AnchorView => !!a)} />
-          ))}
-        </ol>
+        <div data-testid="dimensions">
+          {short.length > 0 && (
+            <>
+              <h3 className="subhead">Where the evidence does not cover the use ({short.length})</h3>
+              <ol className="dim-list">
+                {short.map((d) => (
+                  <DimensionRow key={d.dimension} d={d} anchors={d.anchorIds.map((id) => byId.get(id)).filter((a): a is AnchorView => !!a)} />
+                ))}
+              </ol>
+            </>
+          )}
+          {covered.length > 0 && (
+            <>
+              <h3 className="subhead">Where it does ({covered.length})</h3>
+              <ol className="dim-list">
+                {covered.map((d) => (
+                  <DimensionRow key={d.dimension} d={d} anchors={d.anchorIds.map((id) => byId.get(id)).filter((a): a is AnchorView => !!a)} />
+                ))}
+              </ol>
+            </>
+          )}
+        </div>
       </Section>
 
       <Section id="counterexample" title="The smallest mismatch">
@@ -400,7 +470,7 @@ export function ClaimXrayIndex() {
   return (
     <CaseGate id={id} screen="Investigate">
       {(c) => {
-        const first = c.findings[0];
+        const first = headlineFinding(c);
         if (!first) {
           return (
             <>

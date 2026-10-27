@@ -1,5 +1,5 @@
-import { expect, test, type Page } from "@playwright/test";
-import { SCREENS, axe, ready, setTheme, watch, widths } from "./helpers";
+import { expect, type Page } from "@playwright/test";
+import { test, axe, primaryCase, quietCase, ready, screensFor, setTheme, watch, widths } from "./helpers";
 
 /** WCAG 2.2 AA through axe-core, on every screen and on the interactive states that add content. Zero violations. */
 
@@ -11,7 +11,8 @@ async function assertNoViolations(page: Page, where: string) {
 
 for (const theme of ["light", "dark"] as const) {
   test.describe(`axe, ${theme}`, () => {
-    test(`every screen has no violations (${theme}, desktop)`, async ({ page }) => {
+    test(`every screen has no violations (${theme}, desktop)`, async ({ page, request }) => {
+      const SCREENS = screensFor((await primaryCase(request)).summary.id);
       const w = watch(page);
       await setTheme(page, theme);
       for (const s of SCREENS) {
@@ -22,19 +23,23 @@ for (const theme of ["light", "dark"] as const) {
       w.assertClean();
     });
 
-    test(`interactive states have no violations (${theme})`, async ({ page }) => {
+    test(`interactive states have no violations (${theme})`, async ({ page, request }) => {
+      const id = encodeURIComponent((await primaryCase(request)).summary.id);
+      const quiet = encodeURIComponent((await quietCase(request)).summary.id);
       const w = watch(page);
+      // The real service refuses an address that points inside a network with an HTTP 422; the browser logs every 4xx as a console line.
+      w.allow(/status of 422/);
       await setTheme(page, theme);
 
-      await page.goto("/cases/ea-02/claims");
+      await page.goto(`/cases/${id}/claims`);
       await ready(page);
       for (const s of await page.locator(".dim-anchors > summary").all()) await s.click();
       await page.locator(".link-item .disclosure summary").first().click();
       await assertNoViolations(page, `xray expanded ${theme}`);
 
-      await page.goto("/cases/ea-02/lab");
+      await page.goto(`/cases/${id}/lab`);
       await ready(page);
-      await page.locator("#lab-age-min").fill("22");
+      await page.locator("#lab-age-min").fill("40");
       await expect(page.getByTestId("lab-result")).toBeVisible();
       await assertNoViolations(page, `lab result ${theme}`);
 
@@ -44,24 +49,29 @@ for (const theme of ["light", "dark"] as const) {
       await page.getByRole("button", { name: "Onboard this source" }).click();
       await expect(page.locator("[data-outcome]")).toBeVisible({ timeout: 10_000 });
       await assertNoViolations(page, `onboarding held ${theme}`);
+      // An address that points inside a network is refused outright or as a declined result; a host nobody approved is declined at stage one.
       await page.locator('[data-example="metadata"]').click();
       await page.getByRole("button", { name: "Onboard this source" }).click();
-      await expect(page.locator('[data-outcome="declined"]')).toBeVisible({ timeout: 10_000 });
+      await expect(page.locator('[data-outcome="declined"], [data-testid="onboarding-error"]').first()).toBeVisible({ timeout: 10_000 });
       await assertNoViolations(page, `onboarding refused ${theme}`);
+      await page.locator('[data-example="unlisted"]').click();
+      await page.getByRole("button", { name: "Onboard this source" }).click();
+      await expect(page.locator('[data-outcome="declined"]')).toBeVisible({ timeout: 10_000 });
+      await assertNoViolations(page, `onboarding declined ${theme}`);
 
-      await page.goto("/cases/ea-01/drills");
+      await page.goto(`/cases/${id}/drills`);
       await ready(page);
       await page.getByTestId("run-all").click();
       await expect(page.getByTestId("drill-summary").locator("tbody tr")).toHaveCount(7, { timeout: 30_000 });
       await assertNoViolations(page, `drills ${theme}`);
 
-      await page.goto("/cases/ea-03/investigation");
+      await page.goto(`/cases/${id}/investigation`);
       await ready(page);
       await page.getByTestId("start-run").click();
       await expect(page.getByTestId("trace-status")).toContainText("Finished", { timeout: 30_000 });
       await assertNoViolations(page, `investigation ${theme}`);
 
-      await page.goto("/cases/ea-03/dossier");
+      await page.goto(`/cases/${quiet}/dossier`);
       await ready(page);
       await page.getByTestId("export-dossier").click();
       await page.getByTestId("verify-dossier").click();
@@ -79,7 +89,7 @@ for (const theme of ["light", "dark"] as const) {
       await page.getByRole("button", { name: "Show the hidden words" }).click();
       await assertNoViolations(page, `guard revealed ${theme}`);
 
-      await page.goto("/cases/ea-01");
+      await page.goto(`/cases/${id}`);
       await ready(page);
       await page.getByTestId("decision-form").getByLabel(/Accept/).check();
       await assertNoViolations(page, `decision form ${theme}`);
@@ -88,7 +98,8 @@ for (const theme of ["light", "dark"] as const) {
   });
 }
 
-test("every screen has no violations on a phone (light and dark)", async ({ page }) => {
+test("every screen has no violations on a phone (light and dark)", async ({ page, request }) => {
+  const SCREENS = screensFor((await primaryCase(request)).summary.id);
   await page.setViewportSize(widths.mobile);
   for (const theme of ["light", "dark"] as const) {
     await setTheme(page, theme);

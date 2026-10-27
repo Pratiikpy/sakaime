@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
+import { Link } from "react-router-dom";
 import type { ApiError } from "../api/client";
 import { Icon } from "./Icon";
 import type { IconName } from "../lib/vocab";
@@ -68,6 +69,8 @@ const FAILURE_COPY: Record<string, { title: string; hint: string; icon: IconName
 export function ErrorState({ error, onRetry, title }: { error: ApiError; onRetry?: () => void; title?: string }) {
   const copy = FAILURE_COPY[error.failure] ?? { title: "Something went wrong", hint: "Try again. If it keeps happening, the service log has the detail.", icon: "warn" as IconName };
   const issues = Array.isArray(error.detail?.["issues"]) ? (error.detail?.["issues"] as string[]) : [];
+  // The service names the cases it does know when asked for one it does not.
+  const known = error.failure === "NOT_FOUND" && Array.isArray(error.detail?.["known"]) ? (error.detail?.["known"] as unknown[]).filter((k): k is string => typeof k === "string") : [];
   return (
     <div className="state state-error" role="alert" data-failure={error.failure}>
       <Icon name={copy.icon} size={22} />
@@ -81,6 +84,18 @@ export function ErrorState({ error, onRetry, title }: { error: ApiError; onRetry
               <li key={i}>{i}</li>
             ))}
           </ul>
+        )}
+        {known.length > 0 && (
+          <p className="state__hint">
+            Cases this service has:{" "}
+            {known.map((k, i) => (
+              <span key={k}>
+                {i > 0 && ", "}
+                <Link to={`/cases/${encodeURIComponent(k)}`}>{k}</Link>
+              </span>
+            ))}
+            .
+          </p>
         )}
         <p className="state__code mono">{error.failure}</p>
         {onRetry && (

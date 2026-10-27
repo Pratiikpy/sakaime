@@ -1,5 +1,5 @@
-import { expect, test, type Page, type Route } from "@playwright/test";
-import { ready, shot, watch } from "./helpers";
+import { expect, type Page, type Route } from "@playwright/test";
+import { test, primaryCase, quietCase, ready, shot, watch } from "./helpers";
 
 /**
  * Empty, loading, error and degraded states. The service is wrapped with route handlers that are named test doubles:
@@ -84,31 +84,33 @@ test.describe("the error taxonomy reads differently", () => {
     w.assertClean();
   });
 
-  test("a federated result with no rows is not the same as no federated result", async ({ page }) => {
+  test("a federated result with no rows is not the same as no federated result", async ({ page, request }) => {
     const w = watch(page);
-    await modifyCase(page, "ea-02", (c) => {
+    const id = (await primaryCase(request)).summary.id;
+    await modifyCase(page, id, (c) => {
       c.matrix.rows = [];
     });
-    await page.goto("/cases/ea-02/matrix");
+    await page.goto(`/cases/${id}/matrix`);
     await ready(page);
     await expect(page.getByText("The query ran and returned no rows")).toBeVisible();
-    await page.unroute("**/api/cases/ea-02");
-    await modifyCase(page, "ea-03", (c) => {
+    await page.unroute(`**/api/cases/${id}`);
+    await modifyCase(page, id, (c) => {
       delete c.matrix;
     });
-    await page.goto("/cases/ea-03/matrix");
+    await page.goto(`/cases/${id}/matrix`);
     await ready(page);
     await expect(page.getByText("No federated result for this case")).toBeVisible();
     w.assertClean();
   });
 
-  test("loading is a designed skeleton, and nothing jumps when content lands", async ({ page }) => {
+  test("loading is a designed skeleton, and nothing jumps when content lands", async ({ page, request }) => {
     const w = watch(page);
-    await page.route("**/api/cases/ea-02", async (route) => {
+    const id = (await primaryCase(request)).summary.id;
+    await page.route(`**/api/cases/${id}`, async (route) => {
       await new Promise((r) => setTimeout(r, 1200));
       await route.continue();
     });
-    await page.goto("/cases/ea-02");
+    await page.goto(`/cases/${id}`);
     await expect(page.locator('.skeleton[aria-busy="true"]')).toBeVisible();
     await shot(page, "state-loading", "light", 1440);
     await expect(page.getByTestId("decision-form")).toBeVisible();
@@ -150,15 +152,16 @@ test.describe("degraded run modes are always visible", () => {
 test.describe("investigation stream states (test double for the stream)", () => {
   const ev = (seq: number, extra: Record<string, unknown>) => `data: ${JSON.stringify({ runId: "run_test", seq, at: "2026-10-27T10:00:00.000Z", role: "extractor", decision: "x", done: false, ...extra })}\n\n`;
 
-  test("model replies show the routed model, recorded or live, and the receipt or its absence", async ({ page }) => {
+  test("model replies show the routed model, recorded or live, and the receipt or its absence", async ({ page, request }) => {
     const w = watch(page);
+    const id = (await primaryCase(request)).summary.id;
     const body =
       ev(0, { role: "system", decision: "Run started." }) +
       ev(1, { role: "extractor", decision: "Read the age floor from the summary.", model: { routedModel: "nemotron-lightning-30b", recorded: true, receiptId: "rcpt_0123456789abcdef" } }) +
       ev(2, { role: "critic", decision: "No contrary material.", model: { routedModel: "nemotron-ultra-550b", recorded: false } }) +
       ev(3, { role: "system", decision: "Run finished.", done: true });
-    await page.route("**/api/cases/ea-02/investigate", (route) => route.fulfill({ status: 200, contentType: "text/event-stream", body }));
-    await page.goto("/cases/ea-02/investigation");
+    await page.route(`**/api/cases/${id}/investigate`, (route) => route.fulfill({ status: 200, contentType: "text/event-stream", body }));
+    await page.goto(`/cases/${id}/investigation`);
     await ready(page);
     await page.getByTestId("start-run").click();
     await expect(page.getByTestId("trace-status")).toContainText("Finished: 4 decisions");
@@ -173,11 +176,12 @@ test.describe("investigation stream states (test double for the stream)", () => 
     w.assertClean();
   });
 
-  test("a stream that ends before the run reports completion is not presented as a full record", async ({ page }) => {
+  test("a stream that ends before the run reports completion is not presented as a full record", async ({ page, request }) => {
     const w = watch(page);
+    const id = (await primaryCase(request)).summary.id;
     const body = ev(0, { role: "system", decision: "Run started." }) + ev(1, { role: "retriever", decision: "Ran one statement." });
-    await page.route("**/api/cases/ea-02/investigate", (route) => route.fulfill({ status: 200, contentType: "text/event-stream", body }));
-    await page.goto("/cases/ea-02/investigation");
+    await page.route(`**/api/cases/${id}/investigate`, (route) => route.fulfill({ status: 200, contentType: "text/event-stream", body }));
+    await page.goto(`/cases/${id}/investigation`);
     await ready(page);
     await page.getByTestId("start-run").click();
     await expect(page.getByTestId("trace-status")).toContainText("Did not finish");
@@ -186,16 +190,17 @@ test.describe("investigation stream states (test double for the stream)", () => 
     w.assertClean();
   });
 
-  test("a malformed event is a contract error, and a refused stream shows the service's reason", async ({ page }) => {
+  test("a malformed event is a contract error, and a refused stream shows the service's reason", async ({ page, request }) => {
     const w = watch(page);
     w.allow(/403/);
-    await page.route("**/api/cases/ea-02/investigate", (route) => route.fulfill({ status: 200, contentType: "text/event-stream", body: 'data: {"seq":"one"}\n\n' }));
-    await page.goto("/cases/ea-02/investigation");
+    const id = (await primaryCase(request)).summary.id;
+    await page.route(`**/api/cases/${id}/investigate`, (route) => route.fulfill({ status: 200, contentType: "text/event-stream", body: 'data: {"seq":"one"}\n\n' }));
+    await page.goto(`/cases/${id}/investigation`);
     await ready(page);
     await page.getByTestId("start-run").click();
     await expect(page.locator('[data-failure="CONTRACT"]')).toBeVisible();
-    await page.unroute("**/api/cases/ea-02/investigate");
-    await page.route("**/api/cases/ea-02/investigate", (route) => json(route, errorBody("FORBIDDEN", "Investigations are off for this identity."), 403));
+    await page.unroute(`**/api/cases/${id}/investigate`);
+    await page.route(`**/api/cases/${id}/investigate`, (route) => json(route, errorBody("FORBIDDEN", "Investigations are off for this identity."), 403));
     await page.getByTestId("start-run").click();
     await expect(page.locator('[data-failure="FORBIDDEN"]')).toContainText("Investigations are off for this identity.");
     w.assertClean();
@@ -203,9 +208,10 @@ test.describe("investigation stream states (test double for the stream)", () => 
 });
 
 test.describe("drills and the dossier when the service misbehaves", () => {
-  test("a drill whose invariant did not hold is shown as broken, loudly", async ({ page }) => {
+  test("a drill whose invariant did not hold is shown as broken, loudly", async ({ page, request }) => {
     const w = watch(page);
-    await page.route("**/api/cases/ea-01/drill", async (route) => {
+    const id = (await primaryCase(request)).summary.id;
+    await page.route(`**/api/cases/${id}/drill`, async (route) => {
       const res = await route.fetch();
       const b = await res.json();
       b.after[0].label = "SUPPORTED_FOR_SCOPE";
@@ -213,7 +219,7 @@ test.describe("drills and the dossier when the service misbehaves", () => {
       b.invariantHeld = false;
       await json(route, b);
     });
-    await page.goto("/cases/ea-01/drills");
+    await page.goto(`/cases/${id}/drills`);
     await ready(page);
     await page.locator('[data-run="source_off"]').click();
     await expect(page.getByText("An invariant did not hold")).toBeVisible();
@@ -223,10 +229,11 @@ test.describe("drills and the dossier when the service misbehaves", () => {
     w.assertClean();
   });
 
-  test("a verifier that passes a tampered copy is reported as a defect, not as success", async ({ page }) => {
+  test("a verifier that passes a tampered copy is reported as a defect, not as success", async ({ page, request }) => {
     const w = watch(page);
+    const id = (await quietCase(request)).summary.id;
     await page.route("**/api/dossier/verify", async (route) => json(route, { ok: true, checks: [{ name: "x", ok: true }], failures: [], signatureNote: "integrity only", keyKind: "demo" }));
-    await page.goto("/cases/ea-02/dossier");
+    await page.goto(`/cases/${id}/dossier`);
     await ready(page);
     await page.getByTestId("export-dossier").click();
     await expect(page.getByTestId("dossier-summary")).toBeVisible();
@@ -235,15 +242,16 @@ test.describe("drills and the dossier when the service misbehaves", () => {
     w.assertClean();
   });
 
-  test("a changed-shape timeline event and an out-of-date finding are flagged", async ({ page }) => {
+  test("a changed-shape timeline event and an out-of-date finding are flagged", async ({ page, request }) => {
     const w = watch(page);
-    await page.route("**/api/cases/ea-02/timeline*", (route) =>
+    const id = (await primaryCase(request)).summary.id;
+    await page.route(`**/api/cases/${id}/timeline*`, (route) =>
       json(route, [
         { at: "2026-10-01T00:00:00.000Z", kind: "source_changed", summary: "The registry record changed.", factIds: ["ev.x"], findingIds: [] },
         { at: "2026-10-01T00:00:01.000Z", kind: "finding_stale", summary: "Depends on a changed fact.", factIds: ["ev.x"], findingIds: ["fnd_abc123456789"] },
       ]),
     );
-    await page.goto("/cases/ea-02/timeline");
+    await page.goto(`/cases/${id}/timeline`);
     await ready(page);
     await expect(page.getByText("1 finding out of date")).toBeVisible();
     await page.getByRole("checkbox", { name: "Show only changes" }).check();

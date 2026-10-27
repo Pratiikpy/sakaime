@@ -29,6 +29,40 @@ function currentlyStale(events: TimelineEvent[]): string[] {
   return [...state.entries()].filter(([, v]) => v).map(([k]) => k);
 }
 
+/**
+ * Which findings and facts an event touches. A fact that every finding in the case rests on is said once ("all 7 findings"),
+ * not as seven links; a narrower set is listed.
+ */
+function Refs({ caseId, total, findingIds, factIds }: { caseId: string; total: number; findingIds: string[]; factIds: string[] }) {
+  const all = findingIds.length > 1 && findingIds.length === total;
+  return (
+    <>
+      {findingIds.length > 0 && (
+        <p className="tl-item__refs" data-testid="tl-findings">
+          {all ? (
+            <span className="muted">Used by all {total} findings in this case.</span>
+          ) : (
+            findingIds.map((id) => (
+              <Link key={id} className="mono" to={`/cases/${encodeURIComponent(caseId)}/claims/${encodeURIComponent(id)}`}>
+                finding {shortHash(id, 10)}
+              </Link>
+            ))
+          )}
+        </p>
+      )}
+      {factIds.length > 0 && (
+        <p className="tl-item__refs muted">
+          {factIds.map((f) => (
+            <code key={f} className="mono">
+              fact {shortHash(f, 12)}
+            </code>
+          ))}
+        </p>
+      )}
+    </>
+  );
+}
+
 function Body({ caseId }: { caseId: string }) {
   const [asOf, setAsOf] = useState("");
   const [changesOnly, setChangesOnly] = useState(false);
@@ -100,24 +134,7 @@ function Body({ caseId }: { caseId: string }) {
                       <div className="tl-item__body">
                         <p className="tl-item__kind">{k.words}</p>
                         <p>{e.summary}</p>
-                        {e.findingIds.length > 0 && (
-                          <p className="tl-item__refs">
-                            {e.findingIds.map((id) => (
-                              <Link key={id} className="mono" to={`/cases/${encodeURIComponent(caseId)}/claims/${encodeURIComponent(id)}`}>
-                                finding {shortHash(id, 10)}
-                              </Link>
-                            ))}
-                          </p>
-                        )}
-                        {e.factIds.length > 0 && (
-                          <p className="tl-item__refs muted">
-                            {e.factIds.map((f) => (
-                              <code key={f} className="mono">
-                                fact {shortHash(f, 12)}
-                              </code>
-                            ))}
-                          </p>
-                        )}
+                        <Refs caseId={caseId} total={c.findings.length} findingIds={e.findingIds} factIds={e.factIds} />
                       </div>
                     </li>
                   );

@@ -53,7 +53,7 @@ function MatrixTable({ m }: { m: EvidenceMatrix }) {
                 const cell = r.cells[c.name];
                 const text = show(cell?.value);
                 return (
-                  <td key={c.name} data-label={c.name} data-source={cell?.sourceId ?? c.sourceId}>
+                  <td key={c.name} data-label={c.name.replace(/_/g, "_​") /* a break point after each underscore, so the phone layout wraps between words */} data-source={cell?.sourceId ?? c.sourceId}>
                     {text === "" ? (
                       <span className="null-cell">
                         <span aria-hidden="true">no value</span>

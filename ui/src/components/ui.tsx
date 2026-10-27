@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { Icon } from "./Icon";
 import { useAnnounce } from "./feedback";
 
@@ -82,6 +82,40 @@ export function Disclosure({ summary, children, defaultOpen = false, className =
       </summary>
       <div className="disclosure__body">{children}</div>
     </details>
+  );
+}
+
+/**
+ * Long values (an exclusion list, a vendor request) show the first few lines and open on request. The whole text is always in
+ * the page, so screen readers, search and copy see it all; only the sighted view is shortened, and only when it overflows.
+ */
+export function Clamp({ text, lines = 3, tag = "span" }: { text: string; lines?: number; tag?: "span" | "mark" }) {
+  const Tag = tag;
+  const ref = useRef<HTMLElement>(null);
+  const [open, setOpen] = useState(false);
+  const [overflows, setOverflows] = useState(false);
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => {
+      if (!open) setOverflows(el.scrollHeight > el.clientHeight + 1);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [text, open, lines]);
+  return (
+    <>
+      <Tag ref={ref as React.RefObject<HTMLSpanElement>} className={`clamp${open ? "" : " is-clamped"}`} style={{ "--lines": lines } as CSSProperties}>
+        {text}
+      </Tag>
+      {(overflows || open) && (
+        <button type="button" className="linkish" aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+          {open ? "Show less" : "Show all"}
+        </button>
+      )}
+    </>
   );
 }
 
