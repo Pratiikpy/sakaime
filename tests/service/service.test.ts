@@ -221,7 +221,7 @@ describe("views", () => {
     expect(d.matrix!.columns.find((c) => c.name === "k_number")!.sourceId).toBe("registry-snapshots");
     expect(d.matrix!.columns.find((c) => c.name === "claim_id")!.sourceId).toBe("vendor-packets");
     expect(d.matrix!.columns.find((c) => c.name === "case_id")!.sourceId).toBe("hospital");
-    expect(d.matrix!.rows).toHaveLength(9);
+    expect(d.matrix!.rows).toHaveLength(10);
     expect(d.missingEvidence.length).toBeGreaterThan(0);
     expect(d.missingEvidence[0]!.draft).toMatch(/Nothing in this system sends it/);
     expect(d.summary.claimConstructed).toBe(true);
@@ -231,7 +231,7 @@ describe("views", () => {
 
   it("every claim of the case is in the detail with its own sentence, the reviewer's question first", async () => {
     const d = await svc.caseDetail("eyeart-k200667");
-    expect(d.claims.map((c) => c.id)).toEqual(["CASE-2026-014.intended", ...Array.from({ length: 9 }, (_, i) => `CLM-EA-0${i + 1}`)]);
+    expect(d.claims.map((c) => c.id)).toEqual(["CASE-2026-014.intended", ...Array.from({ length: 10 }, (_, i) => `CLM-EA-${String(i + 1).padStart(2, "0")}`)]);
     for (const c of d.claims) expect(c.text, c.id).toBeTruthy();
     expect(d.claims[0]!.text).toBe(d.claimText);
     expect(d.claims[1]!.text).toMatch(/^In the population of the pivotal study/);

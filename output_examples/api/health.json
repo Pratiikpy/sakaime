@@ -17,6 +17,6 @@
         "every public source is read from recordings dated 2026-10-27"
       ]
     },
-    "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+    "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
   }
 }

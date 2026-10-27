@@ -8,10 +8,10 @@
       "productLabel": "EyeArt (Eyenuk, K200667)",
       "claimConstructed": true,
       "headlineLabel": "REQUIRES_DOMAIN_REVIEW",
-      "openQuestions": 10,
+      "openQuestions": 11,
       "staleFindings": 0,
       "reviewerState": "unreviewed",
-      "updatedAt": "2026-10-27T12:00:00.183Z"
+      "updatedAt": "2026-10-27T12:00:00.188Z"
     },
     {
       "id": "lunit-k211733",
@@ -22,7 +22,7 @@
       "openQuestions": 3,
       "staleFindings": 0,
       "reviewerState": "unreviewed",
-      "updatedAt": "2026-10-27T12:00:00.377Z"
+      "updatedAt": "2026-10-27T12:00:00.382Z"
     },
     {
       "id": "transpara-k221347",
@@ -33,7 +33,7 @@
       "openQuestions": 3,
       "staleFindings": 0,
       "reviewerState": "unreviewed",
-      "updatedAt": "2026-10-27T12:00:00.533Z"
+      "updatedAt": "2026-10-27T12:00:00.538Z"
     }
   ]
 }

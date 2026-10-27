@@ -6,7 +6,7 @@
         {
           "claimId": "CASE-2026-014.intended",
           "dependsOnFacts": 60,
-          "findingId": "fnd_9d63f5ff43d3b8ece52bbb00a73c864d",
+          "findingId": "fnd_1c0237f7dc76ff107701977476e68580",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -17,12 +17,12 @@
             "timing": "CONTAINED",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-01",
           "dependsOnFacts": 60,
-          "findingId": "fnd_967d4211965f59d347ab66c1f9711ede",
+          "findingId": "fnd_c269748406e829063722545595d3862f",
           "label": "SUPPORTED_FOR_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -33,12 +33,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-02",
           "dependsOnFacts": 60,
-          "findingId": "fnd_5d23649c060c329a4ea89df6c79f99c6",
+          "findingId": "fnd_d5e1a6720dd7a3aa0404b1020b3d0727",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -49,12 +49,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-03",
           "dependsOnFacts": 59,
-          "findingId": "fnd_f794967db16f3ad1462516177bf67831",
+          "findingId": "fnd_a046346e6439c3f61575cf58a99dd03b",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -65,12 +65,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-04",
           "dependsOnFacts": 60,
-          "findingId": "fnd_9abe84d5e9c53722ec4a64417bc83bb8",
+          "findingId": "fnd_b741dfca2c9f7fa10cb1fe4d824e6a03",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -81,12 +81,12 @@
             "timing": "UNKNOWN",
             "version": "DISJOINT"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-05",
           "dependsOnFacts": 60,
-          "findingId": "fnd_c5e69eac613d911818b490289b5e3ee1",
+          "findingId": "fnd_857811fd59649554b6430093efbc3917",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -97,12 +97,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-06",
           "dependsOnFacts": 56,
-          "findingId": "fnd_cc621efe339a5be01c6e3d41982cf84e",
+          "findingId": "fnd_56760f97d2cf98fa9b693842c02eeb62",
           "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -113,12 +113,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-07",
           "dependsOnFacts": 60,
-          "findingId": "fnd_d3019f184b22aca9e9f5a8ee0470ffab",
+          "findingId": "fnd_9b1c9d9d0a3a8749c0fbbfcd12e19a04",
           "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
           "relations": {
             "metric": "UNKNOWN",
@@ -129,12 +129,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-08",
           "dependsOnFacts": 60,
-          "findingId": "fnd_f096f38d8a498be0c8b3543c95d8ba07",
+          "findingId": "fnd_10de7b5733d302eb9e60e6c075b9d76a",
           "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -145,12 +145,12 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-EA-09",
           "dependsOnFacts": 60,
-          "findingId": "fnd_9860ca874db5f1573e577727033bb51c",
+          "findingId": "fnd_c3ba4c496333ac7cadb3de13afee9872",
           "label": "REQUIRES_DOMAIN_REVIEW",
           "relations": {
             "metric": "UNKNOWN",
@@ -161,13 +161,29 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+        },
+        {
+          "claimId": "CLM-EA-10",
+          "dependsOnFacts": 60,
+          "findingId": "fnd_9fac30a4a71d795a256db9ced87ba521",
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+          "relations": {
+            "metric": "UNKNOWN",
+            "population": "PARTIAL",
+            "product": "CONTAINED",
+            "purpose": "CONTAINED",
+            "setting": "CONTAINED",
+            "timing": "UNKNOWN",
+            "version": "CONTAINED"
+          },
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         }
       ],
       "federation": [
         {
-          "respHash": "10deca4a9db2b14ddad037d6207ae26ada4a85e3f397053ae0347faba4ded02d",
-          "rows": 9,
+          "respHash": "d81f4699d572d90e50f29b065f3a0a68e616db39e8ac641441e9a5a943286df9",
+          "rows": 10,
           "statement": "SELECT\n  c.case_id,\n  c.intended_purpose,\n  c.intended_setting,\n  CAST(c.intended_min_age AS INT)               AS intended_min_age,\n  s.product_name,\n  vc.claim_id,\n  vc.claimed_version,\n  CAST(vc.claimed_min_age_years AS INT)         AS claimed_min_age_years,\n  vc.claimed_setting,\n  vc.claimed_purpose,\n  k.k_number,\n  k.decision_date,\n  k.clearance_type,\n  u.udi_versions,\n  st.confirmed_studies,\n  st.study_min_age_years,\n  rq.requirement_count,\n  rq.required_min_age,\n  CASE WHEN instr(concat('|', coalesce(u.udi_versions, ''), '|'), concat('|', vc.claimed_version, '|')) > 0\n       THEN 'LISTED' ELSE 'NOT_LISTED' END      AS version_in_device_record,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(vc.claimed_min_age_years AS DOUBLE) < st.study_min_age_years THEN 'CLAIM_BELOW_STUDY_MINIMUM'\n       ELSE 'WITHIN_STUDY' END                  AS claim_age_vs_study,\n  CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN'\n       WHEN CAST(c.intended_min_age AS DOUBLE) >= st.study_min_age_years THEN 'COVERED_BY_STUDY'\n       ELSE 'NOT_COVERED_BY_STUDY' END          AS case_age_vs_study\nFROM hospital.cases c\nJOIN hospital.submissions s ON s.submission_id = c.submission_id\nJOIN sk_vendor.vendor_claims vc ON vc.packet_id = s.packet_id\nJOIN sk_registry.fda_510k k ON k.k_number = s.regulator_submission_cited\nLEFT JOIN (\n  SELECT submission_number,\n         concat_ws('|', sort_array(collect_set(version_or_model_number))) AS udi_versions\n  FROM sk_registry.fda_udi\n  GROUP BY submission_number\n) u ON u.submission_number = k.k_number\nLEFT JOIN (\n  SELECT l.case_id,\n         COUNT(DISTINCT t.nct_id)                           AS confirmed_studies,\n         MIN(CAST(t.minimum_age_years AS DOUBLE))           AS study_min_age_years\n  FROM hospital.evidence_links l\n  JOIN sk_registry.ctgov_studies t ON t.nct_id = l.right_id\n  WHERE l.link_class = 'CONFIRMED' AND l.right_type = 'ctgov_study'\n  GROUP BY l.case_id\n) st ON st.case_id = c.case_id\nLEFT JOIN (\n  SELECT applies_to_purpose,\n         COUNT(*)                                                                                    AS requirement_count,\n         MAX(CASE WHEN dimension = 'population_min_age' THEN CAST(required_value AS INT) END)        AS required_min_age\n  FROM hospital.requirements\n  GROUP BY applies_to_purpose\n) rq ON rq.applies_to_purpose = c.intended_purpose\nWHERE c.case_id = 'CASE-2026-014'\nORDER BY c.case_id, vc.claim_id"
         },
         {
@@ -315,7 +331,7 @@
         {
           "claimId": "CASE-2026-016.intended",
           "dependsOnFacts": 24,
-          "findingId": "fnd_d0bd1398fb9b8c47977876ecb9dd87d4",
+          "findingId": "fnd_2a0ac8ae03cfb0fd5f459680cc3f532d",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -326,12 +342,12 @@
             "timing": "CONTAINED",
             "version": "UNKNOWN"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-LU-01",
           "dependsOnFacts": 24,
-          "findingId": "fnd_f55bb97cc6a390ab5e9f14b9df2780db",
+          "findingId": "fnd_3dacf7e273363952cf6210e4933c71b6",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -342,12 +358,12 @@
             "timing": "UNKNOWN",
             "version": "UNKNOWN"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-LU-02",
           "dependsOnFacts": 24,
-          "findingId": "fnd_1256df0ac3c512709136323e5be4f80f",
+          "findingId": "fnd_1880be4ccf98f737f8e21dea08913471",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -358,7 +374,7 @@
             "timing": "UNKNOWN",
             "version": "UNKNOWN"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         }
       ],
       "federation": [
@@ -643,7 +659,7 @@
         {
           "claimId": "CASE-2026-019.intended",
           "dependsOnFacts": 16,
-          "findingId": "fnd_fd3e480eb6f7e9c63039636bc8f12c75",
+          "findingId": "fnd_c2d1a13af41f87a09b2971d0e37abeb0",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -654,12 +670,12 @@
             "timing": "CONTAINED",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         },
         {
           "claimId": "CLM-TR-01",
           "dependsOnFacts": 16,
-          "findingId": "fnd_23276a4eef35101a9fc8fb01ff9ce990",
+          "findingId": "fnd_843bbe3ea655d7267a67201ffe7ed944",
           "label": "INSUFFICIENT_EVIDENCE",
           "relations": {
             "metric": "UNKNOWN",
@@ -670,7 +686,7 @@
             "timing": "UNKNOWN",
             "version": "CONTAINED"
           },
-          "ruleVersion": "sakaime-compiler@1.1.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
+          "ruleVersion": "sakaime-compiler@1.2.0+sakaime-settings@1+bridge1+sakaime-purposes@1+bridge1+metrics@1"
         }
       ],
       "federation": [
@@ -895,7 +911,7 @@
       ]
     }
   ],
-  "digest": "55f9093825a12369b89689de97ac1fe68e23c29b2e910bb08fb2577eb8dae562",
+  "digest": "506531116b88245a4b2fb305f7a3b2ea17ce7fa8b78ac124ae86471f4d90206a",
   "format": "sakaime.sample-run/1",
   "note": "Labels, relations, federation statements and record hashes of the sample run. Sample mode must reproduce this byte for byte."
 }

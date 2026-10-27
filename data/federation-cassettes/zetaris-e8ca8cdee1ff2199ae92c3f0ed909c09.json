@@ -3,7 +3,7 @@
   "key": "e8ca8cdee1ff2199ae92c3f0ed909c09981574530d22a38f23b1db1446ee92ac",
   "statement": "SELECT c.case_id, c.intended_purpose, c.intended_setting, CAST(c.intended_min_age AS INT) AS intended_min_age, s.product_name, vc.claim_id, vc.claimed_version, CAST(vc.claimed_min_age_years AS INT) AS claimed_min_age_years, vc.claimed_setting, vc.claimed_purpose, k.k_number, k.decision_date, k.clearance_type, u.udi_versions, st.confirmed_studies, st.study_min_age_years, rq.requirement_count, rq.required_min_age, CASE WHEN instr(concat('|', coalesce(u.udi_versions, ''), '|'), concat('|', vc.claimed_version, '|')) > 0 THEN 'LISTED' ELSE 'NOT_LISTED' END AS version_in_device_record, CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN' WHEN CAST(vc.claimed_min_age_years AS DOUBLE) < st.study_min_age_years THEN 'CLAIM_BELOW_STUDY_MINIMUM' ELSE 'WITHIN_STUDY' END AS claim_age_vs_study, CASE WHEN st.study_min_age_years IS NULL THEN 'UNKNOWN' WHEN CAST(c.intended_min_age AS DOUBLE) >= st.study_min_age_years THEN 'COVERED_BY_STUDY' ELSE 'NOT_COVERED_BY_STUDY' END AS case_age_vs_study FROM hospital.cases c JOIN hospital.submissions s ON s.submission_id = c.submission_id JOIN sk_vendor.vendor_claims vc ON vc.packet_id = s.packet_id JOIN sk_registry.fda_510k k ON k.k_number = s.regulator_submission_cited LEFT JOIN ( SELECT submission_number, concat_ws('|', sort_array(collect_set(version_or_model_number))) AS udi_versions FROM sk_registry.fda_udi GROUP BY submission_number ) u ON u.submission_number = k.k_number LEFT JOIN ( SELECT l.case_id, COUNT(DISTINCT t.nct_id) AS confirmed_studies, MIN(CAST(t.minimum_age_years AS DOUBLE)) AS study_min_age_years FROM hospital.evidence_links l JOIN sk_registry.ctgov_studies t ON t.nct_id = l.right_id WHERE l.link_class = 'CONFIRMED' AND l.right_type = 'ctgov_study' GROUP BY l.case_id ) st ON st.case_id = c.case_id LEFT JOIN ( SELECT applies_to_purpose, COUNT(*) AS requirement_count, MAX(CASE WHEN dimension = 'population_min_age' THEN CAST(required_value AS INT) END) AS required_min_age FROM hospital.requirements GROUP BY applies_to_purpose ) rq ON rq.applies_to_purpose = c.intended_purpose WHERE c.case_id = 'CASE-2026-014' ORDER BY c.case_id, vc.claim_id",
   "identity": "default",
-  "recordedAt": "2026-10-27T12:00:00.050Z",
+  "recordedAt": "2026-10-27T12:00:00.048Z",
   "columns": [
     "case_id",
     "intended_purpose",
@@ -234,10 +234,33 @@
       "LISTED",
       "WITHIN_STUDY",
       "COVERED_BY_STUDY"
+    ],
+    [
+      "CASE-2026-014",
+      "detection_aid",
+      "primary_care",
+      "18",
+      "EyeArt",
+      "CLM-EA-10",
+      "2.1.0",
+      "18",
+      "primary_care|eye_care",
+      "detection_aid",
+      "K200667",
+      "2020-08-03",
+      "Traditional",
+      "2.1.0",
+      "1",
+      "18.0",
+      "6",
+      "18",
+      "LISTED",
+      "WITHIN_STUDY",
+      "COVERED_BY_STUDY"
     ]
   ],
-  "total": 9,
-  "queryId": "aa3ebfc6-367a-4ef4-a402-c37bdf3c6cbf",
-  "recordedElapsedMs": 1013,
-  "respHash": "10deca4a9db2b14ddad037d6207ae26ada4a85e3f397053ae0347faba4ded02d"
+  "total": 10,
+  "queryId": "2a05328a-7171-48c2-b8c8-8a46bf1c0634",
+  "recordedElapsedMs": 992,
+  "respHash": "d81f4699d572d90e50f29b065f3a0a68e616db39e8ac641441e9a5a943286df9"
 }

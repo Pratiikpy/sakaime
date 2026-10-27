@@ -180,6 +180,29 @@ describe("EyeArt K200667, the case with a registry study", () => {
     expect(byId("CLM-EA-09").finding.expertReviewFlags.map((x) => x.ruleId)).toContain("SAK-CONTRARY-UNDISPOSITIONED");
   });
 
+  it("a claim that adds ages 18 to 21 is held to the age the regulator's summary analysed, and says which record limits it", () => {
+    const r = eye().results.find((x) => x.claim.id === "CLM-EA-10")!;
+    const f = r.finding;
+    expect(f.label).toBe("SUPPORTED_ONLY_FOR_NARROWER_SCOPE");
+    expect(f.supportedScope).toMatchObject({ population: { age: { min: 22 } } });
+    const pop = f.mechanicalCoverage.find((m) => m.dimension === "population")!;
+    expect(pop.relation).toBe("PARTIAL");
+    expect(pop.established).toMatch(/regulator decision summary: ages 22 and above/);
+    expect(pop.established).toMatch(/study: ages 18 and above/);
+    const ask = f.requiredEvidence.find((q) => q.dimension === "population")!.request;
+    expect(ask).toBe("From the vendor: performance results for ages 18 to below 22, or restate the claim to cover only ages 22 and above. The regulator decision summary limits the patient population to ages 22 and above; the study records state ages 18 and above, which does not widen it.");
+    // The same claim for ages 22 and older is supported, so the age floor is the only thing between the two.
+    expect(eye().results.find((x) => x.claim.id === "CLM-EA-01")!.finding.label).toBe("SUPPORTED_FOR_SCOPE");
+  });
+
+  it("the study-typed items taken from the decision summary carry the marker the compiler reads, and the others do not", () => {
+    const items = eye().wb.assembled!.items;
+    const marked = items.filter((i) => i.limitations.some((l) => l.startsWith("taken from the regulator's decision summary")));
+    expect(marked.map((i) => i.assertionType)).toEqual(["study"]);
+    expect(marked[0]!.id).toMatch(/fda-summary/);
+    expect(items.filter((i) => i.id.includes("ctgov") || i.id.includes("pubmed")).some((i) => i.limitations.some((l) => l.startsWith("taken from the regulator")))).toBe(false);
+  });
+
   it("the packet holds every label there is", () => {
     expect(new Set(eye().results.map((r) => r.finding.label))).toEqual(new Set(["SUPPORTED_FOR_SCOPE", "SUPPORTED_ONLY_FOR_NARROWER_SCOPE", "CONTRADICTED_BY_SPECIFIED_EVIDENCE", "INSUFFICIENT_EVIDENCE", "REQUIRES_DOMAIN_REVIEW"]));
   });

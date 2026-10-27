@@ -1,5 +1,5 @@
 {
-  "ranAt": "2026-10-27T14:01:16.934Z",
+  "ranAt": "2026-10-27T14:31:13.673Z",
   "mode": {
     "sample": false,
     "federation": "live",
@@ -20,13 +20,14 @@
     "CLM-EA-06": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
     "CLM-EA-07": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
     "CLM-EA-08": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
-    "CLM-EA-09": "REQUIRES_DOMAIN_REVIEW"
+    "CLM-EA-09": "REQUIRES_DOMAIN_REVIEW",
+    "CLM-EA-10": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
   },
   "sameLabelsAsRecordedSample": true,
   "federation": {
     "status": "ok",
     "servedFrom": "live",
-    "rows": 9
+    "rows": 10
   },
   "sources": [
     {
@@ -99,9 +100,9 @@
     ]
   },
   "prose": {
-    "sentences": 10,
-    "fromModel": 10,
+    "sentences": 11,
+    "fromModel": 11,
     "rejected": 0
   },
-  "traceEvents": 53
+  "traceEvents": 55
 }

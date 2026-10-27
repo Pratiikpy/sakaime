@@ -138,7 +138,7 @@
       },
       "healthDetail": "answered through cassette; 10 requirements, 3 precedents",
       "zetarisName": "hospital.requirements, hospital.precedents, hospital.cases",
-      "rowCount": 9,
+      "rowCount": 10,
       "authorityNotes": "authoritative for what this hospital requires; says nothing about what a product has shown"
     }
   ]

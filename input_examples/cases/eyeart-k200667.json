@@ -69,6 +69,12 @@
       "use": {"product": "device:fda:K200667", "versions": ["2.1.0"], "population": {"age": {"min": 22}, "conditions": ["diabetic retinopathy"], "exclusions": ["previously diagnosed with more than mild diabetic retinopathy"]}, "settings": ["primary_care", "eye_care"], "purpose": "detection_aid"},
       "performance": {"metric": "sensitivity", "atLeast": 0.96},
       "equipment": "Canon CR-2 Plus AF"
+    },
+    {
+      "id": "CLM-EA-10",
+      "text": "In the population of the pivotal study, extended to include adults aged 18 to 21 (adults aged 18 and older with diabetes, excluding anyone previously diagnosed with more than mild diabetic retinopathy, with a history of macular edema or retinal vascular occlusion, with ocular injections, retinal laser treatment or intraocular surgery other than uncomplicated cataract surgery, with persistent visual impairment, who cannot be imaged or dilated, who are enrolled in another interventional study, or whose condition could confound the results), EyeArt 2.1.0 detects more than mild diabetic retinopathy as an aid to the clinician in primary care and eye care settings, using the Canon CR-2 AF or CR-2 Plus AF camera.",
+      "use": {"product": "device:fda:K200667", "versions": ["2.1.0"], "population": {"age": {"min": 18}, "conditions": ["diabetic retinopathy"], "exclusions": ["previously diagnosed with more than mild diabetic retinopathy", "Persistent visual impairment in one or both eyes;", "History of macular edema or retinal vascular (vein or artery) occlusion;", "History of ocular injections, laser treatment of the retina, or intraocular surgery other than cataract surgery without complications;", "Subject is contraindicated for fundus photography (for example, has light sensitivity);", "Subject has contraindications for mydriatic medications or is unwilling or unable to dilate;", "Subject is currently enrolled in an interventional study of an investigational device or drug; or", "Subject has a condition or is in a situation which in the opinion of the Investigator, might confound study results, may interfere significantly with the subject's participation in the study, or may result in ungradable clinical reference standard photographs."]}, "settings": ["primary_care", "eye_care"], "purpose": "detection_aid"},
+      "equipment": "Canon CR-2 Plus AF"
     }
   ],
   "dependencies": {"required": ["authorization", "study", "requirement"], "corroborating": []}

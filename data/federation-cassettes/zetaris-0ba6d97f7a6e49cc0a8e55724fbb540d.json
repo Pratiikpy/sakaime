@@ -3,7 +3,7 @@
   "key": "0ba6d97f7a6e49cc0a8e55724fbb540def871223292253bcdb1f8e7a82073396",
   "statement": "SELECT precedent_id, topic, statement FROM hospital.precedents WHERE scope_org = 'HOSPITAL-A' ORDER BY precedent_id",
   "identity": "default",
-  "recordedAt": "2026-10-27T12:00:00.534Z",
+  "recordedAt": "2026-10-27T12:00:00.537Z",
   "columns": [
     "precedent_id",
     "topic",
@@ -27,7 +27,7 @@
     ]
   ],
   "total": 3,
-  "queryId": "d282cb9a-607f-4b27-b883-29f25599fe3e",
-  "recordedElapsedMs": 140,
+  "queryId": "3628d775-411e-4197-85c8-8168c14a09c2",
+  "recordedElapsedMs": 131,
   "respHash": "b830b418ad2e2bbd850085dbcca4fa9b50b8b7d51663a048d3950c0a8ac33872"
 }

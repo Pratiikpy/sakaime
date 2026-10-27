@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, compileDetailed, formatPurposeExclusion, ruleOf, type CompileOptions } from "../../src/compiler/index.ts";
+import { REGULATOR_RECORD_NOTE, RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, compileDetailed, formatPurposeExclusion, ruleOf, type CompileOptions } from "../../src/compiler/index.ts";
 import type { EvidenceItem } from "../../src/schemas/index.ts";
 import { GOOD_RESULT, OP, auth, claim, requirement, study, vendor } from "./fixtures.ts";
 
@@ -100,6 +100,18 @@ const SCENARIOS: Scenario[] = [
   { id: "SAK-STUDY-POSTDATES", where: "trace", run: () => compileDetailed(claim({ timing: { from: "2021-06-01" } }), [auth(), study()]) },
   { id: "SAK-SOURCE-LOSS", where: "trace", run: () => compileDetailed(claim(), [auth(), study()], { sourceHealth: { study: "DRIFTED" } }) },
   { id: "SAK-AUTHORITY", where: "trace", run: () => compileDetailed(claim(), [auth({}, { results: [GOOD_RESULT] }), study(), vendor()]) },
+  {
+    id: "SAK-REGULATOR-BOUND",
+    where: "trace",
+    run: () => {
+      const people = { conditions: ["diabetes mellitus"], exclusions: ["pregnancy"] };
+      return compileDetailed(claim({ population: { age: { min: 18 }, ...people } }), [
+        auth({ population: people }),
+        study({ population: { age: { min: 22 }, ...people } }, [GOOD_RESULT], { id: "summary-study", limitations: [`${REGULATOR_RECORD_NOTE} K200667`] }),
+        study({ population: { age: { min: 18 }, ...people } }, [GOOD_RESULT], { id: "registry-study" }),
+      ]);
+    },
+  },
   { id: "SAK-JOINT-COVERAGE", where: "flags", run: () => compileDetailed(claim(), [auth({ settings: ["eye_care"] }), auth({ settings: ["primary_care"] }, { id: "auth-2" }), study()]) },
   { id: "SAK-UNPLACED-SETTING", where: "flags", run: () => compileDetailed(claim({ settings: ["moon base"] }), [auth(), study()]) },
   {
