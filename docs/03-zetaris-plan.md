@@ -1,6 +1,6 @@
 # Sakaime and Zetaris: using the platform to its full depth
 
-Status: plan, 2026-10-27. Zetaris is required in every submission and must have a real, output-changing role. This plan lists every Zetaris capability we can verify, the role each plays in Sakaime, the test that proves it matters, and the gates that must pass before we claim anything. Facts are tagged. Sources: `the sibling project's Zetaris setup notes (not in this repository)` (runs on this machine, 2026-10-16 to 2026-10-22), `zetaris-docs-readout.md` (public documentation, 2026-10-13 to 2026-10-17). Those are the sibling project's notes; the facts are about Zetaris, not about that project.
+Status: plan, 2026-10-27. Zetaris is required in every submission and must have a real, output-changing role. This plan lists every Zetaris capability we can verify, the role each plays in Sakaime, the test that shows it matters, and the gates that must pass before we claim anything. Facts are tagged. Sources: `the sibling project's Zetaris setup notes (not in this repository)` (runs on this machine, 2026-10-16 to 2026-10-22), `zetaris-docs-readout.md` (public documentation, 2026-10-13 to 2026-10-17). Those are the sibling project's notes; the facts are about Zetaris, not about that project.
 
 ## 1. What is verified about Zetaris (on this machine)
 
@@ -36,7 +36,7 @@ Status: plan, 2026-10-27. Zetaris is required in every submission and must have 
 
 Tiers (adopted from the 2026-10-27 review, `10-review-disposition.md`):
 
-| Tier | Capabilities | Proof required |
+| Tier | Capabilities | Evidence required |
 |---|---|---|
 | **Essential** | Z1 federated query across PostgreSQL, public-record snapshots and vendor files; Z2 discovery and unknown-schema handling; **Z8 the Unified Semantic Layer with at least one data-quality rule (completeness gate: a truncated collection feeds nothing downstream) and a written reflection, which Zetaris staff named as the core of Zetaris judging (D-024)**; correct failure semantics (empty, unavailable, forbidden, stale, truncated kept distinct) | query id, source ids, correct rows, an independent SQL comparison on the DuckDB oracle; add a source, validate the mapping, register and query without an application code change |
 | **Strong differentiator** | Z3 permission-aware access (sensitive fields unavailable to unauthorised reviewers and to their model calls); Z4 source metadata and drift (a changed schema or record marks exactly the dependent findings stale) | two-identity demo; prompt-log inspection; a drift event with the stale set |
@@ -89,7 +89,7 @@ Aggregation happens per silo before the join, because joining raw rows repeated 
 | Z-USL | Can we compile and activate a USL (whole DDL in one request, per-table activate with casts), query it through the product as the read-only identity, and run a DQ rule? | USL queried as a non-admin view-only user; `RUN DQ TABLE` result recorded; this gate is Essential (D-024), so a failure blocks the Zetaris claim until fixed |
 | Z-PDF | Does `FORMAT PDF` return usable text for the FDA summaries with the preview length set, and do we detect truncation? | text of 3 real summaries compared with our parser's text; truncation flagged |
 | Z-NL | What does Zetaris's natural-language-to-SQL return for the Evidence Matrix question? | Recorded as the baseline arm |
-| Z-JUDGE | What does a judge without Docker see? | Cassette path reproduces results; live proof path documented |
+| Z-JUDGE | What does a judge without Docker see? | Cassette path reproduces results; live path documented |
 
 If a gate fails, the feature is dropped from the product and from the claims, and the failure goes in the sponsor explanation as a limit.
 
@@ -101,7 +101,7 @@ Switching a sponsor component off must not be rigged to make it look essential. 
 2. **Limited single-source access** (what an agent sees if it queries each source alone).
 3. **The real Zetaris integration.**
 
-Compared on: correctness of the joined answer (expected equal if the data is the same), discovery of a new source without code change, governance (masked columns reaching the model), provenance (query ids and audit), failure semantics, latency and operability. A capability counts as earning its place where it improves federation, governance, extensibility or operational reliability; where it does not change the answer, we say so and do not invent an accuracy gain. Hiding a source from the baseline proves little and is not done.
+Compared on: correctness of the joined answer (expected equal if the data is the same), discovery of a new source without code change, governance (masked columns reaching the model), provenance (query ids and audit), failure semantics, latency and operability. A capability counts as earning its place where it improves federation, governance, extensibility or operational reliability; where it does not change the answer, we say so and do not invent an accuracy gain. Hiding a source from the baseline shows little and is not done.
 
 Named comparisons: ZA-1 federation vs in-process join vs single source; ZA-2 discovery with and without Zetaris metadata; ZA-3 policies on and off (prompt-log inspection); ZA-4 catalog tags and drift; ZA-5 audit cross-check; ZA-6 decision publishing; ZA-7 time travel; ZA-8 semantic layer. Each reports findings changed, runtime, whether the degraded state was announced, and the cases where nothing changed.
 

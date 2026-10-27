@@ -1,6 +1,6 @@
 # Sakaime: architecture specification
 
-Status: design contract, v0.2, 2026-10-27 (revised after the outside review; every ruling is in `10-review-disposition.md`). Nothing here is implemented. Every external fact carries a tag: **[VERIFIED]** (read or run by us, source named), **[SECONDARY]**, **[HYPOTHESIS]**, **[NOT VERIFIED]**. Read with `01-prd.md`; sponsor depth is in `03-zetaris-plan.md` and `04-meterless-plan.md`; tests are in `05-requirements-matrix.md` and `06-evaluation-protocol.md`.
+Status: design contract, v0.2, 2026-10-27 (revised after the outside review; every ruling is in `10-review-disposition.md`). The sections describe the design; the product is built, and where the build differs from this text an **Implementation note** says so (what exists and what was measured: `05-requirements-matrix.md`, `08-build-plan.md`). Every external fact carries a tag: **[VERIFIED]** (read or run by us, source named), **[SECONDARY]**, **[HYPOTHESIS]**, **[NOT VERIFIED]**. Read with `01-prd.md`; sponsor depth is in `03-zetaris-plan.md` and `04-meterless-plan.md`; tests are in `05-requirements-matrix.md` and `06-evaluation-protocol.md`.
 
 ## 1. The one sentence
 
@@ -46,7 +46,7 @@ Mapping to the nine systems named in the outside review: Review Workspace = UI p
 
 ## 4. Data model
 
-All types are versioned JSON schemas under `schemas/`, validated at every boundary (Zod in TypeScript).
+All types are versioned schemas in `src/schemas/`, checked at every boundary (Zod in TypeScript).
 
 Entities (each has its own id and never stands in for another): `Manufacturer`, `ProductFamily`, `MarketedDevice`, `SoftwareRelease`, `AuthorizationSubmission` (510(k), De Novo, PMA), `Study`, `RegistryEntry` (with history), `Publication`.
 
@@ -61,7 +61,7 @@ Entities (each has its own id and never stands in for another): `Manufacturer`, 
 | `PUBLICATION_REPORTS` | a publication reports this study | NCT in the paper, registry reference list |
 | `SUPERSEDES` | a record replaces another | explicit supersession in the record |
 
-`LinkState`: `CONFIRMED` (exact identifier for that link type, or reviewer), `CANDIDATE` (score and waterfall), `AMBIGUOUS`, `REJECTED`. A shared submission number proves `SAME_SUBMISSION` and nothing more: it does not prove that every marketed release is clinically identical (feasibility: one De Novo with eleven GUDID versions).
+`LinkState`: `CONFIRMED` (exact identifier for that link type, or reviewer), `CANDIDATE` (score and waterfall), `AMBIGUOUS`, `REJECTED`. A shared submission number establishes `SAME_SUBMISSION` and nothing more: it does not show that every marketed release is clinically identical (feasibility: one De Novo with eleven GUDID versions).
 
 **Authority matrix (by assertion type).**
 
@@ -96,13 +96,13 @@ Goal: given a question, find which sources can answer which part, learn their sh
 
 Pipeline for any new source (eight stages; a source that fails a stage stops there with the reason shown):
 
-1. **Authorization.** Allowlist-first: sources come from approved families (registered cards). A pasted URL must resolve inside an allowed host list or be refused. The fetcher is SSRF-safe: https only, method GET, resolved addresses checked against private, loopback, link-local and cloud-metadata ranges, DNS pinned for the request, every redirect re-validated, response size and time capped. No credentials are forwarded.
+1. **Authorization.** Allowlist-first: sources come from approved families (registered cards). A pasted URL must resolve inside an allowed host list or be refused. The fetcher is SSRF-safe: https only, method GET, resolved addresses checked against private, loopback, link-local and cloud-metadata ranges, DNS pinned for the request, every redirect re-checked, response size and time capped. No credentials are forwarded.
 2. **Capability discovery.** Catalog first: ask Zetaris what exists (`SHOW LIGHTNING DATABASES`, `SHOW TABLES IN <db>`, table metadata, tags) [VERIFIED for the first two statements]. For an external API read the source card (identifier fields, pagination, filters, limits, cadence, licence).
 3. **Bounded probe.** A request limited to a few rows; hash the response shape (schema fingerprint); compare with any stored fingerprint. A changed shape raises a drift event instead of silently mis-mapping.
 4. **Mapping proposal.** Nemotron proposes a field-to-canonical mapping from the sample and the card.
 5. **Semantic and cross-source validation (deterministic).** Types are the easy part. Also check units and scale (a "sensitivity" in 0 to 1 vs 0 to 100), value ranges and distributions against the canonical field's expectations, identifier patterns (K, DEN and P numbers, NCT ids, PMIDs, DOIs), null and missing-value codes, date semantics, duplicate keys, and sample joins against records we already hold (does `device_id` join to known submissions at the expected rate). A field renamed from `device_name` to `product_name` is an easy mutation; percent to fraction or "study population" to "target population" is a hard one, and both are in the unknown-schema suite.
 6. **Human review.** Uncertain or security-sensitive mappings are held until a reviewer accepts them. An accepted mapping is stored in H-MEM with its schema hash so the same shape is not asked again.
-7. **Registration.** A passing source is registered with Zetaris (REST table, JDBC source or filestore table). If Zetaris cannot parameterise a REST request for that API [NOT VERIFIED, gate Z-REST in `03`], the fabric lands a normalised, provenance-preserving snapshot into the evidence lake (an S3-style filestore table) and Zetaris joins the snapshot; the record keeps the live request hash either way. Registration carries an idempotency key.
+7. **Registration.** A passing source is registered with Zetaris (REST table, JDBC source or filestore table). If Zetaris cannot parameterise a REST request for that API [NOT VERIFIED, gate Z-REST in `03`], the fabric lands a normalised, provenance-preserving snapshot into the evidence lake (an S3-style filestore table) and Zetaris joins the snapshot; the record keeps the live request hash either way. Implementation note: the build always lands a snapshot and never registers a REST table (D-029). Registration carries an idempotency key.
 8. **Monitoring.** Track schema drift, changed records, access failures and stale snapshots; each raises a World Model event that marks dependent findings stale.
 
 Source cards are declarative YAML (base URL, auth none or key, rate limit, identifier fields, pagination, update cadence, licence, data class). Each source exposes four verbs borrowed from the Airbyte protocol: `describe`, `check`, `discover`, `read`, plus a state checkpoint. `check` outcomes: OK, EMPTY (answered, no rows), UNAVAILABLE (timeout, 5xx, 429), DRIFTED (shape changed), FORBIDDEN, STALE (snapshot older than its declared cadence), BLOCKED (scripted access refused). `check` is a real probe (a `SELECT 1` through Zetaris, a bounded request to a public API), never a container healthcheck: a stopped Spark context keeps the healthcheck green while every query fails with HTTP 400. Messages such as "stopped SparkContext", "Could not create ResultSet: null" and thrift transport errors map to UNAVAILABLE (retry with backoff, then degrade). Only EMPTY may be read as "no records found", and even then the finding says "none found in source X on date D", never "none exist".
@@ -111,7 +111,7 @@ Add-a-source demo move: the reviewer chooses or pastes a source inside the allow
 
 Baseline for T1: a hardcoded ETL with fixed field names, which fails on the altered schema.
 
-Source behaviours the `check` verb must tell apart (measured 2026-10-27, `research/feasibility/FEASIBILITY-REPORT.md`):
+Source behaviours the `check` verb must tell apart (measured 2026-10-27, `reports/feasibility-report.md`):
 
 | Source | Empty result looks like | Outage or block looks like | Limit |
 |---|---|---|---|
@@ -163,9 +163,9 @@ A candidate link is never promoted by a model alone. Two similar products with d
 
 ## 10. L6 Applicability Compiler (the distinctive invention)
 
-Basis: published appraisal concepts, read first-hand on 2026-10-27 (`research/standards/APPLICABILITY-RULE-REGISTRY.md`, 38 candidate rules, each concept cited to a section or item number). PROBAST+AI defines the review question with PICOTS (population, index model, comparator, outcome, timing, setting and intended use) and rates "applicability" as three concern items per phase (participants and setting, predictors, outcome), each low, high or unclear, relative to the assessor's intended use. It has no applicability signalling questions. STARD-AI (40 items) and TRIPOD+AI define the reporting items that carry scope facts (eligibility, setting and dates, software version in STARD-AI item 13, thresholds, subgroup results, limitations). IMDRF SaMD N41 and the FDA PCCP guidance bound what a claim and a version change can mean (intended use vs indications for use; a version change does not by itself settle applicability).
+Basis: published appraisal concepts, read first-hand on 2026-10-27 (`reports/applicability-rule-registry.md`, 38 candidate rules, each concept cited to a section or item number). PROBAST+AI defines the review question with PICOTS (population, index model, comparator, outcome, timing, setting and intended use) and rates "applicability" as three concern items per phase (participants and setting, predictors, outcome), each low, high or unclear, relative to the assessor's intended use. It has no applicability signalling questions. STARD-AI (40 items) and TRIPOD+AI define the reporting items that carry scope facts (eligibility, setting and dates, software version in STARD-AI item 13, thresholds, subgroup results, limitations). IMDRF SaMD N41 and the FDA PCCP guidance bound what a claim and a version change can mean (intended use vs indications for use; a version change does not by itself settle applicability).
 
-**Honesty note carried from the registry: no standard prescribes deterministic applicability checks.** The concepts are cited; the executable logic and thresholds are our design inferences, open to clinician challenge. Anything contestable returns REQUIRES_DOMAIN_REVIEW. Two consequences already fixed: a claimed version with no evidence at all returns INSUFFICIENT_EVIDENCE, not "narrower scope" (a narrower scope must itself be contained in the evidence); and staleness windows and subgroup sample-size thresholds have no source threshold, so they also return REQUIRES_DOMAIN_REVIEW. The registry is committed under `docs/rules/` after our review.
+**Honesty note carried from the registry: no standard prescribes deterministic applicability checks.** The concepts are cited; the executable logic and thresholds are our design inferences, open to clinician challenge. Anything contestable returns REQUIRES_DOMAIN_REVIEW. Two consequences already fixed: a claimed version with no evidence at all returns INSUFFICIENT_EVIDENCE, not "narrower scope" (a narrower scope must itself be contained in the evidence); and staleness windows and subgroup sample-size thresholds have no source threshold, so they also return REQUIRES_DOMAIN_REVIEW. Implementation note: the registry research is published as `reports/applicability-rule-registry.md`; the executable rules and their basis are in `src/compiler/rules.ts` (17 of the 38 registry rules plus 17 of our own; the other 21 are listed with their reason, D-038). A `docs/rules/` folder was not created.
 
 Mechanism:
 
@@ -209,16 +209,16 @@ Controls: turn cap, per-call timeout, capped retries, budget per case, cancellat
 
 ## 12. L0 Scout Intent guard and security
 
-- Intent and risk screening on every reviewer request and on every document-derived instruction: "certify this safe", "ignore previous instructions", requests to send data out, or write actions are refused or require confirmation. Execution contracts are signed (Ed25519) before any export.
+- Intent and risk screening on every reviewer request and on every document-derived instruction: "certify this safe", "ignore previous instructions", requests to send data out, or write actions are refused or require confirmation. Execution contracts are signed with HMAC-SHA256 before any export (D-033; dossiers and Nightshift receipts use Ed25519).
 - All fetched text is data. It is never placed in the instruction channel; extraction prompts treat it as quoted material. A prompt-injection corpus (vendor PDFs containing instructions) is part of the tests.
 - Read-only by default for public sources and the hospital database; the Zetaris identity used by the agent has SELECT only. Vendor-confidential columns are masked by Zetaris policy for any identity not assigned to the case.
 - No PHI in any fixture. The hospital database is synthetic.
 - **Data classes and egress.** `public` records may be sent to the model. `vendor-confidential` content is processed by a local lane or sent only with recorded consent. `PHI` never enters the system. The active mode and every egress decision are visible and logged. Storage being local is not the same as processing being local, and the product says so.
-- **Receipts.** A Nightshift receipt is verified for signature, key id against the installed application, routed model against the role map, and request and response hashes against what we sent and stored. A valid receipt shows where a response came from, not that it is true.
+- **Receipts.** A Nightshift receipt is verified for signature, key id against the installed application, routed model against the role map, and the binding of the receipt to the call it came with. Implementation note: the receipt carries no hash of the request or reply (`src/models/receipt.ts`), so the reply text is hashed on our side and the receipt does not commit to it. A valid receipt shows where a response came from, not that it is true.
 
 ## 13. L8 Dossier and review
 
-A dossier is a signed bundle: claim, ClaimedUse, findings, minimal counterexamples, requirements, source snapshots with hashes, Zetaris query ids and result hashes, model receipts (Nightshift), rule registry version, reviewer decisions. An offline verifier recomputes every hash and re-runs the compiler on the recorded inputs; any mismatch fails with a named reason. A signature proves integrity, not clinical truth. Both histories (evidence and decision) are included.
+A dossier is a signed bundle: claim, ClaimedUse, findings, minimal counterexamples, requirements, source snapshots with hashes, Zetaris query ids and result hashes, model receipts (Nightshift), rule registry version, reviewer decisions. An offline verifier recomputes every hash and re-runs the compiler on the recorded inputs; any mismatch fails with a named reason. A signature shows integrity, not clinical truth. Both histories (evidence and decision) are included.
 
 Lineage is emitted as OpenLineage-style events (run, job, input and output datasets with facets) so a finding can be traced back to the records, queries and extraction steps that produced it.
 
@@ -242,7 +242,7 @@ Lineage is emitted as OpenLineage-style events (run, job, input and output datas
 | OpenLineage | Run/job/dataset facets | Apache-2.0 | Facets carry anchors and rule versions |
 | Meterless engines | H-MEM, World Model, Markovian, Scout Intent | Apache-2.0 | Used with specific tests and ablations (`04`) |
 
-Studied but not adopted: Cognee (general memory layer), Onyx (licence split not cleared), LangGraph (only if our own bounded state machine proves too costly). Mira Network is a reference for the idea of claim decomposition only; its public client is described as proprietary and nothing from it is used.
+Studied but not adopted: Cognee (general memory layer), Onyx (licence split not cleared), LangGraph (only if our own bounded state machine turns out too costly). Mira Network is a reference for the idea of claim decomposition only; its public client is described as proprietary and nothing from it is used.
 
 ## 16. Failure modes this design must survive
 

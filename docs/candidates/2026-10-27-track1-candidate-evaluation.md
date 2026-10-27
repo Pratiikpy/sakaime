@@ -54,7 +54,7 @@ Scale 1 to 5. Demand = evidence a real person has the problem. Data = real publi
 
 ## 4. Where this leaves the choice
 
-- No candidate is shown to be the best. The honest state: BidDelta has the strongest verified pain, the weakest originality claim, and the most hostile user community; NYC reconciliation has the cleanest data and fit, and an incumbent that is a nonprofit.
+- No candidate is shown to be the strongest. The honest state: BidDelta has the strongest verified pain, the weakest originality claim, and the most hostile user community; NYC reconciliation has the cleanest data and fit, and an incumbent that is a nonprofit.
 - The sharpest version of BidDelta found so far: do not produce quantities, only detect disagreement. A real, public benchmark is possible: real DOT addenda give exact item, old quantity and new quantity; real bid tabulations give real item lists and unit prices; a stale estimate or quote built from pre-addendum quantities has known ground truth by construction. The synthetic part must be labelled as such.
 
 Kill criteria before building (any one stops BidDelta):

@@ -1,6 +1,6 @@
 # Sakaime: product requirements document
 
-Status: v0.2, 2026-10-27 (revised after the outside review and the build of the first modules). Hypotheses are marked. Nothing is built. This PRD is the contract for what the product does and for what we will and will not claim. Architecture: `02-architecture.md`. Sponsor depth: `03-zetaris-plan.md`, `04-meterless-plan.md`. Tests and evidence: `05-requirements-matrix.md`, `06-evaluation-protocol.md`. Decisions and open gates: `DECISIONS.md`.
+Status: v0.2, 2026-10-27 (revised after the outside review; the product has since been built, and what exists and what was measured is in `05-requirements-matrix.md`, `08-build-plan.md` and `../evals/RESULTS.md`). Hypotheses are marked. This PRD is the contract for what the product does and for what we will and will not claim. Architecture: `02-architecture.md`. Sponsor depth: `03-zetaris-plan.md`, `04-meterless-plan.md`. Tests and evidence: `05-requirements-matrix.md`, `06-evaluation-protocol.md`. Decisions and open gates: `DECISIONS.md`.
 
 ## 1. Summary
 
@@ -23,7 +23,7 @@ Status of each statement is the one we can support today.
 - A buyer-side workflow exists. The Health AI Partnership publishes an AI vendor disclosure framework covering intended use, performance, compliance, data stewardship and lifecycle. [Per outside note; primary page read pending in `research/competition/COMPETITION-REPORT.md`.]
 - Hospitals ask vendors for standardized assessments before procurement conversations advance (a Becker's Hospital Review report on Mass General Brigham, July 2026). [Per outside note; NOT VERIFIED by us.]
 - Authorization and demonstrated patient benefit are different things. A PLOS Digital Health analysis published 2026-08-19 reviewed 1,357 AI/ML-enabled devices cleared or approved through 2025-12-05 and linked 34 (2.5%) to registered prospective trials, 12 (0.9%) to posted results, 12 (0.9%) to peer-reviewed publications and 3 (0.2%) to patient-centred outcomes. [Read through several news reports, 2026-10-27; the primary paper is not yet read. Consequence for us: the registry leg is often empty, so "no registered prospective trial found in source X on date D" is itself a core finding, and the demo device must be chosen from the small set that has linkable studies. If the paper's supplementary data lists device-to-study links it is a possible external ground truth for identity linking, `06`; NOT VERIFIED.]
-- Applicability is a recognised appraisal concept: PROBAST+AI (population, index model, comparator, outcome, timing, setting, intended use), STARD-AI and TRIPOD+AI reporting items. We operationalise established concepts; we do not claim to invent them. [Rule extraction in `research/standards/`.]
+- Applicability is a recognised appraisal concept: PROBAST+AI (population, index model, comparator, outcome, timing, setting, intended use), STARD-AI and TRIPOD+AI reporting items. We operationalise established concepts; we do not claim to invent them. [Rule extraction in `reports/applicability-rule-registry.md`.]
 - The pain is assumed, not yet measured with buyers. No hospital reviewer has been interviewed. **Demand and willingness to pay are NOT VERIFIED.**
 
 Why sources are fragmented in practice: regulator records state intended use and an authorization scope; registries describe studies and update them over time; papers report populations, settings and software versions in prose and tables; vendors summarise selectively and revise; hospitals keep their own requirements in their own systems. Identifiers rarely line up, and the same product appears under several names and versions.
@@ -103,7 +103,7 @@ Why sources are fragmented in practice: regulator records state intended use and
 | FR-12 | The dossier verifier fails on any changed source hash, number or rule version, naming the failing item | tamper test |
 | FR-13 | Every model-derived field carries a compute receipt or is labelled unreceipted | receipt coverage check |
 | FR-14 | A document containing instructions cannot alter plans, labels or exports | injection corpus |
-| FR-15 | A new source with an unseen schema is either mapped and validated, or declined with a reason, without a code change | T1 |
+| FR-15 | A new source with an unseen schema is either mapped and checked, or declined with a reason, without a code change | T1 |
 | FR-16 | Output prose contains no sentence that is not tied to a finding id | reporter check |
 | FR-17 | `SAMPLE_MODE` reproduces the recorded run byte-for-byte for labels and queries | replay test |
 | FR-18 | Authority is decided per assertion type (authorized use, reported performance, marketed version, local requirement, vendor assertion), never by one global ranking; a study cannot widen an authorization and a regulator record cannot overwrite a measured result | authority-matrix tests (C-01) |
@@ -112,7 +112,7 @@ Why sources are fragmented in practice: regulator records state intended use and
 | FR-21 | A schema mapping that is type-valid but wrong in meaning (percent vs fraction, population vs target population) is rejected or sent to review | semantic mutation suite (C-04) |
 | FR-22 | Every critical assertion passes two separate checks, quote-exists and semantic support, reported separately | extraction tests (C-05) |
 | FR-23 | Data classes control egress: vendor-confidential content reaches a model only through a local lane or with recorded consent; PHI is never present | egress tests (C-14) |
-| FR-24 | Receipts are verified for signature, key, routed model and request/response hashes; a valid receipt does not raise confidence in content | receipt tests (C-13) |
+| FR-24 | Receipts are verified for signature, key, routed model, tier, custody and the binding of the receipt to the call it came with; a valid receipt does not raise confidence in content. Implementation note: a Nightshift receipt carries no hash of the request or the reply (only lengths, a preview, token counts and the completion id), so the binding is checked on those and the reply text is hashed on our side | receipt tests (C-13) |
 | FR-25 | External effects (source registration, reviewer decision, export) carry idempotency keys; a resumed investigation never repeats one | resume tests (C-17) |
 | FR-26 | An earlier finding is never rewritten by new evidence; a new finding references the old and records the reason | history tests |
 
@@ -125,7 +125,7 @@ Why sources are fragmented in practice: regulator records state intended use and
 - **Privacy and egress:** read-only; storage is local. Local storage is not local-only processing, so every datum has a class: *public* (may go to the model), *vendor-confidential* (local lane or recorded consent only), *PHI* (never in the system). The active mode and each egress decision are shown and logged. Whether a local model lane runs usefully on this hardware is NOT VERIFIED.
 - **Security:** no secrets in the repo; secret scan in CI; untrusted text never enters the instruction channel; least-privilege Zetaris identity.
 - **Honesty:** known limits shown in the product and the README; every constructed input labelled "constructed"; no unmeasured number in any public text.
-- **Readiness beyond tests (C-15):** clean install on two operating systems, resource and latency budgets, automated accessibility checks plus keyboard review, a privacy review, update behaviour, and moderated user sessions. The word "production-ready" is not used until these exist.
+- **Readiness beyond tests (C-15):** clean install on two operating systems, resource and latency budgets, automated accessibility checks plus keyboard review, a privacy review, update behaviour, and moderated user sessions. The product is not described as ready for production use until these exist.
 
 ## 7. Experience
 
@@ -148,14 +148,14 @@ Visual direction: the Blank brand kit already chosen for our products (ink on wh
 - **Real:** FDA AI-enabled device list and linked records, openFDA device endpoints, ClinicalTrials.gov, PubMed and Europe PMC records, Crossref metadata, FDA summary documents. All recorded as small hashed cassettes with retrieval dates; licences and terms checked and listed.
 - **Constructed and labelled:** the vendor packet, the hospital requirements and the review database. No contradiction is presented as a finding about a real vendor. The constructed vendor claim is compared with real regulator and study records, and the screen says so.
 - **Case choice (from the feasibility probe, 2026-10-27, 12 real devices):** the FDA summary PDF is the primary, citable record (identifier, indication, population, setting, sites, sometimes version); external studies are candidate links labelled EXACT, STRONG, WEAK or NONE with the reason. Candidate demo devices, each showing a different real mismatch: **EyeArt (K200667)**, the one device whose chain FDA summary to NCT03112005 to a PubMed abstract naming "version 2.1.0" is machine-checkable end to end (the clean case); **Transpara (K221347, 1.7.2)** versus the MASAI trial abstract that says "version 1.7.0" and a later 2.x clearance (true number, different version); **Lunit INSIGHT CXR Triage (K211733)**, cleared for pleural effusion and pneumothorax triage while independent studies use the same brand for tuberculosis screening at versions 3.1.0.0 and 3.9.0.1 (different intended use and version); **Viz LVO (DEN170073)**, where FDA says "initial version 1.0" but GUDID lists eleven versions 1.1 to 1.11 under one De Novo and a registered trial cites the De Novo number. The final case is chosen after full-text reading and a second reader; none is a finding about a vendor until then.
-- **Feasibility facts that shape the product** (`research/feasibility/FEASIBILITY-REPORT.md`): all 1,593 K/DEN numbers on the FDA AI list (1,614 rows, current as of 2026-09-04) resolve in openFDA; intended-use text is only in the summary PDFs (extractable 59 of 59 sampled); a version label per submission exists for only 53% via GUDID; an exact identifier crosses between FDA summary and registry in only 3 of 12 devices and 1 of 59 sampled summaries; the study text states the FDA-reviewed version for 1 of 12; 11 of 12 devices have a version or identity conflict between FDA summary, GUDID and study text; 6 of 12 have a name collision (the bare name "ContaCT" matches 446,198 PubMed records). FDA blocks scripted download of the list, so the CSV is a pinned snapshot fetched once in a browser.
+- **Feasibility facts that shape the product** (`reports/feasibility-report.md`): all 1,593 K/DEN numbers on the FDA AI list (1,614 rows, current as of 2026-09-04) resolve in openFDA; intended-use text is only in the summary PDFs (extractable 59 of 59 sampled); a version label per submission exists for only 53% via GUDID; an exact identifier crosses between FDA summary and registry in only 3 of 12 devices and 1 of 59 sampled summaries; the study text states the FDA-reviewed version for 1 of 12; 11 of 12 devices have a version or identity conflict between FDA summary, GUDID and study text; 6 of 12 have a name collision (the bare name "ContaCT" matches 446,198 PubMed records). FDA blocks scripted download of the list, so the CSV is a pinned snapshot fetched once in a browser.
 
 ## 9. Success measures
 
 Proposed targets, not results:
 
 - **Safety first:** false-supported rate on the held-out set at zero observed errors, reported with the denominator and an upper confidence bound (a zero in a sample is not zero in the world).
-- Critical mismatch recall at least 0.90 on the controlled set against the strongest baseline's measured value; report the gap, not just the number.
+- Critical mismatch recall at least 0.90 on the controlled set against the strongest baseline's measured value; report the gap, not just the number. Measured on authentic claims (`../evals/RESULTS.md`): 13 of 20 (65.0 percent) on the 26 development claims and 12 of 15 (80.0 percent) on the 20 held-out claims, so the target was not met.
 - Do not optimise for refusal: also report the **false-alarm rate** (well-supported claims flagged) and the **correct-SUPPORTED rate**, so a system that refuses everything cannot look safe.
 - Correct abstention on source-off drills 100% of runs in the suite.
 - Identity matching: precision and recall on labelled pairs, plus correct abstention on ambiguous pairs.
@@ -166,7 +166,7 @@ Proposed targets, not results:
 
 We do not claim that no one checks applicability. We claim a measurable, narrower difference to be tested: automatic discovery and federation of fragmented sources, identity resolution with ambiguity preserved, deterministic scope checking with minimal counterexamples and counterfactuals, and change-triggered re-evaluation.
 
-First-hand teardown, read 2026-10-27 (`research/competition/COMPETITION-REPORT.md`, public pages only; enterprise products behind demos may do more):
+First-hand teardown, read 2026-10-27 (`reports/competition-report.md`, public pages only; enterprise products behind demos may do more):
 
 - **Strongest threat: Constat (constat.dev, Health AI).** A free MCP endpoint returned, for a real device (DEN170073), page-quoted study design, sample size, sites, demographics, generalizability and change-control fields, with predicate chains, weekly refresh and a watchlist diff. It has no claim input, no ClinicalTrials.gov or PubMed join and no applicability verdict in what we saw. Its buyers are regulatory and market-access teams, not hospital procurement. Adding a join and a claim check would be incremental for them.
 - **Closest in intent: HealthIT.com Evidence Explorer.** A claims ledger with a JSON API; the rows have no version, population, setting or intended-use fields, its gate checks that a quoted excerpt exists at the source, and the data is a frozen snapshot (2026-08-27).
@@ -175,7 +175,7 @@ First-hand teardown, read 2026-10-27 (`research/competition/COMPETITION-REPORT.m
 - **Distribution threat:** if CHAI's registry or an EHR vendor makes the vendor-authored model card the default procurement artifact, demand for an independent check could fall.
 - Mira Network: no licence is declared on its public repositories, so only ideas can be taken.
 
-Gate G2 therefore stays open until the same-input test in the report (about 25 real claims with known mismatches, run through Constat's free tier, HealthIT.com and Sakaime; a rival at 80% or more removes the gap) is run.
+Gate G2 was left open until the same-input test in the report (real claims with known mismatches, run through Constat's free tier, HealthIT.com and Sakaime; a rival at 80% or more removes the gap) was run. It has been run on 26 development claims and 20 sealed held-out claims: the gap against the two incumbents stands on that rule, and the full pipeline is less often exactly right than a generic Nemotron call on the same documents (`DECISIONS.md`, G2; `../evals/RESULTS.md`).
 
 ## 11. Risks and kill criteria
 

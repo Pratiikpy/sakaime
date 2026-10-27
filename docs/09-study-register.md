@@ -6,7 +6,7 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## 0. Sponsor source repositories
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [Meterless/Meterless](https://github.com/Meterless/Meterless) | 257 | Apache-2.0 | 2026-10-19 | Reference engines, their real API contracts, conformance harnesses, Nightshift documentation and licensing | An engine actually changes case behavior and its conformance and product-specific tests pass | Read through the sibling project's engineering brief (commit 0aa7417). Not re-cloned here yet. |
 | P0 | [zetaris/getting-started](https://github.com/zetaris/getting-started) | 9 | Apache-2.0 | 2026-10-26 | Version-matched Lightning SQL examples, REST/file/JDBC source onboarding recipes, connection helpers and known setup issues | Genuine three-silo Zetaris query, discovery, safe fallback and source registration on the installed version | Read through the sibling project's notes. Not re-cloned here yet. |
@@ -14,21 +14,21 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## A. Source discovery, connectors and federation
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [airbytehq/airbyte](https://github.com/airbytehq/airbyte) | 22,272 | NOASSERTION | 2026-10-27 | Connector spec/check/discover/read/state and resuming after interruption | T1: onboard and checkpoint an unseen source; report UNAVAILABLE vs EMPTY | Protocol repo `airbytehq/airbyte-protocol` cloned (`research/airbyte-protocol`, MIT). Main repo not cloned. Licence reported as NOASSERTION; read the LICENSE and the connector licences before adapting anything. |
 | P1 | [meltano/sdk](https://github.com/meltano/sdk) | 120 | Apache-2.0 | 2026-10-26 | Singer tap and target contracts, discovery, pagination and incremental state | Run a source with pagination and restart without duplicate rows | NOT STARTED |
 | P1 | [dlt-hub/dlt](https://github.com/dlt-hub/dlt) | 6,017 | Apache-2.0 | 2026-10-27 | Schema evolution and incremental, idempotent ingestion | Add/change a field and preserve source lineage on incremental load | NOT STARTED |
 | P0 | [trinodb/trino](https://github.com/trinodb/trino) | 13,369 | Apache-2.0 | 2026-10-27 | Connector SPI, pushdown and residual filters, distributed query planning | T2: predicates unsupported by a source are still evaluated correctly | Read in part 2026-10-27: connector SPI (`ConnectorMetadata.applyFilter` and friends, `ConstraintApplicationResult.remainingFilter`). Sparse clone in `research/trino`. |
 | P0 | [duckdb/duckdb](https://github.com/duckdb/duckdb) | 42,602 | MIT | 2026-10-26 | Independent SQL oracle and deterministic snapshot replay | Compare Zetaris result with DuckDB without reusing the same join implementation | NOT STARTED |
-| P1 | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | 9,727 | MIT | 2026-10-26 | SQL AST, allowlisted read-only queries and dialect normalization | Reject unsafe SQL and log residual predicates; do not treat parsing as proof of validity | NOT STARTED |
+| P1 | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | 9,727 | MIT | 2026-10-26 | SQL AST, allowlisted read-only queries and dialect normalization | Reject unsafe SQL and log residual predicates; do not treat parsing as evidence of validity | NOT STARTED |
 | P1 | [apache/datafusion](https://github.com/apache/datafusion) | 9,536 | Apache-2.0 | 2026-10-26 | Query optimizer and physical vs logical plan design | Inspect plans and compare joins/fallback performance | NOT STARTED |
 | P0 | [datahub-project/datahub](https://github.com/datahub-project/datahub) | 12,895 | Apache-2.0 | 2026-10-27 | Metadata schema, discovery search, provenance and metadata change events | Newly registered source appears with schema, authority and freshness | NOT STARTED |
 | P1 | [open-metadata/OpenMetadata](https://github.com/open-metadata/OpenMetadata) | 15,589 | Apache-2.0 | 2026-10-27 | Catalog, tagging, ownership, source governance, quality and lineage UI | Show a schema drift event and affected findings | NOT STARTED |
 
 ## B. Evidence extraction and retrieval
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [docling-project/docling](https://github.com/docling-project/docling) | 69,643 | MIT | 2026-10-27 | Layout-aware PDF and table extraction with page and region anchors | Ground study version, metric, threshold and population to actual pages | Cloned 2026-10-27 (`research/docling`). Not run. |
 | P0 | [docling-project/docling-graph](https://github.com/docling-project/docling-graph) | 937 | MIT | 2026-10-26 | Structured evidence graph and deterministic provenance binder | Every extracted assertion has exact or explicitly unresolved anchor | NOT STARTED |
@@ -41,7 +41,7 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## C. Identity resolution, versioning and temporal data
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [moj-analytical-services/splink](https://github.com/moj-analytical-services/splink) | 2,539 | MIT | 2026-10-26 | Probabilistic Fellegi-Sunter matching, blocking and score waterfalls | T3: distinguish near-identical devices and variants; abstain on ambiguous links | Cloned 2026-10-27 (`research/splink`); structure read, Fellegi-Sunter modules located. Not run. |
 | P1 | [dedupeio/dedupe](https://github.com/dedupeio/dedupe) | 4,523 | MIT | 2025-07-29 | Human-active-learning record linkage and deduplication | Compare label efficiency and false-merge rates | NOT STARTED. Last push 2025-07-29. |
@@ -53,7 +53,7 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## D. Agent orchestration, typed contracts and constraints
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [langchain-ai/langgraphjs](https://github.com/langchain-ai/langgraphjs) | 3,377 | MIT | 2026-10-27 | TypeScript checkpoints, interruptions and resumable bounded state | Demonstrate critique/revision, restart recovery, human approval without duplicate side effects | NOT STARTED |
 | P1 | [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | 43,956 | MIT | 2026-10-27 | Python implementation/examples for durable state and human interrupts | Study semantics, not necessarily deploy alongside TS | NOT STARTED |
@@ -65,16 +65,16 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## E. Data contracts, quality and drift
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [sodadata/soda-core](https://github.com/sodadata/soda-core) | 2,454 | NOASSERTION | 2026-10-26 | Data quality contracts, schema and field-level checks | Units, nulls, duplicates, identity domains and drift must fail visibly | NOT STARTED. Licence NOASSERTION; read before adopting. |
 | P1 | [fivetran/great_expectations](https://github.com/fivetran/great_expectations) | 11,904 | Apache-2.0 | 2026-10-22 | Expectation suites and validation reports | Compare field-level validation coverage with simpler contracts | NOT STARTED. The playbook's slug resolves and is active; confirm it is the maintained Great Expectations project. |
 | P1 | [unionai-oss/pandera](https://github.com/unionai-oss/pandera) | 4,499 | MIT | 2026-10-26 | Statistical and semantic dataframe constraints | Schema-mapped fields fail when values change meaning/units | NOT STARTED |
 | P1 | [evidentlyai/evidently](https://github.com/evidentlyai/evidently) | 8,012 | Apache-2.0 | 2026-09-29 | Dataset drift/quality metrics and AI evaluation reporting | Drift alerts separate schema changes from data distribution changes | NOT STARTED |
 
-## F. Claims, benchmark and scientific proof
+## F. Claims, benchmark and scientific evidence
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [allenai/scifact](https://github.com/allenai/scifact) | 279 | NOASSERTION | 2023-10-15 | Scientific claim/evidence labels, rationale retrieval and abstention baseline | ScopeShift independent baseline: citation correctness is not clinical applicability | NOT STARTED. Last push 2023-10-15; licence not machine-detected. A baseline dataset, not a clinical-applicability ground truth. |
 | P1 | [dwadden/multivers](https://github.com/dwadden/multivers) | 54 | MIT | 2023-08-16 | Scientific claim verification over long papers | Benchmark evidence support and explicit contradictory rationale | NOT STARTED. Last push 2023-08-16; research code. |
@@ -87,11 +87,11 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## G. Security, provenance and reliability
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [OWASP/CheatSheetSeries](https://github.com/OWASP/CheatSheetSeries) | 33,751 | CC-BY-SA-4.0 | 2026-10-26 | SSRF, authentication, authorization, input validation, secrets | Source onboarder refuses private IP, redirects, DNS rebinding and unapproved schemes | NOT STARTED |
 | P0 | [microsoft/playwright](https://github.com/microsoft/playwright) | 98,599 | Apache-2.0 | 2026-10-27 | Real-browser end-to-end tests, screenshots and reproducible demo | Recreate judge demo entirely from actual application state | NOT STARTED |
-| P0 | [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js) | 187 | Apache-2.0 | 2026-10-26 | Artifact signing and verification | Tamper one byte and verification fails; signer identity claims limited to what is proven | NOT STARTED |
+| P0 | [sigstore/sigstore-js](https://github.com/sigstore/sigstore-js) | 187 | Apache-2.0 | 2026-10-26 | Artifact signing and verification | Tamper one byte and verification fails; signer identity claims limited to what is established | NOT STARTED |
 | P1 | [in-toto/in-toto](https://github.com/in-toto/in-toto) | 1,051 | NOASSERTION | 2026-08-27 | Supply-chain attestation and layout verification | Track inputs and performed steps in exported dossier | NOT STARTED. Licence NOASSERTION; read. |
 | P1 | [open-telemetry/opentelemetry-js](https://github.com/open-telemetry/opentelemetry-js) | 3,504 | Apache-2.0 | 2026-10-26 | Structured trace IDs across services and requests | Link agent decisions to federation calls and parser operations | NOT STARTED |
 | P1 | [gitleaks/gitleaks](https://github.com/gitleaks/gitleaks) | 30,369 | MIT | 2026-10-23 | Secret detection across repository and history | Secret scan on all commits and build artifacts | NOT STARTED |
@@ -100,7 +100,7 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## H. Reviewer product UX, visualization and applications
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | P0 | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) | 126,636 | MIT | 2026-10-26 | Accessible customizable application components | Evidence Desk and source cards work consistently on mobile and desktop | NOT STARTED |
 | P1 | [radix-ui/primitives](https://github.com/radix-ui/primitives) | 19,435 | MIT | 2026-10-14 | Accessible dialogs, tooltips, menus and focus management | Every uncertain-source modal keyboard operable | NOT STARTED |
@@ -111,7 +111,7 @@ Priority: P0 read before the named module is built; P1 read if relevant; P2 opti
 
 ## I. Deliberately non-runtime prior art
 
-| Pri | Repository | Stars | Licence | Last push | Study focus | Proof before the module is called done | Study status and cautions |
+| Pri | Repository | Stars | Licence | Last push | Study focus | Evidence before the module is called done | Study status and cautions |
 |---|---|---:|---|---|---|---|---|
 | REFERENCE | [Aroha-Labs/mira-network](https://github.com/Aroha-Labs/mira-network) | 2 | none | 2026-06-10 | Claim decomposition, developer-facing product narrative; licensing restrictions | Study product ideas only; do not copy proprietary client code | No licence declared (ideas only). |
 

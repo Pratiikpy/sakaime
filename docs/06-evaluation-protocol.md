@@ -1,6 +1,6 @@
 # Evaluation protocol: five suites (pre-registration draft v0.2)
 
-Status: draft, 2026-10-27, revised after the outside review (`10-review-disposition.md`). This file is committed before any held-out case is run; after that, changes are appended as a dated erratum, never edited in place. All targets are proposals. Nothing has been measured. **The suite called ScopeShift was one blended benchmark in v0.1; it is now one of five.**
+Status: draft, 2026-10-27, revised after the outside review (`10-review-disposition.md`). This file is committed before any held-out case is run; after that, changes are appended as a dated erratum, never edited in place. All targets are proposals. **Status after the runs of 2026-10-27:** the five suites were run; results are in `../evals/RESULTS.md` and the changes made after the first held-out runs are in `../evals/ERRATA.md` (E-001 to E-007), not edited into this text. The cases were written and keyed by one builder, so no result here is domain-validity. **The suite called ScopeShift was one blended benchmark in v0.1; it is now one of five.**
 
 ## 1. Question
 
@@ -41,7 +41,7 @@ For each authentic evidence scope `E`, build a ClaimedUse identical to `E` (a po
 
 ### Case admission
 
-A case enters any suite only after its full relationship chain is proven by hand (identifiers, quotes, versions, populations, settings) with a second reader and recorded disagreements (C-11). A real device is not automatically a good case. The first authentic case is EyeArt (K200667 to NCT03112005 to a PubMed abstract naming version 2.1.0); further candidates (Transpara, Lunit, Viz LVO) are admitted only after the same proof.
+A case enters any suite only after its full relationship chain is established by hand (identifiers, quotes, versions, populations, settings) with a second reader and recorded disagreements (C-11). A real device is not automatically a good case. The first authentic case is EyeArt (K200667 to NCT03112005 to a PubMed abstract naming version 2.1.0); further candidates (Transpara, Lunit, Viz LVO) are admitted only after the same check.
 
 ## 4. Arms (identical inputs)
 
@@ -73,7 +73,7 @@ Secondary: correct abstention (unknown vs negative); scope-label accuracy; ident
 
 Paired binary outcomes: exact McNemar test per arm pair; effect as the difference of proportions with a Wilson-based interval; **cluster bootstrap by device** for repeated cases; Holm correction across the primary comparisons. Report **effective sample size** (clusters, not cases). Every run is reported, including negative and tied outcomes. A zero-error sample does not show zero error in the world.
 
-Proposed targets: at least 120 controlled cases across at least 20 devices for ScopeShift (A), at least 30 authentic cases for ScopeShift (B) if reviewers can be obtained. These are engineering goals with uncertain power; the quality and independence of authentic cases matter more than the count. If fewer can be built, report the actual number and the resulting interval widths. The feasibility report (12 devices, 8 with an exact or strong study link, 1 with a matching version) suggests authentic cases will be few; that is stated, not hidden.
+Proposed targets: at least 120 controlled cases across at least 20 devices for ScopeShift (A), at least 30 authentic cases for ScopeShift (B) if reviewers can be obtained. These are engineering goals with uncertain power; the quality and independence of authentic cases matter more than the count. If fewer can be built, report the actual number and the resulting interval widths. Reached: 222 controlled cases over 18 summaries in 17 device families (the 20-device target was not reached) and 26 development plus 20 held-out authentic claims over 12 and 5 devices (the 30-case target for one set was not reached). The feasibility report (12 devices, 8 with an exact or strong study link, 1 with a matching version) suggests authentic cases will be few; that is stated, not hidden.
 
 ## 7. Source-off and degradation suite (FailureShift; T6)
 
