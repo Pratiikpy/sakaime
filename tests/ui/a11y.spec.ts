@@ -27,8 +27,6 @@ for (const theme of ["light", "dark"] as const) {
       const id = encodeURIComponent((await primaryCase(request)).summary.id);
       const quiet = encodeURIComponent((await quietCase(request)).summary.id);
       const w = watch(page);
-      // The real service refuses an address that points inside a network with an HTTP 422; the browser logs every 4xx as a console line.
-      w.allow(/status of 422/);
       await setTheme(page, theme);
 
       await page.goto(`/cases/${id}/claims`);
@@ -49,10 +47,10 @@ for (const theme of ["light", "dark"] as const) {
       await page.getByRole("button", { name: "Onboard this source" }).click();
       await expect(page.locator("[data-outcome]")).toBeVisible({ timeout: 10_000 });
       await assertNoViolations(page, `onboarding held ${theme}`);
-      // An address that points inside a network is refused outright or as a declined result; a host nobody approved is declined at stage one.
+      // An address that points inside a network and a host nobody approved are both declined at stage one.
       await page.locator('[data-example="metadata"]').click();
       await page.getByRole("button", { name: "Onboard this source" }).click();
-      await expect(page.locator('[data-outcome="declined"], [data-testid="onboarding-error"]').first()).toBeVisible({ timeout: 10_000 });
+      await expect(page.locator('[data-outcome="declined"]')).toBeVisible({ timeout: 10_000 });
       await assertNoViolations(page, `onboarding refused ${theme}`);
       await page.locator('[data-example="unlisted"]').click();
       await page.getByRole("button", { name: "Onboard this source" }).click();
@@ -125,4 +123,43 @@ test("the menu button opens and closes the phone navigation and exposes its stat
   await nav.getByRole("link", { name: "Review desk" }).click();
   await expect(page).toHaveURL(/\/cases$/);
   await expect(button).toHaveAttribute("aria-expanded", "false");
+});
+
+test("the rate-limit wait, a replaced decision and a replaced finding have no violations (light and dark)", async ({ page, request }) => {
+  const detail = await primaryCase(request);
+  const quiet = await quietCase(request);
+  const head = detail.findings.find((f) => f.claimId === detail.claim.id) ?? detail.findings[0]!;
+  const w = watch(page);
+  w.allow(/status of 429/);
+  // Test doubles for the service's answers, so the screens can be drawn in states that are otherwise hard to reach.
+  await page.route(`**/api/cases/${encodeURIComponent(quiet.summary.id)}/dossier`, async (route) => {
+    await route.fulfill({
+      status: 429,
+      contentType: "application/json",
+      headers: { "Retry-After": "30" },
+      body: JSON.stringify({ error: { failure: "BLOCKED", message: "Too many export requests in a short time. Try again in 30 seconds.", detail: { reason: "RATE_LIMITED", retryAfterSeconds: 30 } } }),
+    });
+  });
+  await page.route(`**/api/cases/${encodeURIComponent(detail.summary.id)}`, async (route) => {
+    const body = await (await route.fetch()).json();
+    body.timeline.push(
+      { at: "2026-10-27T13:00:00.000Z", kind: "decision", summary: "reviewer: escalate", factIds: [], findingIds: ["fnd_0123456789abcdef0123456789abcdef"] },
+      { at: "2026-10-27T13:05:00.000Z", kind: "finding_recomputed", summary: "The evidence behind this claim is no longer the same.", factIds: [], findingIds: ["fnd_0123456789abcdef0123456789abcdef", head.id] },
+    );
+    await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(body) });
+  });
+  for (const theme of ["light", "dark"] as const) {
+    await setTheme(page, theme);
+    await page.goto(`/cases/${encodeURIComponent(quiet.summary.id)}/dossier`);
+    await ready(page);
+    await page.getByTestId("export-dossier").click();
+    await expect(page.locator('[data-failure="RATE_LIMITED"]')).toBeVisible();
+    await assertNoViolations(page, `rate limited ${theme}`);
+    await page.goto(`/cases/${encodeURIComponent(detail.summary.id)}`);
+    await ready(page);
+    await expect(page.getByTestId("superseded-note")).toBeVisible();
+    await assertNoViolations(page, `replaced decision ${theme}`);
+  }
+  await page.unrouteAll({ behavior: "ignoreErrors" });
+  w.assertClean();
 });

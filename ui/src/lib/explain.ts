@@ -36,11 +36,27 @@ export function claimName(c: CaseDetail, f: Finding): string {
   return f.claimId === c.claim.id ? "Your intended use" : `Vendor claim ${f.claimId.replace(/^CLM-/, "")}`;
 }
 
+/** The claim a finding is about, with its sentence in `text`. */
+export const claimOf = (c: CaseDetail, f: Finding) => c.claims.find((x) => x.id === f.claimId) ?? (f.claimId === c.claim.id ? c.claim : undefined);
+
+/** The sentence of a finding's claim, exactly as the service sent it. */
+export const claimSentence = (c: CaseDetail, f: Finding): string | undefined => claimOf(c, f)?.text ?? (f.claimId === c.claim.id ? c.claimText : undefined);
+
+/** The start of a sentence, cut at a word, for places that hold one line. */
+export function snippet(s: string, max = 90): string {
+  const flat = s.replace(/\s+/g, " ").trim();
+  if (flat.length <= max) return flat;
+  const cut = flat.slice(0, max);
+  return `${cut.slice(0, Math.max(cut.lastIndexOf(" "), max - 20)).trimEnd()}…`;
+}
+
 /**
  * What a vendor claim says, read from the dimensions where it differs from the evidence: "version 3.0, care setting emergency
  * department". The contract carries no claim sentence for a vendor claim, so this is built from the compared values only.
  */
 export function claimSummary(c: CaseDetail, f: Finding): string {
+  const sentence = claimSentence(c, f);
+  if (sentence) return sentence;
   const open = dimensionsOf(c, f).filter((d) => d.relation !== "CONTAINED" && d.claimed);
   if (open.length === 0) return "Every part of this claim matches the evidence read.";
   return open.map((d) => `${DIMENSION_NAME[d.dimension].toLowerCase()}: ${firstClause(d.claimed!)}`).join("; ");

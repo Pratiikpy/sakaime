@@ -53,9 +53,25 @@ async function body<S extends z.ZodTypeAny>(c: { req: { json: () => Promise<unkn
   return schema.parse(raw);
 }
 
+/** The export limit of the real service: a bucket of eight, refilled one every six seconds, per reviewer. */
+const buckets = new Map<string, { tokens: number; at: number }>();
+function takeExport(reviewer: string): number | undefined {
+  const now = Date.now();
+  const b = buckets.get(reviewer) ?? { tokens: 8, at: now };
+  b.tokens = Math.min(8, b.tokens + (now - b.at) / 6000);
+  b.at = now;
+  if (b.tokens < 1) {
+    buckets.set(reviewer, b);
+    return Math.max(1, Math.ceil((1 - b.tokens) * 6));
+  }
+  b.tokens -= 1;
+  buckets.set(reviewer, b);
+  return undefined;
+}
+
 function caseOr404(id: string): CaseState {
   const c = world.cases.get(decodeURIComponent(id));
-  if (!c) throw new HttpFailure(404, "NOT_FOUND", `There is no case "${id}".`);
+  if (!c) throw new HttpFailure(404, "NOT_FOUND", `There is no case named ${id}.`, { reason: "UNKNOWN_CASE", known: world.order });
   return c;
 }
 
@@ -71,7 +87,14 @@ app.post("/api/cases/:id/recompute", async (c) => c.json(recomputeView(caseOr404
 app.post("/api/cases/:id/drill", async (c) => c.json(await drillView(world, caseOr404(c.req.param("id")), await body(c, DrillRequestSchema))));
 app.get("/api/cases/:id/timeline", (c) => c.json(timelineOf(caseOr404(c.req.param("id")), c.req.query("asOf"))));
 app.post("/api/cases/:id/decision", async (c) => c.json(decide(caseOr404(c.req.param("id")), await body(c, DecisionRequestSchema))));
-app.get("/api/cases/:id/dossier", (c) => c.json(dossierOf(world, caseOr404(c.req.param("id")))));
+app.get("/api/cases/:id/dossier", (c) => {
+  const found = caseOr404(c.req.param("id"));
+  const wait = takeExport(c.req.header("x-reviewer") ?? "reviewer");
+  if (wait !== undefined) {
+    return c.json({ error: { failure: "BLOCKED", message: `Too many export requests in a short time. Try again in ${wait} second${wait === 1 ? "" : "s"}.`, detail: { reason: "RATE_LIMITED", retryAfterSeconds: wait, caseId: found.id } } }, 429, { "Retry-After": String(wait) });
+  }
+  return c.json(dossierOf(world, found));
+});
 app.post("/api/dossier/verify", async (c) => {
   let raw: unknown;
   try {

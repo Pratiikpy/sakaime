@@ -7,10 +7,10 @@ import { LabelBadge } from "../components/badges";
 import { CaseGate, CaseHeader } from "../components/CaseGate";
 import { EmptyState, ErrorState, Notice, useAnnounce } from "../components/feedback";
 import { Icon } from "../components/Icon";
-import { Section, useDocTitle } from "../components/ui";
+import { Clamp, Section, useDocTitle } from "../components/ui";
 import { ASSERTION_NAME, DRILL_META, LABEL_META } from "../lib/vocab";
 import { shortHash } from "../lib/format";
-import { claimName } from "../lib/explain";
+import { claimName, claimSentence } from "../lib/explain";
 
 type Drill = (typeof DRILLS)[number];
 type Outcome = { ok: true; res: DrillResponse } | { ok: false; error: ApiError };
@@ -72,7 +72,16 @@ function ResultPanel({ drill, r, c }: { drill: Drill; r: DrillResponse; c: CaseD
           const b = r.before.find((x) => x.id === a.id) ?? r.before.find((x) => x.claimId === a.claimId);
           return (
             <li key={a.id} data-claim={a.claimId}>
-              {r.after.length > 1 && <p className="drill-findings__name">{claimName(c, a)}</p>}
+              {r.after.length > 1 && (
+                <div className="drill-findings__who">
+                  <p className="drill-findings__name">{claimName(c, a)}</p>
+                  {claimSentence(c, a) && (
+                    <p className="drill-findings__says" data-testid="claim-sentence">
+                      <Clamp text={claimSentence(c, a)!} lines={2} />
+                    </p>
+                  )}
+                </div>
+              )}
               <Delta before={b} after={a} />
               <p className="muted">
                 {LABEL_META[a.label].words}

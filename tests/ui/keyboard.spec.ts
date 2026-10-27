@@ -79,7 +79,6 @@ test("keyboard only: skip link, open a case, read the X-ray, recompute in the la
 
 test("keyboard only: add a source and read the refusal", async ({ page }) => {
   const w = watch(page);
-  w.allow(/status of 422/); // a refusal is an HTTP 4xx on the real service, and the browser logs it
   await page.goto("/sources");
   await ready(page);
   await page.locator("#src-desc").focus();
@@ -89,7 +88,7 @@ test("keyboard only: add a source and read the refusal", async ({ page }) => {
   await page.keyboard.press("Tab");
   await expect(page.getByRole("button", { name: "Onboard this source" })).toBeFocused();
   await page.keyboard.press("Enter");
-  await expect(page.locator('[data-outcome="declined"], [data-testid="onboarding-error"]').first()).toBeVisible({ timeout: 10_000 });
+  await expect(page.locator('[data-outcome="declined"]')).toBeVisible({ timeout: 10_000 });
   w.assertClean();
 });
 

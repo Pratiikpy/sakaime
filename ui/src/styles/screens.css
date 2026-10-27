@@ -276,14 +276,19 @@
 .missing-group { display: flex; flex-direction: column; gap: 8px; }
 .missing-group + .missing-group { margin-top: 10px; }
 
-.finding-switch { display: flex; align-items: baseline; gap: 10px 16px; flex-wrap: wrap; margin: 4px 0 22px; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper-2); }
+.finding-switch { margin: 4px 0 22px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper-2); }
+.finding-switch summary { list-style: none; display: flex; align-items: center; gap: 6px 14px; flex-wrap: wrap; min-height: 48px; padding: 6px 14px; cursor: pointer; border-radius: var(--radius-lg); }
+.finding-switch summary::-webkit-details-marker { display: none; }
+.finding-switch details[open] summary .disclosure__chev { transform: rotate(90deg); }
 .finding-switch__label { font-size: var(--step--1); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); }
-.finding-switch ul { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; }
-.finding-switch a { display: flex; flex-direction: column; gap: 0; min-height: 44px; justify-content: center; padding: 4px 12px; border: 1.5px solid var(--line-strong); border-radius: var(--radius); background: var(--paper); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+.finding-switch ul { list-style: none; display: grid; gap: 8px; padding: 4px 14px 14px; }
+@media (min-width: 900px) { .finding-switch ul { grid-template-columns: 1fr 1fr; } }
+.finding-switch a { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; align-content: center; min-height: 44px; padding: 8px 12px; border: 1.5px solid var(--line-strong); border-radius: var(--radius); background: var(--paper); text-decoration: none; font-size: 0.9rem; height: 100%; }
 .finding-switch a:hover { border-color: var(--ink); }
 .finding-switch a.is-active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.finding-switch__word { font-weight: 400; font-size: 0.78rem; opacity: 0.9; }
-
+.finding-switch__name { font-weight: 600; }
+.finding-switch__word { font-size: 0.78rem; text-align: right; }
+.finding-switch__says { grid-column: 1 / -1; margin-top: 2px; font-size: 0.85rem; opacity: 0.9; }
 .anchor-more { margin-top: 12px; }
 .dim-list + .subhead, .subhead + .dim-list { margin-top: 10px; }
 [data-testid="dimensions"] > .subhead { margin: 18px 0 10px; font-size: var(--step-1); }
@@ -297,3 +302,8 @@
 .drill-findings__name { font-weight: 600; margin-bottom: 4px; }
 .finding-card__why { color: var(--ink); max-width: 70ch; }
 .dim-row__reason > span { min-width: 0; flex: 1 1 auto; }
+.claim-quote-small { font-size: var(--step-0); padding: 10px 14px; }
+.history__superseded { margin-top: 6px; font-size: 0.9rem; color: var(--ink-2); max-width: 70ch; }
+.history__superseded .icon { display: inline; vertical-align: -2px; }
+.missing-group__says { font-size: 0.9rem; max-width: 80ch; }
+.drill-findings__says { color: var(--ink-2); font-size: 0.9rem; max-width: 70ch; }

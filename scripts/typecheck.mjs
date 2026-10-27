@@ -13,7 +13,7 @@ let failed = false;
 let vendoredCount = 0;
 for (const project of projects) {
   const result = spawnSync("npx", ["tsc", "--noEmit", "--pretty", "false", "-p", project], { encoding: "utf8", shell: true });
-  const lines = `${result.stdout}${result.stderr}`.split(/\r?\n/).filter((line) => line.trim() !== "" && !line.includes("DEP0190") && !line.includes("trace-deprecation"));
+  const lines = `${result.stdout}${result.stderr}`.split(/\r?\n/).filter((line) => line.trim() !== "" && !line.startsWith("npm warn") && !line.includes("DEP0190") && !line.includes("trace-deprecation"));
 
   // A diagnostic can be followed by indented continuation lines; they belong to the diagnostic above them.
   const ours = [];

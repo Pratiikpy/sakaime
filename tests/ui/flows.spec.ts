@@ -1,5 +1,5 @@
 import { expect, type APIRequestContext, type Page } from "@playwright/test";
-import { test, LABEL_WORDS, REAL, getCase, headlineOf, listCases, primaryCase, quietCase, ready, shot, watch, type Detail } from "./helpers";
+import { test, LABEL_WORDS, REAL, fold, getCase, headlineOf, listCases, primaryCase, quietCase, ready, sentenceOf, shot, watch, type Detail } from "./helpers";
 
 /**
  * Real flows, driven the way a reviewer would, with the outcome asserted from what is on the screen and from the service, which
@@ -115,20 +115,28 @@ test.describe("landing and claim X-ray", () => {
     w.assertClean();
   });
 
-  test("X-ray: a case with several claims lets the reviewer move between them", async ({ page, request }) => {
+  test("X-ray: a case with several claims lets the reviewer move between them, and each shows its own sentence", async ({ page, request }) => {
     const w = watch(page);
     const detail = await primaryCase(request);
     test.skip(detail.findings.length < 2, "this case holds a single claim");
-    const other = detail.findings.find((f) => f.id !== headlineOf(detail).id)!;
+    const head = headlineOf(detail);
+    const other = detail.findings.filter((x) => x.id !== head.id).at(-1)!;
     await page.goto(`/cases/${enc(detail.summary.id)}/claims`);
     await ready(page);
+    // The claim being read is shown as the service wrote it.
+    await expect(page.getByTestId("claim-text")).toContainText(fold(sentenceOf(detail, head)).slice(0, 60));
     const nav = page.getByRole("navigation", { name: "Which claim to read" });
+    await nav.locator("summary").click();
     await expect(nav.locator("li")).toHaveCount(detail.findings.length);
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
+    // Every choice carries the start of its own sentence, so the reviewer picks by what the claim says.
+    for (const x of detail.findings) await expect(nav.locator(`a[href$="/claims/${x.id}"]`)).toContainText(fold(sentenceOf(detail, x)).slice(0, 30));
     await nav.locator(`a[href$="/claims/${other.id}"]`).click();
     await expect(page).toHaveURL(new RegExp(`/claims/${other.id}$`));
     await ready(page);
     await expect(page.locator(".answer-card")).toHaveAttribute("data-label", other.label);
+    await expect(page.getByTestId("claim-text")).toContainText(fold(sentenceOf(detail, other)).slice(0, 60));
+    await shot(page, "flow-xray-other-claim", "light", 1440);
     w.assertClean();
   });
 
@@ -141,12 +149,22 @@ test.describe("landing and claim X-ray", () => {
     w.assertClean();
   });
 
-  test("an unknown case is NOT_FOUND, said differently from an outage", async ({ page }) => {
+  test("an unknown case is NOT_FOUND, said differently from an outage, and the page names the cases there are", async ({ page, request }) => {
     const w = watch(page);
     w.allow(/404/);
+    // The service's own answer: 404 with failure NOT_FOUND and a plain message.
+    const res = await request.get("/api/cases/nope");
+    expect(res.status()).toBe(404);
+    expect((await res.json()).error.failure).toBe("NOT_FOUND");
+    const route = await request.get("/api/nothing-here");
+    expect(route.status()).toBe(404);
+    expect((await route.json()).error.failure).toBe("NOT_FOUND");
+    const cases = await listCases(request);
     await page.goto("/cases/nope");
     await expect(page.locator('[data-failure="NOT_FOUND"]')).toBeVisible();
     await expect(page.locator('[data-failure="NOT_FOUND"]')).not.toContainText("on our side");
+    // The service lists the cases it holds; each is a link.
+    await expect(page.locator('[data-failure="NOT_FOUND"]').getByRole("link", { name: cases[0]!.id })).toBeVisible();
     w.assertClean();
   });
 });
@@ -166,7 +184,9 @@ test.describe("source console", () => {
       if (s.zetarisName) await expect(row).toContainText(s.zetarisName.split(",")[0]!.trim());
       if (s.source.schemaHash) await expect(row.locator(".cell-hash code")).toBeVisible();
     }
-    // A pinned or old snapshot reads as out of date, not as answering.
+    // A source no case read has no observation of its own: it is not shown as out of date, and it says it was not read.
+    for (const s of sources.filter((x) => /^not read/.test(x.healthDetail))) expect(s.source.health, `${s.source.id} was not read`).toBe("OK");
+    // A snapshot older than its card expects reads as out of date, not as answering.
     const stale = sources.find((s) => s.source.health === "STALE");
     if (stale) await expect(table.locator(`[data-source="${stale.source.id}"] [data-health="STALE"]`)).toContainText("Out of date");
     await page.getByText("What the health words mean").click();
@@ -206,36 +226,28 @@ test.describe("source console", () => {
     w.assertClean();
   });
 
-  test("add a source: SSRF attempts are refused before anything is read, with the service's own reason", async ({ page, request }) => {
+  test("add a source: refused addresses are a declined result with the reason, never an error, and nothing after stage one ran", async ({ page, request }) => {
     const w = watch(page);
-    w.allow(/status of (400|403|422)/);
     await page.goto("/sources");
     await ready(page);
     for (const ex of ["metadata", "unlisted"]) {
       await page.locator(`[data-example="${ex}"]`).click();
       const body = await submitted(page);
       await page.getByRole("button", { name: "Onboard this source" }).click();
-      // The service may refuse with an error (an address that points inside a network) or with a declined onboarding result whose
-      // first stage failed (a host nobody approved). Either way nothing after the refusal ran, and the screen carries the reason.
+      // Whatever the reason (a private or metadata address, a host nobody approved), the service answers 200 with a declined result.
       const res = await request.post("/api/sources/propose", { data: body });
-      if (res.ok()) {
-        const api = (await res.json()) as { outcome: string; reason?: string; stages: { stage: string; status: string }[] };
-        expect(api.outcome).toBe("declined");
-        expect(api.reason ?? "", "the service says why").not.toBe("");
-        const out = page.locator('[data-outcome="declined"]');
-        await expect(out).toBeVisible({ timeout: 15_000 });
-        await expect(out).toContainText(norm(api.reason!).slice(0, 50));
-        await expect(page.locator('[data-stage="authorization"]')).toHaveAttribute("data-status", "failed");
-        for (const s of api.stages.filter((x) => x.stage !== "authorization")) expect(["skipped", "pending"]).toContain(s.status);
-        await expect(page.locator('[data-stage="bounded_probe"]')).toHaveAttribute("data-status", /skipped|pending/);
-      } else {
-        const api = (await res.json()) as { error: { failure: string; message: string } };
-        expect(["REFUSED", "FORBIDDEN", "INVALID"]).toContain(api.error.failure);
-        const box = page.getByTestId("onboarding-error");
-        await expect(box).toBeVisible({ timeout: 15_000 });
-        await expect(box).toContainText(norm(api.error.message).slice(0, 50));
-        await expect(page.getByTestId("onboarding-result")).toHaveCount(0);
-      }
+      expect(res.status(), `${ex}: a declined request is an answer, not an error`).toBe(200);
+      const api = (await res.json()) as { outcome: string; reason?: string; stages: { stage: string; status: string }[] };
+      expect(api.outcome).toBe("declined");
+      expect(api.reason ?? "", "the service says why").not.toBe("");
+      const out = page.locator('[data-outcome="declined"]');
+      await expect(out).toBeVisible({ timeout: 15_000 });
+      await expect(out).toContainText(norm(api.reason!).slice(0, 50));
+      await expect(page.locator('[data-stage="authorization"]')).toHaveAttribute("data-status", "failed");
+      for (const s of api.stages.filter((x) => x.stage !== "authorization")) expect(["skipped", "pending"]).toContain(s.status);
+      await expect(page.locator('[data-stage="bounded_probe"]')).toHaveAttribute("data-status", /skipped|pending/);
+      // The address itself was the problem, so there is nothing to run again.
+      await expect(page.getByTestId("onboard-retry")).toHaveCount(0);
     }
     await shot(page, "flow-onboard-refused", "light", 1440);
     w.assertClean();
@@ -256,12 +268,19 @@ test.describe("source console", () => {
     const body = await bad.json();
     expect(body.error.failure).toBe("INVALID");
     const url = "https://api.fda.gov/device/510k.json?search=k_number:DEN170073";
-    const first = await (await request.post("/api/sources/propose", { data: { description: "FDA clearance record for a triage device", url } })).json();
-    const second = await (await request.post("/api/sources/propose", { data: { description: "FDA clearance record for a triage device", url } })).json();
-    // The same request is the same decision: same id, same outcome, and never a second registration.
-    expect(second.id).toBe(first.id);
-    expect(second.outcome).toBe(first.outcome);
-    expect(second.sourceId).toBe(first.sourceId);
+    const ask = { description: "FDA clearance record for a triage device", url };
+    const firstRes = await request.post("/api/sources/propose", { data: ask });
+    const secondRes = await request.post("/api/sources/propose", { data: ask });
+    expect(firstRes.status()).toBe(200);
+    // The same request is the same answer, byte for byte, and never a second registration.
+    expect(await secondRes.text()).toBe(await firstRes.text());
+    const first = await firstRes.json();
+    // A body that is not a request is the one thing refused with an error.
+    expect((await request.post("/api/sources/propose", { data: { description: "ab" } })).status()).toBe(400);
+    // Asking again with retry is accepted; the answer keeps its id, and a decline that was not retryable is returned unchanged.
+    const again = await request.post("/api/sources/propose", { data: { ...ask, retry: true } });
+    expect(again.status()).toBe(200);
+    expect((await again.json()).id).toBe(first.id);
     const sources = await (await request.get("/api/sources")).json();
     expect(sources.filter((s: { source: { id: string } }) => s.source.id === first.sourceId).length).toBe(first.sourceId ? 1 : 0);
     w.assertClean();
@@ -273,8 +292,8 @@ test.describe("source console", () => {
     await ready(page);
     await page.locator('[data-example="metadata"]').click();
     await page.getByRole("button", { name: "Onboard this source" }).click();
-    // A declined result (all stages at once) or a refusal before anything was read: either one appears without the staged delay.
-    await expect(page.locator('[data-outcome="declined"], [data-testid="onboarding-error"]').first()).toBeVisible({ timeout: 2_000 });
+    // A declined result shows all its stages at once, without the staged delay.
+    await expect(page.locator('[data-outcome="declined"]')).toBeVisible({ timeout: 2_000 });
   });
 });
 
@@ -486,9 +505,45 @@ test.describe("review desk", () => {
     const others = detail.findings.filter((f) => f.id !== head.id);
     if (others.length > 0) {
       await expect(page.getByTestId("vendor-claims").locator("li.finding-card")).toHaveCount(others.length);
+      // Each vendor claim shows its own sentence, as the service sent it, beside its answer.
+      for (const o of others) {
+        const card = page.locator(`li.finding-card[data-claim="${o.claimId}"]`);
+        await expect(card.getByTestId("claim-sentence")).toContainText(fold(sentenceOf(detail, o)).slice(0, 50));
+        await expect(card.locator(".label-badge").first()).toHaveAttribute("data-label", o.label);
+      }
       await page.getByTestId("vendor-claims").locator("li.finding-card").first().getByText("Record a decision on this claim").click();
       await expect(page.getByTestId("decision-form")).toHaveCount(2);
     }
+    w.assertClean();
+  });
+
+  test("a decision on a finding that a re-run replaced stays on the record and says which finding replaced it, and why", async ({ page, request }) => {
+    const w = watch(page);
+    const detail = await primaryCase(request);
+    const head = headlineOf(detail);
+    const oldId = "fnd_0123456789abcdef0123456789abcdef";
+    const reason = "The case was investigated again and the evidence behind this claim is no longer the same: the label moved from NOT_ENOUGH to NEEDS_REVIEW.";
+    // A test double for the service's answer: the decision names a finding the case no longer has, and the timeline says what replaced it.
+    await page.route(`**/api/cases/${enc(detail.summary.id)}`, async (route) => {
+      const res = await route.fetch();
+      const body = await res.json();
+      body.timeline.push(
+        { at: "2026-10-27T13:00:00.000Z", kind: "decision", summary: "reviewer: escalate (Needs a specialist.)", factIds: [], findingIds: [oldId] },
+        { at: "2026-10-27T13:05:00.000Z", kind: "finding_recomputed", summary: reason, factIds: [], findingIds: [oldId, head.id] },
+      );
+      await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(body) });
+    });
+    await page.goto(`/cases/${enc(detail.summary.id)}`);
+    await ready(page);
+    const note = page.getByTestId("superseded-note");
+    await expect(note).toBeVisible();
+    await expect(note).toContainText("an earlier finding that a new run replaced");
+    await expect(note).toContainText(reason);
+    await note.getByRole("link", { name: /finding that replaced it/ }).click();
+    await expect(page).toHaveURL(new RegExp(`/claims/${head.id}$`));
+    await ready(page);
+    // The test double must not outlive the test: a fetch still in flight when it ends would be reported against the next test.
+    await page.unrouteAll({ behavior: "ignoreErrors" });
     w.assertClean();
   });
 
@@ -607,6 +662,10 @@ test.describe("resilience drills", () => {
     await expect(res.locator(".label-badge").nth(1)).toHaveAttribute("data-label", off.after[0]!.label);
     await expect(res.getByTestId("drill-degraded").first()).toBeVisible();
     await expect(res.locator('[data-check="no-rise"]')).toHaveAttribute("data-ok", "true");
+    // Each claim's row names the claim and shows its sentence.
+    if (detail.findings.length > 1) {
+      for (const x of detail.findings) await expect(res.locator(`li[data-claim="${x.claimId}"] [data-testid="claim-sentence"]`)).toContainText(fold(sentenceOf(detail, x)).slice(0, 40));
+    }
     // An outage and an empty answer read differently.
     const empty = await drill({ drill: "source_empty", target: "study" });
     expect(off.after[0]!.degraded[0]!.reason).not.toBe(empty.after[0]!.degraded[0]!.reason);
@@ -633,10 +692,14 @@ test.describe("resilience drills", () => {
     const r = await request.post(url, { data: { drill: "source_off", target: "nonsense" } });
     expect(r.status()).toBe(400);
     expect((await r.json()).error.message).toMatch(/nonsense/);
-    // No target: the service either refuses or says which default it used; it never answers silently with nothing.
-    const r2 = await request.post(url, { data: { drill: "source_off" } });
-    if (r2.status() === 200) expect(((await r2.json()) as { narrative: string }).narrative.length).toBeGreaterThan(20);
-    else expect(r2.status()).toBe(400);
+    // A drill that breaks a source needs to be told which one; the refusal names the missing target.
+    for (const drill of ["source_off", "source_empty"]) {
+      const r2 = await request.post(url, { data: { drill } });
+      expect(r2.status(), drill).toBe(400);
+      const body = await r2.json();
+      expect(body.error.detail?.reason, drill).toBe("TARGET_REQUIRED");
+      expect(body.error.message).toMatch(/target/i);
+    }
     const r3 = await request.post(url, { data: { drill: "bogus" } });
     expect(r3.status()).toBe(400);
   });
@@ -698,10 +761,79 @@ test.describe("dossier", () => {
   test("the service verifier refuses non-dossiers instead of passing them", async ({ request }) => {
     for (const data of [{}, { format: "other" }, []]) {
       const r = await request.post("/api/dossier/verify", { data });
-      // Either a verdict of "not ok" or a plain refusal of the shape; never a pass.
-      if (r.status() === 200) expect((await r.json()).ok).toBe(false);
-      else expect(r.status()).toBe(400);
+      // Anything that parses as JSON is verified; a body that is not a dossier is a verdict of "not ok" that names what is missing.
+      expect(r.status()).toBe(200);
+      const body = await r.json();
+      expect(body.ok).toBe(false);
+      expect(body.failures.length).toBeGreaterThan(0);
     }
+    // Only a body that is not JSON at all is refused with an error.
+    const notJson = await request.post("/api/dossier/verify", { headers: { "content-type": "application/json" }, data: Buffer.from("{not json") });
+    expect(notJson.status()).toBe(400);
+  });
+
+  test("an export asked for too often is a plain wait, not a failure: the screen says how long and the button comes back", async ({ page, request }) => {
+    test.setTimeout(120_000);
+    const w = watch(page);
+    w.allow(/status of 429/);
+    const detail = await quietCase(request);
+    const url = `/api/cases/${enc(detail.summary.id)}/dossier`;
+    // Use up this reviewer's allowance through the API, until the service itself says to wait.
+    let limited: Awaited<ReturnType<typeof request.get>> | undefined;
+    for (let i = 0; i < 30 && !limited; i++) {
+      const r = await request.get(url);
+      if (r.status() === 429) limited = r;
+      else expect(r.status()).toBe(200);
+    }
+    expect(limited, "the service limits exports").toBeDefined();
+    const wait = Number(limited!.headers()["retry-after"]);
+    expect(Number.isInteger(wait) && wait >= 1, `Retry-After is a whole number of seconds (got ${limited!.headers()["retry-after"]})`).toBe(true);
+    const apiMessage = ((await limited!.json()) as { error: { message: string } }).error.message;
+    expect(apiMessage).toMatch(/Too many/i);
+
+    await page.goto(`/cases/${enc(detail.summary.id)}/dossier`);
+    await ready(page);
+    await page.getByTestId("export-dossier").click();
+    const err = page.locator('[data-failure="RATE_LIMITED"]');
+    await expect(err).toBeVisible();
+    await expect(err).toContainText("Too many export requests");
+    await expect(err).toContainText("Nothing is wrong with the case");
+    await expect(err).not.toContainText("on our side");
+    await shot(page, "state-rate-limited", "light", 1440);
+    // The button is off while the wait lasts, says so, and works when it is over (the allowance refills one export at a time).
+    const retry = err.getByTestId("retry-button");
+    await expect(retry).toBeDisabled();
+    await expect(retry).toContainText(/Try again in \d+ s/);
+    await expect(retry).toBeEnabled({ timeout: 30_000 });
+    await retry.click();
+    await expect(page.getByTestId("dossier-summary")).toBeVisible();
+    w.assertClean();
+  });
+
+  test("a finding that a re-run replaced after a decision is listed in the dossier with the reason", async ({ page, request }) => {
+    const w = watch(page);
+    const detail = await quietCase(request);
+    const head = headlineOf(detail);
+    const oldId = "fnd_0123456789abcdef0123456789abcdef";
+    const reason = "The case was investigated again and the evidence behind this claim is no longer the same as when the earlier finding was computed: population went from CONTAINED to PARTIAL.";
+    // A test double for the service's answer: the real dossier with one finding that supersedes an earlier one added to its body.
+    await page.route(`**/api/cases/${enc(detail.summary.id)}/dossier`, async (route) => {
+      const res = await route.fetch();
+      const bundle = await res.json();
+      bundle.body.findings = [...(bundle.body.findings ?? []), { id: "fnd_fedcba9876543210fedcba9876543210", claimId: head.claimId, supersedes: oldId, supersedesReason: reason }];
+      await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(bundle) });
+    });
+    await page.goto(`/cases/${enc(detail.summary.id)}/dossier`);
+    await ready(page);
+    await page.getByTestId("export-dossier").click();
+    const list = page.getByTestId("replaced-findings");
+    await expect(list).toBeVisible();
+    await expect(list).toContainText("fnd_0123456789");
+    await expect(list).toContainText(`claim ${head.claimId}`);
+    await expect(list).toContainText(reason);
+    await shot(page, "state-dossier-superseded", "light", 1440);
+    await page.unrouteAll({ behavior: "ignoreErrors" });
+    w.assertClean();
   });
 });
 

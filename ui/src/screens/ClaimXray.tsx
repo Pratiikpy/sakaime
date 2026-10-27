@@ -9,7 +9,7 @@ import { Icon } from "../components/Icon";
 import { Clamp, Disclosure, Mono, Section, useDocTitle } from "../components/ui";
 import { Why } from "../components/Why";
 import { ASSERTION_NAME, CANDIDATE_CLASS_NAME, DIMENSION_NAME, DIMENSION_QUESTION, LABEL_META, LINK_TYPE_NAME, RELATION_META } from "../lib/vocab";
-import { claimName, claimSummary, dimensionsOf, headlineFinding, rankAnchors } from "../lib/explain";
+import { claimName, claimSentence, dimensionsOf, headlineFinding, rankAnchors, snippet } from "../lib/explain";
 import { formatDate, formatDateTime, plural, shortHash, sideText } from "../lib/format";
 
 function Anchor({ a }: { a: AnchorView }) {
@@ -282,25 +282,36 @@ function Contrary({ f }: { f: Finding }) {
 /** A case holds the reviewer's own question and each vendor claim; this moves between them without going back to the case. */
 function FindingSwitch({ c, current }: { c: CaseDetail; current: string }) {
   const head = headlineFinding(c);
-  const ordered = [...c.findings].sort((a, b) => (a === head ? -1 : b === head ? 1 : 0));
+  const ordered = [...c.findings].sort((x, y) => (x === head ? -1 : y === head ? 1 : 0));
+  const now = c.findings.find((x) => x.id === current);
   return (
     <nav className="finding-switch" aria-label="Which claim to read">
-      <p className="finding-switch__label">Claim</p>
-      <ul>
-        {ordered.map((x) => (
-          <li key={x.id}>
-            <Link
-              to={`/cases/${encodeURIComponent(c.summary.id)}/claims/${encodeURIComponent(x.id)}`}
-              aria-current={x.id === current ? "page" : undefined}
-              className={x.id === current ? "is-active" : undefined}
-              title={claimSummary(c, x)}
-            >
-              <span>{claimName(c, x)}</span>
-              <span className="finding-switch__word">{LABEL_META[x.label].words}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <details>
+        <summary>
+          <Icon name="chevron" size={14} className="disclosure__chev" />
+          <span className="finding-switch__label">Claim</span>
+          <strong>{now ? claimName(c, now) : "Choose a claim"}</strong>
+          <span className="muted">Switch to another of {c.findings.length}</span>
+        </summary>
+        <ul>
+          {ordered.map((x) => {
+            const says = claimSentence(c, x);
+            return (
+              <li key={x.id}>
+                <Link
+                  to={`/cases/${encodeURIComponent(c.summary.id)}/claims/${encodeURIComponent(x.id)}`}
+                  aria-current={x.id === current ? "page" : undefined}
+                  className={x.id === current ? "is-active" : undefined}
+                >
+                  <span className="finding-switch__name">{claimName(c, x)}</span>
+                  <span className="finding-switch__word">{LABEL_META[x.label].words}</span>
+                  {says && <span className="finding-switch__says">{snippet(says, 120)}</span>}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </details>
     </nav>
   );
 }
@@ -329,7 +340,7 @@ function Body({ c, findingId }: { c: CaseDetail; findingId: string }) {
         screen="Investigate: claim X-ray"
         lead={
           <blockquote className="claim-quote" data-testid="claim-text">
-            <p>{c.claimText}</p>
+            <p>{claimSentence(c, f) ?? c.claimText}</p>
           </blockquote>
         }
       />

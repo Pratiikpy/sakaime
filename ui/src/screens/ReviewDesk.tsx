@@ -35,7 +35,7 @@ export function ReviewDesk() {
       {cases.data && (
         <>
           <div className="stat-row" data-testid="desk-stats">
-            <Stat value={list.length} label={plural(list.length, "case")} />
+            <Stat value={list.length} label={list.length === 1 ? "case on the desk" : "cases on the desk"} />
             <Stat value={waiting} label="not reviewed yet" />
             <Stat value={open} label="open questions" hint="Missing or uncovered parts of a use" />
             <Stat value={stale} label={stale === 1 ? "finding out of date" : "findings out of date"} hint="Evidence changed after the finding was made" />

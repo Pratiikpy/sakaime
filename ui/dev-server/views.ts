@@ -174,6 +174,7 @@ export function detailOf(w: World, c: CaseState): z.infer<typeof CaseDetailSchem
     summary: summaryOf(c),
     claim: c.claim,
     claimText: c.claimText,
+    claims: [c.claim],
     findings: [f],
     dimensions: { [f.id]: dimensionViews(c.detail) },
     anchors: anchorViews(w, c),
@@ -221,7 +222,7 @@ export function recomputeView(c: CaseState, req: RecomputeReq): z.infer<typeof R
 const TYPE_NAME: Record<string, string> = { authorization: "regulatory authorization", study: "study evidence", requirement: "hospital requirement", vendor: "vendor packet" };
 
 function resolveTarget(w: World, target: string | undefined): string {
-  if (!target) throw new HttpFailure(400, "INVALID", "This drill needs a target: a kind of evidence (authorization, study, requirement, vendor) or a source id.");
+  if (!target) throw new HttpFailure(400, "INVALID", "This drill needs a target: a kind of evidence (authorization, study, requirement, vendor) or a source id.", { reason: "TARGET_REQUIRED" });
   if (target in TYPE_NAME) return target;
   const t = w.sourceTypeOf(target);
   if (!t) throw new HttpFailure(400, "INVALID", `"${target}" is neither a kind of evidence nor a known source id.`);

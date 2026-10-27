@@ -26,6 +26,30 @@ const SummarySchema = z.object({
   body: z.record(z.string(), z.unknown()),
 });
 
+interface Replaced {
+  id: string;
+  supersedes: string;
+  claimId?: string;
+  reason?: string;
+}
+
+/**
+ * Findings in the bundle that replace an earlier one: a reviewer's decision names the earlier finding, so it is kept and listed with
+ * the reason it was replaced. Read from body.findings; a bundle without any such finding yields an empty list.
+ */
+function replacedFindings(bundle: Json | null): Replaced[] {
+  const list = (bundle?.["body"] as Json | undefined)?.["findings"];
+  if (!Array.isArray(list)) return [];
+  const out: Replaced[] = [];
+  for (const f of list) {
+    const x = f as Json;
+    if (typeof x["id"] === "string" && typeof x["supersedes"] === "string") {
+      out.push({ id: x["id"], supersedes: x["supersedes"], ...(typeof x["claimId"] === "string" ? { claimId: x["claimId"] } : {}), ...(typeof x["supersedesReason"] === "string" ? { reason: x["supersedesReason"] } : {}) });
+    }
+  }
+  return out;
+}
+
 interface Tamper {
   path: string;
   index: number;
@@ -112,7 +136,9 @@ function Body({ caseId }: { caseId: string }) {
   const [verified, setVerified] = useState<VerifyResponse | null>(null);
   const [tampered, setTampered] = useState<{ change: Tamper; result: VerifyResponse } | null>(null);
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
+  const [retry, setRetry] = useState<(() => void) | null>(null);
   const announce = useAnnounce();
+  const replaced = useMemo(() => replacedFindings(dossier), [dossier]);
 
   const summary = useMemo(() => {
     if (!dossier) return null;
@@ -130,11 +156,13 @@ function Body({ caseId }: { caseId: string }) {
   const wrap = async (what: string, fn: () => Promise<void>) => {
     setBusy(what);
     setError(null);
+    setRetry(null);
     try {
       await fn();
     } catch (e) {
       const err = e instanceof ApiError ? e : new ApiError("UNAVAILABLE", "The request failed.", 0);
       setError(err);
+      setRetry(() => () => void wrap(what, fn));
       announce(`${what} failed. ${err.message}`);
     } finally {
       setBusy(null);
@@ -218,6 +246,18 @@ function Body({ caseId }: { caseId: string }) {
                   Download the file (JSON)
                 </a>
               )}
+              {replaced.length > 0 && (
+                <Notice tone="info" title={`${replaced.length === 1 ? "A finding was" : `${replaced.length} findings were`} replaced after a decision`}>
+                  <ul className="plain-list" data-testid="replaced-findings">
+                    {replaced.map((r) => (
+                      <li key={r.id}>
+                        <code className="mono">{shortHash(r.supersedes, 14)}</code> was replaced by <code className="mono">{shortHash(r.id, 14)}</code>
+                        {r.claimId ? ` (claim ${r.claimId})` : ""}. Both are in the file, and the decision log still points at the earlier one. {r.reason}
+                      </li>
+                    ))}
+                  </ul>
+                </Notice>
+              )}
               {summary?.manifest.signing?.statement && (
                 <Notice tone="info" title="What the signature means">
                   <span data-testid="signature-note-export">{summary.manifest.signing.statement}</span>
@@ -262,7 +302,7 @@ function Body({ caseId }: { caseId: string }) {
             </div>
           </Section>
 
-          {error && <ErrorState error={error} />}
+          {error && <ErrorState error={error} onRetry={retry ?? undefined} />}
         </>
       )}
     </CaseGate>

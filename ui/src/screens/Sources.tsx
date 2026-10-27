@@ -131,7 +131,7 @@ function Legend() {
   );
 }
 
-function OnboardingView({ result, revealed, animating }: { result: OnboardingResult; revealed: number; animating: boolean }) {
+function OnboardingView({ result, revealed, animating, onRetry, busy }: { result: OnboardingResult; revealed: number; animating: boolean; onRetry: () => void; busy: boolean }) {
   const shown = result.stages.slice(0, revealed);
   const done = revealed >= result.stages.length;
   const outcome = {
@@ -222,6 +222,15 @@ function OnboardingView({ result, revealed, animating }: { result: OnboardingRes
             <div>
               <h3 className="outcome__title">{outcome.title}</h3>
               {result.reason && <p>{result.reason}</p>}
+              {/* A repeated request returns the stored answer. A decline that came from reading the source (it was down, say) can be run again; one
+                  that came from the address itself cannot, so the button is offered only once the address had passed. */}
+              {result.outcome === "declined" && result.stages.find((s) => s.stage === "authorization")?.status === "passed" && (
+                <p>
+                  <button type="button" className="btn btn-secondary btn-sm" onClick={onRetry} disabled={busy} data-testid="onboard-retry">
+                    Ask again as a fresh run
+                  </button>
+                </p>
+              )}
               <div className="badge-row">
                 {result.recorded && <ProvenanceBadge kind="recorded" text="Mapping from a recorded model reply" />}
                 {result.schemaHash && <span className="mono muted">schema {shortHash(result.schemaHash, 12)}</span>}
@@ -272,8 +281,8 @@ function AddSource({ onRegistered }: { onRegistered: () => void }) {
     timer.current = window.setTimeout(step, 200);
   };
 
-  const submit = async (e: FormEvent) => {
-    e.preventDefault();
+  const submit = async (e: FormEvent | null, retry = false) => {
+    e?.preventDefault();
     if (!valid || busy) return;
     window.clearTimeout(timer.current);
     abort.current?.abort();
@@ -284,7 +293,7 @@ function AddSource({ onRegistered }: { onRegistered: () => void }) {
     setResult(null);
     setRevealed(0);
     try {
-      const r = await api.proposeSource({ description: description.trim(), url: url.trim() }, ctl.signal);
+      const r = await api.proposeSource({ description: description.trim(), url: url.trim(), ...(retry ? { retry: true } : {}) }, ctl.signal);
       setResult(r);
       reveal(r);
       announce(`Onboarding finished: ${r.outcome.replace(/_/g, " ")}${r.reason ? `. ${r.reason}` : ""}`);
@@ -356,7 +365,7 @@ function AddSource({ onRegistered }: { onRegistered: () => void }) {
             <ErrorState error={error} title={error.failure === "REFUSED" ? "Refused before anything was read" : undefined} />
           </div>
         )}
-        {result && <OnboardingView result={result} revealed={revealed} animating={animating} />}
+        {result && <OnboardingView result={result} revealed={revealed} animating={animating} onRetry={() => void submit(null, true)} busy={busy} />}
         {!result && !error && !busy && (
           <EmptyState title="Nothing onboarded yet" icon="database">
             Add an address above. You will see each of the eight stages, the field mapping with its checks, and either a registration, a hold for review or a refusal with the reason.

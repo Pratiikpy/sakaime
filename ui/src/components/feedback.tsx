@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import type { ApiError } from "../api/client";
 import { Icon } from "./Icon";
@@ -63,8 +63,24 @@ const FAILURE_COPY: Record<string, { title: string; hint: string; icon: IconName
   TRUNCATED: { title: "The result was cut short", hint: "An incomplete result is refused, never used as a partial answer.", icon: "warn" },
   BLOCKED: { title: "Blocked for scripts", hint: "The provider refuses automated access.", icon: "block" },
   NOT_FOUND: { title: "Not found", hint: "That item does not exist. It may have been mistyped, or the service restarted.", icon: "empty" },
+  RATE_LIMITED: { title: "Too many requests", hint: "Nothing is wrong with the case or the request. The service limits how fast this can be asked for; wait for the time shown and try again.", icon: "clock" },
   CONTRACT: { title: "Unexpected reply", hint: "The service replied in a shape this app does not recognise. Nothing is shown rather than something wrong.", icon: "warn" },
 };
+
+/** A retry button that stays off for as long as the service asked the client to wait, and says how long is left. */
+function RetryButton({ onRetry, waitSeconds }: { onRetry: () => void; waitSeconds: number }) {
+  const [left, setLeft] = useState(waitSeconds);
+  useEffect(() => {
+    if (left <= 0) return;
+    const t = window.setTimeout(() => setLeft((n) => n - 1), 1000);
+    return () => window.clearTimeout(t);
+  }, [left]);
+  return (
+    <button type="button" className="btn btn-secondary" onClick={onRetry} disabled={left > 0} data-testid="retry-button">
+      {left > 0 ? `Try again in ${left} s` : "Try again"}
+    </button>
+  );
+}
 
 export function ErrorState({ error, onRetry, title }: { error: ApiError; onRetry?: () => void; title?: string }) {
   const copy = FAILURE_COPY[error.failure] ?? { title: "Something went wrong", hint: "Try again. If it keeps happening, the service log has the detail.", icon: "warn" as IconName };
@@ -100,9 +116,7 @@ export function ErrorState({ error, onRetry, title }: { error: ApiError; onRetry
         <p className="state__code mono">{error.failure}</p>
         {onRetry && (
           <div className="state__action">
-            <button type="button" className="btn btn-secondary" onClick={onRetry}>
-              Try again
-            </button>
+            <RetryButton onRetry={onRetry} waitSeconds={error.failure === "RATE_LIMITED" && typeof error.detail?.["retryAfterSeconds"] === "number" ? (error.detail["retryAfterSeconds"] as number) : 0} />
           </div>
         )}
       </div>

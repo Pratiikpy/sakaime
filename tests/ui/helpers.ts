@@ -48,6 +48,8 @@ export type Detail = {
   summary: CaseSummary;
   claim: { id: string; use: any };
   claimText: string;
+  /** Every claim of the case, the reviewer's own question first, each with its sentence. */
+  claims: { id: string; text: string }[];
   findings: Finding[];
   dimensions: Record<string, { dimension: string; relation: string; claimed?: string; established?: string; reason: string; anchorIds: string[] }[]>;
   anchors: { id: string; text: string; page?: number; sourceLabel: string; ruleIds: string[] }[];
@@ -58,6 +60,11 @@ export type Detail = {
   sources: { source: { id: string; health: string } }[];
   mode: Record<string, unknown>;
 };
+
+/** The sentence of the claim a finding is about, as the service sent it. */
+export const sentenceOf = (d: Detail, f: Finding): string => d.claims.find((c) => c.id === f.claimId)?.text ?? (f.claimId === d.claim.id ? d.claimText : "");
+/** Whitespace folded, so a sentence from the API can be matched against what the page shows. */
+export const fold = (s: string): string => s.replace(/\s+/g, " ").trim();
 
 export const LABEL_WORDS: Record<string, string> = {
   SUPPORTED_FOR_SCOPE: "Supported for this use",

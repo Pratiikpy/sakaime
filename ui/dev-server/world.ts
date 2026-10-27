@@ -108,6 +108,9 @@ export interface CaseState {
   baseEvents: TimelineEvent[];
 }
 
+/** Sources the fixture cases never read. */
+const UNREAD = new Set(["crossref", "openfda-pma"]);
+
 export interface World {
   cases: Map<string, CaseState>;
   order: string[];
@@ -241,9 +244,12 @@ async function buildSources(layer: ReturnType<typeof createSourceLayer>): Promis
         lastSuccessAt: RETRIEVED_AT,
         dataClass: file.dataClass,
       },
+      // A source no case reads has no observation of its own: it is shown as it is, not as out of date. A pinned snapshot is older than its card's cadence.
       healthDetail: pinned
-        ? "Pinned snapshot, current as of 2026-09-04. FDA refuses scripted download, so the live list is not fetched by default."
-        : "Answered from a recorded response captured on 2026-10-27. Sample run: no live call was made.",
+        ? "Pinned snapshot, current as of 2026-09-04. FDA refuses scripted download, so the live list is not fetched by default; the snapshot is older than its card expects."
+        : UNREAD.has(file.id)
+          ? "not read by any case investigated so far; no failure has been seen for it"
+          : "Answered from a recorded response captured on 2026-10-27. Sample run: no live call was made.",
       authorityNotes: authorityNote(file.kind),
     });
   }

@@ -10,7 +10,7 @@ import { EmptyState, ErrorState, Notice, useAnnounce } from "../components/feedb
 import { Icon } from "../components/Icon";
 import { Clamp, CopyButton, Disclosure, Section, useDocTitle } from "../components/ui";
 import { Why, whyLead } from "../components/Why";
-import { claimName, claimSummary, headlineFinding, otherFindings } from "../lib/explain";
+import { claimName, claimSentence, claimSummary, headlineFinding, otherFindings, snippet } from "../lib/explain";
 import { DECISION_ACTIONS, DIMENSION_NAME } from "../lib/vocab";
 import { formatDateTime, newKey, plural } from "../lib/format";
 import { REVIEWER_STATE_WORDS } from "./ReviewDesk";
@@ -103,6 +103,7 @@ function MissingEvidence({ items, c }: { items: MissingEvidenceItem[]; c: CaseDe
           return (
             <li key={fid} className="missing-group">
               <h3 className="subhead">{f ? claimName(c, f) : "Finding"}</h3>
+              {f && claimSentence(c, f) && <p className="muted missing-group__says">{snippet(claimSentence(c, f)!, 160)}</p>}
               <ul className="plain-list">
                 {list.map((m, i) => (
                   <li key={`${m.findingId}-${m.dimension}-${i}`} className="missing-item">
@@ -127,19 +128,42 @@ function MissingEvidence({ items, c }: { items: MissingEvidenceItem[]; c: CaseDe
   );
 }
 
-function History({ events }: { events: TimelineEvent[] }) {
+/**
+ * A decision is about one finding. If a later run replaced that finding, the decision stays on the record and says so: which finding
+ * replaced it and why, in the service's own words. The finding is "replaced" when it is no longer one of the case's current findings
+ * and the timeline carries a recompute event that names it first.
+ */
+function History({ events, c }: { events: TimelineEvent[]; c: CaseDetail }) {
   const decisions = events.filter((e) => e.kind === "decision");
   if (decisions.length === 0) return <EmptyState title="No decisions recorded" icon="clock">When someone records a decision it is kept here and cannot be edited.</EmptyState>;
+  const current = new Set(c.findings.map((f) => f.id));
+  const replacement = (e: TimelineEvent) => {
+    const decided = e.findingIds[0];
+    if (!decided || current.has(decided)) return undefined;
+    return events.find((x) => x.kind === "finding_recomputed" && x.findingIds.length === 2 && x.findingIds[0] === decided);
+  };
   return (
     <ol className="history" data-testid="decision-history">
-      {[...decisions].reverse().map((e, i) => (
-        <li key={`${e.at}-${i}`}>
-          <time className="mono" dateTime={e.at}>
-            {formatDateTime(e.at)}
-          </time>
-          <span>{e.summary}</span>
-        </li>
-      ))}
+      {[...decisions].reverse().map((e, i) => {
+        const r = replacement(e);
+        const newer = r?.findingIds[1];
+        return (
+          <li key={`${e.at}-${i}`} data-superseded={r ? "true" : undefined}>
+            <time className="mono" dateTime={e.at}>
+              {formatDateTime(e.at)}
+            </time>
+            <span>{e.summary}</span>
+            {r && (
+              <p className="history__superseded" data-testid="superseded-note">
+                <Icon name="drift" size={14} /> <strong>This decision was made on an earlier finding that a new run replaced.</strong> {r.summary}{" "}
+                {newer && (
+                  <Link to={`/cases/${encodeURIComponent(c.summary.id)}/claims/${encodeURIComponent(newer)}`}>Read the finding that replaced it</Link>
+                )}
+              </p>
+            )}
+          </li>
+        );
+      })}
     </ol>
   );
 }
@@ -185,12 +209,14 @@ function VendorClaim({ c, f, onRecorded }: { c: CaseDetail; f: Finding; onRecord
   return (
     <li className="finding-card finding-card-compact" data-finding={f.id} data-claim={f.claimId}>
       <div className="finding-card__head">
-        <div>
-          <h3 className="finding-card__name">{claimName(c, f)}</h3>
-          <p className="finding-card__says">{claimSummary(c, f)}</p>
-        </div>
+        <h3 className="finding-card__name">{claimName(c, f)}</h3>
         <LabelBadge label={f.label} />
       </div>
+      <blockquote className="claim-quote claim-quote-small" data-testid="claim-sentence">
+        <p>
+          <Clamp text={claimSummary(c, f)} lines={3} />
+        </p>
+      </blockquote>
       <p className="finding-card__why">{whyLead(c, f)}</p>
       <Disclosure summary="Which parts are open, and what would settle it" className="disclosure-small">
         <Why c={c} f={f} maxDims={3} maxAsks={2} heading={false} showLead={false} />
@@ -283,7 +309,7 @@ function Body({ c, reload }: { c: CaseDetail; reload: () => void }) {
           <ChangedSince events={timeline} />
         </Section>
         <Section id="history" title="Decision history">
-          <History events={timeline} />
+          <History events={timeline} c={c} />
         </Section>
       </div>
 

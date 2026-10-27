@@ -31,6 +31,14 @@ export class ApiError extends Error {
   }
 }
 
+/** Seconds a limited client is asked to wait: the Retry-After header, or the body's own figure. */
+function retryAfter(res: Response, detail: Record<string, unknown> | undefined): number | undefined {
+  const fromBody = detail?.["retryAfterSeconds"];
+  if (typeof fromBody === "number" && fromBody > 0) return Math.ceil(fromBody);
+  const fromHeader = Number(res.headers.get("retry-after"));
+  return Number.isFinite(fromHeader) && fromHeader > 0 ? Math.ceil(fromHeader) : undefined;
+}
+
 async function parseError(res: Response): Promise<ApiError> {
   let text = "";
   try {
@@ -40,6 +48,11 @@ async function parseError(res: Response): Promise<ApiError> {
   }
   try {
     const body = ErrorBodySchema.parse(JSON.parse(text));
+    // 429 is a rate limit, whatever failure word the body carries: nothing is wrong with the request, and the reply says how long to wait.
+    if (res.status === 429) {
+      const wait = retryAfter(res, body.error.detail);
+      return new ApiError("RATE_LIMITED", body.error.message, 429, { ...(body.error.detail ?? {}), ...(wait !== undefined ? { retryAfterSeconds: wait } : {}) });
+    }
     // An HTTP 404 means the thing is not there, whatever failure word the body carries; it reads as "not found", never as an outage.
     return new ApiError(res.status === 404 ? "NOT_FOUND" : body.error.failure, body.error.message, res.status, body.error.detail);
   } catch {
@@ -48,6 +61,10 @@ async function parseError(res: Response): Promise<ApiError> {
       return new ApiError("UNAVAILABLE", "The Sakaime service did not answer. This is on our side, not a finding about the evidence.", res.status);
     }
     if (res.status === 404) return new ApiError("NOT_FOUND", "That item does not exist.", res.status);
+    if (res.status === 429) {
+      const wait = retryAfter(res, undefined);
+      return new ApiError("RATE_LIMITED", "Too many requests in a short time.", 429, wait !== undefined ? { retryAfterSeconds: wait } : undefined);
+    }
     return new ApiError("INVALID", `The service refused the request (HTTP ${res.status}).`, res.status);
   }
 }
@@ -111,7 +128,7 @@ export type ResultsFile = z.infer<typeof ResultsFileSchema>;
 export const api = {
   health: (signal?: AbortSignal) => call("GET", "/api/health", HealthResponseSchema, undefined, signal),
   sources: (signal?: AbortSignal) => call("GET", "/api/sources", z.array(SourceRowSchema), undefined, signal),
-  proposeSource: (body: { description: string; url: string }, signal?: AbortSignal) => call("POST", "/api/sources/propose", OnboardingResultSchema, body, signal),
+  proposeSource: (body: { description: string; url: string; retry?: boolean }, signal?: AbortSignal) => call("POST", "/api/sources/propose", OnboardingResultSchema, body, signal),
   cases: (signal?: AbortSignal) => call("GET", "/api/cases", z.array(CaseSummarySchema), undefined, signal),
   caseDetail: (id: string, signal?: AbortSignal) => call("GET", `/api/cases/${enc(id)}`, CaseDetailSchema, undefined, signal),
   recompute: (id: string, body: unknown, signal?: AbortSignal) => call("POST", `/api/cases/${enc(id)}/recompute`, RecomputeResponseSchema, body, signal),
