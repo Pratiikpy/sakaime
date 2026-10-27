@@ -1,0 +1,13 @@
+k_number,device_name,applicant,product_code,decision_date,device_class
+DEN170073,ContaCT,"Viz.Al, Inc.",QAS,02/13/2018,2
+DEN180001,IDx-DR,"Idx, LLC",PIB,04/11/2018,2
+DEN190040,Caption Guidance,"Bay Labs, Inc.",QJU,02/07/2020,2
+DEN200055,GI Genius,"Cosmo Artificial Intelligence - Ai, Ltd.",QNP,04/09/2021,2
+DEN200080,Paige Prostate,Paige.Ai,QPN,09/21/2021,2
+K200667,EyeArt,"Eyenuk, Inc.",PIB,08/03/2020,2
+K211733,Lunit INSIGHT CXR Triage,"Lunit, Inc.",QFM,11/10/2021,2
+K213857,HeartFlow Analysis,"HeartFlow, Inc.",PJA,10/14/2022,2
+K221347,Transpara 1.7.2,Screenpoint Medical B.V.,QDQ,08/03/2022,2
+K232699,Low Ejection Fraction AI-ECG Algorithm,"Anumana, Inc.",QYE,09/28/2023,2
+K240301,MammoScreen® (3),Therapixel,QDQ,08/01/2024,2
+K253265,BriefCase-Triage,"Aidoc Medical , Ltd.",QAS,11/06/2025,2

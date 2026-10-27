@@ -1,0 +1,13 @@
+manufacturer,risk_class,item_label,procode,date_of_decision,fda_ref
+"Viz.Al, Inc.",2,ContaCT,QAS,2018-02-13,DEN170073
+"Idx, LLC",2,IDx-DR,PIB,2018-04-11,DEN180001
+"Bay Labs, Inc.",2,Caption Guidance,QJU,2020-02-07,DEN190040
+"Cosmo Artificial Intelligence - Ai, Ltd.",2,GI Genius,QNP,2021-04-09,DEN200055
+Paige.Ai,2,Paige Prostate,QPN,2021-09-21,DEN200080
+"Eyenuk, Inc.",2,EyeArt,PIB,2020-08-03,K200667
+"Lunit, Inc.",2,Lunit INSIGHT CXR Triage,QFM,2021-11-10,K211733
+"HeartFlow, Inc.",2,HeartFlow Analysis,PJA,2022-10-14,K213857
+Screenpoint Medical B.V.,2,Transpara 1.7.2,QDQ,2022-08-03,K221347
+"Anumana, Inc.",2,Low Ejection Fraction AI-ECG Algorithm,QYE,2023-09-28,K232699
+Therapixel,2,MammoScreen® (3),QDQ,2024-08-01,K240301
+"Aidoc Medical , Ltd.",2,BriefCase-Triage,QAS,2025-11-06,K253265

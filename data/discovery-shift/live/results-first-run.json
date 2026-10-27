@@ -1,0 +1,2496 @@
+{
+ "ranAt": "2026-10-27T09:36:02.265Z",
+ "zetaris": {
+  "health": "OK",
+  "detail": "SELECT 1 answered by the engine (query cb5cfd7f-7408-4e28-b509-3aad242f422b)",
+  "latencyMs": 80,
+  "checkedAt": "2026-10-27T09:35:14.439Z"
+ },
+ "results": {
+  "openfda-510k": {
+   "id": "7d3f7ee67dae880d99b136dbc9cc01148abeb388250f65b3eb1d59744a70ab91",
+   "outcome": "held_for_review",
+   "reason": "1 finding for a reviewer: openfda.device_name as device_name: 0 of 6 rows that join on submission_number agree with the held fda_510k.device_name (for K253265 the source says \"Radiological Computer-Assisted Triage And Notification Software\" and the held record says \"BriefCase-Triage\"); the source may be newer, or this column is not what its name says",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "passed",
+     "summary": "api.fda.gov is on the allowlist (source card openfda-510k); it resolves only to public addresses (40.39.145.2, 3.30.155.130)",
+     "detail": {
+      "host": "api.fda.gov",
+      "port": 443,
+      "grantedBy": "openfda-510k",
+      "https": true,
+      "resolvedAddresses": [
+       "40.39.145.2",
+       "3.30.155.130"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "passed",
+     "summary": "source card openfda-510k read (identifier fields k_number, product_code, applicant, device_name; public data; CC0 per open.fda.gov/license); Zetaris lists 5 databases",
+     "detail": {
+      "card": {
+       "id": "openfda-510k",
+       "kind": "regulator",
+       "identifierFields": [
+        "k_number",
+        "product_code",
+        "applicant",
+        "device_name"
+       ],
+       "supportedPredicates": [
+        "k_number:eq",
+        "k_number:in",
+        "applicant:phrase",
+        "device_name:phrase",
+        "product_code:eq"
+       ],
+       "rateLimit": {
+        "requests": 240,
+        "perSeconds": 60,
+        "perDay": 1000,
+        "basis": "open.fda.gov/apis/authentication, no key: 240 requests per minute and 1,000 per day per IP (read 2026-10-27, FEASIBILITY-REPORT s7)"
+       },
+       "cadenceHours": null,
+       "license": "CC0 per open.fda.gov/license, with the openFDA disclaimer not to rely on it for medical decisions",
+       "dataClass": "public",
+       "verifiedOn": "2026-10-27",
+       "notVerified": 4
+      },
+      "zetaris": {
+       "reachable": true,
+       "databases": [
+        "sk_docs",
+        "sk_registry",
+        "sk_rest",
+        "sk_vendor",
+        "hospital"
+       ],
+       "onboardedTables": [],
+       "queryIds": [
+        "151a0dc7-3ecb-429d-b0af-3fe43a3af1ee",
+        "ac2bf7e6-e9ea-49af-ac16-2c06ad74526f",
+        "3a45febd-2543-4c7a-ac97-572069e69ec4",
+        "7c3b84c9-7296-41c8-9da3-e142c9d5606a",
+        "98abea0e-ce87-4e0b-baea-4073633f97ac",
+        "d46837db-379c-40b6-8efd-5f11d8e06aa7",
+        "dee4aa45-a7a8-432a-99d7-eefb28b24ce2"
+       ]
+      }
+     }
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "passed",
+     "summary": "6 records, 29 fields (json); schema d2befc6d4042",
+     "detail": {
+      "http": {
+       "finalUrl": "https://api.fda.gov/device/510k.json?search=k_number:(K200667+OR+K211733+OR+K221347+OR+K253265+OR+DEN180001+OR+DEN170073)&limit=20",
+       "status": 200,
+       "sha256": "f36d7ad6bca9b2a175f67e5393a40a9c2ed7c7a1c53c99af5f485d6e934126bd",
+       "at": "2026-10-27T09:35:14.711Z",
+       "redirects": 0,
+       "resolvedAddress": "40.39.145.2",
+       "servedFrom": "live"
+      },
+      "format": "json",
+      "container": "results",
+      "rows": 6,
+      "columns": [
+       "third_party_flag",
+       "city",
+       "advisory_committee_description",
+       "address_1",
+       "address_2",
+       "statement_or_summary",
+       "product_code",
+       "openfda.registration_number",
+       "openfda.fei_number",
+       "openfda.device_name",
+       "openfda.medical_specialty_description",
+       "openfda.regulation_number",
+       "openfda.device_class",
+       "zip_code",
+       "applicant",
+       "decision_date",
+       "decision_code",
+       "country_code",
+       "device_name",
+       "advisory_committee",
+       "contact",
+       "expedited_review_flag",
+       "k_number",
+       "state",
+       "date_received",
+       "review_advisory_committee",
+       "postal_code",
+       "decision_description",
+       "clearance_type"
+      ],
+      "bytes": 11026,
+      "sha256": "f36d7ad6bca9b2a175f67e5393a40a9c2ed7c7a1c53c99af5f485d6e934126bd",
+      "declaredTotal": 6,
+      "schemaHash": "d2befc6d4042f7fc5e9077a848d94a6bd61171b13ff207b07a4f09adfc3c6774",
+      "shape": {
+       "third_party_flag": "string",
+       "city": "string",
+       "advisory_committee_description": "string",
+       "address_1": "string",
+       "address_2": "string",
+       "statement_or_summary": "string",
+       "product_code": "string",
+       "openfda.registration_number": "string",
+       "openfda.fei_number": "string",
+       "openfda.device_name": "string",
+       "openfda.medical_specialty_description": "string",
+       "openfda.regulation_number": "number",
+       "openfda.device_class": "number",
+       "zip_code": "number|string",
+       "applicant": "string",
+       "decision_date": "date",
+       "decision_code": "string",
+       "country_code": "string",
+       "device_name": "string",
+       "advisory_committee": "string",
+       "contact": "string",
+       "expedited_review_flag": "empty",
+       "k_number": "string",
+       "state": "string",
+       "date_received": "date",
+       "review_advisory_committee": "string",
+       "postal_code": "number|string",
+       "decision_description": "string",
+       "clearance_type": "string"
+      },
+      "sample": [
+       {
+        "third_party_flag": "N",
+        "city": "Tell-Aviv",
+        "advisory_committee_description": "Radiology",
+        "address_1": "3 Aminadav St.",
+        "address_2": "",
+        "statement_or_summary": "Summary",
+        "product_code": "QAS",
+        "openfda.registration_number": "3017210169 | 3034656245 | 3017604664 | 3021915828 | 3023702863 | 3015763655 | 3016727312 | 3017840913 | 3014665798 | 3017489096 | 3014938447 | 3007301305 | 3035495311 | 3021032044 | 3011205675 | 3012453401 | 3014678441 | 3004977335 | 3038177848",
+        "openfda.fei_number": "3017210169 | 3034656245 | 3017604664 | 3021915828 | 3023702863 | 3015763655 | 3016727312 | 3017840913 | 3014665798 | 3017489096 | 3014269683 | 3014938447 | 3007301305 | 3035495311 | 3021032044 | 3012453401 | 3014678441 | 3004977335 | 3038177848",
+        "openfda.device_name": "Radiological Computer-Assisted Triage And Notification Software",
+        "openfda.medical_specialty_description": "Radiology",
+        "openfda.regulation_number": "892.2080",
+        "openfda.device_class": "2",
+        "zip_code": "6706703",
+        "applicant": "Aidoc Medical , Ltd.",
+        "decision_date": "2025-11-06",
+        "decision_code": "SESE",
+        "country_code": "IL",
+        "device_name": "BriefCase-Triage",
+        "advisory_committee": "RA",
+        "contact": "Amalia  Schreier",
+        "expedited_review_flag": "",
+        "k_number": "K253265",
+        "state": "",
+        "date_received": "2025-09-29",
+        "review_advisory_committee": "RA",
+        "postal_code": "6706703",
+        "decision_description": "Substantially Equivalent",
+        "clearance_type": "Special"
+       },
+       {
+        "third_party_flag": "N",
+        "city": "Los Angeles",
+        "advisory_committee_description": "Ophthalmic",
+        "address_1": "5850 Canoga Ave.",
+        "address_2": "Suite 250",
+        "statement_or_summary": "Summary",
+        "product_code": "PIB",
+        "openfda.registration_number": " | 3014579028 | 3025301728 | 3013924858",
+        "openfda.fei_number": " | 3014579028 | 3025301728 | 3013924858",
+        "openfda.device_name": "Diabetic Retinopathy Detection Device",
+        "openfda.medical_specialty_description": "Ophthalmic",
+        "openfda.regulation_number": "886.1100",
+        "openfda.device_class": "2",
+        "zip_code": "91367",
+        "applicant": "Eyenuk, Inc.",
+        "decision_date": "2020-08-03",
+        "decision_code": "SESE",
+        "country_code": "US",
+        "device_name": "EyeArt",
+        "advisory_committee": "OP",
+        "contact": "Kaushal  Solanki",
+        "expedited_review_flag": "",
+        "k_number": "K200667",
+        "state": "CA",
+        "date_received": "2020-03-13",
+        "review_advisory_committee": "OP",
+        "postal_code": "91367",
+        "decision_description": "Substantially Equivalent",
+        "clearance_type": "Traditional"
+       },
+       {
+        "third_party_flag": "N",
+        "city": "Seoul",
+        "advisory_committee_description": "Radiology",
+        "address_1": "15th Floor, 27 Teheran-Ro 2-Gil",
+        "address_2": "",
+        "statement_or_summary": "Summary",
+        "product_code": "QFM",
+        "openfda.registration_number": "3034656245 | 3017604664 | 3023702863 | 3017840913 | 3024844299 | 3007734888 | 3014665798 | 3021230777 | 3034205378 | 3029915548 | 3014938447 | 3005156333 | 3021032044 | 3030491946 | 3017173128 | 9616047 | 3011205675 | 3018733944 | 3012453401 | 3014678441 | 2126677 | 3027453703",
+        "openfda.fei_number": "3003377038 | 3034656245 | 3017604664 | 3023702863 | 3017840913 | 3024844299 | 3007734888 | 3014665798 | 3021230777 | 3034205378 | 3029915548 | 3014269683 | 3014938447 | 3005156333 | 3021032044 | 3030491946 | 3017173128 | 3018733944 | 3012453401 | 3014678441 | 2126677 | 3027453703",
+        "openfda.device_name": "Radiological Computer-Assisted Prioritization Software For Lesions",
+        "openfda.medical_specialty_description": "Radiology",
+        "openfda.regulation_number": "892.2080",
+        "openfda.device_class": "2",
+        "zip_code": "06241",
+        "applicant": "Lunit, Inc.",
+        "decision_date": "2021-11-10",
+        "decision_code": "SESE",
+        "country_code": "KR",
+        "device_name": "Lunit INSIGHT CXR Triage",
+        "advisory_committee": "RA",
+        "contact": "Seulhee  Jung",
+        "expedited_review_flag": "",
+        "k_number": "K211733",
+        "state": "",
+        "date_received": "2021-06-04",
+        "review_advisory_committee": "RA",
+        "postal_code": "06241",
+        "decision_description": "Substantially Equivalent",
+        "clearance_type": "Traditional"
+       }
+      ]
+     }
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "passed",
+     "summary": "nvidia/nemotron-3.5-lightning-30b-a3b proposed 7 mappings; the validator decides",
+     "detail": {
+      "proposer": "model",
+      "recorded": false,
+      "model": {
+       "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+       "provider": "nvidia",
+       "promptTokens": 2736,
+       "completionTokens": 1632
+      },
+      "proposals": [
+       {
+        "sourceField": "product_code",
+        "canonicalField": "product_code",
+        "confidence": 0.95,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "openfda.registration_number",
+        "canonicalField": "submission_number",
+        "confidence": 0.9,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "openfda.device_name",
+        "canonicalField": "device_name",
+        "confidence": 0.95,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "openfda.device_class",
+        "canonicalField": "device_class",
+        "confidence": 0.9,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "applicant",
+        "canonicalField": "applicant",
+        "confidence": 0.95,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "decision_date",
+        "canonicalField": "decision_date",
+        "confidence": 0.95,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "k_number",
+        "canonicalField": "submission_number",
+        "confidence": 0.95,
+        "proposer": "model"
+       }
+      ],
+      "dropped": [],
+      "flagged": [],
+      "disagreements": [],
+      "promptBytes": 7867,
+      "dataClass": "public"
+     }
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "held",
+     "summary": "1 finding needs a reviewer: openfda.device_name: 0 of 6 rows that join on submission_number agree with the held fda_510k.device_name (for K253265 the source says \"Radiological Computer-Assisted Triage And Notification Software\" and the held record says \"BriefCase-Triage\"); the source may be newer, or this column is not what its name says",
+     "detail": {
+      "recordKind": "authorization",
+      "keyField": "submission_number",
+      "fields": [
+       {
+        "sourceField": "product_code",
+        "canonicalField": "product_code",
+        "check": "ok",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "4 of 4 distinct values join to sk_registry.fda_classification.product_code (the source as a whole is expected to overlap by at least 80%)"
+         },
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on submission_number agree with the held fda_510k.product_code"
+         }
+        ],
+        "join": {
+         "checked": 4,
+         "matched": 4,
+         "rate": 1,
+         "target": "sk_registry.fda_classification.product_code",
+         "queryId": "eefcbf5b-58f0-4986-b4e5-a65183c2124d",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "openfda.registration_number",
+        "canonicalField": "submission_number",
+        "check": "rejected",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "id-pattern",
+          "severity": "reject",
+          "message": "6 of 6 values are not a valid submission_number (for example \"3017210169 | 3034656245 | 3017604664 | 3\")"
+         }
+        ]
+       },
+       {
+        "sourceField": "openfda.device_name",
+        "canonicalField": "device_name",
+        "check": "needs_review",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "0 of 4 distinct values join to sk_registry.fda_510k.device_name"
+         },
+         {
+          "rule": "held-record-disagreement",
+          "severity": "hold",
+          "message": "0 of 6 rows that join on submission_number agree with the held fda_510k.device_name (for K253265 the source says \"Radiological Computer-Assisted Triage And Notification Software\" and the held record says \"BriefCase-Triage\"); the source may be newer, or this column is not what its name says"
+         }
+        ],
+        "join": {
+         "checked": 4,
+         "matched": 0,
+         "rate": 0,
+         "target": "sk_registry.fda_510k.device_name",
+         "queryId": "6d19f72d-9f52-47c2-94cb-16862bd781d6",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "openfda.device_class",
+        "canonicalField": "device_class",
+        "check": "ok",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on submission_number agree with the held fda_510k.device_class"
+         }
+        ]
+       },
+       {
+        "sourceField": "applicant",
+        "canonicalField": "applicant",
+        "check": "ok",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "6 of 6 distinct values join to sk_registry.fda_510k.applicant"
+         },
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on submission_number agree with the held fda_510k.applicant"
+         }
+        ],
+        "join": {
+         "checked": 6,
+         "matched": 6,
+         "rate": 1,
+         "target": "sk_registry.fda_510k.applicant",
+         "queryId": "4adf2a67-7ebb-4f2d-82f8-69b452891fb3",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "decision_date",
+        "canonicalField": "decision_date",
+        "check": "ok",
+        "proposer": "model",
+        "unit": "ISO date",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on submission_number agree with the held fda_510k.decision_date"
+         }
+        ]
+       },
+       {
+        "sourceField": "k_number",
+        "canonicalField": "submission_number",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "6 of 6 distinct values join to sk_registry.fda_510k.k_number (the source as a whole is expected to overlap by at least 80%)"
+         }
+        ],
+        "join": {
+         "checked": 6,
+         "matched": 6,
+         "rate": 1,
+         "target": "sk_registry.fda_510k.k_number",
+         "queryId": "3bfa4fea-68d6-4329-8ca4-ca13522dc70b",
+         "servedFrom": "live"
+        }
+       }
+      ],
+      "tableFindings": [
+       {
+        "rule": "join",
+        "severity": "note",
+        "message": "6 of 6 distinct submission_number values join to held records (expected at least 80%)"
+       }
+      ],
+      "duplicates": {
+       "exact": 0,
+       "conflicting": 0
+      },
+      "agreement": [
+       {
+        "field": "device_name",
+        "column": "device_name",
+        "compared": 6,
+        "agreed": 0,
+        "rate": 0,
+        "example": {
+         "key": "K253265",
+         "source": "Radiological Computer-Assisted Triage And Notification Software",
+         "held": "BriefCase-Triage"
+        },
+        "queryId": "0a53ecea-91d3-4d30-b962-9f48f7dfd41b"
+       },
+       {
+        "field": "applicant",
+        "column": "applicant",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "0a53ecea-91d3-4d30-b962-9f48f7dfd41b"
+       },
+       {
+        "field": "product_code",
+        "column": "product_code",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "0a53ecea-91d3-4d30-b962-9f48f7dfd41b"
+       },
+       {
+        "field": "decision_date",
+        "column": "decision_date",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "0a53ecea-91d3-4d30-b962-9f48f7dfd41b"
+       },
+       {
+        "field": "device_class",
+        "column": "device_class",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "0a53ecea-91d3-4d30-b962-9f48f7dfd41b"
+       }
+      ],
+      "unmapped": [
+       "third_party_flag",
+       "city",
+       "advisory_committee_description",
+       "address_1",
+       "address_2",
+       "statement_or_summary",
+       "openfda.fei_number",
+       "openfda.medical_specialty_description",
+       "openfda.regulation_number",
+       "zip_code",
+       "decision_code",
+       "country_code",
+       "device_name",
+       "advisory_committee",
+       "contact",
+       "expedited_review_flag",
+       "state",
+       "date_received",
+       "review_advisory_committee",
+       "postal_code",
+       "decision_description",
+       "clearance_type"
+      ],
+      "discarded": [
+       {
+        "sourceField": "openfda.registration_number",
+        "canonicalField": "submission_number",
+        "reason": "6 of 6 values are not a valid submission_number (for example \"3017210169 | 3034656245 | 3017604664 | 3\")"
+       }
+      ]
+     }
+    },
+    {
+     "stage": "human_review",
+     "status": "held",
+     "summary": "held for a reviewer: 1 column",
+     "detail": {
+      "ticket": "7d3f7ee67dae880d99b136dbc9cc01148abeb388250f65b3eb1d59744a70ab91",
+      "holds": [
+       {
+        "sourceField": "openfda.device_name",
+        "canonicalField": "device_name",
+        "signatures": [
+         "held-record-disagreement#device_name"
+        ]
+       }
+      ],
+      "tableHolds": [],
+      "needsDateChoice": []
+     }
+    },
+    {
+     "stage": "registration",
+     "status": "pending",
+     "summary": "waiting for a reviewer before registration"
+    },
+    {
+     "stage": "monitoring",
+     "status": "pending",
+     "summary": "waiting for a reviewer before monitoring"
+    }
+   ],
+   "mapping": [
+    {
+     "sourceField": "product_code",
+     "canonicalField": "product_code",
+     "confidence": 0.95,
+     "check": "ok",
+     "reason": "4 of 4 distinct values join to sk_registry.fda_classification.product_code (the source as a whole is expected to overlap by at least 80%)"
+    },
+    {
+     "sourceField": "openfda.registration_number",
+     "canonicalField": "submission_number",
+     "confidence": 0.9,
+     "check": "rejected",
+     "reason": "Discarded, the column is left unmapped: 6 of 6 values are not a valid submission_number (for example \"3017210169 | 3034656245 | 3017604664 | 3\")"
+    },
+    {
+     "sourceField": "openfda.device_name",
+     "canonicalField": "device_name",
+     "confidence": 0.95,
+     "check": "needs_review",
+     "reason": "0 of 6 rows that join on submission_number agree with the held fda_510k.device_name (for K253265 the source says \"Radiological Computer-Assisted Triage And Notification Software\" and the held record says \"BriefCase-Triage\"); the source may be newer, or this column is not what its name says"
+    },
+    {
+     "sourceField": "openfda.device_class",
+     "canonicalField": "device_class",
+     "confidence": 0.9,
+     "check": "ok"
+    },
+    {
+     "sourceField": "applicant",
+     "canonicalField": "applicant",
+     "confidence": 0.95,
+     "check": "ok",
+     "reason": "6 of 6 distinct values join to sk_registry.fda_510k.applicant"
+    },
+    {
+     "sourceField": "decision_date",
+     "canonicalField": "decision_date",
+     "unit": "ISO date",
+     "confidence": 0.95,
+     "check": "ok"
+    },
+    {
+     "sourceField": "k_number",
+     "canonicalField": "submission_number",
+     "confidence": 0.95,
+     "check": "renamed",
+     "reason": "6 of 6 distinct values join to sk_registry.fda_510k.k_number (the source as a whole is expected to overlap by at least 80%)"
+    }
+   ],
+   "schemaHash": "d2befc6d4042f7fc5e9077a848d94a6bd61171b13ff207b07a4f09adfc3c6774",
+   "recorded": false
+  },
+  "clinicaltrials-eyeart": {
+   "id": "97e63be11cefb695e9f67f027f4cc8cec238bb8b411a7afa0acb048e243b3013",
+   "outcome": "registered",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "passed",
+     "summary": "clinicaltrials.gov is on the allowlist (source card clinicaltrials-v2); it resolves only to public addresses (34.107.134.59)",
+     "detail": {
+      "host": "clinicaltrials.gov",
+      "port": 443,
+      "grantedBy": "clinicaltrials-v2",
+      "https": true,
+      "resolvedAddresses": [
+       "34.107.134.59"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "passed",
+     "summary": "source card clinicaltrials-v2 read (identifier fields protocolSection.identificationModule.nctId, protocolSection.identificationModule.secondaryIdInfos; public data; Public registry data); Zetaris lists 5 databases",
+     "detail": {
+      "card": {
+       "id": "clinicaltrials-v2",
+       "kind": "registry",
+       "identifierFields": [
+        "protocolSection.identificationModule.nctId",
+        "protocolSection.identificationModule.secondaryIdInfos"
+       ],
+       "supportedPredicates": [
+        "nctId:eq",
+        "query.term:text",
+        "query.intr:text",
+        "query.spons:text"
+       ],
+       "rateLimit": null,
+       "cadenceHours": null,
+       "license": "Public registry data; terms of use NOT VERIFIED",
+       "dataClass": "public",
+       "verifiedOn": "2026-10-27",
+       "notVerified": 3
+      },
+      "zetaris": {
+       "reachable": true,
+       "databases": [
+        "sk_docs",
+        "sk_registry",
+        "sk_rest",
+        "sk_vendor",
+        "hospital"
+       ],
+       "onboardedTables": [],
+       "queryIds": [
+        "fa75dab6-335a-4fc5-974b-d2ac6b991a18",
+        "c14763b6-10a9-4e78-9f27-d89298685acf",
+        "83684572-d99c-426b-8ba6-ea7a1662df66",
+        "443635fc-0c99-453c-b050-8450376fd69c",
+        "f5aba04d-187f-4041-9e70-38f201783599",
+        "76e0babf-5447-48d9-a6e1-11cc608d2d80",
+        "13db8d56-d655-4e8c-9ad0-c130a3f62b07"
+       ]
+      }
+     }
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "passed",
+     "summary": "6 records, 6 fields (json); schema 07edb5534427",
+     "detail": {
+      "http": {
+       "finalUrl": "https://clinicaltrials.gov/api/v2/studies?query.intr=EyeArt&pageSize=15&fields=NCTId,BriefTitle,OverallStatus,EnrollmentCount,StartDate,MinimumAge",
+       "status": 200,
+       "sha256": "b9e245c0df90e83f64cd716e581f36966820513a949c748cff5b3d5cda984657",
+       "at": "2026-10-27T09:35:14.711Z",
+       "redirects": 0,
+       "resolvedAddress": "34.107.134.59",
+       "servedFrom": "live"
+      },
+      "format": "json",
+      "container": "studies",
+      "rows": 6,
+      "columns": [
+       "protocolSection.identificationModule.nctId",
+       "protocolSection.identificationModule.briefTitle",
+       "protocolSection.statusModule.overallStatus",
+       "protocolSection.statusModule.startDateStruct.date",
+       "protocolSection.designModule.enrollmentInfo.count",
+       "protocolSection.eligibilityModule.minimumAge"
+      ],
+      "bytes": 2041,
+      "sha256": "b9e245c0df90e83f64cd716e581f36966820513a949c748cff5b3d5cda984657",
+      "schemaHash": "07edb5534427d8c0f6edc46429a4198b6406c0f169bc3e135c14d7612ccd01dd",
+      "shape": {
+       "protocolSection.identificationModule.nctId": "string",
+       "protocolSection.identificationModule.briefTitle": "string",
+       "protocolSection.statusModule.overallStatus": "string",
+       "protocolSection.statusModule.startDateStruct.date": "date",
+       "protocolSection.designModule.enrollmentInfo.count": "number",
+       "protocolSection.eligibilityModule.minimumAge": "string"
+      },
+      "sample": [
+       {
+        "protocolSection.identificationModule.nctId": "NCT06721351",
+        "protocolSection.identificationModule.briefTitle": "Diabetic Retinopathy Screening Point-of-Care Artificial Intelligence",
+        "protocolSection.statusModule.overallStatus": "ACTIVE_NOT_RECRUITING",
+        "protocolSection.statusModule.startDateStruct.date": "2024-07-27",
+        "protocolSection.designModule.enrollmentInfo.count": 548,
+        "protocolSection.eligibilityModule.minimumAge": "22 Years"
+       },
+       {
+        "protocolSection.identificationModule.nctId": "NCT04302012",
+        "protocolSection.identificationModule.briefTitle": "Assessment of EyeArt Performance With Retinal Imaging Devices",
+        "protocolSection.statusModule.overallStatus": "COMPLETED",
+        "protocolSection.statusModule.startDateStruct.date": "2019-12-18",
+        "protocolSection.designModule.enrollmentInfo.count": 62,
+        "protocolSection.eligibilityModule.minimumAge": "22 Years"
+       },
+       {
+        "protocolSection.identificationModule.nctId": "NCT07378891",
+        "protocolSection.identificationModule.briefTitle": "Artificial-Intelligence-based Early Detection of Diabetic Retinopathy (FUNDUS AI)",
+        "protocolSection.statusModule.overallStatus": "ENROLLING_BY_INVITATION",
+        "protocolSection.statusModule.startDateStruct.date": "2025-12-01",
+        "protocolSection.designModule.enrollmentInfo.count": 100,
+        "protocolSection.eligibilityModule.minimumAge": "18 Years"
+       }
+      ]
+     }
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "passed",
+     "summary": "nvidia/nemotron-3.5-lightning-30b-a3b proposed 6 mappings; the validator decides",
+     "detail": {
+      "proposer": "model",
+      "recorded": false,
+      "model": {
+       "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+       "provider": "nvidia",
+       "promptTokens": 1582,
+       "completionTokens": 335
+      },
+      "proposals": [
+       {
+        "sourceField": "protocolSection.identificationModule.nctId",
+        "canonicalField": "nct_id",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "protocolSection.identificationModule.briefTitle",
+        "canonicalField": "study_title",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "protocolSection.statusModule.overallStatus",
+        "canonicalField": "overall_status",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "protocolSection.statusModule.startDateStruct.date",
+        "canonicalField": "study_start_date",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "protocolSection.designModule.enrollmentInfo.count",
+        "canonicalField": "enrollment",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "protocolSection.eligibilityModule.minimumAge",
+        "canonicalField": "min_age_years",
+        "confidence": 1,
+        "proposer": "model"
+       }
+      ],
+      "dropped": [],
+      "flagged": [],
+      "disagreements": [],
+      "promptBytes": 5563,
+      "dataClass": "public"
+     }
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "passed",
+     "summary": "6 fields checked; none rejected, none held; key nct_id",
+     "detail": {
+      "recordKind": "study",
+      "keyField": "nct_id",
+      "fields": [
+       {
+        "sourceField": "protocolSection.identificationModule.nctId",
+        "canonicalField": "nct_id",
+        "check": "ok",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "6 of 6 distinct values join to sk_registry.ctgov_studies.nct_id"
+         }
+        ],
+        "join": {
+         "checked": 6,
+         "matched": 6,
+         "rate": 1,
+         "target": "sk_registry.ctgov_studies.nct_id",
+         "queryId": "0424e3f1-c407-4dc4-ba4b-b6fdd125d147",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "protocolSection.identificationModule.briefTitle",
+        "canonicalField": "study_title",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on nct_id agree with the held ctgov_studies.brief_title"
+         }
+        ]
+       },
+       {
+        "sourceField": "protocolSection.statusModule.overallStatus",
+        "canonicalField": "overall_status",
+        "check": "ok",
+        "proposer": "model",
+        "findings": []
+       },
+       {
+        "sourceField": "protocolSection.statusModule.startDateStruct.date",
+        "canonicalField": "study_start_date",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "ISO date",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on nct_id agree with the held ctgov_studies.start_date"
+         }
+        ]
+       },
+       {
+        "sourceField": "protocolSection.designModule.enrollmentInfo.count",
+        "canonicalField": "enrollment",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "participants",
+        "findings": []
+       },
+       {
+        "sourceField": "protocolSection.eligibilityModule.minimumAge",
+        "canonicalField": "min_age_years",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "years",
+        "findings": []
+       }
+      ],
+      "tableFindings": [],
+      "duplicates": {
+       "exact": 0,
+       "conflicting": 0
+      },
+      "agreement": [
+       {
+        "field": "study_title",
+        "column": "brief_title",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "8fce8506-45a3-4a7d-ba8d-49829db4f319"
+       },
+       {
+        "field": "study_start_date",
+        "column": "start_date",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "8fce8506-45a3-4a7d-ba8d-49829db4f319"
+       }
+      ],
+      "unmapped": [],
+      "discarded": []
+     }
+    },
+    {
+     "stage": "human_review",
+     "status": "passed",
+     "summary": "no field needed review; the mapping is stored under schema 07edb5534427",
+     "detail": {
+      "reviewer": null,
+      "memoryRecord": "mem-1"
+     }
+    },
+    {
+     "stage": "registration",
+     "status": "passed",
+     "summary": "landed the snapshot and registered sk_onboarded.s_study_97e63be11cef (6 rows); joined with 6 existing records in one federated query",
+     "detail": {
+      "table": "sk_onboarded.s_study_97e63be11cef",
+      "uri": "s3a://sakaime-onboarded/s_study_97e63be11cef/s_study_97e63be11cef.csv",
+      "rows": 6,
+      "snapshotSha256": "01d77e846b8841169f7951aa67e161b3cd534562c22b8ffc21e08ded49043ed5",
+      "kept": false,
+      "databaseCreated": true,
+      "exactDuplicatesDropped": 0,
+      "queryIds": [
+       "0e90a31b-e2a7-4d35-97ac-ddd2cc28dfb4",
+       "59bf2e77-5f3b-40cd-9a1c-0ad65fa4ccb1",
+       "949d45b4-2066-4b4a-9324-a676161a016e",
+       "982ad9d0-51d9-401f-8070-0acd9af425d3",
+       "0a051ef6-9042-4404-8306-c55465dc3b9c",
+       "eccfecff-0b15-4718-af17-48717143da79",
+       "fa33a1cd-6752-46e8-9ce0-73e806f25a7f",
+       "80837f8d-834a-4a5c-9b44-44ab19a6478f",
+       "fbd22561-0f53-4d58-94cc-16b123b68f5e",
+       "d934336c-ce15-4ab4-83af-a0c04515fd46",
+       "138636ed-02f9-4570-8b04-4873d20cb61d"
+      ],
+      "contract": {
+       "id": "01M5YBDGRQ1CE0E2MBDK5N80K4",
+       "capability": "source.register"
+      },
+      "join": {
+       "statement": "SELECT DISTINCT l.claim_id, l.product_name, n.nct_id, n.study_title, n.overall_status FROM sk_vendor.vendor_claims l JOIN sk_onboarded.s_study_97e63be11cef n ON UPPER(TRIM(l.cited_nct_id)) = UPPER(TRIM(n.nct_id)) ORDER BY 1",
+       "rows": 6,
+       "total": 6,
+       "queryId": "138636ed-02f9-4570-8b04-4873d20cb61d",
+       "servedFrom": "live",
+       "respHash": "84afa0bc43a04f38b4724e79b8c4ef63a512ebadabf8b6f5070ec5ec117cd349",
+       "sample": [
+        {
+         "claim_id": "CLM-EA-01",
+         "product_name": "EyeArt",
+         "nct_id": "NCT03112005",
+         "study_title": "Assessment of EyeArt as an Automated Diabetic Retinopathy Screening Tool",
+         "overall_status": "COMPLETED"
+        },
+        {
+         "claim_id": "CLM-EA-02",
+         "product_name": "EyeArt",
+         "nct_id": "NCT03112005",
+         "study_title": "Assessment of EyeArt as an Automated Diabetic Retinopathy Screening Tool",
+         "overall_status": "COMPLETED"
+        },
+        {
+         "claim_id": "CLM-EA-03",
+         "product_name": "EyeArt",
+         "nct_id": "NCT03112005",
+         "study_title": "Assessment of EyeArt as an Automated Diabetic Retinopathy Screening Tool",
+         "overall_status": "COMPLETED"
+        },
+        {
+         "claim_id": "CLM-EA-04",
+         "product_name": "EyeArt",
+         "nct_id": "NCT03112005",
+         "study_title": "Assessment of EyeArt as an Automated Diabetic Retinopathy Screening Tool",
+         "overall_status": "COMPLETED"
+        },
+        {
+         "claim_id": "CLM-EA-05",
+         "product_name": "EyeArt",
+         "nct_id": "NCT03112005",
+         "study_title": "Assessment of EyeArt as an Automated Diabetic Retinopathy Screening Tool",
+         "overall_status": "COMPLETED"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "stage": "monitoring",
+     "status": "passed",
+     "summary": "baseline recorded: schema 07edb5534427 as a fact about source:sakaime:onboarded:s_study_97e63be11cef; a later drift check marks the findings that depend on it stale",
+     "detail": {
+      "entity": "source:sakaime:onboarded:s_study_97e63be11cef",
+      "schemaFact": "fact_81edc083a32fd11e"
+     }
+    }
+   ],
+   "mapping": [
+    {
+     "sourceField": "protocolSection.identificationModule.nctId",
+     "canonicalField": "nct_id",
+     "confidence": 1,
+     "check": "ok",
+     "reason": "6 of 6 distinct values join to sk_registry.ctgov_studies.nct_id"
+    },
+    {
+     "sourceField": "protocolSection.identificationModule.briefTitle",
+     "canonicalField": "study_title",
+     "confidence": 1,
+     "check": "renamed"
+    },
+    {
+     "sourceField": "protocolSection.statusModule.overallStatus",
+     "canonicalField": "overall_status",
+     "confidence": 1,
+     "check": "ok"
+    },
+    {
+     "sourceField": "protocolSection.statusModule.startDateStruct.date",
+     "canonicalField": "study_start_date",
+     "unit": "ISO date",
+     "confidence": 1,
+     "check": "renamed"
+    },
+    {
+     "sourceField": "protocolSection.designModule.enrollmentInfo.count",
+     "canonicalField": "enrollment",
+     "unit": "participants",
+     "confidence": 1,
+     "check": "renamed"
+    },
+    {
+     "sourceField": "protocolSection.eligibilityModule.minimumAge",
+     "canonicalField": "min_age_years",
+     "unit": "years",
+     "confidence": 1,
+     "check": "renamed"
+    }
+   ],
+   "sourceId": "onboarded:s_study_97e63be11cef",
+   "schemaHash": "07edb5534427d8c0f6edc46429a4198b6406c0f169bc3e135c14d7612ccd01dd",
+   "zetarisName": "sk_onboarded.s_study_97e63be11cef",
+   "recorded": false
+  },
+  "constructed-renamed": {
+   "id": "2eb54b9c42c845713b04ce3037e712ed108f919c74e0cc63c423b9ec5c8cfa12",
+   "outcome": "registered",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "passed",
+     "summary": "registry.partner-data.test is on the allowlist (source card partner-registry-test); it resolves only to public addresses (93.184.216.34)",
+     "detail": {
+      "host": "registry.partner-data.test",
+      "port": 443,
+      "grantedBy": "partner-registry-test",
+      "https": true,
+      "resolvedAddresses": [
+       "93.184.216.34"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "passed",
+     "summary": "source card partner-registry-test read (identifier fields k_number; public data; test fixture); Zetaris lists 6 databases",
+     "detail": {
+      "card": {
+       "id": "partner-registry-test",
+       "kind": "registry",
+       "identifierFields": [
+        "k_number"
+       ],
+       "supportedPredicates": [],
+       "rateLimit": null,
+       "cadenceHours": null,
+       "license": "test fixture",
+       "dataClass": "public",
+       "verifiedOn": "2026-10-27",
+       "notVerified": 1
+      },
+      "zetaris": {
+       "reachable": true,
+       "databases": [
+        "sk_docs",
+        "sk_onboarded",
+        "sk_registry",
+        "sk_rest",
+        "sk_vendor",
+        "hospital"
+       ],
+       "onboardedTables": [],
+       "queryIds": [
+        "259779fd-f6b6-4121-ba0d-1ca47a5ba584",
+        "26dae94c-09a1-4d0d-8e05-de86a416ae01",
+        "13c103b0-71fd-4f2b-a7d6-b42291957b9d",
+        "403fca88-f8b6-40cd-8efc-3fc0beef7a38",
+        "7993e377-1fa1-4465-8b3b-64fa57480269",
+        "4a9f5752-8ef7-48b1-bcb1-1a97af256a2d",
+        "9f86b7f9-abb4-4e40-8861-5877b7e6f2cf",
+        "1ceb2b90-bc18-4e74-b0a0-57ff7bba8f3c"
+       ]
+      }
+     }
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "passed",
+     "summary": "12 records, 6 fields (csv); schema 80eed423d225",
+     "detail": {
+      "http": {
+       "finalUrl": "https://registry.partner-data.test/export/partner-clearances.csv",
+       "status": 200,
+       "sha256": "8ed915c5dde7fee14d6832aa896b18f7054492ccd22e36bdd56607ebe2e91a47",
+       "at": "2026-10-27T09:35:14.711Z",
+       "redirects": 0,
+       "servedFrom": "recorded"
+      },
+      "format": "csv",
+      "rows": 12,
+      "columns": [
+       "fda_ref",
+       "item_label",
+       "firm_name",
+       "procode",
+       "cleared_on",
+       "risk_class"
+      ],
+      "bytes": 784,
+      "sha256": "8ed915c5dde7fee14d6832aa896b18f7054492ccd22e36bdd56607ebe2e91a47",
+      "schemaHash": "80eed423d225d177a1ccbdeef7cbeb16d923da3c7287fc9b0bafebeddef3125c",
+      "shape": {
+       "fda_ref": "string",
+       "item_label": "string",
+       "firm_name": "string",
+       "procode": "string",
+       "cleared_on": "date",
+       "risk_class": "number"
+      },
+      "sample": [
+       {
+        "fda_ref": "DEN170073",
+        "item_label": "ContaCT",
+        "firm_name": "Viz.Al, Inc.",
+        "procode": "QAS",
+        "cleared_on": "2018-02-13",
+        "risk_class": "2"
+       },
+       {
+        "fda_ref": "DEN180001",
+        "item_label": "IDx-DR",
+        "firm_name": "Idx, LLC",
+        "procode": "PIB",
+        "cleared_on": "2018-04-11",
+        "risk_class": "2"
+       },
+       {
+        "fda_ref": "DEN190040",
+        "item_label": "Caption Guidance",
+        "firm_name": "Bay Labs, Inc.",
+        "procode": "QJU",
+        "cleared_on": "2020-02-07",
+        "risk_class": "2"
+       }
+      ]
+     }
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "passed",
+     "summary": "nvidia/nemotron-3-ultra-550b-a55b proposed 6 mappings; the validator decides",
+     "detail": {
+      "proposer": "model",
+      "recorded": false,
+      "model": {
+       "routedModel": "nvidia/nemotron-3-ultra-550b-a55b",
+       "provider": "nvidia",
+       "promptTokens": 1475,
+       "completionTokens": 305
+      },
+      "proposals": [
+       {
+        "sourceField": "fda_ref",
+        "canonicalField": "submission_number",
+        "confidence": 0.95,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "item_label",
+        "canonicalField": "device_name",
+        "confidence": 0.9,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "firm_name",
+        "canonicalField": "applicant",
+        "confidence": 0.95,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "procode",
+        "canonicalField": "product_code",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "cleared_on",
+        "canonicalField": "decision_date",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "risk_class",
+        "canonicalField": "device_class",
+        "confidence": 0.9,
+        "proposer": "model"
+       }
+      ],
+      "dropped": [],
+      "flagged": [],
+      "disagreements": [],
+      "promptBytes": 5063,
+      "dataClass": "public"
+     }
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "passed",
+     "summary": "6 fields checked; none rejected, none held; key submission_number",
+     "detail": {
+      "recordKind": "authorization",
+      "keyField": "submission_number",
+      "fields": [
+       {
+        "sourceField": "fda_ref",
+        "canonicalField": "submission_number",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "12 of 12 distinct values join to sk_registry.fda_510k.k_number (the source as a whole is expected to overlap by at least 80%)"
+         }
+        ],
+        "join": {
+         "checked": 12,
+         "matched": 12,
+         "rate": 1,
+         "target": "sk_registry.fda_510k.k_number",
+         "queryId": "c6ee0ac9-6b63-4a55-bff5-78eeee7dd6d1",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "item_label",
+        "canonicalField": "device_name",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "12 of 12 distinct values join to sk_registry.fda_510k.device_name"
+         },
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "12 of 12 rows that join on submission_number agree with the held fda_510k.device_name"
+         }
+        ],
+        "join": {
+         "checked": 12,
+         "matched": 12,
+         "rate": 1,
+         "target": "sk_registry.fda_510k.device_name",
+         "queryId": "33c42a25-4525-4946-9049-9ba7ca013110",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "firm_name",
+        "canonicalField": "applicant",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "12 of 12 distinct values join to sk_registry.fda_510k.applicant"
+         },
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "12 of 12 rows that join on submission_number agree with the held fda_510k.applicant"
+         }
+        ],
+        "join": {
+         "checked": 12,
+         "matched": 12,
+         "rate": 1,
+         "target": "sk_registry.fda_510k.applicant",
+         "queryId": "cd4d2c12-f97a-45ef-9545-b4a08288e686",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "procode",
+        "canonicalField": "product_code",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "9 of 9 distinct values join to sk_registry.fda_classification.product_code (the source as a whole is expected to overlap by at least 80%)"
+         },
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "12 of 12 rows that join on submission_number agree with the held fda_510k.product_code"
+         }
+        ],
+        "join": {
+         "checked": 9,
+         "matched": 9,
+         "rate": 1,
+         "target": "sk_registry.fda_classification.product_code",
+         "queryId": "6421a316-5205-44db-b8bc-9b91dd7d60cc",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "cleared_on",
+        "canonicalField": "decision_date",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "ISO date",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "12 of 12 rows that join on submission_number agree with the held fda_510k.decision_date"
+         }
+        ]
+       },
+       {
+        "sourceField": "risk_class",
+        "canonicalField": "device_class",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "12 of 12 rows that join on submission_number agree with the held fda_510k.device_class"
+         }
+        ]
+       }
+      ],
+      "tableFindings": [
+       {
+        "rule": "join",
+        "severity": "note",
+        "message": "12 of 12 distinct submission_number values join to held records (expected at least 80%)"
+       }
+      ],
+      "duplicates": {
+       "exact": 0,
+       "conflicting": 0
+      },
+      "agreement": [
+       {
+        "field": "device_name",
+        "column": "device_name",
+        "compared": 12,
+        "agreed": 12,
+        "rate": 1,
+        "queryId": "e74bfc45-a05a-42f1-9d65-840806fb4252"
+       },
+       {
+        "field": "applicant",
+        "column": "applicant",
+        "compared": 12,
+        "agreed": 12,
+        "rate": 1,
+        "queryId": "e74bfc45-a05a-42f1-9d65-840806fb4252"
+       },
+       {
+        "field": "product_code",
+        "column": "product_code",
+        "compared": 12,
+        "agreed": 12,
+        "rate": 1,
+        "queryId": "e74bfc45-a05a-42f1-9d65-840806fb4252"
+       },
+       {
+        "field": "decision_date",
+        "column": "decision_date",
+        "compared": 12,
+        "agreed": 12,
+        "rate": 1,
+        "queryId": "e74bfc45-a05a-42f1-9d65-840806fb4252"
+       },
+       {
+        "field": "device_class",
+        "column": "device_class",
+        "compared": 12,
+        "agreed": 12,
+        "rate": 1,
+        "queryId": "e74bfc45-a05a-42f1-9d65-840806fb4252"
+       }
+      ],
+      "unmapped": [],
+      "discarded": []
+     }
+    },
+    {
+     "stage": "human_review",
+     "status": "passed",
+     "summary": "no field needed review; the mapping is stored under schema 80eed423d225",
+     "detail": {
+      "reviewer": null,
+      "memoryRecord": "mem-2"
+     }
+    },
+    {
+     "stage": "registration",
+     "status": "passed",
+     "summary": "landed the snapshot and registered sk_onboarded.s_authorization_2eb54b9c42c8 (12 rows); joined with 6 existing records in one federated query",
+     "detail": {
+      "table": "sk_onboarded.s_authorization_2eb54b9c42c8",
+      "uri": "s3a://sakaime-onboarded/s_authorization_2eb54b9c42c8/s_authorization_2eb54b9c42c8.csv",
+      "rows": 12,
+      "snapshotSha256": "5e56ea5bebc8330cad4d090f227a849ec01d56918fc6ffd0ea8e46af05b72e60",
+      "kept": false,
+      "databaseCreated": false,
+      "exactDuplicatesDropped": 0,
+      "queryIds": [
+       "793d7500-2c45-476a-a6c6-3cf4572fbb1b",
+       "3f8092fc-bc0b-4c43-a9b3-eaa69bbd07ab",
+       "95a78d95-0225-47e8-a303-72a329646765",
+       "ce8b2d15-2cfb-4c80-885f-9490b654bde8"
+      ],
+      "contract": {
+       "id": "01M5YBDGRQ1CE0E2MBDK5N80K6",
+       "capability": "source.register"
+      },
+      "join": {
+       "statement": "SELECT DISTINCT l.submission_id, l.product_name, n.submission_number, n.device_name, n.applicant FROM hospital.submissions l JOIN sk_onboarded.s_authorization_2eb54b9c42c8 n ON UPPER(TRIM(l.regulator_submission_cited)) = UPPER(TRIM(n.submission_number)) ORDER BY 1",
+       "rows": 6,
+       "total": 6,
+       "queryId": "ce8b2d15-2cfb-4c80-885f-9490b654bde8",
+       "servedFrom": "live",
+       "respHash": "09c14304461d1438055b3bb37bfdf54935d2dac13759bb3d560a3b4e70da04af",
+       "sample": [
+        {
+         "submission_id": "SUB-1001",
+         "product_name": "EyeArt",
+         "submission_number": "K200667",
+         "device_name": "EyeArt",
+         "applicant": "Eyenuk, Inc."
+        },
+        {
+         "submission_id": "SUB-1002",
+         "product_name": "Lunit INSIGHT CXR Triage",
+         "submission_number": "K211733",
+         "device_name": "Lunit INSIGHT CXR Triage",
+         "applicant": "Lunit, Inc."
+        },
+        {
+         "submission_id": "SUB-1003",
+         "product_name": "Viz LVO",
+         "submission_number": "DEN170073",
+         "device_name": "ContaCT",
+         "applicant": "Viz.Al, Inc."
+        },
+        {
+         "submission_id": "SUB-1004",
+         "product_name": "Transpara",
+         "submission_number": "K221347",
+         "device_name": "Transpara 1.7.2",
+         "applicant": "Screenpoint Medical B.V."
+        },
+        {
+         "submission_id": "SUB-1005",
+         "product_name": "IDx-DR",
+         "submission_number": "DEN180001",
+         "device_name": "IDx-DR",
+         "applicant": "Idx, LLC"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "stage": "monitoring",
+     "status": "passed",
+     "summary": "baseline recorded: schema 80eed423d225 as a fact about source:sakaime:onboarded:s_authorization_2eb54b9c42c8; a later drift check marks the findings that depend on it stale",
+     "detail": {
+      "entity": "source:sakaime:onboarded:s_authorization_2eb54b9c42c8",
+      "schemaFact": "fact_7d7b1e166b088fa3"
+     }
+    }
+   ],
+   "mapping": [
+    {
+     "sourceField": "fda_ref",
+     "canonicalField": "submission_number",
+     "confidence": 0.95,
+     "check": "renamed",
+     "reason": "12 of 12 distinct values join to sk_registry.fda_510k.k_number (the source as a whole is expected to overlap by at least 80%)"
+    },
+    {
+     "sourceField": "item_label",
+     "canonicalField": "device_name",
+     "confidence": 0.9,
+     "check": "renamed",
+     "reason": "12 of 12 distinct values join to sk_registry.fda_510k.device_name"
+    },
+    {
+     "sourceField": "firm_name",
+     "canonicalField": "applicant",
+     "confidence": 0.95,
+     "check": "renamed",
+     "reason": "12 of 12 distinct values join to sk_registry.fda_510k.applicant"
+    },
+    {
+     "sourceField": "procode",
+     "canonicalField": "product_code",
+     "confidence": 1,
+     "check": "renamed",
+     "reason": "9 of 9 distinct values join to sk_registry.fda_classification.product_code (the source as a whole is expected to overlap by at least 80%)"
+    },
+    {
+     "sourceField": "cleared_on",
+     "canonicalField": "decision_date",
+     "unit": "ISO date",
+     "confidence": 1,
+     "check": "renamed"
+    },
+    {
+     "sourceField": "risk_class",
+     "canonicalField": "device_class",
+     "confidence": 0.9,
+     "check": "renamed"
+    }
+   ],
+   "sourceId": "onboarded:s_authorization_2eb54b9c42c8",
+   "schemaHash": "80eed423d225d177a1ccbdeef7cbeb16d923da3c7287fc9b0bafebeddef3125c",
+   "zetarisName": "sk_onboarded.s_authorization_2eb54b9c42c8",
+   "recorded": false
+  },
+  "constructed-percent (held)": {
+   "id": "d696a7b415622efb663b9a28334abe8a47999db936554c67f46acd270255ecbf",
+   "outcome": "held_for_review",
+   "reason": "1 finding for a reviewer: reported_sensitivity as sensitivity: the values are on a 0 to 100 scale (largest 97.7); the canonical field is a fraction between 0 and 1",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "passed",
+     "summary": "registry.partner-data.test is on the allowlist (source card partner-registry-test); it resolves only to public addresses (93.184.216.34)",
+     "detail": {
+      "host": "registry.partner-data.test",
+      "port": 443,
+      "grantedBy": "partner-registry-test",
+      "https": true,
+      "resolvedAddresses": [
+       "93.184.216.34"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "passed",
+     "summary": "source card partner-registry-test read (identifier fields k_number; public data; test fixture); Zetaris lists 6 databases",
+     "detail": {
+      "card": {
+       "id": "partner-registry-test",
+       "kind": "registry",
+       "identifierFields": [
+        "k_number"
+       ],
+       "supportedPredicates": [],
+       "rateLimit": null,
+       "cadenceHours": null,
+       "license": "test fixture",
+       "dataClass": "public",
+       "verifiedOn": "2026-10-27",
+       "notVerified": 1
+      },
+      "zetaris": {
+       "reachable": true,
+       "databases": [
+        "sk_docs",
+        "sk_onboarded",
+        "sk_registry",
+        "sk_rest",
+        "sk_vendor",
+        "hospital"
+       ],
+       "onboardedTables": [],
+       "queryIds": [
+        "c0ec96d8-00b4-443f-9fee-cb25c543bbe9",
+        "0b2c1393-3e24-4d3a-ae83-37e2fe6372d4",
+        "fe1bce4f-1a3c-4ddd-865d-81b3c2f68428",
+        "0951ae1e-8d48-4b61-a330-a40620bc5428",
+        "054dca02-d5c5-43f5-b1e8-f080ae7ebeda",
+        "625329ea-320f-495c-bdfa-a8fd3b942bbc",
+        "d6ada200-0ec3-4f16-8444-241c7d988a1a",
+        "99516cb2-da4f-4604-92ea-527cc484261c"
+       ]
+      }
+     }
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "passed",
+     "summary": "6 records, 3 fields (csv); schema 005c26e6c98e",
+     "detail": {
+      "http": {
+       "finalUrl": "https://registry.partner-data.test/export/partner-performance.csv",
+       "status": 200,
+       "sha256": "92251584d8e56a61554fcd8b482117fcf9027c606ad6dd33afe852a34e9ca218",
+       "at": "2026-10-27T09:35:14.711Z",
+       "redirects": 0,
+       "servedFrom": "recorded"
+      },
+      "format": "csv",
+      "rows": 6,
+      "columns": [
+       "pubmed_id",
+       "reported_sensitivity",
+       "year"
+      ],
+      "bytes": 150,
+      "sha256": "92251584d8e56a61554fcd8b482117fcf9027c606ad6dd33afe852a34e9ca218",
+      "schemaHash": "005c26e6c98e4ea36431c0a0fb83dbe6e16f3b934f579da341df74b43e1ac7e9",
+      "shape": {
+       "pubmed_id": "number",
+       "reported_sensitivity": "number",
+       "year": "number"
+      },
+      "sample": [
+       {
+        "pubmed_id": "34779843",
+        "reported_sensitivity": "95.5",
+        "year": "2021"
+       },
+       {
+        "pubmed_id": "31304320",
+        "reported_sensitivity": "87.2",
+        "year": "2018"
+       },
+       {
+        "pubmed_id": "33782551",
+        "reported_sensitivity": "97.7",
+        "year": "2021"
+       }
+      ]
+     }
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "passed",
+     "summary": "nvidia/nemotron-3.5-lightning-30b-a3b proposed 3 mappings; the validator decides",
+     "detail": {
+      "proposer": "model",
+      "recorded": false,
+      "model": {
+       "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+       "provider": "nvidia",
+       "promptTokens": 1351,
+       "completionTokens": 155
+      },
+      "proposals": [
+       {
+        "sourceField": "pubmed_id",
+        "canonicalField": "pmid",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "reported_sensitivity",
+        "canonicalField": "sensitivity",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "year",
+        "canonicalField": "publication_year",
+        "confidence": 1,
+        "proposer": "model"
+       }
+      ],
+      "dropped": [],
+      "flagged": [],
+      "disagreements": [],
+      "promptBytes": 4724,
+      "dataClass": "public"
+     }
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "held",
+     "summary": "1 finding needs a reviewer: reported_sensitivity: the values are on a 0 to 100 scale (largest 97.7); the canonical field is a fraction between 0 and 1",
+     "detail": {
+      "recordKind": "performance",
+      "keyField": "pmid",
+      "fields": [
+       {
+        "sourceField": "pubmed_id",
+        "canonicalField": "pmid",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "6 of 6 distinct values join to sk_registry.pubmed_articles.pmid (the source as a whole is expected to overlap by at least 80%)"
+         }
+        ],
+        "join": {
+         "checked": 6,
+         "matched": 6,
+         "rate": 1,
+         "target": "sk_registry.pubmed_articles.pmid",
+         "queryId": "28eb483a-a44e-41dc-9f29-33a66633dfa5",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "reported_sensitivity",
+        "canonicalField": "sensitivity",
+        "check": "needs_review",
+        "proposer": "model",
+        "unit": "percent to fraction",
+        "findings": [
+         {
+          "rule": "scale",
+          "severity": "hold",
+          "message": "the values are on a 0 to 100 scale (largest 97.7); the canonical field is a fraction between 0 and 1"
+         }
+        ]
+       },
+       {
+        "sourceField": "year",
+        "canonicalField": "publication_year",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "year",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on pmid agree with the held pubmed_articles.pub_year"
+         }
+        ]
+       }
+      ],
+      "tableFindings": [
+       {
+        "rule": "join",
+        "severity": "note",
+        "message": "6 of 6 distinct pmid values join to held records (expected at least 80%)"
+       }
+      ],
+      "duplicates": {
+       "exact": 0,
+       "conflicting": 0
+      },
+      "agreement": [
+       {
+        "field": "publication_year",
+        "column": "pub_year",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "ca9bda21-f894-48e6-9190-5b095d5ebad0"
+       }
+      ],
+      "unmapped": [],
+      "discarded": []
+     }
+    },
+    {
+     "stage": "human_review",
+     "status": "held",
+     "summary": "held for a reviewer: 1 column",
+     "detail": {
+      "ticket": "d696a7b415622efb663b9a28334abe8a47999db936554c67f46acd270255ecbf",
+      "holds": [
+       {
+        "sourceField": "reported_sensitivity",
+        "canonicalField": "sensitivity",
+        "signatures": [
+         "scale#percent"
+        ]
+       }
+      ],
+      "tableHolds": [],
+      "needsDateChoice": []
+     }
+    },
+    {
+     "stage": "registration",
+     "status": "pending",
+     "summary": "waiting for a reviewer before registration"
+    },
+    {
+     "stage": "monitoring",
+     "status": "pending",
+     "summary": "waiting for a reviewer before monitoring"
+    }
+   ],
+   "mapping": [
+    {
+     "sourceField": "pubmed_id",
+     "canonicalField": "pmid",
+     "confidence": 1,
+     "check": "renamed",
+     "reason": "6 of 6 distinct values join to sk_registry.pubmed_articles.pmid (the source as a whole is expected to overlap by at least 80%)"
+    },
+    {
+     "sourceField": "reported_sensitivity",
+     "canonicalField": "sensitivity",
+     "unit": "percent to fraction",
+     "confidence": 1,
+     "check": "needs_review",
+     "reason": "the values are on a 0 to 100 scale (largest 97.7); the canonical field is a fraction between 0 and 1"
+    },
+    {
+     "sourceField": "year",
+     "canonicalField": "publication_year",
+     "unit": "year",
+     "confidence": 1,
+     "check": "renamed"
+    }
+   ],
+   "schemaHash": "005c26e6c98e4ea36431c0a0fb83dbe6e16f3b934f579da341df74b43e1ac7e9",
+   "recorded": false
+  },
+  "constructed-percent (after acceptance)": {
+   "id": "d696a7b415622efb663b9a28334abe8a47999db936554c67f46acd270255ecbf",
+   "outcome": "registered",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "passed",
+     "summary": "registry.partner-data.test is on the allowlist (source card partner-registry-test); it resolves only to public addresses (93.184.216.34)",
+     "detail": {
+      "host": "registry.partner-data.test",
+      "port": 443,
+      "grantedBy": "partner-registry-test",
+      "https": true,
+      "resolvedAddresses": [
+       "93.184.216.34"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "passed",
+     "summary": "source card partner-registry-test read (identifier fields k_number; public data; test fixture); Zetaris lists 6 databases",
+     "detail": {
+      "card": {
+       "id": "partner-registry-test",
+       "kind": "registry",
+       "identifierFields": [
+        "k_number"
+       ],
+       "supportedPredicates": [],
+       "rateLimit": null,
+       "cadenceHours": null,
+       "license": "test fixture",
+       "dataClass": "public",
+       "verifiedOn": "2026-10-27",
+       "notVerified": 1
+      },
+      "zetaris": {
+       "reachable": true,
+       "databases": [
+        "sk_docs",
+        "sk_onboarded",
+        "sk_registry",
+        "sk_rest",
+        "sk_vendor",
+        "hospital"
+       ],
+       "onboardedTables": [],
+       "queryIds": [
+        "c0ec96d8-00b4-443f-9fee-cb25c543bbe9",
+        "0b2c1393-3e24-4d3a-ae83-37e2fe6372d4",
+        "fe1bce4f-1a3c-4ddd-865d-81b3c2f68428",
+        "0951ae1e-8d48-4b61-a330-a40620bc5428",
+        "054dca02-d5c5-43f5-b1e8-f080ae7ebeda",
+        "625329ea-320f-495c-bdfa-a8fd3b942bbc",
+        "d6ada200-0ec3-4f16-8444-241c7d988a1a",
+        "99516cb2-da4f-4604-92ea-527cc484261c"
+       ]
+      }
+     }
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "passed",
+     "summary": "6 records, 3 fields (csv); schema 005c26e6c98e",
+     "detail": {
+      "http": {
+       "finalUrl": "https://registry.partner-data.test/export/partner-performance.csv",
+       "status": 200,
+       "sha256": "92251584d8e56a61554fcd8b482117fcf9027c606ad6dd33afe852a34e9ca218",
+       "at": "2026-10-27T09:35:14.711Z",
+       "redirects": 0,
+       "servedFrom": "recorded"
+      },
+      "format": "csv",
+      "rows": 6,
+      "columns": [
+       "pubmed_id",
+       "reported_sensitivity",
+       "year"
+      ],
+      "bytes": 150,
+      "sha256": "92251584d8e56a61554fcd8b482117fcf9027c606ad6dd33afe852a34e9ca218",
+      "schemaHash": "005c26e6c98e4ea36431c0a0fb83dbe6e16f3b934f579da341df74b43e1ac7e9",
+      "shape": {
+       "pubmed_id": "number",
+       "reported_sensitivity": "number",
+       "year": "number"
+      },
+      "sample": [
+       {
+        "pubmed_id": "34779843",
+        "reported_sensitivity": "95.5",
+        "year": "2021"
+       },
+       {
+        "pubmed_id": "31304320",
+        "reported_sensitivity": "87.2",
+        "year": "2018"
+       },
+       {
+        "pubmed_id": "33782551",
+        "reported_sensitivity": "97.7",
+        "year": "2021"
+       }
+      ]
+     }
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "passed",
+     "summary": "nvidia/nemotron-3.5-lightning-30b-a3b proposed 3 mappings; the validator decides",
+     "detail": {
+      "proposer": "model",
+      "recorded": false,
+      "model": {
+       "routedModel": "nvidia/nemotron-3.5-lightning-30b-a3b",
+       "provider": "nvidia",
+       "promptTokens": 1351,
+       "completionTokens": 155
+      },
+      "proposals": [
+       {
+        "sourceField": "pubmed_id",
+        "canonicalField": "pmid",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "reported_sensitivity",
+        "canonicalField": "sensitivity",
+        "confidence": 1,
+        "proposer": "model"
+       },
+       {
+        "sourceField": "year",
+        "canonicalField": "publication_year",
+        "confidence": 1,
+        "proposer": "model"
+       }
+      ],
+      "dropped": [],
+      "flagged": [],
+      "disagreements": [],
+      "promptBytes": 4724,
+      "dataClass": "public"
+     }
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "passed",
+     "summary": "3 fields checked; none rejected, none held; key pmid",
+     "detail": {
+      "recordKind": "performance",
+      "keyField": "pmid",
+      "fields": [
+       {
+        "sourceField": "pubmed_id",
+        "canonicalField": "pmid",
+        "check": "renamed",
+        "proposer": "model",
+        "findings": [
+         {
+          "rule": "join",
+          "severity": "note",
+          "message": "6 of 6 distinct values join to sk_registry.pubmed_articles.pmid (the source as a whole is expected to overlap by at least 80%)"
+         }
+        ],
+        "join": {
+         "checked": 6,
+         "matched": 6,
+         "rate": 1,
+         "target": "sk_registry.pubmed_articles.pmid",
+         "queryId": "59488721-1c8a-4ead-892d-9d5e700d4431",
+         "servedFrom": "live"
+        }
+       },
+       {
+        "sourceField": "reported_sensitivity",
+        "canonicalField": "sensitivity",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "percent to fraction",
+        "findings": [
+         {
+          "rule": "scale",
+          "severity": "note",
+          "message": "the values are on a 0 to 100 scale (largest 97.7); the canonical field is a fraction between 0 and 1 (accepted by run-script-as-reviewer)"
+         }
+        ]
+       },
+       {
+        "sourceField": "year",
+        "canonicalField": "publication_year",
+        "check": "renamed",
+        "proposer": "model",
+        "unit": "year",
+        "findings": [
+         {
+          "rule": "agreement",
+          "severity": "note",
+          "message": "6 of 6 rows that join on pmid agree with the held pubmed_articles.pub_year"
+         }
+        ]
+       }
+      ],
+      "tableFindings": [
+       {
+        "rule": "join",
+        "severity": "note",
+        "message": "6 of 6 distinct pmid values join to held records (expected at least 80%)"
+       }
+      ],
+      "duplicates": {
+       "exact": 0,
+       "conflicting": 0
+      },
+      "agreement": [
+       {
+        "field": "publication_year",
+        "column": "pub_year",
+        "compared": 6,
+        "agreed": 6,
+        "rate": 1,
+        "queryId": "9f742e99-7ee4-4bc2-abdd-2025d2efefe8"
+       }
+      ],
+      "unmapped": [],
+      "discarded": []
+     }
+    },
+    {
+     "stage": "human_review",
+     "status": "passed",
+     "summary": "accepted by reviewer run-script-as-reviewer: automated acceptance by the live run script, standing in for a reviewer; the mapping is stored under schema 005c26e6c98e",
+     "detail": {
+      "reviewer": "run-script-as-reviewer",
+      "memoryRecord": "mem-3"
+     }
+    },
+    {
+     "stage": "registration",
+     "status": "passed",
+     "summary": "landed the snapshot and registered sk_onboarded.s_performance_d696a7b41562 (6 rows); joined with 7 existing records in one federated query",
+     "detail": {
+      "table": "sk_onboarded.s_performance_d696a7b41562",
+      "uri": "s3a://sakaime-onboarded/s_performance_d696a7b41562/s_performance_d696a7b41562.csv",
+      "rows": 6,
+      "snapshotSha256": "075e1618e17e0f05041a5b385f8ded1ac9704390a40483ed805b01f8569a26fc",
+      "kept": false,
+      "databaseCreated": false,
+      "exactDuplicatesDropped": 0,
+      "queryIds": [
+       "0f0bf0ef-5c5f-41ca-ba07-3addd6955a5c",
+       "a02c5ff1-4226-49f4-9353-293484c4c21c",
+       "fe9effcd-70c0-4e5d-b13c-c080ec20fcf6",
+       "ad4b4854-4dab-4ca4-858e-5a6cd76d4e26"
+      ],
+      "contract": {
+       "id": "01M5YBDGRQ1CE0E2MBDK5N80KA",
+       "capability": "source.register"
+      },
+      "join": {
+       "statement": "SELECT DISTINCT l.claim_id, l.product_name, n.pmid, n.sensitivity, n.publication_year FROM sk_vendor.vendor_claims l JOIN sk_onboarded.s_performance_d696a7b41562 n ON UPPER(TRIM(l.cited_pmid)) = UPPER(TRIM(n.pmid)) ORDER BY 1",
+       "rows": 7,
+       "total": 7,
+       "queryId": "ad4b4854-4dab-4ca4-858e-5a6cd76d4e26",
+       "servedFrom": "live",
+       "respHash": "5db3837bd3cefb5944f0b41a148b22c3aaa1d7ad30d384aedde29e2fdf9410c3",
+       "sample": [
+        {
+         "claim_id": "CLM-EA-01",
+         "product_name": "EyeArt",
+         "pmid": "34779843",
+         "sensitivity": "0.955",
+         "publication_year": "2021"
+        },
+        {
+         "claim_id": "CLM-EA-02",
+         "product_name": "EyeArt",
+         "pmid": "34779843",
+         "sensitivity": "0.955",
+         "publication_year": "2021"
+        },
+        {
+         "claim_id": "CLM-EA-03",
+         "product_name": "EyeArt",
+         "pmid": "34779843",
+         "sensitivity": "0.955",
+         "publication_year": "2021"
+        },
+        {
+         "claim_id": "CLM-EA-04",
+         "product_name": "EyeArt",
+         "pmid": "34779843",
+         "sensitivity": "0.955",
+         "publication_year": "2021"
+        },
+        {
+         "claim_id": "CLM-EA-05",
+         "product_name": "EyeArt",
+         "pmid": "34779843",
+         "sensitivity": "0.955",
+         "publication_year": "2021"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "stage": "monitoring",
+     "status": "passed",
+     "summary": "baseline recorded: schema 005c26e6c98e as a fact about source:sakaime:onboarded:s_performance_d696a7b41562; a later drift check marks the findings that depend on it stale",
+     "detail": {
+      "entity": "source:sakaime:onboarded:s_performance_d696a7b41562",
+      "schemaFact": "fact_72beb45cf6f81d49"
+     }
+    }
+   ],
+   "mapping": [
+    {
+     "sourceField": "pubmed_id",
+     "canonicalField": "pmid",
+     "confidence": 1,
+     "check": "renamed",
+     "reason": "6 of 6 distinct values join to sk_registry.pubmed_articles.pmid (the source as a whole is expected to overlap by at least 80%)"
+    },
+    {
+     "sourceField": "reported_sensitivity",
+     "canonicalField": "sensitivity",
+     "unit": "percent to fraction",
+     "confidence": 1,
+     "check": "renamed",
+     "reason": "the values are on a 0 to 100 scale (largest 97.7); the canonical field is a fraction between 0 and 1 (accepted by run-script-as-reviewer)"
+    },
+    {
+     "sourceField": "year",
+     "canonicalField": "publication_year",
+     "unit": "year",
+     "confidence": 1,
+     "check": "renamed"
+    }
+   ],
+   "sourceId": "onboarded:s_performance_d696a7b41562",
+   "schemaHash": "005c26e6c98e4ea36431c0a0fb83dbe6e16f3b934f579da341df74b43e1ac7e9",
+   "zetarisName": "sk_onboarded.s_performance_d696a7b41562",
+   "recorded": false
+  },
+  "refused-metadata": {
+   "id": "5a034213079d34e20eff8f1ade145c87e1b71deb918d73e2edda42d9e4943a00",
+   "outcome": "declined",
+   "reason": "IP-literal hosts are refused (host resolves to the literal \"169.254.169.254\"); use a registered source host. Only hosts named by a source card can be onboarded.",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "failed",
+     "summary": "Refused: IP-literal hosts are refused (host resolves to the literal \"169.254.169.254\"); use a registered source host",
+     "detail": {
+      "failure": "REFUSED",
+      "allowlisted": [
+       "api.crossref.org",
+       "api.fda.gov",
+       "clinicaltrials.gov",
+       "eutils.ncbi.nlm.nih.gov",
+       "registry.partner-data.test",
+       "www.accessdata.fda.gov",
+       "www.ebi.ac.uk",
+       "www.fda.gov"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "human_review",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "registration",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "monitoring",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    }
+   ],
+   "mapping": [],
+   "recorded": false
+  },
+  "refused-host": {
+   "id": "f29862a11d6419c4273b92563275c511b4faf5bdb895697a6f41ea208f6feaae",
+   "outcome": "declined",
+   "reason": "host \"example.org\" is not on the source allowlist. Only hosts named by a source card can be onboarded.",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "failed",
+     "summary": "Refused: host \"example.org\" is not on the source allowlist",
+     "detail": {
+      "failure": "REFUSED",
+      "allowlisted": [
+       "api.crossref.org",
+       "api.fda.gov",
+       "clinicaltrials.gov",
+       "eutils.ncbi.nlm.nih.gov",
+       "registry.partner-data.test",
+       "www.accessdata.fda.gov",
+       "www.ebi.ac.uk",
+       "www.fda.gov"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "human_review",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "registration",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "monitoring",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    }
+   ],
+   "mapping": [],
+   "recorded": false
+  },
+  "refused-http": {
+   "id": "63b9e6dbf409396e9658fc4d4248d9a07ad60d91ad9f495fe3605d4ca9579242",
+   "outcome": "declined",
+   "reason": "only https is allowed; got \"http\". Only hosts named by a source card can be onboarded.",
+   "stages": [
+    {
+     "stage": "authorization",
+     "status": "failed",
+     "summary": "Refused: only https is allowed; got \"http\"",
+     "detail": {
+      "failure": "REFUSED",
+      "allowlisted": [
+       "api.crossref.org",
+       "api.fda.gov",
+       "clinicaltrials.gov",
+       "eutils.ncbi.nlm.nih.gov",
+       "registry.partner-data.test",
+       "www.accessdata.fda.gov",
+       "www.ebi.ac.uk",
+       "www.fda.gov"
+      ]
+     }
+    },
+    {
+     "stage": "capability_discovery",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "bounded_probe",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "mapping_proposal",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "semantic_validation",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "human_review",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "registration",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    },
+    {
+     "stage": "monitoring",
+     "status": "skipped",
+     "summary": "not reached: authorization did not pass"
+    }
+   ],
+   "mapping": [],
+   "recorded": false
+  },
+  "drift": {
+   "status": "DRIFTED",
+   "detail": "the shape of the source changed: removed: firm_name; added: company. 1 dependent finding is marked stale",
+   "checkedAt": "2026-10-27T10:35:14.711Z",
+   "staleFindingIds": [
+    "live-finding-1"
+   ],
+   "diff": {
+    "removed": [
+     "firm_name"
+    ],
+    "retyped": [],
+    "added": [
+     "company"
+    ]
+   },
+   "schemaHash": "f91c7393e955855ec150c75cf47cd9f926b1e296e3c92b330c40406a6093cae6",
+   "previousSchemaHash": "80eed423d225d177a1ccbdeef7cbeb16d923da3c7287fc9b0bafebeddef3125c",
+   "stage": {
+    "stage": "monitoring",
+    "status": "held",
+    "summary": "the shape of the source changed: removed: firm_name; added: company. 1 dependent finding is marked stale",
+    "detail": {
+     "status": "DRIFTED",
+     "diff": {
+      "removed": [
+       "firm_name"
+      ],
+      "retyped": [],
+      "added": [
+       "company"
+      ]
+     }
+    }
+   }
+  }
+ },
+ "joins": {
+  "hospital + onboarded clearances + vendor claims + onboarded studies": {
+   "statement": "SELECT s.submission_id, s.product_name, a.applicant, a.decision_date, c.claim_id, n.nct_id, n.enrollment, n.overall_status FROM hospital.submissions s JOIN sk_onboarded.s_authorization_2eb54b9c42c8 a ON UPPER(TRIM(s.regulator_submission_cited)) = a.submission_number JOIN sk_vendor.vendor_claims c ON UPPER(TRIM(c.cited_submission)) = a.submission_number JOIN sk_onboarded.s_study_97e63be11cef n ON UPPER(TRIM(c.cited_nct_id)) = n.nct_id ORDER BY s.submission_id, c.claim_id",
+   "rows": 6,
+   "queryId": "6724c1d6-4f52-4058-a302-d2bd4d1d9763",
+   "servedFrom": "live",
+   "sample": [
+    {
+     "submission_id": "SUB-1001",
+     "product_name": "EyeArt",
+     "applicant": "Eyenuk, Inc.",
+     "decision_date": "2020-08-03",
+     "claim_id": "CLM-EA-01",
+     "nct_id": "NCT03112005",
+     "enrollment": "942",
+     "overall_status": "COMPLETED"
+    },
+    {
+     "submission_id": "SUB-1001",
+     "product_name": "EyeArt",
+     "applicant": "Eyenuk, Inc.",
+     "decision_date": "2020-08-03",
+     "claim_id": "CLM-EA-02",
+     "nct_id": "NCT03112005",
+     "enrollment": "942",
+     "overall_status": "COMPLETED"
+    },
+    {
+     "submission_id": "SUB-1001",
+     "product_name": "EyeArt",
+     "applicant": "Eyenuk, Inc.",
+     "decision_date": "2020-08-03",
+     "claim_id": "CLM-EA-03",
+     "nct_id": "NCT03112005",
+     "enrollment": "942",
+     "overall_status": "COMPLETED"
+    }
+   ]
+  }
+ }
+}

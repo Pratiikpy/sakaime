@@ -1,0 +1,12 @@
+pmid,pub_year,sensitivity,specificity,nct_id
+https://pubmed.ncbi.nlm.nih.gov/31304320/,2018,0.872,0.907,NCT02963441
+https://pubmed.ncbi.nlm.nih.gov/31335200/,2019,0.985,,
+https://pubmed.ncbi.nlm.nih.gov/32393768/,2020,0.74,0.97,
+https://pubmed.ncbi.nlm.nih.gov/33606779/,2021,0.696,0.74,
+https://pubmed.ncbi.nlm.nih.gov/33782551/,2021,0.977,0.993,
+https://pubmed.ncbi.nlm.nih.gov/34117018/,2021,0.549,0.941,
+https://pubmed.ncbi.nlm.nih.gov/34779843/,2021,0.955,0.85,
+https://pubmed.ncbi.nlm.nih.gov/35316621/,2022,1,0.89,
+https://pubmed.ncbi.nlm.nih.gov/36345378/,2023,0.595,0.989,
+https://pubmed.ncbi.nlm.nih.gov/37450425/,2023,0.814,,
+https://pubmed.ncbi.nlm.nih.gov/41257814/,2025,1,0.935,
