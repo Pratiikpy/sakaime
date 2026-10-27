@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "suite": "adapter-log",
+    "startedAt": "2026-10-27T11:53:47.759Z",
+    "node": "v24.20.0",
+    "seed": 0,
+    "class": [
+      "builder-labelled"
+    ],
+    "description": "Adapter choices compared on the 26 development claims, with the score at each. Frozen adapter hash recorded below.",
+    "frozenAdapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6"
+  },
+  "summaries": {
+    "frozenAdapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6"
+  },
+  "revisions": [
+    {
+      "revision": "r0",
+      "change": "the compiler's own default dependencies (authorization, plus a study when the claim states a number)",
+      "evidence": "extracted",
+      "exact": "8/26",
+      "acceptable": "9/26",
+      "falseSupported": 0
+    },
+    {
+      "revision": "r0",
+      "change": "the compiler's own default dependencies (authorization, plus a study when the claim states a number)",
+      "evidence": "hand",
+      "exact": "13/26",
+      "acceptable": "16/26",
+      "falseSupported": 0
+    },
+    {
+      "revision": "r1",
+      "change": "every claim declares authorization and study as required (the setting that was frozen)",
+      "evidence": "extracted",
+      "exact": "8/26",
+      "acceptable": "9/26",
+      "falseSupported": 0
+    },
+    {
+      "revision": "r1",
+      "change": "every claim declares authorization and study as required (the setting that was frozen)",
+      "evidence": "hand",
+      "exact": "16/26",
+      "acceptable": "18/26",
+      "falseSupported": 0
+    }
+  ],
+  "fixesInWords": [
+    "ClinicalTrials.gov fixtures that hold a whole search response: the candidate keeps only the study named by its record id (before the fix, one fixture attached thirteen unrelated studies to a device when the identity layer was off, and the compiler rejected the duplicate item ids).",
+    "A trial identifier cited inside an FDA summary (GI Genius) has no registry fixture; it is carried as a record with no extracted items instead of failing.",
+    "The repository .env key is read before the shell's NVIDIA_API_KEY: a stale shell value returned HTTP 403 on the model arms."
+  ]
+}

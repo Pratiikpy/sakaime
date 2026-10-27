@@ -1,0 +1,366 @@
+{
+  "meta": {
+    "suite": "discoveryshift",
+    "startedAt": "2026-10-27T11:53:42.809Z",
+    "node": "v24.20.0",
+    "seed": 20261027,
+    "class": [
+      "consistency"
+    ],
+    "description": "DiscoveryShift, read from the runner's results.json. Labels follow from the construction of each mutation (data/discovery-shift/SEALED.md); engineering consistency, not clinical correctness. The runner and the sealed expectations are not mine; this adapter only reports them."
+  },
+  "summaries": {
+    "sourceFile": "data/discovery-shift/results.json",
+    "sealedHashes": {
+      "expected": "3d55ebf819ad9207296893bcf0de4ea8b29e646c77201545233064cb02b8b9f5",
+      "cases": "53d2a15f488042f6d1f25729ddfab45b991eb9049954f26cf6e496e441902335"
+    },
+    "runsInFile": [
+      "full/run1/record",
+      "lexical/run1/replay",
+      "nojoin/run1/replay",
+      "full/replay-items-1-8/replay",
+      "full/live2/live",
+      "full/live3/live",
+      "full/run2/replay",
+      "lexical/run2/replay",
+      "nojoin/run2/replay"
+    ],
+    "full.run1.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "full.run1.correct": {
+      "k": 89,
+      "n": 100,
+      "rate": 0.89,
+      "wilsonLo": 0.8136870349691969,
+      "wilsonHi": 0.9374580364293543,
+      "clusterLo": 0.6060606060606061,
+      "clusterHi": 0.9861111111111112,
+      "clusters": 4
+    },
+    "full.run1.mappedCorrectlyWhenItMustMap": {
+      "k": 39,
+      "n": 48,
+      "rate": 0.8125,
+      "wilsonLo": 0.680601328507153,
+      "wilsonHi": 0.8980860904515235
+    },
+    "full.run1.falseAcceptRate": {
+      "k": 0,
+      "n": 92,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.04008138928562172,
+      "zeroErrorUpper95": 0.032037863175451764
+    },
+    "full.run1.falseAcceptsIds": [],
+    "full.run1.mode": "record",
+    "lexical.run1.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "lexical.run1.correct": {
+      "k": 82,
+      "n": 100,
+      "rate": 0.82,
+      "wilsonLo": 0.7333264161369926,
+      "wilsonHi": 0.8829977450105364,
+      "clusterLo": 0.55,
+      "clusterHi": 0.95,
+      "clusters": 4
+    },
+    "lexical.run1.mappedCorrectlyWhenItMustMap": {
+      "k": 34,
+      "n": 48,
+      "rate": 0.7083333333333334,
+      "wilsonLo": 0.5682074019042831,
+      "wilsonHi": 0.8175842107348348
+    },
+    "lexical.run1.falseAcceptRate": {
+      "k": 3,
+      "n": 92,
+      "rate": 0.03260869565217391,
+      "wilsonLo": 0.011151177410971533,
+      "wilsonHi": 0.09153359952993573
+    },
+    "lexical.run1.falseAcceptsIds": [
+      "A-X-02",
+      "D-T-01",
+      "D-X-01"
+    ],
+    "lexical.run1.mode": "replay",
+    "nojoin.run1.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "nojoin.run1.correct": {
+      "k": 78,
+      "n": 100,
+      "rate": 0.78,
+      "wilsonLo": 0.6892964648501421,
+      "wilsonHi": 0.8499871761539459,
+      "clusterLo": 0.5,
+      "clusterHi": 0.9242424242424242,
+      "clusters": 4
+    },
+    "nojoin.run1.mappedCorrectlyWhenItMustMap": {
+      "k": 31,
+      "n": 48,
+      "rate": 0.6458333333333334,
+      "wilsonLo": 0.504390570103431,
+      "wilsonHi": 0.7656635587439515
+    },
+    "nojoin.run1.falseAcceptRate": {
+      "k": 3,
+      "n": 92,
+      "rate": 0.03260869565217391,
+      "wilsonLo": 0.011151177410971533,
+      "wilsonHi": 0.09153359952993573
+    },
+    "nojoin.run1.falseAcceptsIds": [
+      "A-W-01",
+      "A-Z-02",
+      "A-Z-03"
+    ],
+    "nojoin.run1.mode": "replay",
+    "full.replay-items-1-8.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "full.replay-items-1-8.correct": {
+      "k": 96,
+      "n": 100,
+      "rate": 0.96,
+      "wilsonLo": 0.9016292856411208,
+      "wilsonHi": 0.9843366960084523,
+      "clusterLo": 0.9393939393939394,
+      "clusterHi": 0.9710144927536232,
+      "clusters": 4
+    },
+    "full.replay-items-1-8.mappedCorrectlyWhenItMustMap": {
+      "k": 48,
+      "n": 48,
+      "rate": 1,
+      "wilsonLo": 0.9258998703338824,
+      "wilsonHi": 0.9999999999999999
+    },
+    "full.replay-items-1-8.falseAcceptRate": {
+      "k": 0,
+      "n": 92,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.04008138928562172,
+      "zeroErrorUpper95": 0.032037863175451764
+    },
+    "full.replay-items-1-8.falseAcceptsIds": [],
+    "full.replay-items-1-8.mode": "replay",
+    "full.live2.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "full.live2.correct": {
+      "k": 97,
+      "n": 100,
+      "rate": 0.97,
+      "wilsonLo": 0.9154806357094724,
+      "wilsonHi": 0.9897454759759611,
+      "clusterLo": 0.9487179487179487,
+      "clusterHi": 0.9888888888888889,
+      "clusters": 4
+    },
+    "full.live2.mappedCorrectlyWhenItMustMap": {
+      "k": 48,
+      "n": 48,
+      "rate": 1,
+      "wilsonLo": 0.9258998703338824,
+      "wilsonHi": 0.9999999999999999
+    },
+    "full.live2.falseAcceptRate": {
+      "k": 0,
+      "n": 92,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.04008138928562172,
+      "zeroErrorUpper95": 0.032037863175451764
+    },
+    "full.live2.falseAcceptsIds": [],
+    "full.live2.mode": "live",
+    "full.live3.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "full.live3.correct": {
+      "k": 97,
+      "n": 100,
+      "rate": 0.97,
+      "wilsonLo": 0.9154806357094724,
+      "wilsonHi": 0.9897454759759611,
+      "clusterLo": 0.9487179487179487,
+      "clusterHi": 0.9888888888888889,
+      "clusters": 4
+    },
+    "full.live3.mappedCorrectlyWhenItMustMap": {
+      "k": 48,
+      "n": 48,
+      "rate": 1,
+      "wilsonLo": 0.9258998703338824,
+      "wilsonHi": 0.9999999999999999
+    },
+    "full.live3.falseAcceptRate": {
+      "k": 0,
+      "n": 92,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.04008138928562172,
+      "zeroErrorUpper95": 0.032037863175451764
+    },
+    "full.live3.falseAcceptsIds": [],
+    "full.live3.mode": "live",
+    "full.run2.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "full.run2.correct": {
+      "k": 96,
+      "n": 100,
+      "rate": 0.96,
+      "wilsonLo": 0.9016292856411208,
+      "wilsonHi": 0.9843366960084523,
+      "clusterLo": 0.9393939393939394,
+      "clusterHi": 0.9710144927536232,
+      "clusters": 4
+    },
+    "full.run2.mappedCorrectlyWhenItMustMap": {
+      "k": 48,
+      "n": 48,
+      "rate": 1,
+      "wilsonLo": 0.9258998703338824,
+      "wilsonHi": 0.9999999999999999
+    },
+    "full.run2.falseAcceptRate": {
+      "k": 0,
+      "n": 92,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.04008138928562172,
+      "zeroErrorUpper95": 0.032037863175451764
+    },
+    "full.run2.falseAcceptsIds": [],
+    "full.run2.mode": "replay",
+    "lexical.run2.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "lexical.run2.correct": {
+      "k": 80,
+      "n": 100,
+      "rate": 0.8,
+      "wilsonLo": 0.7111708344068411,
+      "wilsonHi": 0.8666330666689676,
+      "clusterLo": 0.5,
+      "clusterHi": 0.95,
+      "clusters": 4
+    },
+    "lexical.run2.mappedCorrectlyWhenItMustMap": {
+      "k": 34,
+      "n": 48,
+      "rate": 0.7083333333333334,
+      "wilsonLo": 0.5682074019042831,
+      "wilsonHi": 0.8175842107348348
+    },
+    "lexical.run2.falseAcceptRate": {
+      "k": 2,
+      "n": 92,
+      "rate": 0.021739130434782608,
+      "wilsonLo": 0.0059820412288536864,
+      "wilsonHi": 0.07583493982695838
+    },
+    "lexical.run2.falseAcceptsIds": [
+      "D-D-01",
+      "D-X-01"
+    ],
+    "lexical.run2.mode": "replay",
+    "nojoin.run2.cases": {
+      "scored": 100,
+      "knownLimitExcluded": 2,
+      "effective": {
+        "n": 100,
+        "clusters": 4,
+        "meanClusterSize": 25
+      }
+    },
+    "nojoin.run2.correct": {
+      "k": 77,
+      "n": 100,
+      "rate": 0.77,
+      "wilsonLo": 0.6784561697712622,
+      "wilsonHi": 0.8415673411969654,
+      "clusterLo": 0.5,
+      "clusterHi": 0.9090909090909091,
+      "clusters": 4
+    },
+    "nojoin.run2.mappedCorrectlyWhenItMustMap": {
+      "k": 32,
+      "n": 48,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.5254010970594798,
+      "wilsonHi": 0.7832321930518142
+    },
+    "nojoin.run2.falseAcceptRate": {
+      "k": 4,
+      "n": 92,
+      "rate": 0.043478260869565216,
+      "wilsonLo": 0.01703571627301368,
+      "wilsonHi": 0.10651685655298873
+    },
+    "nojoin.run2.falseAcceptsIds": [
+      "A-I-03",
+      "A-W-01",
+      "A-Z-02",
+      "A-Z-03"
+    ],
+    "nojoin.run2.mode": "replay"
+  }
+}

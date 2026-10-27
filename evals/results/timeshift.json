@@ -1,0 +1,855 @@
+{
+  "meta": {
+    "suite": "timeshift",
+    "startedAt": "2026-10-27T11:53:41.107Z",
+    "node": "v24.20.0",
+    "seed": 20261027,
+    "class": [
+      "consistency"
+    ],
+    "description": "TimeShift: back-in-time reconstruction and change impact on the real World Model and compiler, over authentic scopes with constructed change events. Consistency, not a study of real registry churn.",
+    "clock": {
+      "recorded": "2026-07-10T09:00:00.000Z",
+      "findingsComputed": "2026-07-11T09:00:00.000Z",
+      "changeRecorded": "2026-09-01T09:00:00.000Z",
+      "before": "2026-08-01",
+      "after": "2026-10-01"
+    },
+    "resultsHash": "239ec6421afd20dd"
+  },
+  "summaries": {
+    "cases": {
+      "cases": 27,
+      "devices": 5,
+      "findingsPerCase": 25,
+      "changeCases": 17,
+      "controlCases": 10,
+      "notApplicable": 3
+    },
+    "backInTimeFindingsReproduced": {
+      "k": 675,
+      "n": 675,
+      "rate": 1,
+      "wilsonLo": 0.9943411546675895,
+      "wilsonHi": 1
+    },
+    "staleSetEqualsDependentSet": {
+      "k": 27,
+      "n": 27,
+      "rate": 1,
+      "wilsonLo": 0.8754449702581328,
+      "wilsonHi": 0.9999999999999998
+    },
+    "noAffectedFindingMissed": {
+      "k": 27,
+      "n": 27,
+      "rate": 1,
+      "wilsonLo": 0.8754449702581328,
+      "wilsonHi": 0.9999999999999998
+    },
+    "findingsOfOtherDevicesLeftAlone": {
+      "k": 27,
+      "n": 27,
+      "rate": 1,
+      "wilsonLo": 0.8754449702581328,
+      "wilsonHi": 0.9999999999999998
+    },
+    "controlsChangeNothing": {
+      "k": 10,
+      "n": 10,
+      "rate": 1,
+      "wilsonLo": 0.7224672001371107,
+      "wilsonHi": 0.9999999999999999
+    },
+    "cleanAfterRecomputingOnlyTheStale": {
+      "k": 27,
+      "n": 27,
+      "rate": 1,
+      "wilsonLo": 0.8754449702581328,
+      "wilsonHi": 0.9999999999999998
+    },
+    "overFlagging": {
+      "staleFindings": 86,
+      "reallyAffected": 19,
+      "staleButUnchanged": 67,
+      "note": "Dependence is recorded per evidence item, so a change in one slot marks every finding that read any item of the device; the cost side of the guarantee."
+    },
+    "notApplicable": [
+      {
+        "device": "DEN170073",
+        "scenario": "authorization-superseded",
+        "reason": "the device's extracted scope has no fact in the slot this change acts on"
+      },
+      {
+        "device": "DEN180001",
+        "scenario": "authorization-superseded",
+        "reason": "the device's extracted scope has no fact in the slot this change acts on"
+      },
+      {
+        "device": "K250680",
+        "scenario": "registry-record-updated",
+        "reason": "the device's extracted scope has no fact in the slot this change acts on"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "T-K200667-registry-record-updated",
+      "device": "K200667",
+      "scenario": "registry-record-updated",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K200667-age",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing"
+      ],
+      "affected": [
+        "K200667-combined",
+        "K200667-version"
+      ],
+      "stale": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "dependent": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K200667-publication-corrected",
+      "device": "K200667",
+      "scenario": "publication-corrected",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "affected": [],
+      "stale": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "dependent": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K200667-authorization-superseded",
+      "device": "K200667",
+      "scenario": "authorization-superseded",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K200667-age",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-version"
+      ],
+      "affected": [
+        "K200667-combined",
+        "K200667-timing"
+      ],
+      "stale": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "dependent": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K200667-record-withdrawn",
+      "device": "K200667",
+      "scenario": "record-withdrawn",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "affected": [
+        "K200667-age"
+      ],
+      "stale": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "dependent": [
+        "K200667-age",
+        "K200667-combined",
+        "K200667-purpose",
+        "K200667-setting",
+        "K200667-timing",
+        "K200667-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true,
+      "note": "retracted study.age_min"
+    },
+    {
+      "id": "T-K200667-unrelated-fact",
+      "device": "K200667",
+      "scenario": "unrelated-fact",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K200667-older-observation-loses",
+      "device": "K200667",
+      "scenario": "older-observation-loses",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN170073-registry-record-updated",
+      "device": "DEN170073",
+      "scenario": "registry-record-updated",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "DEN170073-age",
+        "DEN170073-purpose",
+        "DEN170073-setting"
+      ],
+      "affected": [
+        "DEN170073-combined",
+        "DEN170073-version"
+      ],
+      "stale": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "dependent": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN170073-publication-corrected",
+      "device": "DEN170073",
+      "scenario": "publication-corrected",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "affected": [],
+      "stale": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "dependent": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN170073-record-withdrawn",
+      "device": "DEN170073",
+      "scenario": "record-withdrawn",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "affected": [
+        "DEN170073-age"
+      ],
+      "stale": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "dependent": [
+        "DEN170073-age",
+        "DEN170073-combined",
+        "DEN170073-purpose",
+        "DEN170073-setting",
+        "DEN170073-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true,
+      "note": "retracted study.age_min"
+    },
+    {
+      "id": "T-DEN170073-unrelated-fact",
+      "device": "DEN170073",
+      "scenario": "unrelated-fact",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN170073-older-observation-loses",
+      "device": "DEN170073",
+      "scenario": "older-observation-loses",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN180001-registry-record-updated",
+      "device": "DEN180001",
+      "scenario": "registry-record-updated",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "DEN180001-age",
+        "DEN180001-purpose"
+      ],
+      "affected": [
+        "DEN180001-combined",
+        "DEN180001-version"
+      ],
+      "stale": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "dependent": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN180001-publication-corrected",
+      "device": "DEN180001",
+      "scenario": "publication-corrected",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "affected": [],
+      "stale": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "dependent": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN180001-record-withdrawn",
+      "device": "DEN180001",
+      "scenario": "record-withdrawn",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "affected": [
+        "DEN180001-age"
+      ],
+      "stale": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "dependent": [
+        "DEN180001-age",
+        "DEN180001-combined",
+        "DEN180001-purpose",
+        "DEN180001-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true,
+      "note": "retracted study.age_min"
+    },
+    {
+      "id": "T-DEN180001-unrelated-fact",
+      "device": "DEN180001",
+      "scenario": "unrelated-fact",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-DEN180001-older-observation-loses",
+      "device": "DEN180001",
+      "scenario": "older-observation-loses",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K252360-registry-record-updated",
+      "device": "K252360",
+      "scenario": "registry-record-updated",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K252360-age",
+        "K252360-purpose",
+        "K252360-timing"
+      ],
+      "affected": [
+        "K252360-combined",
+        "K252360-version"
+      ],
+      "stale": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "dependent": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K252360-publication-corrected",
+      "device": "K252360",
+      "scenario": "publication-corrected",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "affected": [],
+      "stale": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "dependent": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K252360-authorization-superseded",
+      "device": "K252360",
+      "scenario": "authorization-superseded",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K252360-age",
+        "K252360-purpose",
+        "K252360-version"
+      ],
+      "affected": [
+        "K252360-combined",
+        "K252360-timing"
+      ],
+      "stale": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "dependent": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K252360-record-withdrawn",
+      "device": "K252360",
+      "scenario": "record-withdrawn",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "affected": [
+        "K252360-age"
+      ],
+      "stale": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "dependent": [
+        "K252360-age",
+        "K252360-combined",
+        "K252360-purpose",
+        "K252360-timing",
+        "K252360-version"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true,
+      "note": "retracted study.age_min"
+    },
+    {
+      "id": "T-K252360-unrelated-fact",
+      "device": "K252360",
+      "scenario": "unrelated-fact",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K252360-older-observation-loses",
+      "device": "K252360",
+      "scenario": "older-observation-loses",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K250680-publication-corrected",
+      "device": "K250680",
+      "scenario": "publication-corrected",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "affected": [],
+      "stale": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "dependent": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K250680-authorization-superseded",
+      "device": "K250680",
+      "scenario": "authorization-superseded",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K250680-age",
+        "K250680-purpose",
+        "K250680-setting"
+      ],
+      "affected": [
+        "K250680-combined",
+        "K250680-timing"
+      ],
+      "stale": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "dependent": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K250680-record-withdrawn",
+      "device": "K250680",
+      "scenario": "record-withdrawn",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "affected": [
+        "K250680-age"
+      ],
+      "stale": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "dependent": [
+        "K250680-age",
+        "K250680-combined",
+        "K250680-purpose",
+        "K250680-setting",
+        "K250680-timing"
+      ],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true,
+      "note": "retracted study.age_min"
+    },
+    {
+      "id": "T-K250680-unrelated-fact",
+      "device": "K250680",
+      "scenario": "unrelated-fact",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    },
+    {
+      "id": "T-K250680-older-observation-loses",
+      "device": "K250680",
+      "scenario": "older-observation-loses",
+      "findings": 25,
+      "reconstructed": 25,
+      "staleEqualsDependent": true,
+      "missed": [],
+      "staleOtherDevices": [],
+      "overFlagged": [],
+      "affected": [],
+      "stale": [],
+      "dependent": [],
+      "cleanAfterRecompute": true,
+      "recomputeMatchesFull": true
+    }
+  ]
+}

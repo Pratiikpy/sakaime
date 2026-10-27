@@ -1,0 +1,4211 @@
+{
+  "meta": {
+    "suite": "scopeshift-a",
+    "startedAt": "2026-10-27T11:53:35.954Z",
+    "node": "v24.20.0",
+    "seed": 20261027,
+    "class": [
+      "consistency"
+    ],
+    "description": "ScopeShift (A): controlled single-dimension counterfactuals over authentic scopes read by the extraction layer from real FDA summaries. Consistency between a rule table and the compiler; not clinical correctness.",
+    "stalenessWindowDays": 1095,
+    "studyAdequacy": "Study items are marked adequate by construction in world W2; extraction never sets the flag.",
+    "resultsHash": "63cfa65602536134"
+  },
+  "summaries": {
+    "cases": {
+      "n": 236,
+      "clusters": 17,
+      "products": 18,
+      "meanClusterSize": 13.88
+    },
+    "exactLabel": {
+      "k": 224,
+      "n": 236,
+      "rate": 0.9491525423728814,
+      "wilsonLo": 0.9132401859497103,
+      "wilsonHi": 0.9706770527229063,
+      "clusterLo": 0.933053392324478,
+      "clusterHi": 0.9663471638655462,
+      "clusters": 17
+    },
+    "deterministicExactLabel": {
+      "k": 195,
+      "n": 195,
+      "rate": 1,
+      "wilsonLo": 0.9806807954262788,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 17
+    },
+    "positiveControlCorrectSupported": {
+      "k": 27,
+      "n": 27,
+      "rate": 1,
+      "wilsonLo": 0.8754449702581328,
+      "wilsonHi": 0.9999999999999998,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 17
+    },
+    "positiveControlFalseAlarm": {
+      "k": 0,
+      "n": 27,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.12455502974186705,
+      "zeroErrorUpper95": 0.10501923017634429,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 17
+    },
+    "falseSupported": {
+      "k": 12,
+      "n": 209,
+      "rate": 0.05741626794258373,
+      "wilsonLo": 0.033146149079547195,
+      "wilsonHi": 0.09766228915874195,
+      "clusterLo": 0.037914691943127965,
+      "clusterHi": 0.0748663101604278,
+      "clusters": 17
+    },
+    "contestableAbstention": {
+      "k": 29,
+      "n": 41,
+      "rate": 0.7073170731707317,
+      "wilsonLo": 0.5552053227700284,
+      "wilsonHi": 0.8239081237388657,
+      "clusterLo": 0.6363636363636364,
+      "clusterHi": 0.78125,
+      "clusters": 17
+    },
+    "contestableReviewExact": {
+      "k": 29,
+      "n": 41,
+      "rate": 0.7073170731707317,
+      "wilsonLo": 0.5552053227700284,
+      "wilsonHi": 0.8239081237388657,
+      "clusterLo": 0.6428571428571429,
+      "clusterHi": 0.785768398268398,
+      "clusters": 17
+    },
+    "noVerdict": {
+      "k": 0,
+      "n": 236
+    },
+    "skipped": [
+      {
+        "product": "K200667",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "K223357",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "K221347",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "K211733",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "DEN200080",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "K213857",
+        "world": "W2",
+        "reason": "no study item"
+      },
+      {
+        "product": "DEN190040",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "K253801",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      },
+      {
+        "product": "K253825",
+        "world": "W2",
+        "reason": "the study item has no result with a confidence interval, so no threshold case can be built"
+      }
+    ],
+    "byMutation": {
+      "positive-control": {
+        "n": 27,
+        "match": 27,
+        "mismatchIds": []
+      },
+      "version-bump": {
+        "n": 10,
+        "match": 10,
+        "mismatchIds": []
+      },
+      "version-unconfirmed": {
+        "n": 7,
+        "match": 7,
+        "mismatchIds": []
+      },
+      "setting-widened": {
+        "n": 5,
+        "match": 5,
+        "mismatchIds": []
+      },
+      "setting-unrelated": {
+        "n": 5,
+        "match": 5,
+        "mismatchIds": []
+      },
+      "setting-unplaced": {
+        "n": 6,
+        "match": 6,
+        "mismatchIds": []
+      },
+      "purpose-escalated": {
+        "n": 15,
+        "match": 15,
+        "mismatchIds": []
+      },
+      "purpose-sideways": {
+        "n": 17,
+        "match": 17,
+        "mismatchIds": []
+      },
+      "purpose-unplaced": {
+        "n": 17,
+        "match": 17,
+        "mismatchIds": []
+      },
+      "date-before-authorization": {
+        "n": 12,
+        "match": 12,
+        "mismatchIds": []
+      },
+      "date-past-window": {
+        "n": 12,
+        "match": 0,
+        "mismatchIds": [
+          "A-K200667-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K223357-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K221347-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K253265-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K240301-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K213857-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K232699-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K253801-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K252360-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K253825-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K250680-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE",
+          "A-K253163-W1-date-past-window: expected REQUIRES_DOMAIN_REVIEW, got SUPPORTED_FOR_SCOPE"
+        ]
+      },
+      "product-replaced": {
+        "n": 18,
+        "match": 18,
+        "mismatchIds": []
+      },
+      "product-brand-only": {
+        "n": 18,
+        "match": 18,
+        "mismatchIds": []
+      },
+      "authorization-source-unavailable": {
+        "n": 18,
+        "match": 18,
+        "mismatchIds": []
+      },
+      "authorization-source-empty": {
+        "n": 18,
+        "match": 18,
+        "mismatchIds": []
+      },
+      "threshold-above-interval": {
+        "n": 9,
+        "match": 9,
+        "mismatchIds": []
+      },
+      "study-source-unavailable": {
+        "n": 9,
+        "match": 9,
+        "mismatchIds": []
+      },
+      "age-min-lowered": {
+        "n": 7,
+        "match": 7,
+        "mismatchIds": []
+      },
+      "date-past-window-dated-study": {
+        "n": 6,
+        "match": 6,
+        "mismatchIds": []
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "A-K200667-W1-positive-control",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-version-bump",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-version-unconfirmed",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-setting-widened",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "setting-widened",
+      "dimension": "setting",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-setting-unrelated",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "setting-unrelated",
+      "dimension": "setting",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-setting-unplaced",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "setting-unplaced",
+      "dimension": "setting",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-purpose-escalated",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-purpose-sideways",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-purpose-unplaced",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-date-before-authorization",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2020-08-03; the claimed use starts 2019-06-30 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-date-past-window",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-product-replaced",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-product-brand-only",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-authorization-source-unavailable",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K200667-W1-authorization-source-empty",
+      "cluster": "eyeart",
+      "product": "device:fda:K200667",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-positive-control",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-version-bump",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-version-unconfirmed",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-purpose-escalated",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-purpose-sideways",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-purpose-unplaced",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-date-before-authorization",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2023-06-16; the claimed use starts 2022-05-12 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-date-past-window",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-product-replaced",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-product-brand-only",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-authorization-source-unavailable",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K223357-W1-authorization-source-empty",
+      "cluster": "eyeart",
+      "product": "device:fda:K223357",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-positive-control",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-version-bump",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-version-unconfirmed",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-setting-unplaced",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "setting-unplaced",
+      "dimension": "setting",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-purpose-escalated",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-purpose-sideways",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-purpose-unplaced",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-date-before-authorization",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2022-08-03; the claimed use starts 2021-06-29 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-date-past-window",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-product-replaced",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-product-brand-only",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-authorization-source-unavailable",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K221347-W1-authorization-source-empty",
+      "cluster": "K221347",
+      "product": "device:fda:K221347",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-positive-control",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-purpose-escalated",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-purpose-sideways",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-purpose-unplaced",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-product-replaced",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-product-brand-only",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-authorization-source-unavailable",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K211733-W1-authorization-source-empty",
+      "cluster": "K211733",
+      "product": "device:fda:K211733",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-positive-control",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-version-bump",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-version-unconfirmed",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-setting-widened",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "setting-widened",
+      "dimension": "setting",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-setting-unrelated",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "setting-unrelated",
+      "dimension": "setting",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-setting-unplaced",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "setting-unplaced",
+      "dimension": "setting",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-purpose-escalated",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-purpose-sideways",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-purpose-unplaced",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-product-replaced",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-product-brand-only",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-authorization-source-unavailable",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W1-authorization-source-empty",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W2-positive-control",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W2-threshold-above-interval",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_902d3b51dae79dc5: sensitivity 0.878 (CI 0.812 to 0.925) against the claimed minimum 0.945: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum",
+        "contrary study result, ev_902d3b51dae79dc5: sensitivity 0.878 (CI 0.812 to 0.925) against the claimed minimum 0.945: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W2-study-source-unavailable",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W2-age-min-lowered",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W2",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "population is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN170073-W2-version-bump",
+      "cluster": "DEN170073",
+      "product": "device:fda:DEN170073",
+      "world": "W2",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-positive-control",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-age-min-lowered",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, population: the record covers ages 18 and above; the claim extends to ages 13 to below 18 (R10-POP-LABEL-EXCLUDED)"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-setting-widened",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "setting-widened",
+      "dimension": "setting",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-setting-unrelated",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "setting-unrelated",
+      "dimension": "setting",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-setting-unplaced",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "setting-unplaced",
+      "dimension": "setting",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-purpose-escalated",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-purpose-sideways",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-purpose-unplaced",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-date-before-authorization",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2025-11-06; the claimed use starts 2024-10-02 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-date-past-window",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-product-replaced",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "population is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-product-brand-only",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "population is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-authorization-source-unavailable",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "population is unknown"
+      ]
+    },
+    {
+      "id": "A-K253265-W1-authorization-source-empty",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "population is unknown"
+      ]
+    },
+    {
+      "id": "A-K253265-W2-positive-control",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253265-W2-threshold-above-interval",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_bc457d033ac8dd33: sensitivity 0.942 (CI 0.896 to 0.972) against the claimed minimum 0.992: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-K253265-W2-study-source-unavailable",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "metric is unknown"
+      ]
+    },
+    {
+      "id": "A-K253265-W2-date-past-window-dated-study",
+      "cluster": "K253265",
+      "product": "device:fda:K253265",
+      "world": "W2",
+      "mutation": "date-past-window-dated-study",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "R20-STALENESS: The newest study evidence is dated 2025-11-06, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+      ]
+    },
+    {
+      "id": "A-K240301-W1-positive-control",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-purpose-escalated",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-purpose-sideways",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-purpose-unplaced",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-date-before-authorization",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2024-08-01; the claimed use starts 2023-06-28 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-date-past-window",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-product-replaced",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-product-brand-only",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-authorization-source-unavailable",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K240301-W1-authorization-source-empty",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K240301-W2-positive-control",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K240301-W2-threshold-above-interval",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_12d8eccb4a85b3e1: auc 0.883 (CI 0.837 to 0.929) against the claimed minimum 0.949: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-K240301-W2-study-source-unavailable",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "metric is unknown"
+      ]
+    },
+    {
+      "id": "A-K240301-W2-date-past-window-dated-study",
+      "cluster": "K240301",
+      "product": "device:fda:K240301",
+      "world": "W2",
+      "mutation": "date-past-window-dated-study",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "R20-STALENESS: The newest study evidence is dated 2024-08-01, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-positive-control",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-version-bump",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-version-unconfirmed",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-purpose-escalated",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-purpose-sideways",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-purpose-unplaced",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-product-replaced",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-product-brand-only",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-authorization-source-unavailable",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200080-W1-authorization-source-empty",
+      "cluster": "DEN200080",
+      "product": "device:fda:DEN200080",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-positive-control",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-purpose-escalated",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-purpose-sideways",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-purpose-unplaced",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-product-replaced",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-product-brand-only",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-authorization-source-unavailable",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W1-authorization-source-empty",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W2-positive-control",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W2-threshold-above-interval",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_b977d72c2a1bff14: auc 0.787 (CI 0.755 to 0.817) against the claimed minimum 0.837: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W2-study-source-unavailable",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "population is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN200055-W2-age-min-lowered",
+      "cluster": "DEN200055",
+      "product": "device:fda:DEN200055",
+      "world": "W2",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "population is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-positive-control",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-date-before-authorization",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2022-10-14; the claimed use starts 2021-09-09 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-date-past-window",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-product-replaced",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-product-brand-only",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-authorization-source-unavailable",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K213857-W1-authorization-source-empty",
+      "cluster": "K213857",
+      "product": "device:fda:K213857",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-positive-control",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-purpose-sideways",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-purpose-unplaced",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-date-before-authorization",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2023-09-28; the claimed use starts 2022-08-24 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-date-past-window",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-product-replaced",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-product-brand-only",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-authorization-source-unavailable",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K232699-W1-authorization-source-empty",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K232699-W2-positive-control",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K232699-W2-threshold-above-interval",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_c9b25467fc26ed12: sensitivity 0.845 (CI 0.822 to 0.866) against the claimed minimum 0.886: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-K232699-W2-study-source-unavailable",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "metric is unknown"
+      ]
+    },
+    {
+      "id": "A-K232699-W2-date-past-window-dated-study",
+      "cluster": "K232699",
+      "product": "device:fda:K232699",
+      "world": "W2",
+      "mutation": "date-past-window-dated-study",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "R20-STALENESS: The newest study evidence is dated 2023-09-28, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-positive-control",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-version-bump",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-version-unconfirmed",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-purpose-escalated",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-purpose-sideways",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-purpose-unplaced",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-product-replaced",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-product-brand-only",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-authorization-source-unavailable",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W1-authorization-source-empty",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W2-positive-control",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W2-threshold-above-interval",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_6af9554b338f7ced: sensitivity 0.874 (CI 0.819 to 0.929) against the claimed minimum 0.949: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W2-study-source-unavailable",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W2-age-min-lowered",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W2",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "population is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-DEN180001-W2-version-bump",
+      "cluster": "DEN180001",
+      "product": "device:fda:DEN180001",
+      "world": "W2",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-positive-control",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-purpose-sideways",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-purpose-unplaced",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-product-replaced",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-product-brand-only",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-authorization-source-unavailable",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-DEN190040-W1-authorization-source-empty",
+      "cluster": "DEN190040",
+      "product": "device:fda:DEN190040",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-positive-control",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-purpose-escalated",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-purpose-sideways",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-purpose-unplaced",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-date-before-authorization",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2026-04-07; the claimed use starts 2025-03-03 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-date-past-window",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-product-replaced",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-product-brand-only",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-authorization-source-unavailable",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K253801-W1-authorization-source-empty",
+      "cluster": "K253801",
+      "product": "device:fda:K253801",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-positive-control",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-version-bump",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-version-unconfirmed",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "version-unconfirmed",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-purpose-escalated",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-purpose-sideways",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-purpose-unplaced",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-date-before-authorization",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2026-03-28; the claimed use starts 2025-02-21 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-date-past-window",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-product-replaced",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-product-brand-only",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "version is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-authorization-source-unavailable",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W1-authorization-source-empty",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W2-positive-control",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K252360-W2-threshold-above-interval",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_0e005190c432ad71: sensitivity 0.73 (CI 0.721 to 0.739) against the claimed minimum 0.759: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-K252360-W2-study-source-unavailable",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "version is unknown"
+      ]
+    },
+    {
+      "id": "A-K252360-W2-age-min-lowered",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W2",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "population is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K252360-W2-version-bump",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W2",
+      "mutation": "version-bump",
+      "dimension": "version",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "version is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K252360-W2-date-past-window-dated-study",
+      "cluster": "K252360",
+      "product": "device:fda:K252360",
+      "world": "W2",
+      "mutation": "date-past-window-dated-study",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "R20-STALENESS: The newest study evidence is dated 2026-03-28, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+      ]
+    },
+    {
+      "id": "A-K253825-W1-positive-control",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-purpose-escalated",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-purpose-sideways",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-purpose-unplaced",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-date-before-authorization",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2026-06-15; the claimed use starts 2025-05-11 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-date-past-window",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-product-replaced",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-product-brand-only",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "purpose is unknown",
+        "timing is unknown"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-authorization-source-unavailable",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K253825-W1-authorization-source-empty",
+      "cluster": "K253825",
+      "product": "device:fda:K253825",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-positive-control",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-age-min-lowered",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, population: the record covers ages 18 and above; the claim extends to ages 13 to below 18 (R10-POP-LABEL-EXCLUDED)"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-setting-widened",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "setting-widened",
+      "dimension": "setting",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-setting-unrelated",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "setting-unrelated",
+      "dimension": "setting",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-setting-unplaced",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "setting-unplaced",
+      "dimension": "setting",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-purpose-escalated",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-purpose-sideways",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-purpose-unplaced",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-date-before-authorization",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2026-04-30; the claimed use starts 2025-03-26 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-date-past-window",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-product-replaced",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "population is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-product-brand-only",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "population is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-authorization-source-unavailable",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "population is unknown"
+      ]
+    },
+    {
+      "id": "A-K250680-W1-authorization-source-empty",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "population is unknown"
+      ]
+    },
+    {
+      "id": "A-K250680-W2-positive-control",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K250680-W2-threshold-above-interval",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_65c02a2376ce7ecb: ppa 0.794 (CI 0.742 to 0.846) against the claimed minimum 0.866: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-K250680-W2-study-source-unavailable",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "population is unknown"
+      ]
+    },
+    {
+      "id": "A-K250680-W2-age-min-lowered",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W2",
+      "mutation": "age-min-lowered",
+      "dimension": "population",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, population: the record covers ages 18 and above; the claim extends to ages 13 to below 18 (R10-POP-LABEL-EXCLUDED)"
+      ]
+    },
+    {
+      "id": "A-K250680-W2-date-past-window-dated-study",
+      "cluster": "K250680",
+      "product": "device:fda:K250680",
+      "world": "W2",
+      "mutation": "date-past-window-dated-study",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "R20-STALENESS: The newest study evidence is dated 2026-04-30, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+      ]
+    },
+    {
+      "id": "A-K253163-W1-positive-control",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-setting-widened",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "setting-widened",
+      "dimension": "setting",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-setting-unrelated",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "setting-unrelated",
+      "dimension": "setting",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "setting is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-setting-unplaced",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "setting-unplaced",
+      "dimension": "setting",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-SETTING: \"a_setting_the_taxonomy_has_never_heard_of\" is not in the care setting taxonomy (sakaime-settings version 1); the compiler does not guess a containment.",
+        "setting needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-purpose-escalated",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "purpose-escalated",
+      "dimension": "purpose",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is only partly covered; the evidenced part is stated as the supported scope"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-purpose-sideways",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "purpose-sideways",
+      "dimension": "purpose",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "purpose is not covered by any evidence"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-purpose-unplaced",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "purpose-unplaced",
+      "dimension": "purpose",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "SAK-UNPLACED-PURPOSE: \"autonomous_treatment_selection\" is not in the purpose taxonomy (sakaime-purposes version 1); the compiler does not guess a containment.",
+        "purpose needs a reviewer to place a term"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-date-before-authorization",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "date-before-authorization",
+      "dimension": "timing",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "explicit authorization limit, timing: the authorization record took effect 2026-04-22; the claimed use starts 2025-03-18 (R21-PREDATES-AUTH)"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-date-past-window",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "date-past-window",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": false,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-product-replaced",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "product-replaced",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "setting is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-product-brand-only",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "product-brand-only",
+      "dimension": "product",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "product is not covered by any evidence",
+        "setting is unknown",
+        "purpose is unknown"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-authorization-source-unavailable",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "authorization-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K253163-W1-authorization-source-empty",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W1",
+      "mutation": "authorization-source-empty",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"authorization\" is lost, empty or was never supplied",
+        "product is unknown",
+        "setting is unknown"
+      ]
+    },
+    {
+      "id": "A-K253163-W2-positive-control",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W2",
+      "mutation": "positive-control",
+      "dimension": "none",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "contestable": false,
+      "emitted": "SUPPORTED_FOR_SCOPE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "every required dimension is contained, no required source is lost, and no review flag is raised"
+      ]
+    },
+    {
+      "id": "A-K253163-W2-threshold-above-interval",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W2",
+      "mutation": "threshold-above-interval",
+      "dimension": "metric",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "contestable": false,
+      "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "contrary study result, ev_4a13bdf44e550cc2: sensitivity 0.928 (CI 0.873 to 0.96) against the claimed minimum 0.98: the study covers the claimed scope, is adequate, and its interval lies wholly below the claimed minimum"
+      ]
+    },
+    {
+      "id": "A-K253163-W2-study-source-unavailable",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W2",
+      "mutation": "study-source-unavailable",
+      "dimension": "source",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "contestable": false,
+      "emitted": "INSUFFICIENT_EVIDENCE",
+      "error": null,
+      "match": true,
+      "basis": [
+        "required evidence type \"study\" is lost, empty or was never supplied",
+        "product is unknown",
+        "metric is unknown"
+      ]
+    },
+    {
+      "id": "A-K253163-W2-date-past-window-dated-study",
+      "cluster": "K253163",
+      "product": "device:fda:K253163",
+      "world": "W2",
+      "mutation": "date-past-window-dated-study",
+      "dimension": "timing",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "contestable": true,
+      "emitted": "REQUIRES_DOMAIN_REVIEW",
+      "error": null,
+      "match": true,
+      "basis": [
+        "R20-STALENESS: The newest study evidence is dated 2026-04-22, 1125 days before the end of the claimed period; the configured window is 1095 days. Whether it is still representative is a reviewer judgement."
+      ]
+    }
+  ]
+}

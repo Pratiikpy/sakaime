@@ -1,0 +1,4273 @@
+{
+  "meta": {
+    "suite": "scopeshift-b",
+    "startedAt": "2026-10-27T11:57:04.736Z",
+    "node": "v24.20.0",
+    "seed": 20261027,
+    "class": [
+      "builder-labelled"
+    ],
+    "description": "ScopeShift (B): authentic claims. Labels are builder-labelled, single builder, two passes, not independent. Development and held-out partitions are never pooled.",
+    "model": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "modelRuns": {
+      "B3": 3,
+      "B4": 1
+    },
+    "promptHash": "86cc344953e649c76d5ad5a040a969de35f99257345ac0b5c1b57869964c9abc",
+    "adapterHash": "1dd6f1ff2517d25eb0dc16cbfd990c8eb397e2810fd8349795a7da19313192b6",
+    "adapter": {
+      "version": "1",
+      "requiredDimensions": "The dimensions the claim states: product always, version, setting, purpose and timing when the claim names them, population when it states an age, conditions or exclusions, metric when it states a performance. A dimension the claim is silent on is not asserted (ANSWER-KEY.md, semantics 1).",
+      "dependencies": "Every claim declares an authorization record and a study as required: the question is always whether the authorization and the evidence the regulator reviewed (or the published study) cover the use. Without the declaration the compiler lets only the authorization support a dimension when the claim states no number.",
+      "stalenessWindowDays": 1095,
+      "stalenessWindowNote": "A hospital policy supplied to every arm, 3 years, an assumption and not a standard; a case may carry its own.",
+      "versionsFromSameDocument": true,
+      "versionsNote": "A study item in an FDA summary inherits the version strings written elsewhere in the same summary. The inference is recorded on the item.",
+      "purposeFromExtraction": "Extracted purpose terms are mapped to taxonomy nodes (vocabulary.ts); the broadest node wins, then a fixed priority.",
+      "sourceHealth": "All sources reported OK: the fault drills of FailureShift test the other states.",
+      "computedAt": "2026-10-27T00:00:00.000Z"
+    },
+    "heldoutKeySha256": "fcd1327e1d065546cea15898250c3af0a57ddba04321b09d35694d2a10abaf2a",
+    "modelCalls": {
+      "b3": {
+        "live": 0,
+        "replayed": 60,
+        "retried": 0
+      },
+      "b4": {
+        "live": 0,
+        "replayed": 180,
+        "retried": 0
+      }
+    },
+    "resultsHash": "31217cf93d125aa3"
+  },
+  "summaries": {
+    "heldout.V.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.V.exact": {
+      "k": 6,
+      "n": 20,
+      "rate": 0.3,
+      "wilsonLo": 0.1454772448676043,
+      "wilsonHi": 0.5189728183535235,
+      "clusterLo": 0.15,
+      "clusterHi": 0.45,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.V.acceptable": {
+      "k": 12,
+      "n": 20,
+      "rate": 0.6,
+      "wilsonLo": 0.3865815007622531,
+      "wilsonHi": 0.781193467627183,
+      "clusterLo": 0.4,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.V.exactClear": {
+      "k": 2,
+      "n": 9,
+      "rate": 0.2222222222222222,
+      "wilsonLo": 0.06322510711784671,
+      "wilsonHi": 0.5474110308930111,
+      "clusterLo": 0,
+      "clusterHi": 0.4444444444444444,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.V.exactContestable": {
+      "k": 4,
+      "n": 11,
+      "rate": 0.36363636363636365,
+      "wilsonLo": 0.15166471095367573,
+      "wilsonHi": 0.6461988254921511,
+      "clusterLo": 0.1,
+      "clusterHi": 0.5833333333333334,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.V.falseSupported": {
+      "k": 0,
+      "n": 15,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.20388330103584862,
+      "zeroErrorUpper95": 0.18103627252208465,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.V.criticalMismatchRecall": {
+      "k": 11,
+      "n": 15,
+      "rate": 0.7333333333333333,
+      "wilsonLo": 0.4804956594401943,
+      "wilsonHi": 0.8910254667430761
+    },
+    "heldout.V.criticalMismatchDimensionRecall": {
+      "k": 14,
+      "n": 15,
+      "rate": 0.9333333333333333,
+      "wilsonLo": 0.7018347012621998,
+      "wilsonHi": 0.9881331045067315
+    },
+    "heldout.V.falseAlarm": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.V.correctSupported": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.V.correctAbstention": {
+      "k": 12,
+      "n": 12,
+      "rate": 1,
+      "wilsonLo": 0.7575059933447592,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.V.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.V.emittedLabels": {
+      "INSUFFICIENT_EVIDENCE": 17,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2,
+      "REQUIRES_DOMAIN_REVIEW": 1
+    },
+    "heldout.V-noident.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.V-noident.exact": {
+      "k": 6,
+      "n": 20,
+      "rate": 0.3,
+      "wilsonLo": 0.1454772448676043,
+      "wilsonHi": 0.5189728183535235,
+      "clusterLo": 0.15,
+      "clusterHi": 0.45,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.V-noident.acceptable": {
+      "k": 12,
+      "n": 20,
+      "rate": 0.6,
+      "wilsonLo": 0.3865815007622531,
+      "wilsonHi": 0.781193467627183,
+      "clusterLo": 0.4,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.V-noident.exactClear": {
+      "k": 2,
+      "n": 9,
+      "rate": 0.2222222222222222,
+      "wilsonLo": 0.06322510711784671,
+      "wilsonHi": 0.5474110308930111,
+      "clusterLo": 0,
+      "clusterHi": 0.4444444444444444,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.V-noident.exactContestable": {
+      "k": 4,
+      "n": 11,
+      "rate": 0.36363636363636365,
+      "wilsonLo": 0.15166471095367573,
+      "wilsonHi": 0.6461988254921511,
+      "clusterLo": 0.1,
+      "clusterHi": 0.5833333333333334,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.V-noident.falseSupported": {
+      "k": 0,
+      "n": 15,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.20388330103584862,
+      "zeroErrorUpper95": 0.18103627252208465,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.V-noident.criticalMismatchRecall": {
+      "k": 11,
+      "n": 15,
+      "rate": 0.7333333333333333,
+      "wilsonLo": 0.4804956594401943,
+      "wilsonHi": 0.8910254667430761
+    },
+    "heldout.V-noident.criticalMismatchDimensionRecall": {
+      "k": 14,
+      "n": 15,
+      "rate": 0.9333333333333333,
+      "wilsonLo": 0.7018347012621998,
+      "wilsonHi": 0.9881331045067315
+    },
+    "heldout.V-noident.falseAlarm": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.V-noident.correctSupported": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.V-noident.correctAbstention": {
+      "k": 12,
+      "n": 12,
+      "rate": 1,
+      "wilsonLo": 0.7575059933447592,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.V-noident.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.V-noident.emittedLabels": {
+      "INSUFFICIENT_EVIDENCE": 17,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 2,
+      "REQUIRES_DOMAIN_REVIEW": 1
+    },
+    "heldout.B1.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.B1.exact": {
+      "k": 7,
+      "n": 20,
+      "rate": 0.35,
+      "wilsonLo": 0.18119182410108206,
+      "wilsonHi": 0.5671457233147638,
+      "clusterLo": 0.25,
+      "clusterHi": 0.45,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.B1.acceptable": {
+      "k": 9,
+      "n": 20,
+      "rate": 0.45,
+      "wilsonLo": 0.2581978582556243,
+      "wilsonHi": 0.6579146575496577,
+      "clusterLo": 0.3,
+      "clusterHi": 0.6,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.B1.exactClear": {
+      "k": 5,
+      "n": 9,
+      "rate": 0.5555555555555556,
+      "wilsonLo": 0.26665129349549305,
+      "wilsonHi": 0.8112214789023355,
+      "clusterLo": 0.5,
+      "clusterHi": 0.7142857142857143,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.B1.exactContestable": {
+      "k": 2,
+      "n": 11,
+      "rate": 0.18181818181818182,
+      "wilsonLo": 0.05136768974608513,
+      "wilsonHi": 0.4769805619608442,
+      "clusterLo": 0,
+      "clusterHi": 0.36363636363636365,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.B1.falseSupported": {
+      "k": 10,
+      "n": 15,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.41713547738519774,
+      "wilsonHi": 0.8482367556028526,
+      "clusterLo": 0.4,
+      "clusterHi": 0.9333333333333333,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.B1.criticalMismatchRecall": {
+      "k": 0,
+      "n": 15,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.20388330103584862,
+      "zeroErrorUpper95": 0.18103627252208465
+    },
+    "heldout.B1.criticalMismatchDimensionRecall": {
+      "k": 4,
+      "n": 15,
+      "rate": 0.26666666666666666,
+      "wilsonLo": 0.10897453325692374,
+      "wilsonHi": 0.5195043405598057
+    },
+    "heldout.B1.falseAlarm": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.B1.correctSupported": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.B1.correctAbstention": {
+      "k": 5,
+      "n": 12,
+      "rate": 0.4166666666666667,
+      "wilsonLo": 0.19326031365875665,
+      "wilsonHi": 0.6804886874504503,
+      "clusterLo": 0.09090909090909091,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.B1.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.B1.emittedLabels": {
+      "SUPPORTED_FOR_SCOPE": 15,
+      "INSUFFICIENT_EVIDENCE": 5
+    },
+    "heldout.B2.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.B2.exact": {
+      "k": 7,
+      "n": 20,
+      "rate": 0.35,
+      "wilsonLo": 0.18119182410108206,
+      "wilsonHi": 0.5671457233147638,
+      "clusterLo": 0.25,
+      "clusterHi": 0.45,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.B2.acceptable": {
+      "k": 9,
+      "n": 20,
+      "rate": 0.45,
+      "wilsonLo": 0.2581978582556243,
+      "wilsonHi": 0.6579146575496577,
+      "clusterLo": 0.3,
+      "clusterHi": 0.6,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.B2.exactClear": {
+      "k": 5,
+      "n": 9,
+      "rate": 0.5555555555555556,
+      "wilsonLo": 0.26665129349549305,
+      "wilsonHi": 0.8112214789023355,
+      "clusterLo": 0.5,
+      "clusterHi": 0.7142857142857143,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.B2.exactContestable": {
+      "k": 2,
+      "n": 11,
+      "rate": 0.18181818181818182,
+      "wilsonLo": 0.05136768974608513,
+      "wilsonHi": 0.4769805619608442,
+      "clusterLo": 0,
+      "clusterHi": 0.36363636363636365,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.B2.falseSupported": {
+      "k": 10,
+      "n": 15,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.41713547738519774,
+      "wilsonHi": 0.8482367556028526,
+      "clusterLo": 0.4,
+      "clusterHi": 0.9333333333333333,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.B2.criticalMismatchRecall": {
+      "k": 0,
+      "n": 15,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.20388330103584862,
+      "zeroErrorUpper95": 0.18103627252208465
+    },
+    "heldout.B2.criticalMismatchDimensionRecall": {
+      "k": 4,
+      "n": 15,
+      "rate": 0.26666666666666666,
+      "wilsonLo": 0.10897453325692374,
+      "wilsonHi": 0.5195043405598057
+    },
+    "heldout.B2.falseAlarm": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.B2.correctSupported": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.B2.correctAbstention": {
+      "k": 5,
+      "n": 12,
+      "rate": 0.4166666666666667,
+      "wilsonLo": 0.19326031365875665,
+      "wilsonHi": 0.6804886874504503,
+      "clusterLo": 0.09090909090909091,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.B2.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.B2.emittedLabels": {
+      "SUPPORTED_FOR_SCOPE": 15,
+      "INSUFFICIENT_EVIDENCE": 5
+    },
+    "heldout.B3.run1.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.B3.run1.exact": {
+      "k": 12,
+      "n": 20,
+      "rate": 0.6,
+      "wilsonLo": 0.3865815007622531,
+      "wilsonHi": 0.781193467627183,
+      "clusterLo": 0.5,
+      "clusterHi": 0.7,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.B3.run1.acceptable": {
+      "k": 15,
+      "n": 20,
+      "rate": 0.75,
+      "wilsonLo": 0.531299122381256,
+      "wilsonHi": 0.8881382985923343,
+      "clusterLo": 0.75,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.B3.run1.exactClear": {
+      "k": 6,
+      "n": 9,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.3542021355803963,
+      "wilsonHi": 0.879416181613089,
+      "clusterLo": 0.5,
+      "clusterHi": 0.8888888888888888,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.B3.run1.exactContestable": {
+      "k": 6,
+      "n": 11,
+      "rate": 0.5454545454545454,
+      "wilsonLo": 0.280091537409322,
+      "wilsonHi": 0.7872872837754024,
+      "clusterLo": 0.5,
+      "clusterHi": 0.6153846153846154,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.B3.run1.falseSupported": {
+      "k": 4,
+      "n": 15,
+      "rate": 0.26666666666666666,
+      "wilsonLo": 0.10897453325692374,
+      "wilsonHi": 0.5195043405598057,
+      "clusterLo": 0.13333333333333333,
+      "clusterHi": 0.3333333333333333,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.B3.run1.criticalMismatchRecall": {
+      "k": 11,
+      "n": 15,
+      "rate": 0.7333333333333333,
+      "wilsonLo": 0.4804956594401943,
+      "wilsonHi": 0.8910254667430761
+    },
+    "heldout.B3.run1.criticalMismatchDimensionRecall": {
+      "k": 12,
+      "n": 15,
+      "rate": 0.8,
+      "wilsonLo": 0.5481455128483065,
+      "wilsonHi": 0.9295245065301844
+    },
+    "heldout.B3.run1.falseAlarm": {
+      "k": 1,
+      "n": 5,
+      "rate": 0.2,
+      "wilsonLo": 0.03622410863243014,
+      "wilsonHi": 0.6244653702374747,
+      "clusterLo": 0,
+      "clusterHi": 0.6,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.B3.run1.correctSupported": {
+      "k": 4,
+      "n": 5,
+      "rate": 0.8,
+      "wilsonLo": 0.37553462976252533,
+      "wilsonHi": 0.9637758913675698,
+      "clusterLo": 0.4,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.B3.run1.correctAbstention": {
+      "k": 1,
+      "n": 12,
+      "rate": 0.08333333333333333,
+      "wilsonLo": 0.014865094404917095,
+      "wilsonHi": 0.35387991114111694,
+      "clusterLo": 0,
+      "clusterHi": 0.23076923076923078,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.B3.run1.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.B3.run1.emittedLabels": {
+      "SUPPORTED_FOR_SCOPE": 7,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 10,
+      "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 2,
+      "INSUFFICIENT_EVIDENCE": 1
+    },
+    "heldout.B3.run2.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.B3.run2.exact": {
+      "k": 13,
+      "n": 20,
+      "rate": 0.65,
+      "wilsonLo": 0.43285427668523624,
+      "wilsonHi": 0.818808175898918,
+      "clusterLo": 0.55,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.B3.run2.acceptable": {
+      "k": 16,
+      "n": 20,
+      "rate": 0.8,
+      "wilsonLo": 0.5839825677481064,
+      "wilsonHi": 0.919342337420202,
+      "clusterLo": 0.75,
+      "clusterHi": 0.9,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.B3.run2.exactClear": {
+      "k": 7,
+      "n": 9,
+      "rate": 0.7777777777777778,
+      "wilsonLo": 0.45258896910698887,
+      "wilsonHi": 0.9367748928821533,
+      "clusterLo": 0.5555555555555556,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.B3.run2.exactContestable": {
+      "k": 6,
+      "n": 11,
+      "rate": 0.5454545454545454,
+      "wilsonLo": 0.280091537409322,
+      "wilsonHi": 0.7872872837754024,
+      "clusterLo": 0.5,
+      "clusterHi": 0.6153846153846154,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.B3.run2.falseSupported": {
+      "k": 3,
+      "n": 15,
+      "rate": 0.2,
+      "wilsonLo": 0.07047549346981563,
+      "wilsonHi": 0.45185448715169363,
+      "clusterLo": 0.06666666666666667,
+      "clusterHi": 0.3333333333333333,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.B3.run2.criticalMismatchRecall": {
+      "k": 12,
+      "n": 15,
+      "rate": 0.8,
+      "wilsonLo": 0.5481455128483065,
+      "wilsonHi": 0.9295245065301844
+    },
+    "heldout.B3.run2.criticalMismatchDimensionRecall": {
+      "k": 12,
+      "n": 15,
+      "rate": 0.8,
+      "wilsonLo": 0.5481455128483065,
+      "wilsonHi": 0.9295245065301844
+    },
+    "heldout.B3.run2.falseAlarm": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.B3.run2.correctSupported": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.B3.run2.correctAbstention": {
+      "k": 1,
+      "n": 12,
+      "rate": 0.08333333333333333,
+      "wilsonLo": 0.014865094404917095,
+      "wilsonHi": 0.35387991114111694,
+      "clusterLo": 0,
+      "clusterHi": 0.23076923076923078,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.B3.run2.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.B3.run2.emittedLabels": {
+      "SUPPORTED_FOR_SCOPE": 7,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 11,
+      "INSUFFICIENT_EVIDENCE": 1,
+      "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 1
+    },
+    "heldout.B3.run3.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.B3.run3.exact": {
+      "k": 13,
+      "n": 20,
+      "rate": 0.65,
+      "wilsonLo": 0.43285427668523624,
+      "wilsonHi": 0.818808175898918,
+      "clusterLo": 0.55,
+      "clusterHi": 0.75,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.B3.run3.acceptable": {
+      "k": 16,
+      "n": 20,
+      "rate": 0.8,
+      "wilsonLo": 0.5839825677481064,
+      "wilsonHi": 0.919342337420202,
+      "clusterLo": 0.75,
+      "clusterHi": 0.9,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.B3.run3.exactClear": {
+      "k": 7,
+      "n": 9,
+      "rate": 0.7777777777777778,
+      "wilsonLo": 0.45258896910698887,
+      "wilsonHi": 0.9367748928821533,
+      "clusterLo": 0.5555555555555556,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.B3.run3.exactContestable": {
+      "k": 6,
+      "n": 11,
+      "rate": 0.5454545454545454,
+      "wilsonLo": 0.280091537409322,
+      "wilsonHi": 0.7872872837754024,
+      "clusterLo": 0.5,
+      "clusterHi": 0.6153846153846154,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.B3.run3.falseSupported": {
+      "k": 3,
+      "n": 15,
+      "rate": 0.2,
+      "wilsonLo": 0.07047549346981563,
+      "wilsonHi": 0.45185448715169363,
+      "clusterLo": 0.06666666666666667,
+      "clusterHi": 0.3333333333333333,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.B3.run3.criticalMismatchRecall": {
+      "k": 10,
+      "n": 15,
+      "rate": 0.6666666666666666,
+      "wilsonLo": 0.41713547738519774,
+      "wilsonHi": 0.8482367556028526
+    },
+    "heldout.B3.run3.criticalMismatchDimensionRecall": {
+      "k": 13,
+      "n": 15,
+      "rate": 0.8666666666666667,
+      "wilsonLo": 0.6211801716767764,
+      "wilsonHi": 0.9626387408969346
+    },
+    "heldout.B3.run3.falseAlarm": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.B3.run3.correctSupported": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.B3.run3.correctAbstention": {
+      "k": 1,
+      "n": 12,
+      "rate": 0.08333333333333333,
+      "wilsonLo": 0.014865094404917095,
+      "wilsonHi": 0.35387991114111694,
+      "clusterLo": 0,
+      "clusterHi": 0.23076923076923078,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.B3.run3.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.B3.run3.emittedLabels": {
+      "SUPPORTED_FOR_SCOPE": 7,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 11,
+      "INSUFFICIENT_EVIDENCE": 1,
+      "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 1
+    },
+    "heldout.B3.exact.meanWorst": {
+      "mean": 0.6333333333333333,
+      "worst": 0.6,
+      "runs": 3
+    },
+    "heldout.B3.falseSupported.meanWorst": {
+      "mean": 0.22222222222222224,
+      "worst": 0.26666666666666666,
+      "runs": 3
+    },
+    "heldout.B3.falseAlarm.meanWorst": {
+      "mean": 0.06666666666666667,
+      "worst": 0.2,
+      "runs": 3
+    },
+    "heldout.B3.correctSupported.meanWorst": {
+      "mean": 0.9333333333333332,
+      "worst": 0.8,
+      "runs": 3
+    },
+    "heldout.B3.criticalMismatchRecall.meanWorst": {
+      "mean": 0.7333333333333333,
+      "worst": 0.6666666666666666,
+      "runs": 3
+    },
+    "heldout.B4.run1.n": {
+      "cases": 20,
+      "clusters": 5,
+      "effective": {
+        "n": 20,
+        "clusters": 5,
+        "meanClusterSize": 4
+      }
+    },
+    "heldout.B4.run1.exact": {
+      "k": 12,
+      "n": 20,
+      "rate": 0.6,
+      "wilsonLo": 0.3865815007622531,
+      "wilsonHi": 0.781193467627183,
+      "clusterLo": 0.4,
+      "clusterHi": 0.8,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261027
+    },
+    "heldout.B4.run1.acceptable": {
+      "k": 16,
+      "n": 20,
+      "rate": 0.8,
+      "wilsonLo": 0.5839825677481064,
+      "wilsonHi": 0.919342337420202,
+      "clusterLo": 0.75,
+      "clusterHi": 0.9,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261028
+    },
+    "heldout.B4.run1.exactClear": {
+      "k": 7,
+      "n": 9,
+      "rate": 0.7777777777777778,
+      "wilsonLo": 0.45258896910698887,
+      "wilsonHi": 0.9367748928821533,
+      "clusterLo": 0.5555555555555556,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261029
+    },
+    "heldout.B4.run1.exactContestable": {
+      "k": 5,
+      "n": 11,
+      "rate": 0.45454545454545453,
+      "wilsonLo": 0.21271271622459764,
+      "wilsonHi": 0.719908462590678,
+      "clusterLo": 0.2,
+      "clusterHi": 0.7272727272727273,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261030
+    },
+    "heldout.B4.run1.falseSupported": {
+      "k": 3,
+      "n": 15,
+      "rate": 0.2,
+      "wilsonLo": 0.07047549346981563,
+      "wilsonHi": 0.45185448715169363,
+      "clusterLo": 0.06666666666666667,
+      "clusterHi": 0.3333333333333333,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261031
+    },
+    "heldout.B4.run1.criticalMismatchRecall": {
+      "k": 9,
+      "n": 15,
+      "rate": 0.6,
+      "wilsonLo": 0.357468301206246,
+      "wilsonHi": 0.8017550385865841
+    },
+    "heldout.B4.run1.criticalMismatchDimensionRecall": {
+      "k": 12,
+      "n": 15,
+      "rate": 0.8,
+      "wilsonLo": 0.5481455128483065,
+      "wilsonHi": 0.9295245065301844
+    },
+    "heldout.B4.run1.falseAlarm": {
+      "k": 0,
+      "n": 5,
+      "rate": 0,
+      "wilsonLo": 0,
+      "wilsonHi": 0.43448246478317476,
+      "zeroErrorUpper95": 0.4507197283469412,
+      "clusterLo": 0,
+      "clusterHi": 0,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261032
+    },
+    "heldout.B4.run1.correctSupported": {
+      "k": 5,
+      "n": 5,
+      "rate": 1,
+      "wilsonLo": 0.5655175352168251,
+      "wilsonHi": 1,
+      "clusterLo": 1,
+      "clusterHi": 1,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261033
+    },
+    "heldout.B4.run1.correctAbstention": {
+      "k": 5,
+      "n": 12,
+      "rate": 0.4166666666666667,
+      "wilsonLo": 0.19326031365875665,
+      "wilsonHi": 0.6804886874504503,
+      "clusterLo": 0.19954545454545536,
+      "clusterHi": 0.5833333333333334,
+      "clusters": 5,
+      "resamples": 2000,
+      "seed": 20261034
+    },
+    "heldout.B4.run1.noVerdict": {
+      "k": 0,
+      "n": 20
+    },
+    "heldout.B4.run1.emittedLabels": {
+      "SUPPORTED_FOR_SCOPE": 8,
+      "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 7,
+      "INSUFFICIENT_EVIDENCE": 5
+    },
+    "heldout.B4.exact.meanWorst": {
+      "mean": 0.6,
+      "worst": 0.6,
+      "runs": 1
+    },
+    "heldout.B4.falseSupported.meanWorst": {
+      "mean": 0.2,
+      "worst": 0.2,
+      "runs": 1
+    },
+    "heldout.B4.falseAlarm.meanWorst": {
+      "mean": 0,
+      "worst": 0,
+      "runs": 1
+    },
+    "heldout.B4.correctSupported.meanWorst": {
+      "mean": 1,
+      "worst": 1,
+      "runs": 1
+    },
+    "heldout.B4.criticalMismatchRecall.meanWorst": {
+      "mean": 0.6,
+      "worst": 0.6,
+      "runs": 1
+    },
+    "heldout.pairedWithV": [
+      {
+        "arm": "V-noident",
+        "b": 0,
+        "c": 0,
+        "p": 1,
+        "pHolm": 1,
+        "diff": 0,
+        "diffLo": 0,
+        "diffHi": 0,
+        "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
+      },
+      {
+        "arm": "B1",
+        "b": 4,
+        "c": 5,
+        "p": 1,
+        "pHolm": 1,
+        "diff": -0.05,
+        "diffLo": -0.15,
+        "diffHi": 0,
+        "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
+      },
+      {
+        "arm": "B2",
+        "b": 4,
+        "c": 5,
+        "p": 1,
+        "pHolm": 1,
+        "diff": -0.05,
+        "diffLo": -0.15,
+        "diffHi": 0,
+        "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
+      },
+      {
+        "arm": "B3",
+        "b": 4,
+        "c": 11,
+        "p": 0.11846923828125025,
+        "pHolm": 0.5923461914062512,
+        "diff": -0.35,
+        "diffLo": -0.45,
+        "diffHi": -0.25,
+        "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
+      },
+      {
+        "arm": "B4",
+        "b": 3,
+        "c": 9,
+        "p": 0.1459960937500003,
+        "pHolm": 0.5923461914062512,
+        "diff": -0.3,
+        "diffLo": -0.5,
+        "diffHi": -0.1,
+        "note": "exact-label correctness; V minus arm; b = V right and arm wrong, c = the reverse; model arms use the majority of runs"
+      }
+    ],
+    "armsNotRun": {
+      "B5": "Zetaris natural-language-to-SQL: BLOCKED. No natural-language-to-SQL service exists in the local build (infra/zetaris/GATES.md, gate Z-NL: three ways of finding one are written down there).",
+      "B0": "Manual source-by-source research is the reviewer study (T8); no reviewers were available.",
+      "B6": "Constat free MCP and the HealthIT.com ledger emit no verdict and take no claim input. Their scored results on the 26 development claims are reused from evals/gate0/arms/scored.json (derivable from their output: Constat 7 of 26, HealthIT 0 of 26) and are not available for the held-out claims: no lookups were made for the five held-out devices."
+    }
+  },
+  "detail": {
+    "heldout": {
+      "cases": [
+        {
+          "id": "HO-CA-01",
+          "cluster": "K253801",
+          "product": "device:fda:K253801",
+          "kind": "positive control",
+          "expected": "SUPPORTED_FOR_SCOPE",
+          "acceptable": [],
+          "contestable": false,
+          "keyDimensions": []
+        },
+        {
+          "id": "HO-CA-02",
+          "cluster": "K253801",
+          "product": "device:fda:K253801",
+          "kind": "mismatch",
+          "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "population"
+          ]
+        },
+        {
+          "id": "HO-CA-03",
+          "cluster": "K253801",
+          "product": "device:fda:K253801",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "purpose"
+          ]
+        },
+        {
+          "id": "HO-CA-04",
+          "cluster": "K253801",
+          "product": "device:fda:K253801",
+          "kind": "mismatch",
+          "expected": "REQUIRES_DOMAIN_REVIEW",
+          "acceptable": [],
+          "contestable": false,
+          "keyDimensions": [
+            "timing"
+          ]
+        },
+        {
+          "id": "HO-PH-01",
+          "cluster": "K252360",
+          "product": "device:fda:K252360",
+          "kind": "positive control",
+          "expected": "SUPPORTED_FOR_SCOPE",
+          "acceptable": [],
+          "contestable": false,
+          "keyDimensions": []
+        },
+        {
+          "id": "HO-PH-02",
+          "cluster": "K252360",
+          "product": "device:fda:K252360",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "contestable": false,
+          "keyDimensions": [
+            "population"
+          ]
+        },
+        {
+          "id": "HO-PH-03",
+          "cluster": "K252360",
+          "product": "device:fda:K252360",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "INSUFFICIENT_EVIDENCE",
+            "REQUIRES_DOMAIN_REVIEW"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "purpose"
+          ]
+        },
+        {
+          "id": "HO-PH-04",
+          "cluster": "K252360",
+          "product": "device:fda:K252360",
+          "kind": "mismatch",
+          "expected": "INSUFFICIENT_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "version"
+          ]
+        },
+        {
+          "id": "HO-SD-01",
+          "cluster": "K253825",
+          "product": "device:fda:K253825",
+          "kind": "positive control",
+          "expected": "SUPPORTED_FOR_SCOPE",
+          "acceptable": [],
+          "contestable": false,
+          "keyDimensions": []
+        },
+        {
+          "id": "HO-SD-02",
+          "cluster": "K253825",
+          "product": "device:fda:K253825",
+          "kind": "mismatch",
+          "expected": "INSUFFICIENT_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "version"
+          ]
+        },
+        {
+          "id": "HO-SD-03",
+          "cluster": "K253825",
+          "product": "device:fda:K253825",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "purpose"
+          ]
+        },
+        {
+          "id": "HO-SD-04",
+          "cluster": "K253825",
+          "product": "device:fda:K253825",
+          "kind": "mismatch",
+          "expected": "INSUFFICIENT_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "population"
+          ]
+        },
+        {
+          "id": "HO-SE-01",
+          "cluster": "K250680",
+          "product": "device:fda:K250680",
+          "kind": "positive control",
+          "expected": "SUPPORTED_FOR_SCOPE",
+          "acceptable": [],
+          "contestable": false,
+          "keyDimensions": []
+        },
+        {
+          "id": "HO-SE-02",
+          "cluster": "K250680",
+          "product": "device:fda:K250680",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "contestable": false,
+          "keyDimensions": [
+            "population"
+          ]
+        },
+        {
+          "id": "HO-SE-03",
+          "cluster": "K250680",
+          "product": "device:fda:K250680",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "metric"
+          ]
+        },
+        {
+          "id": "HO-SE-04",
+          "cluster": "K250680",
+          "product": "device:fda:K250680",
+          "kind": "mismatch",
+          "expected": "INSUFFICIENT_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "setting"
+          ]
+        },
+        {
+          "id": "HO-EF-01",
+          "cluster": "K253163",
+          "product": "device:fda:K253163",
+          "kind": "positive control",
+          "expected": "SUPPORTED_FOR_SCOPE",
+          "acceptable": [],
+          "contestable": false,
+          "keyDimensions": []
+        },
+        {
+          "id": "HO-EF-02",
+          "cluster": "K253163",
+          "product": "device:fda:K253163",
+          "kind": "mismatch",
+          "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "population"
+          ]
+        },
+        {
+          "id": "HO-EF-03",
+          "cluster": "K253163",
+          "product": "device:fda:K253163",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW",
+            "INSUFFICIENT_EVIDENCE"
+          ],
+          "contestable": true,
+          "keyDimensions": [
+            "purpose"
+          ]
+        },
+        {
+          "id": "HO-EF-04",
+          "cluster": "K253163",
+          "product": "device:fda:K253163",
+          "kind": "mismatch",
+          "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+          "acceptable": [
+            "REQUIRES_DOMAIN_REVIEW"
+          ],
+          "contestable": false,
+          "keyDimensions": [
+            "timing"
+          ]
+        }
+      ],
+      "arms": [
+        {
+          "id": "V",
+          "label": "Sakaime full: extraction, identity layer, compiler",
+          "note": "M2: evidence extracted from the documents, candidates filtered by the identity resolver",
+          "runs": [
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "timing"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "version",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "version"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting",
+                    "purpose",
+                    "timing"
+                  ],
+                  "detail": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "V-noident",
+          "label": "Sakaime without the identity layer",
+          "note": "every candidate a name search returns is attached to the product",
+          "runs": [
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "timing"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "version",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "version"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "REQUIRES_DOMAIN_REVIEW",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting",
+                    "purpose",
+                    "timing"
+                  ],
+                  "detail": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B1",
+          "label": "B1 keyword rules over all records pooled",
+          "note": "no model; pooled text; supports or says insufficient",
+          "runs": [
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "metric"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B2",
+          "label": "B2 source by source",
+          "note": "no model; one record must satisfy every stated field",
+          "runs": [
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "metric"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B3",
+          "label": "B3 one Nemotron call with all records",
+          "note": "nvidia/nemotron-3.5-lightning-30b-a3b through the NVIDIA API, temperature 0, 3 runs; replies cached under results/model-runs (recorded when replayed)",
+          "runs": [
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [
+                    "timing"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "settings"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "metric"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population",
+                    "settings"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                }
+              ]
+            },
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "timing"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "settings"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "metric"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "product"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population",
+                    "settings"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                }
+              ]
+            },
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "timing"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "settings"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "metric"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "setting",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose",
+                    "product"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [
+                    "population",
+                    "timing"
+                  ],
+                  "detail": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "B4",
+          "label": "B4 tool-using Nemotron agent",
+          "note": "nvidia/nemotron-3.5-lightning-30b-a3b through the NVIDIA API, temperature 0, 1 run; replies cached under results/model-runs (recorded when replayed)",
+          "runs": [
+            {
+              "rows": [
+                {
+                  "id": "HO-CA-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-CA-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "timing",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-PH-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-02",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SD-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-03",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "metric"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-SE-04",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "setting"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-01",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": true,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-02",
+                  "emitted": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "population",
+                    "purpose"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-03",
+                  "emitted": "INSUFFICIENT_EVIDENCE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": true,
+                  "falseSupported": false,
+                  "namedDimensions": [
+                    "purpose",
+                    "population"
+                  ],
+                  "detail": null
+                },
+                {
+                  "id": "HO-EF-04",
+                  "emitted": "SUPPORTED_FOR_SCOPE",
+                  "status": "ok",
+                  "exact": false,
+                  "acceptable": false,
+                  "falseSupported": true,
+                  "namedDimensions": [],
+                  "detail": null
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "vDetails": {
+        "V|HO-CA-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-CA-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-CA-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "purpose:PARTIAL"
+          ]
+        },
+        "V|HO-CA-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The claim does not state a patient population, so nothing can be concluded about it.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "UNKNOWN: The claim does not state a intended purpose, so nothing can be concluded about it.",
+            "timing": "UNKNOWN: The authorization record is in force from 2026-04-07 with no stated end and covers the use from 2030-07-01. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "timing:UNKNOWN"
+          ]
+        },
+        "V|HO-PH-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-PH-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-PH-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "purpose:DISJOINT"
+          ]
+        },
+        "V|HO-PH-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "DISJOINT: The claim is for version 2.5.0; the evidence covers version 3.1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "version:DISJOINT",
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-SD-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-SD-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 4.0.0 cannot be placed inside anything.",
+            "population": "UNKNOWN: The claim does not state a patient population, so nothing can be concluded about it.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "version:UNKNOWN"
+          ]
+        },
+        "V|HO-SD-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "UNKNOWN: The purpose term \"autonomous_reading\" cannot be placed in the purpose taxonomy, so no containment is decided. A reviewer must place it.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "purpose:UNKNOWN"
+          ]
+        },
+        "V|HO-SD-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: symptomatic women undergoing diagnostic mammography cannot be placed inside anything.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V|HO-SE-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "setting:UNKNOWN"
+          ]
+        },
+        "V|HO-SE-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record alone the claim is only partly covered; against the studies alone it is only partly covered.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed inpatient ward.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:PARTIAL",
+            "setting:UNKNOWN"
+          ]
+        },
+        "V|HO-SE-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: ppa is reported only by records that do not cover the claimed scope or are not among the evidence the claim depends on."
+          },
+          "unknownOrOpen": [
+            "setting:UNKNOWN"
+          ]
+        },
+        "V|HO-SE-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
+            "setting": "DISJOINT: The claim is for primary care; the evidence concerns emergency department, hospital (any unit), which does not contain it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "setting:DISJOINT"
+          ]
+        },
+        "V|HO-EF-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN"
+          ]
+        },
+        "V|HO-EF-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct, non-contrast abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN"
+          ]
+        },
+        "V|HO-EF-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN",
+            "purpose:PARTIAL"
+          ]
+        },
+        "V|HO-EF-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed hospital (any unit) cannot be placed inside anything.",
+            "purpose": "UNKNOWN: No evidence record in use states a intended purpose, so the claimed triage notification cannot be placed inside anything.",
+            "timing": "DISJOINT: The authorization record took effect 2026-04-22; the use from 2026-01-01 begins before that. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN",
+            "purpose:UNKNOWN",
+            "timing:DISJOINT"
+          ]
+        },
+        "V-noident|HO-CA-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-CA-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-CA-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "purpose:PARTIAL"
+          ]
+        },
+        "V-noident|HO-CA-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253801"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: The claim does not state a patient population, so nothing can be concluded about it.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "UNKNOWN: The claim does not state a intended purpose, so nothing can be concluded about it.",
+            "timing": "UNKNOWN: The authorization record is in force from 2026-04-07 with no stated end and covers the use from 2030-07-01. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "timing:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-PH-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-PH-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-PH-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "purpose:DISJOINT"
+          ]
+        },
+        "V-noident|HO-PH-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K252360"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
+            "version": "DISJOINT: The claim is for version 2.5.0; the evidence covers version 3.1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "version:DISJOINT",
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SD-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SD-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: No evidence record in use states a software version, so the claimed 4.0.0 cannot be placed inside anything.",
+            "population": "UNKNOWN: The claim does not state a patient population, so nothing can be concluded about it.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "version:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SD-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: women from a screening population undergoing screening mammography cannot be placed inside anything.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "UNKNOWN: The purpose term \"autonomous_reading\" cannot be placed in the purpose taxonomy, so no containment is decided. A reviewer must place it.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "purpose:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SD-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253825"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253825).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: symptomatic women undergoing diagnostic mammography cannot be placed inside anything.",
+            "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SE-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "setting:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SE-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record alone the claim is only partly covered; against the studies alone it is only partly covered.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed inpatient ward.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:PARTIAL",
+            "setting:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SE-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: ppa is reported only by records that do not cover the claimed scope or are not among the evidence the claim depends on."
+          },
+          "unknownOrOpen": [
+            "setting:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-SE-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K250680"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "CONTAINED: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it.",
+            "setting": "DISJOINT: The claim is for primary care; the evidence concerns emergency department, hospital (any unit), which does not contain it.",
+            "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "setting:DISJOINT"
+          ]
+        },
+        "V-noident|HO-EF-01": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-EF-02": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct, non-contrast abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "CONTAINED: The claimed purpose (triage notification) lies inside what the evidence establishes (detection aid).",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN"
+          ]
+        },
+        "V-noident|HO-EF-03": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: The study records do not state a care setting, so the measured results cannot be tied to the claimed hospital (any unit).",
+            "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
+            "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN",
+            "purpose:PARTIAL"
+          ]
+        },
+        "V-noident|HO-EF-04": {
+          "error": null,
+          "itemsUsed": 2,
+          "recordsUsed": [
+            "fda:K253163"
+          ],
+          "recordsExcluded": [],
+          "dimensions": {
+            "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253163).",
+            "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
+            "population": "UNKNOWN: No evidence record in use states a patient population, so the claimed conditions: contrast-enhanced abdominal ct cannot be placed inside anything.",
+            "setting": "UNKNOWN: No evidence record in use states a care setting, so the claimed hospital (any unit) cannot be placed inside anything.",
+            "purpose": "UNKNOWN: No evidence record in use states a intended purpose, so the claimed triage notification cannot be placed inside anything.",
+            "timing": "DISJOINT: The authorization record took effect 2026-04-22; the use from 2026-01-01 begins before that. The study records carry no date, so it cannot be shown that the evidence existed at the claimed start.",
+            "metric": "UNKNOWN: The claim states no performance figure, so there is nothing to compare with the study results."
+          },
+          "unknownOrOpen": [
+            "population:UNKNOWN",
+            "setting:UNKNOWN",
+            "purpose:UNKNOWN",
+            "timing:DISJOINT"
+          ]
+        }
+      },
+      "retrieval": [
+        {
+          "product": "device:fda:K253801",
+          "fdaOrigin": "pdfjs page text (evals/heldout/text)",
+          "candidates": []
+        },
+        {
+          "product": "device:fda:K252360",
+          "fdaOrigin": "pdfjs page text (evals/heldout/text)",
+          "candidates": []
+        },
+        {
+          "product": "device:fda:K253825",
+          "fdaOrigin": "pdfjs page text (evals/heldout/text)",
+          "candidates": []
+        },
+        {
+          "product": "device:fda:K250680",
+          "fdaOrigin": "pdfjs page text (evals/heldout/text)",
+          "candidates": []
+        },
+        {
+          "product": "device:fda:K253163",
+          "fdaOrigin": "pdfjs page text (evals/heldout/text)",
+          "candidates": []
+        }
+      ]
+    }
+  }
+}

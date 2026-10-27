@@ -1,0 +1,367 @@
+{
+  "meta": {
+    "suite": "identityshift",
+    "startedAt": "2026-10-27T11:53:40.414Z",
+    "node": "v24.20.0",
+    "seed": 20261027,
+    "class": [
+      "builder-labelled"
+    ],
+    "description": "IdentityShift: the existing leave-one-family-out evaluation of src/identity on data/identity-corpus, not re-tuned, with cluster-aware intervals and a fuzzy-name baseline. One reader labelled the corpus; the annotations for studies and papers (purpose tags, manufacturer) were supplied by the builder.",
+    "corpusHash": "33d64d68ccecc163",
+    "protocol": "leave-one-family-out; clusters are device families"
+  },
+  "summaries": {
+    "cases": {
+      "pairs": 144,
+      "families": 14,
+      "effective": {
+        "n": 144,
+        "clusters": 14,
+        "meanClusterSize": 10.285714285714286
+      },
+      "controlsUnrelatedPairs": 6
+    },
+    "resolver": {
+      "precision": {
+        "k": 48,
+        "n": 48,
+        "rate": 1,
+        "wilsonLo": 0.9258998703338824,
+        "wilsonHi": 0.9999999999999999,
+        "clusterLo": 1,
+        "clusterHi": 1,
+        "clusters": 14
+      },
+      "recall": {
+        "k": 48,
+        "n": 62,
+        "rate": 0.7741935483870968,
+        "wilsonLo": 0.6559437908464204,
+        "wilsonHi": 0.8604481696141172,
+        "clusterLo": 0.6666666666666666,
+        "clusterHi": 0.8750480769230766,
+        "clusters": 14
+      },
+      "surfacedRecall": {
+        "k": 60,
+        "n": 62,
+        "rate": 0.967741935483871,
+        "wilsonLo": 0.8897953040501456,
+        "wilsonHi": 0.9911086285001833,
+        "clusterLo": 0.9047619047619048,
+        "clusterHi": 1,
+        "clusters": 14
+      },
+      "correctAbstention": {
+        "k": 20,
+        "n": 22,
+        "rate": 0.9090909090909091,
+        "wilsonLo": 0.7218505315839417,
+        "wilsonHi": 0.9747045710090046,
+        "clusterLo": 0.7496710526315795,
+        "clusterHi": 1,
+        "clusters": 14
+      },
+      "falseMergeRate": {
+        "k": 0,
+        "n": 60,
+        "rate": 0,
+        "wilsonLo": 0,
+        "wilsonHi": 0.06017185214208986,
+        "zeroErrorUpper95": 0.04870291331009746,
+        "clusterLo": 0,
+        "clusterHi": 0,
+        "clusters": 14
+      },
+      "overconfidentOnAmbiguous": {
+        "k": 0,
+        "n": 22,
+        "rate": 0,
+        "wilsonLo": 0,
+        "wilsonHi": 0.14865487460862087,
+        "zeroErrorUpper95": 0.12730543165483876
+      },
+      "confirmedWhereTruthIsNotMatch": 0,
+      "crossCheckAgainstCommittedReport": {
+        "precision": {
+          "k": 48,
+          "n": 48,
+          "rate": 1,
+          "lo": 0.9258973488472576,
+          "hi": 0.9999999999999999
+        },
+        "recall": {
+          "k": 48,
+          "n": 62,
+          "rate": 0.7741935483870968,
+          "lo": 0.6559414245921728,
+          "hi": 0.8604494286070205
+        },
+        "correctAbstention": {
+          "k": 20,
+          "n": 22,
+          "rate": 0.9090909090909091,
+          "lo": 0.7218461934161421,
+          "hi": 0.9747051037171622
+        }
+      }
+    },
+    "fuzzyNameBaseline": {
+      "description": "Link two records when their names share a non-generic token of four or more characters. No identifiers, no abstention. Same pairs, same families.",
+      "precision": {
+        "k": 31,
+        "n": 62,
+        "rate": 0.5,
+        "wilsonLo": 0.3792274119456608,
+        "wilsonHi": 0.6207725880543392,
+        "clusterLo": 0.33927131336405536,
+        "clusterHi": 0.6428571428571429,
+        "clusters": 14
+      },
+      "recall": {
+        "k": 31,
+        "n": 62,
+        "rate": 0.5,
+        "wilsonLo": 0.3792274119456608,
+        "wilsonHi": 0.6207725880543392,
+        "clusterLo": 0.3510591638671146,
+        "clusterHi": 0.6774330235101147,
+        "clusters": 14
+      },
+      "falseMergeRate": {
+        "k": 23,
+        "n": 60,
+        "rate": 0.38333333333333336,
+        "wilsonLo": 0.27088272374082023,
+        "wilsonHi": 0.5098240417590008,
+        "clusterLo": 0.2,
+        "clusterHi": 0.6668478260869555,
+        "clusters": 14
+      },
+      "overconfidentOnAmbiguous": {
+        "k": 8,
+        "n": 22,
+        "rate": 0.36363636363636365,
+        "wilsonLo": 0.19733204670366125,
+        "wilsonHi": 0.5704829190986899
+      }
+    },
+    "resolverVersusFuzzy": [
+      {
+        "name": "pair handled correctly, an ambiguous pair must not be linked",
+        "onlyResolver": 51,
+        "onlyBaseline": 3,
+        "p": 2.9187763317395357e-12,
+        "pHolm": 2.9187763317395357e-12
+      },
+      {
+        "name": "pair handled correctly, an ambiguous pair must be left ambiguous",
+        "onlyResolver": 63,
+        "onlyBaseline": 3,
+        "p": 1.3002836654618911e-15,
+        "pHolm": 2.6005673309237822e-15
+      }
+    ],
+    "perFamily": {
+      "anumana": {
+        "pairs": 12,
+        "linkedTrue": 3,
+        "linkedFalse": 0,
+        "matchesMissed": 2
+      },
+      "aurora": {
+        "pairs": 5,
+        "linkedTrue": 0,
+        "linkedFalse": 0,
+        "matchesMissed": 0
+      },
+      "bodyguardian": {
+        "pairs": 2,
+        "linkedTrue": 0,
+        "linkedFalse": 0,
+        "matchesMissed": 0
+      },
+      "briefcase": {
+        "pairs": 13,
+        "linkedTrue": 0,
+        "linkedFalse": 0,
+        "matchesMissed": 0
+      },
+      "caption": {
+        "pairs": 12,
+        "linkedTrue": 4,
+        "linkedFalse": 0,
+        "matchesMissed": 2
+      },
+      "eyeart": {
+        "pairs": 12,
+        "linkedTrue": 6,
+        "linkedFalse": 0,
+        "matchesMissed": 1
+      },
+      "gigenius": {
+        "pairs": 10,
+        "linkedTrue": 7,
+        "linkedFalse": 0,
+        "matchesMissed": 0
+      },
+      "heartflow": {
+        "pairs": 9,
+        "linkedTrue": 4,
+        "linkedFalse": 0,
+        "matchesMissed": 2
+      },
+      "idxdr": {
+        "pairs": 9,
+        "linkedTrue": 4,
+        "linkedFalse": 0,
+        "matchesMissed": 1
+      },
+      "lunit": {
+        "pairs": 9,
+        "linkedTrue": 2,
+        "linkedFalse": 0,
+        "matchesMissed": 1
+      },
+      "mammoscreen": {
+        "pairs": 9,
+        "linkedTrue": 4,
+        "linkedFalse": 0,
+        "matchesMissed": 0
+      },
+      "paige": {
+        "pairs": 5,
+        "linkedTrue": 1,
+        "linkedFalse": 0,
+        "matchesMissed": 0
+      },
+      "transpara": {
+        "pairs": 14,
+        "linkedTrue": 8,
+        "linkedFalse": 0,
+        "matchesMissed": 1
+      },
+      "viz": {
+        "pairs": 23,
+        "linkedTrue": 5,
+        "linkedFalse": 0,
+        "matchesMissed": 4
+      }
+    }
+  },
+  "misses": [
+    {
+      "pair": "anumana-131",
+      "family": "anumana",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": true
+    },
+    {
+      "pair": "anumana-132",
+      "family": "anumana",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "caption-027",
+      "family": "caption",
+      "linkType": "SAME_PRODUCT",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "caption-032",
+      "family": "caption",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": true
+    },
+    {
+      "pair": "eyeart-012",
+      "family": "eyeart",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "heartflow-119",
+      "family": "heartflow",
+      "linkType": "SAME_PRODUCT",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "heartflow-123",
+      "family": "heartflow",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": true
+    },
+    {
+      "pair": "idxdr-019",
+      "family": "idxdr",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "lunit-101",
+      "family": "lunit",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "transpara-078",
+      "family": "transpara",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": false
+    },
+    {
+      "pair": "viz-049",
+      "family": "viz",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": true
+    },
+    {
+      "pair": "viz-050",
+      "family": "viz",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "ABSTAIN",
+      "contestable": true
+    },
+    {
+      "pair": "viz-051",
+      "family": "viz",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "SILENT",
+      "contestable": true
+    },
+    {
+      "pair": "viz-052",
+      "family": "viz",
+      "linkType": "STUDY_EVALUATES",
+      "truth": "MATCH",
+      "verdict": "SILENT",
+      "contestable": true
+    }
+  ]
+}
