@@ -1,0 +1,23 @@
+# The working tree uses LF on every platform. A Windows checkout with core.autocrlf=true would otherwise
+# rewrite recorded bytes, and every file below is verified by hash (cassettes, sealed claim sets, signed
+# dossiers, vendored reference engines) or executed by a POSIX shell (Zetaris runbook scripts).
+* text=auto eol=lf
+*.sh text eol=lf
+
+# Byte-pinned content: no filter of any kind, so a clone holds exactly the bytes that were hashed.
+data/** -text
+third_party/** -text
+output_examples/** -text
+input_examples/** -text
+evals/heldout/** -text
+evals/gate0/** -text
+evals/results/** -text
+tests/engines/**/RESULTS.json -text
+
+# Binary assets.
+*.pdf binary
+*.png binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.ico binary

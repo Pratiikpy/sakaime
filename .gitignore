@@ -23,3 +23,15 @@ ui/dist/
 tests/ui/test-results/
 ui/node_modules/
 tests/ui/screenshots/
+
+# build and test output, editor and OS files
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.vite/
+.npm.lock/
+.idea/
+.vscode/
+Thumbs.db
+desktop.ini

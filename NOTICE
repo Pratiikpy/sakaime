@@ -1,0 +1,34 @@
+Sakaime
+Copyright 2026 Pratiikpy
+
+This repository is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+It also contains material written by others. Each item below keeps its own licence, which is not changed by the licence of this
+repository. Full records of what was copied, from where and when are in docs/provenance.md.
+
+Meterless reference engines (third_party/meterless/)
+  The sponsor's public Apache-2.0 reference implementations of H-MEM and the World Model with their conformance runners,
+  vendored unmodified. Copyright 2026 Meterless. See third_party/meterless/LICENSE, NOTICE.md and PROVENANCE.md.
+
+Fonts (ui/public/fonts/)
+  Outfit and JetBrains Mono, used unmodified under the SIL Open Font License 1.1 (OFL-Outfit.txt, OFL-JetBrainsMono.txt).
+  See ui/NOTICE.md.
+
+deepset/prompt-injections test split (data/scout-corpus/external/)
+  Apache License 2.0. See data/scout-corpus/external/NOTICE.md.
+
+Public records (data/cassettes/, data/sample/, data/silos/registry/, data/sources/, evals/heldout/, evals/gate0/raw/)
+  Recordings and snapshots of openFDA (CC0), FDA decision summaries and device lists, ClinicalTrials.gov, PubMed and Europe PMC,
+  stored so that the product and its tests run offline. The terms under which some of these may be redistributed are recorded in
+  docs/provenance.md, including those that are not verified. Contact details of third parties that appear in these records
+  (for example authors' e-mail addresses in PubMed and ClinicalTrials.gov entries) are part of the public records as published
+  and are not used by the product.
+
+Europe PMC full text, PMC8593763 (evals/gate0/raw/europepmc/)
+  Ipp E, Liljenquist D, Bode B, et al. Pivotal evaluation of an artificial intelligence system for autonomous detection of
+  referrable and vision-threatening diabetic retinopathy. JAMA Network Open. 2021;4(11):e2134254.
+  doi:10.1001/jamanetworkopen.2021.34254
+  Licensed by the authors under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+  (https://creativecommons.org/licenses/by-nc-nd/4.0/). PMC8593763_fulltext.xml is the Europe PMC full-text XML as served on
+  2026-10-27; PMC8593763_fulltext.txt is a plain-text rendering of it. These two files are NOT covered by the Apache License of this
+  repository and may be used only on the terms of that Creative Commons licence.

@@ -5,6 +5,11 @@
 // located inside third_party/ are reported and not counted.
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
+import { createRequire } from "node:module";
+
+// Run the compiler with this Node binary instead of through a shell: no dependency on npx or on how the platform resolves
+// .cmd shims, and no shell-argument deprecation warning.
+const tsc = createRequire(import.meta.url).resolve("typescript/bin/tsc");
 
 const isDiagnostic = (line) => /^[^\s].*\(\d+,\d+\): error TS\d+/.test(line);
 const projects = ["tsconfig.json", "ui/tsconfig.json", "ui/dev-server/tsconfig.json", "tests/ui/tsconfig.json"].filter((p) => existsSync(p));
@@ -12,8 +17,14 @@ const projects = ["tsconfig.json", "ui/tsconfig.json", "ui/dev-server/tsconfig.j
 let failed = false;
 let vendoredCount = 0;
 for (const project of projects) {
-  const result = spawnSync("npx", ["tsc", "--noEmit", "--pretty", "false", "-p", project], { encoding: "utf8", shell: true });
-  const lines = `${result.stdout}${result.stderr}`.split(/\r?\n/).filter((line) => line.trim() !== "" && !line.startsWith("npm warn") && !line.includes("DEP0190") && !line.includes("trace-deprecation"));
+  const result = spawnSync(process.execPath, [tsc, "--noEmit", "--pretty", "false", "-p", project], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  if (result.error || result.status === null) {
+    // The compiler did not run to completion. An empty report must never read as "no errors".
+    failed = true;
+    console.error(`typecheck: ${project} could not be checked: ${result.error?.message ?? `terminated by signal ${result.signal}`}`);
+    continue;
+  }
+  const lines = `${result.stdout}${result.stderr}`.split(/\r?\n/).filter((line) => line.trim() !== "");
 
   // A diagnostic can be followed by indented continuation lines; they belong to the diagnostic above them.
   const ours = [];
@@ -24,7 +35,10 @@ for (const project of projects) {
     bucket.push(line);
   }
   vendoredCount += vendored.filter(isDiagnostic).length;
-  if (ours.length > 0) {
+  if (ours.length === 0 && result.status !== 0 && vendored.length === 0) {
+    failed = true;
+    console.error(`typecheck: ${project} exited with status ${result.status} and reported nothing`);
+  } else if (ours.length > 0) {
     failed = true;
     console.error(`typecheck: ${project} failed`);
     console.error(ours.join("\n"));

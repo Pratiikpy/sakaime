@@ -4,6 +4,10 @@
   "private": true,
   "description": "Know where the evidence stops. Applicability-aware evidence intelligence.",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pratiikpy/sakaime.git"
+  },
   "type": "module",
   "engines": {
     "node": ">=22.19"
@@ -18,7 +22,7 @@
     "ui:typecheck": "tsc -p ui/tsconfig.json && tsc -p ui/dev-server/tsconfig.json",
     "serve": "tsx scripts/serve.ts",
     "record:sample": "tsx scripts/record-sample.ts",
-    "test:live": "LIVE=1 vitest run tests/service/live.test.ts"
+    "test:live": "node scripts/test-live.mjs"
   },
   "dependencies": {
     "@duckdb/node-api": "^2.0.0-r.1",

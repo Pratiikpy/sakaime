@@ -11,11 +11,16 @@
  * By default the public sources and the decision summaries are replayed from the committed recordings, so the model and
  * Zetaris recordings are made against exactly the records the sample run replays. A fresh recording first moves the old model
  * and Zetaris recordings to .sakaime/backup (ignored by git), so no recording that the new run does not use is left behind.
- * Needs the local Zetaris stack (infra/zetaris) and a model key in .env. Public-class content only is recorded: regulator,
+ * The model leg is meant to go through the installed Nightshift (NIGHTSHIFT_API_KEY in the process environment, never in a file): while
+ * recording, NVIDIA's API is not a fallback, so a Nightshift failure stops the recording instead of leaving a recording that Nightshift
+ * did not make. After the replay the script re-verifies every stored receipt and writes the key id they were signed under
+ * (data/sample/receipt-key.json) and a summary of the route (output_examples/model-route.json).
+ * Needs the local Zetaris stack (infra/zetaris) and a model route. Public-class content only is recorded: regulator,
  * registry and publication text and structured claim fields; vendor claim sentences never enter a prompt.
  */
 import { cpSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
+import { auditCassettes, defaultReceiptLogPath, readInstalledKeyId, readInstalledNightshiftVersion } from "../src/models/index.ts";
 import { CassetteStore } from "../src/sources/index.ts";
 import { SakaimeService } from "../src/service/service.ts";
 import { recordedRun, writeRecordedRun } from "../src/service/sample-run.ts";
@@ -95,6 +100,8 @@ async function main(): Promise<void> {
 
   }
 
+  const pinned = replayOnly ? undefined : await pinReceiptKey(cfg);
+
   // Replay what was just recorded, as a judge would see it.
   const sample = await SakaimeService.create({ sample: true, env: { ...process.env, SAMPLE_MODE: "true", SAKAIME_NO_ENV: "1", SAKAIME_RECORD: "" } });
   const runs = [];
@@ -129,8 +136,79 @@ async function main(): Promise<void> {
     console.log(`dossier and trace for ${r.spec.id}`);
   }
 
+  await writeModelRoute(cfg, runs, pinned);
   await writeApiExamples(sample, cfg);
   sample.close();
+}
+
+interface PinnedKey {
+  keyId: string;
+  nightshiftVersion: string | null;
+}
+
+/**
+ * Pins the key id of the Nightshift installation that made the recordings, but only when every recording was made through
+ * Nightshift and every stored receipt verifies under that key. A recording made another way gets no pin, and says so.
+ */
+async function pinReceiptKey(cfg: ServiceConfig): Promise<PinnedKey | undefined> {
+  const explicit = (process.env["NIGHTSHIFT_RECEIPT_KEY_ID"] ?? "").split(",").map((x) => x.trim().toLowerCase()).filter((x) => /^[0-9a-f]{16}$/.test(x));
+  const log = defaultReceiptLogPath(process.env);
+  const keyId = explicit[0] ?? (log ? readInstalledKeyId(log) : undefined);
+  const audit = auditCassettes(cfg.dirs.modelCassettes, { trustedKeyIds: keyId ? [keyId] : [] });
+  if (!keyId || audit.total === 0 || audit.byProvider.nightshift !== audit.total || audit.receiptVerified !== audit.total) {
+    console.error(`NOT pinning a receipt key: ${audit.total} recordings, ${audit.byProvider.nightshift} made through Nightshift, ${audit.receiptVerified} receipts verified${keyId ? "" : ", and no installed key id could be determined"}. The recording is not a fully receipted Nightshift recording.`);
+    process.exitCode = 1;
+    return undefined;
+  }
+  const version = (await readInstalledNightshiftVersion()) ?? process.env["NIGHTSHIFT_VERSION"] ?? null;
+  const file = join(dirname(cfg.dirs.sampleRun), "receipt-key.json");
+  writeFileSync(
+    file,
+    `${JSON.stringify(
+      {
+        schema: "sakaime.receipt-key-pin/1",
+        keyId,
+        nightshiftVersion: version,
+        recordings: audit.total,
+        note: "The key id (first 16 hex characters of the SHA-256 of the Ed25519 public key) of the Nightshift installation that made the model recordings. Sample mode accepts a stored receipt only if its signature verifies and it was signed by this key. A receipt shows where a reply was routed and that this runtime signed it; it does not commit to the reply text, and it shows origin, not truth. Compare the key id with the one in your own installation's receipt log to see whether the recordings came from the same installation.",
+      },
+      null,
+      2,
+    )}
+`,
+  );
+  console.log(`pinned receipt key ${keyId} (Nightshift ${version ?? "version unknown"}) in ${file}`);
+  return { keyId, nightshiftVersion: version };
+}
+
+/** The route the replayed run was answered through, and how many of its model replies carry a receipt that re-verified. */
+async function writeModelRoute(cfg: ServiceConfig, runs: readonly { spec: { id: string }; wb: { env: { model?: { calls: { role: string; response?: { receipt?: unknown; recorded: boolean; routedModel: string; provider: string } }[] } } } }[], pinned: PinnedKey | undefined): Promise<void> {
+  const file = join(cfg.dirs.outputs, "model-route.json");
+  const trusted = pinned ? [pinned.keyId] : (() => { try { const k = JSON.parse(readFileSync(join(dirname(cfg.dirs.sampleRun), "receipt-key.json"), "utf8")) as { keyId?: string }; return k.keyId ? [k.keyId] : []; } catch { return []; } })();
+  const audit = auditCassettes(cfg.dirs.modelCassettes, { trustedKeyIds: trusted });
+  const perCase = runs.map((r) => {
+    const replies = (r.wb.env.model?.calls ?? []).filter((c) => c.response);
+    const byRole: Record<string, { replies: number; receipted: number }> = {};
+    for (const c of replies) {
+      const e = (byRole[c.role] ??= { replies: 0, receipted: 0 });
+      e.replies += 1;
+      if (c.response?.receipt) e.receipted += 1;
+    }
+    const receipted = replies.filter((c) => c.response?.receipt).length;
+    return { caseId: r.spec.id, modelReplies: replies.length, receiptedAndReverified: receipted, share: replies.length === 0 ? null : Math.round((receipted / replies.length) * 10000) / 10000, byRole };
+  });
+  const body = {
+    format: "sakaime.model-route/1",
+    note: "How the model leg of the committed sample run was answered. Counts come from re-reading the recordings and from the replayed run, not from the recording session.",
+    recordings: { total: audit.total, madeThroughNightshift: audit.byProvider.nightshift, madeThroughNvidiaDirectly: audit.byProvider.nvidia, receiptReverified: audit.receiptVerified, receiptRejected: audit.receiptRejected, withoutReceipt: audit.withoutReceipt },
+    receiptKeyId: audit.signingKeyIds,
+    nightshiftVersion: pinned?.nightshiftVersion ?? null,
+    modelsThatAnswered: audit.routedModels,
+    replayedRun: perCase,
+  };
+  writeFileSync(file, `${JSON.stringify(body, null, 2)}
+`);
+  console.log(`model route summary written to ${file}: ${audit.byProvider.nightshift}/${audit.total} through Nightshift, ${audit.receiptVerified}/${audit.total} receipts re-verified`);
 }
 
 /**
