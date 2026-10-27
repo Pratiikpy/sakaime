@@ -1,0 +1,24 @@
+{
+  "_about": "Extracted performance figures in the held-out documents that the gold list did not name, each read against its passage by the same single reader. 'correct' means the figure is stated for that metric as the extractor says; whether a reviewer should use it is the headline classification, scored separately.",
+  "verdicts": {
+    "K253801": {
+      "sensitivity|0.6620|observed": "correct",
+      "sensitivity|0.7600|observed": "correct",
+      "sensitivity|0.7810|observed": "correct",
+      "sensitivity|0.8060|observed": "correct",
+      "sensitivity|0.8440|observed": "correct",
+      "sensitivity|0.8560|observed": "correct",
+      "sensitivity|0.8760|observed": "correct",
+      "specificity|0.8030|observed": "correct",
+      "specificity|0.8800|observed": "correct",
+      "specificity|0.9130|observed": "correct",
+      "specificity|0.9160|observed": "correct",
+      "specificity|0.9240|observed": "correct",
+      "specificity|0.9250|observed": "correct",
+      "specificity|0.9290|observed": "correct"
+    }
+  },
+  "reasons": {
+    "K253801 subgroup figures": "Sensitivity and specificity by race, age group, BMI, ECG manufacturer and amyloid type, stated in sentences such as 'the lowest diagnostic performance observed for Black participants (sensitivity 76%, specificity 88.0%)'. All are real subgroup figures. Two of them (sensitivity 0.806 and specificity 0.929, 'though this may be influenced by study site') lose their subgroup tag because the naming clause is in the previous sentence, so they are counted as wrong headline results."
+  }
+}

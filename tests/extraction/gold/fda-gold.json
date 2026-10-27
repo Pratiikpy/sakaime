@@ -1,0 +1,773 @@
+{
+  "_about": "Hand-labelled by one reader (the author of the extractor, not blind to its design) from the text of the 12 FDA summaries in research/feasibility/fixtures/fda. Values are what the DOCUMENT states, not what the extractor produced. 'results' lists narrative performance statements about the subject device (tables are not labelled). Fields: versions = device software version strings written in the document; ifuAge* = age limits in the Indications for Use (null = none written); studyAge* = age limits written for the study population; settings = care settings named in the Indications for Use, in the extractor's vocabulary; sampleSizes / siteCounts = counts the document gives for its studies (not exhaustive); ncts = registered trial identifiers written in the document; results[].headline = true when a reviewer would take the figure as the device's overall observed result (false for goals, subgroups, corrected analyses, reader arms, per-condition figures).",
+  "docs": {
+    "DEN170073": {
+      "versions": [
+        "1.0"
+      ],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": 23,
+      "studyAgeMax": null,
+      "settings": [
+        "hospital network",
+        "acute setting"
+      ],
+      "sampleSizes": [
+        300
+      ],
+      "siteCounts": [
+        2
+      ],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "sensitivity",
+          "value": 0.878,
+          "ci": [
+            0.812,
+            0.925
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "specificity",
+          "value": 0.896,
+          "ci": [
+            0.837,
+            0.939
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "auc",
+          "value": 0.91,
+          "kind": "observed",
+          "headline": true
+        }
+      ],
+      "notes": "The text layer has recognition errors (\"Trnth\", \"repo1ts\", \"res ectivel y\", replacement characters), but the site count and the three headline figures are readable."
+    },
+    "DEN180001": {
+      "versions": [
+        "2.0.0"
+      ],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": 22,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [
+        900,
+        892,
+        819
+      ],
+      "siteCounts": [
+        10
+      ],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "sensitivity",
+          "value": 0.874,
+          "ci": [
+            0.819,
+            0.929
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "specificity",
+          "value": 0.895,
+          "ci": [
+            0.869,
+            0.931
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "ppv",
+          "value": 0.727,
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "npv",
+          "value": 0.957,
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.87,
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "specificity",
+          "value": 0.9,
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "ppv",
+          "value": 0.73,
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "npv",
+          "value": 0.96,
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.872,
+          "ci": [
+            0.818,
+            0.912
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.907,
+          "ci": [
+            0.883,
+            0.927
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.807,
+          "ci": [
+            0.767,
+            0.842
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.898,
+          "ci": [
+            0.859,
+            0.927
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.85,
+          "kind": "goal",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.825,
+          "kind": "goal",
+          "headline": false
+        }
+      ],
+      "notes": "The indication says only adults; the summary states a target population of persons ages 22 and older."
+    },
+    "DEN190040": {
+      "versions": [],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [
+        50
+      ],
+      "siteCounts": [],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "specificity",
+          "value": 0.9785,
+          "kind": "observed",
+          "headline": false
+        }
+      ],
+      "notes": "97.85% is the share of auto-captured clips that were diagnostic, called 'specificity of the auto-capture feature': a feature statistic, not the device's diagnostic specificity."
+    },
+    "DEN200055": {
+      "versions": [],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": 40,
+      "studyAgeMax": 80,
+      "settings": [],
+      "sampleSizes": [
+        700
+      ],
+      "siteCounts": [
+        3
+      ],
+      "ncts": [
+        "NCT01694966",
+        "NCT04079478"
+      ],
+      "results": [
+        {
+          "metric": "auc",
+          "value": 0.787,
+          "ci": [
+            0.755,
+            0.817
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "auc",
+          "value": 0.723,
+          "ci": [
+            0.684,
+            0.762
+          ],
+          "kind": "observed",
+          "headline": true
+        }
+      ],
+      "notes": "Both AUC figures sit in figure text, two panels interleaved. NCT01694966 is the trial the training videos came from, not the device study."
+    },
+    "DEN200080": {
+      "versions": [
+        "2.1.501"
+      ],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [
+        847,
+        728,
+        610
+      ],
+      "siteCounts": [],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "specificity",
+          "value": 0.895,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.8845,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.011,
+          "kind": "observed",
+          "headline": false
+        }
+      ],
+      "notes": "Reader-study arms (assisted, unassisted) and their difference. 14 of 25 PDF pages have no text layer; the text fixture holds the other 11."
+    },
+    "K200667": {
+      "versions": [
+        "2.1.0"
+      ],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": 22,
+      "studyAgeMax": null,
+      "settings": [
+        "primary care",
+        "eye care"
+      ],
+      "sampleSizes": [
+        942,
+        915,
+        655
+      ],
+      "siteCounts": [
+        11
+      ],
+      "ncts": [
+        "NCT03112005"
+      ],
+      "results": [],
+      "notes": "The pivotal results are only in a stacked-cell table (Table 2); no narrative sentence states them."
+    },
+    "K211733": {
+      "versions": [],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [
+        1385,
+        1708,
+        754,
+        954
+      ],
+      "siteCounts": [
+        6,
+        3
+      ],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "auc",
+          "value": 0.9864,
+          "ci": [
+            0.9815,
+            0.9913
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.9429,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.9572,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.9973,
+          "ci": [
+            0.9955,
+            0.9992
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.9608,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.9914,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.9686,
+          "ci": [
+            0.9547,
+            0.9824
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.8986,
+          "ci": [
+            0.8672,
+            0.93
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.9348,
+          "ci": [
+            0.9106,
+            0.9591
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.963,
+          "ci": [
+            0.9521,
+            0.9739
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.8892,
+          "ci": [
+            0.856,
+            0.9224
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.9051,
+          "ci": [
+            0.8818,
+            0.9283
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.95,
+          "kind": "goal",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.8,
+          "kind": "goal",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.8,
+          "kind": "goal",
+          "headline": false
+        }
+      ],
+      "notes": "Every figure belongs to one of two target findings (pleural effusion, pneumothorax), so none is a single overall result. The predicate device's figures in the same section are excluded from the labels."
+    },
+    "K213857": {
+      "versions": [],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [],
+      "siteCounts": [],
+      "ncts": [],
+      "results": [],
+      "notes": "States no clinical study of its own."
+    },
+    "K221347": {
+      "versions": [
+        "1.7.2"
+      ],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [
+        "healthcare facility",
+        "hospital"
+      ],
+      "sampleSizes": [
+        10690,
+        9218,
+        1472
+      ],
+      "siteCounts": [],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "sensitivity",
+          "value": 0.95,
+          "ci": [
+            0.935,
+            0.964
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.932,
+          "ci": [
+            0.91,
+            0.951
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.945,
+          "ci": [
+            0.935,
+            0.954
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.945,
+          "ci": [
+            0.936,
+            0.954
+          ],
+          "kind": "observed",
+          "headline": false
+        }
+      ],
+      "notes": "Figures are given separately for 2D and for DBT."
+    },
+    "K232699": {
+      "versions": [],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": 18,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [
+        16000
+      ],
+      "siteCounts": [
+        4
+      ],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "sensitivity",
+          "value": 0.845,
+          "ci": [
+            0.822,
+            0.866
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "specificity",
+          "value": 0.836,
+          "ci": [
+            0.829,
+            0.842
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "ppv",
+          "value": 0.305,
+          "ci": [
+            0.288,
+            0.321
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "npv",
+          "value": 0.984,
+          "ci": [
+            0.982,
+            0.987
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.857,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.842,
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.8,
+          "kind": "goal",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.8,
+          "kind": "goal",
+          "headline": false
+        }
+      ],
+      "notes": "In the pdftotext text the inclusion age is 'age  18': the comparison glyph is missing, so the direction of the limit cannot be read. The PDF itself prints 'age >= 18' and pdfjs keeps the glyph. 0.857 and 0.842 are from the set-aside part of the development data."
+    },
+    "K240301": {
+      "versions": [],
+      "ifuAgeMin": null,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [
+        7544,
+        4429
+      ],
+      "siteCounts": [
+        3
+      ],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "auc",
+          "value": 0.883,
+          "ci": [
+            0.837,
+            0.929
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.833,
+          "ci": [
+            0.756,
+            0.911
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "specificity",
+          "value": 0.793,
+          "ci": [
+            0.728,
+            0.858
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "auc",
+          "value": 0.797,
+          "ci": [
+            0.752,
+            0.843
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "auc",
+          "value": 0.871,
+          "ci": [
+            0.829,
+            0.912
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.706,
+          "ci": [
+            0.633,
+            0.78
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.793,
+          "ci": [
+            0.725,
+            0.86
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.815,
+          "ci": [
+            0.782,
+            0.848
+          ],
+          "kind": "observed",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.836,
+          "ci": [
+            0.805,
+            0.867
+          ],
+          "kind": "observed",
+          "headline": false
+        }
+      ],
+      "notes": "Standalone figures are headline; the others are reader-study arms (unaided, assisted). 'MammoScreen 3' names a generation, not a software version string."
+    },
+    "K253265": {
+      "versions": [],
+      "ifuAgeMin": 18,
+      "ifuAgeMax": null,
+      "studyAgeMin": null,
+      "studyAgeMax": null,
+      "settings": [
+        "hospital network"
+      ],
+      "sampleSizes": [
+        394
+      ],
+      "siteCounts": [
+        6
+      ],
+      "ncts": [],
+      "results": [
+        {
+          "metric": "sensitivity",
+          "value": 0.942,
+          "ci": [
+            0.896,
+            0.972
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "specificity",
+          "value": 0.946,
+          "ci": [
+            0.907,
+            0.972
+          ],
+          "kind": "observed",
+          "headline": true
+        },
+        {
+          "metric": "sensitivity",
+          "value": 0.8,
+          "kind": "goal",
+          "headline": false
+        },
+        {
+          "metric": "specificity",
+          "value": 0.8,
+          "kind": "goal",
+          "headline": false
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "_about": "Documents the extractor was NOT developed on: five FDA 510(k) summaries fetched after the parser was written (K253801, K252360, K253825, K250680, K253163), labelled by the same single reader from the pdfjs text of the PDFs. The PDFs are not committed (size); tests/extraction/run-heldout.ts reads them from the directory named by SAKAIME_HELDOUT_DIR. Same field definitions as fda-gold.json.",
+  "files": {
+    "K253801": { "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253801.pdf" },
+    "K252360": { "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252360.pdf" },
+    "K253825": { "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253825.pdf" },
+    "K250680": { "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K250680.pdf" },
+    "K253163": { "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253163.pdf" }
+  },
+  "docs": {
+    "K253801": {
+      "versions": [],
+      "ifuAgeMin": null, "ifuAgeMax": null,
+      "studyAgeMin": 18, "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [25525], "siteCounts": [],
+      "ncts": [],
+      "results": [
+        { "metric": "sensitivity", "value": 0.789, "kind": "observed", "headline": true },
+        { "metric": "specificity", "value": 0.912, "kind": "observed", "headline": true },
+        { "metric": "sensitivity", "value": 0.75, "kind": "goal", "headline": false },
+        { "metric": "specificity", "value": 0.8, "kind": "goal", "headline": false }
+      ],
+      "notes": "Four health systems: 'health systems' is not a site unit in the parser, so the count of 4 is not labelled here."
+    },
+    "K252360": {
+      "versions": ["3.1.0"],
+      "ifuAgeMin": null, "ifuAgeMax": null,
+      "studyAgeMin": 18, "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [21066], "siteCounts": [5],
+      "ncts": [],
+      "results": [
+        { "metric": "sensitivity", "value": 0.73, "ci": [0.721, 0.739], "kind": "observed", "headline": true },
+        { "metric": "specificity", "value": 0.744, "ci": [0.735, 0.752], "kind": "observed", "headline": true },
+        { "metric": "ppv", "value": 0.115, "ci": [0.112, 0.118], "kind": "observed", "headline": true },
+        { "metric": "npv", "value": 0.984, "ci": [0.983, 0.984], "kind": "observed", "headline": true }
+      ],
+      "notes": "The subject device is v3.1.0 and the predicate (another Anumana product) v2.5.0, in one comparison table row. The text layer is damaged by a font that maps the ti and ft ligatures to other letters."
+    },
+    "K253825": {
+      "versions": [],
+      "ifuAgeMin": null, "ifuAgeMax": null,
+      "studyAgeMin": null, "studyAgeMax": null,
+      "settings": [],
+      "sampleSizes": [2425, 684], "siteCounts": [],
+      "ncts": [],
+      "results": [],
+      "notes": "States that both studies met the prespecified criteria and gives no sensitivity or AUC figures. 'Device Model: v4.0.0' is the PREDICATE's model, so the subject has no version string."
+    },
+    "K250680": {
+      "versions": [],
+      "ifuAgeMin": 18, "ifuAgeMax": null,
+      "studyAgeMin": 18, "studyAgeMax": null,
+      "settings": ["emergency department", "hospital"],
+      "sampleSizes": [7732, 7298], "siteCounts": [3, 4],
+      "ncts": [],
+      "results": [
+        { "metric": "ppa", "value": 0.794, "ci": [0.742, 0.846], "kind": "observed", "headline": true },
+        { "metric": "npa", "value": 0.895, "ci": [0.888, 0.902], "kind": "observed", "headline": true },
+        { "metric": "ppa", "value": 0.8, "kind": "goal", "headline": false },
+        { "metric": "npa", "value": 0.8, "kind": "goal", "headline": false }
+      ],
+      "notes": "The device did NOT meet the prespecified PPA criterion (lower bound above 80%); the summary says so. The age limit is written with a greater-or-equal sign, which the form page loses and the summary page keeps."
+    },
+    "K253163": {
+      "versions": [],
+      "ifuAgeMin": null, "ifuAgeMax": null,
+      "studyAgeMin": null, "studyAgeMax": null,
+      "settings": ["hospital network"],
+      "sampleSizes": [300], "siteCounts": [],
+      "ncts": [],
+      "results": [
+        { "metric": "sensitivity", "value": 0.928, "ci": [0.873, 0.96], "kind": "observed", "headline": true },
+        { "metric": "specificity", "value": 0.932, "ci": [0.882, 0.961], "kind": "observed", "headline": true },
+        { "metric": "sensitivity", "value": 0.8, "kind": "goal", "headline": false },
+        { "metric": "specificity", "value": 0.8, "kind": "goal", "headline": false }
+      ],
+      "notes": "The sentence that gives the subject figures also gives the predicate's (sensitivity 0.910, specificity 0.889), which are excluded from the labels."
+    }
+  }
+}

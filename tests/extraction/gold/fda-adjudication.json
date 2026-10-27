@@ -1,0 +1,25 @@
+{
+  "_about": "Extracted performance figures that the gold list did not name, each read against its own passage by the same single reader. 'correct': the figure is stated for that metric as the extractor says (metric, value, observed or goal). 'incorrect': it is not. This judges the extraction of the figure, not whether a reviewer should use it; that is the headline classification, scored separately.",
+  "verdicts": {
+    "K232699": {
+      "ppv|0.3500|goal": "incorrect",
+      "npv|0.9400|goal": "incorrect"
+    },
+    "K253265": {
+      "specificity|0.9190|observed": "correct",
+      "specificity|0.9280|observed": "correct",
+      "specificity|0.9500|observed": "correct",
+      "specificity|0.9590|observed": "correct",
+      "specificity|0.9680|observed": "correct"
+    },
+    "DEN200055": {
+      "ppa|0.1500|goal": "correct",
+      "ppa|0.6210|observed": "correct"
+    }
+  },
+  "reasons": {
+    "K232699 ppv/npv 0.35/0.94": "'robust positive predictive value (>35%)' is an observed lower bound in subgroups with high prevalence, not a prespecified goal; the extractor read the '>' as a goal marker.",
+    "K253265 specificity rows": "Table 16 rows 'Specificity 221 91.9%' for five additional operating points; the operating-point label is on a different line. The figure is real, flagged table_row, and excluded from headline results.",
+    "DEN200055 ppa rows": "Positive percent agreement is a spelled-out secondary endpoint of the GI Genius trial. 0.15 is the non-inferiority margin (a goal); 0.621 is the adjusted estimate for the GI Genius arm, tagged subgroup because of the adjustment wording."
+  }
+}
