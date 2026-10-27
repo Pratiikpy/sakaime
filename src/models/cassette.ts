@@ -32,7 +32,7 @@ const ReceiptSchema = z
     keyId: z.string().optional(),
     requestHash: z.string().optional(),
     responseHash: z.string().optional(),
-    raw: z.record(z.unknown()),
+    raw: z.record(z.string(), z.unknown()),
   })
   .strict();
 
@@ -46,7 +46,7 @@ const CassetteSchema = z
       .object({
         system: z.string(),
         user: z.string(),
-        jsonSchema: z.record(z.unknown()).optional(),
+        jsonSchema: z.record(z.string(), z.unknown()).optional(),
         maxTokens: z.number().optional(),
         /** `vendor-confidential` appears only on constructed demo data recorded under a synthetic consent; see `constructedDemoData`. */
         dataClass: z.enum(["public", "vendor-confidential"]),

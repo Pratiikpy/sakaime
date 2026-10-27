@@ -94,7 +94,7 @@ const RoleOverrideSchema = z.union([
     })
     .strict(),
 ]);
-const OverridesSchema = z.record(RoleOverrideSchema);
+const OverridesSchema = z.record(z.string(), RoleOverrideSchema);
 
 export const DEFAULT_ROLE_SPECS: readonly RoleSpec[] = [
   { role: "planner", model: NEMOTRON_LIGHTNING, fallbacks: [NEMOTRON_ULTRA], localModel: LOCAL_LIGHTNING, thinking: false, temperature: 0, maxTokens: 2048, rationale: "high volume, short structured plans" },

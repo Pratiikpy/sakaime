@@ -19,7 +19,7 @@ const IntentSchema = z
     category: z.string().min(1),
     description: z.string().min(1),
     parameters: z
-      .object({ required: z.array(z.string()).optional(), requiredAnyOf: z.array(z.array(z.string()).min(1)).optional(), properties: z.record(z.unknown()).optional() })
+      .object({ required: z.array(z.string()).optional(), requiredAnyOf: z.array(z.array(z.string()).min(1)).optional(), properties: z.record(z.string(), z.unknown()).optional() })
       .passthrough()
       .default({}),
     capabilities: z.array(z.string().min(1)).default([]),

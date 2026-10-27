@@ -45,10 +45,10 @@ describe("junk input is rejected by the schema, never answered with a label", ()
   });
 
   it("rejects numbers that are not finite", () => {
-    expect(rejects(claim({}, { metric: "sensitivity", atLeast: Infinity }))).toMatch(/not finite/);
+    expect(rejects(claim({}, { metric: "sensitivity", atLeast: Infinity }))).toMatch(/not finite|received Infinity/);
     expect(rejects(claim({}, { metric: "sensitivity", atLeast: Number.NaN }))).toMatch(/claim\.performance\.atLeast/);
-    expect(rejects(claim(), [auth(), study({}, [{ metric: "sensitivity", value: Infinity }])])).toMatch(/not finite/);
-    expect(rejects(claim({ population: { age: { min: Infinity } } }))).toMatch(/not finite/);
+    expect(rejects(claim(), [auth(), study({}, [{ metric: "sensitivity", value: Infinity }])])).toMatch(/not finite|received Infinity/);
+    expect(rejects(claim({ population: { age: { min: Infinity } } }))).toMatch(/not finite|received Infinity/);
   });
 
   it("rejects an interval that is inverted or does not contain its own point estimate", () => {

@@ -51,7 +51,7 @@ export const CassetteEntrySchema = z.object({
   response: z.object({
     status: z.number().int(),
     /** Only headers that carry meaning for interpretation. Never cookies or credentials. */
-    headers: z.record(z.string()),
+    headers: z.record(z.string(), z.string()),
     sha256: Sha256,
     bytes: z.number().int().nonnegative(),
   }),
@@ -76,7 +76,7 @@ export const CassetteIndexSchema = z.object({
     .array(z.object({ url: z.string(), reason: z.string() }))
     .default([]),
   /** Requests that were made and logged but whose bodies were never saved, counted per host. */
-  unsaved: z.record(z.number().int()).default({}),
+  unsaved: z.record(z.string(), z.number().int()).default({}),
 });
 export type CassetteIndex = z.infer<typeof CassetteIndexSchema>;
 

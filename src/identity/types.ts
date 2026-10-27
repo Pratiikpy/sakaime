@@ -75,7 +75,7 @@ export const IdentityRecordSchema = z
     purposeTags: z.array(z.string().max(80)).max(30).default([]),
     date: DateString.optional(),
     enrollment: z.number().int().nonnegative().optional(),
-    ids: OwnIdsSchema.default({}),
+    ids: OwnIdsSchema.prefault({}),
     mentions: z.array(MentionSchema).max(200).default([]),
     /** Record ids this record explicitly declares it replaces. */
     supersedes: z.array(z.string().min(1).max(200)).default([]),

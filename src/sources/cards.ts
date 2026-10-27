@@ -71,8 +71,8 @@ export const SourceCardFileSchema = z
     dataClass: DataClassSchema,
     schemaVersion: z.string().min(1),
     /** Contracts per operation (for example `search` and `study` for ClinicalTrials.gov). */
-    responseContracts: z.record(z.array(ContractPathSchema)).default({}),
-    probe: z.object({ operation: z.string(), query: z.record(z.union([z.string(), z.number()])), limit: z.number().int().positive().optional(), description: z.string() }),
+    responseContracts: z.record(z.string(), z.array(ContractPathSchema)).default({}),
+    probe: z.object({ operation: z.string(), query: z.record(z.string(), z.union([z.string(), z.number()])), limit: z.number().int().positive().optional(), description: z.string() }),
     /** "pinned-snapshot" when the live source refuses scripted access and a hashed snapshot is served instead. */
     access: z.enum(["live", "pinned-snapshot"]).default("live"),
     snapshot: z.object({ manifest: z.string() }).optional(),

@@ -71,7 +71,7 @@ export type Policy = z.infer<typeof PolicySchema>;
 export const CompileOptionsSchema = z
   .object({
     /** Health of the source behind each evidence type, from the Source Console. Absent means not reported. */
-    sourceHealth: z.record(AssertionTypeSchema, SourceStatusSchema).optional(),
+    sourceHealth: z.partialRecord(AssertionTypeSchema, SourceStatusSchema).optional(),
     /** Dimensions the claim needs. Default: all but metric, plus metric when the claim states a performance. */
     requiredDimensions: z.array(DimensionSchema).optional(),
     /** Reviewer dispositions of contrary material, keyed by evidence item id. */
@@ -125,7 +125,7 @@ export function ruleVersionFor(settings: Hierarchy, purposes: Hierarchy): string
 }
 
 function formatIssues(err: z.ZodError, prefix: string): string[] {
-  return err.issues.map((i) => `${prefix}${i.path.map((p) => (typeof p === "number" ? `[${p}]` : `.${p}`)).join("")}: ${i.message}`);
+  return err.issues.map((i) => `${prefix}${i.path.map((p) => (typeof p === "number" ? `[${p}]` : `.${String(p)}`)).join("")}: ${i.message}`);
 }
 
 function checkFinite(value: unknown, path: string, issues: string[]): void {
