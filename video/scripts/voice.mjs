@@ -25,10 +25,10 @@ const LENGTH_SCALE = Number(process.env.PIPER_LENGTH_SCALE ?? 0.72);
 
 // Respellings for the voice only. The text on screen and in the repository keeps the real spelling.
 const SPEECH = [
-  [/Sakaime/g, "Sah-kigh-meh"],
-  [/Zetaris/g, "Zeh-tah-riss"],
+  [/Sakaime/g, "Sakai-meh"],
+  [/Zetaris/g, "Zet-uh-riss"],
   [/Meterless/g, "Meter-less"],
-  [/Nemotron/g, "Nemmo-tron"],
+  [/Nemotron/g, "Nemo-tron"],
   [/Nightshift/g, "Night-shift"],
   [/H-MEM/g, "Aitch-mem"],
   [/NVIDIA/g, "En-vidia"],
