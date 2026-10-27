@@ -46,7 +46,7 @@ The judge must see a source nobody wired up get discovered and joined through Ze
 - On the 26 development claims the full pipeline labelled none of the 17 unsupported claims as supported; it was exactly right on 9 of 26 and flagged all 9 well-supported claims. The generic Nemotron arms were more often exactly right and labelled 20 to 39 percent (means over runs) of the unsupported claims as supported. Both statements, with the class "builder-labelled", belong in any slide that shows the result (`../evals/RESULTS.md`).
 - Nobody who runs a hospital AI review was interviewed; demand is not measured.
 - The Scout guard's recall on injection wording written after its rules were frozen is 9 of 24 with rules alone; the optional classifier is off in the product (D-030).
-- If the video says "Nightshift receipts", they must exist for the run shown; as committed, 0 of 14 recorded replies carry a receipt.
+- The video says "61 of 61 replies carry a verified Nightshift receipt": that holds for the committed recorded run (`output_examples/model-route.json`). The rendered video and its scene timeline are in `video/` (`video/README.md`, `video/COVERAGE.md`).
 
 ### Recording rules
 
