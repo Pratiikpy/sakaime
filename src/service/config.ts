@@ -139,10 +139,14 @@ export function defaultDirs(root: string = REPO_ROOT): ServiceDirs {
   };
 }
 
+/** Names whose value is a credential. A stale one exported in a long-lived shell must not shadow the project's own. */
+const CREDENTIAL_NAME = /(KEY|TOKEN|SECRET|PASSWORD)$/i;
+
 /**
- * Loads  from the repository root into process.env unless SAKAIME_NO_ENV is set. Missing file is fine.
- * Values in the repository .env win over variables already in the shell: a stale key exported in a long-lived
- * shell otherwise shadows the project key and every model call fails with HTTP 403.
+ * Loads the repository .env into process.env unless SAKAIME_NO_ENV is set. A missing file is fine.
+ * Settings already present in the shell win (HOST, PORT, SAMPLE_MODE can be overridden per run). Credentials are the
+ * exception: the repository's value replaces one in the shell, because a stale key exported earlier makes every model call
+ * fail with HTTP 403 while the project's own key is sitting unused in .env.
  */
 export function loadDotEnv(root: string = REPO_ROOT): void {
   if (truthy(process.env["SAKAIME_NO_ENV"])) return;
@@ -150,7 +154,9 @@ export function loadDotEnv(root: string = REPO_ROOT): void {
   if (!existsSync(file)) return;
   try {
     for (const [key, value] of Object.entries(parseEnv(readFileSync(file, "utf8")))) {
-      if (value !== undefined) process.env[key] = value;
+      if (value === undefined) continue;
+      if (value === "" && process.env[key] !== undefined) continue;
+      if (process.env[key] === undefined || CREDENTIAL_NAME.test(key)) process.env[key] = value;
     }
   } catch {
     /* an unreadable .env is treated as absent; the model layer reports which provider is missing */
