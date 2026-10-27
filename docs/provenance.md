@@ -22,7 +22,7 @@ Sakaime's own engines in `src/engines/` are separate implementations that pass t
 | Airbyte protocol | MIT | The `describe`, `check`, `discover`, `read` connector contract | `src/ports/`, `src/sources/` |
 | Trino connector SPI | Apache-2.0 | A source declares which predicates it applies; the engine applies the residual | `data/sources/*.yaml`, `src/sources/` |
 | Graphiti | Apache-2.0 | Bi-temporal facts and edge invalidation, with authority ranked above recency | `src/engines/world-model/` |
-| PROBAST+AI, STARD-AI, TRIPOD+AI, IMDRF SaMD N41, FDA PCCP guidance | Published standards | Concepts of applicability and the items that carry scope facts. No standard prescribes the executable rules; those are our design inferences and say so in `src/compiler/rules.ts`. | `src/compiler/` (registry read from `research/standards/APPLICABILITY-RULE-REGISTRY.md`, local only) |
+| PROBAST+AI, STARD-AI, TRIPOD+AI, IMDRF SaMD N41, FDA PCCP guidance | Published standards | Concepts of applicability and the items that carry scope facts. No standard prescribes the executable rules; those are our design inferences and say so in `src/compiler/rules.ts`. | `src/compiler/` (registry read from `docs/reports/applicability-rule-registry.md`) |
 
 ## Contract details taken from the previous submission (read-only reference)
 
