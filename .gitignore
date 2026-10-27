@@ -10,3 +10,4 @@ docs/reference/
 .claude/
 *.pdf.tmp
 .DS_Store
+goak.txt

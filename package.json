@@ -1,0 +1,39 @@
+{
+  "name": "sakaime",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Know where the evidence stops. Applicability-aware evidence intelligence.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "judge": "tsx scripts/judge.ts"
+  },
+  "dependencies": {
+    "@duckdb/node-api": "^2.0.0-r.1",
+    "@hono/node-server": "^2.1.5",
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "csv-parse": "^7.0.3",
+    "fast-xml-parser": "^5.11.2",
+    "hono": "^4.13.14",
+    "pdfjs-dist": "^6.4.299",
+    "pg": "^8.23.1",
+    "yaml": "^2.9.1",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.23.1",
+    "@vitest/coverage-v8": "^3.2.7",
+    "fast-check": "^3.23.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
