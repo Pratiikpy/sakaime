@@ -5,7 +5,7 @@ import { parseFdaSummary, type FdaSummaryExtraction } from "../../src/extraction
 import { measureFda, resultKey, type Adjudication, type Gold, type MeasureReport } from "../../src/extraction/measure.ts";
 import { isUsable } from "../../src/extraction/verify.ts";
 
-export const FIXTURE_DIR = join(import.meta.dirname, "..", "..", "research", "feasibility", "fixtures", "fda");
+export const FIXTURE_DIR = join(import.meta.dirname, "..", "..", "data", "fixtures", "feasibility", "fda");
 export const GOLD_PATH = join(import.meta.dirname, "gold", "fda-gold.json");
 export const ADJUDICATION_PATH = join(import.meta.dirname, "gold", "fda-adjudication.json");
 

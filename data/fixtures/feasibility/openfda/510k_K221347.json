@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "city": "Nijmegen",
+      "advisory_committee_description": "Radiology",
+      "address_1": "Mercator Ii, 7th Floor, Teornooiveld 300",
+      "address_2": "",
+      "statement_or_summary": "Summary",
+      "product_code": "QDQ",
+      "openfda": {
+        "device_name": "Radiological Computer Assisted Detection/Diagnosis Software For Lesions Suspicious For Cancer",
+        "medical_specialty_description": "Radiology",
+        "regulation_number": "892.2090",
+        "device_class": "2",
+        "registration_number": [
+          "3016819165",
+          "3026970882",
+          "3025343020",
+          "3023522713",
+          "3021230777",
+          "3030412475",
+          "3015173173",
+          "3005496266",
+          "3042248552",
+          "3016759115",
+          "3018733944"
+        ],
+        "fei_number": [
+          "3016819165",
+          "3026970882",
+          "3025343020",
+          "3023522713",
+          "3021230777",
+          "3030412475",
+          "3015173173",
+          "3005496266",
+          "3042248552",
+          "3016759115",
+          "3018733944"
+        ]
+      },
+      "zip_code": "6525EC",
+      "applicant": "Screenpoint Medical B.V.",
+      "decision_date": "2022-08-03",
+      "decision_code": "SESE",
+      "country_code": "NL",
+      "device_name": "Transpara 1.7.2",
+      "advisory_committee": "RA",
+      "contact": "Robin  Barwegen",
+      "expedited_review_flag": "",
+      "k_number": "K221347",
+      "state": "",
+      "date_received": "2022-05-09",
+      "review_advisory_committee": "RA",
+      "postal_code": "6525EC",
+      "decision_description": "Substantially Equivalent",
+      "clearance_type": "Traditional"
+    }
+  ]
+}

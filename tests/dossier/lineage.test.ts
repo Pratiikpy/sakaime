@@ -1,4 +1,5 @@
-import { existsSync, readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import Ajv2020Module from "ajv/dist/2020.js";
@@ -158,12 +159,25 @@ describe("derived lineage for a dossier", () => {
   });
 });
 
-// The OpenLineage specification files are studied in research/ (not committed). Skip, and say so, when absent.
-const specPath = resolve(import.meta.dirname, "../../research/OpenLineage/spec/OpenLineage.json");
+// The published core schema, vendored unmodified (third_party/openlineage/PROVENANCE.md), so this runs in a clean clone.
+const vendored = resolve(import.meta.dirname, "../../third_party/openlineage");
+const specPath = resolve(vendored, "OpenLineage.json");
 describe("conformance with the OpenLineage 2-0-2 JSON Schema", () => {
-  const present = existsSync(specPath);
-  if (!present) console.log(`SKIPPED: ${specPath} not present; run-event conformance was not checked on this machine`);
-  it.skipIf(!present)("validates every emitted event against the published RunEvent schema", () => {
+  it("uses the vendored schema as upstream published it: the git blob and SHA-256 of each LF-normalised file match the record", () => {
+    const record = readFileSync(resolve(vendored, "PROVENANCE.md"), "utf8");
+    for (const file of ["OpenLineage.json", "LICENSE"]) {
+      const body = Buffer.from(readFileSync(resolve(vendored, file)).toString("latin1").replace(/\r\n/g, "\n"), "latin1");
+      const sha256 = createHash("sha256").update(body).digest("hex");
+      const blob = createHash("sha1").update(`blob ${body.length}\0`).update(body).digest("hex");
+      const row = record.split("\n").find((l) => l.startsWith(`| \`${file}\` |`));
+      expect(row, `a record row for ${file}`).toBeDefined();
+      expect(row, `${file} git blob`).toContain(blob);
+      expect(row, `${file} sha256`).toContain(sha256);
+    }
+    expect((JSON.parse(readFileSync(specPath, "utf8")) as { $id: string }).$id).toBe("https://openlineage.io/spec/2-0-2/OpenLineage.json");
+  });
+
+  it("validates every emitted event against the published RunEvent schema", () => {
     const ajv = new Ajv2020({ strict: false, allErrors: true });
     addFormats(ajv);
     const schema = JSON.parse(readFileSync(specPath, "utf8"));
@@ -174,7 +188,7 @@ describe("conformance with the OpenLineage 2-0-2 JSON Schema", () => {
     }
   });
 
-  it.skipIf(!present)("rejects an event the specification would reject (not a UUID run id, missing producer)", () => {
+  it("rejects an event the specification would reject (not a UUID run id, missing producer)", () => {
     const ajv = new Ajv2020({ strict: false, allErrors: true });
     addFormats(ajv);
     const validate = ajv.compile({ ...JSON.parse(readFileSync(specPath, "utf8")), oneOf: undefined, $ref: "#/$defs/RunEvent" });

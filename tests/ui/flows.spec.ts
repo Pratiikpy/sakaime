@@ -172,20 +172,38 @@ test.describe("landing and claim X-ray", () => {
 test.describe("source console", () => {
   test("sources show health in words and icons, schema hash, last success and the Zetaris name", async ({ page, request }) => {
     const w = watch(page);
-    const sources = (await (await request.get("/api/sources")).json()) as { source: { id: string; health: string; schemaHash?: string; descriptor: string }; zetarisName?: string; healthDetail: string }[];
+    const sources = (await (await request.get("/api/sources")).json()) as { source: { id: string; health: string; schemaHash?: string; descriptor: string; lastSuccessAt?: string }; zetarisName?: string; healthDetail: string; observed?: boolean }[];
     await page.goto("/sources");
     await ready(page);
     const table = page.getByTestId("sources-table");
     await expect(table.locator("tbody tr")).toHaveCount(sources.length);
     for (const s of sources) {
       const row = table.locator(`[data-source="${s.source.id}"]`);
-      await expect(row.locator(`[data-health="${s.source.health}"]`)).toBeVisible();
+      // A source no case has read has not answered; it is drawn as "Not read yet", never as "Answering".
+      await expect(row.locator(`[data-health="${s.observed === false ? "NOT_READ" : s.source.health}"]`)).toBeVisible();
+      if (s.observed === false) {
+        await expect(row.locator(".health-badge")).toHaveText(/Not read yet/);
+        await expect(row).not.toContainText("Answering");
+        await expect(row).toContainText("Last success: not stated");
+      }
       await expect(row).toContainText(s.healthDetail);
       if (s.zetarisName) await expect(row).toContainText(s.zetarisName.split(",")[0]!.trim());
       if (s.source.schemaHash) await expect(row.locator(".cell-hash code")).toBeVisible();
     }
-    // A source no case read has no observation of its own: it is not shown as out of date, and it says it was not read.
-    for (const s of sources.filter((x) => /^not read/.test(x.healthDetail))) expect(s.source.health, `${s.source.id} was not read`).toBe("OK");
+    // A source no case read has no observation of its own: it is not shown as out of date, and it says it was not read, in a field and in words.
+    const unread = sources.filter((x) => /^not read/.test(x.healthDetail));
+    for (const s of unread) {
+      expect(s.source.health, `${s.source.id} was not read`).toBe("OK");
+      expect(s.observed, `${s.source.id} says it was not observed`).toBe(false);
+      expect(s.source.lastSuccessAt, `${s.source.id} has no last success`).toBeUndefined();
+    }
+    expect(sources.filter((x) => x.observed === false).length).toBe(unread.length);
+    if (unread.length > 0) {
+      await expect(page.getByLabel("Sources by health")).toContainText(`Not read yet ${unread.length}`);
+      // The tally of answering sources counts only the ones that answered.
+      const answering = sources.filter((x) => x.observed !== false && x.source.health === "OK").length;
+      if (answering > 0) await expect(page.getByLabel("Sources by health").locator('[data-health="OK"]').locator("xpath=..")).toContainText(String(answering));
+    }
     // A snapshot older than its card expects reads as out of date, not as answering.
     const stale = sources.find((s) => s.source.health === "STALE");
     if (stale) await expect(table.locator(`[data-source="${stale.source.id}"] [data-health="STALE"]`)).toContainText("Out of date");

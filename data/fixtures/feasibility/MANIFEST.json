@@ -1,0 +1,569 @@
+{
+ "description": "Public responses saved by the feasibility probe on 2026-10-27 (read-only GET, no keys, User-Agent validwhen-research/1.0). This is the subset of the probe output that the test suite and the code read; every file is byte-identical to the probe file and is verified against sha256 by tests/fixtures-manifest.test.ts. The full probe output (about 4.2 MB, 183 files, including searches no test reads) stays in the gitignored research/ folder.",
+ "retrievedOn": "2026-10-27",
+ "sources": {
+  "fda/*_summary_text.txt": "Text extracted with pdftotext -layout from FDA 510(k) and De Novo decision summaries (US government works). The CRLF line endings are the extractor output; the files are byte-pinned (see .gitattributes).",
+  "fda/DEN180001_denovo_summary.pdf": "FDA De Novo decision summary DEN180001.",
+  "fda/ai-enabled-devices.csv": "FDA AI-enabled device list, fetched inside a browser session; page says content current as of 09/04/2026.",
+  "openfda/*": "openFDA device endpoints, CC0.",
+  "ctgov/*": "ClinicalTrials.gov API v2 responses.",
+  "europepmc/*": "Europe PMC search responses (metadata).",
+  "pubmed/*": "PubMed efetch and esearch responses (NLM records). Abstract text carries per-publisher copyright; these records are kept for parser and identity tests only. No full-text journal article is included."
+ },
+ "files": [
+  {
+   "file": "ctgov/search_aidoc_term.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=Aidoc+OR+BriefCase&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 3291,
+   "sha256": "0164f12e436b93472ea907e72e99924762afd963cbcf1c2bb0313185c6701627"
+  },
+  {
+   "file": "ctgov/search_caption_intr.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.intr=%22Caption+Guidance%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 31,
+   "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8"
+  },
+  {
+   "file": "ctgov/search_caption_term.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=Caption+Health+OR+%22Bay+Labs%22+OR+%22Caption+Guidance%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 7492,
+   "sha256": "03e6dc92a7fd7917f2bb4364627b6b316f9530887179fe853b73b0945bddd670"
+  },
+  {
+   "file": "ctgov/search_contact_stroke.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=%22ContaCT%22+AND+stroke&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 7606,
+   "sha256": "ee6afd0ba061923aafd17bcf78d70a8e6dfb36a6288ca6d51215c6d98e267a5c"
+  },
+  {
+   "file": "ctgov/search_heartflow.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=HeartFlow+OR+FFRct&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 7189,
+   "sha256": "1b6304662cc21bf6673e55f610627e203467f64ee0231ae4c46fc716a40f77d5"
+  },
+  {
+   "file": "ctgov/search_idxdr_term.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=IDx-DR+OR+%22Digital+Diagnostics%22+OR+LumineticsCore&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 7071,
+   "sha256": "79b9c95cc777e30a4f980da78f2272bc8b671ddb3d0c7a88df56e0fec25937fa"
+  },
+  {
+   "file": "ctgov/search_lunit.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Lunit+INSIGHT%22+OR+%22Lunit%22&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 6273,
+   "sha256": "afa24e642e2c188a63bf53cc8ea6e2b280a2461b8531461daa9d6666d6813f76"
+  },
+  {
+   "file": "ctgov/search_mammoscreen.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies?query.term=MammoScreen+OR+Therapixel&pageSize=15&countTotal=true&fields=NCTId%2CBriefTitle%2CInterventionName%2CLeadSponsorName%2CEnrollmentCount%2CStartDate%2COverallStatus",
+   "httpStatus": 200,
+   "bytes": 1545,
+   "sha256": "1c981fa8bca53f2b279c1f6650c6249c25ada020a0322dbe395989d2434771df"
+  },
+  {
+   "file": "ctgov/study_NCT02963441.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT02963441",
+   "httpStatus": 200,
+   "bytes": 26431,
+   "sha256": "515d2a0d8646c3563f96a32a65cab58336666d3fa2916f12b930ec61b7d053f4"
+  },
+  {
+   "file": "ctgov/study_NCT03112005.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT03112005",
+   "httpStatus": 200,
+   "bytes": 8907,
+   "sha256": "f7fad8837f858972313e6d1b3cfbca4b293920480d8666c5f3353a7c92948801"
+  },
+  {
+   "file": "ctgov/study_NCT03705650.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT03705650",
+   "httpStatus": 200,
+   "bytes": 6521,
+   "sha256": "80d9f71a7a473a2d581e1816ef69f10f2addd1ffbb5817208ed6f9d113ce0788"
+  },
+  {
+   "file": "ctgov/study_NCT03897140.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT03897140",
+   "httpStatus": 200,
+   "bytes": 9776,
+   "sha256": "84f2b9fb60f3801745f3f403ac0badc44822a3c83cba013268afc107575158f8"
+  },
+  {
+   "file": "ctgov/study_NCT04079478.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT04079478",
+   "httpStatus": 200,
+   "bytes": 5894,
+   "sha256": "8c242d99d3390382a3479409500a350786e5221e22950436f61bea8561d1bed8"
+  },
+  {
+   "file": "ctgov/study_NCT04142879.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT04142879",
+   "httpStatus": 200,
+   "bytes": 10724,
+   "sha256": "1256b184b77a424ec9184c4548bfb01bba2bad8467c9f3f13aa2e895c98e2e3f"
+  },
+  {
+   "file": "ctgov/study_NCT04608617.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT04608617",
+   "httpStatus": 200,
+   "bytes": 9668,
+   "sha256": "3447479ec1049cbef0be3a78e3fb453c59a943df3247855de2da7325fe2bae00"
+  },
+  {
+   "file": "ctgov/study_NCT04723758.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT04723758",
+   "httpStatus": 200,
+   "bytes": 26894,
+   "sha256": "16952030a6b1e0e04486aca559893dfadc64e8d4b5f492d857dbd1c96419d27b"
+  },
+  {
+   "file": "ctgov/study_NCT04838756.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT04838756",
+   "httpStatus": 200,
+   "bytes": 9470,
+   "sha256": "69a8b8b908c5ea1a8eb05f954561a5ceb1497afaf84eb291b500e9a1de090d9f"
+  },
+  {
+   "file": "ctgov/study_NCT04963218.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT04963218",
+   "httpStatus": 200,
+   "bytes": 6336,
+   "sha256": "69ed3dec8eed938459e607329bba7f58aa3793dfd19fe1d2c42e5d5072b04d5c"
+  },
+  {
+   "file": "ctgov/study_NCT05800132.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT05800132",
+   "httpStatus": 200,
+   "bytes": 9086,
+   "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a"
+  },
+  {
+   "file": "ctgov/study_NCT05838456.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT05838456",
+   "httpStatus": 200,
+   "bytes": 29646,
+   "sha256": "29c164acab4cbc114fa866732b4d9c387909bb62a4c5dade646d4ab3cc1947ff"
+  },
+  {
+   "file": "ctgov/study_NCT05867407.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT05867407",
+   "httpStatus": 200,
+   "bytes": 7799,
+   "sha256": "6a5a48935bf03c2776f3ec9a93c9b4ee6d70bd7b2ea8847e405ca64ab982ae54"
+  },
+  {
+   "file": "ctgov/study_NCT06401434.json",
+   "source": "https://clinicaltrials.gov/api/v2/studies/NCT06401434",
+   "httpStatus": 200,
+   "bytes": 12172,
+   "sha256": "4c252c02277bfee932b9330ade528c290e236b3469c4c71420366a44b9fc577a"
+  },
+  {
+   "file": "europepmc/ep_DEN180001.json",
+   "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22DEN180001%22&format=json&pageSize=10&resultType=lite",
+   "httpStatus": 200,
+   "bytes": 8708,
+   "sha256": "ae2c1af1562f100ab62dcedf87fa53e86bb822af898edfbc1d7a5fdea21c0c24"
+  },
+  {
+   "file": "europepmc/ep_K211733.json",
+   "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K211733%22&format=json&pageSize=10&resultType=lite",
+   "httpStatus": 200,
+   "bytes": 174,
+   "sha256": "72d1efeb79d1b95f6b67647b2d6c180577c72c47f551f670517d7425ab91a71b"
+  },
+  {
+   "file": "europepmc/ep_K232699.json",
+   "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22K232699%22&format=json&pageSize=10&resultType=lite",
+   "httpStatus": 200,
+   "bytes": 1118,
+   "sha256": "b27de667dbd48ef4228e84d0416752f61cd5f7db4227c72495d0f388ae8155ab"
+  },
+  {
+   "file": "europepmc/ep_viz.json",
+   "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22Viz+LVO%22+OR+%22Viz.ai%22&format=json&pageSize=10&resultType=lite",
+   "httpStatus": 200,
+   "bytes": 9552,
+   "sha256": "b1ed61ade1e55d60802ba940d574fff5354ecfbb57daad377e4b23d3c53cf31e"
+  },
+  {
+   "file": "fda/DEN170073_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN170073.pdf (text extracted with `pdftotext -layout`; source PDF 1548194 bytes, sha256 b52d5a0dd97ea37a4f6190cc33109420961e41b98e4d5cfced99e26113332317)",
+   "httpStatus": 200,
+   "bytes": 45062,
+   "sha256": "78ebb295a6186db57c916d0cd858294129dc9c200f337c12deda669e3f251791"
+  },
+  {
+   "file": "fda/DEN180001_denovo_summary.pdf",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN180001.pdf",
+   "httpStatus": 200,
+   "bytes": 142581,
+   "sha256": "9b4a978bf52a1c3aa5871d014d0d9b214ada70c884a9a311fa11a7e266ee7e38",
+   "note": "the source PDF itself (142581 bytes); the MANIFEST row for DEN180001_summary_text.txt records the same sha256"
+  },
+  {
+   "file": "fda/DEN180001_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN180001.pdf (text extracted with `pdftotext -layout`; source PDF 142581 bytes, sha256 9b4a978bf52a1c3aa5871d014d0d9b214ada70c884a9a311fa11a7e266ee7e38)",
+   "httpStatus": 200,
+   "bytes": 36572,
+   "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5"
+  },
+  {
+   "file": "fda/DEN190040_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN190040.pdf (text extracted with `pdftotext -layout`; source PDF 539584 bytes, sha256 d9caa0c731d27a36ee26a4774b734c97e673b17db7131103c9e3380aec434c8d)",
+   "httpStatus": 200,
+   "bytes": 32144,
+   "sha256": "956337bdb6365bfff8c728399a13cca5d73b477b87973cab7bded395e6065cad"
+  },
+  {
+   "file": "fda/DEN200055_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN200055.pdf (text extracted with `pdftotext -layout`; source PDF 1050664 bytes, sha256 a8a9ac4c1bc06aae27a0498be59829e9a747ff4f8cea816a46ce6727a243fabc)",
+   "httpStatus": 200,
+   "bytes": 76258,
+   "sha256": "d87aa4e3c1d3c3363707f38e2fa778bc24e5dadef63bbf259e47db3d733b1baa"
+  },
+  {
+   "file": "fda/DEN200080_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN200080.pdf (text extracted with `pdftotext -layout`; source PDF 2846649 bytes, sha256 dad93a14272627739dc3a250fae1b8f35e4ffb15eff842a7511f54222407f246)",
+   "httpStatus": 200,
+   "bytes": 26449,
+   "sha256": "638f177ff3532adc3a9e87d254e7be1c32348fa788ee82ea4fb0512c1c97e9fd"
+  },
+  {
+   "file": "fda/K200667_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/K200667.pdf (text extracted with `pdftotext -layout`; source PDF 851970 bytes, sha256 6f6d788a59f3a66e75597af7563a7554de0d26d01b68cc7d01cfbda6be0b6219)",
+   "httpStatus": 200,
+   "bytes": 66420,
+   "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760"
+  },
+  {
+   "file": "fda/K211733_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/K211733.pdf (text extracted with `pdftotext -layout`; source PDF 1064745 bytes, sha256 a35ae2cb6a79a81d04c2d48417275a42ab7c724577f6c39c40e9b9b58b9bb414)",
+   "httpStatus": 200,
+   "bytes": 38745,
+   "sha256": "8978191cdbcd032d6afe1a51648ec6bb36384fd00e40710ebb4aa5cfa5690d4f"
+  },
+  {
+   "file": "fda/K213857_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf21/K213857.pdf (text extracted with `pdftotext -layout`; source PDF 1538125 bytes, sha256 8dcdf20a50b12be11ab7e5a752e043034fc819fbb9d47cbbcae13365770084e1)",
+   "httpStatus": 200,
+   "bytes": 21085,
+   "sha256": "c94fb983149c113ce5d16a0b6bb33832d8a83adb28565079baadd82ab982f541"
+  },
+  {
+   "file": "fda/K221347_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K221347.pdf (text extracted with `pdftotext -layout`; source PDF 1125838 bytes, sha256 de7a75f1ee55319c6a31d9022b182e87d44f378805373931b91d0ca75fa1dfd5)",
+   "httpStatus": 200,
+   "bytes": 20420,
+   "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe"
+  },
+  {
+   "file": "fda/K232699_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf23/K232699.pdf (text extracted with `pdftotext -layout`; source PDF 3243054 bytes, sha256 6aeb504802b823636ad09e77f019b16ae5fae081913ee7e26c2ba56d117c604e)",
+   "httpStatus": 200,
+   "bytes": 31723,
+   "sha256": "84425caf19cdb1f4ea15cc9092ce9355a58f68e5851c4408ded9eef592720582"
+  },
+  {
+   "file": "fda/K240301_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf24/K240301.pdf (text extracted with `pdftotext -layout`; source PDF 666647 bytes, sha256 7b01a51dc6da58082886085f06f057ce5b19e80eaeabbac7445220aa32024bcb)",
+   "httpStatus": 200,
+   "bytes": 40251,
+   "sha256": "5fe2584f36fb82d080c5f8370208688b32a1d9906ea946ff3d34bf38d77047f1"
+  },
+  {
+   "file": "fda/K253265_summary_text.txt",
+   "source": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253265.pdf (text extracted with `pdftotext -layout`; source PDF 468736 bytes, sha256 d9d9d2fa4f8c3ed87d00d6d7b0d776870b519638cd1f52e4ab803516c84f60c1)",
+   "httpStatus": 200,
+   "bytes": 40320,
+   "sha256": "299603798b4e68540590fce2b49af126a976142dc9b331dfe80ac8c12e9d029d"
+  },
+  {
+   "file": "fda/ai-enabled-devices.csv",
+   "source": "https://www.fda.gov/media/178541/download?attachment (fetched inside a real browser session via Playwright; scripted curl/urllib get a redirect to /apology_objects/abuse-detection-apology.html or a 404 from Akamai). Last-Modified: Fri, 04 Sep 2026 11:54:09 GMT; page says \"Content current as of 09/04/2026\"",
+   "httpStatus": 200,
+   "bytes": 141730,
+   "sha256": "315672a00715b7c076b6ca79807cce028e2e7f21f79bab73e6bc841671c112af"
+  },
+  {
+   "file": "openfda/510k_DEN170073.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:DEN170073",
+   "httpStatus": 200,
+   "bytes": 2534,
+   "sha256": "766f45164e51c74566bb671bc0ba35a57714fd8d7857389b3d7e5644f51196cd"
+  },
+  {
+   "file": "openfda/510k_DEN180001.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:DEN180001",
+   "httpStatus": 200,
+   "bytes": 1765,
+   "sha256": "d3f8007f170156dbd5615fb57a4d5e298ff7b50ce52adc1adc8438618dc614ca"
+  },
+  {
+   "file": "openfda/510k_DEN190040.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:DEN190040",
+   "httpStatus": 200,
+   "bytes": 1829,
+   "sha256": "1b871bf81c1296206c8e12e85190cfc30dd13e6ac44e1cbabc8487e551e17bac"
+  },
+  {
+   "file": "openfda/510k_DEN200055.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:DEN200055",
+   "httpStatus": 200,
+   "bytes": 2313,
+   "sha256": "fff4bff5ebed19672da4299419ba6c696016e1f3eae43ee214b75d2e3ad02be0"
+  },
+  {
+   "file": "openfda/510k_DEN200080.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:DEN200080",
+   "httpStatus": 200,
+   "bytes": 1723,
+   "sha256": "5fb2d7e1e7e22667183c5ffc51ecf9b64b130c38061547622d440bda98ff445c"
+  },
+  {
+   "file": "openfda/510k_K200667.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K200667",
+   "httpStatus": 200,
+   "bytes": 1807,
+   "sha256": "7d5e109b9f6a31221de53ae6f375a3cb9dfebbb5542d7c61c2e75c46798e2f3e"
+  },
+  {
+   "file": "openfda/510k_K211733.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K211733",
+   "httpStatus": 200,
+   "bytes": 2721,
+   "sha256": "562b26a634d838bac9fffb129538989d9ea55dcb114c767210a30805e4407a7c"
+  },
+  {
+   "file": "openfda/510k_K213857.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K213857",
+   "httpStatus": 200,
+   "bytes": 1764,
+   "sha256": "08958ef3e3ae1fa2d22c66c52b1832148fab170e86148f8e7fdbed397e792d9d"
+  },
+  {
+   "file": "openfda/510k_K221347.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K221347",
+   "httpStatus": 200,
+   "bytes": 2249,
+   "sha256": "b68cbf306b82a27cec6fb0a264487e3708a84f8d6f06f937b36351e3ea3896c4"
+  },
+  {
+   "file": "openfda/510k_K232699.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K232699",
+   "httpStatus": 200,
+   "bytes": 1994,
+   "sha256": "4e80db9edee197675e8f0863b07e607a6770a177418a5b4090b8f26451fe2535"
+  },
+  {
+   "file": "openfda/510k_K240301.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K240301",
+   "httpStatus": 200,
+   "bytes": 2219,
+   "sha256": "effd1b7d1293a7f0b26179b29becc7190465c19faa60b3b40fb2dc4c4ec56136"
+  },
+  {
+   "file": "openfda/510k_K253265.json",
+   "source": "https://api.fda.gov/device/510k.json?search=k_number:K253265",
+   "httpStatus": 200,
+   "bytes": 2574,
+   "sha256": "451946a3e28f5d459474a33e517dd9869dc76f3a8ce78a8417851d87a48bca32"
+  },
+  {
+   "file": "openfda/classification_QAS.json",
+   "source": "https://api.fda.gov/device/classification.json?search=product_code:QAS",
+   "httpStatus": 200,
+   "bytes": 4568,
+   "sha256": "5995115fd823e6f688b783b412bafaa1eb9a1f64373616aef04841aac841df10"
+  },
+  {
+   "file": "openfda/pma_P130020.json",
+   "source": "https://api.fda.gov/device/pma.json?search=pma_number:P130020&limit=2",
+   "httpStatus": 200,
+   "bytes": 5404,
+   "sha256": "3a456c87ee5c4731fd990da3890a2be9b06bc64c1d660c752c7e67a430bc2ff1"
+  },
+  {
+   "file": "openfda/pma_QDQ.json",
+   "source": "https://api.fda.gov/device/pma.json?search=product_code:QDQ&limit=1",
+   "httpStatus": 404,
+   "bytes": 80,
+   "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da"
+  },
+  {
+   "file": "openfda/udi_DEN170073.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN170073%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 34206,
+   "sha256": "a2652e072d581ba699bd935dcbb9193692dc76bbf3cf765dd2b512231e90ee80"
+  },
+  {
+   "file": "openfda/udi_DEN190040.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN190040%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 7198,
+   "sha256": "2ad4c4711b49b675844a4060ff2442c820453975101ced8518eeeb310a0194c5"
+  },
+  {
+   "file": "openfda/udi_DEN200080.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22DEN200080%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 4079,
+   "sha256": "0094bed7a212012bf1793b4a547422c91d9444834ad18b1425da6f04a71a55be"
+  },
+  {
+   "file": "openfda/udi_K200667.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K200667%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 3206,
+   "sha256": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a"
+  },
+  {
+   "file": "openfda/udi_K211733.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K211733%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 6289,
+   "sha256": "9e2f4f4e5f017fb9f2842fe848ecc7b7d23fd0b1abb1770e90185a4dfa7212bc"
+  },
+  {
+   "file": "openfda/udi_K213857.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K213857%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 4591,
+   "sha256": "bb2d1cd11dc08d34e714d384ab52f347971c4ecf2e59afa2d01a336f42ffb7fe"
+  },
+  {
+   "file": "openfda/udi_K221347.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K221347%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 4077,
+   "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd"
+  },
+  {
+   "file": "openfda/udi_K232699.json",
+   "source": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K232699%22&limit=100",
+   "httpStatus": 200,
+   "bytes": 4751,
+   "sha256": "5c995f51ec86a390b1922e591aa22da4e20bedd42ebf0a1bf65bb468f286ca9e"
+  },
+  {
+   "file": "pubmed/ef_anumana.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31710842%2C41547169%2C33958795%2C22408297%2C40484925%2C41326714&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 152003,
+   "sha256": "781489a5da570b758683af8b5a7458463dd7b7ebba9404cd42a5f814541f3781"
+  },
+  {
+   "file": "pubmed/ef_briefcase.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31828361%2C40796469%2C33819478%2C1122766%2C41298111%2C36862835%2C30251484%2C40771296&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 167468,
+   "sha256": "064c0c023409c77e7fce0df22b9ae0dcfe42716efc22c09c25b5c600fc3669d5"
+  },
+  {
+   "file": "pubmed/ef_briefcase2.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31828361%2C33819478%2C41444826%2C34117018%2C40796469%2C35316621%2C41230302&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 105000,
+   "sha256": "d9e4cccc58468412fc0419c0c00541f144adff0d8e2bca81d0b6580abd1164b8"
+  },
+  {
+   "file": "pubmed/ef_caption.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40771296%2C23130488&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 81453,
+   "sha256": "a0b0573cc9aa5f2cebac5630f92fb3be3fad39be581d7488c9695bb94245e85f"
+  },
+  {
+   "file": "pubmed/ef_caption2.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33599681%2C40700992&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 38972,
+   "sha256": "c8e412effa8529509b840ffe2a3ef6aa4eb9409101a15c4295c71cfd3d17f31c"
+  },
+  {
+   "file": "pubmed/ef_eyeart.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34779843%2C37847478%2C41528924%2C36345378%2C39430352%2C31335200%2C38783384%2C39272631%2C41140908%2C41257814&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 224644,
+   "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634"
+  },
+  {
+   "file": "pubmed/ef_gigenius.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39153491%2C32371116%2C38618982%2C39033774%2C34187845%2C41246784&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 92404,
+   "sha256": "d27b0e3383ce35b1b40957a32f6a58eb61ed61184d48b3eb212a54904ba5b02d"
+  },
+  {
+   "file": "pubmed/ef_heartflow2.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=29311033%2C24486266%2C29688569%2C41494674%2C33322917%2C35246403&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 87871,
+   "sha256": "78702eac065608d45bbffde41e665b0fa9b8f442c95aa46e38d0838c680db375"
+  },
+  {
+   "file": "pubmed/ef_idxdr.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39272631%2C41140908%2C32109029%2C42107714%2C40144136%2C42397780%2C38656241%2C39986640&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 152654,
+   "sha256": "6105dcc7766f44c09a1c01938ccbd41c525554db53f6d7958f2b3dfde79da975"
+  },
+  {
+   "file": "pubmed/ef_lunitcxr.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=40529749%2C35202417%2C33606779%2C40233023%2C39144030%2C37450425&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 133926,
+   "sha256": "91e4cb8e01223b07e13a21a4000084a1494690851fdee4e29597807db2db0875"
+  },
+  {
+   "file": "pubmed/ef_mammoscreen.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=30898381%2C32159424&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 27466,
+   "sha256": "c0208800bc63d87db2dd78701c23f2028f3129f60dec568c91bbe516a61ff406"
+  },
+  {
+   "file": "pubmed/ef_misc1.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=33599681%2C33819478%2C41444826%2C40335883&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 94929,
+   "sha256": "58b31cde5ff8aa2aaba77cb7932a508ae09c274f533e92b8df6d04fcb1269b95"
+  },
+  {
+   "file": "pubmed/ef_misc2.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31304320%2C32393768%2C33782551%2C33904171%2C32371116%2C34187845%2C39153491%2C41547169%2C40276542%2C33606779%2C40233023%2C37450425&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 231071,
+   "sha256": "241575c6f97bb36ba5e877c71b9533604a07b6e9c1e7197e99c73a6b5d05e6b0"
+  },
+  {
+   "file": "pubmed/ef_transpara.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=39904652%2C37541274%2C32052311%2C30898381%2C38853221%2C41375079&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 88187,
+   "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf"
+  },
+  {
+   "file": "pubmed/ef_viz.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=24140073%2C29083649%2C35183401%2C17903620%2C34952419%2C32490693%2C37616500%2C26307632&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 121834,
+   "sha256": "f38d4c7ebab4a5c6a8bbdc48b76c2ba4a16d1eb123eb8e7e3e0701bd947ae127"
+  },
+  {
+   "file": "pubmed/ef_vizai.xml",
+   "source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31594798%2C40335883%2C36574318%2C41542251%2C39246948%2C34142090%2C38346817%2C39766381%2C36457286%2C39832899%2C41901663%2C40483553&retmode=xml",
+   "httpStatus": 200,
+   "bytes": 236443,
+   "sha256": "729705f6cc3f811139e0a953551a0d89fbc4f1b97de7619aab611201c4c42c82"
+  }
+ ]
+}

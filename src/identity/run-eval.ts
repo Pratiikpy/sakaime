@@ -33,7 +33,7 @@ import { buildReference } from "./reference.ts";
 const here = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(here, "..", "..");
 
-export function loadReference(csvPath = join(repoRoot, "research", "feasibility", "fixtures", "fda", "ai-enabled-devices.csv")) {
+export function loadReference(csvPath = join(repoRoot, "data", "fixtures", "feasibility", "fda", "ai-enabled-devices.csv")) {
   const rows = parse(readFileSync(csvPath, "utf8"), { columns: true, skip_empty_lines: true }) as Record<string, string>[];
   return buildReference(rows.map((r) => r["Device"] ?? ""));
 }
@@ -183,7 +183,7 @@ export function runEvaluation(corpus: Corpus, reference: ReturnType<typeof loadR
     ``,
     `## What was run`,
     ``,
-    `The resolver in \`src/identity\` was run on every labelled pair in \`pairs.json\`. Records are in \`records.json\`; each carries a \`fixtureRef\` to the pinned public data in \`research/feasibility/fixtures\`, and \`tests/identity/corpus.test.ts\` re-checks that the quoted fields still match those files.`,
+    `The resolver in \`src/identity\` was run on every labelled pair in \`pairs.json\`. Records are in \`records.json\`; each carries a \`fixtureRef\` to the pinned public data in \`data/fixtures/feasibility\`, and \`tests/identity/corpus.test.ts\` re-checks that the quoted fields still match those files.`,
     ``,
     `- ${corpus.records.size} records (${[...byKind].map(([k, n]) => `${n} ${k}`).join(", ")}) from ${families.size} device families plus ${easy.length} unrelated-pair controls.`,
     `- ${corpus.pairs.length} labelled pairs (${[...byLink].map(([k, n]) => `${n} ${k}`).join(", ")}). Truth: ${verdictTruth(corpus)}.`,

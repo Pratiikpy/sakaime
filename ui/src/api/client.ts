@@ -11,6 +11,7 @@ import {
   SourceRowSchema,
   TimelineEventSchema,
   TraceEventSchema,
+  UslResponseSchema,
   VerifyResponseSchema,
   type TraceEvent,
 } from "@contract";
@@ -128,6 +129,8 @@ export type ResultsFile = z.infer<typeof ResultsFileSchema>;
 export const api = {
   health: (signal?: AbortSignal) => call("GET", "/api/health", HealthResponseSchema, undefined, signal),
   sources: (signal?: AbortSignal) => call("GET", "/api/sources", z.array(SourceRowSchema), undefined, signal),
+  /** The Zetaris Unified Semantic Layer. 503 UNAVAILABLE when the layer cannot be read; a rule that fails is still a 200. */
+  usl: (caseId?: string, signal?: AbortSignal) => call("GET", `/api/usl${caseId ? `?caseId=${enc(caseId)}` : ""}`, UslResponseSchema, undefined, signal),
   proposeSource: (body: { description: string; url: string; retry?: boolean }, signal?: AbortSignal) => call("POST", "/api/sources/propose", OnboardingResultSchema, body, signal),
   cases: (signal?: AbortSignal) => call("GET", "/api/cases", z.array(CaseSummarySchema), undefined, signal),
   caseDetail: (id: string, signal?: AbortSignal) => call("GET", `/api/cases/${enc(id)}`, CaseDetailSchema, undefined, signal),

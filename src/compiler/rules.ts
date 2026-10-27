@@ -7,7 +7,7 @@ import type { Dimension } from "../schemas/index.ts";
  * STARD-AI, TRIPOD+AI, IMDRF SaMD N41 and the FDA PCCP guidance name the things a reviewer must look at
  * (population, setting, intended use, timing, software version, thresholds). They do not say how to test
  * a claim against that evidence in code. The citations below point at the concept each rule is built on,
- * copied from research/standards/APPLICABILITY-RULE-REGISTRY.md (read first-hand on 2026-10-27). The executable
+ * copied from docs/reports/applicability-rule-registry.md (read first-hand on 2026-10-27). The executable
  * logic and every threshold are our design inference and are open to clinician challenge. Where a rule needs
  * judgement the standards do not supply (staleness windows, sample-size thresholds, generalisability, prevalence
  * transport) the rule is tagged "flag": it raises REQUIRES_DOMAIN_REVIEW and never computes a verdict.
@@ -36,7 +36,7 @@ export interface Rule {
   basis: "standard-concept" | "design-inference";
   /** Pointers into the standards, as recorded in the registry file. Empty for design inferences. */
   citations: readonly string[];
-  /** The rule id in research/standards/APPLICABILITY-RULE-REGISTRY.md, when it has one. */
+  /** The rule id in docs/reports/applicability-rule-registry.md, when it has one. */
   registryId?: string;
   /** Clinician-contested in the registry (section 9). Computed, but open to challenge. */
   contested?: boolean;
@@ -415,7 +415,7 @@ export function ruleOf(id: string): Rule {
   return rule;
 }
 
-/** Registry rules (research/standards/APPLICABILITY-RULE-REGISTRY.md section 7) that the evidence schema cannot support. */
+/** Registry rules (docs/reports/applicability-rule-registry.md section 7) that the evidence schema cannot support. */
 export const UNIMPLEMENTED_REGISTRY_RULES: Readonly<Record<string, string>> = {
   R03: "needs the PCCP description of the device, which the schema does not carry",
   R04: "needs the date of a software change and the existence of a post-change performance summary",

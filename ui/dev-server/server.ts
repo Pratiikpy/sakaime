@@ -22,7 +22,11 @@ import {
   SourceRowSchema,
   CaseSummarySchema,
   OnboardingResultSchema,
+  UslResponseSchema,
 } from "../../src/api/contract.ts";
+import { mapError } from "../../src/api/errors.ts";
+import { loadConfig } from "../../src/service/config.ts";
+import { UslService } from "../../src/service/usl.ts";
 import { z } from "zod";
 import { Onboarder } from "./onboarding.ts";
 import { buildResults } from "./results.ts";
@@ -34,6 +38,10 @@ const STATIC = process.argv.includes("--static");
 
 const world = await buildWorld();
 const onboarder = new Onboarder();
+// The semantic layer is read by the real service module from the committed recordings, so this fixture serves the same shape and
+// the same figures as the real service in sample mode.
+const uslConfig = loadConfig({ sample: true, env: {} });
+const usl = new UslService(uslConfig);
 const app = new Hono();
 
 app.onError((err, c) => {
@@ -80,6 +88,16 @@ app.get("/api/sources", (c) => c.json(z.array(SourceRowSchema).parse(world.sourc
 app.post("/api/sources/propose", async (c) => {
   const req = await body(c, ProposeSourceRequestSchema);
   return c.json(OnboardingResultSchema.parse(await onboarder.run(world, req)));
+});
+app.get("/api/usl", async (c) => {
+  const given = c.req.query("caseId");
+  if (given !== undefined && !/^[A-Za-z0-9._-]{1,80}$/.test(given)) throw new HttpFailure(400, "INVALID", "caseId must be 1 to 80 letters, digits, dot, dash or underscore", { reason: "BAD_CASE_ID" });
+  try {
+    return c.json(UslResponseSchema.parse(await usl.snapshot(given === undefined ? {} : { caseId: given })));
+  } catch (error) {
+    const m = mapError(error, uslConfig.env);
+    return c.json(m.body, m.status as 503);
+  }
 });
 app.get("/api/cases", (c) => c.json(z.array(CaseSummarySchema).parse(world.order.map((id) => summaryOf(world.cases.get(id)!)))));
 app.get("/api/cases/:id", (c) => c.json(detailOf(world, caseOr404(c.req.param("id")))));

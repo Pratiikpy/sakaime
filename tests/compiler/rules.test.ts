@@ -1,12 +1,13 @@
-import { existsSync, readFileSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { REGULATOR_RECORD_NOTE, RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, compileDetailed, formatPurposeExclusion, ruleOf, type CompileOptions } from "../../src/compiler/index.ts";
 import type { EvidenceItem } from "../../src/schemas/index.ts";
 import { GOOD_RESULT, OP, auth, claim, requirement, study, vendor } from "./fixtures.ts";
 
-const REGISTRY = join(process.cwd(), "research", "standards", "APPLICABILITY-RULE-REGISTRY.md");
-const registryText = existsSync(REGISTRY) ? readFileSync(REGISTRY, "utf8") : undefined;
+// The registry the rules were written from, tracked with the other reports, so the citation check runs in a clean clone.
+const REGISTRY = join(process.cwd(), "docs", "reports", "applicability-rule-registry.md");
+const registryText = readFileSync(REGISTRY, "utf8");
 
 describe("rule registry integrity", () => {
   it("has unique ids, a version, a summary and a tag on every rule", () => {
@@ -47,16 +48,16 @@ describe("rule registry integrity", () => {
     }
   });
 
-  it.skipIf(!registryText)("takes every numbered pointer in a citation from that rule's line of the registry", () => {
+  it("takes every numbered pointer in a citation from that rule's line of the registry", () => {
     let checked = 0;
     for (const rule of RULES.filter((r) => r.registryId)) {
-      const line = registryText!.split("\n").find((l) => l.startsWith(`${rule.registryId} `));
+      const line = registryText.split("\n").find((l) => l.startsWith(`${rule.registryId} `));
       expect(line, `registry line for ${rule.registryId}`).toBeDefined();
       for (const citation of rule.citations) {
         const tokens = citation.match(/\b(?:K|DEN)\d{6}\b|\b\d{4}-\d{2}-\d{2}\b|\b\d+(?:\.\d+)*[a-e]?(?:\/[a-e])?(?:\([a-z0-9]+\))*|\b[IVX]+\.[A-Z]\b|\bF\.\d\b/g) ?? [];
         for (const t of tokens) {
           if (/^(1|2|3|4)$/.test(t) && !/\bitem\b|\bquestion\b|\bsection\b/.test(citation)) continue;
-          expect(line!.includes(t) || registryText!.includes(t), `${rule.id}: "${t}" from "${citation}" is not in the registry`).toBe(true);
+          expect(line!.includes(t) || registryText.includes(t), `${rule.id}: "${t}" from "${citation}" is not in the registry`).toBe(true);
           checked++;
         }
       }

@@ -26,7 +26,7 @@ import type {
   Link as LinkT,
 } from "@schemas";
 
-export type { RunMode, SourceRow, OnboardingResult, CaseSummary, AnchorView, DimensionView, EvidenceMatrix, TraceEvent } from "@contract";
+export type { RunMode, SourceRow, OnboardingResult, CaseSummary, AnchorView, DimensionView, EvidenceMatrix, TraceEvent, UslResponse } from "@contract";
 
 export type Label = z.infer<typeof LabelSchema>;
 export type Dimension = z.infer<typeof DimensionSchema>;

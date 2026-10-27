@@ -143,6 +143,65 @@ describe("IPv6 vetting", () => {
     refused("8000::1", "reserved");
   });
 
+  it("refuses the blocks IANA lists as RESERVED inside 2000::/3, including the returned 6bone 3ffe::/16", () => {
+    // From the IANA IPv6 Global Unicast Address Assignments registry (status RESERVED), read 2026-10-27. 3ffe::/16 was the 6bone, returned under RFC 5156.
+    for (const ip of ["3ffe::1", "3ffe:831f::1", "3ffe:ffff:ffff:ffff:ffff:ffff:ffff:ffff", "3ffc::1", "3ff8::1", "3ff0::1", "3fe0::1", "3fc0::1", "3f80::1", "3f00::1", "3e00::1", "3c00::1", "3800::1", "3000::1", "3123:4567::1", "2d00::1", "2dff::1", "2e00::1", "2fff::1"]) {
+      refused(ip, "reserved");
+    }
+    expect(vetAddress("3ffe::1").reason).toMatch(/RESERVED/);
+  });
+
+  it("refuses everything in 3000::/4, 2d00::/8 and 2e00::/7, for random suffixes", () => {
+    fc.assert(
+      fc.property(
+        fc.integer({ min: 0x3000, max: 0x3fff }),
+        fc.array(fc.integer({ min: 0, max: 0xffff }), { minLength: 7, maxLength: 7 }),
+        (first, rest) => {
+          const ip = [first.toString(16), ...rest.map((n) => n.toString(16))].join(":");
+          const v = vetAddress(ip);
+          expect(v.allowed, ip).toBe(false);
+          expect(["reserved", "documentation"]).toContain(v.category);
+        },
+      ),
+      { numRuns: 400 },
+    );
+    fc.assert(
+      fc.property(fc.integer({ min: 0x2d00, max: 0x2fff }), fc.array(fc.integer({ min: 0, max: 0xffff }), { minLength: 7, maxLength: 7 }), (first, rest) => {
+        const ip = [first.toString(16), ...rest.map((n) => n.toString(16))].join(":");
+        expect(vetAddress(ip).allowed, ip).toBe(false);
+      }),
+      { numRuns: 200 },
+    );
+  });
+
+  it("allows the blocks next to the reserved ones that IANA has delegated to a registry", () => {
+    // RIPE NCC 2a00::/12 and 2a10::/12, AFRINIC 2c00::/12, LACNIC 2800::/12, APNIC 2400::/12, ARIN 2600::/12, RIPE 2003::/18.
+    for (const ip of ["2c00::1", "2c0f:ffff::1", "2a10::1", "2800::1", "2003::1", "2620:4f:8000::1"]) allowed(ip);
+  });
+
+  it("refuses every entry of the IANA IPv6 special-purpose registry that sits inside 2000::/3, except the globally reachable AS112 delegation", () => {
+    const entries: [string, string][] = [
+      ["2001::1", "reserved"], // 2001::/23 IETF protocol assignments and Teredo 2001::/32
+      ["2001:1::1", "reserved"], // PCP anycast
+      ["2001:1::2", "reserved"], // TURN anycast
+      ["2001:1::3", "reserved"], // DNS-SD SRP anycast
+      ["2001:2::1", "reserved"], // benchmarking
+      ["2001:3::1", "reserved"], // AMT
+      ["2001:4:112::1", "reserved"], // AS112-v6
+      ["2001:10::1", "reserved"], // deprecated ORCHID
+      ["2001:20::1", "reserved"], // ORCHIDv2
+      ["2001:30::1", "reserved"], // drone remote id
+      ["2001:db8::1", "documentation"],
+      ["3fff::1", "documentation"],
+    ];
+    for (const [ip, category] of entries) refused(ip, category as never);
+    // 2002::/16 (6to4) is judged by the IPv4 address it embeds, and 2620:4f:8000::/48 is delegated and reachable.
+    allowed("2002:808:808::1");
+    allowed("2620:4f:8000::53");
+    // The registry entries outside 2000::/3 are refused as non-global.
+    for (const ip of ["5f00::1", "100:0:0:1::1", "64:ff9b:1::1", "fc00::1", "fe80::1"]) expect(vetAddress(ip).allowed, ip).toBe(false);
+  });
+
   it("allows ordinary global unicast addresses", () => {
     allowed("2606:4700:4700::1111");
     allowed("2001:4860:4860::8888");

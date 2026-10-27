@@ -29,6 +29,10 @@ describe("classifyFailure", () => {
     ["USL access at HTTP 500", { status: 500, body: "does not have access to USL x" }, "FORBIDDEN", "NO_USL_ACCESS", false],
     ["no permission", { status: 400, body: "The user has no permission on table hospital.requirements" }, "FORBIDDEN", "NO_ACCESS", false],
     ["admin only", { status: 400, body: "COMPILE USL is for Administrators only" }, "FORBIDDEN", "ADMIN_ONLY", false],
+    // the refusal the engine gives a non-administrator who sends COMPILE USL (observed 2026-10-27, infra/zetaris gates, HTTP 400)
+    ["not permitted, as the engine words it", { status: 400, body: '{"msg":"User is not permitted to run this command"}' }, "FORBIDDEN", "NOT_PERMITTED", false],
+    ["not permitted at HTTP 500", { status: 500, body: "User is not permitted to run this command" }, "FORBIDDEN", "NOT_PERMITTED", false],
+    ["not permitted, plain case variant", { status: 400, body: "you are NOT PERMITTED to run this" }, "FORBIDDEN", "NOT_PERMITTED", false],
     // the request itself
     ["parse error", { status: 400, body: "org.apache.spark.sql.catalyst.parser.ParseException: mismatched input 'FORM'" }, "INVALID", "SYNTAX", false],
     ["Spark's own 'Operation not allowed' is a bad request, not an access refusal", { status: 400, body: "org.apache.spark.sql.catalyst.parser.ParseException: Operation not allowed: CREATE TEMPORARY TABLE" }, "INVALID", "SYNTAX", false],

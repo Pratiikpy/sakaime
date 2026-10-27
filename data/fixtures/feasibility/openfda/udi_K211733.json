@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 2
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "Lunit INSIGHT CXR Triage - Windows version",
+      "public_device_record_key": "93ae52de-7bce-4a35-9035-d7077aa7f9ea",
+      "has_serial_number": "true",
+      "public_version_date": "2024-04-17",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "1",
+      "labeler_duns_number": "690102406",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "08800076000179",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.0",
+      "has_manufacturing_date": "false",
+      "brand_name": "Lunit INSIGHT CXR Triage",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QFM",
+          "name": "Radiological Computer-Assisted Prioritization Software For Lesions",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Prioritization Software For Lesions",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "K211733",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "false",
+      "company_name": "Lunit Inc.",
+      "public_version_status": "New",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "63386",
+          "name": "X-ray image interpretive software",
+          "definition": "An interpretive software program intended to be used to analyse non-dental x-ray images (e.g., chest, mammograms, tomograms) to detect and localize suspected abnormalities (e.g., tumours, emphysema, tuberculosis, blunted costophrenic angle) and possibly provide results as clinically relevant tags. It typically utilizes artificial intelligence (AI) and deep learning techniques, and may be compatible with radiology information systems, data formats, and medical imaging software programs [e.g., picture archiving and communication system (PACS), digital imaging and communications in medicine (DICOM) format].",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2024-04-09"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "Linux version",
+      "public_device_record_key": "bb1af085-b6e5-434a-87c8-fb3b32af9c49",
+      "has_serial_number": "true",
+      "public_version_date": "2024-04-02",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "690102406",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "08800076000124",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.0",
+      "has_manufacturing_date": "false",
+      "brand_name": "Lunit INSIGHT CXR Triage",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QFM",
+          "name": "Radiological Computer-Assisted Prioritization Software For Lesions",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Prioritization Software For Lesions",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "K211733",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "false",
+      "company_name": "Lunit Inc.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "63386",
+          "name": "X-ray image interpretive software",
+          "definition": "An interpretive software program intended to be used to analyse non-dental x-ray images (e.g., chest, mammograms, tomograms) to detect and localize suspected abnormalities (e.g., tumours, emphysema, tuberculosis, blunted costophrenic angle) and possibly provide results as clinically relevant tags. It typically utilizes artificial intelligence (AI) and deep learning techniques, and may be compatible with radiology information systems, data formats, and medical imaging software programs [e.g., picture archiving and communication system (PACS), digital imaging and communications in medicine (DICOM) format].",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2022-04-28"
+    }
+  ]
+}

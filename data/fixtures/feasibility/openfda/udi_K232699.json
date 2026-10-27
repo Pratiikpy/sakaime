@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "The Low Ejection Fraction AI-ECG Algorithm (v.2.2.0 (1010)) interprets 12-lead ECG voltage times series data using an artificial intelligence-based algorithm. The device analyzes 10 seconds of a single 12-lead ECG acquisition, and within seconds provides a prediction of likelihood of LVEF (ejection fraction less than or equal to 40%) to third party software. The results are displayed by the thirdparty software on a device such as a smartphone, tablet, or PC. The Low Ejection Fraction AIECG Algorithm was trained to predict Low LVEF using positive and control cohorts, and the prediction of Low LVEF in patients is generated using defined conditions and covariates.\nThe Low Ejection Fraction AI-ECG Algorithm device is intended to address the unmet need for a point-of-care screen for LVEF less than or equal to 40% and is expected to be used by cardiologists, front-line clinicians at primary care, urgent care, and emergency care settings, where cardiac imaging may not be available or may be difficult or unreliable for clinicians to operate. Clinicians will use the Low Ejection Fraction AI-ECG Algorithm to aid in screening for LVEF less than or equal to 40% and making a decision for further cardiac evaluation.",
+      "public_device_record_key": "4d1e6d48-49ed-4998-af87-0d6e416721a2",
+      "has_serial_number": "false",
+      "public_version_date": "2026-03-24",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "5",
+      "labeler_duns_number": "118190277",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00860007426407",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1010",
+      "has_manufacturing_date": "true",
+      "brand_name": "ECG-AI LEF 12-Lead Algorithm",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QYE",
+          "name": "Reduced Ejection Fraction Machine Learning-Based Notification Software",
+          "openfda": {
+            "device_name": "Reduced Ejection Fraction Machine Learning-Based Notification Software",
+            "medical_specialty_description": "Cardiovascular",
+            "regulation_number": "870.2380",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "K232699",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "company_name": "Anumana, Inc.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "47699",
+          "name": "Cardiopulmonary physiological parameter analysis software, professional-only",
+          "definition": "A software program designed to add image processing and/or data analysis capabilities to a computer/workstation for the interpretation and/or screening of cardiopulmonary physiological parameters [e.g., electrocardiogram (ECG), blood pressure, vital capacity (VC)]; data may be uploaded, or collected in real-time by connection (e.g., wired, Bluetooth) to other devices for spot-checks and/or continuous monitoring. It is intended for use exclusively by healthcare professionals and may provide risk assessment for cardiopulmonary events [e.g., acute myocardial infarction (AMI)] or screen for specific conditions (e.g., low ejection fraction). It might include machine learning (ML) technology.",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2024-01-15"
+    }
+  ]
+}

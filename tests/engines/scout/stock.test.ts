@@ -1,7 +1,8 @@
 /**
  * Runs the sponsor's stock Scout evaluation harness, unmodified, against src/engines/scout through SCOUT_IMPL.
- * The harness is read from the vendored copy when present, otherwise from the local study clone, and is copied
- * into node_modules/.cache first because its runner writes a report next to itself. Neither present: the test fails.
+ * The harness is the vendored copy under third_party/meterless (hash-pinned by vendor-integrity.test.ts), so the
+ * test runs in a clean clone. It is copied into node_modules/.cache first because its runner writes a report next
+ * to itself. If the harness is missing the test fails.
  *
  * Passing here is necessary and says little: the stock corpus is 32 examples, many of them verbatim registry
  * examples. The stricter grader (evals/scout/grader.ts) is the measurement; see RESULTS.md.
@@ -12,16 +13,15 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 const root = resolve(import.meta.dirname, "..", "..", "..");
-const sources = [resolve(root, "third_party/meterless/scout-intent/evals"), resolve(root, "research/hackathon/repos/Meterless/engines/scout-intent/evals")];
+const src = resolve(root, "third_party/meterless/scout-intent/evals");
 
 describe("stock sponsor harness", () => {
   it("runs to completion with zero skipped prompts and clears every hard floor", () => {
-    const src = sources.find((p) => existsSync(p));
-    expect(src, `no stock harness found in: ${sources.join(", ")}`).toBeDefined();
+    expect(existsSync(src), `no stock harness at ${src}`).toBe(true);
     const work = resolve(root, "node_modules/.cache/sakaime-scout-stock");
     rmSync(work, { recursive: true, force: true });
     mkdirSync(work, { recursive: true });
-    cpSync(src as string, resolve(work, "evals"), { recursive: true });
+    cpSync(src, resolve(work, "evals"), { recursive: true });
     const res = spawnSync(process.execPath, [resolve(root, "node_modules/tsx/dist/cli.mjs"), resolve(work, "evals/runner/index.ts"), "all"], {
       cwd: work,
       env: { ...process.env, SCOUT_IMPL: resolve(root, "src/engines/scout/index.ts") },

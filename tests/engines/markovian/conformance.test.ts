@@ -1,7 +1,7 @@
 /**
  * Runs the sponsor's Markovian conformance runner, unmodified, against our module through MARKOVIAN_IMPL.
- * The runner is read from the vendored copy when present, otherwise from the local study clone. If neither
- * exists the test fails: a missing runner is not a pass.
+ * The runner is the vendored copy under third_party/meterless (hash-pinned by vendor-integrity.test.ts), so the test
+ * runs in a clean clone. If it is missing the test fails: a missing runner is not a pass.
  */
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
@@ -9,17 +9,13 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 const root = resolve(import.meta.dirname, "..", "..", "..");
-const candidates = [
-  resolve(root, "third_party/meterless/markovian/conformance/runner.ts"),
-  resolve(root, "research/hackathon/repos/Meterless/engines/markovian/conformance/runner.ts"),
-];
+const runner = resolve(root, "third_party/meterless/markovian/conformance/runner.ts");
 
 describe("Markovian conformance runner (sponsor, unmodified)", () => {
   it("passes every check against src/engines/markovian", () => {
-    const runner = candidates.find((p) => existsSync(p));
-    expect(runner, `no conformance runner found in: ${candidates.join(", ")}`).toBeDefined();
+    expect(existsSync(runner), `no conformance runner at ${runner}`).toBe(true);
     const impl = resolve(root, "src/engines/markovian/index.ts").replace(/\\/g, "/");
-    const res = spawnSync(process.execPath, [resolve(root, "node_modules/tsx/dist/cli.mjs"), runner as string], {
+    const res = spawnSync(process.execPath, [resolve(root, "node_modules/tsx/dist/cli.mjs"), runner], {
       env: { ...process.env, MARKOVIAN_IMPL: impl },
       encoding: "utf8",
       timeout: 120_000,

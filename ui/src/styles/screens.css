@@ -14,7 +14,8 @@
 .stage__n { color: var(--ink-3); font-size: 0.8rem; }
 .stage__summary { margin-top: 4px; color: var(--ink-2); }
 .stage__summary-wait { color: var(--ink-3); font-style: italic; }
-.stage-pending { opacity: 0.7; }
+/* A stage not yet run is marked by a dashed dot, not by fading the text: opacity took its words below the AA contrast ratio. */
+.stage-pending::before { border-style: dashed; }
 .status-pill.tone-good { color: var(--green); }
 .status-pill.tone-bad { color: var(--rust); }
 .refusal { margin-bottom: 16px; }

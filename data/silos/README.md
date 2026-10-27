@@ -9,7 +9,7 @@ local Zetaris stack; `infra/zetaris/scripts/oracle.mjs` reads the same files wit
 | `hospital/` | Hospital review database (vendors, requirements, submissions, cases, case_assignments, decisions, precedents, reviewers, evidence_links) | JDBC datasource `hospital` (Postgres) | **Constructed.** Every row carries `provenance = CONSTRUCTED`; a constraint rejects any other value. No patient data, no real hospital policy. |
 | `registry/` | openFDA 510(k), UDI and classification records; ClinicalTrials.gov studies; PubMed articles | file-store tables in `sk_registry` | **Real records**, recorded 2026-10-27 and flattened to one line per record by `build/normalise-registry.mjs`. Every row keeps the hash of the file it came from. |
 | `vendor_packets/` | Vendor packet exports (packets and claims) | file-store tables in `sk_vendor` | **Constructed.** Illustrative text written for testing. It was not issued by the named companies and says nothing about their real claims. The columns `confidential_unit_price_usd` and `confidential_reference_site` exist so that column policies have something to protect. |
-| `documents/fda_summaries/` | Three FDA summary PDFs (K200667, DEN180001, K253265) | PDF file-store table `sk_docs.fda_summaries` | **Real** public FDA documents; hashes match `research/feasibility/fixtures/MANIFEST.md`. |
+| `documents/fda_summaries/` | Three FDA summary PDFs (K200667, DEN180001, K253265) | PDF file-store table `sk_docs.fda_summaries` | **Real** public FDA documents; hashes match `data/fixtures/feasibility/MANIFEST.json`. |
 | `rest/` | Recorded openFDA and ClinicalTrials.gov JSON responses with nested arrays | REST tables in `sk_rest`, served by the `rest-silo` container | **Real** recorded responses. |
 
 ## The EyeArt case
@@ -25,10 +25,10 @@ defined for the same submission, one inside the authorized setting (`CASE-2026-0
 ## Rebuilding the registry files
 
 ```
-node data/silos/build/normalise-registry.mjs [fixtures-dir]
+node data/silos/build/normalise-registry.mjs <probe-dir>
 ```
 
-The default fixtures directory is `research/feasibility/fixtures` (local only). The script rewrites `registry/*.csv` and
+The argument is the feasibility probe's complete output folder (local only; `data/fixtures/feasibility` is a tracked subset and is not enough). The script rewrites `registry/*.csv` and
 `registry/MANIFEST.json`, which lists the hash of every source file and every output.
 
 ## Known data quirks

@@ -1,0 +1,179 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 2
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "MR Unsafe",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "Caption Cardiac Guidance on Venue",
+      "public_device_record_key": "d3030be7-6d89-4a35-a36d-72b2a05e0da8",
+      "has_serial_number": "false",
+      "public_version_date": "2026-02-18",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "2",
+      "labeler_duns_number": "119309548",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00198953038604",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "Guidance",
+      "has_manufacturing_date": "false",
+      "brand_name": "Caption",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QJU",
+          "name": "Image Acquisition And/Or Optimization Guided By Artificial Intelligence",
+          "openfda": {
+            "device_name": "Image Acquisition And/Or Optimization Guided By Artificial Intelligence",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2100",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN190040",
+          "supplement_number": "000"
+        },
+        {
+          "submission_number": "K243065",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "company_name": "GE Medical Systems, Ultrasound & Primary Care Diagnostics LLC",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "40873",
+          "name": "Ultrasound imaging system application software",
+          "definition": "An individual software program or group of programs, routines or algorithms that add specific image processing and/or analysis capabilities to a diagnostic ultrasound system configuration. A basic set of applications programs and routines are included with such computer-controlled imaging systems and they can be upgraded to correct programming errors or to add new system capabilities. Some applications software programs or program packages must be combined with specific hardware or firmware configurations in order to function as intended. Applications program packages are typically identified by a proprietary name and \"version\" or \"upgrade\" number.",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2025-09-15"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "MR Unsafe",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "In Commercial Distribution",
+      "device_description": "Caption AI on Vscan",
+      "public_device_record_key": "a5c26931-6ec5-4eb7-b20c-ec676aea1478",
+      "has_serial_number": "false",
+      "public_version_date": "2026-02-18",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "2",
+      "labeler_duns_number": "119309548",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00198953030233",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "AI",
+      "has_manufacturing_date": "false",
+      "brand_name": "Caption",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QIH",
+          "name": "Automated Radiological Image Processing Software",
+          "openfda": {
+            "device_name": "Automated Radiological Image Processing Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2050",
+            "device_class": "2"
+          }
+        },
+        {
+          "code": "QJU",
+          "name": "Image Acquisition And/Or Optimization Guided By Artificial Intelligence",
+          "openfda": {
+            "device_name": "Image Acquisition And/Or Optimization Guided By Artificial Intelligence",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2100",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN190040",
+          "supplement_number": "000"
+        },
+        {
+          "submission_number": "DEN220063",
+          "supplement_number": "000"
+        },
+        {
+          "submission_number": "K210747",
+          "supplement_number": "000"
+        },
+        {
+          "submission_number": "K243065",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "company_name": "GE Medical Systems, Ultrasound & Primary Care Diagnostics LLC",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "40873",
+          "name": "Ultrasound imaging system application software",
+          "definition": "An individual software program or group of programs, routines or algorithms that add specific image processing and/or analysis capabilities to a diagnostic ultrasound system configuration. A basic set of applications programs and routines are included with such computer-controlled imaging systems and they can be upgraded to correct programming errors or to add new system capabilities. Some applications software programs or program packages must be combined with specific hardware or firmware configurations in order to function as intended. Applications program packages are typically identified by a proprietary name and \"version\" or \"upgrade\" number.",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2025-07-28"
+    }
+  ]
+}

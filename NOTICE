@@ -7,8 +7,12 @@ It also contains material written by others. Each item below keeps its own licen
 repository. Full records of what was copied, from where and when are in docs/provenance.md.
 
 Meterless reference engines (third_party/meterless/)
-  The sponsor's public Apache-2.0 reference implementations of H-MEM and the World Model with their conformance runners,
-  vendored unmodified. Copyright 2026 Meterless. See third_party/meterless/LICENSE, NOTICE.md and PROVENANCE.md.
+  The sponsor's public Apache-2.0 reference implementations of H-MEM and the World Model with their conformance runners, the
+  Markovian conformance runner, and the Scout Intent stock evaluation harness with its corpus, vendored unmodified. Copyright 2026 Meterless. See third_party/meterless/LICENSE, NOTICE.md and PROVENANCE.md.
+
+OpenLineage core specification (third_party/openlineage/)
+  The JSON Schema of the OpenLineage 2-0-2 run event, vendored unmodified under the Apache License 2.0 and used to check the
+  lineage events in a dossier. See third_party/openlineage/LICENSE and PROVENANCE.md.
 
 Fonts (ui/public/fonts/)
   Outfit and JetBrains Mono, used unmodified under the SIL Open Font License 1.1 (OFL-Outfit.txt, OFL-JetBrainsMono.txt).
@@ -17,7 +21,7 @@ Fonts (ui/public/fonts/)
 deepset/prompt-injections test split (data/scout-corpus/external/)
   Apache License 2.0. See data/scout-corpus/external/NOTICE.md.
 
-Public records (data/cassettes/, data/sample/, data/silos/registry/, data/sources/, evals/heldout/, evals/gate0/raw/)
+Public records (data/cassettes/, data/fixtures/, data/sample/, data/silos/registry/, data/sources/, evals/heldout/, evals/gate0/raw/)
   Recordings and snapshots of openFDA (CC0), FDA decision summaries and device lists, ClinicalTrials.gov, PubMed and Europe PMC,
   stored so that the product and its tests run offline. The terms under which some of these may be redistributed are recorded in
   docs/provenance.md, including those that are not verified. Contact details of third parties that appear in these records

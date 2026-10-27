@@ -39,6 +39,17 @@ export const SIGNATURE_STATEMENT =
   "The signature shows that this bundle has not changed since the holder of the listed key signed it. " +
   "It does not show that any finding is clinically correct, and a demo key does not identify who signed.";
 
+/**
+ * What a reader is told about the signature in a verification answer. The sentence inside the signed manifest (above) cannot
+ * change without changing every dossier, so the part that depends on the key is added here: a demo key is public, so a bundle
+ * signed with it can be shown to be unchanged and cannot be attributed to anyone.
+ */
+export function signatureNoteFor(keyKind: "demo" | "pinned"): string {
+  return keyKind === "pinned"
+    ? `${SIGNATURE_STATEMENT} The listed key counts as the signer's only if its id is one the verifier was told to pin.`
+    : `${SIGNATURE_STATEMENT} The demo key is public, so anyone could have made a bundle that passes every check here. To attribute a bundle to a signer, give the verifier that signer's pinned key id.`;
+}
+
 export const GENESIS_HASH = "0".repeat(64);
 
 const NonEmpty = z.string().min(1);

@@ -5,7 +5,7 @@ Corpus hash 33d64d68ccecc163; model hash c08930f61484686e; scorer `supervised-co
 
 ## What was run
 
-The resolver in `src/identity` was run on every labelled pair in `pairs.json`. Records are in `records.json`; each carries a `fixtureRef` to the pinned public data in `research/feasibility/fixtures`, and `tests/identity/corpus.test.ts` re-checks that the quoted fields still match those files.
+The resolver in `src/identity` was run on every labelled pair in `pairs.json`. Records are in `records.json`; each carries a `fixtureRef` to the pinned public data in `data/fixtures/feasibility`, and `tests/identity/corpus.test.ts` re-checks that the quoted fields still match those files.
 
 - 120 records (50 AuthorizationSubmission, 16 SoftwareRelease, 24 Study, 30 Publication) from 14 device families plus 6 unrelated-pair controls.
 - 150 labelled pairs (17 SAME_SUBMISSION, 18 SAME_MARKETED_VERSION, 42 SAME_PRODUCT, 59 STUDY_EVALUATES, 14 PUBLICATION_REPORTS). Truth: 62 MATCH, 66 NON_MATCH, 22 AMBIGUOUS.

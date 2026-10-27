@@ -369,12 +369,17 @@ describe("sources", () => {
     expect(rows.filter((r) => r.source.health === "STALE")).toEqual([]);
     expect(rows.every((r) => !/not used by this case/.test(r.healthDetail))).toBe(true);
     const unread = rows.filter((r) => /not read by any case/.test(r.healthDetail));
+    expect(unread.length).toBeGreaterThan(0);
     for (const u of unread) {
       expect(u.source.health, u.source.id).toBe("OK");
       expect(u.source.lastSuccessAt, u.source.id).toBeUndefined();
+      // The row says so in a field a screen can act on: nothing has answered, so it must not be shown as answering.
+      expect(u.observed, u.source.id).toBe(false);
     }
     const read = rows.find((r) => r.source.id === "openfda-510k")!;
     expect(read.healthDetail).toMatch(/^answered/);
+    expect(read.observed).not.toBe(false);
+    expect(rows.filter((r) => r.observed === false).map((r) => r.source.id).sort()).toEqual(unread.map((r) => r.source.id).sort());
   }, 120_000);
 });
 
@@ -444,6 +449,90 @@ describe("request hygiene", () => {
 
   it("lists every route of the contract", () => {
     expect(Object.keys(ROUTES)).toHaveLength(15);
+  });
+});
+
+describe("cross-site request guard", () => {
+  const OWN = "http://localhost:8787";
+  const guarded: [string, string, unknown?][] = [
+    ["POST", "/api/guard", { text: "hello", origin: "reviewer" }],
+    ["POST", "/api/cases/eyeart-k200667/recompute", {}],
+    ["POST", "/api/cases/eyeart-k200667/drill", { drill: "zetaris_off" }],
+    ["POST", "/api/cases/eyeart-k200667/decision", {}],
+    ["POST", "/api/sources/propose", { url: "https://example.org/" }],
+    ["POST", "/api/dossier/verify", {}],
+    ["GET", "/api/cases/eyeart-k200667/investigate"],
+    ["GET", "/api/cases/eyeart-k200667/dossier"],
+    ["GET", "/api/usl"],
+  ];
+  const send = (method: string, path: string, body: unknown, headers: Record<string, string>): Promise<Response> =>
+    Promise.resolve(
+      app.request(`${BASE}${path}`, {
+        method,
+        headers: { ...HOST, ...(method === "POST" ? { "content-type": "application/json" } : {}), ...headers },
+        ...(method === "POST" ? { body: JSON.stringify(body ?? {}) } : {}),
+      }),
+    );
+
+  it("refuses a hostile Origin on every route that changes state or starts work, before the route runs", async () => {
+    for (const origin of ["https://evil.example.com", "http://localhost:9999", "http://localhost:8787.evil.com", "http://127.0.0.1:8787", "null"]) {
+      for (const [method, path, body] of guarded) {
+        const r = await send(method, path, body, { origin });
+        await expectError(r, 403, "FORBIDDEN", "CROSS_ORIGIN");
+        expect(r.headers.get("content-type"), `${method} ${path} from ${origin}`).toMatch(/application\/json/);
+        expect(r.headers.get("access-control-allow-origin")).not.toBe(origin);
+      }
+    }
+  });
+
+  it("refuses a browser request that says it is cross-site or same-site-but-not-same-origin and carries no Origin (a navigation or an EventSource)", async () => {
+    for (const site of ["cross-site", "same-site"]) {
+      for (const [method, path, body] of guarded) {
+        await expectError(await send(method, path, body, { "sec-fetch-site": site }), 403, "FORBIDDEN", "CROSS_SITE");
+      }
+    }
+  });
+
+  it("refuses a hostile Origin even when Sec-Fetch-Site claims same-origin, because the Origin header is what the page cannot forge", async () => {
+    await expectError(await send("POST", "/api/guard", { text: "hello", origin: "reviewer" }, { origin: "https://evil.example.com", "sec-fetch-site": "same-origin" }), 403, "FORBIDDEN", "CROSS_ORIGIN");
+  });
+
+  it("lets the app through: same origin, a typed URL (Sec-Fetch-Site none), and a client that sends neither header (curl)", async () => {
+    const body = { text: "hello", origin: "reviewer" };
+    const accepted: Record<string, string>[] = [{ origin: OWN, "sec-fetch-site": "same-origin" }, { origin: OWN }, { "sec-fetch-site": "none" }, { "sec-fetch-site": "same-origin" }, {}];
+    for (const headers of accepted) {
+      const r = await send("POST", "/api/guard", body, headers);
+      expect(r.status, JSON.stringify(headers)).toBe(200);
+      GuardResponseSchema.parse(await r.json());
+    }
+    for (const headers of accepted.filter((h) => h["sec-fetch-site"] === "same-origin" || Object.keys(h).length === 0)) {
+      expect((await send("GET", "/api/cases/eyeart-k200667/dossier", undefined, headers)).status, JSON.stringify(headers)).toBe(200);
+      expect((await send("GET", "/api/usl", undefined, headers)).status, JSON.stringify(headers)).toBe(200);
+    }
+    // an unknown case is an ordinary 404 from the route, which shows the guard let the request through to it
+    expect((await send("GET", "/api/cases/nope/investigate", undefined, { origin: OWN, "sec-fetch-site": "same-origin" })).status).toBe(404);
+  });
+
+  it("lets the configured dev UI origin through, which is a different origin on the same site", async () => {
+    const r = await send("POST", "/api/guard", { text: "hello", origin: "reviewer" }, { origin: "http://localhost:5173", "sec-fetch-site": "same-site" });
+    expect(r.status).toBe(200);
+    expect(r.headers.get("access-control-allow-origin")).toBe("http://localhost:5173");
+  });
+
+  it("the OPTIONS preflight of a hostile origin gets no permission to send", async () => {
+    const pre = await app.request(`${BASE}/api/guard`, { method: "OPTIONS", headers: { ...HOST, origin: "https://evil.example.com", "access-control-request-method": "POST" } });
+    expect(pre.headers.get("access-control-allow-origin")).not.toBe("https://evil.example.com");
+    expect(pre.headers.get("access-control-allow-origin")).not.toBe("*");
+  });
+});
+
+describe("version", () => {
+  it("is the version in package.json, which is the only place it is written", async () => {
+    const { readFileSync } = await import("node:fs");
+    const pkg = JSON.parse(readFileSync(new URL("../../package.json", import.meta.url), "utf8")) as { version: string };
+    expect(pkg.version).toBe("0.1.0");
+    const h = HealthResponseSchema.parse(await (await get("/api/health")).json());
+    expect(h.version).toBe(pkg.version);
   });
 });
 

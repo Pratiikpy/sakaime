@@ -149,6 +149,126 @@ describe("read-only policy", () => {
   });
 });
 
+describe("read-only policy: deny list for code execution, file reach and dynamic statements", () => {
+  const verdict = (sql: string): { failure: string; reason?: unknown; detail?: unknown } | undefined => {
+    try {
+      assertReadOnly(prepareStatement(sql));
+      return undefined;
+    } catch (e) {
+      if (!(e instanceof PortError)) throw e;
+      return { failure: e.failure, reason: (e.detail as { reason?: unknown } | undefined)?.reason, detail: e.detail };
+    }
+  };
+
+  it("refuses the functions that run arbitrary code on the engine host, in any case and however they are written", () => {
+    for (const s of [
+      "SELECT reflect('java.lang.System', 'getenv', 'PATH')",
+      "SELECT REFLECT('java.lang.System', 'exit', 1)",
+      "SELECT java_method('java.lang.Runtime', 'getRuntime')",
+      "SELECT try_reflect('java.lang.System', 'getenv', 'PATH')",
+      "SELECT reflect /* gap */ ('a', 'b')",
+      "SELECT reflect\n('a', 'b')",
+      "SELECT `reflect`('a', 'b')",
+      "SELECT x.reflect('a', 'b') FROM t",
+      "SELECT 1 FROM t WHERE java_method('a','b') = 'c'",
+      "WITH c AS (SELECT reflect('a','b') AS r) SELECT * FROM c",
+      "SELECT call_function('reflect', 'a', 'b')",
+      "SELECT call_udf('reflect', 'a')",
+    ]) {
+      const v = verdict(s);
+      expect(v?.failure, s).toBe("REFUSED");
+      expect(v?.reason, s).toBe("DENIED_FUNCTION");
+    }
+  });
+
+  it("names the function that was refused", () => {
+    expect(verdict("SELECT java_method('a','b')")?.detail).toMatchObject({ reason: "DENIED_FUNCTION", function: "JAVA_METHOD" });
+  });
+
+  it("refuses functions that read files or reach another host (Spark, DuckDB and PostgreSQL spellings)", () => {
+    for (const s of [
+      "SELECT * FROM read_csv('/etc/passwd')",
+      "SELECT * FROM read_text('/etc/passwd')",
+      "SELECT * FROM read_parquet('s3://bucket/x.parquet')",
+      "SELECT * FROM glob('/*')",
+      "SELECT * FROM read_json_auto('https://example.com/x.json')",
+      "SELECT * FROM query('DROP TABLE x')",
+      "SELECT * FROM read_files('/data')",
+      "SELECT pg_read_file('/etc/passwd')",
+      "SELECT * FROM dblink('host=evil', 'select 1') AS t(a int)",
+    ]) {
+      expect(verdict(s)?.reason, s).toBe("DENIED_FUNCTION");
+    }
+  });
+
+  it("refuses a table reference that is a file path (SELECT * FROM csv.`/path`)", () => {
+    for (const s of ["SELECT * FROM csv.`/etc/passwd`", "SELECT * FROM PARQUET.`s3://bucket/x`", "SELECT * FROM `json`.`/data/x.json`", "SELECT * FROM text . `/etc/hosts`", "SELECT a FROM t JOIN orc.`/x` USING (a)"]) {
+      expect(verdict(s)?.reason, s).toBe("FILE_SCAN");
+    }
+  });
+
+  it("refuses setup, session and maintenance verbs as first words (outside the admin policy)", () => {
+    for (const s of [
+      "CALL system.expire_snapshots('t')",
+      "ADD JAR 'hdfs://x/udf.jar'",
+      "ADD FILE '/etc/passwd'",
+      "SET spark.sql.shuffle.partitions = 1",
+      "RESET",
+      "ANALYZE TABLE hospital.requirements COMPUTE STATISTICS",
+      "REFRESH TABLE hospital.requirements",
+      "UNCACHE TABLE hospital.requirements",
+      "USE hospital",
+      "EXECUTE IMMEDIATE 'DROP TABLE x'",
+      "PRAGMA enable_profiling",
+      "INSTALL httpfs",
+      "LOAD DATA INPATH '/x' INTO TABLE t",
+      "MSCK REPAIR TABLE t",
+      "EXPORT DATABASE '/tmp/x'",
+      "ATTACH 'x.db'",
+      "VACUUM t",
+    ]) {
+      const v = verdict(s);
+      expect(v?.failure, s).toBe("REFUSED");
+      expect(v?.reason, s).toBe("NOT_READ_ONLY");
+    }
+  });
+
+  it("looks through EXPLAIN: what it explains must itself be a read", () => {
+    expect(verdict("EXPLAIN SELECT 1")).toBeUndefined();
+    expect(verdict("EXPLAIN EXTENDED SELECT * FROM hospital.requirements")).toBeUndefined();
+    expect(verdict("EXPLAIN FORMATTED WITH x AS (SELECT 1 AS a) SELECT * FROM x")).toBeUndefined();
+    for (const s of ["EXPLAIN CALL system.f()", "EXPLAIN SET spark.x = 1", "EXPLAIN ANALYZE TABLE t COMPUTE STATISTICS", "EXPLAIN ADD JAR 'x'", "EXPLAIN REFRESH TABLE t", "EXPLAIN SELECT reflect('a','b')", "EXPLAIN"]) {
+      expect(verdict(s)?.failure, s).toBe("REFUSED");
+    }
+  });
+
+  it("refuses SELECT ... INTO, which creates a table in some dialects", () => {
+    expect(verdict("SELECT a INTO newtable FROM hospital.requirements")?.failure).toBe("REFUSED");
+  });
+
+  it("keeps allowing ordinary reads that merely mention these words as text, names or columns", () => {
+    for (const s of [
+      "SELECT 'reflect(x)' AS note FROM hospital.requirements",
+      "SELECT reflect_note, glob_pattern, query_text FROM hospital.requirements",
+      "SELECT `glob` FROM hospital.requirements",
+      "SELECT `query`, a FROM t -- reflect('a', 'b')",
+      "SELECT * FROM hospital.csv_exports",
+      "SELECT csv.a FROM csv",
+      "SELECT json.a, parquet.b FROM json JOIN parquet ON json.id = parquet.id",
+      "SELECT count(*), upper(x), coalesce(a, b), date_add(d, 1), cast(a AS int), input_file_name() FROM t",
+      "SELECT * FROM hospital.requirements WHERE note LIKE '%call_function%'",
+    ]) {
+      expect(verdict(s), s).toBeUndefined();
+    }
+  });
+
+  it("does not apply the deny list to the admin policy, which exists for setup statements", () => {
+    // The policy is chosen by the caller (statementPolicy: "admin"); prepareStatement itself accepts these statements.
+    expect(() => prepareStatement("SET spark.sql.shuffle.partitions = 1")).not.toThrow();
+    expect(() => prepareStatement("CALL system.expire_snapshots('t')")).not.toThrow();
+  });
+});
+
 describe("identifiers", () => {
   it("accepts plain names and quotes reserved words", () => {
     expect(sqlIdent("requirements")).toBe("requirements");

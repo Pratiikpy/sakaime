@@ -127,6 +127,10 @@ export interface PreparedStatement {
   words: string[];
   /** True for the documented `COMPILE USL ... DDL` form, the one statement that legitimately holds semicolons. */
   multiDdl: boolean;
+  /** Upper-cased names written as a function call (a name, backquoted or not, followed by an opening bracket), outside quotes. */
+  calls: string[];
+  /** Upper-cased file formats used as a table qualifier in front of a backquoted path, which reads a file by path. */
+  fileScans: string[];
 }
 
 /**
@@ -161,6 +165,7 @@ export function prepareStatement(sql: string): PreparedStatement {
   const words = body.filter((t) => t.kind === "word").map((t) => t.text.toUpperCase());
   const internal = body.filter((t) => t.kind === "punct" && t.text === ";");
   const multiDdl = words[0] === "COMPILE" && words[1] === "USL";
+  const { calls, fileScans } = scanReach(body);
 
   if (internal.length > 0) {
     if (!multiDdl) throw invalid("more than one statement in a request; send one statement per call", { reason: "MULTI_STATEMENT" });
@@ -184,7 +189,33 @@ export function prepareStatement(sql: string): PreparedStatement {
       text += t.text;
     }
   }
-  return { text, words, multiDdl };
+  return { text, words, multiDdl, calls, fileScans };
+}
+
+/** The name a token spells as an identifier: a word, or a backquoted identifier with the backquotes removed. */
+function identName(t: Token | undefined): string | undefined {
+  if (!t) return undefined;
+  if (t.kind === "word") return t.text.toUpperCase();
+  if (t.kind === "quoted-ident" && t.text.startsWith("`")) return t.text.slice(1, -1).replaceAll("``", "`").toUpperCase();
+  return undefined;
+}
+
+/**
+ * Function calls and file-path table references among the significant tokens. Comments and whitespace between the
+ * name and the bracket do not hide a call, and a name inside a quoted string is not one.
+ */
+function scanReach(body: readonly Token[]): { calls: string[]; fileScans: string[] } {
+  const calls: string[] = [];
+  const fileScans: string[] = [];
+  body.forEach((t, i) => {
+    const name = identName(t);
+    if (name === undefined) return;
+    const next = body[i + 1];
+    if (next?.kind === "punct" && next.text === "(") calls.push(name);
+    const after = body[i + 2];
+    if (next?.kind === "punct" && next.text === "." && after?.kind === "quoted-ident" && after.text.startsWith("`") && FILE_FORMATS.has(name)) fileScans.push(name);
+  });
+  return { calls, fileScans };
 }
 
 function assertDdlSegments(body: Token[]): void {
@@ -212,7 +243,37 @@ const READ_ONLY_FIRST: ReadonlySet<string> = new Set(["SELECT", "WITH", "SHOW", 
 const READ_ONLY_PAIRS: ReadonlySet<string> = new Set(["LOAD USL", "RUN DQ", "LIST DQ"]);
 const MUTATING_WORDS: ReadonlySet<string> = new Set([
   "INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "CREATE", "MERGE", "TRUNCATE", "GRANT", "REVOKE", "COPY", "ATTACH", "REGISTER",
+  // SELECT ... INTO creates a table in some dialects.
+  "INTO",
 ]);
+
+/**
+ * Words that may follow EXPLAIN before the statement it explains. What is explained must itself be a read: an engine that
+ * runs the statement under EXPLAIN ANALYZE would otherwise run a setup or maintenance command for the agent identity.
+ */
+const EXPLAIN_MODIFIERS: ReadonlySet<string> = new Set(["EXTENDED", "FORMATTED", "COST", "CODEGEN", "LOGICAL", "VERBOSE", "ANALYZE"]);
+
+/**
+ * Functions the agent identity may not call, even inside a SELECT. Two kinds, both reaching beyond the tables it was
+ * granted. Dynamic execution: the Spark reflection functions call any static method on the engine's JVM, and
+ * call_function and call_udf name a function by a string that a word list cannot see. File and network reach: the table
+ * functions of the Spark-compatible and DuckDB dialects that read a path or URL, and the PostgreSQL ones that read a
+ * server file or open a connection to another host. A function is refused by name wherever it is called; a column or table
+ * that merely has the same name is not a call and is not refused.
+ */
+const DENIED_FUNCTIONS: ReadonlySet<string> = new Set([
+  // dynamic execution
+  "REFLECT", "JAVA_METHOD", "TRY_REFLECT", "CALL_FUNCTION", "CALL_UDF", "QUERY", "QUERY_TABLE",
+  // files and URLs
+  "READ_CSV", "READ_CSV_AUTO", "READ_JSON", "READ_JSON_AUTO", "READ_NDJSON", "READ_NDJSON_AUTO", "READ_PARQUET", "PARQUET_SCAN",
+  "PARQUET_METADATA", "PARQUET_SCHEMA", "READ_TEXT", "READ_BLOB", "READ_XLSX", "READ_FILES", "GLOB", "SNIFF_CSV", "ST_READ",
+  "ICEBERG_SCAN", "DELTA_SCAN", "OPENROWSET", "OPENQUERY", "OPENDATASOURCE",
+  // other databases and servers
+  "SQLITE_SCAN", "POSTGRES_SCAN", "MYSQL_SCAN", "DBLINK", "DBLINK_EXEC", "PG_READ_FILE", "PG_READ_BINARY_FILE", "PG_LS_DIR", "LO_IMPORT", "LO_EXPORT",
+]);
+
+/** File formats that Spark SQL accepts as a qualifier in front of a backquoted path, as in SELECT * FROM csv.`/path`. */
+const FILE_FORMATS: ReadonlySet<string> = new Set(["CSV", "JSON", "PARQUET", "ORC", "TEXT", "AVRO", "DELTA", "ICEBERG", "BINARYFILE", "XML"]);
 
 /**
  * The agent identity must never mutate. A statement passes only when it starts with a read verb and holds no
@@ -231,6 +292,23 @@ export function assertReadOnly(prepared: PreparedStatement): void {
   const bad = prepared.words.find((w) => MUTATING_WORDS.has(w));
   if (bad) {
     throw new PortError("REFUSED", `statement contains ${bad}, which the read-only policy does not allow`, { reason: "NOT_READ_ONLY", verb: bad });
+  }
+  if (first === "EXPLAIN") {
+    const inner = prepared.words.slice(1).find((w) => !EXPLAIN_MODIFIERS.has(w));
+    if (inner === undefined || !READ_ONLY_FIRST.has(inner) || inner === "EXPLAIN") {
+      throw new PortError("REFUSED", `EXPLAIN is allowed only in front of a read; it was followed by ${inner ?? "nothing"}`, { reason: "NOT_READ_ONLY", verb: inner ?? "EXPLAIN" });
+    }
+  }
+  const denied = prepared.calls.find((c) => DENIED_FUNCTIONS.has(c));
+  if (denied) {
+    throw new PortError("REFUSED", `the function ${denied} is not allowed under the read-only policy: it runs code on the engine or reaches files or other hosts`, {
+      reason: "DENIED_FUNCTION",
+      function: denied,
+    });
+  }
+  const scan = prepared.fileScans[0];
+  if (scan) {
+    throw new PortError("REFUSED", `a table reference that is a file path (${scan.toLowerCase()}.\`...\`) is not allowed under the read-only policy`, { reason: "FILE_SCAN", format: scan });
   }
 }
 

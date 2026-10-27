@@ -8,9 +8,15 @@
   },
   "track": "Solving Fragmented Intelligence",
   "team": {
-    "name": "Prateek",
+    "name": "Naki",
     "solo": true,
-    "builders": [{ "name": "Prateek", "role": "Builder", "github": "Pratiikpy" }]
+    "builders": [
+      {
+        "name": "Prateek",
+        "role": "Builder",
+        "github": "Pratiikpy"
+      }
+    ]
   },
   "repository": "https://github.com/Pratiikpy/sakaime",
   "submission": {
@@ -33,77 +39,132 @@
         "tests/federation/",
         "tests/service/"
       ],
-      "decisions": ["docs/03-zetaris-plan.md", "docs/DECISIONS.md"],
+      "decisions": [
+        "docs/03-zetaris-plan.md",
+        "docs/DECISIONS.md"
+      ],
       "integration_working": true,
       "in_use_case": true,
       "use_case_note": "Eight of nine gates pass on a local Zetaris 2.4.3.1 stack; natural-language-to-SQL is not present in this build. The Evidence Matrix, source registration and the Unified Semantic Layer run on it. Sample mode replays recorded Zetaris answers; live mode needs Docker.",
       "interface": "sql-editor",
       "deployment": "local-docker",
-      "data_sources": ["postgres", "filestore csv", "filestore pdf", "rest"]
+      "data_sources": [
+        "postgres",
+        "filestore csv",
+        "filestore pdf",
+        "rest"
+      ]
     },
     "meterless": {
       "status": "working",
       "how": "H-MEM keeps reviewer-confirmed links, accepted schema mappings and institutional precedents; the World Model reconstructs what was known on a date and marks exactly the dependent findings stale; Markovian reads long documents in bounded chunks; Scout Intent guards every request and document-derived instruction and signs export contracts.",
-      "where": ["src/engines/", "third_party/meterless/"],
+      "where": [
+        "src/engines/",
+        "third_party/meterless/"
+      ],
       "evidence": [
         "tests/engines/ABLATIONS.md",
         "tests/engines/markovian/MA3-RESULTS.md",
         "tests/engines/scout/RESULTS.md",
         "tests/engines/"
       ],
-      "decisions": ["docs/04-meterless-plan.md"],
+      "decisions": [
+        "docs/04-meterless-plan.md"
+      ],
       "integration_working": true,
       "in_use_case": true,
       "use_case_note": "The sponsor conformance runners pass on our implementations (H-MEM 13/13, World Model 8/8, Markovian 8/8). Scout has no sponsor runner; our grader is stricter and its held-out results are weak on unseen wording (see tests/engines/scout/RESULTS.md). Every model reply of the committed sample run was answered through the installed Nightshift 1.2.3 (61 of 61 recordings carry a signed compute receipt that re-verifies against the pinned key id; see output_examples/model-route.json). Receipts show where a reply was routed, not that it is true.",
-      "engines": ["H-MEM", "World Model", "Markovian", "Scout Intent"],
+      "engines": [
+        "H-MEM",
+        "World Model",
+        "Markovian",
+        "Scout Intent"
+      ],
       "provider": "nightshift"
     },
     "nvidia": {
       "status": "working",
       "how": "Nemotron 3.5 Lightning 30B serves the high-volume roles (planner, discoverer, resolver, extractor second opinion, reporter) and Nemotron 3 Ultra 550B serves the critic and identity adjudication, with structured-output validation and bounded retries.",
-      "where": ["src/models/", "src/agents/"],
-      "evidence": ["src/models/roles.ts", "data/model-cassettes/", "output_examples/model-route.json", "tests/models/"],
-      "decisions": ["docs/DECISIONS.md"],
+      "where": [
+        "src/models/",
+        "src/agents/"
+      ],
+      "evidence": [
+        "src/models/roles.ts",
+        "data/model-cassettes/",
+        "output_examples/model-route.json",
+        "tests/models/"
+      ],
+      "decisions": [
+        "docs/DECISIONS.md"
+      ],
       "integration_working": true,
       "in_use_case": true,
       "use_case_note": "Nemotron is reached through Nightshift, which routes to NVIDIA: the recorded replies in data/model-cassettes were made through the installed Nightshift on 2026-10-27 and each carries the signed receipt that names the Nemotron model that answered. NVIDIA's API is used directly only if Nightshift cannot be reached or its receipt fails, and then the reply is labelled nvidia and unreceipted. Model proposals never become facts without a deterministic check.",
-      "models": ["nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia/nemotron-3-ultra-550b-a55b"],
+      "models": [
+        "nvidia/nemotron-3.5-lightning-30b-a3b",
+        "nvidia/nemotron-3-ultra-550b-a55b"
+      ],
       "route": "via-meterless"
     },
     "cursor": {
       "status": "planned",
       "how": "Not used in this build. Cursor is optional for this hackathon according to the organizers' moderators.",
       "where": [],
-      "evidence": ["docs/DECISIONS.md"],
-      "decisions": ["docs/DECISIONS.md"]
+      "evidence": [
+        "docs/DECISIONS.md"
+      ],
+      "decisions": [
+        "docs/DECISIONS.md"
+      ]
     }
   },
   "pre_existing": [
     {
       "name": "Meterless reference engines and conformance runners",
-      "what": "The sponsor's public Apache-2.0 reference implementations of H-MEM and the World Model, vendored unmodified.",
-      "where": ["third_party/meterless/"]
+      "what": "The sponsor's public Apache-2.0 reference implementations of H-MEM and the World Model, the Markovian conformance runner and the Scout Intent stock evaluation harness, vendored unmodified.",
+      "where": [
+        "third_party/meterless/"
+      ]
     },
     {
       "name": "Public datasets and registries",
       "what": "openFDA, ClinicalTrials.gov, PubMed, Europe PMC and FDA decision summaries, stored as small hashed recordings.",
-      "where": ["data/cassettes/", "data/silos/registry/", "evals/heldout/text/"]
+      "where": [
+        "data/cassettes/",
+        "data/fixtures/feasibility/",
+        "data/silos/registry/",
+        "evals/heldout/text/"
+      ]
     },
     {
       "name": "Studied open-source mechanisms",
-      "what": "Ideas from Splink, Docling, OpenLineage, the Airbyte protocol, the Trino connector SPI and Graphiti, rebuilt in new code. No code copied.",
-      "where": ["docs/provenance.md"]
+      "what": "Ideas from Splink, Docling, OpenLineage, the Airbyte protocol, the Trino connector SPI and Graphiti, rebuilt in new code. No code copied. The one file taken is the OpenLineage 2-0-2 core JSON Schema, vendored unmodified (Apache-2.0) so the dossier's lineage events can be checked against the published schema.",
+      "where": [
+        "docs/provenance.md",
+        "third_party/openlineage/"
+      ]
     },
     {
       "name": "Design experience and fonts from an earlier submission",
       "what": "A previous hackathon submission (Track 3) informed the Zetaris and Nightshift request contracts and the visual identity; no code, copy or screenshots were reused. The Outfit and JetBrains Mono font files (SIL OFL) were copied.",
-      "where": ["docs/provenance.md", "ui/public/fonts/"]
+      "where": [
+        "docs/provenance.md",
+        "ui/public/fonts/"
+      ]
     }
   ],
   "run": {
     "setup": "README.md, section 'Try it (no keys, no Docker)': npm ci, then npm run judge, then npm run ui:build and npm run serve in sample mode.",
     "sample_mode": true,
-    "secrets": ["NVIDIA_API_KEY", "NVIDIA_BASE_URL", "NIGHTSHIFT_API_KEY", "ZETARIS_REST_URL", "ZETARIS_API_KEY", "ZETARIS_ORG_ID"]
+    "secrets": [
+      "NVIDIA_API_KEY",
+      "NVIDIA_BASE_URL",
+      "NIGHTSHIFT_API_KEY",
+      "ZETARIS_REST_URL",
+      "ZETARIS_API_KEY",
+      "ZETARIS_ORG_ID"
+    ]
   },
   "evidence_logs": "output_examples/traces/"
 }

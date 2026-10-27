@@ -107,6 +107,29 @@ export function createApp(svc: SakaimeService, options: AppOptions = {}): Hono {
     return next();
   });
   app.use("/api/*", cors({ origin: svc.config.corsOrigin, allowMethods: ["GET", "POST", "OPTIONS"], allowHeaders: ["content-type", "x-reviewer"], maxAge: 600 }));
+  // Cross-site request guard. CORS stops another origin from reading an answer; it does not stop the request from being made,
+  // and some GET routes act: /investigate starts a run and /dossier writes an export record. A page on another origin can
+  // trigger either with an image, a form, a link or an EventSource, with no preflight. So every /api request is checked:
+  //   - an Origin header (sent by browsers on every cross-origin and every POST request, and not settable by page script) must
+  //     be this service's own origin or the configured dev UI origin;
+  //   - without one, a browser still says where a navigation or an EventSource came from in Sec-Fetch-Site, and only
+  //     "same-origin" or "none" (a typed address or a bookmark) is accepted;
+  //   - a client that sends neither header (curl, a script, the test suite) is not a browser acting for a hostile page and passes.
+  // Origin is judged first and alone: a hostile Origin is refused whatever Sec-Fetch-Site claims.
+  app.use("/api/*", async (c, next) => {
+    const origin = c.req.header("origin");
+    const site = c.req.header("sec-fetch-site")?.toLowerCase();
+    const own = `${new URL(c.req.url).protocol}//${c.req.header("host") ?? ""}`.toLowerCase();
+    if (origin !== undefined) {
+      const known = origin.toLowerCase() === own || origin === svc.config.corsOrigin;
+      if (!known) {
+        return c.json({ error: { failure: "FORBIDDEN", message: "this service does not act on requests that a page on another origin makes", detail: { reason: "CROSS_ORIGIN" } } }, 403);
+      }
+    } else if (site !== undefined && site !== "same-origin" && site !== "none") {
+      return c.json({ error: { failure: "FORBIDDEN", message: "this service does not act on requests that a page on another site makes", detail: { reason: "CROSS_SITE" } } }, 403);
+    }
+    return next();
+  });
   // The dossier route carries a whole bundle and has its own, larger limit; every other route keeps the small one.
   const smallLimit = bodyLimit({
     maxSize: maxBody,

@@ -241,7 +241,8 @@ async function buildSources(layer: ReturnType<typeof createSourceLayer>): Promis
         license: file.license,
         ...(schemaHash ? { schemaHash } : {}),
         health: pinned ? "STALE" : "OK",
-        lastSuccessAt: RETRIEVED_AT,
+        // A source nothing has read has not answered, so it has no last success: the real service leaves the field out too.
+        ...(UNREAD.has(file.id) ? {} : { lastSuccessAt: RETRIEVED_AT }),
         dataClass: file.dataClass,
       },
       // A source no case reads has no observation of its own: it is shown as it is, not as out of date. A pinned snapshot is older than its card's cadence.
@@ -251,6 +252,7 @@ async function buildSources(layer: ReturnType<typeof createSourceLayer>): Promis
           ? "not read by any case investigated so far; no failure has been seen for it"
           : "Answered from a recorded response captured on 2026-10-27. Sample run: no live call was made.",
       authorityNotes: authorityNote(file.kind),
+      ...(UNREAD.has(file.id) && !pinned ? { observed: false } : {}),
     });
   }
 

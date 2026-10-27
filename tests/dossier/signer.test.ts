@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
 import {
   KEY_FILE_ENV,
+  SIGNATURE_STATEMENT,
   buildDossier,
   createDemoSignerFromSeed,
   createEphemeralDemoSigner,
@@ -11,10 +12,11 @@ import {
   keyIdOfPublicKey,
   loadPinnedSigner,
   resolveSigner,
+  signatureNoteFor,
   verifyDossier,
   verifySignature,
 } from "../../src/dossier/index.ts";
-import { baseInput, fixedClock, verifyOptions } from "./helpers.ts";
+import { baseBundle, baseInput, fixedClock, verifyOptions } from "./helpers.ts";
 
 const dir = mkdtempSync(join(tmpdir(), "sakaime-keys-"));
 afterAll(() => rmSync(dir, { recursive: true, force: true }));
@@ -110,5 +112,27 @@ describe("what the bundle says about its key", () => {
     const bundle = buildDossier(baseInput(), { signer: createEphemeralDemoSigner(), clock: fixedClock });
     expect(bundle.manifest.signing.keyStatus).toBe("demo");
     expect(bundle.manifest.signing.statement).toMatch(/demo key does not identify who signed/);
+  });
+});
+
+describe("what a reader is told about the signature", () => {
+  it("says a demo key shows integrity and cannot attribute a bundle, and that attribution needs a pinned key id", () => {
+    const note = signatureNoteFor("demo");
+    expect(note).toContain(SIGNATURE_STATEMENT);
+    expect(note).toMatch(/demo key is public/);
+    expect(note).toMatch(/pinned key id/);
+  });
+
+  it("says a pinned key counts as the signer's only when the verifier was told to pin it", () => {
+    const note = signatureNoteFor("pinned");
+    expect(note).toContain(SIGNATURE_STATEMENT);
+    expect(note).toMatch(/only if its id is one the verifier was told to pin/);
+    expect(note).not.toMatch(/demo key is public/);
+  });
+
+  it("is what the verifier's own result carries for the signer line, so no screen can say less", async () => {
+    const r = await verifyDossier(baseBundle(), verifyOptions);
+    expect(r.signer?.keyStatus).toBe("demo");
+    expect(r.signer?.trust).toMatch(/demo key: shows the bundle is unchanged since signing, says nothing about who signed it/);
   });
 });

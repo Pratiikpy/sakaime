@@ -40,6 +40,19 @@ export function HealthBadge({ health }: { health: SourceHealth }) {
   );
 }
 
+/**
+ * A source no case has read. Its health field is "OK" only because nothing has failed; nothing has answered either, so it is
+ * never drawn as answering. It has its own word, icon and test hook (data-health="NOT_READ").
+ */
+export function NotReadBadge() {
+  return (
+    <span className="health-badge tone-neutral" data-health="NOT_READ" title="Not read yet: no case investigated so far has read this source. No failure has been seen for it, and no answer either, so it is not shown as answering.">
+      <Icon name="gap" size={14} />
+      <span>Not read yet</span>
+    </span>
+  );
+}
+
 export function LinkStateBadge({ state }: { state: Link["state"] }) {
   const m = LINK_STATE_META[state];
   return (

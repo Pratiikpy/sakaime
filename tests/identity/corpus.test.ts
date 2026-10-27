@@ -218,6 +218,6 @@ describe("measured behaviour on the corpus", () => {
   });
 
   it("reads fixtures only under the repository's pinned folder", () => {
-    expect(FIXTURES.endsWith(join("research", "feasibility", "fixtures"))).toBe(true);
+    expect(FIXTURES.endsWith(join("data", "fixtures", "feasibility"))).toBe(true);
   });
 });

@@ -4,7 +4,7 @@ import type { CompileOptions } from "../../src/compiler/index.ts";
 /*
  * Test builders for the Applicability Compiler.
  *
- * Facts taken from the feasibility report (research/feasibility/FEASIBILITY-REPORT.md) are real: EyeArt K200667,
+ * Facts taken from the feasibility report (docs/reports/feasibility-report.md) are real: EyeArt K200667,
  * software version 2.1.0, NCT03112005, 942 consented participants, 11 US sites, primary and eye-care settings.
  * Everything else here is CONSTRUCTED for the test: the performance values, the dates, the age range, the condition
  * wording and the mapping of the product into the purpose taxonomy. None of it is a statement about a real vendor.

@@ -5,12 +5,16 @@
  *   1. recomputes every content hash and compares it with the manifest (a changed byte is named by section and item);
  *   2. checks the Ed25519 signature over the manifest, and the signing key against a pinned set when one is given;
  *   3. checks the closed label set, quote existence (every anchor's text is verbatim in the stored record text),
- *      number tracing, supersession, the decision hash chain, source-served labels, receipt coverage, egress and lineage;
+ *      that every assertion's value and unit are visible in the quote it is anchored to, number tracing, supersession, the decision hash chain, source-served labels, receipt coverage, egress and lineage;
  *   4. re-runs the compiler on the recorded inputs through an injected function and fails if a label differs.
  *
  * What a pass means: the bundle is internally consistent, unchanged since signing, and its labels are reproducible by
- * the compiler that was supplied. It does not mean a finding is clinically correct, and with a demo key it says
- * nothing about who signed.
+ * the compiler that was supplied. It does not mean a finding is clinically correct.
+ *
+ * Who signed is a separate question and the answer depends on the key. A signature made with a demo key proves integrity
+ * only: the demo key is published, so anyone can produce a bundle that passes every check here, including a rewritten
+ * record text with matching hashes. Authorship needs a pinned key, supplied as `pinnedKeyIds`; without one the result
+ * says "demo key" or "no pinned set" in `signer.trust` and the CLI, judge output and dossier screen repeat it.
  */
 import type { ComputeReceipt } from "../ports/index.ts";
 import type { Claim, Dimension, EvidenceItem, Finding, Label, Relation } from "../schemas/index.ts";
@@ -24,6 +28,7 @@ import { BodySchema, DOSSIER_FORMAT, DOSSIER_VERSION, ManifestSchema, SECTIONS, 
 import type { DossierBody, ModelReply } from "./schema.ts";
 import { keyIdOfPublicKey, verifySignature } from "./signer.ts";
 import { leafTexts, numbersInPassage, numbersInRendered, traces } from "./trace.ts";
+import { assertionValueProblem } from "./value-trace.ts";
 
 // ---------------------------------------------------------------- options and result
 
@@ -174,6 +179,8 @@ function makeAttributor(body: unknown): (item: string) => string[] {
   }
   const reqClaim = new Map<string, string>();
   for (const r of arrOf(body.requirements)) if (isObj(r) && str(r.id) && str(r.claimId)) reqClaim.set(r.id as string, r.claimId as string);
+  const assertionAnchor = new Map<string, string>();
+  for (const a of arrOf(body.assertions)) if (isObj(a) && str(a.id) && str(a.anchorId)) assertionAnchor.set(a.id as string, a.anchorId as string);
   const decClaim = new Map<string, string>();
   for (const d of arrOf(body.decisionHistory)) if (isObj(d) && str(d.id) && str(d.claimId)) decClaim.set(d.id as string, d.claimId as string);
 
@@ -205,6 +212,8 @@ function makeAttributor(body: unknown): (item: string) => string[] {
         return [...(itemClaims.get(id) ?? [])].sort();
       case "anchors":
         return [...(anchorClaims.get(id) ?? [])].sort();
+      case "assertions":
+        return [...(anchorClaims.get(assertionAnchor.get(id) ?? "") ?? [])].sort();
       case "snapshots":
         return [...(recordClaims.get(id) ?? [])].sort();
       default:
@@ -224,6 +233,36 @@ function pathItem(raw: unknown, path: readonly (string | number)[]): string {
     id = spec.idOf?.(item) ?? index;
   }
   return [String(section), String(id), ...rest.map(String)].join("/");
+}
+
+// ---------------------------------------------------------------- size budget
+
+/**
+ * The most values (array elements and object entries, at any depth) a bundle may hold. A real dossier holds tens of
+ * thousands (the largest committed one about 24,000) and the HTTP route caps a body at 12 MB, about 240,000 at the density of
+ * real dossiers. The schema library collects one issue object for every failing element of an array with no cap, so a few
+ * megabytes of `[1,1,1,...]` where records are expected would be turned into hundreds of megabytes of issues. Counting first
+ * costs one pass and refuses that before any schema sees it.
+ */
+export const MAX_BUNDLE_VALUES = 500_000;
+
+/** Counts values iteratively (no recursion, so depth cannot overflow the stack). Stops as soon as the limit is passed. */
+function valuesBeyond(root: unknown, limit: number): number | undefined {
+  let count = 0;
+  const stack: unknown[] = [root];
+  while (stack.length > 0) {
+    const v = stack.pop();
+    if (Array.isArray(v)) {
+      count += v.length;
+      for (const x of v) if (x !== null && typeof x === "object") stack.push(x);
+    } else if (v !== null && typeof v === "object") {
+      const values = Object.values(v as Record<string, unknown>);
+      count += values.length;
+      for (const x of values) if (x !== null && typeof x === "object") stack.push(x);
+    }
+    if (count > limit) return count;
+  }
+  return undefined;
 }
 
 // ---------------------------------------------------------------- main
@@ -255,6 +294,16 @@ async function verifyCore(bundle: unknown, options: Partial<VerifyOptions>, full
     skipped: c.checks.filter((k) => k.status === "SKIPPED").map((k) => `${k.id}: ${k.detail}`),
     ...partial,
   });
+
+  // ---- size budget, before anything parses the bundle
+  let withinBudget = true;
+  await c.run("bundle.size", "bundle", `within the ${MAX_BUNDLE_VALUES}-value budget`, (fail) => {
+    const over = valuesBeyond(bundle, MAX_BUNDLE_VALUES);
+    if (over === undefined) return;
+    withinBudget = false;
+    fail("bundle", `holds more than ${MAX_BUNDLE_VALUES} values; it is refused unread rather than risk exhausting memory`);
+  });
+  if (!withinBudget) return result();
 
   // ---- bundle shell
   let shellOk = true;
@@ -430,8 +479,10 @@ const SEMANTIC_CHECK_IDS = [
   "counterexamples.consistent",
   "snapshots.hash",
   "anchors.quote",
+  "assertions.values",
   "findings.numbers",
   "evidence.numbers",
+  "evidence.scope",
   "findings.supersession",
   "rules.versions",
   "findings.recompute",
@@ -537,6 +588,17 @@ async function semanticChecks(c: Collector, body: DossierBody, options: VerifyOp
     }
   });
 
+  // The quote check above shows the quote is in the record. This ties each assertion to its quote, so a value cannot be
+  // rewritten (a product code, a sample size, a unit) while the quote, the hashes and the signature stay valid.
+  await c.run("assertions.values", "assertions", `${body.assertions.length} assertion values and units are visible in their quotes`, (fail) => {
+    for (const a of body.assertions) {
+      const quote = anchors.get(a.anchorId)?.text;
+      if (quote === undefined) continue; // reported by refs.integrity
+      const problem = assertionValueProblem(a, quote);
+      if (problem) fail(`assertions/${a.id}/${problem.field}`, `${a.predicate}: ${problem.reason}`);
+    }
+  });
+
   // ---- number tracing
   await c.run("findings.numbers", "findings", "every number in a finding traces to a cited anchor or to the claim", (fail) => {
     const anchorNumbers = (ids: Iterable<string>): number[] => [...ids].flatMap((id) => numbersInPassage(anchors.get(id)?.text ?? ""));
@@ -584,6 +646,22 @@ async function semanticChecks(c: Collector, body: DossierBody, options: VerifyOp
         const passage = ids.flatMap((id) => numbersInPassage(anchors.get(id)?.text ?? ""));
         const values: [string, number | undefined][] = [["value", r.value], ["ci lower", r.ci?.[0]], ["ci upper", r.ci?.[1]], ["n", r.n]];
         for (const [name, v] of values) if (v !== undefined && !traces(v, passage)) fail(item, `${name} ${v} does not appear in the anchor it cites`);
+      }
+    }
+  });
+
+  // The age limits an evidence item states are what the compiler compares a claim with. Each must be stated by a passage the
+  // item cites, so a limit cannot be widened or narrowed while the item's results and anchors stay as they were.
+  await c.run("evidence.scope", "evidenceItems", "every age limit of an evidence item is stated by an anchor it cites", (fail) => {
+    for (const it of body.evidenceItems) {
+      const age = it.scope.population?.age;
+      if (!age) continue;
+      const texts = it.anchorIds.map((id) => anchors.get(id)?.text).filter((x): x is string => x !== undefined);
+      for (const [bound, value] of [["min", age.min], ["max", age.max]] as const) {
+        if (value === undefined) continue;
+        const predicate = bound === "min" ? "population.age_min" : "population.age_max";
+        const stated = texts.some((text) => assertionValueProblem({ predicate, value, extractionMethod: "pattern" }, text) === undefined);
+        if (!stated) fail(`evidenceItems/${it.id}/scope/population/age/${bound}`, texts.length === 0 ? `age ${bound} ${value} is stated but the item cites no anchor` : `age ${bound} ${value} is not stated in any anchor the item cites`);
       }
     }
   });

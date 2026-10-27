@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "city": "Cambridge",
+      "advisory_committee_description": "Cardiovascular",
+      "address_1": "One Main St., Suite 400",
+      "address_2": "East Arcade 4th Floor",
+      "statement_or_summary": "Summary",
+      "product_code": "QYE",
+      "openfda": {
+        "registration_number": [
+          "",
+          "3011651230",
+          "3027245002",
+          "3046433998",
+          "3029762850",
+          "3013200421"
+        ],
+        "fei_number": [
+          "",
+          "3011651230",
+          "3027245002",
+          "3046433998",
+          "3029762850",
+          "3013200421"
+        ],
+        "device_name": "Reduced Ejection Fraction Machine Learning-Based Notification Software",
+        "medical_specialty_description": "Cardiovascular",
+        "regulation_number": "870.2380",
+        "device_class": "2"
+      },
+      "zip_code": "02142",
+      "applicant": "Anumana, Inc.",
+      "decision_date": "2023-09-28",
+      "decision_code": "SESE",
+      "country_code": "US",
+      "device_name": "Low Ejection Fraction AI-ECG Algorithm",
+      "advisory_committee": "CV",
+      "contact": "Suzanne  Goodman",
+      "expedited_review_flag": "",
+      "k_number": "K232699",
+      "state": "MA",
+      "date_received": "2023-09-05",
+      "review_advisory_committee": "CV",
+      "postal_code": "02142",
+      "decision_description": "Substantially Equivalent",
+      "clearance_type": "Traditional"
+    }
+  ]
+}

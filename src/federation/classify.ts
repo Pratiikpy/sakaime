@@ -7,6 +7,7 @@
  *  - a missing Authorization header returns HTTP 401 with a plain-text body;
  *  - a wrong API key returns HTTP 400 with {"msg":"Not Allowed"}, not 401, and does so before the body is checked;
  *  - non-admin users with grants have seen "does not have access to USL" on USL tables;
+ *  - a non-administrator who sends an administrator-only statement (COMPILE USL) gets HTTP 400 "User is not permitted to run this command";
  *  - SHOW TABLES / SHOW SCHEMAS without a target are refused with HTTP 400 "... are disabled".
  *
  * The rule that matters most: an infrastructure fault must never be read as "no access" or as "nothing found".
@@ -53,6 +54,8 @@ const TRANSIENT: ReadonlyArray<readonly [RegExp, string]> = [
 const FORBIDDEN: ReadonlyArray<readonly [RegExp, string]> = [
   [/does not have access to usl/i, "NO_USL_ACCESS"],
   [/(does not have|has no|lacks?|without)\s+(the\s+)?(access|permission|privilege)s?\b/i, "NO_ACCESS"],
+  // What the engine says to a non-administrator who sends an administrator-only statement ("User is not permitted to run this command").
+  [/\b(?:is|are)\s+not\s+permitted\b|\bnot\s+permitted\s+to\b/i, "NOT_PERMITTED"],
   [/access denied|permission denied|not authori[sz]ed|unauthori[sz]ed|forbidden|insufficient privilege/i, "ACCESS_DENIED"],
   [/administrators?\s+only|requires?\s+administrator|admin(istrator)?\s+(role|privilege|access)\s+(is\s+)?required/i, "ADMIN_ONLY"],
   // The whole message, not a substring: Spark's parser also says "Operation not allowed: ..." for unsupported SQL.

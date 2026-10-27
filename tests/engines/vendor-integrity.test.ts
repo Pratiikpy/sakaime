@@ -28,7 +28,7 @@ describe("the vendored Meterless references are unmodified", () => {
       .filter((f) => f !== "PROVENANCE.md" && f !== "NOTICE.md")
       .sort();
     expect(rows.map((r) => r.file).sort()).toEqual(onDisk);
-    expect(rows.length).toBeGreaterThan(50);
+    expect(rows.length).toBeGreaterThan(70);
   });
 
   it("each file still has the recorded SHA-256 and git blob hash, and matched upstream when it was recorded", () => {
@@ -44,9 +44,24 @@ describe("the vendored Meterless references are unmodified", () => {
   it("the licence and the notice are present, and the runners are the sponsor's (no Sakaime edits)", () => {
     expect(fs.readFileSync(path.join(vendor, "LICENSE"), "utf8")).toMatch(/Apache License[\s\S]*Version 2\.0/);
     expect(fs.readFileSync(path.join(vendor, "NOTICE.md"), "utf8")).toMatch(/Copyright 2026 Meterless/);
-    for (const engine of ["hmem", "world-model"]) {
+    for (const engine of ["hmem", "world-model", "markovian"]) {
       const runner = fs.readFileSync(path.join(vendor, engine, "conformance", "runner.ts"), "utf8");
       expect(runner).not.toMatch(/sakaime/i);
     }
+    expect(fs.readFileSync(path.join(vendor, "scout-intent", "evals", "runner", "index.ts"), "utf8")).not.toMatch(/sakaime/i);
+  });
+
+  it("the Markovian runner and the Scout stock harness are vendored, which the conformance tests need in a clean clone", () => {
+    const files = rows.map((r) => r.file);
+    for (const needed of [
+      "markovian/conformance/runner.ts",
+      "markovian/LICENSE",
+      "scout-intent/LICENSE",
+      "scout-intent/evals/runner/index.ts",
+      "scout-intent/evals/config/thresholds.yaml",
+      "scout-intent/evals/fixtures/intents.json",
+    ])
+      expect(files, needed).toContain(needed);
+    expect(files.filter((f) => f.startsWith("scout-intent/evals/regression-set/"))).toHaveLength(6);
   });
 });

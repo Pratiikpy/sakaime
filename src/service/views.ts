@@ -352,7 +352,7 @@ export function sourceRowsAcross(ctxs: ViewContext[], now: Date): SourceRow[] {
     const candidates = perCase.map((rows) => rows[i]!).filter((r) => r.read);
     if (candidates.length === 0) {
       const row = first[i]!.row;
-      return { ...row, healthDetail: "not read by any case investigated so far; no failure has been seen for it" };
+      return { ...row, healthDetail: "not read by any case investigated so far; no failure has been seen for it", observed: false };
     }
     return candidates.reduce((worst, r) => (HEALTH_RANK[r.row.source.health] > HEALTH_RANK[worst.row.source.health] ? r : worst)).row;
   });

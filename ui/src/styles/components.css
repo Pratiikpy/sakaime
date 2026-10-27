@@ -212,3 +212,19 @@ input[type="checkbox"], input[type="radio"] { width: 20px; height: 20px; accent-
 
 .data-table code { overflow-wrap: anywhere; }
 .verify__checks summary { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* ---------------------------------------------------------------- semantic layer panel */
+
+.usl-lead { max-width: 78ch; margin-bottom: 14px; }
+.usl-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 4px; }
+.usl-body > .section { margin: 0; }
+.usl-facts > div { grid-template-columns: minmax(110px, 160px) minmax(0, 1fr); }
+.usl-facts dd { overflow-wrap: anywhere; }
+@media (max-width: 640px) { .usl-facts > div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+.usl-columns { list-style: none; display: grid; gap: 8px; margin: 0; padding: 0; }
+.usl-statements { display: grid; gap: 10px; margin: 8px 0 0 1.2em; padding: 0; }
+.usl-statement { display: block; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.82rem; }
+.plain-list { list-style: none; display: grid; gap: 2px; margin: 0; padding: 0; }
+.data-table .usl-name { white-space: nowrap; overflow-wrap: normal; }
+@media (max-width: 759px) { .data-table.responsive .usl-name { white-space: normal; overflow-wrap: anywhere; } }
+.usl-body .notice + .table-wrap, .usl-body .notice + .state, .usl-body .notice + .notice, .usl-lead + .notice, [data-testid="usl-unavailable"] .state + .notice { margin-top: 12px; }

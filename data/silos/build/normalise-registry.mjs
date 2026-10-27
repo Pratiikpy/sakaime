@@ -3,8 +3,9 @@
 // resolved here once and every output row keeps the hash of the file it came from.
 //
 // Usage (from the repository root):
-//   node data/silos/build/normalise-registry.mjs [fixtures-dir]
-// The default fixtures directory is research/feasibility/fixtures (local only, not committed). The generated CSV files
+//   node data/silos/build/normalise-registry.mjs <probe-dir>
+// The argument is the feasibility probe's complete output folder (local, not committed): the tracked subset in
+// data/fixtures/feasibility holds only the files the tests read and is not enough to regenerate the registry. The generated CSV files
 // under data/silos/registry are committed together with registry/MANIFEST.json, which records every source hash.
 
 import { createHash } from 'node:crypto';
@@ -15,7 +16,11 @@ import { XMLParser } from 'fast-xml-parser';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, '..', '..', '..');
-const fixtures = resolve(process.argv[2] ?? join(root, 'research', 'feasibility', 'fixtures'));
+if (!process.argv[2]) {
+  console.error("usage: node data/silos/build/normalise-registry.mjs <probe-dir> (the probe's complete output folder)");
+  process.exit(2);
+}
+const fixtures = resolve(process.argv[2]);
 const outDir = join(root, 'data', 'silos', 'registry');
 mkdirSync(outDir, { recursive: true });
 

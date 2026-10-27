@@ -362,3 +362,84 @@ describe("attribution to claims", () => {
     expect(r.failures.find((f) => f.item === "rules")?.claimIds).toEqual([]);
   });
 });
+
+describe("assertion values and units (assertions.values)", () => {
+  const legit = { id: "asr-9", subjectId: "e-study", predicate: "study.sample_size", value: 412, unit: "patients", assertionType: "study", anchorId: "a-study-sens", extractionMethod: "pattern", quoteVerified: true, supportVerified: "PASS" };
+  const name = { id: "asr-10", subjectId: "e-auth", predicate: "device.name", value: "TRIAGE-1", assertionType: "authorization", anchorId: "a-auth", extractionMethod: "structured", quoteVerified: true, supportVerified: "PASS" };
+  const addBoth = (b: any, edit: (a: any, n: any) => void = () => {}) => {
+    const a = { ...legit };
+    const n = { ...name };
+    edit(a, n);
+    b.assertions.push(a, n);
+  };
+
+  it("accepts correctly extracted values (the base assertions and a sample size and device name that are in their quotes)", async () => {
+    const r = await check((b) => addBoth(b));
+    expect(reasons(r, "assertions.values")).toEqual([]);
+    expect(r.checks.find((c) => c.id === "assertions.values")?.status).toBe("PASS");
+    expect(r.ok).toBe(true);
+  });
+
+  it("fails a sample size rewritten from 412 to 4120 although quote, hashes and signature are intact", async () => {
+    const r = await check((b) => addBoth(b, (a) => (a.value = 4120)));
+    expect(reasons(r, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-9/value"]);
+    expect(reasons(r, "assertions.values")[0]?.reason).toMatch(/study\.sample_size: 4120 is not stated in the quoted passage/);
+    expect(r.ok).toBe(false);
+  });
+
+  it("fails a code or name rewritten to another (the SESE to DENG forgery), naming the assertion", async () => {
+    const r = await check((b) => addBoth(b, (_a, n) => (n.value = "TRIAGE-2")));
+    expect(reasons(r, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-10/value"]);
+    expect(reasons(r, "assertions.values")[0]?.reason).toMatch(/does not appear in the quoted passage/);
+  });
+
+  it("fails an altered number, text value and list of the base assertions", async () => {
+    const num = await check((b) => (b.assertions.find((a: any) => a.id === "asr-1").value = 0.99));
+    expect(reasons(num, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-1/value"]);
+    const text = await check((b) => (b.assertions.find((a: any) => a.id === "asr-2").value = "18 to 95"));
+    expect(reasons(text, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-2/value"]);
+    const list = await check((b) => (b.assertions.find((a: any) => a.id === "asr-3").value = ["3.1", "9.9"]));
+    expect(reasons(list, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-3/value"]);
+  });
+
+  it("fails a unit the extractor does not emit, and a counted unit that is not a word of the quote", async () => {
+    const invented = await check((b) => addBoth(b, (a) => (a.unit = "pixels")));
+    expect(reasons(invented, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-9/unit"]);
+    const swapped = await check((b) => addBoth(b, (a) => (a.unit = "eyes")));
+    expect(reasons(swapped, "assertions.values").map((f) => f.item)).toEqual(["assertions/asr-9/unit"]);
+    expect(reasons(swapped, "assertions.values")[0]?.reason).toMatch(/not a word of the quoted passage/);
+  });
+
+  it("attributes the failure to the claim whose finding cites the anchor", async () => {
+    const r = await check((b) => (b.assertions.find((a: any) => a.id === "asr-1").value = 0.99));
+    expect(r.failures.find((f) => f.check === "assertions.values")?.claimIds).toEqual(["c1"]);
+  });
+
+  it("is listed as skipped, not passed, when only integrity is checked", async () => {
+    const { verifyIntegrity } = await import("../../src/dossier/index.ts");
+    const r = await verifyIntegrity(forge((b) => addBoth(b, (a) => (a.value = 4120))));
+    expect(r.ok).toBe(true);
+    expect(r.skipped.join(" ")).toMatch(/assertions\.values/);
+  });
+});
+
+describe("evidence item age limits (evidence.scope)", () => {
+  it("accepts the limits the item's anchors state", async () => {
+    const r = await check(() => {});
+    expect(reasons(r, "evidence.scope")).toEqual([]);
+    expect(r.checks.find((c) => c.id === "evidence.scope")?.status).toBe("PASS");
+  });
+
+  it("fails an age limit that no cited anchor states, naming the bound", async () => {
+    const r = await check((b) => (b.evidenceItems.find((e: any) => e.id === "e-study").scope.population.age.max = 85));
+    expect(reasons(r, "evidence.scope").map((f) => f.item)).toEqual(["evidenceItems/e-study/scope/population/age/max"]);
+  });
+
+  it("fails an age limit on an item that cites no anchor", async () => {
+    const r = await check((b) => {
+      const item = b.evidenceItems.find((e: any) => e.id === "e-study");
+      item.anchorIds = [];
+    });
+    expect(reasons(r, "evidence.scope")[0]?.reason).toMatch(/cites no anchor/);
+  });
+});

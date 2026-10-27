@@ -49,6 +49,11 @@ export const SourceRowSchema = z.object({
   zetarisName: z.string().optional(),
   rowCount: z.number().int().nonnegative().optional(),
   authorityNotes: z.string().optional(),
+  /**
+   * false: no case investigated so far has read this source. Its health is then not an observation of the source (nothing has
+   * answered, and nothing has failed), and a screen must not show it as answering. Absent: the row is an observation.
+   */
+  observed: z.boolean().optional(),
 });
 export type SourceRow = z.infer<typeof SourceRowSchema>;
 

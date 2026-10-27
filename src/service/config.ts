@@ -14,7 +14,8 @@ import { systemClock, type Clock } from "../ports/index.ts";
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
-export const SERVICE_VERSION = "0.1.0";
+/** Read from package.json, the one place the version is written, so the health endpoint cannot disagree with the package. */
+export const SERVICE_VERSION: string = (JSON.parse(readFileSync(join(REPO_ROOT, "package.json"), "utf8")) as { version: string }).version;
 
 /** Moment every replayed run is stamped with, so two sample runs are byte-equal. */
 export const SAMPLE_EPOCH = "2026-10-27T12:00:00.000Z";

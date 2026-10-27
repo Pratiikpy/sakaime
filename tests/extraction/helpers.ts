@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-export const FIXTURES = join(import.meta.dirname, "..", "..", "research", "feasibility", "fixtures");
+export const FIXTURES = join(import.meta.dirname, "..", "..", "data", "fixtures", "feasibility");
 
 export function fixture(...parts: string[]): string {
   return readFileSync(join(FIXTURES, ...parts), "utf8");

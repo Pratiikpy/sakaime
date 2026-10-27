@@ -130,7 +130,9 @@ describe("DuckDbFallbackPort", () => {
   });
 
   it("cannot read files through SQL, and cannot be given tables once it has answered", async () => {
-    expect((await failureOf(port.sql("SELECT * FROM read_csv('x.csv')"))).detail?.["reason"]).toBe("UNTRANSLATABLE");
+    // Two layers refuse it: the read-only policy names the function, and the translator, were the policy ever relaxed, still cannot render it.
+    expect((await failureOf(port.sql("SELECT * FROM read_csv('x.csv')"))).detail?.["reason"]).toBe("DENIED_FUNCTION");
+    expect(() => translateSparkToDuckDb("SELECT * FROM read_csv('x.csv')")).toThrowError(expect.objectContaining({ detail: expect.objectContaining({ reason: "UNTRANSLATABLE" }) }));
     // DuckDB's file-as-table form passes the translator, so the engine's own switch must stop it.
     const direct = await failureOf(port.sql("SELECT * FROM 'x.csv'"));
     expect(direct.failure).toBe("INVALID");

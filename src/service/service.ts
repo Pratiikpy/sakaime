@@ -27,7 +27,7 @@ import type {
 import { COMPILER_VERSION, applyPatch, compileDetailed, diffFindings } from "../compiler/index.ts";
 import {
   DecisionLog,
-  SIGNATURE_STATEMENT,
+  signatureNoteFor,
   createFileExportLedger,
   createMemoryExportLedger,
   exportDossier,
@@ -560,7 +560,7 @@ export class SakaimeService {
     if (bundle === null || typeof bundle !== "object" || Array.isArray(bundle)) {
       const what = bundle === null ? "null" : Array.isArray(bundle) ? "an array" : `a ${typeof bundle}`;
       const reason = `the body is ${what}, not a dossier. A dossier is a JSON object with a "manifest" and a "body".`;
-      return { ok: false, checks: [{ name: "bundle.shape", ok: false, detail: `FAIL: ${reason}` }], failures: [{ item: "(body)", reason }], signatureNote: SIGNATURE_STATEMENT, keyKind: "demo" };
+      return { ok: false, checks: [{ name: "bundle.shape", ok: false, detail: `FAIL: ${reason}` }], failures: [{ item: "(body)", reason }], signatureNote: signatureNoteFor("demo"), keyKind: "demo" };
     }
     const result = await verifyDossier(bundle, this.verifyOptions());
     const key = (bundle as { manifest?: { signing?: { keyStatus?: string } } }).manifest?.signing?.keyStatus;
@@ -568,7 +568,7 @@ export class SakaimeService {
       ok: result.ok,
       checks: result.checks.map((c) => ({ name: c.id, ok: c.status !== "FAIL", detail: `${c.status}: ${c.detail}` })),
       failures: result.failures.map((f) => ({ item: f.item, reason: f.reason })),
-      signatureNote: SIGNATURE_STATEMENT,
+      signatureNote: signatureNoteFor(key === "pinned" ? "pinned" : "demo"),
       keyKind: key === "pinned" ? "pinned" : "demo",
     };
   }

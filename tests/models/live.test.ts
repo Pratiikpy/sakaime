@@ -40,17 +40,19 @@ const schema = { type: "object", properties: { answer: { type: "string", enum: [
 
 describe.skipIf(!live || !nvidiaKey)("live: NVIDIA API", () => {
   const h = harness();
-  const client = new NvidiaClient({ baseUrl: env["NVIDIA_BASE_URL"] ?? NVIDIA_DEFAULT_BASE_URL, apiKey: nvidiaKey as string, trace: h.trace, egress: h.egress, promptLog: h.promptLog });
+  // Built on first use: describe.skipIf still runs this body to collect the tests, and the empty key in a copy of .env.example would throw here.
+  let built: NvidiaClient | undefined;
+  const client = (): NvidiaClient => (built ??= new NvidiaClient({ baseUrl: env["NVIDIA_BASE_URL"] ?? NVIDIA_DEFAULT_BASE_URL, apiKey: nvidiaKey as string, trace: h.trace, egress: h.egress, promptLog: h.promptLog }));
 
   it("lists the models the role map names", async () => {
-    const snap = await client.beginRun();
+    const snap = await client().beginRun();
     expect(snap.status).toBe("ok");
     for (const id of [NEMOTRON_LIGHTNING, NEMOTRON_ULTRA, NEMOTRON_SUPER_VL]) expect(snap.listed, `${id} is listed`).toContain(id);
     for (const [role, v] of Object.entries(snap.roles)) expect(v.model, `role ${role} has a listed model`).not.toBeNull();
   }, 60_000);
 
   it("answers a tiny prompt on Lightning", async () => {
-    const r = await timed("tiny", "nvidia", NEMOTRON_LIGHTNING, () => client.complete(request({ role: "extractor", system: "Reply with the single word asked for.", user: "Reply with exactly: ok", maxTokens: 32 })));
+    const r = await timed("tiny", "nvidia", NEMOTRON_LIGHTNING, () => client().complete(request({ role: "extractor", system: "Reply with the single word asked for.", user: "Reply with exactly: ok", maxTokens: 32 })));
     expect(r.text.trim().toLowerCase()).toContain("ok");
     expect(r.provider).toBe("nvidia");
     expect(r.usage.measured).toBe(true);
@@ -59,14 +61,14 @@ describe.skipIf(!live || !nvidiaKey)("live: NVIDIA API", () => {
   }, 150_000);
 
   it("answers a tiny prompt on Ultra (the critic's model)", async () => {
-    const r = await timed("tiny", "nvidia", NEMOTRON_ULTRA, () => client.complete(request({ role: "critic", system: "Reply with the single word asked for.", user: "Reply with exactly: ok", maxTokens: 32 })));
+    const r = await timed("tiny", "nvidia", NEMOTRON_ULTRA, () => client().complete(request({ role: "critic", system: "Reply with the single word asked for.", user: "Reply with exactly: ok", maxTokens: 32 })));
     expect(r.text.trim().toLowerCase()).toContain("ok");
     expect(r.requestedModel).toBe(NEMOTRON_ULTRA);
   }, 240_000);
 
   it("returns a schema-valid JSON answer", async () => {
     const r = await timed("json", "nvidia", NEMOTRON_LIGHTNING, () =>
-      client.complete(request({ role: "extractor", system: "You check statements against a passage.", user: 'Passage: "The device was cleared for adults aged 22 and over." Statement: "The device is cleared for adults." Does the passage support the statement? Answer with a yes or no and a short reason.', jsonSchema: schema, maxTokens: 200 })),
+      client().complete(request({ role: "extractor", system: "You check statements against a passage.", user: 'Passage: "The device was cleared for adults aged 22 and over." Statement: "The device is cleared for adults." Does the passage support the statement? Answer with a yes or no and a short reason.', jsonSchema: schema, maxTokens: 200 })),
     );
     expect(["yes", "no"]).toContain((r.json as { answer: string }).answer);
     expect(() => JSON.parse(r.text)).not.toThrow();

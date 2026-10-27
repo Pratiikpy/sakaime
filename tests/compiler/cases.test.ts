@@ -3,8 +3,8 @@ import { compileDetailed, type CompileOptions } from "../../src/compiler/index.t
 import type { Dimension, EvidenceItem, EvidenceResult, Finding } from "../../src/schemas/index.ts";
 
 /*
- * Cases built from the real records in docs/01-prd.md section 8, research/feasibility/FEASIBILITY-REPORT.md sections 4 and 6,
- * and the FDA clauses quoted in research/standards/APPLICABILITY-RULE-REGISTRY.md section 5.
+ * Cases built from the real records in docs/01-prd.md section 8, docs/reports/feasibility-report.md sections 4 and 6,
+ * and the FDA clauses quoted in docs/reports/applicability-rule-registry.md section 5.
  *
  * REAL in these fixtures: device identifiers, software version labels, study identifiers, participant and site counts,
  * the quoted FDA clauses and the K250694 and DEN170073 point estimates and intervals from the registry.

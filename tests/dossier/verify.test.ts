@@ -331,3 +331,41 @@ describe("junk input", () => {
     expect(failedItems(await verifyDossier(bundle, verifyOptions))).toContain("bundle/formatVersion");
   });
 });
+
+describe("bundle size budget (zod collects an issue per failing element, so an array of millions must not reach it)", () => {
+  it("refuses a bundle with more values than any real dossier can hold, quickly and without building the issues", async () => {
+    const bundle = viaJson(baseBundle());
+    bundle.body.claims = new Array(2_000_000).fill(1);
+    const before = process.memoryUsage().heapUsed;
+    const started = Date.now();
+    const r = await verifyDossier(bundle, verifyOptions);
+    const grew = (process.memoryUsage().heapUsed - before) / (1024 * 1024);
+    expect(r.ok).toBe(false);
+    expect(r.failures).toHaveLength(1);
+    expect(r.failures[0]).toMatchObject({ item: "bundle", check: "bundle.size" });
+    expect(r.failures[0]?.reason).toMatch(/more than 500000 values/);
+    expect(Date.now() - started).toBeLessThan(5000);
+    expect(grew).toBeLessThan(150);
+  });
+
+  it("counts values inside nested arrays and objects too, in the manifest as well as the body", async () => {
+    const nested = viaJson(baseBundle());
+    nested.body.findings[0].mismatches = [{ pad: new Array(600_000).fill(0) }];
+    expect((await verifyDossier(nested, verifyOptions)).failures[0]?.check).toBe("bundle.size");
+    const manifest = viaJson(baseBundle());
+    manifest.manifest.sections.claims.items = new Array(600_000).fill({ id: "x", sha256: "y" });
+    expect((await verifyDossier(manifest, verifyOptions)).failures[0]?.check).toBe("bundle.size");
+  });
+
+  it("does not trouble a real bundle, the largest committed dossier being a twentieth of the budget", async () => {
+    const r = await verifyDossier(viaJson(baseBundle()), verifyOptions);
+    expect(r.checks.find((c) => c.id === "bundle.size")?.status).toBe("PASS");
+    expect(r.ok).toBe(true);
+  });
+
+  it("applies to integrity-only verification too", async () => {
+    const bundle = viaJson(baseBundle());
+    bundle.body.anchors = new Array(2_000_000).fill(null);
+    expect((await verifyIntegrity(bundle)).failures[0]?.check).toBe("bundle.size");
+  });
+});

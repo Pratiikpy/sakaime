@@ -8,9 +8,10 @@ All Sakaime source code was written for this project, starting 2026-10-27. Nothi
 
 | What | Where | Licence | Source |
 |---|---|---|---|
-| Meterless reference engines (H-MEM, World Model) and their conformance runners | `third_party/meterless/` | Apache-2.0 | The sponsor's public repository, commit `0aa7417`. File hashes are in `third_party/meterless/PROVENANCE.md`; `tests/engines/vendor-integrity.test.ts` fails if a file differs. |
+| Meterless reference engines (H-MEM, World Model), the Markovian conformance runner and the Scout Intent stock evaluation harness with its corpus | `third_party/meterless/` | Apache-2.0 | The sponsor's public repository, commit `0aa7417`. File hashes are in `third_party/meterless/PROVENANCE.md`; `tests/engines/vendor-integrity.test.ts` fails if a file differs. |
+| The OpenLineage 2-0-2 core JSON Schema, used to check the lineage events of a dossier | `third_party/openlineage/` | Apache-2.0 | `spec/OpenLineage.json` of https://github.com/OpenLineage/OpenLineage, identical at upstream `main` on 2026-10-27; hashes in `third_party/openlineage/PROVENANCE.md`, re-checked by `tests/dossier/lineage.test.ts`. |
 
-Sakaime's own engines in `src/engines/` are separate implementations that pass the same conformance runners and close the reference gaps listed in `docs/04-meterless-plan.md`. The Markovian and Scout Intent engines are built from the sponsor's specification; the sponsor's Markovian conformance runner is invoked from a local clone of the sponsor repository and is not vendored.
+Sakaime's own engines in `src/engines/` are separate implementations that pass the same conformance runners and close the reference gaps listed in `docs/04-meterless-plan.md`. The Markovian and Scout Intent engines are built from the sponsor's specification; the sponsor's Markovian conformance runner and the Scout Intent stock harness are vendored unmodified (only the files those tests execute) so that both run in a clean clone.
 
 ## Ideas studied and rebuilt (no code copied)
 
@@ -36,7 +37,8 @@ The desk. repository was read to learn verified behaviour of two sponsor tools. 
 
 | Data | Licence or terms | Used in |
 |---|---|---|
-| openFDA 510(k), UDI and PMA endpoints | CC0 (`open.fda.gov/license`) | `data/cassettes/`, `data/silos/registry/` |
+| openFDA 510(k), UDI and PMA endpoints | CC0 (`open.fda.gov/license`) | `data/cassettes/`, `data/silos/registry/`, `data/fixtures/feasibility/` |
+| Feasibility-probe fixtures: 79 saved public responses (FDA decision-summary text and PDF, the FDA AI-enabled device list, openFDA, ClinicalTrials.gov, Europe PMC, PubMed) that the parser and identity tests read | As the rows above. PubMed abstract text carries per-publisher terms (NOT VERIFIED in detail). No full-text journal article is included; `tests/fixtures-manifest.test.ts` fails if a PDF other than the FDA De Novo summary appears. | `data/fixtures/feasibility/` (byte-identical to the probe files; sha256 in `MANIFEST.json`) |
 | FDA AI-enabled device list and 510(k) / De Novo summary PDFs | US government work; reuse terms NOT VERIFIED beyond that | `data/sources/`, `evals/heldout/raw/` |
 | ClinicalTrials.gov API v2 | Public data; published terms NOT VERIFIED | `data/cassettes/` |
 | PubMed and Europe PMC records | Metadata free; abstracts and full text carry per-publisher terms (NOT VERIFIED in detail). Only short quoted passages are stored; the one full-text article used for the EyeArt chain (CC BY-NC-ND) is not redistributed, only its hashes and quoted passages. | `data/cassettes/` |

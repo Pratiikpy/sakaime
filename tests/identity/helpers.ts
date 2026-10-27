@@ -8,7 +8,7 @@ import type { LinkType } from "../../src/schemas/index.ts";
 import type { IdentityRecord, IdentityRecordInput } from "../../src/identity/types.ts";
 
 export const REPO = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
-export const FIXTURES = join(REPO, "research", "feasibility", "fixtures");
+export const FIXTURES = join(REPO, "data", "fixtures", "feasibility");
 
 let cached: Corpus | undefined;
 export function corpus(): Corpus {

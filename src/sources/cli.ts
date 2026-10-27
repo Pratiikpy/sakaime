@@ -1,9 +1,11 @@
 /**
  * Development tool for the source layer. Not used at run time.
  *
- *   tsx src/sources/cli.ts build-feasibility
+ *   tsx src/sources/cli.ts build-feasibility <probe-dir>
  *       Rebuild data/cassettes/public-evidence-2026-10-27 and the pinned FDA AI-list snapshot from the
- *       feasibility probe's saved responses (research/feasibility/fixtures, a local folder).
+ *       feasibility probe's complete saved output (the folder holding _requests.jsonl, about 4 MB). That
+ *       folder is local and not committed. The tracked subset the tests read is data/fixtures/feasibility;
+ *       it cannot rebuild the cassette because it lacks the request log and most of the bodies.
  *
  *   tsx src/sources/cli.ts record <cassette-dir> [--manual] [--overwrite] <url> [<url> ...]
  *       Fetch each URL once through the safe fetcher (allowlist from the source cards) and add the response
@@ -22,7 +24,6 @@ import { SafeFetcher } from "./safe-fetch.ts";
 import type { SnapshotManifest } from "./snapshot.ts";
 
 const repoRoot = fileURLToPath(new URL("../../", import.meta.url));
-const FIXTURES = path.join(repoRoot, "research", "feasibility", "fixtures");
 const CASSETTE = path.join(repoRoot, "data", "cassettes", "public-evidence-2026-10-27");
 const SNAPSHOTS = path.join(repoRoot, "data", "sources", "snapshots");
 
@@ -85,12 +86,17 @@ async function record(args: string[]): Promise<void> {
 
 const [command, ...args] = process.argv.slice(2);
 if (command === "build-feasibility") {
-  const report = buildFeasibilityCassette({ fixturesDir: FIXTURES, outDir: CASSETTE, allowlist: allowlistFromCards(loadSourceCards()) });
+  const fixturesDir = path.resolve(args[0] ?? "");
+  if (!args[0] || !fs.existsSync(path.join(fixturesDir, "_requests.jsonl"))) {
+    console.error("build-feasibility needs the probe's complete output folder (the one holding _requests.jsonl) as its argument.");
+    process.exit(2);
+  }
+  const report = buildFeasibilityCassette({ fixturesDir, outDir: CASSETTE, allowlist: allowlistFromCards(loadSourceCards()) });
   console.log(`cassette: ${report.included} responses, ${report.bytes} bytes, ${report.skipped.length} skipped`);
   buildSnapshot();
 } else if (command === "record") {
   await record(args);
 } else {
-  console.error("commands: build-feasibility | record <cassette-dir> [--manual] [--overwrite] <url> ...");
+  console.error("commands: build-feasibility <probe-dir> | record <cassette-dir> [--manual] [--overwrite] <url> ...");
   process.exitCode = 2;
 }

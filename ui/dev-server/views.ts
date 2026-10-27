@@ -27,7 +27,7 @@ import { compileDetailed, recompute as compilerRecompute, staleFindings, summari
 import {
   DecisionRejectedError,
   IdempotencyConflictError,
-  SIGNATURE_STATEMENT,
+  signatureNoteFor,
   buildDossier,
   createDemoSignerFromSeed,
   snapshotFromRecord,
@@ -513,7 +513,7 @@ export async function verifyView(bundle: unknown): Promise<z.infer<typeof Verify
       ...(k.detail ? { detail: k.detail } : {}),
     })),
     failures: result.failures.map((f) => ({ item: f.item, reason: f.reason })),
-    signatureNote: SIGNATURE_STATEMENT,
+    signatureNote: signatureNoteFor(result.signer?.keyStatus ?? "demo"),
     keyKind: result.signer?.keyStatus ?? "demo",
   });
 }

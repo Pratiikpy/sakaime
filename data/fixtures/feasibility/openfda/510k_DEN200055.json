@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-19",
+    "results": {
+      "skip": 0,
+      "limit": 1,
+      "total": 1
+    }
+  },
+  "results": [
+    {
+      "third_party_flag": "N",
+      "city": "Dublin",
+      "advisory_committee_description": "Gastroenterology, Urology",
+      "address_1": "Riverside Ii, Sir John RogersonS Quay",
+      "address_2": "",
+      "statement_or_summary": "",
+      "product_code": "QNP",
+      "openfda": {
+        "registration_number": [
+          "3030626336",
+          "3011050570",
+          "3018901422",
+          "3031983124",
+          "3016591389",
+          "3042225166",
+          "3001722928",
+          "9610877",
+          "3018899987",
+          "3003775006",
+          "3002808148",
+          "8010047",
+          "3016432796"
+        ],
+        "fei_number": [
+          "3008185830",
+          "3030626336",
+          "3011050570",
+          "3018901422",
+          "3031983124",
+          "3016591389",
+          "3042225166",
+          "3001722928",
+          "3018899987",
+          "3003775006",
+          "3002808148",
+          "3016432796",
+          "3002807795"
+        ],
+        "device_name": "Gastrointesinal Lesion Software Detection System",
+        "medical_specialty_description": "Gastroenterology, Urology",
+        "regulation_number": "876.1520",
+        "device_class": "2"
+      },
+      "zip_code": "D02 KV60",
+      "applicant": "Cosmo Artificial Intelligence - Ai, Ltd.",
+      "decision_date": "2021-04-09",
+      "decision_code": "DENG",
+      "country_code": "IE",
+      "device_name": "GI Genius",
+      "advisory_committee": "GU",
+      "contact": "Steven A. Kradjian",
+      "expedited_review_flag": "",
+      "k_number": "DEN200055",
+      "state": "",
+      "date_received": "2020-09-08",
+      "review_advisory_committee": "GU",
+      "postal_code": "D02 KV60",
+      "decision_description": "Unknown",
+      "clearance_type": "Direct"
+    }
+  ]
+}

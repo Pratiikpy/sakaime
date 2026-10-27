@@ -2,7 +2,7 @@
  * The live Zetaris port.
  *
  * Wire contract (verified against the local install, 2026-10-16 and 2026-10-22; see
- * research/hackathon/sponsors/zetaris-local-setup.md):
+ * the Zetaris hackathon local-setup notes, kept outside this repository):
  *   POST {restUrl}/sql-editor/sqls/run
  *   headers  Authorization: Bearer <api key>, X-Org-ID, X-Request-ID (a fresh UUID)
  *   body     exactly {queryId, sql, source: "SqlEditor", limit}

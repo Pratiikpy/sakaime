@@ -1,13 +1,14 @@
 /**
- * Build the public-evidence cassette from the feasibility probe's saved responses (research/feasibility/fixtures).
+ * Build the public-evidence cassette from the feasibility probe's saved responses (the probe's complete output folder).
  *
  * The probe wrote one line per request to `_requests.jsonl` (URL, status, bytes, sha256) and saved most bodies
  * under the fixtures folder. A request is included only when its saved body still hashes to the logged value:
  * several requests in the log wrote to the same file name, so the file on disk matches only the last of them
  * and the others are recorded as skipped rather than guessed at. Nothing is rewritten or normalised.
  *
- * This is a development tool. The research folder is not part of the repository; the output (data/cassettes)
- * is what ships.
+ * This is a development tool. The probe's complete output (about 4 MB with the request log) is a local folder and not
+ * part of the repository; the output (data/cassettes) is what ships. The subset the tests read is tracked separately
+ * in data/fixtures/feasibility.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -112,6 +113,7 @@ export function buildFeasibilityCassette(options: BuildOptions): BuildReport {
       body: bytes,
       recordedAt: `${req.date}T00:00:00.000Z`,
       precision: "day",
+      // The ref names the probe's own file path, as recorded; it is provenance and is kept stable across rebuilds.
       origin: { kind: "feasibility-fixture", ref: `research/feasibility/fixtures/${rel}` },
     });
     report.included++;

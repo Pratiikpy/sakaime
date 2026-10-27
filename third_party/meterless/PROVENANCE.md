@@ -1,6 +1,6 @@
 # Provenance of the vendored Meterless engine references
 
-These files are the sponsor's public reference material for two of the four Meterless engines, **H-MEM** (`hmem/`) and **World Model** (`world-model/`), copied without modification so that conformance results can be checked against a neutral baseline. Sakaime's own implementations live in `src/engines/hmem` and `src/engines/world-model`; nothing in those directories is copied from here (decision D-008, `docs/DECISIONS.md`).
+These files are the sponsor's public reference material for four of the Meterless engines, copied without modification so that conformance results can be checked against a neutral baseline: **H-MEM** (`hmem/`) and **World Model** (`world-model/`) in full, and from **Markovian** (`markovian/`) and **Scout Intent** (`scout-intent/`) only the files that Sakaime's conformance tests execute (the Markovian conformance runner and the Scout Intent stock evaluation harness with its corpus). Sakaime's own implementations live in `src/engines/hmem`, `src/engines/world-model`, `src/engines/markovian` and `src/engines/scout`; nothing in those directories is copied from here (decision D-008, `docs/DECISIONS.md`).
 
 - Upstream: https://github.com/Meterless/Meterless
 - Pinned commit: `0aa7417ba5c826396d91e891328be78c45e6fbf6` (committed 2026-07-22T23:14:36Z)
@@ -15,9 +15,17 @@ These files are the sponsor's public reference material for two of the four Mete
 
 ## What is vendored and what is not
 
-Vendored: the specification (`AGENTS.md.sponsor-copy`), the conformance runner and vectors, the reference sources, the reference's own smoke tests, its package and compiler configuration, the idempotency script for World Model, and the `docs/` pages of each engine.
+Vendored for H-MEM and World Model: the specification (`AGENTS.md.sponsor-copy`), the conformance runner and vectors, the reference sources, the reference's own smoke tests, its package and compiler configuration, the idempotency script for World Model, and the `docs/` pages of each engine.
 
-Not vendored: images, marketing content, workshops, examples, the control-plane HTML, lock files, and the Markovian and Scout Intent engines (not part of this directory's task).
+Vendored for Markovian: the engine licence, the conformance README and the conformance runner (`markovian/conformance/runner.ts`). The runner imports only Node built-ins when `MARKOVIAN_IMPL` names an implementation, so none of the Markovian reference sources are needed to run it against Sakaime's engine (without `MARKOVIAN_IMPL` it would look for `../reference/src/index.ts`, which is not vendored).
+
+Vendored for Scout Intent: the engine licence and the stock evaluation harness under `scout-intent/evals/` (runner, thresholds, intent fixtures and the six regression-set files, 32 examples). The harness writes its report next to itself, so `tests/engines/scout/stock.test.ts` copies it into `node_modules/.cache` before running it. It imports the `yaml` package, which is a dependency of this repository.
+
+Not vendored: images, marketing content, workshops, examples, the control-plane HTML, lock files, the Markovian and Scout Intent specifications, documentation pages and reference sources, and the generated `evals/reports/` files of Scout Intent.
+
+## Markovian and Scout Intent files, added later
+
+The 15 `markovian/` and `scout-intent/` rows below were added after the first vendoring. Their upstream blob SHA-1 values were checked on 2026-10-27 against the GitHub git tree API for `0aa7417ba5c826396d91e891328be78c45e6fbf6` (`GET /repos/Meterless/Meterless/git/trees/0aa7417ba5c826396d91e891328be78c45e6fbf6?recursive=1`), not against a local clone: the local study clone has no git history, and it renames the `AGENTS.md` specifications to `*.sponsor-copy`. All 15 match. The files were copied from that clone with LF line endings. Against upstream HEAD `1742dec56a66` (checked the same way) 13 of the 15 are byte-identical, including the Markovian runner and the Scout Intent runner, thresholds and corpus; only the two README files (`markovian/conformance/README.md`, `scout-intent/evals/README.md`) differ, as prose.
 
 ## Per-file record
 
@@ -84,6 +92,21 @@ SHA-256 is taken over the LF-normalised content so that it is reproducible from 
 | `world-model/reference/src/types.ts` | `engines/world-model/reference/src/types.ts` | dddd28615703 | 4e31a8cf4de6d4b46b09659ada879be46ca8a97f25ee05f583eaa0010ddd1528 | match |
 | `world-model/reference/test/smoke.test.ts` | `engines/world-model/reference/test/smoke.test.ts` | 1c86e88cfd32 | 73398749d408647798849adafc76e9acd37efe50bcbd760b0c4d0d24d1bc092a | match |
 | `world-model/reference/tsconfig.json` | `engines/world-model/reference/tsconfig.json` | e128372a3493 | dc5d553c157c5425f4cf70970d7910be3774bfc1a5e8c33e4edae5b17407ecb0 | match |
+| `markovian/LICENSE` | `engines/markovian/LICENSE` | d1a6bb88af6e | 63e29fc8231b53757a77fbc371071c91d768621efa1e68b1d9ff8d1bb7c4a0ef | match |
+| `markovian/conformance/README.md` | `engines/markovian/conformance/README.md` | c30c9ba27b42 | b7622eeed0922d812e196c66b14cd7c0acd57e3af6e46eb3696eccf223ee8be8 | match |
+| `markovian/conformance/runner.ts` | `engines/markovian/conformance/runner.ts` | 0d0befbb30e7 | 03a17106ba0feba1ad0e4a18399577851e0810720ab79eb51c85b80e49865f31 | match |
+| `scout-intent/LICENSE` | `engines/scout-intent/LICENSE` | d1a6bb88af6e | 63e29fc8231b53757a77fbc371071c91d768621efa1e68b1d9ff8d1bb7c4a0ef | match |
+| `scout-intent/evals/README.md` | `engines/scout-intent/evals/README.md` | 827a6a86eaa7 | 6a9258bb1b11003f2c9f5f92dd50cebe165528c95174c230ca70debccb43e7cc | match |
+| `scout-intent/evals/config/thresholds.yaml` | `engines/scout-intent/evals/config/thresholds.yaml` | c7fb307c2681 | f49b4db850298c9a2fa7fc258af7d968fb6ecdda97e6d12d7fb32c5c61ede02d | match |
+| `scout-intent/evals/fixtures/intents.json` | `engines/scout-intent/evals/fixtures/intents.json` | d7c8cab620d3 | 942c4b443807b42e7cada57f68d5895624a49b446ec94ceafe8d02aa9860c5b8 | match |
+| `scout-intent/evals/regression-set/v1/edge-cases/clarification.jsonl` | `engines/scout-intent/evals/regression-set/v1/edge-cases/clarification.jsonl` | 4ed9b2a2682b | 066600ca7301e075aada79bb5d4c28b36ae61ec02d09c70ba6b55458c9523ff9 | match |
+| `scout-intent/evals/regression-set/v1/injection/adversarial.jsonl` | `engines/scout-intent/evals/regression-set/v1/injection/adversarial.jsonl` | ca3dc0af2af9 | 141f1db3a42ac3e42c78edd014863d5561cb0931e792954c16fb3a545eeb663e | match |
+| `scout-intent/evals/regression-set/v1/intents/deal.jsonl` | `engines/scout-intent/evals/regression-set/v1/intents/deal.jsonl` | 95f655269e2b | 0be4860dadf5f6433ad5faaa0db33e147b56a28afd724f84095a6b6055a0b83c | match |
+| `scout-intent/evals/regression-set/v1/intents/email.jsonl` | `engines/scout-intent/evals/regression-set/v1/intents/email.jsonl` | 81e05f103018 | 57d7c83e67460b7374161dfca9598357da344eb25ee51470614cbffb527016e7 | match |
+| `scout-intent/evals/regression-set/v1/intents/research-and-plan.jsonl` | `engines/scout-intent/evals/regression-set/v1/intents/research-and-plan.jsonl` | 55d132bfa939 | db769f5166ec1624e784fd37a876e48e74b85691e59707d46bb17088f9bc7c26 | match |
+| `scout-intent/evals/regression-set/v1/multi-intent/composed.jsonl` | `engines/scout-intent/evals/regression-set/v1/multi-intent/composed.jsonl` | 3e04f9f1bcb7 | d72474787b56de775b1a02a0259a326f37a1345e2897ac515a6fe8ce684ea3c5 | match |
+| `scout-intent/evals/runner/add.ts` | `engines/scout-intent/evals/runner/add.ts` | 8b33628c3e58 | 431700f1738f204e60c0486e85c4b3b607dcd25fe3bb232404b69f94d338e4c7 | match |
+| `scout-intent/evals/runner/index.ts` | `engines/scout-intent/evals/runner/index.ts` | 779dec70f3d6 | e2454b6e308e0458fb5b02862ef1cf78ceac69b04ab3b02554b250bf34097ba0 | match |
 
 ## Baseline results of the unmodified references (2026-10-27, Node v24.20.0, tsx)
 

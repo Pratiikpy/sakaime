@@ -6,6 +6,11 @@
  * refusal can be shown to a reviewer: loopback, private, link-local, unique-local, carrier-grade NAT,
  * multicast, unspecified, documentation, benchmarking, reserved, and the well-known cloud metadata endpoints.
  *
+ * Inside 2000::/3 the IANA special-purpose registry entries are refused (2001::/23 with Teredo, benchmarking and the other
+ * protocol assignments, 2001:db8::/32 and 3fff::/20 documentation), as are the blocks the IANA global unicast assignments
+ * registry lists as RESERVED (2d00::/8, 2e00::/7, 3000::/4 including the returned 6bone 3ffe::/16). 6to4 is judged by the IPv4
+ * address it embeds.
+ *
  * IPv6 forms that embed an IPv4 address (IPv4-mapped, NAT64, 6to4) are judged by the embedded address, so
  * `::ffff:169.254.169.254` is refused for the same reason `169.254.169.254` is.
  *
@@ -212,6 +217,12 @@ function vetV6(groups: number[], text: string): AddressVerdict {
   // 2001::/23 is the IETF protocol-assignment block: Teredo, benchmarking, ORCHID, AMT and similar. Nothing a
   // source card would name lives there, and Teredo can tunnel to arbitrary IPv4 destinations.
   if (inV6(value, "2001::", 23)) return refuse("reserved", "in the IETF protocol-assignment block 2001::/23");
+  // Blocks inside 2000::/3 that the IANA IPv6 Global Unicast Address Assignments registry lists as RESERVED: delegated to no
+  // registry, so no public host is legitimately there. 3000::/4 holds the former 6bone (3ffe::/16, returned under RFC 5156,
+  // where 3ffe:831f::/32 was once used for Teredo). Documentation 3fff::/20 is refused above, with its own category.
+  if (inV6(value, "2d00::", 8) || inV6(value, "2e00::", 7) || inV6(value, "3000::", 4)) {
+    return refuse("reserved", "in a block IANA lists as RESERVED in the IPv6 global unicast assignments (2d00::/8, 2e00::/7, and 3000::/4, which holds the returned 6bone 3ffe::/16)");
+  }
   // Anything outside 2000::/3 is not global unicast.
   if (!inV6(value, "2000::", 3)) return refuse("reserved", "outside the global unicast range 2000::/3");
 

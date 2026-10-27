@@ -2,13 +2,14 @@ import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import { api, ApiError } from "../api/client";
 import { invalidate, useResource } from "../api/hooks";
 import type { OnboardingResult, SourceRow } from "../api/types";
-import { HealthBadge, ProvenanceBadge } from "../components/badges";
+import { HealthBadge, NotReadBadge, ProvenanceBadge } from "../components/badges";
 import { EmptyState, ErrorState, Loading, Notice, useAnnounce } from "../components/feedback";
 import { Icon } from "../components/Icon";
 import { CopyButton, Disclosure, PageHeader, Section, useDocTitle } from "../components/ui";
 import { ACCESS_NAME, HEALTH_META, KIND_NAME } from "../lib/vocab";
 import { formatDateTime, plural, shortHash } from "../lib/format";
 import type { SourceHealth } from "../api/types";
+import { SemanticLayer } from "./SemanticLayer";
 
 const STAGE_NAME: Record<string, { name: string; does: string }> = {
   authorization: { name: "Authorization", does: "Is this address allowed to be read at all?" },
@@ -85,7 +86,8 @@ function SourcesTable({ rows }: { rows: SourceRow[] }) {
                 {r.authorityNotes && <div className="cell-sub">{r.authorityNotes}</div>}
               </td>
               <td data-label="Health">
-                <HealthBadge health={r.source.health} />
+                {/* A source nothing has read has neither answered nor failed; its health field is not an observation and is not drawn as one. */}
+                {r.observed === false ? <NotReadBadge /> : <HealthBadge health={r.source.health} />}
                 <div className="cell-sub">{r.healthDetail}</div>
               </td>
               <td data-label="Schema and freshness">
@@ -118,6 +120,12 @@ function Legend() {
   return (
     <Disclosure summary="What the health words mean">
       <dl className="legend">
+        <div>
+          <dt>
+            <NotReadBadge />
+          </dt>
+          <dd>No case investigated so far has read this source. Nothing has answered and nothing has failed, so it is not shown as answering and not shown as a problem.</dd>
+        </div>
         {(Object.keys(HEALTH_META) as SourceHealth[]).map((h) => (
           <div key={h}>
             <dt>
@@ -387,8 +395,12 @@ export function Sources() {
   const sources = useResource("sources", (s) => api.sources(s));
   const counts = useMemo(() => {
     const c: Partial<Record<SourceHealth, number>> = {};
-    for (const r of sources.data ?? []) c[r.source.health] = (c[r.source.health] ?? 0) + 1;
-    return c;
+    let notRead = 0;
+    for (const r of sources.data ?? []) {
+      if (r.observed === false) notRead += 1;
+      else c[r.source.health] = (c[r.source.health] ?? 0) + 1;
+    }
+    return { health: c, notRead };
   }, [sources.data]);
 
   return (
@@ -404,11 +416,16 @@ export function Sources() {
         aside={
           sources.data ? (
             <ul className="health-counts" aria-label="Sources by health">
-              {(Object.keys(counts) as SourceHealth[]).map((h) => (
+              {(Object.keys(counts.health) as SourceHealth[]).map((h) => (
                 <li key={h}>
-                  <HealthBadge health={h} /> <span className="mono">{counts[h]}</span>
+                  <HealthBadge health={h} /> <span className="mono">{counts.health[h]}</span>
                 </li>
               ))}
+              {counts.notRead > 0 && (
+                <li>
+                  <NotReadBadge /> <span className="mono">{counts.notRead}</span>
+                </li>
+              )}
             </ul>
           ) : undefined
         }
@@ -424,6 +441,8 @@ export function Sources() {
         {sources.data && sources.data.length > 0 && <SourcesTable rows={sources.data} />}
         <Legend />
       </Section>
+
+      <SemanticLayer />
 
       <Section id="add" title="Add a source" aside={<span className="muted">Eight stages, one decision</span>}>
         <AddSource onRegistered={sources.reload} />
