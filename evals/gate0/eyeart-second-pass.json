@@ -1,0 +1,8 @@
+{
+  "label": "single builder, two passes, not independent",
+  "method": "regex and parsed-JSON re-extraction from raw records plus recomputation of every Table 2/3 cell",
+  "checks": 74,
+  "agreements": 74,
+  "disagreements": [],
+  "firstPassFactsNotRechecked": []
+}

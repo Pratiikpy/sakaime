@@ -1,0 +1,1174 @@
+{
+  "generatedFor": "Gate 0, C-11",
+  "builtFrom": "evals/gate0/tools/build-eyeart-manifest.mjs",
+  "retrieved": "2026-10-27",
+  "label": "single builder, two passes, not independent",
+  "sources": {
+    "ai_list": {
+      "path": "research/feasibility/fixtures/fda/ai-enabled-devices.csv",
+      "url": "https://www.fda.gov/media/178541/download?attachment",
+      "sha256": "315672a00715b7c076b6ca79807cce028e2e7f21f79bab73e6bc841671c112af",
+      "retrieved": "2026-10-27",
+      "note": "Fetched once inside a browser session; FDA page says content current as of 09/04/2026.",
+      "manifestSha256Matches": true
+    },
+    "openfda_510k": {
+      "path": "research/feasibility/fixtures/openfda/510k_K200667.json",
+      "url": "https://api.fda.gov/device/510k.json?search=k_number:K200667",
+      "sha256": "7d5e109b9f6a31221de53ae6f375a3cb9dfebbb5542d7c61c2e75c46798e2f3e",
+      "retrieved": "2026-10-27",
+      "manifestSha256Matches": true
+    },
+    "gudid": {
+      "path": "research/feasibility/fixtures/openfda/udi_K200667.json",
+      "url": "https://api.fda.gov/device/udi.json?search=premarket_submissions.submission_number%3A%22K200667%22&limit=100",
+      "sha256": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a",
+      "retrieved": "2026-10-27",
+      "manifestSha256Matches": true
+    },
+    "fda_summary": {
+      "path": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf20/K200667.pdf",
+      "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+      "retrieved": "2026-10-27",
+      "note": "pdftotext -layout of the FDA PDF (source PDF sha256 6f6d788a59f3a66e75597af7563a7554de0d26d01b68cc7d01cfbda6be0b6219, re-fetched 2026-10-27 and matched). PDF page = summary page + 3.",
+      "manifestSha256Matches": true
+    },
+    "ctgov": {
+      "path": "research/feasibility/fixtures/ctgov/study_NCT03112005.json",
+      "url": "https://clinicaltrials.gov/api/v2/studies/NCT03112005",
+      "sha256": "f7fad8837f858972313e6d1b3cfbca4b293920480d8666c5f3353a7c92948801",
+      "retrieved": "2026-10-27",
+      "manifestSha256Matches": true
+    },
+    "pubmed": {
+      "path": "research/feasibility/fixtures/pubmed/ef_eyeart.xml",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34779843 (batch file holding 10 records; PMID 34779843 is the one used)",
+      "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634",
+      "retrieved": "2026-10-27",
+      "manifestSha256Matches": true
+    },
+    "pubmed_esearch_all": {
+      "path": "research/feasibility/fixtures/pubmed/es_all_NCT03112005.json",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=NCT03112005",
+      "sha256": "f90410efa72024e71ddec1262ed56c692bc3890cfbe9f993ded647d4ea3bc0ea",
+      "retrieved": "2026-10-27",
+      "manifestSha256Matches": true
+    },
+    "pubmed_esearch_si": {
+      "path": "research/feasibility/fixtures/pubmed/es_NCT03112005.json",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22NCT03112005%22%5Bsi%5D",
+      "sha256": "5ccdd7d0999836752a516404c811acd742c8cfe003ecc863391d688e015f8e55",
+      "retrieved": "2026-10-27",
+      "manifestSha256Matches": true
+    },
+    "epmc_fulltext": {
+      "path": "evals/gate0/raw/europepmc/PMC8593763_fulltext.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8593763/fullTextXML",
+      "sha256": "393069621ddec750b2a3d8a38eb94684d63da195712e28b285df0489ad0fb59d",
+      "retrieved": "2026-10-27",
+      "note": "Open access, CC BY-NC-ND 4.0 (stated in the record)."
+    },
+    "erratum": {
+      "path": "evals/gate0/raw/pubmed/ef_34935926_erratum.xml",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=34935926",
+      "sha256": "be7a95b18381895be06b1be68718d013cb38db445940d46eab9a9e03cb1a6f89",
+      "retrieved": "2026-10-27"
+    },
+    "k223357_summary": {
+      "path": "evals/gate0/raw/fda/K223357_summary_text.txt",
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf22/K223357.pdf",
+      "sha256": "76adc2d64177a1abbfa17a6a450306e88b55cf5934510f178927acf9effb59d8",
+      "retrieved": "2026-10-27",
+      "note": "pdftotext -layout; source PDF sha256 ae03ea60fb5a642f944dc08f51946d564979be0a325a207059079aec8b44d604 (PDF not kept, 544 KB)."
+    },
+    "k223357_openfda": {
+      "path": "evals/gate0/raw/openfda/510k_K223357.json",
+      "url": "https://api.fda.gov/device/510k.json?search=k_number:K223357",
+      "sha256": "865ac235969effc5f819bf39b13265387a9ef9a82ee5b38fb92b80e3bc57a9eb",
+      "retrieved": "2026-10-27"
+    }
+  },
+  "facts": [
+    {
+      "id": "H1.row",
+      "hop": 1,
+      "field": "list row",
+      "value": "08/03/2020,K200667,EyeArt,\"Eyenuk, Inc\",Ophthalmic,PIB",
+      "kind": "stated",
+      "source": "ai_list",
+      "quote": "08/03/2020,K200667,EyeArt,\"Eyenuk, Inc\",Ophthalmic,PIB",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H1.later_row",
+      "hop": 1,
+      "field": "later EyeArt row on the same list",
+      "value": "06/16/2023,K223357,EyeArt v2.2.0,\"Eyenuk, Inc.\",Ophthalmic,PIB",
+      "kind": "stated",
+      "source": "ai_list",
+      "quote": "06/16/2023,K223357,EyeArt v2.2.0,\"Eyenuk, Inc.\",Ophthalmic,PIB",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.k",
+      "hop": 2,
+      "field": "k_number",
+      "value": "K200667",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"k_number\":\"K200667\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.name",
+      "hop": 2,
+      "field": "device_name",
+      "value": "EyeArt",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"device_name\":\"EyeArt\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.applicant",
+      "hop": 2,
+      "field": "applicant",
+      "value": "Eyenuk, Inc.",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"applicant\":\"Eyenuk, Inc.\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.decision",
+      "hop": 2,
+      "field": "decision_date",
+      "value": "2020-08-03",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"decision_date\":\"2020-08-03\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.received",
+      "hop": 2,
+      "field": "date_received",
+      "value": "2020-03-13",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"date_received\":\"2020-03-13\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.code",
+      "hop": 2,
+      "field": "product_code",
+      "value": "PIB",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"product_code\":\"PIB\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.type",
+      "hop": 2,
+      "field": "clearance_type / decision",
+      "value": "Traditional / Substantially Equivalent",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"decision_description\":\"Substantially Equivalent\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.summary_flag",
+      "hop": 2,
+      "field": "statement_or_summary",
+      "value": "Summary",
+      "kind": "stated",
+      "source": "openfda_510k",
+      "quote": "\"statement_or_summary\":\"Summary\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H2.no_indication",
+      "hop": 2,
+      "field": "indications text in openFDA",
+      "value": null,
+      "kind": "absent",
+      "source": "openfda_510k",
+      "note": "The openFDA 510(k) record has no indications, software version or study field (checked: field names in the record)."
+    },
+    {
+      "id": "H3.version",
+      "hop": 3,
+      "field": "version_or_model_number",
+      "value": "2.1.0",
+      "kind": "stated",
+      "source": "gudid",
+      "quote": "\"version_or_model_number\":\"2.1.0\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H3.submission",
+      "hop": 3,
+      "field": "premarket_submissions.submission_number",
+      "value": "K200667",
+      "kind": "stated",
+      "source": "gudid",
+      "quote": "\"submission_number\":\"K200667\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H3.brand",
+      "hop": 3,
+      "field": "brand_name",
+      "value": "EyeArt",
+      "kind": "stated",
+      "source": "gudid",
+      "quote": "\"brand_name\":\"EyeArt\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H3.company",
+      "hop": 3,
+      "field": "company_name",
+      "value": "Eyenuk, Inc.",
+      "kind": "stated",
+      "source": "gudid",
+      "quote": "\"company_name\":\"Eyenuk, Inc.\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H3.dates",
+      "hop": 3,
+      "field": "publish_date / public_version_date",
+      "value": "2020-11-09 / 2022-06-10",
+      "kind": "stated",
+      "source": "gudid",
+      "quote": "\"public_version_date\":\"2022-06-10\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H3.count",
+      "hop": 3,
+      "field": "GUDID records for K200667",
+      "value": 1,
+      "kind": "stated",
+      "source": "gudid",
+      "quote": "\"total\":1",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.ifu",
+      "hop": 4,
+      "field": "indications for use",
+      "value": "Automatic detection of more than mild DR and vision-threatening DR in eyes of adults diagnosed with diabetes who have not been previously diagnosed with more than mild DR; use with Canon CR-2 AF and Canon CR-2 Plus AF cameras in primary care and eye care settings.",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "EyeArt is indicated for use by healthcare providers to automatically detect more than mild diabetic retinopathy and vision-threatening diabetic retinopathy [...] in eyes of adults diagnosed with diabetes who have not been previously diagnosed with more than mild diabetic retinopathy. EyeArt is indicated for use with Canon CR-2 AF and Canon CR-2 Plus AF cameras in both primary care and eye care settings.",
+      "anchor": {
+        "pdfPages": [
+          4
+        ],
+        "printedPages": [
+          "1 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.version",
+      "hop": 4,
+      "field": "software version of the cleared device",
+      "value": "v2.1.0",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "EyeArt (software version v2.1.0) was identified as having a major level of concern",
+      "anchor": {
+        "pdfPages": [
+          6
+        ],
+        "printedPages": [
+          "3 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.hf_rev",
+      "hop": 4,
+      "field": "human-factors build",
+      "value": "v2.1.0 rev005 validated; rev006 assessed as not adding critical tasks",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "a validation study using EyeArt v2.1.0 rev005",
+      "anchor": {
+        "pdfPages": [
+          13
+        ],
+        "printedPages": [
+          "10 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.trial_ver",
+      "hop": 4,
+      "field": "software version used in the pivotal trial",
+      "value": null,
+      "kind": "absent",
+      "source": "fda_summary",
+      "note": "The summary names v2.1.0 for the cleared device and for human-factors builds; it does not say which build produced the pivotal-trial results. The link to v2.1.0 for the trial comes from the PubMed record (hop 6), not from FDA."
+    },
+    {
+      "id": "H4.nct",
+      "hop": 4,
+      "field": "trial cited by FDA",
+      "value": "NCT03112005",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "EyeArt was validated in a prospective, multi-center pivotal clinical trial (ClinicalTrials.gov ID NCT03112005). A total of 942 subjects were consented of which 915 subjects met study",
+      "anchor": {
+        "pdfPages": [
+          6
+        ],
+        "printedPages": [
+          "3 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.n",
+      "hop": 4,
+      "field": "enrolment funnel (FDA)",
+      "value": "942 consented; 915 met eligibility; 655 in the analysis population",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "analyses were presented on 655 participants after excluding subjects who did not meet certain additional prespecified criteria (e.g., subjects 21 years old or younger)",
+      "anchor": {
+        "pdfPages": [
+          7
+        ],
+        "printedPages": [
+          "4 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.sites",
+      "hop": 4,
+      "field": "sites (FDA, analysis population)",
+      "value": "11 US study sites (primary care centers and general ophthalmology centers)",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "The 655 participants were enrolled in the study at 11 US study sites that included primary care centers and general ophthalmology centers.",
+      "anchor": {
+        "pdfPages": [
+          7
+        ],
+        "printedPages": [
+          "4 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.cohorts",
+      "hop": 4,
+      "field": "cohorts",
+      "value": "sequential 235 (45 primary care, 190 ophthalmology); enrichment-permitted 420 (335 primary care, 85 ophthalmology)",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "(235 subjects, with 45 enrolled at primary care sites and 190 enrolled at ophthalmology sites)",
+      "anchor": {
+        "pdfPages": [
+          7
+        ],
+        "printedPages": [
+          "4 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.age",
+      "hop": 4,
+      "field": "target population age (FDA analysis)",
+      "value": "22 years and older",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "The target population of the EyeArt pivotal clinical trial analysis was asymptomatic persons aged 22 years and older who were diagnosed with diabetes and not diagnosed with more than mild diabetic retinopathy.",
+      "anchor": {
+        "pdfPages": [
+          7
+        ],
+        "printedPages": [
+          "4 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.ref",
+      "hop": 4,
+      "field": "reference standard",
+      "value": "Fundus Photography Reading Center grading, ETDRS scale, dilated 4-wide field stereo fundus imaging",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "reference standard determined by experienced and certified graders at the Fundus Photography Reading Center (FPRC)",
+      "anchor": {
+        "pdfPages": [
+          7
+        ],
+        "printedPages": [
+          "4 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.endpoint",
+      "hop": 4,
+      "field": "primary outcomes",
+      "value": "sensitivity and specificity for mtmDR and vtDR, per eye",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "The primary outcomes were the sensitivity and specificity of EyeArt for detecting mtmDR and vtDR in subject eyes.",
+      "anchor": {
+        "pdfPages": [
+          9
+        ],
+        "printedPages": [
+          "6 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.ci_method",
+      "hop": 4,
+      "field": "confidence interval method",
+      "value": "clustered bootstrap; Wilson where the proportion is 100%",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "All the 95% confidence intervals (CIs) are computed using the clustered bootstrap method",
+      "anchor": {
+        "pdfPages": [
+          10,
+          11,
+          17,
+          18,
+          19,
+          20
+        ],
+        "printedPages": [
+          "7 of 21",
+          "8 of 21",
+          "14 of 21",
+          "15 of 21",
+          "16 of 21",
+          "17 of 21"
+        ],
+        "occurrences": 6
+      }
+    },
+    {
+      "id": "H4.threshold",
+      "hop": 4,
+      "field": "operating threshold or cut-off",
+      "value": null,
+      "kind": "absent",
+      "source": "fda_summary",
+      "note": "No threshold, cut-off or operating point is stated in the summary (second pass searched for threshold, cut-off, cutoff, operating point and found none)."
+    },
+    {
+      "id": "H4.letter_dates",
+      "hop": 4,
+      "field": "dates printed on the FDA letter",
+      "value": "Dated June 30, 2020; Received June 30, 2020; decision letter August 3, 2020",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "Dated: June 30, 2020 Received: June 30, 2020",
+      "anchor": {
+        "pdfPages": [
+          1
+        ],
+        "printedPages": [
+          null
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H4.predicate",
+      "hop": 4,
+      "field": "predicate",
+      "value": "IDx-DR, De Novo DEN180001",
+      "kind": "stated",
+      "source": "fda_summary",
+      "quote": "Trade name of the device: IDx-DR",
+      "anchor": {
+        "pdfPages": [
+          4
+        ],
+        "printedPages": [
+          "1 of 21"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.id",
+      "hop": 5,
+      "field": "nctId",
+      "value": "NCT03112005",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"nctId\":\"NCT03112005\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.enrol",
+      "hop": 5,
+      "field": "enrollment",
+      "value": "942 (actual)",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"enrollmentInfo\":{\"count\":942,\"type\":\"ACTUAL\"}",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.start",
+      "hop": 5,
+      "field": "start date",
+      "value": "2017-04-17",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"startDateStruct\":{\"date\":\"2017-04-17\",\"type\":\"ACTUAL\"}",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.end",
+      "hop": 5,
+      "field": "completion date",
+      "value": "2018-05-31",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"completionDateStruct\":{\"date\":\"2018-05-31\",\"type\":\"ACTUAL\"}",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.status",
+      "hop": 5,
+      "field": "status / last verified",
+      "value": "COMPLETED, verified 2018-07, no results posted",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"statusVerifiedDate\":\"2018-07\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.minage",
+      "hop": 5,
+      "field": "minimum age",
+      "value": "18 Years",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"minimumAge\":\"18 Years\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.setting",
+      "hop": 5,
+      "field": "study population / setting",
+      "value": "Study subjects will be enrolled at eye care practices and primary/diabetes care practices",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"studyPopulation\":\"Study subjects will be enrolled at eye care practices and primary/diabetes care practices\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.location",
+      "hop": 5,
+      "field": "listed locations",
+      "value": "1 (Los Angeles Biomedical Research Institute)",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "\"facility\":\"Los Angeles Biomedical Research Institute\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.outcome",
+      "hop": 5,
+      "field": "primary outcome 1",
+      "value": "EyeArt results match reading center grading for referable diabetic eye disease (moderate NPDR or higher on ICDR, or surrogate markers for CSME); sensitivity and specificity; 1 visit",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "Number of subject eyes whose EyeArt results match the reading center grading for identifying referable diabetic eye disease (moderate NPDR or higher on the ICDR scale or surrogate markers for CSME).",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.frozen",
+      "hop": 5,
+      "field": "software freeze statement",
+      "value": "device frozen before first enrolment, copy kept in a version-controlled system; no version number given",
+      "kind": "stated",
+      "source": "ctgov",
+      "quote": "The EyeArt device will be finalized and frozen before the first subject is enrolled and a copy will be placed in a version-controlled system.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H5.version",
+      "hop": 5,
+      "field": "software version in the registry record",
+      "value": null,
+      "kind": "absent",
+      "source": "ctgov",
+      "note": "No version string in the registry record."
+    },
+    {
+      "id": "H5.refs",
+      "hop": 5,
+      "field": "registry-side publication links (referencesModule)",
+      "value": null,
+      "kind": "absent",
+      "source": "ctgov",
+      "note": "The record has no referencesModule; the registry does not link the paper. The link exists only because the paper cites the NCT number."
+    },
+    {
+      "id": "H6.link_all",
+      "hop": 6,
+      "field": "PubMed search NCT03112005 [All Fields]",
+      "value": "PMID 34779843",
+      "kind": "stated",
+      "source": "pubmed_esearch_all",
+      "quote": "\"idlist\":[\"34779843\"]",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.link_si",
+      "hop": 6,
+      "field": "PubMed secondary-source-id search NCT03112005[si]",
+      "value": "0 hits",
+      "kind": "stated",
+      "source": "pubmed_esearch_si",
+      "quote": "\"count\":\"0\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.version",
+      "hop": 6,
+      "field": "version in the abstract",
+      "value": "version 2.1.0",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "To evaluate the safety and accuracy of an artificial intelligence (AI) system (the EyeArt Automated DR Detection System, version 2.1.0) in detecting both more-than-mild diabetic retinopathy (mtmDR) and vision-threatening diabetic retinopathy (vtDR).",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.design",
+      "hop": 6,
+      "field": "design, dates, sites, age",
+      "value": "prospective multicenter cross-sectional diagnostic study, 2017-04-17 to 2018-05-30, 942 consented aged 18 or older with diabetes, 15 primary care and eye care facilities",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "A prospective multicenter cross-sectional diagnostic study was preregistered (NCT03112005) and conducted from April 17, 2017, to May 30, 2018. A total of 942 individuals aged 18 years or older who had diabetes gave consent to participate at 15 primary care and eye care facilities.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.pop",
+      "hop": 6,
+      "field": "analysed population and age",
+      "value": "893 patients (1786 eyes); mean age 53.9 (SD 15.2), median 56, range 18-88",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "Of 942 consenting individuals, 893 patients (1786 eyes) met the inclusion criteria and completed the study protocol.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.age",
+      "hop": 6,
+      "field": "age distribution",
+      "value": "mean 53.9 (SD 15.2); median 56; range 18-88",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "Mean (SD) participant age was 53.9 (15.2) years (median, 56; range, 18-88 years)",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.perf",
+      "hop": 6,
+      "field": "primary performance, without dilation",
+      "value": "mtmDR sensitivity 95.5% (95% CI 92.4-98.5), specificity 85.0% (82.6-87.4); vtDR sensitivity 95.1% (90.1-100), specificity 89.0% (87.0-91.1)",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "Sensitivity and specificity of the AI system were high in detecting mtmDR (sensitivity: 95.5%; 95% CI, 92.4%-98.5% and specificity: 85.0%; 95% CI, 82.6%-87.4%) and vtDR (sensitivity: 95.1%; 95% CI, 90.1%-100% and specificity: 89.0%; 95% CI, 87.0%-91.1%) without dilation.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.imageability",
+      "hop": 6,
+      "field": "imageability without dilation",
+      "value": "87.4% (95% CI 85.2-89.6)",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "the AI system able to grade 87.4% (95% CI, 85.2%-89.6%) of the eyes with reading center grades",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.erratum",
+      "hop": 6,
+      "field": "correction notice",
+      "value": "ErratumIn: JAMA Netw Open 2021 Dec 1;4(12):e2144317 (PMID 34935926), titled \"Error in Figure 2\"; what changed is NOT VERIFIED",
+      "kind": "stated",
+      "source": "pubmed",
+      "quote": "JAMA Netw Open. 2021 Dec 1;4(12):e2144317. doi: 10.1001/jamanetworkopen.2021.44317.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.erratum_title",
+      "hop": 6,
+      "field": "erratum title",
+      "value": "Error in Figure 2.",
+      "kind": "stated",
+      "source": "erratum",
+      "quote": "Error in Figure 2.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6.threshold",
+      "hop": 6,
+      "field": "operating threshold in the abstract",
+      "value": null,
+      "kind": "absent",
+      "source": "pubmed",
+      "note": "Not stated in the abstract."
+    },
+    {
+      "id": "H6b.centres",
+      "hop": 6,
+      "field": "centre mix (full text)",
+      "value": "15 US centres: 6 primary care, 6 general ophthalmology, 3 retina specialty",
+      "kind": "stated",
+      "source": "epmc_fulltext",
+      "quote": "Fifteen US study centers participated, including primary care (6), general ophthalmology (6), and retina specialty (3) centers.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6b.cameras",
+      "hop": 6,
+      "field": "cameras (full text)",
+      "value": "Canon CR-2 AF or Canon CR-2 Plus AF",
+      "kind": "stated",
+      "source": "epmc_fulltext",
+      "quote": "(Canon CR-2 AF or Canon CR-2 Plus AF; Canon USA Inc)",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6b.funnel",
+      "hop": 6,
+      "field": "enrolment funnel (full text)",
+      "value": "942 consented; 915 met eligibility (1830 eyes); 893 completed (1786 eyes)",
+      "kind": "stated",
+      "source": "epmc_fulltext",
+      "quote": "Of 942 consenting individuals, 915 participants (1830 eyes) met eligibility criteria and 893 participants (1786 eyes) (intent-to-screen) completed the study according to protocol",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6b.hypotheses",
+      "hop": 6,
+      "field": "prespecified hypotheses (full text)",
+      "value": "null: sensitivity at most 80%, specificity at most 77.5%; alternative: 90.0% and 82.5%",
+      "kind": "stated",
+      "source": "epmc_fulltext",
+      "quote": "Alternative hypotheses of 90.0% for sensitivity and 82.5% for specificity were established.",
+      "anchor": {
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "H6b.threshold",
+      "hop": 6,
+      "field": "operating threshold (full text)",
+      "value": null,
+      "kind": "absent",
+      "source": "epmc_fulltext",
+      "note": "The full text reports a binary output per eye; no numeric threshold or cut-off for the algorithm score is stated (second pass searched threshold, cut-off, cutoff, operating point; the only 'threshold' hit is the p-value threshold)."
+    },
+    {
+      "id": "L1.ifu",
+      "hop": 7,
+      "field": "K223357 (v2.2.0) indications",
+      "value": "adults with diabetes who have not been previously diagnosed with diabetic retinopathy; Canon CR-2 AF, Canon CR-2 Plus AF and Topcon NW400; no primary-care/eye-care setting sentence",
+      "kind": "stated",
+      "source": "k223357_summary",
+      "quote": "who have not been previously diagnosed with diabetic retinopathy. EyeArt is indicated for use with Canon CR-2 AF, Canon CR-2 Plus AF, and Topcon NW400 cameras.",
+      "anchor": {
+        "pdfPages": [
+          3,
+          6
+        ],
+        "printedPages": [
+          "1 of 1",
+          "3 of 10"
+        ],
+        "occurrences": 2
+      }
+    },
+    {
+      "id": "L1.update",
+      "hop": 7,
+      "field": "relationship to v2.1.0",
+      "value": "510(k) to modify EyeArt (software version 2.1.0) and update it to 2.2.0",
+      "kind": "stated",
+      "source": "k223357_summary",
+      "quote": "The purpose of this 510(k) notification is to modify EyeArt (software version 2.1.0) and update it to",
+      "anchor": {
+        "pdfPages": [
+          6
+        ],
+        "printedPages": [
+          "3 of 10"
+        ],
+        "occurrences": 1
+      }
+    },
+    {
+      "id": "L1.dates",
+      "hop": 7,
+      "field": "K223357 dates",
+      "value": "received 2022-11-02, decision 2023-06-16",
+      "kind": "stated",
+      "source": "k223357_openfda",
+      "quote": "\"decision_date\":\"2023-06-16\"",
+      "anchor": {
+        "occurrences": 1
+      }
+    }
+  ],
+  "tableCells": [
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "primary care, 90 eyes",
+      "output": "mtmDR",
+      "metric": "sensitivity",
+      "k": 11,
+      "n": 11,
+      "reportedPct": "100.0%",
+      "ci": "[74.1% - 100%]",
+      "recomputedPct": 100,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "primary care, 90 eyes",
+      "output": "mtmDR",
+      "metric": "specificity",
+      "k": 69,
+      "n": 75,
+      "reportedPct": "92.0%",
+      "ci": "[85.1% - 97.5%]",
+      "recomputedPct": 92,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "ophthalmology, 380 eyes",
+      "output": "mtmDR",
+      "metric": "sensitivity",
+      "k": 37,
+      "n": 39,
+      "reportedPct": "94.9%",
+      "ci": "[86.4% - 100.0%]",
+      "recomputedPct": 94.9,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "ophthalmology, 380 eyes",
+      "output": "mtmDR",
+      "metric": "specificity",
+      "k": 281,
+      "n": 324,
+      "reportedPct": "86.7%",
+      "ci": "[82.1% - 90.7%]",
+      "recomputedPct": 86.7,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "primary care, 90 eyes",
+      "output": "vtDR",
+      "metric": "sensitivity",
+      "k": 4,
+      "n": 4,
+      "reportedPct": "100.0%",
+      "ci": "[51.0% - 100%]",
+      "recomputedPct": 100,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "primary care, 90 eyes",
+      "output": "vtDR",
+      "metric": "specificity",
+      "k": 77,
+      "n": 79,
+      "reportedPct": "97.5%",
+      "ci": "[93.4% - 100.0%]",
+      "recomputedPct": 97.5,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "ophthalmology, 380 eyes",
+      "output": "vtDR",
+      "metric": "sensitivity",
+      "k": 8,
+      "n": 9,
+      "reportedPct": "88.9%",
+      "ci": "NA",
+      "recomputedPct": 88.9,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 2 (sequential enrolment)",
+      "pdfPage": 10,
+      "cohort": "ophthalmology, 380 eyes",
+      "output": "vtDR",
+      "metric": "specificity",
+      "k": 331,
+      "n": 353,
+      "reportedPct": "93.8%",
+      "ci": "[90.4% - 96.6%]",
+      "recomputedPct": 93.8,
+      "printedPage": "7 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "primary care, 670 eyes",
+      "output": "mtmDR",
+      "metric": "sensitivity",
+      "k": 92,
+      "n": 99,
+      "reportedPct": "92.9%",
+      "ci": "[87.1% - 97.5%]",
+      "recomputedPct": 92.9,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "primary care, 670 eyes",
+      "output": "mtmDR",
+      "metric": "specificity",
+      "k": 457,
+      "n": 534,
+      "reportedPct": "85.6%",
+      "ci": "[82.2% - 89.1%]",
+      "recomputedPct": 85.6,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "ophthalmology, 170 eyes",
+      "output": "mtmDR",
+      "metric": "sensitivity",
+      "k": 28,
+      "n": 29,
+      "reportedPct": "96.6%",
+      "ci": "[87.5% - 100.0%]",
+      "recomputedPct": 96.6,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "ophthalmology, 170 eyes",
+      "output": "mtmDR",
+      "metric": "specificity",
+      "k": 115,
+      "n": 135,
+      "reportedPct": "85.2%",
+      "ci": "[78.1% - 91.5%]",
+      "recomputedPct": 85.2,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "primary care, 670 eyes",
+      "output": "vtDR",
+      "metric": "sensitivity",
+      "k": 22,
+      "n": 24,
+      "reportedPct": "91.7%",
+      "ci": "[80.0% - 100.0%]",
+      "recomputedPct": 91.7,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "primary care, 670 eyes",
+      "output": "vtDR",
+      "metric": "specificity",
+      "k": 553,
+      "n": 600,
+      "reportedPct": "92.2%",
+      "ci": "[89.6% - 94.6%]",
+      "recomputedPct": 92.2,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "ophthalmology, 170 eyes",
+      "output": "vtDR",
+      "metric": "sensitivity",
+      "k": 4,
+      "n": 4,
+      "reportedPct": "100.0%",
+      "ci": "[51.0% - 100%]",
+      "recomputedPct": 100,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    },
+    {
+      "table": "Table 3 (enrichment permitted)",
+      "pdfPage": 11,
+      "cohort": "ophthalmology, 170 eyes",
+      "output": "vtDR",
+      "metric": "specificity",
+      "k": 141,
+      "n": 157,
+      "reportedPct": "89.8%",
+      "ci": "[83.9% - 95.4%]",
+      "recomputedPct": 89.8,
+      "printedPage": "8 of 21",
+      "tokensFoundOnPage": true,
+      "readFrom": "page image (rendered at 80 dpi) because pdftotext interleaves the table columns"
+    }
+  ],
+  "problems": []
+}

@@ -1,0 +1,811 @@
+{
+  "method": "see header of tools/score-arms.mjs",
+  "summary": {
+    "claims": 26,
+    "nativeVerdictsEmitted": {
+      "constat": 0,
+      "healthit": 0
+    },
+    "derivableFromArmOutput": {
+      "constat": {
+        "claims": 26,
+        "derivable": 7
+      },
+      "healthit": {
+        "claims": 26,
+        "derivable": 0
+      }
+    },
+    "derivableOnMismatchClaims": {
+      "constat": {
+        "claims": 17,
+        "derivable": 6
+      },
+      "healthit": {
+        "claims": 17,
+        "derivable": 0
+      }
+    },
+    "derivableOnPositiveControls": {
+      "constat": {
+        "claims": 9,
+        "derivable": 1
+      },
+      "healthit": {
+        "claims": 9,
+        "derivable": 0
+      }
+    }
+  },
+  "rows": [
+    {
+      "id": "EA-01",
+      "device": "EyeArt K200667",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "K200667",
+        "nativeVerdict": null,
+        "found": [
+          "age floor 22",
+          "primary care setting",
+          "eye-care setting"
+        ],
+        "missing": [
+          "indication: no previous diagnosis of more than mild DR",
+          "software version 2.1.0"
+        ],
+        "derivable": false,
+        "coverage": "3/5"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "indication: no previous diagnosis of more than mild DR",
+          "software version 2.1.0",
+          "age floor 22",
+          "primary care setting",
+          "eye-care setting"
+        ],
+        "derivable": false,
+        "coverage": "0/5"
+      }
+    },
+    {
+      "id": "EA-02",
+      "device": "EyeArt K200667",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K200667",
+        "nativeVerdict": null,
+        "found": [
+          "age floor 22"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "1/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "age floor 22"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "EA-03",
+      "device": "EyeArt K200667",
+      "expected": "REQUIRES_DOMAIN_REVIEW",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K200667",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "successor clearance K223357 or v2.2.0"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "successor clearance K223357 or v2.2.0"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "EA-04",
+      "device": "EyeArt K200667",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K200667",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared use: detection in patients not previously diagnosed with more than mild DR"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared use: detection in patients not previously diagnosed with more than mild DR"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "EA-05",
+      "device": "EyeArt v2.2.0 K223357",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K223357",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "K223357 indication: no previous diagnosis of diabetic retinopathy"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "K223357 indication: no previous diagnosis of diabetic retinopathy"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "TR-01",
+      "device": "Transpara K221347",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "K221347",
+        "nativeVerdict": null,
+        "found": [
+          "software version 1.7.2"
+        ],
+        "missing": [
+          "concurrent reading aid",
+          "screening population"
+        ],
+        "derivable": false,
+        "coverage": "1/3"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "software version 1.7.2",
+          "concurrent reading aid",
+          "screening population"
+        ],
+        "derivable": false,
+        "coverage": "0/3"
+      }
+    },
+    {
+      "id": "TR-02",
+      "device": "Transpara K221347",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K221347",
+        "nativeVerdict": null,
+        "found": [
+          "trial software version 1.7.0"
+        ],
+        "missing": [
+          "trial identity (MASAI, randomised)"
+        ],
+        "derivable": false,
+        "coverage": "1/2"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "trial software version 1.7.0",
+          "trial identity (MASAI, randomised)"
+        ],
+        "derivable": false,
+        "coverage": "0/2"
+      }
+    },
+    {
+      "id": "LU-01",
+      "device": "Lunit INSIGHT CXR Triage K211733",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "K211733",
+        "nativeVerdict": null,
+        "found": [
+          "adult chest X-ray",
+          "pleural effusion",
+          "pneumothorax"
+        ],
+        "missing": [
+          "software version 1.0"
+        ],
+        "derivable": false,
+        "coverage": "3/4"
+      },
+      "healthit": {
+        "productSlug": "lunit-insight",
+        "rowsReturned": 2,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "software version 1.0",
+          "adult chest X-ray",
+          "pleural effusion",
+          "pneumothorax"
+        ],
+        "derivable": false,
+        "coverage": "0/4"
+      }
+    },
+    {
+      "id": "LU-02",
+      "device": "Lunit INSIGHT CXR Triage K211733",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K211733",
+        "nativeVerdict": null,
+        "found": [
+          "cleared finding pleural effusion",
+          "cleared finding pneumothorax",
+          "triage purpose"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "3/3"
+      },
+      "healthit": {
+        "productSlug": "lunit-insight",
+        "rowsReturned": 2,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared finding pleural effusion",
+          "cleared finding pneumothorax",
+          "triage purpose"
+        ],
+        "derivable": false,
+        "coverage": "0/3"
+      }
+    },
+    {
+      "id": "LU-03",
+      "device": "Lunit INSIGHT CXR Triage K211733",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K211733",
+        "nativeVerdict": null,
+        "found": [
+          "cleared finding pleural effusion",
+          "cleared finding pneumothorax"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "2/2"
+      },
+      "healthit": {
+        "productSlug": "lunit-insight",
+        "rowsReturned": 2,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared finding pleural effusion",
+          "cleared finding pneumothorax"
+        ],
+        "derivable": false,
+        "coverage": "0/2"
+      }
+    },
+    {
+      "id": "VZ-01",
+      "device": "Viz LVO DEN170073",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "DEN170073",
+        "nativeVerdict": null,
+        "found": [
+          "age older than 22"
+        ],
+        "missing": [
+          "initial version 1.0",
+          "acute setting"
+        ],
+        "derivable": false,
+        "coverage": "1/3"
+      },
+      "healthit": {
+        "productSlug": "viz-ai-one-platform",
+        "rowsReturned": 3,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "initial version 1.0",
+          "age older than 22",
+          "acute setting"
+        ],
+        "derivable": false,
+        "coverage": "0/3"
+      }
+    },
+    {
+      "id": "VZ-02",
+      "device": "Viz LVO DEN170073",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "DEN170073",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "study version 1.0",
+          "marketed release 1.11"
+        ],
+        "derivable": false,
+        "coverage": "0/2"
+      },
+      "healthit": {
+        "productSlug": "viz-ai-one-platform",
+        "rowsReturned": 3,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "study version 1.0",
+          "marketed release 1.11"
+        ],
+        "derivable": false,
+        "coverage": "0/2"
+      }
+    },
+    {
+      "id": "BC-01",
+      "device": "BriefCase-Triage K253265",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "K253265",
+        "nativeVerdict": null,
+        "found": [
+          "free gas module",
+          "age 18 and older",
+          "394 cases",
+          "sensitivity 94.2%"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "4/4"
+      },
+      "healthit": {
+        "productSlug": "aidoc-aios",
+        "rowsReturned": 3,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "free gas module",
+          "age 18 and older",
+          "394 cases",
+          "sensitivity 94.2%"
+        ],
+        "derivable": false,
+        "coverage": "0/4"
+      }
+    },
+    {
+      "id": "BC-02",
+      "device": "BriefCase-Triage K253265",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K253265",
+        "nativeVerdict": null,
+        "found": [
+          "cleared finding is intra-abdominal free gas"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "1/1"
+      },
+      "healthit": {
+        "productSlug": "aidoc-aios",
+        "rowsReturned": 3,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared finding is intra-abdominal free gas"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "MS-01",
+      "device": "MammoScreen 3 K240301",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K240301",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "registry status or results for NCT05800132"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "registry status or results for NCT05800132"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "MS-02",
+      "device": "MammoScreen 3 K240301",
+      "expected": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K240301",
+        "nativeVerdict": null,
+        "found": [
+          "concurrent reading aid / not solely"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "1/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "concurrent reading aid / not solely"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "PG-01",
+      "device": "Paige Prostate DEN200080",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "DEN200080",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "published reader study used the Alpha build"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "published reader study used the Alpha build"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "PG-02",
+      "device": "Paige Prostate DEN200080",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "DEN200080",
+        "nativeVerdict": null,
+        "found": [
+          "version 2.1.501"
+        ],
+        "missing": [
+          "Philips scanner or whole slide images",
+          "610 slides"
+        ],
+        "derivable": false,
+        "coverage": "1/3"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "version 2.1.501",
+          "Philips scanner or whole slide images",
+          "610 slides"
+        ],
+        "derivable": false,
+        "coverage": "0/3"
+      }
+    },
+    {
+      "id": "GI-01",
+      "device": "GI Genius DEN200055",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "DEN200055",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "study age range 40 to 80"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "study age range 40 to 80"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "GI-02",
+      "device": "GI Genius DEN200055",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "DEN200055",
+        "nativeVerdict": null,
+        "found": [
+          "Italian study"
+        ],
+        "missing": [
+          "study age range 40 to 80",
+          "screening or surveillance"
+        ],
+        "derivable": false,
+        "coverage": "1/3"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "study age range 40 to 80",
+          "screening or surveillance",
+          "Italian study"
+        ],
+        "derivable": false,
+        "coverage": "0/3"
+      }
+    },
+    {
+      "id": "HF-01",
+      "device": "HeartFlow Analysis K213857",
+      "expected": "INSUFFICIENT_EVIDENCE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K213857",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared release v3.plus"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": "heartflow-analysis-ffrct",
+        "rowsReturned": 4,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "cleared release v3.plus"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "AN-01",
+      "device": "Anumana Low EF AI-ECG K232699",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "K232699",
+        "nativeVerdict": null,
+        "found": [
+          "16,000 records",
+          "sensitivity 84.5%"
+        ],
+        "missing": [
+          "adults at risk for heart failure"
+        ],
+        "derivable": false,
+        "coverage": "2/3"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "adults at risk for heart failure",
+          "16,000 records",
+          "sensitivity 84.5%"
+        ],
+        "derivable": false,
+        "coverage": "0/3"
+      }
+    },
+    {
+      "id": "AN-02",
+      "device": "Anumana Low EF AI-ECG K232699",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "K232699",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "validation paired ECGs without pacing"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "validation paired ECGs without pacing"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "ID-01",
+      "device": "IDx-DR DEN180001",
+      "expected": "SUPPORTED_FOR_SCOPE",
+      "positiveControl": true,
+      "constat": {
+        "lookup": "DEN180001",
+        "nativeVerdict": null,
+        "found": [
+          "primary care setting",
+          "Topcon NW400",
+          "sensitivity 87.4%"
+        ],
+        "missing": [
+          "version 2.0.0",
+          "age 22 and older"
+        ],
+        "derivable": false,
+        "coverage": "3/5"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "version 2.0.0",
+          "age 22 and older",
+          "primary care setting",
+          "Topcon NW400",
+          "sensitivity 87.4%"
+        ],
+        "derivable": false,
+        "coverage": "0/5"
+      }
+    },
+    {
+      "id": "ID-02",
+      "device": "IDx-DR DEN180001",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "DEN180001",
+        "nativeVerdict": null,
+        "found": [
+          "primary-care-only labelling or study"
+        ],
+        "missing": [],
+        "derivable": true,
+        "coverage": "1/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "primary-care-only labelling or study"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    },
+    {
+      "id": "CP-01",
+      "device": "Caption Guidance DEN190040",
+      "expected": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "positiveControl": false,
+      "constat": {
+        "lookup": "DEN190040",
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "indication: adult patients only"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      },
+      "healthit": {
+        "productSlug": null,
+        "rowsReturned": 0,
+        "nativeVerdict": null,
+        "found": [],
+        "missing": [
+          "indication: adult patients only"
+        ],
+        "derivable": false,
+        "coverage": "0/1"
+      }
+    }
+  ]
+}

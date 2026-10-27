@@ -1,0 +1,777 @@
+{
+  "label": "single builder, two passes, not independent",
+  "method": "mechanical oracle over claim.use and evidence scopes (build-claims.mjs); it cannot emit CONTRADICTED_BY_SPECIFIED_EVIDENCE, so a key that expects it will always disagree and that is recorded",
+  "results": [
+    {
+      "id": "EA-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ea.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ea.fdastudy",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        },
+        {
+          "evidence": "ev.ea.jama",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "PARTIAL",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "EA-02",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ea.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ea.fdastudy",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "PARTIAL",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        },
+        {
+          "evidence": "ev.ea.jama",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "PARTIAL",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "EA-03",
+      "oracleLabel": "REQUIRES_DOMAIN_REVIEW",
+      "passOneLabel": "REQUIRES_DOMAIN_REVIEW",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ea.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ea.fdastudy",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "REQUIRES_DOMAIN_REVIEW"
+        },
+        {
+          "evidence": "ev.ea.jama",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "PARTIAL",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "REQUIRES_DOMAIN_REVIEW"
+        }
+      ]
+    },
+    {
+      "id": "EA-04",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ea.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "PARTIAL",
+            "exclusions": "PARTIAL",
+            "settings": "CONTAINED",
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ea.fdastudy",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "PARTIAL",
+            "exclusions": "PARTIAL",
+            "settings": "CONTAINED",
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ea.jama",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "PARTIAL",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "EA-05",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ea.k2",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "PARTIAL",
+            "exclusions": "PARTIAL",
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ea.k2study",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "CONTAINED",
+            "conditions": "PARTIAL",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "TR-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.tr.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "TR-02",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.tr.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "DISJOINT",
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.tr.masai",
+          "relations": {
+            "version": "DISJOINT",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "LU-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.lu.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "LU-02",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.lu.fda",
+          "relations": {
+            "version": "DISJOINT",
+            "age": null,
+            "conditions": "DISJOINT",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "LU-03",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.lu.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "PARTIAL",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "VZ-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.vz.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "VZ-02",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.vz.fda",
+          "relations": {
+            "version": "DISJOINT",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "BC-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.bc.fda",
+          "relations": {
+            "version": null,
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "BC-02",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.bc.fda",
+          "relations": {
+            "version": null,
+            "age": "CONTAINED",
+            "conditions": "DISJOINT",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "MS-01",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ms.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.ms.ct",
+          "relations": {
+            "version": "UNKNOWN",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "MS-02",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "agree": false,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.ms.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "DISJOINT"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "PG-01",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.pg.alpha",
+          "relations": {
+            "version": "DISJOINT",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "PG-02",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.pg.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "GI-01",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.gi.fda",
+          "relations": {
+            "version": null,
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.gi.study",
+          "relations": {
+            "version": null,
+            "age": "PARTIAL",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "GI-02",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.gi.fda",
+          "relations": {
+            "version": null,
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.gi.study",
+          "relations": {
+            "version": null,
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "HF-01",
+      "oracleLabel": "INSUFFICIENT_EVIDENCE",
+      "passOneLabel": "INSUFFICIENT_EVIDENCE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.hf.fda",
+          "relations": {
+            "version": "DISJOINT",
+            "age": null,
+            "conditions": "DISJOINT",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.hf.nxt",
+          "relations": {
+            "version": "UNKNOWN",
+            "age": null,
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        }
+      ]
+    },
+    {
+      "id": "AN-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.an.fda",
+          "relations": {
+            "version": null,
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.an.study",
+          "relations": {
+            "version": null,
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "AN-02",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.an.fda",
+          "relations": {
+            "version": null,
+            "age": "UNKNOWN",
+            "conditions": "PARTIAL",
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.an.study",
+          "relations": {
+            "version": null,
+            "age": "CONTAINED",
+            "conditions": "PARTIAL",
+            "exclusions": "PARTIAL",
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "ID-01",
+      "oracleLabel": "SUPPORTED_FOR_SCOPE",
+      "passOneLabel": "SUPPORTED_FOR_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.id.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.id.study",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "CONTAINED",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_FOR_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "ID-02",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.id.fda",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "UNKNOWN",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "PARTIAL",
+            "purpose": "CONTAINED"
+          },
+          "label": "INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "evidence": "ev.id.study",
+          "relations": {
+            "version": "CONTAINED",
+            "age": "CONTAINED",
+            "conditions": "CONTAINED",
+            "exclusions": null,
+            "settings": "PARTIAL",
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    },
+    {
+      "id": "CP-01",
+      "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "passOneLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+      "agree": true,
+      "oracleLabelIsAcceptableToKey": true,
+      "itemResults": [
+        {
+          "evidence": "ev.cp.fda",
+          "relations": {
+            "version": null,
+            "age": "PARTIAL",
+            "conditions": null,
+            "exclusions": null,
+            "settings": null,
+            "purpose": "CONTAINED"
+          },
+          "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+        }
+      ]
+    }
+  ],
+  "disagreements": [
+    {
+      "id": "MS-02",
+      "passOne": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+      "oracle": "INSUFFICIENT_EVIDENCE",
+      "acceptableToKey": true,
+      "resolution": null
+    }
+  ]
+}

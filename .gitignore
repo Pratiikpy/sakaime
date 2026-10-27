@@ -12,3 +12,9 @@ docs/reference/
 .DS_Store
 goak.txt
 .sakaime/
+
+# third-party competitor material (terms pages, data dumps): kept locally for the record, not republished
+evals/gate0/raw/terms/
+evals/gate0/arms/healthit/evidence_all.json
+evals/gate0/arms/healthit/vendors_all.json
+evals/gate0/arms/constat/tools_list.json

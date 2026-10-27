@@ -1,0 +1,1303 @@
+{
+  "note": "Evidence items in the shape of src/schemas/scope.ts EvidenceItemSchema plus an anchors list; scopes are hand-derived from the anchored quotes (single builder). Setting, purpose and condition strings are this key's own vocabulary.",
+  "items": [
+    {
+      "id": "ev.ea.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K200667",
+        "versions": [
+          "2.1.0"
+        ],
+        "population": {
+          "conditions": [
+            "diabetes mellitus"
+          ],
+          "exclusions": [
+            "previously diagnosed with more than mild diabetic retinopathy"
+          ]
+        },
+        "settings": [
+          "primary_care",
+          "eye_care"
+        ],
+        "purpose": "dr_screening_detection",
+        "timing": {
+          "from": "2020-08-03"
+        }
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "the indication says 'adults' and gives no age number"
+      ],
+      "anchors": [
+        {
+          "id": "ea.ifu",
+          "source": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+          "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+          "quote": "EyeArt is indicated for use by healthcare providers to automatically detect more than mild diabetic retinopathy and vision-threatening diabetic retinopathy [...] in eyes of adults diagnosed with diabetes who have not been previously diagnosed with more than mild diabetic retinopathy. EyeArt is indicated for use with Canon CR-2 AF and Canon CR-2 Plus AF cameras in both primary care and eye care settings.",
+          "pdfPage": 4,
+          "printedPage": "1 of 21",
+          "occurrences": 1
+        },
+        {
+          "id": "ea.version",
+          "source": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+          "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+          "quote": "EyeArt (software version v2.1.0) was identified as having a major level of concern",
+          "pdfPage": 6,
+          "printedPage": "3 of 21",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.ea.fdastudy",
+      "assertionType": "study",
+      "scope": {
+        "product": "device:fda:K200667",
+        "versions": [
+          "2.1.0"
+        ],
+        "population": {
+          "age": {
+            "min": 22
+          },
+          "conditions": [
+            "diabetes mellitus"
+          ],
+          "exclusions": [
+            "previously diagnosed with more than mild diabetic retinopathy"
+          ]
+        },
+        "settings": [
+          "primary_care",
+          "eye_care"
+        ],
+        "purpose": "dr_screening_detection"
+      },
+      "results": [
+        {
+          "metric": "mtmDR_sensitivity",
+          "value": 0.929,
+          "ci": [
+            0.871,
+            0.975
+          ],
+          "n": 99,
+          "anchorId": "ea.pc_sens"
+        }
+      ],
+      "adequate": true,
+      "limitations": [
+        "FDA does not say which build produced the trial numbers; 2.1.0 is the cleared release string"
+      ],
+      "anchors": [
+        {
+          "id": "ea.age22",
+          "source": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+          "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+          "quote": "The target population of the EyeArt pivotal clinical trial analysis was asymptomatic persons aged 22 years and older who were diagnosed with diabetes and not diagnosed with more than mild diabetic retinopathy.",
+          "pdfPage": 7,
+          "printedPage": "4 of 21",
+          "occurrences": 1
+        },
+        {
+          "id": "ea.excl21",
+          "source": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+          "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+          "quote": "analyses were presented on 655 participants after excluding subjects who did not meet certain additional prespecified criteria (e.g., subjects 21 years old or younger)",
+          "pdfPage": 7,
+          "printedPage": "4 of 21",
+          "occurrences": 1
+        },
+        {
+          "id": "ea.sites",
+          "source": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+          "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+          "quote": "The 655 participants were enrolled in the study at 11 US study sites that included primary care centers and general ophthalmology centers.",
+          "pdfPage": 7,
+          "printedPage": "4 of 21",
+          "occurrences": 1
+        },
+        {
+          "id": "ea.pc_sens",
+          "source": "research/feasibility/fixtures/fda/K200667_summary_text.txt",
+          "sha256": "d8b8d5d8e4386cb84917bc3037d9ea9749a3fbd837271639a5b5b80742185760",
+          "quote": "(92/99)",
+          "pdfPage": 11,
+          "printedPage": "8 of 21",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "id": "ev.ea.jama",
+      "assertionType": "study",
+      "scope": {
+        "product": "device:fda:K200667",
+        "versions": [
+          "2.1.0"
+        ],
+        "population": {
+          "age": {
+            "min": 18,
+            "max": 88
+          },
+          "conditions": [
+            "diabetes mellitus"
+          ]
+        },
+        "settings": [
+          "primary_care",
+          "eye_care"
+        ],
+        "purpose": "dr_screening_detection",
+        "timing": {
+          "from": "2017-04-17"
+        }
+      },
+      "results": [
+        {
+          "metric": "mtmDR_sensitivity",
+          "value": 0.955,
+          "ci": [
+            0.924,
+            0.985
+          ]
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "ea.jama.version",
+          "source": "research/feasibility/fixtures/pubmed/ef_eyeart.xml",
+          "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634",
+          "quote": "To evaluate the safety and accuracy of an artificial intelligence (AI) system (the EyeArt Automated DR Detection System, version 2.1.0)",
+          "occurrences": 1
+        },
+        {
+          "id": "ea.jama.age",
+          "source": "research/feasibility/fixtures/pubmed/ef_eyeart.xml",
+          "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634",
+          "quote": "A total of 942 individuals aged 18 years or older who had diabetes gave consent to participate at 15 primary care and eye care facilities.",
+          "occurrences": 1
+        },
+        {
+          "id": "ea.jama.perf",
+          "source": "research/feasibility/fixtures/pubmed/ef_eyeart.xml",
+          "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634",
+          "quote": "mtmDR (sensitivity: 95.5%; 95% CI, 92.4%-98.5% and specificity: 85.0%; 95% CI, 82.6%-87.4%)",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.ea.k2",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K223357",
+        "versions": [
+          "2.2.0"
+        ],
+        "population": {
+          "conditions": [
+            "diabetes mellitus"
+          ],
+          "exclusions": [
+            "previously diagnosed with diabetic retinopathy"
+          ]
+        },
+        "purpose": "dr_screening_detection",
+        "timing": {
+          "from": "2023-06-16"
+        }
+      },
+      "results": [],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "ea.k2.ifu",
+          "source": "evals/gate0/raw/fda/K223357_summary_text.txt",
+          "sha256": "76adc2d64177a1abbfa17a6a450306e88b55cf5934510f178927acf9effb59d8",
+          "quote": "who have not been previously diagnosed with diabetic retinopathy. EyeArt is indicated for use with Canon CR-2 AF, Canon CR-2 Plus AF, and Topcon NW400 cameras.",
+          "pdfPage": 3,
+          "printedPage": "1 of 1",
+          "occurrences": 2
+        },
+        {
+          "id": "ea.k2.update",
+          "source": "evals/gate0/raw/fda/K223357_summary_text.txt",
+          "sha256": "76adc2d64177a1abbfa17a6a450306e88b55cf5934510f178927acf9effb59d8",
+          "quote": "The purpose of this 510(k) notification is to modify EyeArt (software version 2.1.0) and update it to",
+          "pdfPage": 6,
+          "printedPage": "3 of 10",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.ea.k2study",
+      "assertionType": "study",
+      "scope": {
+        "product": "device:fda:K223357",
+        "versions": [
+          "2.2.0"
+        ],
+        "population": {
+          "age": {
+            "min": 22
+          },
+          "conditions": [
+            "diabetes mellitus"
+          ]
+        },
+        "purpose": "dr_screening_detection"
+      },
+      "results": [],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "ea.k2.age",
+          "source": "evals/gate0/raw/fda/K223357_summary_text.txt",
+          "sha256": "76adc2d64177a1abbfa17a6a450306e88b55cf5934510f178927acf9effb59d8",
+          "quote": "Eligible adults age 22 or older with known diagnosis of diabetes mellitus",
+          "pdfPage": 8,
+          "printedPage": "5 of 10",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.tr.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K221347",
+        "versions": [
+          "1.7.2"
+        ],
+        "population": {
+          "conditions": [
+            "women undergoing screening mammography"
+          ]
+        },
+        "settings": [
+          "hospital"
+        ],
+        "purpose": "concurrent_reading_aid"
+      },
+      "results": [
+        {
+          "metric": "2D_sensitivity",
+          "value": 0.95,
+          "ci": [
+            0.935,
+            0.964
+          ]
+        },
+        {
+          "metric": "DBT_sensitivity",
+          "value": 0.932,
+          "ci": [
+            0.91,
+            0.951
+          ]
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "tr.ifu",
+          "source": "research/feasibility/fixtures/fda/K221347_summary_text.txt",
+          "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe",
+          "quote": "software is intended for use as a concurrent reading aid for physicians interpreting screening full-field digital mammography exams and digital breast tomosynthesis exams",
+          "pdfPage": 3,
+          "printedPage": "1 of 1",
+          "occurrences": 2
+        },
+        {
+          "id": "tr.pop",
+          "source": "research/feasibility/fixtures/fda/K221347_summary_text.txt",
+          "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe",
+          "quote": "The device is intended to be used in the population of women undergoing screening mammography and digital breast tomosynthesis.",
+          "pdfPage": 6,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "tr.version",
+          "source": "research/feasibility/fixtures/fda/K221347_summary_text.txt",
+          "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe",
+          "quote": "Based on standalone testing it was concluded that Transpara 1.7.2 breast cancer",
+          "pdfPage": 9,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "tr.gudid",
+          "source": "research/feasibility/fixtures/openfda/udi_K221347.json",
+          "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd",
+          "quote": "\"version_or_model_number\":\"1.7.2\"",
+          "occurrences": 1
+        },
+        {
+          "id": "tr.setting",
+          "source": "research/feasibility/fixtures/fda/K221347_summary_text.txt",
+          "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe",
+          "quote": "software medical device for use in a healthcare facility or hospital",
+          "pdfPage": 6,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "tr.perf",
+          "source": "research/feasibility/fixtures/fda/K221347_summary_text.txt",
+          "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe",
+          "quote": "For 2D, the sensitivity is 95.0% (93.5-96.4) at 0.30 FP/image. For DBT, sensitivity is 93.2% (91.0-95.1) at 0.34 FP/volume.",
+          "pdfPage": 9,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "tr.standalone",
+          "source": "research/feasibility/fixtures/fda/K221347_summary_text.txt",
+          "sha256": "65d7939a6b54984d2b9c7c6de960a99690137f3b521212d316e0d69c19fd7dfe",
+          "quote": "Standalone performance tests were conducted to demonstrate substantial equivalence with the predicate device.",
+          "pdfPage": 8,
+          "printedPage": null,
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.tr.masai",
+      "assertionType": "study",
+      "scope": {
+        "versions": [
+          "1.7.0"
+        ],
+        "population": {
+          "age": {
+            "min": 40,
+            "max": 80
+          },
+          "conditions": [
+            "women undergoing screening mammography"
+          ]
+        },
+        "settings": [
+          "screening_program"
+        ],
+        "purpose": "ai_supported_reading_triage"
+      },
+      "results": [
+        {
+          "metric": "workload_reduction",
+          "value": 0.443
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "tr.masai.version",
+          "source": "research/feasibility/fixtures/pubmed/ef_transpara.xml",
+          "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf",
+          "quote": "The AI system (Transpara version 1.7.0) provided an examination-based malignancy risk score on a 10-level scale that was used to triage screening examinations to single reading (score 1-9) or double reading (score 10)",
+          "occurrences": 1
+        },
+        {
+          "id": "tr.masai.pop",
+          "source": "research/feasibility/fixtures/pubmed/ef_transpara.xml",
+          "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf",
+          "quote": "women aged 40-80 years eligible for mammography screening",
+          "occurrences": 1
+        },
+        {
+          "id": "tr.masai.workload",
+          "source": "research/feasibility/fixtures/pubmed/ef_transpara.xml",
+          "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf",
+          "quote": "The screen-reading workload was reduced by 44·3% using AI.",
+          "occurrences": 1
+        },
+        {
+          "id": "tr.masai.n",
+          "source": "research/feasibility/fixtures/pubmed/ef_transpara.xml",
+          "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf",
+          "quote": "80[...]033 women were randomly assigned to AI-supported screening",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.lu.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K211733",
+        "versions": [
+          "1.0"
+        ],
+        "population": {
+          "conditions": [
+            "pleural effusion",
+            "pneumothorax"
+          ]
+        },
+        "purpose": "triage_notification"
+      },
+      "results": [
+        {
+          "metric": "pleural_effusion_sensitivity",
+          "value": 0.9429
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "lu.ifu",
+          "source": "research/feasibility/fixtures/fda/K211733_summary_text.txt",
+          "sha256": "8978191cdbcd032d6afe1a51648ec6bb36384fd00e40710ebb4aa5cfa5690d4f",
+          "quote": "software that analyzes adult chest X-ray images for the presence of pre-specified suspected critical findings (pleural effusion and/or pneumothorax)",
+          "pdfPage": 7,
+          "printedPage": "3 of 10",
+          "occurrences": 1
+        },
+        {
+          "id": "lu.gudid",
+          "source": "research/feasibility/fixtures/openfda/udi_K211733.json",
+          "sha256": "9e2f4f4e5f017fb9f2842fe848ecc7b7d23fd0b1abb1770e90185a4dfa7212bc",
+          "quote": "\"version_or_model_number\":\"1.0\"",
+          "occurrences": 1
+        },
+        {
+          "id": "lu.perf",
+          "source": "research/feasibility/fixtures/fda/K211733_summary_text.txt",
+          "sha256": "8978191cdbcd032d6afe1a51648ec6bb36384fd00e40710ebb4aa5cfa5690d4f",
+          "quote": "ROC AUC was 0.9864 (95% CI: 0.9815",
+          "pdfPage": 8,
+          "printedPage": "4 of 10",
+          "occurrences": 1
+        },
+        {
+          "id": "lu.sens",
+          "source": "research/feasibility/fixtures/fda/K211733_summary_text.txt",
+          "sha256": "8978191cdbcd032d6afe1a51648ec6bb36384fd00e40710ebb4aa5cfa5690d4f",
+          "quote": "94.29% sensitivity and 95.72% specificity for pleural effusion",
+          "pdfPage": 8,
+          "printedPage": "4 of 10",
+          "occurrences": 1
+        },
+        {
+          "id": "lu.nih",
+          "source": "research/feasibility/fixtures/fda/K211733_summary_text.txt",
+          "sha256": "8978191cdbcd032d6afe1a51648ec6bb36384fd00e40710ebb4aa5cfa5690d4f",
+          "quote": "The studies were conducted with NIH chest X-ray dataset that represents the US population and India dataset collected respectively from multiple institutions in India (6 sites for pleural effusion and 3 sites for pneumothorax).",
+          "pdfPage": 8,
+          "printedPage": "4 of 10",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.vz.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:DEN170073",
+        "versions": [
+          "1.0"
+        ],
+        "population": {
+          "age": {
+            "min": 22
+          },
+          "conditions": [
+            "suspected large vessel occlusion"
+          ]
+        },
+        "settings": [
+          "hospital"
+        ],
+        "purpose": "triage_notification"
+      },
+      "results": [
+        {
+          "metric": "LVO_sensitivity",
+          "value": 0.878,
+          "ci": [
+            0.812,
+            0.925
+          ]
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "vz.ifu",
+          "source": "research/feasibility/fixtures/fda/DEN170073_summary_text.txt",
+          "sha256": "78ebb295a6186db57c916d0cd858294129dc9c200f337c12deda669e3f251791",
+          "quote": "the device analyzes CT angiogram images of the brain acquired in the acute setting, and sends notifications to a neurovascular specialist that a suspected large vessel occlusion has been identified",
+          "pdfPage": 2,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "vz.age",
+          "source": "research/feasibility/fixtures/fda/DEN170073_summary_text.txt",
+          "sha256": "78ebb295a6186db57c916d0cd858294129dc9c200f337c12deda669e3f251791",
+          "quote": "ContaCT is indicated for patients older than 22 years of age.",
+          "pdfPage": 13,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "vz.version",
+          "source": "research/feasibility/fixtures/fda/DEN170073_summary_text.txt",
+          "sha256": "78ebb295a6186db57c916d0cd858294129dc9c200f337c12deda669e3f251791",
+          "quote": "This is the initial version 1.0 for the device. The standalone testing study was completed with this version of the device.",
+          "pdfPage": 7,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "vz.n",
+          "source": "research/feasibility/fixtures/fda/DEN170073_summary_text.txt",
+          "sha256": "78ebb295a6186db57c916d0cd858294129dc9c200f337c12deda669e3f251791",
+          "quote": "Three hundred (300) CT angiogram (CTA) images (studies) were obtained from two clinical sites in the U.S.",
+          "pdfPage": 8,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "vz.perf",
+          "source": "research/feasibility/fixtures/fda/DEN170073_summary_text.txt",
+          "sha256": "78ebb295a6186db57c916d0cd858294129dc9c200f337c12deda669e3f251791",
+          "quote": "sensitivity and specificity are 87.8% (81.2% - 92.5%) and 89.6% (83.7% - 93.9%), respectively.",
+          "pdfPage": 15,
+          "printedPage": null,
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.bc.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K253265",
+        "population": {
+          "age": {
+            "min": 18
+          },
+          "conditions": [
+            "intra-abdominal free gas"
+          ]
+        },
+        "settings": [
+          "hospital"
+        ],
+        "purpose": "triage_notification",
+        "timing": {
+          "from": "2025-11-06"
+        }
+      },
+      "results": [
+        {
+          "metric": "IFG_sensitivity",
+          "value": 0.942,
+          "ci": [
+            0.896,
+            0.972
+          ]
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "bc.ifu",
+          "source": "research/feasibility/fixtures/fda/K253265_summary_text.txt",
+          "sha256": "299603798b4e68540590fce2b49af126a976142dc9b331dfe80ac8c12e9d029d",
+          "quote": "BriefCase-Triage is a radiological computer aided triage and notification software indicated for use in the analysis of abdominal CT images in adults or transitional adolescents aged 18 and older.",
+          "pdfPage": 4,
+          "printedPage": null,
+          "occurrences": 2
+        },
+        {
+          "id": "bc.ifg",
+          "source": "research/feasibility/fixtures/fda/K253265_summary_text.txt",
+          "sha256": "299603798b4e68540590fce2b49af126a976142dc9b331dfe80ac8c12e9d029d",
+          "quote": "flagging and communication of suspected positive findings of Intra-abdominal free gas (IFG) pathologies.",
+          "pdfPage": 4,
+          "printedPage": null,
+          "occurrences": 2
+        },
+        {
+          "id": "bc.study",
+          "source": "research/feasibility/fixtures/fda/K253265_summary_text.txt",
+          "sha256": "299603798b4e68540590fce2b49af126a976142dc9b331dfe80ac8c12e9d029d",
+          "quote": "evaluate the software's performance in identifying abdominal CT images in 394 cases from 6 US-based clinical sites.",
+          "pdfPage": 10,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "bc.perf",
+          "source": "research/feasibility/fixtures/fda/K253265_summary_text.txt",
+          "sha256": "299603798b4e68540590fce2b49af126a976142dc9b331dfe80ac8c12e9d029d",
+          "quote": "Sensitivity was 94.2% (95% CI: 89.6%, 97.2%) and Specificity was 94.6% (95% CI: 90.7%, 97.2%)",
+          "pdfPage": 10,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "bc.list",
+          "source": "research/feasibility/fixtures/fda/ai-enabled-devices.csv",
+          "sha256": "315672a00715b7c076b6ca79807cce028e2e7f21f79bab73e6bc841671c112af",
+          "quote": "11/06/2025,K253265,BriefCase-Triage,\"Aidoc Medical , Ltd.\",Radiology,QAS",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.ms.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K240301",
+        "versions": [
+          "3"
+        ],
+        "population": {
+          "conditions": [
+            "women undergoing screening mammography"
+          ]
+        },
+        "purpose": "concurrent_reading_aid"
+      },
+      "results": [],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "ms.ifu",
+          "source": "research/feasibility/fixtures/fda/K240301_summary_text.txt",
+          "sha256": "5fe2584f36fb82d080c5f8370208688b32a1d9906ea946ff3d34bf38d77047f1",
+          "quote": "is a concurrent reading and reporting aid for physicians interpreting screening mammograms.",
+          "pdfPage": 3,
+          "printedPage": null,
+          "occurrences": 2
+        },
+        {
+          "id": "ms.notsolely",
+          "source": "research/feasibility/fixtures/fda/K240301_summary_text.txt",
+          "sha256": "5fe2584f36fb82d080c5f8370208688b32a1d9906ea946ff3d34bf38d77047f1",
+          "quote": "Patient management decisions should not be made solely based on the analysis by MammoScreen 3.",
+          "pdfPage": 3,
+          "printedPage": null,
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "id": "ev.ms.ct",
+      "assertionType": "study",
+      "scope": {
+        "population": {
+          "age": {
+            "min": 50,
+            "max": 74
+          },
+          "conditions": [
+            "women undergoing screening mammography"
+          ]
+        },
+        "purpose": "ai_assisted_second_reading"
+      },
+      "results": [],
+      "adequate": false,
+      "limitations": [
+        "no results posted",
+        "recruiting; primary completion estimated 2025-08",
+        "no software version stated"
+      ],
+      "anchors": [
+        {
+          "id": "ms.ct.status",
+          "source": "research/feasibility/fixtures/ctgov/study_NCT05800132.json",
+          "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+          "quote": "\"overallStatus\":\"RECRUITING\"",
+          "occurrences": 1
+        },
+        {
+          "id": "ms.ct.enrol",
+          "source": "research/feasibility/fixtures/ctgov/study_NCT05800132.json",
+          "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+          "quote": "\"enrollmentInfo\":{\"count\":5000,\"type\":\"ESTIMATED\"}",
+          "occurrences": 1
+        },
+        {
+          "id": "ms.ct.outcome",
+          "source": "research/feasibility/fixtures/ctgov/study_NCT05800132.json",
+          "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+          "quote": "\"measure\":\"Recall rate\"",
+          "occurrences": 1
+        },
+        {
+          "id": "ms.ct.noresults",
+          "source": "research/feasibility/fixtures/ctgov/study_NCT05800132.json",
+          "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+          "quote": "\"hasResults\":false",
+          "occurrences": 1
+        },
+        {
+          "id": "ms.ct.nover",
+          "source": "research/feasibility/fixtures/ctgov/study_NCT05800132.json",
+          "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+          "quote": "\"name\":\"MammoScreen\",\"description\":\"Diagnostic reading aid for breast cancer screening\"",
+          "occurrences": 1
+        },
+        {
+          "id": "ms.ct.age",
+          "source": "research/feasibility/fixtures/ctgov/study_NCT05800132.json",
+          "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a",
+          "quote": "\"minimumAge\":\"50 Years\",\"maximumAge\":\"74 Years\"",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.pg.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:DEN200080",
+        "versions": [
+          "2.1.501"
+        ],
+        "population": {
+          "conditions": [
+            "prostate needle biopsy whole slide images"
+          ]
+        },
+        "purpose": "assistive_detection_after_initial_review"
+      },
+      "results": [],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "pg.ifu",
+          "source": "research/feasibility/fixtures/fda/DEN200080_summary_text.txt",
+          "sha256": "638f177ff3532adc3a9e87d254e7be1c32348fa788ee82ea4fb0512c1c97e9fd",
+          "quote": "Paige Prostate is a software only device intended to assist pathologists in the detection of foci that are suspicious for cancer during the review of scanned whole slide images (WSI)",
+          "pdfPage": 2,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "pg.after",
+          "source": "research/feasibility/fixtures/fda/DEN200080_summary_text.txt",
+          "sha256": "638f177ff3532adc3a9e87d254e7be1c32348fa788ee82ea4fb0512c1c97e9fd",
+          "quote": "After initial diagnostic review of the WSI by the pathologist, if Paige Prostate detects tissue morphology suspicious for cancer",
+          "pdfPage": 2,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "pg.version",
+          "source": "research/feasibility/fixtures/fda/DEN200080_summary_text.txt",
+          "sha256": "638f177ff3532adc3a9e87d254e7be1c32348fa788ee82ea4fb0512c1c97e9fd",
+          "quote": "Version (v) 2.1.501 was released prior to its use in all the performance studies",
+          "pdfPage": 7,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "pg.n",
+          "source": "research/feasibility/fixtures/fda/DEN200080_summary_text.txt",
+          "sha256": "638f177ff3532adc3a9e87d254e7be1c32348fa788ee82ea4fb0512c1c97e9fd",
+          "quote": "The sample set originally consisted of 610 whole slide images of prostate needle biopsy slides (190 cancer and 420 benign)",
+          "pdfPage": 17,
+          "printedPage": null,
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.pg.alpha",
+      "assertionType": "study",
+      "scope": {
+        "versions": [
+          "Alpha"
+        ],
+        "population": {
+          "conditions": [
+            "prostate needle biopsy whole slide images"
+          ]
+        },
+        "purpose": "assistive_detection_after_initial_review"
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "research build named Paige Prostate Alpha, not a numbered release"
+      ],
+      "anchors": [
+        {
+          "id": "pg.alpha",
+          "source": "research/feasibility/fixtures/pubmed/ef_paige.xml",
+          "sha256": "fecd609d4b919e9c9d64352e6cab95646eccf4dad5d7b2609137183da096ff51",
+          "quote": "we investigated how pathologists interact with Paige Prostate Alpha",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.gi.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:DEN200055",
+        "population": {
+          "conditions": [
+            "colorectal cancer screening or post-polypectomy surveillance"
+          ]
+        },
+        "settings": [
+          "endoscopy_unit"
+        ],
+        "purpose": "computer_assisted_lesion_detection"
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "the indication names no age"
+      ],
+      "anchors": [
+        {
+          "id": "gi.ifu",
+          "source": "research/feasibility/fixtures/fda/DEN200055_summary_text.txt",
+          "sha256": "d87aa4e3c1d3c3363707f38e2fa778bc24e5dadef63bbf259e47db3d733b1baa",
+          "quote": "The GI Genius System is a computer-assisted reading tool designed to aid endoscopists in detecting colonic mucosal lesions (such as polyps and adenomas) in real time during standard white-light endoscopy examinations of patients undergoing screening and surveillance endoscopic mucosal evaluations.",
+          "pdfPage": 1,
+          "printedPage": null,
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "id": "ev.gi.study",
+      "assertionType": "study",
+      "scope": {
+        "product": "device:fda:DEN200055",
+        "population": {
+          "age": {
+            "min": 40,
+            "max": 80
+          },
+          "conditions": [
+            "colorectal cancer screening or post-polypectomy surveillance"
+          ]
+        },
+        "settings": [
+          "endoscopy_unit"
+        ],
+        "purpose": "computer_assisted_lesion_detection"
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "three Italian centres",
+        "randomised, prospective (AID study, NCT04079478)"
+      ],
+      "anchors": [
+        {
+          "id": "gi.age",
+          "source": "research/feasibility/fixtures/fda/DEN200055_summary_text.txt",
+          "sha256": "d87aa4e3c1d3c3363707f38e2fa778bc24e5dadef63bbf259e47db3d733b1baa",
+          "quote": "The study enrolled subjects between 40 and 80 years of age who were undergoing colonoscopies for primary colorectal cancer (CRC) screening or post-polypectomy surveillance",
+          "pdfPage": 15,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "gi.sites",
+          "source": "research/feasibility/fixtures/fda/DEN200055_summary_text.txt",
+          "sha256": "d87aa4e3c1d3c3363707f38e2fa778bc24e5dadef63bbf259e47db3d733b1baa",
+          "quote": "The study was conducted at three medical centers in Italy",
+          "pdfPage": 15,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "gi.nct",
+          "source": "research/feasibility/fixtures/fda/DEN200055_summary_text.txt",
+          "sha256": "d87aa4e3c1d3c3363707f38e2fa778bc24e5dadef63bbf259e47db3d733b1baa",
+          "quote": "(Clinicaltrials.gov identifier: NCT04079478)",
+          "pdfPage": 15,
+          "printedPage": null,
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.hf.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K213857",
+        "versions": [
+          "v3.plus"
+        ],
+        "population": {
+          "conditions": [
+            "coronary artery disease"
+          ]
+        },
+        "purpose": "coronary_risk_and_functional_assessment"
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "the summary describes no clinical performance study"
+      ],
+      "anchors": [
+        {
+          "id": "hf.ifu",
+          "source": "research/feasibility/fixtures/fda/K213857_summary_text.txt",
+          "sha256": "c94fb983149c113ce5d16a0b6bb33832d8a83adb28565079baadd82ab982f541",
+          "quote": "The HeartFlow Analysis is intended to support the risk assessment and functional evaluation of coronary artery disease.",
+          "pdfPage": 5,
+          "printedPage": "2 of 5",
+          "occurrences": 1
+        },
+        {
+          "id": "hf.v3plus",
+          "source": "research/feasibility/fixtures/fda/K213857_summary_text.txt",
+          "sha256": "c94fb983149c113ce5d16a0b6bb33832d8a83adb28565079baadd82ab982f541",
+          "quote": "Table 5-1. Predicate Device Comparison Autoplaque (predicate) FFRCT v3.plus",
+          "pdfPage": 5,
+          "printedPage": "2 of 5",
+          "occurrences": 1
+        },
+        {
+          "id": "hf.gudid",
+          "source": "research/feasibility/fixtures/openfda/udi_K213857.json",
+          "sha256": "bb2d1cd11dc08d34e714d384ab52f347971c4ecf2e59afa2d01a336f42ffb7fe",
+          "quote": "\"version_or_model_number\":\"FFRct version 3\"",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.hf.nxt",
+      "assertionType": "study",
+      "scope": {
+        "population": {
+          "conditions": [
+            "suspected stable coronary artery disease"
+          ]
+        },
+        "purpose": "coronary_risk_and_functional_assessment"
+      },
+      "results": [
+        {
+          "metric": "per_patient_sensitivity",
+          "value": 0.86,
+          "ci": [
+            0.77,
+            0.92
+          ],
+          "n": 254
+        },
+        {
+          "metric": "per_patient_specificity",
+          "value": 0.79,
+          "ci": [
+            0.72,
+            0.84
+          ],
+          "n": 254
+        }
+      ],
+      "adequate": true,
+      "limitations": [
+        "no software version stated in the abstract"
+      ],
+      "anchors": [
+        {
+          "id": "hf.nxt.n",
+          "source": "research/feasibility/fixtures/pubmed/ef_heartflow2.xml",
+          "sha256": "78702eac065608d45bbffde41e665b0fa9b8f442c95aa46e38d0838c680db375",
+          "quote": "This prospective multicenter trial included 254 patients scheduled to undergo clinically indicated ICA for suspected CAD.",
+          "occurrences": 1
+        },
+        {
+          "id": "hf.nxt.perf",
+          "source": "research/feasibility/fixtures/pubmed/ef_heartflow2.xml",
+          "sha256": "78702eac065608d45bbffde41e665b0fa9b8f442c95aa46e38d0838c680db375",
+          "quote": "Per-patient sensitivity and specificity (95% CI) to identify myocardial ischemia were 86% (95% CI: 77% to 92%) and 79% (95% CI: 72% to 84%) for FFR(CT)",
+          "occurrences": 1
+        },
+        {
+          "id": "hf.nxt.date",
+          "source": "research/feasibility/fixtures/pubmed/ef_heartflow2.xml",
+          "sha256": "78702eac065608d45bbffde41e665b0fa9b8f442c95aa46e38d0838c680db375",
+          "quote": "(HeartFlowNXT-HeartFlow Analysis of Coronary Blood Flow Using Coronary CT Angiography [HFNXT]; NCT01757678)",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.an.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:K232699",
+        "population": {
+          "conditions": [
+            "adults at risk for heart failure"
+          ]
+        },
+        "purpose": "lvef_40_screening"
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "the indication says 'adults' and names no pacing exclusion"
+      ],
+      "anchors": [
+        {
+          "id": "an.ifu",
+          "source": "research/feasibility/fixtures/fda/K232699_summary_text.txt",
+          "sha256": "84425caf19cdb1f4ea15cc9092ce9355a58f68e5851c4408ded9eef592720582",
+          "quote": "software intended to aid in screening for Left Ventricular Ejection Fraction (LVEF) less than or equal to 40% in adults at risk for heart failure.",
+          "pdfPage": 3,
+          "printedPage": "1 of 1",
+          "occurrences": 2
+        }
+      ]
+    },
+    {
+      "id": "ev.an.study",
+      "assertionType": "study",
+      "scope": {
+        "product": "device:fda:K232699",
+        "population": {
+          "age": {
+            "min": 18
+          },
+          "conditions": [
+            "adults at risk for heart failure"
+          ],
+          "exclusions": [
+            "paced rhythm"
+          ]
+        },
+        "purpose": "lvef_40_screening"
+      },
+      "results": [
+        {
+          "metric": "sensitivity",
+          "value": 0.845,
+          "ci": [
+            0.822,
+            0.866
+          ],
+          "n": 13960
+        },
+        {
+          "metric": "specificity",
+          "value": 0.836,
+          "ci": [
+            0.829,
+            0.842
+          ],
+          "n": 13960
+        }
+      ],
+      "adequate": true,
+      "limitations": [
+        "retrospective",
+        "ECGs paired without pacing present"
+      ],
+      "anchors": [
+        {
+          "id": "an.design",
+          "source": "research/feasibility/fixtures/fda/K232699_summary_text.txt",
+          "sha256": "84425caf19cdb1f4ea15cc9092ce9355a58f68e5851c4408ded9eef592720582",
+          "quote": "validated in a retrospective study of 16,000 patient records across 4 health systems across the United States",
+          "pdfPage": 6,
+          "printedPage": "3 of 9",
+          "occurrences": 1
+        },
+        {
+          "id": "an.pacing",
+          "source": "research/feasibility/fixtures/fda/K232699_summary_text.txt",
+          "sha256": "84425caf19cdb1f4ea15cc9092ce9355a58f68e5851c4408ded9eef592720582",
+          "quote": "(without pacing present)",
+          "pdfPage": 6,
+          "printedPage": "3 of 9",
+          "occurrences": 1
+        },
+        {
+          "id": "an.perf",
+          "source": "research/feasibility/fixtures/fda/K232699_summary_text.txt",
+          "sha256": "84425caf19cdb1f4ea15cc9092ce9355a58f68e5851c4408ded9eef592720582",
+          "quote": "sensitivity of 84.5% (95% CI of 82.2% to 86.6%), a specificity of 83.6% (95% CI of 82.9% to 84.2%)",
+          "pdfPage": 7,
+          "printedPage": "4 of 9",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.id.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:DEN180001",
+        "versions": [
+          "2.0.0"
+        ],
+        "population": {
+          "conditions": [
+            "diabetes mellitus"
+          ],
+          "exclusions": [
+            "previously diagnosed with diabetic retinopathy"
+          ]
+        },
+        "settings": [
+          "primary_care"
+        ],
+        "purpose": "dr_screening_detection"
+      },
+      "results": [],
+      "adequate": true,
+      "limitations": [
+        "the indication says 'adults' and gives no age number"
+      ],
+      "anchors": [
+        {
+          "id": "id.ifu",
+          "source": "research/feasibility/fixtures/fda/DEN180001_summary_text.txt",
+          "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5",
+          "quote": "IDx-DR is indicated for use by health care providers to automatically detect more than mild diabetic retinopathy (mtmDR) in adults diagnosed with diabetes who have not been previously diagnosed with diabetic retinopathy. IDx-DR is indicated for use with the Topcon NW400.",
+          "pdfPage": 1,
+          "printedPage": "1 of 13",
+          "occurrences": 1
+        },
+        {
+          "id": "id.label",
+          "source": "research/feasibility/fixtures/fda/DEN180001_summary_text.txt",
+          "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5",
+          "quote": "The device labeling is for primary care clinics and stable visually asymptomatic patients",
+          "pdfPage": 9,
+          "printedPage": "9 of 13",
+          "occurrences": 1
+        },
+        {
+          "id": "id.version",
+          "source": "research/feasibility/fixtures/fda/DEN180001_summary_text.txt",
+          "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5",
+          "quote": "Software version IDx-DR 2.0.0 US was identified as having a major level of concern",
+          "pdfPage": 3,
+          "printedPage": "3 of 13",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.id.study",
+      "assertionType": "study",
+      "scope": {
+        "product": "device:fda:DEN180001",
+        "versions": [
+          "2.0.0"
+        ],
+        "population": {
+          "age": {
+            "min": 22
+          },
+          "conditions": [
+            "diabetes mellitus"
+          ],
+          "exclusions": [
+            "previously diagnosed with diabetic retinopathy"
+          ]
+        },
+        "settings": [
+          "primary_care"
+        ],
+        "purpose": "dr_screening_detection"
+      },
+      "results": [
+        {
+          "metric": "mtmDR_sensitivity",
+          "value": 0.874,
+          "ci": [
+            0.819,
+            0.929
+          ],
+          "n": 198
+        }
+      ],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "id.pivotal",
+          "source": "research/feasibility/fixtures/fda/DEN180001_summary_text.txt",
+          "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5",
+          "quote": "IDx conducted a pivotal clinical study with 900 patients who were enrolled at 10 primary care sites. The target population was asymptomatic persons, ages 22 and older",
+          "pdfPage": 5,
+          "printedPage": "5 of 13",
+          "occurrences": 1
+        },
+        {
+          "id": "id.sens",
+          "source": "research/feasibility/fixtures/fda/DEN180001_summary_text.txt",
+          "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5",
+          "quote": "observed sensitivity was at 87.4% (95%CI, 81.9% - 92.9%)",
+          "pdfPage": 7,
+          "printedPage": "7 of 13",
+          "occurrences": 1
+        },
+        {
+          "id": "id.spec",
+          "source": "research/feasibility/fixtures/fda/DEN180001_summary_text.txt",
+          "sha256": "ec5175afb062fc1b934ae7fbf4818f0258cf36339242e96e918d4a54b8b0dea5",
+          "quote": "observed specificity was 89.5% (95% CI, 86.9%-93.1%)",
+          "pdfPage": 7,
+          "printedPage": "7 of 13",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "id": "ev.cp.fda",
+      "assertionType": "authorization",
+      "scope": {
+        "product": "device:fda:DEN190040",
+        "population": {
+          "age": {
+            "min": 18
+          }
+        },
+        "purpose": "echo_image_acquisition_guidance"
+      },
+      "results": [],
+      "adequate": true,
+      "anchors": [
+        {
+          "id": "cp.ifu",
+          "source": "research/feasibility/fixtures/fda/DEN190040_summary_text.txt",
+          "sha256": "956337bdb6365bfff8c728399a13cca5d73b477b87973cab7bded395e6065cad",
+          "quote": "Caption Guidance software is indicated for use in two-dimensional transthoracic echocardiography (2D-TTE) for adult patients, specifically in the acquisition of the following standard views",
+          "pdfPage": 1,
+          "printedPage": null,
+          "occurrences": 1
+        },
+        {
+          "id": "cp.study",
+          "source": "research/feasibility/fixtures/fda/DEN190040_summary_text.txt",
+          "sha256": "956337bdb6365bfff8c728399a13cca5d73b477b87973cab7bded395e6065cad",
+          "quote": "A minimum of eight (8) RNs were trained and evaluated on their performance to acquire a 10-view 2D-TTE protocol.",
+          "pdfPage": 5,
+          "printedPage": "5 of 12",
+          "occurrences": 1
+        }
+      ]
+    }
+  ]
+}
