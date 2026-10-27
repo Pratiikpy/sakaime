@@ -20,7 +20,7 @@ import type { Dimension } from "../schemas/index.ts";
  */
 
 /** Bump when any rule's behaviour changes. Part of every Finding as `ruleVersion`. */
-export const COMPILER_VERSION = "sakaime-compiler@1.1.0";
+export const COMPILER_VERSION = "sakaime-compiler@1.2.0";
 
 export type RuleTag = "deterministic" | "flag";
 
@@ -290,6 +290,16 @@ export const RULES: readonly Rule[] = [
     summary:
       "Authorization defines the authorized use, a study defines measured performance, a requirement is the hospital's own, a vendor record is only a claim. A study never widens an authorization, an authorization never supplies a measured result, and a vendor record never supports.",
     tag: "deterministic",
+    basis: "design-inference",
+    citations: [],
+  }),
+  r({
+    id: "SAK-REGULATOR-BOUND",
+    name: "The regulator's summary bounds the claim where the authorization is silent",
+    summary:
+      "A study-typed item taken from the regulator's decision summary (for example the age floor of the analysed population) bounds the claim on a dimension the authorization records leave open, and on the open part of the population. It narrows and never widens what an authorization states; a registry entry or a publication never bounds, so it cannot make a claim wider than the regulator's record contained.",
+    tag: "deterministic",
+    dimension: "population",
     basis: "design-inference",
     citations: [],
   }),

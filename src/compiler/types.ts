@@ -25,6 +25,8 @@ export interface Outcome<V> {
   pending?: boolean;
   /** The terms a reviewer must place, when `pending`. */
   term?: string;
+  /** A request a vendor can act on, when the dimension knows more than the generic wording does. */
+  request?: string;
 }
 
 /** How one dimension is read from a claim and from an evidence item, and how two values are compared. */
@@ -44,6 +46,8 @@ export interface Ops<V> {
   /** True when two layers have nothing in common on this dimension. */
   isEmpty(v: V): boolean;
   render(v: V): string;
+  /** A short rendering of `v` for a sentence that quotes two values side by side: only the parts that matter for `claimed`. Defaults to `render`. */
+  brief?(v: V, claimed?: V): string;
   /** The claimed scope restricted to `v`, as fields of a Scope. */
   toScope(v: V): Partial<Scope>;
 }

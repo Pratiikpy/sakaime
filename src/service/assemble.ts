@@ -12,6 +12,7 @@ import type { CaseSpec } from "./cases.ts";
 import type { ExtractedRecord } from "./evidence.ts";
 import { digestOf, mergeDigests, type EvidenceDigest } from "./requirements.ts";
 import { alphaId } from "./util.ts";
+import { REGULATOR_RECORD_NOTE } from "../compiler/index.ts";
 import type { CaseWorld, WorldFact } from "./world.ts";
 
 export interface AdmittedRecord {
@@ -79,9 +80,13 @@ export async function assembleEvidence(input: AssembleInput): Promise<AssembledE
       // The reader's id is a hash of subject and type, so two records of one type would collide. Name the item for its record.
       const id = `ev-${ex.stored.kind}-${alphaId(ex.stored.id)}-${raw.assertionType}`;
       const anchorIds = [...new Set([...raw.anchorIds, ...identity])];
+      // What the regulator's summary reports about the pivotal study (its analysed population, say) is marked, so the compiler can tell it
+      // from a registry entry or a paper about the same study: the regulator record bounds the claim, the others only cover it.
+      const fromRegulator = ex.stored.kind === "fda-summary" && raw.assertionType === "study";
+      const marked = fromRegulator ? [...raw.limitations, `${REGULATOR_RECORD_NOTE} ${spec.submission}`] : raw.limitations;
       const item: EvidenceItem = attribution
         ? { ...raw, id, anchorIds, scope: { ...raw.scope, product: subject }, limitations: [...raw.limitations, `attributed to ${subject} through confirmed link ${attribution.linkId}`] }
-        : { ...raw, id, anchorIds };
+        : { ...raw, id, anchorIds, limitations: marked };
       items.push(item);
       itemRecord.set(id, ex.stored.id);
       const used = kept.filter((k) => item.anchorIds.includes(k.anchor.id) && k.assertion.assertionType === item.assertionType);

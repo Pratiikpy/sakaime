@@ -12,6 +12,7 @@
 import { EvidenceItemSchema, type EvidenceItem, type EvidenceResult } from "../schemas/scope.ts";
 import type { Scope } from "../schemas/scope.ts";
 import { formatPurposeExclusion } from "../compiler/limits.ts";
+import { REGULATOR_RECORD_NOTE } from "../compiler/pools.ts";
 import { hashOf } from "../util/canonical.ts";
 import { isUsable } from "./verify.ts";
 import type { CheckedAssertion } from "./types.ts";
@@ -33,6 +34,12 @@ export interface ConversionOptions {
    * the study's timing means. Off by default; when on, the item says so in its limitations. A study item with its own date keeps it.
    */
   datesFromSameDocument?: boolean;
+  /**
+   * The items come from the regulator's own decision summary of this submission. Study items are then marked as taken from it, so the
+   * compiler can tell what the regulator reports about its pivotal study (which bounds a claim where the authorization is silent) from a
+   * registry entry or a paper about the same study (which only covers a claim).
+   */
+  regulatorSummary?: string;
 }
 
 export interface ConversionNote {
@@ -239,7 +246,7 @@ export function toEvidenceItems(kept: CheckedAssertion[], options: ConversionOpt
       assertionType: g.type,
       scope,
       results,
-      limitations: distinct(limitations),
+      limitations: distinct(g.type === "study" && options.regulatorSummary ? [...limitations, `${REGULATOR_RECORD_NOTE} ${options.regulatorSummary}`] : limitations),
       anchorIds: [...used],
     });
     items.push(item);

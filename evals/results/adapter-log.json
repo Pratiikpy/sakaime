@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "adapter-log",
-    "startedAt": "2026-10-27T13:50:16.983Z",
+    "startedAt": "2026-10-27T14:35:27.583Z",
     "node": "v24.20.0",
     "seed": 0,
     "class": [
@@ -18,8 +18,8 @@
       "revision": "r0",
       "change": "the compiler's own default dependencies (authorization, plus a study when the claim states a number)",
       "evidence": "extracted",
-      "exact": "8/26",
-      "acceptable": "10/26",
+      "exact": "14/26",
+      "acceptable": "16/26",
       "falseSupported": 0
     },
     {

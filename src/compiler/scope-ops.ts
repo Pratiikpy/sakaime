@@ -116,7 +116,42 @@ interface Part {
   ambiguousWhy?: string;
   /** Phrases the code could not place against the evidence: a reviewer must. */
   unplaced?: string[];
+  /** What a vendor would have to supply, and how the claim could be restated, for a part that is not contained. */
+  ask?: { need: string; restate: string };
 }
+
+/** Words a cut or a normalised phrase must not end on ("... drug or"). */
+const DANGLING = new Set(["or", "and", "of", "the", "in", "for", "to", "with", "than", "a", "an", "by", "on", "at"]);
+
+/** A group of people as one short phrase: whole words, no dangling connector, at most `max` characters. */
+export function tidyPhrase(phrase: string, max = 64): string {
+  const words = phrase.replace(/[;,.\s]+$/g, "").split(/\s+/).filter(Boolean);
+  let out = "";
+  let cut = false;
+  const kept: string[] = [];
+  for (const w of words) {
+    if ((out ? `${out} ${w}` : w).length > max) {
+      cut = true;
+      break;
+    }
+    out = out ? `${out} ${w}` : w;
+    kept.push(w);
+  }
+  while (kept.length > 1 && DANGLING.has(kept[kept.length - 1]!.toLowerCase())) {
+    kept.pop();
+    cut = true;
+  }
+  return `${kept.join(" ")}${cut ? " ..." : ""}`;
+}
+
+/** At most `n` phrases, tidied, then "and K more" when there are others. */
+export function shortPhrases(set: Iterable<string>, n = 3): string {
+  const all = sortedUnique(set);
+  const shown = all.slice(0, n).map((p) => tidyPhrase(p));
+  return `${shown.join("; ")}${all.length > n ? `; and ${all.length - n} more` : ""}`;
+}
+
+const joinAnd = (xs: readonly string[]): string => (xs.length <= 1 ? (xs[0] ?? "") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`);
 
 function agePart(c: Interval[] | undefined, e: Interval[] | undefined): Part | undefined {
   if (!c && !e) return undefined;
@@ -133,6 +168,7 @@ function agePart(c: Interval[] | undefined, e: Interval[] | undefined): Part | u
       detail: `The claim is for ${renderAge(claimed)}; the evidence covers ${renderAges(e)}, which does not overlap it.`,
       rules: ["R09-POP-DISJOINT"],
       explicit: [{ ruleId: "R10-POP-LABEL-EXCLUDED", text: `the record covers ${renderAges(e)}; the claimed ${renderAge(claimed)} lies outside it` }],
+      ask: { need: renderAge(claimed), restate: `for ${renderAges(e)}` },
     };
   }
   const gap = gapsOf(claimed, e).map(renderGap).join(" and ");
@@ -142,6 +178,7 @@ function agePart(c: Interval[] | undefined, e: Interval[] | undefined): Part | u
     detail: `The evidence covers ${renderAges(e)}; the claim also asks for ${gap}.`,
     rules: ["R08-POP-SUBSET"],
     explicit: [{ ruleId: "R10-POP-LABEL-EXCLUDED", text: `the record covers ${renderAges(e)}; the claim extends to ${gap}` }],
+    ask: { need: gap, restate: `to cover only ${renderAges(pieces)}` },
   };
   if (pieces.length === 1) part.apply = (n) => void (n.age = pieces);
   else part.ambiguousWhy = `The evidence covers the claimed ages in ${pieces.length} separate pieces (${renderAges(pieces)}), so no single narrower age range can be stated.`;
@@ -194,10 +231,12 @@ function conditionsPart(c: Set<string> | undefined, e: Set<string> | undefined, 
       detail: `The claim is for ${list(c)}; the evidence covers ${list(stated)}${excluded.size ? ` and excludes ${list(excluded)}` : ""}.`,
       rules: ["R09-POP-DISJOINT"],
       explicit,
+      ask: { need: list(c), restate: `for ${list(stated)}` },
     };
   }
   return {
     relation: "PARTIAL",
+    ask: { need: list(uncovered), restate: `to cover only ${list(covered)}` },
     gap: list(uncovered),
     detail: `The evidence covers ${list(covered)} of the claimed ${list(c)}; it does not cover ${list(uncovered)}.`,
     rules: ["R08-POP-SUBSET"],
@@ -244,8 +283,28 @@ function exclusionsPart(c: PopV, e: PopV): Part | undefined {
     detail: `The evidence excluded ${list(unhandled)}; the claim does not exclude ${unhandled.size === 1 ? "that group" : "those groups"}.`,
     rules: ["R08-POP-SUBSET"],
     explicit: [],
+    ask: { need: `the ${unhandled.size} group${unhandled.size === 1 ? "" : "s"} the evidence excluded (${shortPhrases(unhandled)})`, restate: `to exclude ${unhandled.size === 1 ? "that group" : "those groups"}` },
     apply: (n) => void (n.exclusions = unionSets(n.exclusions ?? new Set(), unhandled)),
   };
+}
+
+/** The parts of a population value that matter when it is set beside a claim: the ages and conditions that do not contain the claim's, and the excluded groups it does not exclude. */
+function briefPop(v: PopV, claimed?: PopV): string {
+  const parts: string[] = [];
+  const claimedAge = claimed?.age?.[0];
+  if (v.age && (!claimedAge || !listContains(v.age, claimedAge))) parts.push(renderAges(v.age));
+  if (v.conditions && claimed?.conditions && [...claimed.conditions].some((x) => relateToSet(x, v.conditions!).relation !== "equal" && relateToSet(x, v.conditions!).relation !== "narrower")) parts.push(`conditions: ${list(v.conditions)}`);
+  if (v.exclusions && v.exclusions.size > 0) {
+    const open = [...v.exclusions].filter((x) => {
+      const r = relateToSet(x, claimed?.exclusions ?? new Set<string>()).relation;
+      return r !== "equal" && r !== "narrower";
+    });
+    if (open.length > 0) parts.push(`except ${open.length} group${open.length === 1 ? "" : "s"} the claim does not exclude`);
+  }
+  if (parts.length > 0) return parts[0]!.startsWith("except") ? `everyone ${parts.join("; ")}` : parts.join("; ");
+  if (v.age) return renderAges(v.age);
+  if (v.conditions) return `conditions: ${list(v.conditions)}`;
+  return "the population as stated";
 }
 
 function renderPop(v: PopV): string {
@@ -337,6 +396,11 @@ export const populationOps: Ops<PopV> = {
     const detail = parts.map((p) => p.detail).join(" ");
     const out: Outcome<PopV> = { relation, detail, ruleIds, flags: [], explicit };
     if (gap) out.gap = gap;
+    // One sentence a vendor can act on: what to supply for each part that falls short, or how to restate the claim.
+    const asks = parts.filter((p) => (p.relation === "PARTIAL" || p.relation === "DISJOINT") && p.ask).map((p) => p.ask!);
+    if ((relation === "PARTIAL" || relation === "DISJOINT") && asks.length > 0) {
+      out.request = `From the vendor: performance results for ${joinAnd(asks.map((a) => a.need))}, or restate the claim ${joinAnd(asks.map((a) => a.restate))}.`;
+    }
     if (relation === "UNKNOWN") {
       const terms = sortedUnique(parts.flatMap((p) => p.unplaced ?? []));
       // UNKNOWN because a wording could not be placed, not because the evidence is silent
@@ -367,6 +431,7 @@ export const populationOps: Ops<PopV> = {
   },
   isEmpty: (v) => v.age?.length === 0 || v.conditions?.size === 0,
   render: renderPop,
+  brief: briefPop,
   toScope: popToScope,
 };
 

@@ -26,6 +26,16 @@ export function roleOf(type: AssertionType, deps: ReturnType<typeof dependencies
   return deps.required.has(type) ? "required" : deps.corroborating.has(type) ? "corroborating" : "optional";
 }
 
+/**
+ * An evidence item the service takes from the regulator's decision summary but types as a study, because it reports what the pivotal
+ * study analysed (for example "the analysis population was aged 22 and older"). The summary is the regulator's own record, and the
+ * authority matrix (docs/02 section 4) makes the regulator record authoritative for the population and setting the authorization
+ * covers. The marker is a limitation line on the item, so it is part of the dossier's evidence and the verifier's recompute sees it.
+ */
+export const REGULATOR_RECORD_NOTE = "taken from the regulator's decision summary";
+
+export const isRegulatorRecord = (item: EvidenceItem): boolean => item.limitations.some((l) => l.startsWith(REGULATOR_RECORD_NOTE));
+
 export interface Pools {
   claim: Claim;
   options: ResolvedOptions;
@@ -38,6 +48,11 @@ export interface Pools {
   /** Records that establish scope: usable, adequate, required type, same product as the claim, authorization in force. */
   supportAuth: EvidenceItem[];
   supportStudy: EvidenceItem[];
+  /**
+   * Study-typed items taken from the regulator's decision summary (see REGULATOR_RECORD_NOTE). Where the authorization is silent on a
+   * dimension they bound the claim, as the authorization would. A registry entry or a publication never does.
+   */
+  regulatorStudy: EvidenceItem[];
   /** Authorization records for the timing dimension: as supportAuth but not filtered by the claimed dates. */
   windowAuth: EvidenceItem[];
   /** Authorization records whose explicit limits can contradict the claim, whatever role the claim gives the type. */
@@ -95,6 +110,7 @@ export function buildPools(prep: Prepared): Pools {
     windowAuth: requiredOnly(of("authorization"), "authorization").filter(adequate).filter(sameProduct),
     supportAuth: requiredOnly(of("authorization"), "authorization").filter(adequate).filter(sameProduct).filter(inForce),
     supportStudy: requiredOnly(of("study"), "study").filter(adequate).filter(sameProduct),
+    regulatorStudy: of("study").filter(adequate).filter(sameProduct).filter(isRegulatorRecord),
     limitWindowAuth: of("authorization").filter(adequate).filter(sameProduct),
     limitAuth: of("authorization").filter(adequate).filter(sameProduct).filter(inForce),
     watchStudy: of("study").filter(sameProduct),

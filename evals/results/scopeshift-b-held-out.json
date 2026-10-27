@@ -1,7 +1,7 @@
 {
   "meta": {
     "suite": "scopeshift-b",
-    "startedAt": "2026-10-27T13:49:48.113Z",
+    "startedAt": "2026-10-27T14:34:53.930Z",
     "node": "v24.20.0",
     "seed": 20261027,
     "class": [
@@ -3419,7 +3419,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3439,7 +3439,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3459,7 +3459,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3498,7 +3498,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3518,7 +3518,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3538,7 +3538,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
-            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence names no target condition.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3559,7 +3559,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "DISJOINT: The claim is for version 2.5.0; the evidence covers version 3.1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3679,7 +3679,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record alone the claim is only partly covered; against the studies alone it is only partly covered.",
+            "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record and regulator decision summary alone the claim is only partly covered; against the studies alone it is only partly covered.",
             "setting": "CONTAINED: The claimed care setting (inpatient ward) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3826,7 +3826,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3846,7 +3846,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3866,7 +3866,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K253801).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "PARTIAL: The evidence covers detection aid; the claim also asks for diagnosis outside detection aid, which the evidence does not establish.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3905,7 +3905,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3925,7 +3925,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3945,7 +3945,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "CONTAINED: The claimed version (3.1.0) is among the versions the evidence covers (3.1.0).",
-            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence names no target condition.",
+            "population": "UNKNOWN: The claim states no age range, so age coverage cannot be judged. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "DISJOINT: The claim is for monitoring; the evidence concerns detection aid, which does not contain it.",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -3966,7 +3966,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K252360).",
             "version": "DISJOINT: The claim is for version 2.5.0; the evidence covers version 3.1.0. Nothing in the evidence speaks for the claimed version. Against the authorization record alone the claim is not covered; against the studies alone it is not covered.",
-            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition.",
+            "population": "UNKNOWN: The evidence covers ages 18 and above; the claim (ages 18 and above) lies inside it. The evidence names no target condition. Against the regulator decision summary alone the claim is undecided; against the studies alone it is undecided.",
             "setting": "UNKNOWN: The claim does not state a care setting, so nothing can be concluded about it.",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",
@@ -4086,7 +4086,7 @@
           "dimensions": {
             "product": "CONTAINED: The evidence concerns the claimed product (device:fda:K250680).",
             "version": "UNKNOWN: The claim does not state a software version, so nothing can be concluded about it.",
-            "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record alone the claim is only partly covered; against the studies alone it is only partly covered.",
+            "population": "PARTIAL: The evidence covers ages 18 and above; the claim also asks for ages 12 to below 18. Against the authorization record and regulator decision summary alone the claim is only partly covered; against the studies alone it is only partly covered.",
             "setting": "CONTAINED: The claimed care setting (inpatient ward) lies inside what the evidence establishes (hospital (any unit)).",
             "purpose": "CONTAINED: The claimed purpose (detection aid) lies inside what the evidence establishes (detection aid).",
             "timing": "UNKNOWN: The claim does not state a date, so nothing can be concluded about it.",

@@ -31,6 +31,12 @@ function fold<V>(ops: Ops<V>, items: readonly EvidenceItem[]): Folded<V> {
 export interface Layers {
   auth: readonly EvidenceItem[];
   study: readonly EvidenceItem[];
+  /**
+   * Study-typed items taken from the regulator's decision summary. They bound the claim where the authorization records are silent
+   * on the dimension (and, for the population, on the part of it they leave open, such as an age floor); they never widen what an
+   * authorization states. Registry entries and publications are in `study` only.
+   */
+  regulator: readonly EvidenceItem[];
   /** Authorization records whose explicit limits can contradict the claim. */
   limit: readonly EvidenceItem[];
   /**
@@ -46,8 +52,8 @@ const STUDY_MUST_SPEAK: readonly string[] = ["product", "version", "population",
 export function layersFor(pools: Pools, dimension: string): Layers {
   const studyMustSpeak = pools.deps.required.has("study") && STUDY_MUST_SPEAK.includes(dimension);
   return dimension === "product"
-    ? { auth: pools.productAuth, study: pools.productStudy, limit: [], studyMustSpeak }
-    : { auth: pools.supportAuth, study: pools.supportStudy, limit: pools.limitAuth, studyMustSpeak };
+    ? { auth: pools.productAuth, study: pools.productStudy, regulator: [], limit: [], studyMustSpeak }
+    : { auth: pools.supportAuth, study: pools.supportStudy, regulator: pools.deps.required.has("authorization") ? pools.regulatorStudy : [], limit: pools.limitAuth, studyMustSpeak };
 }
 
 /**
@@ -58,18 +64,37 @@ export function layersFor(pools: Pools, dimension: string): Layers {
  * "a study can never widen an authorization" is enforced; a layer that is silent on the dimension does not restrict it,
  * because silence in a record is not a prohibition and is also never read as permission.
  */
+/**
+ * What bounds the claim on a dimension. The authorization records bound it where they speak. The regulator's own summary of what the
+ * pivotal study analysed bounds it where they are silent; for the population, which is several parts at once, part by part (the
+ * indications give the condition, the summary gives the age floor). It can only narrow what the authorization states, never widen it:
+ * where both state a dimension other than the population, the authorization alone is the bound.
+ */
+function boundOf<V>(ops: Ops<V>, A: V | undefined, R: V | undefined): { v: V | undefined; label: string } {
+  if (A === undefined && R === undefined) return { v: undefined, label: "" };
+  if (R === undefined) return { v: A, label: "authorization record" };
+  if (A === undefined) return { v: R, label: "regulator decision summary" };
+  if (ops.dimension === "population") return { v: ops.meet(A, R), label: "authorization record and regulator decision summary" };
+  return { v: A, label: "authorization record" };
+}
+
 export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): DimResult {
   const dimension = ops.dimension;
   const noun = DIMENSION_NOUN[dimension];
   const c = ops.claim(use);
   const A = fold(ops, layers.auth);
+  const R = fold(ops, layers.regulator);
   const S = fold(ops, layers.study);
-  const used = [...A.used, ...S.used];
+  const bound = boundOf(ops, A.v, R.v);
+  const used = [...A.used, ...(R.v !== undefined && bound.label.includes("regulator") ? R.used : []), ...S.used];
   const evidenceIds = sortedUnique(used.map((i) => i.id));
   const anchorIds = sortedUnique(used.flatMap((i) => i.anchorIds));
+  const brief = (v: V): string => (ops.brief ? ops.brief(v, c) : ops.render(v));
+  const limit = (label: string): string => (label.includes(" and ") ? "limit" : "limits");
 
   const named = [
     A.v !== undefined ? `authorization record: ${ops.render(A.v)}` : undefined,
+    R.v !== undefined && bound.label.includes("regulator") ? `regulator decision summary: ${ops.render(R.v)}` : undefined,
     S.v !== undefined ? `study: ${ops.render(S.v)}` : undefined,
   ].filter((x): x is string => x !== undefined);
   const established = named.length ? named.join("; ") : undefined;
@@ -98,7 +123,7 @@ export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): Dim
   explicit.push(...stated.explicit);
 
   // A study silent on the dimension leaves the results unattached, unless the authorization already rules the claim out.
-  if (layers.studyMustSpeak && S.v === undefined && A.v !== undefined && ops.relate(c, A.v).relation !== "DISJOINT") {
+  if (layers.studyMustSpeak && S.v === undefined && bound.v !== undefined && ops.relate(c, bound.v).relation !== "DISJOINT") {
     return {
       dimension,
       evidenceIds,
@@ -115,7 +140,7 @@ export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): Dim
     };
   }
 
-  const defined = [A.v, S.v].filter((x): x is V => x !== undefined);
+  const defined = [bound.v, S.v].filter((x): x is V => x !== undefined);
   if (defined.length === 0) {
     return {
       dimension,
@@ -136,13 +161,32 @@ export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): Dim
   const out: Outcome<V> = ops.relate(c, effective);
 
   let reason = out.detail;
-  if (A.v !== undefined && S.v !== undefined && out.relation !== "CONTAINED") {
-    const relA = ops.relate(c, A.v).relation;
+  // Which source limits the claim, with both values quoted: the bound (authorization, or the regulator's summary) or the studies.
+  let limitedBy = "";
+  if (bound.v !== undefined && S.v !== undefined && out.relation !== "CONTAINED") {
+    const relA = ops.relate(c, bound.v).relation;
     const relS = ops.relate(c, S.v).relation;
     if (ops.isEmpty(effective)) {
-      reason = `The authorization record (${ops.render(A.v)}) and the studies (${ops.render(S.v)}) have no ${noun} in common, and the claim is for ${claimed}.`;
+      reason = `The ${bound.label} (${ops.render(bound.v)}) and the studies (${ops.render(S.v)}) have no ${noun} in common, and the claim is for ${claimed}.`;
     }
-    reason += ` Against the authorization record alone the claim is ${REL_WORDS[relA]}; against the studies alone it is ${REL_WORDS[relS]}.`;
+    reason += ` Against the ${bound.label} alone the claim is ${REL_WORDS[relA]}; against the studies alone it is ${REL_WORDS[relS]}.`;
+    // The bound can be two records (the indications and the regulator's summary, for the population): name the one that limits the claim.
+    let who = { label: bound.label, v: bound.v };
+    if (bound.label.includes(" and ") && A.v !== undefined && R.v !== undefined) {
+      // Silence is not a limit: a record limits the claim only if it narrows it, that is, the claim cut down to the record is not the claim.
+      const limits = (v: V): boolean => ops.render(ops.meet(v, c)) !== ops.render(c);
+      const byAuthorization = limits(A.v);
+      const bySummary = limits(R.v);
+      if (byAuthorization && !bySummary) who = { label: "authorization record", v: A.v };
+      else if (bySummary && !byAuthorization) who = { label: "regulator decision summary", v: R.v };
+    }
+    if (relA !== "CONTAINED" && relS === "CONTAINED") {
+      limitedBy = `The ${who.label} ${limit(who.label)} the ${noun} to ${brief(who.v)}; the study records state ${brief(S.v)}, which does not widen it.`;
+    } else if (relA !== "CONTAINED") {
+      limitedBy = `The ${who.label} ${limit(who.label)} the ${noun} to ${brief(who.v)}; the study records state ${brief(S.v)}.`;
+    } else if (relS !== "CONTAINED") {
+      limitedBy = `The study records limit the ${noun} to ${brief(S.v)}; the ${bound.label} ${bound.label.includes(" and ") ? "do" : "does"} not limit it.`;
+    }
   }
 
   const result: DimResult = {
@@ -153,23 +197,26 @@ export function evaluateGeneric<V>(ops: Ops<V>, use: Scope, layers: Layers): Dim
     evidenceIds,
     anchorIds,
     reason,
-    ruleIds: out.ruleIds,
+    ruleIds: out.relation !== "CONTAINED" && bound.label.includes("regulator") ? sortedUnique([...out.ruleIds, "SAK-REGULATOR-BOUND"]) : out.ruleIds,
     flags: [...out.flags, ...stated.flags],
     explicit,
     pending: out.pending ?? false,
   };
   if (out.relation === "PARTIAL" && out.narrower !== undefined) result.narrower = ops.toScope(out.narrower);
   if (out.relation !== "CONTAINED") {
-    result.request = genericRequest({
-      dimension,
-      relation: out.relation,
-      ...(out.pending ? { cause: "pending" as const } : {}),
-      claimed,
-      established: established ?? "",
-      ...(out.gap ? { gap: out.gap } : {}),
-      ...(out.narrower !== undefined ? { narrower: ops.render(out.narrower) } : {}),
-      ...(out.term ? { term: out.term } : {}),
-    });
+    const ask =
+      out.request ??
+      genericRequest({
+        dimension,
+        relation: out.relation,
+        ...(out.pending ? { cause: "pending" as const } : {}),
+        claimed,
+        established: established ?? "",
+        ...(out.gap ? { gap: out.gap } : {}),
+        ...(out.narrower !== undefined ? { narrower: ops.render(out.narrower) } : {}),
+        ...(out.term ? { term: out.term } : {}),
+      });
+    result.request = limitedBy && !out.pending ? `${ask} ${limitedBy}` : ask;
   }
   return result;
 }

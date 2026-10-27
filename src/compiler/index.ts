@@ -9,6 +9,9 @@
  *   - On each scope dimension the records of one type combine by union (what any of them establishes). Where authorization and
  *     study both state the dimension, the claim must lie inside both (their meet), so a study never widens an authorization.
  *     An authorization that is silent restricts nothing; a study that is silent leaves its results unattached and the dimension UNKNOWN.
+ *     One exception to "a study never bounds": a study-typed item taken from the regulator's own decision summary (it carries
+ *     REGULATOR_RECORD_NOTE) bounds the claim where the authorization is silent, because the regulator record is the authority for the
+ *     population and setting reviewed. A registry entry or a publication never bounds, however many of them cover the claim.
  *   - Only study records supply measured results. Results at another operating point are not comparable.
  *   - Only the evidence types the claim declares required can support it. Other types are inspected for contrary material and
  *     explicit authorization limits only. Records of a source that is lost, empty or drifted are not read at all.
@@ -28,6 +31,7 @@ export { staleFindings, supersede } from "./impact.ts";
 export { describeAssessment, summarise } from "./explain.ts";
 export { formatPurposeExclusion, parsePurposeExclusion, type PurposeExclusion, type PurposeExclusionStrength } from "./limits.ts";
 export { CONDITION_SYNONYMS, NARROWING_MODIFIERS, normCondition, relateCondition, type ConditionRelation, type SynonymEntry } from "./conditions.ts";
+export { REGULATOR_RECORD_NOTE } from "./pools.ts";
 export { CompilerInputError, RuleVersionMismatchError, CompileOptionsSchema, type CompileOptions } from "./input.ts";
 export { CompilerInvariantError } from "./engine.ts";
 export { COMPILER_VERSION, RULES, RULE_BY_ID, UNIMPLEMENTED_REGISTRY_RULES, ruleOf, type Rule, type RuleTag } from "./rules.ts";

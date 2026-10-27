@@ -180,7 +180,7 @@ export async function runV(c: EvalCase, retrieval: Retrieval, cfg: VConfig, hand
       const absentFields = Object.entries(fda.fields)
         .filter(([, v]) => v.status === "absent")
         .map(([k]) => k);
-      items.push(...toEvidenceItems(fda.extraction.kept, { absentFields, versionsFromSameDocument: ADAPTER.versionsFromSameDocument, datesFromSameDocument: ADAPTER.datesFromSameDocument }).items);
+      items.push(...toEvidenceItems(fda.extraction.kept, { absentFields, versionsFromSameDocument: ADAPTER.versionsFromSameDocument, datesFromSameDocument: ADAPTER.datesFromSameDocument, regulatorSummary: retrieval.fda.id }).items);
       usedRecords.push(retrieval.fda.id);
       for (const cand of retrieval.candidates) {
         const link = cfg.identity === "off" || cand.verdict === "LINK";

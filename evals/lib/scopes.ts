@@ -12,7 +12,7 @@ export async function authenticItems(id: string, part: "development" | "held-out
   const absent = Object.entries(r.fields)
     .filter(([, v]) => v.status === "absent")
     .map(([k]) => k);
-  const items = toEvidenceItems(r.extraction.kept, { absentFields: absent, versionsFromSameDocument: true }).items.map(normaliseExtracted);
+  const items = toEvidenceItems(r.extraction.kept, { absentFields: absent, versionsFromSameDocument: true, regulatorSummary: "the FDA decision summary" }).items.map(normaliseExtracted);
   const out: { auth?: EvidenceItem; study?: EvidenceItem } = {};
   const auth = items.find((i) => i.assertionType === "authorization");
   const study = items.find((i) => i.assertionType === "study");
