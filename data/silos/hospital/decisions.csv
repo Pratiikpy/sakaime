@@ -1,0 +1,4 @@
+decision_id,case_id,decision,rationale,decided_by,decided_on,provenance
+DEC-001,CASE-2026-009,PROCEED_TO_CLINICAL_REVIEW,Evidence scope covered the intended population and setting; the camera matched the authorization.,R-003,2026-06-02,CONSTRUCTED
+DEC-002,CASE-2026-016,NEEDS_EVIDENCE,No prospective evidence naming the triage setting was found in the submitted packet.,R-005,2026-10-08,CONSTRUCTED
+DEC-003,CASE-2026-018,ON_HOLD,Waiting for the vendor to state the software version covered by the cited study.,R-005,2026-10-10,CONSTRUCTED

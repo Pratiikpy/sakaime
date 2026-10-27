@@ -1,0 +1,7 @@
+submission_id,vendor_id,product_name,product_version_claimed,packet_id,received_date,regulator_submission_cited,status,provenance
+SUB-1001,V-001,EyeArt,2.1.0,PKT-EA-01,2026-09-14,K200667,under_review,CONSTRUCTED
+SUB-1002,V-003,Lunit INSIGHT CXR Triage,1.0,PKT-LU-01,2026-09-21,K211733,under_review,CONSTRUCTED
+SUB-1003,V-002,Viz LVO,1.11,PKT-VZ-01,2026-10-02,DEN170073,under_review,CONSTRUCTED
+SUB-1004,V-004,Transpara,1.7.2,PKT-TR-01,2026-10-05,K221347,under_review,CONSTRUCTED
+SUB-1005,V-005,IDx-DR,2.3,PKT-ID-01,2026-05-11,DEN180001,closed,CONSTRUCTED
+SUB-1006,V-006,BriefCase-Triage,3.0,PKT-BC-01,2026-10-12,K253265,under_review,CONSTRUCTED

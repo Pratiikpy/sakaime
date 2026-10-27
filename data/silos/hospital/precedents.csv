@@ -1,0 +1,4 @@
+precedent_id,scope_org,topic,statement,created_from_case,created_on,provenance
+PRE-01,HOSPITAL-A,triage_validation,This hospital requires prospective validation for triage tools.,CASE-2026-016,2026-10-08,CONSTRUCTED
+PRE-02,HOSPITAL-A,software_version,"Performance figures are accepted only where the software version is named in the regulator summary, the device record or the publication.",CASE-2026-018,2026-10-10,CONSTRUCTED
+PRE-03,HOSPITAL-A,camera_model,A camera not listed in the authorization needs a local bridging study before use.,CASE-2026-009,2026-06-02,CONSTRUCTED

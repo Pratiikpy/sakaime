@@ -1,0 +1,9 @@
+link_id,case_id,left_type,left_id,right_type,right_id,link_class,basis,confirmed_by,confirmed_on,provenance
+LNK-001,CASE-2026-014,fda_submission,K200667,ctgov_study,NCT03112005,CONFIRMED,"The 510(k) summary, section D.1 Clinical Testing, cites ClinicalTrials.gov ID NCT03112005 as the pivotal trial.",R-001,2026-09-17,CONSTRUCTED
+LNK-002,CASE-2026-014,ctgov_study,NCT03112005,pubmed_article,34779843,CONFIRMED,The abstract names NCT03112005 as the preregistration and names EyeArt software version 2.1.0.,R-001,2026-09-17,CONSTRUCTED
+LNK-003,CASE-2026-014,fda_submission,K200667,ctgov_study,NCT04302012,CANDIDATE,Same sponsor and product name; the registry record does not state a software version.,,,CONSTRUCTED
+LNK-004,CASE-2026-014,fda_submission,K200667,ctgov_study,NCT04984200,AMBIGUOUS,Same sponsor and product name; started after the clearance date and the version is not stated.,,,CONSTRUCTED
+LNK-005,CASE-2026-014,fda_submission,K200667,ctgov_study,NCT03078231,CANDIDATE,Pilot study of the same product name started before the pivotal trial; version not stated.,,,CONSTRUCTED
+LNK-006,CASE-2026-021,fda_submission,K200667,ctgov_study,NCT03112005,CONFIRMED,"The 510(k) summary, section D.1 Clinical Testing, cites ClinicalTrials.gov ID NCT03112005 as the pivotal trial.",R-001,2026-10-21,CONSTRUCTED
+LNK-007,CASE-2026-009,fda_submission,DEN180001,ctgov_study,NCT02963441,CONFIRMED,The De Novo summary cites the pivotal trial and the registry sponsor is the applicant.,R-003,2026-05-20,CONSTRUCTED
+LNK-008,CASE-2026-009,ctgov_study,NCT02963441,pubmed_article,31304320,CONFIRMED,The article reports the pivotal trial registered as NCT02963441.,R-003,2026-05-20,CONSTRUCTED

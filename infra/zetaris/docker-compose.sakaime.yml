@@ -1,0 +1,75 @@
+# Overlay for the unmodified Zetaris bundle compose file (infra/zetaris/bundle/docker-compose.yml).
+# It does three things: caps memory per service so a small Docker VM degrades inside one container instead of
+# killing neighbours, replaces the Spark defaults with a small-data profile, and adds the three Sakaime silos on the
+# same compose network so the Zetaris driver can reach them by service name.
+#
+# Run it through scripts/up.sh, which passes the project name, the project directory and the environment files.
+# Relative paths below resolve against the bundle directory (--project-directory), hence the ../../../ prefixes.
+
+services:
+  postgres:
+    mem_limit: 384m
+
+  driver:
+    # Heap is ZSPARK_DRIVER_MEM; the rest of the limit covers metaspace, thread stacks and Spark off-heap buffers.
+    mem_limit: 2304m
+    volumes:
+      - ../conf/spark-defaults.conf:/opt/spark/conf/spark-defaults.conf:ro
+
+  api:
+    mem_limit: 1152m
+
+  ui:
+    mem_limit: 256m
+    # The vendor file publishes the UI on every interface. It carries a login for the whole platform, so bind it to loopback.
+    ports: !override
+      - "127.0.0.1:${UI_PORT:-3300}:3000"
+
+  # Silo 1: the hospital review database (JDBC). Schema and rows come from data/silos/hospital.
+  hospital-db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    mem_limit: 192m
+    environment:
+      POSTGRES_USER: ${SAKAIME_HOSPITAL_PG_USER:-sakaime}
+      POSTGRES_PASSWORD: ${SAKAIME_HOSPITAL_PG_PASSWORD:?SAKAIME_HOSPITAL_PG_PASSWORD must be set}
+      POSTGRES_DB: hospital
+    volumes:
+      - hospital-pgdata:/var/lib/postgresql/data
+      - ../../../data/silos/hospital:/seed:ro
+    ports:
+      - "127.0.0.1:${SAKAIME_HOSPITAL_PG_PORT:-15433}:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U ${SAKAIME_HOSPITAL_PG_USER:-sakaime} -d hospital"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 5s
+
+  # Silo 2 and 3: an S3-compatible object store holding the registry snapshot CSV files, the vendor packet exports and
+  # the FDA summary PDFs. S3Mock keeps objects in memory, so scripts/seed.sh uploads them again after every start.
+  object-store:
+    image: adobe/s3mock:latest
+    restart: unless-stopped
+    mem_limit: 320m
+    environment:
+      COM_ADOBE_TESTING_S3MOCK_INITIAL_BUCKETS: sakaime-registry,sakaime-vendor,sakaime-documents
+      JAVA_TOOL_OPTIONS: -Xmx160m -Xss512k
+    ports:
+      - "127.0.0.1:${SAKAIME_S3_PORT:-19190}:9090"
+
+  # A small bounded JSON endpoint with nested arrays, for the REST-table gate. Serves recorded openFDA and
+  # ClinicalTrials.gov responses so the gate can compare Zetaris against a stable direct call.
+  rest-silo:
+    image: python:3.12-alpine
+    restart: unless-stopped
+    mem_limit: 64m
+    working_dir: /srv
+    command: ["python", "-m", "http.server", "8080"]
+    volumes:
+      - ../../../data/silos/rest:/srv:ro
+    ports:
+      - "127.0.0.1:${SAKAIME_REST_SILO_PORT:-18080}:8080"
+
+volumes:
+  hospital-pgdata:

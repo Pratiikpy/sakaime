@@ -1,0 +1,8 @@
+case_id,submission_id,intended_purpose,intended_setting,intended_min_age,intended_population,intended_camera,deployment_date,opened_on,state,provenance
+CASE-2026-014,SUB-1001,detection_aid,primary_care,18,adults with diabetes and no prior diagnosis of more than mild diabetic retinopathy,Canon CR-2 Plus AF,2027-01-15,2026-09-16,open,CONSTRUCTED
+CASE-2026-021,SUB-1001,triage_prioritisation,emergency_department,18,adults with diabetes presenting to the emergency department,Canon CR-2 Plus AF,2027-03-01,2026-10-20,open,CONSTRUCTED
+CASE-2026-016,SUB-1002,triage_prioritisation,emergency_department,18,adults with suspected thoracic findings on chest radiographs,not_applicable,2027-02-01,2026-09-23,open,CONSTRUCTED
+CASE-2026-018,SUB-1003,triage_prioritisation,emergency_department,18,adults with suspected large vessel occlusion on CT angiography,not_applicable,2027-01-10,2026-10-03,open,CONSTRUCTED
+CASE-2026-019,SUB-1004,detection_aid,breast_screening_clinic,40,women aged 40 and over attending breast screening,not_applicable,2027-04-01,2026-10-06,open,CONSTRUCTED
+CASE-2026-009,SUB-1005,detection_aid,primary_care,22,adults with diabetes attending primary care,Topcon NW400,2026-08-01,2026-05-12,closed,CONSTRUCTED
+CASE-2026-022,SUB-1006,triage_prioritisation,emergency_department,18,adults with suspected intracranial haemorrhage on head CT,not_applicable,2027-02-15,2026-10-13,open,CONSTRUCTED

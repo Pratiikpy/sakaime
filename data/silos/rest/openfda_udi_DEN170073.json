@@ -1,0 +1,901 @@
+{
+  "meta": {
+    "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+    "terms": "https://open.fda.gov/terms/",
+    "license": "https://open.fda.gov/license/",
+    "last_updated": "2026-10-01",
+    "results": {
+      "skip": 0,
+      "limit": 100,
+      "total": 11
+    }
+  },
+  "results": [
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.11",
+      "public_device_record_key": "dd7e9bb8-c737-4743-95c8-919d40c96eed",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2020-08-29",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "3",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030189",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030172",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.11",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2020-06-04"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.6",
+      "public_device_record_key": "7703c416-0621-45d8-aadf-455aa37db44f",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-08-07",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030073",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030080",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.6",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-07-02"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.3",
+      "public_device_record_key": "b26b1dde-2154-4ed3-9474-7b6a50c2ee56",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-04-08",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030035",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030042",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.3",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-03-22"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.4",
+      "public_device_record_key": "da3aa6fd-e1a1-46e3-baa0-55de24aaea6e",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-05-05",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030042",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030059",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.4",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-04-09"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.10",
+      "public_device_record_key": "18a26969-d71c-437c-9ad8-76f2a99edd9a",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2020-06-01",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "3",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030172",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030134",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.10",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2020-04-17"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO v1.1",
+      "public_device_record_key": "ccf6f6c2-a892-4df0-b343-8f55c3423ac9",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-01-21",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030004",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.1",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2018-10-12"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.2",
+      "public_device_record_key": "6dd0e539-798e-44a7-8e31-351446e61657",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-03-16",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030004",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030035",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.2",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-01-28"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.9",
+      "public_device_record_key": "d4228ad2-eb1f-49de-9dc7-3f2881fb2184",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2020-04-10",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "3",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030110",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030134",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.9",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2020-01-14"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.7",
+      "public_device_record_key": "fcd9a176-fee9-4c6a-8a92-c2cabad73842",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-10-05",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030080",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030097",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.7",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-08-13"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.5",
+      "public_device_record_key": "13ef511f-6003-4e48-8392-4b4cf53f40a5",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2019-07-02",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "4",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030059",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030073",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.5",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-04-21"
+    },
+    {
+      "has_donation_id_number": "false",
+      "mri_safety": "Labeling does not contain MRI Safety Information",
+      "record_status": "Published",
+      "is_labeled_as_nrl": "false",
+      "is_rx": "true",
+      "commercial_distribution_status": "Not in Commercial Distribution",
+      "device_description": "Viz LVO 1.8",
+      "public_device_record_key": "d4854c92-804e-40ab-a16c-0c38d8955124",
+      "has_serial_number": "false",
+      "public_version_date": "2023-12-04",
+      "commercial_distribution_end_date": "2020-01-12",
+      "sterilization": {
+        "is_sterile": "false",
+        "is_sterilization_prior_use": "false"
+      },
+      "is_direct_marking_exempt": "false",
+      "public_version_number": "3",
+      "labeler_duns_number": "080594139",
+      "is_labeled_as_no_nrl": "false",
+      "identifiers": [
+        {
+          "id": "00811852030097",
+          "type": "Previous",
+          "issuing_agency": "GS1"
+        },
+        {
+          "id": "00811852030110",
+          "type": "Primary",
+          "issuing_agency": "GS1"
+        }
+      ],
+      "is_single_use": "false",
+      "is_otc": "false",
+      "version_or_model_number": "1.8",
+      "has_manufacturing_date": "false",
+      "brand_name": "Viz LVO",
+      "is_combination_product": "false",
+      "is_kit": "false",
+      "product_codes": [
+        {
+          "code": "QAS",
+          "name": "Radiological computer-assisted triage and notification software",
+          "openfda": {
+            "device_name": "Radiological Computer-Assisted Triage And Notification Software",
+            "medical_specialty_description": "Radiology",
+            "regulation_number": "892.2080",
+            "device_class": "2"
+          }
+        }
+      ],
+      "premarket_submissions": [
+        {
+          "submission_number": "DEN170073",
+          "supplement_number": "000"
+        }
+      ],
+      "device_count_in_base_package": "1",
+      "is_pm_exempt": "false",
+      "has_lot_or_batch_number": "true",
+      "customer_contacts": [
+        {
+          "phone": "+1(415)663-6130",
+          "email": "greg@viz.ai"
+        }
+      ],
+      "company_name": "VIZ.AI, INC.",
+      "public_version_status": "Update",
+      "has_expiration_date": "false",
+      "is_hct_p": "false",
+      "gmdn_terms": [
+        {
+          "code": "57812",
+          "name": "Radiology DICOM image processing application software",
+          "definition": "A software application intended to facilitate management, distribution, and/or viewing of radiological digital imaging and communications in medicine (DICOM) image data; it is not intended for pathological image interpretation (i.e., not intended to detect and localize suspected abnormalities). It may be intended to facilitate image management (e.g., viewing, communication, printing, recording/disc burning) and/or image quality manipulation and quantification (e.g., non-interpretive graphical overlays).",
+          "implantable": "false",
+          "code_status": "Active"
+        }
+      ],
+      "publish_date": "2019-10-07"
+    }
+  ]
+}

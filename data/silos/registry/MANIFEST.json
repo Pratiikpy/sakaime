@@ -1,0 +1,401 @@
+{
+  "generated_by": "data/silos/build/normalise-registry.mjs",
+  "retrieved_on": "2026-10-27",
+  "outputs": [
+    {
+      "file": "fda_510k.csv",
+      "rows": 12,
+      "sha256": "57789665421dce846c771fd52d083be6ef3351bcdf849beb7838b2eef65cd8ac"
+    },
+    {
+      "file": "fda_udi.csv",
+      "rows": 20,
+      "sha256": "b5adec149a98368a0e6ed6f12455d7f8e16ee602208e21a6f5eab74fd877a241"
+    },
+    {
+      "file": "fda_classification.csv",
+      "rows": 9,
+      "sha256": "f9dee3590257320c6bc3e0b622f64ffd2e94558551aa0681f937851602c97625"
+    },
+    {
+      "file": "ctgov_studies.csv",
+      "rows": 157,
+      "sha256": "2af3fb762b222ac800e62beb478959203e3f61bd6b61d3348d6ac39788855d7b"
+    },
+    {
+      "file": "pubmed_articles.csv",
+      "rows": 110,
+      "sha256": "c4e1440e746ca97974745384b67e7c2b135d0d980359736ab77cb56ed90891a6"
+    }
+  ],
+  "sources": [
+    {
+      "file": "ctgov/search_aidoc_intr.json",
+      "sha256": "8b9f32bdaac95d728004cbad8a495ed7247547b7b7dba231b7f768fdd9ff6a8c"
+    },
+    {
+      "file": "ctgov/search_aidoc_quoted.json",
+      "sha256": "c3951edf31131a9231f162cb6c8a484f52ebefc7ab51cb2834fad548d4e0306d"
+    },
+    {
+      "file": "ctgov/search_aidoc_term.json",
+      "sha256": "0164f12e436b93472ea907e72e99924762afd963cbcf1c2bb0313185c6701627"
+    },
+    {
+      "file": "ctgov/search_anumana.json",
+      "sha256": "321f6fe00e3f11aeeca51cea9fe1148097da3b7bf0737e57182867f7aa6fc960"
+    },
+    {
+      "file": "ctgov/search_caption_intr.json",
+      "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8"
+    },
+    {
+      "file": "ctgov/search_caption_term.json",
+      "sha256": "03e6dc92a7fd7917f2bb4364627b6b316f9530887179fe853b73b0945bddd670"
+    },
+    {
+      "file": "ctgov/search_contact_stroke.json",
+      "sha256": "ee6afd0ba061923aafd17bcf78d70a8e6dfb36a6288ca6d51215c6d98e267a5c"
+    },
+    {
+      "file": "ctgov/search_eyeart_intr.json",
+      "sha256": "cbb2d27ad905a7fef77f6b74c4d65dade77bdeb2f0efb78a8734d67b6ad86ecb"
+    },
+    {
+      "file": "ctgov/search_eyeart_term.json",
+      "sha256": "cbb2d27ad905a7fef77f6b74c4d65dade77bdeb2f0efb78a8734d67b6ad86ecb"
+    },
+    {
+      "file": "ctgov/search_gigenius.json",
+      "sha256": "c9ce273287b641dd48ce6247966503a79064fc22d831ec966cc7c8d63c5d3ac0"
+    },
+    {
+      "file": "ctgov/search_heartflow_spons.json",
+      "sha256": "92b872b45853c0b3f1bf9c9ff1e3cd960d57e25d6b4c14552691cc2cafbf705a"
+    },
+    {
+      "file": "ctgov/search_heartflow.json",
+      "sha256": "1b6304662cc21bf6673e55f610627e203467f64ee0231ae4c46fc716a40f77d5"
+    },
+    {
+      "file": "ctgov/search_idxdr_intr.json",
+      "sha256": "66c8a3501792fb5d9c2d8c9cdb4074287454616d8dd321e4be8046038e162af1"
+    },
+    {
+      "file": "ctgov/search_idxdr_term.json",
+      "sha256": "79b9c95cc777e30a4f980da78f2272bc8b671ddb3d0c7a88df56e0fec25937fa"
+    },
+    {
+      "file": "ctgov/search_lunit.json",
+      "sha256": "afa24e642e2c188a63bf53cc8ea6e2b280a2461b8531461daa9d6666d6813f76"
+    },
+    {
+      "file": "ctgov/search_mammoscreen.json",
+      "sha256": "1c981fa8bca53f2b279c1f6650c6249c25ada020a0322dbe395989d2434771df"
+    },
+    {
+      "file": "ctgov/search_paige.json",
+      "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8"
+    },
+    {
+      "file": "ctgov/search_paige2.json",
+      "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8"
+    },
+    {
+      "file": "ctgov/search_paige3.json",
+      "sha256": "b54968c05ff881a1ef7ce604b6a340248f8e2aee8637bef06da0f5693f520df8"
+    },
+    {
+      "file": "ctgov/search_transpara.json",
+      "sha256": "eeabdf9916ea7b1f86c44dc029b47a71bbe21965a6026a2a0f3c5b9c221e5e79"
+    },
+    {
+      "file": "ctgov/search_viz_intr.json",
+      "sha256": "2c4a5c13f818acdf75ea70656c10467f94e7b3f18ea796d61c59d418ae51274a"
+    },
+    {
+      "file": "ctgov/search_viz_lvo.json",
+      "sha256": "0a2bc52fde9e2b38403d11445f94245957a6b3c43dce46c5a4e0e511a6fd41bf"
+    },
+    {
+      "file": "ctgov/search_viz_quoted.json",
+      "sha256": "0a2bc52fde9e2b38403d11445f94245957a6b3c43dce46c5a4e0e511a6fd41bf"
+    },
+    {
+      "file": "ctgov/search_viz_term.json",
+      "sha256": "be52ec1003ef99e5fe940ca980f87321b423cd7e71737111a88bacebb1f55220"
+    },
+    {
+      "file": "ctgov/study_NCT02963441.json",
+      "sha256": "515d2a0d8646c3563f96a32a65cab58336666d3fa2916f12b930ec61b7d053f4"
+    },
+    {
+      "file": "ctgov/study_NCT03112005.json",
+      "sha256": "f7fad8837f858972313e6d1b3cfbca4b293920480d8666c5f3353a7c92948801"
+    },
+    {
+      "file": "ctgov/study_NCT03705650.json",
+      "sha256": "80d9f71a7a473a2d581e1816ef69f10f2addd1ffbb5817208ed6f9d113ce0788"
+    },
+    {
+      "file": "ctgov/study_NCT03897140.json",
+      "sha256": "84f2b9fb60f3801745f3f403ac0badc44822a3c83cba013268afc107575158f8"
+    },
+    {
+      "file": "ctgov/study_NCT04079478.json",
+      "sha256": "8c242d99d3390382a3479409500a350786e5221e22950436f61bea8561d1bed8"
+    },
+    {
+      "file": "ctgov/study_NCT04142879.json",
+      "sha256": "1256b184b77a424ec9184c4548bfb01bba2bad8467c9f3f13aa2e895c98e2e3f"
+    },
+    {
+      "file": "ctgov/study_NCT04608617.json",
+      "sha256": "3447479ec1049cbef0be3a78e3fb453c59a943df3247855de2da7325fe2bae00"
+    },
+    {
+      "file": "ctgov/study_NCT04723758.json",
+      "sha256": "16952030a6b1e0e04486aca559893dfadc64e8d4b5f492d857dbd1c96419d27b"
+    },
+    {
+      "file": "ctgov/study_NCT04838756.json",
+      "sha256": "69a8b8b908c5ea1a8eb05f954561a5ceb1497afaf84eb291b500e9a1de090d9f"
+    },
+    {
+      "file": "ctgov/study_NCT04963218.json",
+      "sha256": "69ed3dec8eed938459e607329bba7f58aa3793dfd19fe1d2c42e5d5072b04d5c"
+    },
+    {
+      "file": "ctgov/study_NCT05800132.json",
+      "sha256": "59a28e29b98d68f79cc1e8b4aba8ddda7110c3160fc4ebb8865c4ba746fb4b8a"
+    },
+    {
+      "file": "ctgov/study_NCT05838456.json",
+      "sha256": "29c164acab4cbc114fa866732b4d9c387909bb62a4c5dade646d4ab3cc1947ff"
+    },
+    {
+      "file": "ctgov/study_NCT05867407.json",
+      "sha256": "6a5a48935bf03c2776f3ec9a93c9b4ee6d70bd7b2ea8847e405ca64ab982ae54"
+    },
+    {
+      "file": "ctgov/study_NCT06401434.json",
+      "sha256": "4c252c02277bfee932b9330ade528c290e236b3469c4c71420366a44b9fc577a"
+    },
+    {
+      "file": "openfda/510k_DEN170073.json",
+      "sha256": "766f45164e51c74566bb671bc0ba35a57714fd8d7857389b3d7e5644f51196cd"
+    },
+    {
+      "file": "openfda/510k_DEN180001.json",
+      "sha256": "d3f8007f170156dbd5615fb57a4d5e298ff7b50ce52adc1adc8438618dc614ca"
+    },
+    {
+      "file": "openfda/510k_DEN190040.json",
+      "sha256": "1b871bf81c1296206c8e12e85190cfc30dd13e6ac44e1cbabc8487e551e17bac"
+    },
+    {
+      "file": "openfda/510k_DEN200055.json",
+      "sha256": "fff4bff5ebed19672da4299419ba6c696016e1f3eae43ee214b75d2e3ad02be0"
+    },
+    {
+      "file": "openfda/510k_DEN200080.json",
+      "sha256": "5fb2d7e1e7e22667183c5ffc51ecf9b64b130c38061547622d440bda98ff445c"
+    },
+    {
+      "file": "openfda/510k_K200667.json",
+      "sha256": "7d5e109b9f6a31221de53ae6f375a3cb9dfebbb5542d7c61c2e75c46798e2f3e"
+    },
+    {
+      "file": "openfda/510k_K211733.json",
+      "sha256": "562b26a634d838bac9fffb129538989d9ea55dcb114c767210a30805e4407a7c"
+    },
+    {
+      "file": "openfda/510k_K213857.json",
+      "sha256": "08958ef3e3ae1fa2d22c66c52b1832148fab170e86148f8e7fdbed397e792d9d"
+    },
+    {
+      "file": "openfda/510k_K221347.json",
+      "sha256": "b68cbf306b82a27cec6fb0a264487e3708a84f8d6f06f937b36351e3ea3896c4"
+    },
+    {
+      "file": "openfda/510k_K232699.json",
+      "sha256": "4e80db9edee197675e8f0863b07e607a6770a177418a5b4090b8f26451fe2535"
+    },
+    {
+      "file": "openfda/510k_K240301.json",
+      "sha256": "effd1b7d1293a7f0b26179b29becc7190465c19faa60b3b40fb2dc4c4ec56136"
+    },
+    {
+      "file": "openfda/510k_K253265.json",
+      "sha256": "451946a3e28f5d459474a33e517dd9869dc76f3a8ce78a8417851d87a48bca32"
+    },
+    {
+      "file": "openfda/classification_PIB.json",
+      "sha256": "b93a0ac8b2f303a2bf7dbc6eb1cbafb835dea097dcc79f697d91408156c73c1e"
+    },
+    {
+      "file": "openfda/classification_PJA.json",
+      "sha256": "069037f129af1abc503193b91041105c220a692f1f9747135af31e5edb8a05a7"
+    },
+    {
+      "file": "openfda/classification_QAS.json",
+      "sha256": "5995115fd823e6f688b783b412bafaa1eb9a1f64373616aef04841aac841df10"
+    },
+    {
+      "file": "openfda/classification_QDQ.json",
+      "sha256": "d0b98424be75c845fe9f4c13b04b4b50a84939ee658c7497660cc2b712d916ce"
+    },
+    {
+      "file": "openfda/classification_QFM.json",
+      "sha256": "3d6eb839b1a01a719b20631ac1dfd03b913c6998fff2dc8c93a050dcabed22e7"
+    },
+    {
+      "file": "openfda/classification_QJU.json",
+      "sha256": "c1f85fc3109051ff0f6b27ce1ce2b26c66d5b42f4306d88c54f633883af3fedf"
+    },
+    {
+      "file": "openfda/classification_QNP.json",
+      "sha256": "84df9538a8b2a780c503b447aac7ecdd87192e503c6fad4c4adc78aa51201943"
+    },
+    {
+      "file": "openfda/classification_QPN.json",
+      "sha256": "fd2129b7120f34ac64f7b7268dd9a884567ce948fa125f87cd3271886187290a"
+    },
+    {
+      "file": "openfda/classification_QYE.json",
+      "sha256": "e02131f3c9da0ae845eeb3a4bfa759ee3c9f02abde3ff8d5fff8fabd638db276"
+    },
+    {
+      "file": "openfda/udi_DEN170073.json",
+      "sha256": "a2652e072d581ba699bd935dcbb9193692dc76bbf3cf765dd2b512231e90ee80"
+    },
+    {
+      "file": "openfda/udi_DEN180001.json",
+      "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da"
+    },
+    {
+      "file": "openfda/udi_DEN190040.json",
+      "sha256": "2ad4c4711b49b675844a4060ff2442c820453975101ced8518eeeb310a0194c5"
+    },
+    {
+      "file": "openfda/udi_DEN200055.json",
+      "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da"
+    },
+    {
+      "file": "openfda/udi_DEN200080.json",
+      "sha256": "0094bed7a212012bf1793b4a547422c91d9444834ad18b1425da6f04a71a55be"
+    },
+    {
+      "file": "openfda/udi_K200667.json",
+      "sha256": "e48bf4de3d43a5088ae44721f0019c7d40ddfb633a495c0a61fa0ab160c5d84a"
+    },
+    {
+      "file": "openfda/udi_K211733.json",
+      "sha256": "9e2f4f4e5f017fb9f2842fe848ecc7b7d23fd0b1abb1770e90185a4dfa7212bc"
+    },
+    {
+      "file": "openfda/udi_K213857.json",
+      "sha256": "bb2d1cd11dc08d34e714d384ab52f347971c4ecf2e59afa2d01a336f42ffb7fe"
+    },
+    {
+      "file": "openfda/udi_K221347.json",
+      "sha256": "702d7046cefcd22515857b2e485cea44c944debe2272b0cb7210d31cf9099cbd"
+    },
+    {
+      "file": "openfda/udi_K232699.json",
+      "sha256": "5c995f51ec86a390b1922e591aa22da4e20bedd42ebf0a1bf65bb468f286ca9e"
+    },
+    {
+      "file": "openfda/udi_K240301.json",
+      "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da"
+    },
+    {
+      "file": "openfda/udi_K253265.json",
+      "sha256": "57b1e7534d003e4246182162fd2469cdf038de39405056f44fc006715e5496da"
+    },
+    {
+      "file": "pubmed/ef_anumana.xml",
+      "sha256": "781489a5da570b758683af8b5a7458463dd7b7ebba9404cd42a5f814541f3781"
+    },
+    {
+      "file": "pubmed/ef_briefcase.xml",
+      "sha256": "064c0c023409c77e7fce0df22b9ae0dcfe42716efc22c09c25b5c600fc3669d5"
+    },
+    {
+      "file": "pubmed/ef_briefcase2.xml",
+      "sha256": "d9e4cccc58468412fc0419c0c00541f144adff0d8e2bca81d0b6580abd1164b8"
+    },
+    {
+      "file": "pubmed/ef_caption.xml",
+      "sha256": "a0b0573cc9aa5f2cebac5630f92fb3be3fad39be581d7488c9695bb94245e85f"
+    },
+    {
+      "file": "pubmed/ef_caption2.xml",
+      "sha256": "c8e412effa8529509b840ffe2a3ef6aa4eb9409101a15c4295c71cfd3d17f31c"
+    },
+    {
+      "file": "pubmed/ef_eyeart.xml",
+      "sha256": "6cf769a3ca8cd8510104e911f2e7a8362f5172c8a747874e29525091e58af634"
+    },
+    {
+      "file": "pubmed/ef_gigenius.xml",
+      "sha256": "d27b0e3383ce35b1b40957a32f6a58eb61ed61184d48b3eb212a54904ba5b02d"
+    },
+    {
+      "file": "pubmed/ef_heartflow.xml",
+      "sha256": "ddda56d336f161757f9ed0bb4b9cd493ddb78a5923d2559bd14cc2b00299924c"
+    },
+    {
+      "file": "pubmed/ef_heartflow2.xml",
+      "sha256": "78702eac065608d45bbffde41e665b0fa9b8f442c95aa46e38d0838c680db375"
+    },
+    {
+      "file": "pubmed/ef_idxdr.xml",
+      "sha256": "6105dcc7766f44c09a1c01938ccbd41c525554db53f6d7958f2b3dfde79da975"
+    },
+    {
+      "file": "pubmed/ef_lunitcxr.xml",
+      "sha256": "91e4cb8e01223b07e13a21a4000084a1494690851fdee4e29597807db2db0875"
+    },
+    {
+      "file": "pubmed/ef_mammoscreen.xml",
+      "sha256": "c0208800bc63d87db2dd78701c23f2028f3129f60dec568c91bbe516a61ff406"
+    },
+    {
+      "file": "pubmed/ef_misc1.xml",
+      "sha256": "58b31cde5ff8aa2aaba77cb7932a508ae09c274f533e92b8df6d04fcb1269b95"
+    },
+    {
+      "file": "pubmed/ef_misc2.xml",
+      "sha256": "241575c6f97bb36ba5e877c71b9533604a07b6e9c1e7197e99c73a6b5d05e6b0"
+    },
+    {
+      "file": "pubmed/ef_paige.xml",
+      "sha256": "fecd609d4b919e9c9d64352e6cab95646eccf4dad5d7b2609137183da096ff51"
+    },
+    {
+      "file": "pubmed/ef_synchronise.xml",
+      "sha256": "d52a879fe939aa838c87ac783cdde00cd2322e05523c42ddc89bacfdff682fdb"
+    },
+    {
+      "file": "pubmed/ef_transpara.xml",
+      "sha256": "7d7dc46d6bfbf8400ed99acd6e2ae34e3a4fb3aa81d72f7109ac2ff237d7aecf"
+    },
+    {
+      "file": "pubmed/ef_viz.xml",
+      "sha256": "f38d4c7ebab4a5c6a8bbdc48b76c2ba4a16d1eb123eb8e7e3e0701bd947ae127"
+    },
+    {
+      "file": "pubmed/ef_viz2.xml",
+      "sha256": "f4a4c70a544fb860329cc984d2c29a0285e493577670d62a6920fc5802bdd558"
+    },
+    {
+      "file": "pubmed/ef_viz3.xml",
+      "sha256": "d2c5b7e81bbdc23dd3289d54d1e8dcbfc97297580c11cc9d1affb9ffe4868ce5"
+    },
+    {
+      "file": "pubmed/ef_vizai.xml",
+      "sha256": "729705f6cc3f811139e0a953551a0d89fbc4f1b97de7619aab611201c4c42c82"
+    }
+  ]
+}

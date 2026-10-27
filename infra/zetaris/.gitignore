@@ -1,0 +1,11 @@
+# The unpacked vendor bundle (images are pulled with the account's own registry login; the bundle also carries a
+# 31 MB JDBC driver and a personalised .env). It is not ours to redistribute.
+bundle/
+
+# Generated per run: merged compose environment with secrets, harvested logs.
+.runtime/
+.env
+*.local
+
+# The example file is committed even though the repository ignores .env.*
+!.env.example

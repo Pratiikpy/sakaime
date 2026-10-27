@@ -1,0 +1,11 @@
+requirement_id,applies_to_purpose,dimension,comparator,required_value,rationale,policy_ref,policy_version,effective_date,provenance
+REQ-01,detection_aid,validation_type,equals,prospective_multicentre,The committee wants prospective evidence from more than one site before a detection aid is considered.,AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-02,detection_aid,population_min_age,at_most,18,Evidence must include participants down to the youngest age at which the hospital will deploy the product.,AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-03,detection_aid,subgroup_reporting,includes,age|sex|race_ethnicity,"Performance must be reported by age band, sex and race or ethnicity.",AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-04,detection_aid,version_specific_evidence,equals,true,"Evidence must name the software version being bought, not only the product family.",AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-05,detection_aid,update_control_statement,equals,true,The vendor must state how a model update is controlled and when evidence is repeated.,AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-06,detection_aid,setting_match,includes,deployment_setting,The evidence setting must include the setting in which the hospital will use the product.,AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-07,triage_prioritisation,validation_type,equals,prospective_multicentre,"Triage tools change the order of clinical work, so retrospective-only evidence is not enough.",AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-08,triage_prioritisation,time_to_notification_reported,equals,true,"A triage tool must report time to notification, not accuracy alone.",AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-09,triage_prioritisation,setting_match,includes,deployment_setting,The evidence setting must include the setting in which the hospital will use the product.,AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
+REQ-10,triage_prioritisation,version_specific_evidence,equals,true,"Evidence must name the software version being bought, not only the product family.",AI-INTAKE-POLICY,v3,2026-03-01,CONSTRUCTED
