@@ -56,7 +56,7 @@ describe("a restriction deep in a long document reaches the result", () => {
     expect(out.facts.find((f) => f.field === "sample_size")!.number).toBe(1240);
     expect(out.checklist.limitations.state).toBe("FOUND");
     expect(out.checklist.subgroup_results).toEqual({ state: "NOT_STATED_IN_TEXT", factIds: [] });
-    expect(out.dropped).toEqual({ schemaInvalid: 0, quoteNotFound: 0, anchorAmbiguous: 0, numbersDiscarded: 0 });
+    expect(out.dropped).toEqual({ schemaInvalid: 0, quoteNotFound: 0, anchorAmbiguous: 0, numbersDiscarded: 0, emptyItems: 0 });
   });
 
   it("carries the restriction forward: chunks after page 38 see it in their state", async () => {
@@ -111,6 +111,16 @@ describe("a restriction deep in a long document reaches the result", () => {
     expect(out.run.chunks.length).toBeGreaterThan(2);
     expect(out.facts.find((f) => f.field === "limitation")!.anchors[0]!.page).toBe(2);
     expect(out.status).toBe("COMPLETE");
+  });
+
+  it("the carryover can list facts by id, field and page without their values, and the ledger is unchanged", async () => {
+    const model = new RuleModel();
+    const out = await reader(model, { carryover: "ids" }).read({ documentId: "i", pages });
+    expect(out.facts.find((f) => f.field === "limitation")!.anchors[0]!.page).toBe(38);
+    const later = model.seen.find((s) => s.carryover.includes("limitation p.38"));
+    expect(later).toBeDefined();
+    expect(later!.carryover).not.toContain("not for patients under 22");
+    expect(later!.carryover).toMatch(/F\d+ limitation p\.38\n/);
   });
 
   it("the carryover can be withheld and the ledger still reaches the same verdict (control arm)", async () => {

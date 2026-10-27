@@ -1,0 +1,145 @@
+{
+  "generatedAt": "2026-10-27T07:10:01.297Z",
+  "corpus": {
+    "documents": 4,
+    "pages": 40,
+    "meanBytes": 107232,
+    "constructed": true,
+    "seeds": [
+      7001,
+      14920,
+      22839,
+      30758
+    ]
+  },
+  "model": {
+    "label": "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "live": true
+  },
+  "config": {
+    "chunk": {},
+    "truncateBytes": 28016,
+    "fullContextMaxBytes": 140000
+  },
+  "results": [
+    {
+      "docId": "synthetic-7001",
+      "arm": "markovian_ids",
+      "status": "OK",
+      "reason": "partial: 0 of 6 chunks failed, 3 replies cut off",
+      "restrictionFound": false,
+      "restrictionElsewhere": false,
+      "plantedFound": 4,
+      "plantedTotal": 4,
+      "decoyHits": 1,
+      "factsVerified": 76,
+      "dropped": 8,
+      "calls": 6,
+      "promptTokensTotal": 30783,
+      "promptTokensPeak": 5983,
+      "promptBytesPeak": 25554,
+      "tokenLabel": "measured",
+      "wallMs": 402671
+    },
+    {
+      "docId": "synthetic-14920",
+      "arm": "markovian_ids",
+      "status": "OK",
+      "reason": "partial: 0 of 6 chunks failed, 1 replies cut off",
+      "restrictionFound": true,
+      "restrictionElsewhere": false,
+      "plantedFound": 4,
+      "plantedTotal": 4,
+      "decoyHits": 2,
+      "factsVerified": 68,
+      "dropped": 9,
+      "calls": 6,
+      "promptTokensTotal": 30107,
+      "promptTokensPeak": 5819,
+      "promptBytesPeak": 25490,
+      "tokenLabel": "measured",
+      "wallMs": 221744
+    },
+    {
+      "docId": "synthetic-22839",
+      "arm": "markovian_ids",
+      "status": "OK",
+      "reason": "partial: 0 of 6 chunks failed, 3 replies cut off",
+      "restrictionFound": true,
+      "restrictionElsewhere": false,
+      "plantedFound": 4,
+      "plantedTotal": 4,
+      "decoyHits": 4,
+      "factsVerified": 83,
+      "dropped": 13,
+      "calls": 6,
+      "promptTokensTotal": 30654,
+      "promptTokensPeak": 5604,
+      "promptBytesPeak": 25283,
+      "tokenLabel": "measured",
+      "wallMs": 432945
+    },
+    {
+      "docId": "synthetic-30758",
+      "arm": "markovian_ids",
+      "status": "OK",
+      "reason": "partial: 0 of 6 chunks failed, 2 replies cut off",
+      "restrictionFound": true,
+      "restrictionElsewhere": false,
+      "plantedFound": 3,
+      "plantedTotal": 4,
+      "decoyHits": 0,
+      "factsVerified": 80,
+      "dropped": 28,
+      "calls": 6,
+      "promptTokensTotal": 30929,
+      "promptTokensPeak": 5404,
+      "promptBytesPeak": 24298,
+      "tokenLabel": "measured",
+      "wallMs": 444966
+    }
+  ],
+  "summaries": [
+    {
+      "arm": "markovian_ids",
+      "documents": 4,
+      "completed": 4,
+      "failed": 0,
+      "notRun": 0,
+      "restrictionRecallAll": {
+        "p": 0.75,
+        "lo": 0.3006418400969081,
+        "hi": 0.954412739704631,
+        "k": 3,
+        "n": 4
+      },
+      "restrictionRecallCompleted": {
+        "p": 0.75,
+        "lo": 0.3006418400969081,
+        "hi": 0.954412739704631,
+        "k": 3,
+        "n": 4
+      },
+      "restrictionElsewhere": 0,
+      "plantedFactRecall": {
+        "p": 0.9375,
+        "lo": 0.716712622018518,
+        "hi": 0.9888806553587528,
+        "k": 15,
+        "n": 16
+      },
+      "decoyHits": 7,
+      "meanPromptTokensTotal": 30618.25,
+      "meanPromptTokensPeak": 5702.5,
+      "meanPromptBytesPeak": 25156.25,
+      "tokenLabel": "measured",
+      "meanCalls": 6
+    }
+  ],
+  "http": {
+    "requests": 48,
+    "statuses": {
+      "200": 48
+    }
+  }
+}

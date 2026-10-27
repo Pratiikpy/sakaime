@@ -149,7 +149,7 @@ describe("fact ledger", () => {
     expect(l.facts[0]).toMatchObject({ id: "F1", field: "limitation", number: 22 });
     expect(l.facts[0]!.anchors[0]).toMatchObject({ page: 38, step: 4 });
     expect(l.facts[1]!.number).toBeUndefined();
-    expect(l.drops).toEqual({ schemaInvalid: 2, quoteNotFound: 1, anchorAmbiguous: 0, numbersDiscarded: 1 });
+    expect(l.drops).toEqual({ schemaInvalid: 2, quoteNotFound: 1, anchorAmbiguous: 0, numbersDiscarded: 1, emptyItems: 0 });
     expect(factsDropped(l.drops)).toBe(3);
   });
 
@@ -159,6 +159,14 @@ describe("fact ledger", () => {
     expect(n).toBe(2);
     expect(l.drops.schemaInvalid).toBe(0);
     expect(l.facts.map((f) => f.number)).toEqual([undefined, undefined]);
+  });
+
+  it("does not count a placeholder item (no quote, no value) as a lost fact", () => {
+    const l = new FactLedger(pages);
+    const n = l.ingest([{ field: "setting", value: null, quote: "", page: null }, { field: "sample_size" }, fact({})], [], { step: 1, shownPages: [38] });
+    expect(n).toBe(1);
+    expect(l.drops.emptyItems).toBe(2);
+    expect(factsDropped(l.drops)).toBe(0);
   });
 
   it("corrects a wrong page when the quote is on exactly one page of the chunk, and refuses an ambiguous one", () => {

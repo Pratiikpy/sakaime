@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "note": "Capabilities are abstract verbs; the graph maps each to the concrete tools that can fulfil it. An edge says who may use it, whether it is available now, what it costs and whether it runs locally. A capability with no usable tool fails routing; it is never silently replaced by a tool outside the intent's scope. Edges with modes limit a tool to live or sample (cassette) runs.",
+  "capabilities": {
+    "evidence.search": [
+      {
+        "tool": "sources.search",
+        "local": true,
+        "latencyMs": 400,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "evidence.read": [
+      {
+        "tool": "memory.evidence_read",
+        "local": true,
+        "latencyMs": 40,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "source.discover": [
+      {
+        "tool": "sources.discover",
+        "local": false,
+        "latencyMs": 2500,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "reviewer",
+          "lead_reviewer",
+          "maintainer"
+        ],
+        "modes": [
+          "live"
+        ]
+      },
+      {
+        "tool": "sources.cassette_discover",
+        "local": true,
+        "latencyMs": 60,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ],
+        "modes": [
+          "sample"
+        ]
+      }
+    ],
+    "source.register": [
+      {
+        "tool": "sources.register",
+        "local": true,
+        "latencyMs": 120,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "reviewer",
+          "lead_reviewer",
+          "maintainer"
+        ]
+      }
+    ],
+    "federation.query": [
+      {
+        "tool": "zetaris.sql",
+        "local": true,
+        "latencyMs": 900,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ],
+        "modes": [
+          "live"
+        ]
+      },
+      {
+        "tool": "federation.cassette",
+        "local": true,
+        "latencyMs": 50,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ],
+        "modes": [
+          "sample"
+        ]
+      }
+    ],
+    "document.read": [
+      {
+        "tool": "markovian.read_document",
+        "local": true,
+        "latencyMs": 20000,
+        "cost": 1,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "identity.resolve": [
+      {
+        "tool": "identity.resolve",
+        "local": true,
+        "latencyMs": 200,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "compiler.compare": [
+      {
+        "tool": "compiler.compare",
+        "local": true,
+        "latencyMs": 30,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "memory.recall": [
+      {
+        "tool": "hmem.recall",
+        "local": true,
+        "latencyMs": 40,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "finding.explain": [
+      {
+        "tool": "finding.explain",
+        "local": true,
+        "latencyMs": 40,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "world.query": [
+      {
+        "tool": "worldmodel.query",
+        "local": true,
+        "latencyMs": 40,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "link.confirm": [
+      {
+        "tool": "hmem.confirm_link",
+        "local": true,
+        "latencyMs": 60,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "reviewer",
+          "lead_reviewer"
+        ]
+      }
+    ],
+    "approval.require": [
+      {
+        "tool": "approval.require",
+        "local": true,
+        "latencyMs": 5,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "*"
+        ]
+      }
+    ],
+    "dossier.build": [
+      {
+        "tool": "dossier.build",
+        "local": true,
+        "latencyMs": 500,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "reviewer",
+          "lead_reviewer"
+        ]
+      }
+    ],
+    "dossier.export": [
+      {
+        "tool": "dossier.export",
+        "local": true,
+        "latencyMs": 200,
+        "cost": 0,
+        "available": true,
+        "roles": [
+          "reviewer",
+          "lead_reviewer"
+        ]
+      }
+    ]
+  },
+  "surfacePreference": {
+    "chat": [],
+    "api": [],
+    "cli": []
+  }
+}

@@ -85,7 +85,7 @@ export class RuleModel implements ModelPort {
   }
 }
 
-function documentRegion(user: string): string {
+export function documentRegion(user: string): string {
   const m = user.match(/\[DOCUMENT CHUNK[^\n]*boundary ([0-9a-f]{12})\]\n<<<\1\n([\s\S]*?)\n>>>\1/);
   if (m) return m[2] ?? "";
   // Single-pass arms (no chunk header): the whole document block.

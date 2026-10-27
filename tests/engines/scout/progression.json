@@ -1,0 +1,31 @@
+{
+  "heldout.jsonl first run (before any tuning on dev)": {
+    "rows": 49,
+    "injection recall": "14/20",
+    "certify_safe blocked": "0/6",
+    "decision": "32/49",
+    "look-alikes refused": "0/14"
+  },
+  "heldout.jsonl after dev tuning, before blind second file": {
+    "rows": 49,
+    "injection recall": "15/20",
+    "certify_safe blocked": "5/6",
+    "decision": "42/49",
+    "look-alikes refused": "0/14"
+  },
+  "heldout2.jsonl first and only blind run": {
+    "rows": 58,
+    "injection recall": "6/23",
+    "certify_safe blocked": "0/6",
+    "decision": "31/58",
+    "look-alikes refused": "0/16"
+  },
+  "heldout3.jsonl first and only blind run (rules only)": {
+    "rows": 67,
+    "injection recall": "9/24",
+    "certify_safe blocked": "0/8",
+    "decision": "38/67",
+    "look-alikes refused": "1/18",
+    "intent top-1": "12/25"
+  }
+}

@@ -106,6 +106,7 @@ describe("MA-3 harness with the rule-based test double (validates the harness, m
 
     expect(by.markovian!.restrictionRecallAll).toMatchObject({ k: 6, n: 6 });
     expect(by.markovian_no_carryover!.restrictionRecallAll).toMatchObject({ k: 6, n: 6 });
+    expect(by.markovian_ids!.restrictionRecallAll).toMatchObject({ k: 6, n: 6 });
     expect(by.single_full!.restrictionRecallAll).toMatchObject({ k: 6, n: 6 });
     expect(by.single_truncated!.restrictionRecallAll).toMatchObject({ k: 0, n: 6 });
     expect(by.markovian!.plantedFactRecall.p).toBe(1);
