@@ -87,7 +87,7 @@
     {
       "name": "Public datasets and registries",
       "what": "openFDA, ClinicalTrials.gov, PubMed, Europe PMC and FDA decision summaries, stored as small hashed recordings.",
-      "where": ["data/cassettes/", "data/silos/registry/", "evals/heldout/raw/"]
+      "where": ["data/cassettes/", "data/silos/registry/", "evals/heldout/text/"]
     },
     {
       "name": "Studied open-source mechanisms",

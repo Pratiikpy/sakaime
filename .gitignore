@@ -35,3 +35,6 @@ test-results/
 .vscode/
 Thumbs.db
 desktop.ini
+
+# CC BY-NC-ND full text of a journal article: kept locally for the case manifest hashes, not redistributed
+evals/gate0/raw/europepmc/PMC8593763_fulltext.*

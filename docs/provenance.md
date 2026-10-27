@@ -39,7 +39,7 @@ The desk. repository was read to learn verified behaviour of two sponsor tools. 
 | openFDA 510(k), UDI and PMA endpoints | CC0 (`open.fda.gov/license`) | `data/cassettes/`, `data/silos/registry/` |
 | FDA AI-enabled device list and 510(k) / De Novo summary PDFs | US government work; reuse terms NOT VERIFIED beyond that | `data/sources/`, `evals/heldout/raw/` |
 | ClinicalTrials.gov API v2 | Public data; published terms NOT VERIFIED | `data/cassettes/` |
-| PubMed and Europe PMC records | Metadata free; abstracts and full text carry per-publisher terms (NOT VERIFIED in detail). Only short quoted passages are stored. | `data/cassettes/` |
+| PubMed and Europe PMC records | Metadata free; abstracts and full text carry per-publisher terms (NOT VERIFIED in detail). Only short quoted passages are stored; the one full-text article used for the EyeArt chain (CC BY-NC-ND) is not redistributed, only its hashes and quoted passages. | `data/cassettes/` |
 | deepset prompt-injection dataset | See `data/scout-corpus/external/NOTICE.md` | Scout evaluation only |
 | Community `metadata.json` draft schema | Apache-2.0 | `research/community-metadata.schema.json` (local) |
 
