@@ -1,0 +1,786 @@
+{
+ "schema": "sakaime.identity.model/1",
+ "method": "supervised-counting-with-shrinkage",
+ "smoothing": {
+  "alpha": 0.5,
+  "kappa": 4,
+  "upperFloorBits": 2,
+  "lowerFloorBits": -2
+ },
+ "pool": {
+  "name": {
+   "EXACT": {
+    "m": 0.0875,
+    "u": 0.045454545454545456
+   },
+   "FAMILY_NAME": {
+    "m": 0.3875,
+    "u": 0.25757575757575757
+   },
+   "CONTAINS": {
+    "m": 0.2375,
+    "u": 0.10606060606060606
+   },
+   "GENERIC_CONTAINS": {
+    "m": 0.0125,
+    "u": 0.07575757575757576
+   },
+   "OVERLAP": {
+    "m": 0.0875,
+    "u": 0.015151515151515152
+   },
+   "DIFFERENT": {
+    "m": 0.1875,
+    "u": 0.5
+   }
+  },
+  "manufacturer": {
+   "EXACT": {
+    "m": 0.7857142857142857,
+    "u": 0.703125
+   },
+   "ALIAS": {
+    "m": 0.18571428571428572,
+    "u": 0.046875
+   },
+   "FUZZY": {
+    "m": 0.014285714285714285,
+    "u": 0.015625
+   },
+   "DIFFERENT": {
+    "m": 0.014285714285714285,
+    "u": 0.234375
+   }
+  },
+  "productCode": {
+   "EXACT": {
+    "m": 0.9772727272727273,
+    "u": 0.21875
+   },
+   "DIFFERENT": {
+    "m": 0.022727272727272728,
+    "u": 0.78125
+   }
+  },
+  "version": {
+   "EXACT": {
+    "m": 0.25925925925925924,
+    "u": 0.14285714285714285
+   },
+   "SAME_RELEASE_LINE": {
+    "m": 0.18518518518518517,
+    "u": 0.14285714285714285
+   },
+   "DIFFERENT": {
+    "m": 0.5555555555555556,
+    "u": 0.7142857142857143
+   }
+  },
+  "module": {
+   "AGREE": {
+    "m": 0.8333333333333334,
+    "u": 0.038461538461538464
+   },
+   "DISAGREE": {
+    "m": 0.16666666666666666,
+    "u": 0.9615384615384616
+   }
+  },
+  "purpose": {
+   "AGREE": {
+    "m": 0.9759036144578314,
+    "u": 0.20634920634920634
+   },
+   "PARTIAL": {
+    "m": 0.012048192771084338,
+    "u": 0.015873015873015872
+   },
+   "DISAGREE": {
+    "m": 0.012048192771084338,
+    "u": 0.7777777777777778
+   }
+  },
+  "date": {
+   "WITHIN_1Y": {
+    "m": 0.3048780487804878,
+    "u": 0.25
+   },
+   "WITHIN_3Y": {
+    "m": 0.45121951219512196,
+    "u": 0.32142857142857145
+   },
+   "WITHIN_6Y": {
+    "m": 0.2073170731707317,
+    "u": 0.34523809523809523
+   },
+   "FAR": {
+    "m": 0.036585365853658534,
+    "u": 0.08333333333333333
+   }
+  },
+  "enrollment": {
+   "EXACT": {
+    "m": 0.7647058823529411,
+    "u": 0.058823529411764705
+   },
+   "CLOSE": {
+    "m": 0.058823529411764705,
+    "u": 0.4117647058823529
+   },
+   "DIFFERENT": {
+    "m": 0.17647058823529413,
+    "u": 0.5294117647058824
+   }
+  }
+ },
+ "byLinkType": {
+  "SAME_PRODUCT": {
+   "name": {
+    "EXACT": {
+     "m": 0.13958333333333334,
+     "u": 0.06220095693779905
+    },
+    "FAMILY_NAME": {
+     "m": 0.48125,
+     "u": 0.21212121212121213
+    },
+    "CONTAINS": {
+     "m": 0.20625000000000002,
+     "u": 0.1802232854864434
+    },
+    "GENERIC_CONTAINS": {
+     "m": 0.0020833333333333333,
+     "u": 0.01594896331738437
+    },
+    "OVERLAP": {
+     "m": 0.05625,
+     "u": 0.003189792663476874
+    },
+    "DIFFERENT": {
+     "m": 0.11458333333333333,
+     "u": 0.5263157894736842
+    }
+   },
+   "manufacturer": {
+    "EXACT": {
+     "m": 0.8392857142857143,
+     "u": 0.6743421052631579
+    },
+    "ALIAS": {
+     "m": 0.15595238095238095,
+     "u": 0.009868421052631578
+    },
+    "FUZZY": {
+     "m": 0.0023809523809523807,
+     "u": 0.003289473684210526
+    },
+    "DIFFERENT": {
+     "m": 0.0023809523809523807,
+     "u": 0.3125
+    }
+   },
+   "productCode": {
+    "EXACT": {
+     "m": 0.9962121212121212,
+     "u": 0.20394736842105263
+    },
+    "DIFFERENT": {
+     "m": 0.003787878787878788,
+     "u": 0.7960526315789473
+    }
+   },
+   "version": {
+    "EXACT": {
+     "m": 0.09427609427609428,
+     "u": 0.09523809523809523
+    },
+    "SAME_RELEASE_LINE": {
+     "m": 0.15824915824915825,
+     "u": 0.09523809523809523
+    },
+    "DIFFERENT": {
+     "m": 0.7474747474747474,
+     "u": 0.8095238095238096
+    }
+   },
+   "module": {
+    "AGREE": {
+     "m": 0.888888888888889,
+     "u": 0.019230769230769232
+    },
+    "DISAGREE": {
+     "m": 0.1111111111111111,
+     "u": 0.9807692307692308
+    }
+   },
+   "purpose": {
+    "AGREE": {
+     "m": 0.9959839357429718,
+     "u": 0.12169312169312169
+    },
+    "PARTIAL": {
+     "m": 0.0020080321285140565,
+     "u": 0.004232804232804232
+    },
+    "DISAGREE": {
+     "m": 0.0020080321285140565,
+     "u": 0.874074074074074
+    }
+   },
+   "date": {
+    "WITHIN_1Y": {
+     "m": 0.18345705196182396,
+     "u": 0.21052631578947367
+    },
+    "WITHIN_3Y": {
+     "m": 0.46977730646871685,
+     "u": 0.5413533834586467
+    },
+    "WITHIN_6Y": {
+     "m": 0.34040296924708374,
+     "u": 0.2305764411027569
+    },
+    "FAR": {
+     "m": 0.006362672322375397,
+     "u": 0.017543859649122806
+    }
+   },
+   "enrollment": {
+    "EXACT": {
+     "m": 0.7647058823529411,
+     "u": 0.047058823529411764
+    },
+    "CLOSE": {
+     "m": 0.058823529411764705,
+     "u": 0.5294117647058824
+    },
+    "DIFFERENT": {
+     "m": 0.17647058823529413,
+     "u": 0.4235294117647059
+    }
+   }
+  },
+  "STUDY_EVALUATES": {
+   "name": {
+    "EXACT": {
+     "m": 0.017499999999999998,
+     "u": 0.009569377990430622
+    },
+    "FAMILY_NAME": {
+     "m": 0.3275,
+     "u": 0.31738437001594894
+    },
+    "CONTAINS": {
+     "m": 0.2975,
+     "u": 0.022328548644338118
+    },
+    "GENERIC_CONTAINS": {
+     "m": 0.0025,
+     "u": 0.12121212121212122
+    },
+    "OVERLAP": {
+     "m": 0.0675,
+     "u": 0.003189792663476874
+    },
+    "DIFFERENT": {
+     "m": 0.2875,
+     "u": 0.5263157894736842
+    }
+   },
+   "manufacturer": {
+    "EXACT": {
+     "m": 0.7589285714285714,
+     "u": 0.7673611111111112
+    },
+    "ALIAS": {
+     "m": 0.23392857142857143,
+     "u": 0.06597222222222222
+    },
+    "FUZZY": {
+     "m": 0.0035714285714285713,
+     "u": 0.003472222222222222
+    },
+    "DIFFERENT": {
+     "m": 0.0035714285714285713,
+     "u": 0.16319444444444445
+    }
+   },
+   "productCode": {
+    "EXACT": {
+     "m": 0.9772727272727273,
+     "u": 0.21875
+    },
+    "DIFFERENT": {
+     "m": 0.022727272727272728,
+     "u": 0.78125
+    }
+   },
+   "version": {
+    "EXACT": {
+     "m": 0.37962962962962965,
+     "u": 0.14285714285714285
+    },
+    "SAME_RELEASE_LINE": {
+     "m": 0.2175925925925926,
+     "u": 0.14285714285714285
+    },
+    "DIFFERENT": {
+     "m": 0.4027777777777778,
+     "u": 0.7142857142857143
+    }
+   },
+   "module": {
+    "AGREE": {
+     "m": 0.8333333333333334,
+     "u": 0.012820512820512822
+    },
+    "DISAGREE": {
+     "m": 0.16666666666666666,
+     "u": 0.9871794871794872
+    }
+   },
+   "purpose": {
+    "AGREE": {
+     "m": 0.9959839357429718,
+     "u": 0.0960735171261487
+    },
+    "PARTIAL": {
+     "m": 0.0020080321285140565,
+     "u": 0.003341687552213868
+    },
+    "DISAGREE": {
+     "m": 0.0020080321285140565,
+     "u": 0.9005847953216374
+    }
+   },
+   "date": {
+    "WITHIN_1Y": {
+     "m": 0.42581300813008127,
+     "u": 0.28
+    },
+    "WITHIN_3Y": {
+     "m": 0.4502032520325203,
+     "u": 0.2114285714285714
+    },
+    "WITHIN_6Y": {
+     "m": 0.07621951219512195,
+     "u": 0.37523809523809526
+    },
+    "FAR": {
+     "m": 0.04776422764227642,
+     "u": 0.13333333333333333
+    }
+   },
+   "enrollment": {
+    "EXACT": {
+     "m": 0.8235294117647058,
+     "u": 0.029411764705882353
+    },
+    "CLOSE": {
+     "m": 0.0213903743315508,
+     "u": 0.33088235294117646
+    },
+    "DIFFERENT": {
+     "m": 0.15508021390374332,
+     "u": 0.6397058823529411
+    }
+   }
+  },
+  "PUBLICATION_REPORTS": {
+   "name": {
+    "EXACT": {
+     "m": 0.0875,
+     "u": 0.045454545454545456
+    },
+    "FAMILY_NAME": {
+     "m": 0.3875,
+     "u": 0.25757575757575757
+    },
+    "CONTAINS": {
+     "m": 0.2375,
+     "u": 0.10606060606060606
+    },
+    "GENERIC_CONTAINS": {
+     "m": 0.0125,
+     "u": 0.07575757575757576
+    },
+    "OVERLAP": {
+     "m": 0.0875,
+     "u": 0.015151515151515152
+    },
+    "DIFFERENT": {
+     "m": 0.1875,
+     "u": 0.5
+    }
+   },
+   "manufacturer": {
+    "EXACT": {
+     "m": 0.7857142857142857,
+     "u": 0.7625
+    },
+    "ALIAS": {
+     "m": 0.18571428571428572,
+     "u": 0.0375
+    },
+    "FUZZY": {
+     "m": 0.014285714285714285,
+     "u": 0.0125
+    },
+    "DIFFERENT": {
+     "m": 0.014285714285714285,
+     "u": 0.1875
+    }
+   },
+   "productCode": {
+    "EXACT": {
+     "m": 0.9772727272727273,
+     "u": 0.21875
+    },
+    "DIFFERENT": {
+     "m": 0.022727272727272728,
+     "u": 0.78125
+    }
+   },
+   "version": {
+    "EXACT": {
+     "m": 0.25925925925925924,
+     "u": 0.14285714285714285
+    },
+    "SAME_RELEASE_LINE": {
+     "m": 0.18518518518518517,
+     "u": 0.14285714285714285
+    },
+    "DIFFERENT": {
+     "m": 0.5555555555555556,
+     "u": 0.7142857142857143
+    }
+   },
+   "module": {
+    "AGREE": {
+     "m": 0.8333333333333334,
+     "u": 0.038461538461538464
+    },
+    "DISAGREE": {
+     "m": 0.16666666666666666,
+     "u": 0.9615384615384616
+    }
+   },
+   "purpose": {
+    "AGREE": {
+     "m": 0.9759036144578314,
+     "u": 0.6031746031746031
+    },
+    "PARTIAL": {
+     "m": 0.012048192771084338,
+     "u": 0.007936507936507936
+    },
+    "DISAGREE": {
+     "m": 0.012048192771084338,
+     "u": 0.3888888888888889
+    }
+   },
+   "date": {
+    "WITHIN_1Y": {
+     "m": 0.3048780487804878,
+     "u": 0.25
+    },
+    "WITHIN_3Y": {
+     "m": 0.45121951219512196,
+     "u": 0.16071428571428573
+    },
+    "WITHIN_6Y": {
+     "m": 0.2073170731707317,
+     "u": 0.5476190476190477
+    },
+    "FAR": {
+     "m": 0.036585365853658534,
+     "u": 0.041666666666666664
+    }
+   },
+   "enrollment": {
+    "EXACT": {
+     "m": 0.7647058823529411,
+     "u": 0.0392156862745098
+    },
+    "CLOSE": {
+     "m": 0.058823529411764705,
+     "u": 0.4411764705882353
+    },
+    "DIFFERENT": {
+     "m": 0.17647058823529413,
+     "u": 0.5196078431372549
+    }
+   }
+  },
+  "SAME_MARKETED_VERSION": {
+   "name": {
+    "EXACT": {
+     "m": 0.06999999999999999,
+     "u": 0.045454545454545456
+    },
+    "FAMILY_NAME": {
+     "m": 0.31,
+     "u": 0.25757575757575757
+    },
+    "CONTAINS": {
+     "m": 0.19,
+     "u": 0.10606060606060606
+    },
+    "GENERIC_CONTAINS": {
+     "m": 0.01,
+     "u": 0.07575757575757576
+    },
+    "OVERLAP": {
+     "m": 0.27,
+     "u": 0.015151515151515152
+    },
+    "DIFFERENT": {
+     "m": 0.15,
+     "u": 0.5
+    }
+   },
+   "manufacturer": {
+    "EXACT": {
+     "m": 0.8285714285714285,
+     "u": 0.703125
+    },
+    "ALIAS": {
+     "m": 0.14857142857142858,
+     "u": 0.046875
+    },
+    "FUZZY": {
+     "m": 0.011428571428571429,
+     "u": 0.015625
+    },
+    "DIFFERENT": {
+     "m": 0.011428571428571429,
+     "u": 0.234375
+    }
+   },
+   "productCode": {
+    "EXACT": {
+     "m": 0.9818181818181818,
+     "u": 0.21875
+    },
+    "DIFFERENT": {
+     "m": 0.01818181818181818,
+     "u": 0.78125
+    }
+   },
+   "version": {
+    "EXACT": {
+     "m": 0.40740740740740744,
+     "u": 0.14285714285714285
+    },
+    "SAME_RELEASE_LINE": {
+     "m": 0.14814814814814814,
+     "u": 0.14285714285714285
+    },
+    "DIFFERENT": {
+     "m": 0.4444444444444445,
+     "u": 0.7142857142857143
+    }
+   },
+   "module": {
+    "AGREE": {
+     "m": 0.8333333333333334,
+     "u": 0.038461538461538464
+    },
+    "DISAGREE": {
+     "m": 0.16666666666666666,
+     "u": 0.9615384615384616
+    }
+   },
+   "purpose": {
+    "AGREE": {
+     "m": 0.9759036144578314,
+     "u": 0.20634920634920634
+    },
+    "PARTIAL": {
+     "m": 0.012048192771084338,
+     "u": 0.015873015873015872
+    },
+    "DISAGREE": {
+     "m": 0.012048192771084338,
+     "u": 0.7777777777777778
+    }
+   },
+   "date": {
+    "WITHIN_1Y": {
+     "m": 0.3048780487804878,
+     "u": 0.25
+    },
+    "WITHIN_3Y": {
+     "m": 0.45121951219512196,
+     "u": 0.32142857142857145
+    },
+    "WITHIN_6Y": {
+     "m": 0.2073170731707317,
+     "u": 0.34523809523809523
+    },
+    "FAR": {
+     "m": 0.036585365853658534,
+     "u": 0.08333333333333333
+    }
+   },
+   "enrollment": {
+    "EXACT": {
+     "m": 0.7647058823529411,
+     "u": 0.058823529411764705
+    },
+    "CLOSE": {
+     "m": 0.058823529411764705,
+     "u": 0.4117647058823529
+    },
+    "DIFFERENT": {
+     "m": 0.17647058823529413,
+     "u": 0.5294117647058824
+    }
+   }
+  }
+ },
+ "thresholds": {
+  "pooled": {
+   "lower": 1,
+   "upper": 2
+  },
+  "byLinkType": {
+   "SAME_PRODUCT": {
+    "lower": 1,
+    "upper": 2
+   },
+   "STUDY_EVALUATES": {
+    "lower": 1,
+    "upper": 2
+   }
+  }
+ },
+ "reference": {
+  "totalRows": 1614,
+  "familyNames": {
+   "accucontour": 3,
+   "acorn 3d ac seg 4009": 4,
+   "acorn 3dp model ac 101 xx": 4,
+   "acuson origin diagnostic ultrasound system": 5,
+   "acuson origin ice diagnostic ultrasound system": 4,
+   "acuson sequoia diagnostic ultrasound system": 5,
+   "acuson sequoia select diagnostic ultrasound system": 5,
+   "adas 3d": 3,
+   "affiniti series diagnostic ultrasound system": 9,
+   "affiniti series diagnostic ultrasound systems": 4,
+   "ai rad companion brain mr": 4,
+   "ai rad companion organs rt": 5,
+   "ai rad companion pulmonary": 3,
+   "aice reconstruction processing unit mr": 11,
+   "andi": 3,
+   "annalise enterprise ctb triage trauma": 3,
+   "aquilion one tsx 306a 3 spectral imaging system": 3,
+   "art plan": 5,
+   "arterys mica": 3,
+   "autocontour model radac": 3,
+   "aview": 3,
+   "axial3d insight": 3,
+   "bonemri": 4,
+   "braininsight": 3,
+   "briefcase": 19,
+   "briefcase quantification": 5,
+   "briefcase triage": 9,
+   "caption guidance": 3,
+   "caption interpretation automated ejection fraction": 3,
+   "cardiq suite": 3,
+   "cartesion prime pcd 1000a 3": 3,
+   "clarius ultrasound scanner": 4,
+   "cleerly labs": 3,
+   "contour protegeai": 5,
+   "deep learning image reconstruction": 6,
+   "deeprhythmai": 4,
+   "diagnostic ultrasound system": 7,
+   "epiq series diagnostic ultrasound system": 13,
+   "epiq series diagnostic ultrasound systems": 4,
+   "eyebox": 3,
+   "fetal echoscan": 3,
+   "ffrct": 3,
+   "genius ai detection": 3,
+   "heartflow analysis": 3,
+   "hera w10 diagnostic ultrasound system": 4,
+   "hera w9 diagnostic ultrasound system": 3,
+   "icobrain": 3,
+   "idx dr": 3,
+   "ingenia": 4,
+   "ingenia cx": 4,
+   "kosmos": 3,
+   "limbus contour": 3,
+   "linq ii insertable cardiac monitor": 5,
+   "lumify diagnostic ultrasound system": 5,
+   "lunit insight dbt": 3,
+   "lvivo application": 6,
+   "lvivo seamless": 3,
+   "magentiq colo me apds": 3,
+   "magnetom altea": 4,
+   "magnetom avanto fit": 3,
+   "magnetom free max": 4,
+   "magnetom free star": 3,
+   "magnetom lumina": 3,
+   "magnetom skyra fit": 3,
+   "magnetom sola": 4,
+   "magnetom sola fit": 3,
+   "magnetom viato mobile": 3,
+   "magnetom vida": 3,
+   "mammoscreen": 5,
+   "mi view go": 3,
+   "mrt 1550": 6,
+   "mrt 3020": 6,
+   "neurophet aqua": 3,
+   "oncospace": 3,
+   "peekmed web": 5,
+   "precision ai surgical planning system pai sps": 3,
+   "quantib prostate": 3,
+   "quantra": 3,
+   "rapid": 3,
+   "raystation": 4,
+   "rayvolve": 3,
+   "saige dx": 5,
+   "sansa hsat": 3,
+   "scenium": 4,
+   "sis": 3,
+   "sis system": 4,
+   "skout system": 5,
+   "sonio detect": 3,
+   "sozo": 4,
+   "subtlemr": 3,
+   "swiftmr": 4,
+   "swoop portable mr imaging system": 9,
+   "synapse 3d base tools": 3,
+   "syngo ct cascoring": 3,
+   "syngo ct lung cad": 3,
+   "syngo mbf": 5,
+   "syngo via mi workflows": 5,
+   "syngo via rt image suite": 5,
+   "transpara": 6,
+   "tumorsight viz": 3,
+   "umi panorama": 4,
+   "umi panvivo umi panvivo": 4,
+   "umi panvivo umi panvivo s": 4,
+   "umr 680": 4,
+   "unid spine analyzer": 4,
+   "vantage fortian orian 1 5t": 3,
+   "vantage galan 3t": 6,
+   "vea align": 3,
+   "ventripoint medical system plus vms plus": 3,
+   "venue": 3,
+   "vital signs": 3,
+   "vivid iq": 3,
+   "volpara imaging": 3,
+   "voluson expert 18": 4,
+   "voluson expert 20": 4,
+   "voluson expert 22": 4,
+   "xvision spine system": 3
+  }
+ },
+ "training": {
+  "pairs": 81,
+  "matches": 41,
+  "nonMatches": 40,
+  "contentHash": "c08930f61484686ea2fdc65f8f598a670c80f53475a506437ca905e5e05d8559"
+ }
+}

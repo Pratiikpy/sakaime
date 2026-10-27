@@ -1,0 +1,2919 @@
+[
+ {
+  "id": "eyeart-001",
+  "family": "eyeart",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:K200667",
+  "b": "gudid:K200667:2.1.0",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The GUDID record lists K200667 as its premarket submission.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-002",
+  "family": "eyeart",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:K200667",
+  "b": "gudid:K200667:2.1.0",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "Same submission, and the FDA summary and GUDID both give version 2.1.0.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-003",
+  "family": "eyeart",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:K200667",
+  "b": "list:K223357",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Two different K numbers are two submissions.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-004",
+  "family": "eyeart",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:K200667",
+  "b": "list:K223357",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "K200667 is 2.1.0 and K223357 is v2.2.0: different releases.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-005",
+  "family": "eyeart",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K200667",
+  "b": "list:K223357",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same product name, company and product code (PIB); a later clearance of the same product.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-006",
+  "family": "eyeart",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K200667",
+  "b": "510k:DEN180001",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same product code (PIB) and indication, but different company and product.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-007",
+  "family": "eyeart",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT03112005",
+  "b": "510k:K200667",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The FDA summary cites NCT03112005 as the pivotal clinical trial it validated EyeArt in.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-008",
+  "family": "eyeart",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT03112005",
+  "b": "510k:DEN180001",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The EyeArt trial and the IDx-DR submission share a condition and product code only.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-009",
+  "family": "eyeart",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:34779843",
+  "b": "ctgov:NCT03112005",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The abstract states the study was preregistered under NCT03112005.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-010",
+  "family": "eyeart",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:34779843",
+  "b": "ctgov:NCT02963441",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "A different diabetic retinopathy trial (IDx-DR).",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-011",
+  "family": "eyeart",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:34779843",
+  "b": "510k:K200667",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The paper evaluates EyeArt version 2.1.0, the version in the K200667 summary.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "eyeart-012",
+  "family": "eyeart",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:34779843",
+  "b": "list:K223357",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "The paper evaluates EyeArt 2.1.0; K223357 is the later 2.2.0 clearance of the same product.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-013",
+  "family": "idxdr",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:DEN180001",
+  "b": "list:K203629",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "DEN and K numbers differ.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-014",
+  "family": "idxdr",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN180001",
+  "b": "list:K203629",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "owner-alias-drift"
+  ],
+  "reason": "Same product after IDx, LLC became Digital Diagnostics.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-015",
+  "family": "idxdr",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN180001",
+  "b": "list:K213037",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "owner-alias-drift"
+  ],
+  "reason": "IDx-DR v2.3 is a later clearance of the same product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-016",
+  "family": "idxdr",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:DEN180001",
+  "b": "list:K213037",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "Summary gives 2.0.0 US; the K213037 name gives v2.3.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-017",
+  "family": "idxdr",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT02963441",
+  "b": "510k:DEN180001",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "owner-alias-drift",
+   "product-name-drift"
+  ],
+  "reason": "The 900-participant US pivotal trial; registry name \"LumineticsCore (formerly IDX-DR)\"; no identifier in either direction.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-018",
+  "family": "idxdr",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:31304320",
+  "b": "ctgov:NCT02963441",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The registry lists the paper as a derived reference and the abstract cites the NCT number.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-019",
+  "family": "idxdr",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:31304320",
+  "b": "510k:DEN180001",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The pivotal trial paper: 900 subjects in primary care, the trial the FDA summary describes.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-020",
+  "family": "idxdr",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04965857",
+  "b": "510k:DEN180001",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Returned for a \"Digital Diagnostics\" query; it is Hologic's cytology system.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "idxdr-021",
+  "family": "idxdr",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT01625598",
+  "b": "510k:DEN180001",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "An earlier Digital Diagnostics study (2012, 600 subjects); whether it tested the cleared version is not stated.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-022",
+  "family": "caption",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:DEN190040",
+  "b": "gudid:DEN190040:Guidance",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [
+   "record-tied-to-multiple-submissions"
+  ],
+  "reason": "The GUDID record lists DEN190040.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-023",
+  "family": "caption",
+  "linkType": "SAME_SUBMISSION",
+  "a": "list:K243065",
+  "b": "gudid:DEN190040:Guidance",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [
+   "record-tied-to-multiple-submissions"
+  ],
+  "reason": "The same GUDID record also lists K243065.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-024",
+  "family": "caption",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:DEN190040",
+  "b": "list:K243065",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Distinct submission numbers; one shared GUDID record does not merge them.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-025",
+  "family": "caption",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:DEN190040",
+  "b": "list:K201992",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "DEN and K numbers differ.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-026",
+  "family": "caption",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN190040",
+  "b": "list:K201992",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "owner-alias-drift"
+  ],
+  "reason": "Bay Labs became Caption Health; same product name.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-027",
+  "family": "caption",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K201992",
+  "b": "list:K243065",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "One GUDID record lists both DEN190040 and K243065, so Cardiac Guidance is the same device line.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-028",
+  "family": "caption",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:DEN190040:Guidance",
+  "b": "gudid:DEN190040:AI",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The two GUDID labels \"Guidance\" and \"AI\" are not version numbers.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-029",
+  "family": "caption",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT03897140",
+  "b": "510k:DEN190040",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "product-name-drift"
+  ],
+  "reason": "Nurse-acquired echo study, 240 patients, Bay Labs EchoGPS; the FDA nurse pivotal is 8 nurses x 30 patients.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-030",
+  "family": "caption",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT03705650",
+  "b": "510k:DEN190040",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same sponsor and EchoGPS name but a 55-patient primary care study, not the pivotal.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-031",
+  "family": "caption",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT06717373",
+  "b": "510k:DEN190040",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Caption Health trial of AutoAS (aortic stenosis): same company, different product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-032",
+  "family": "caption",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:33599681",
+  "b": "510k:DEN190040",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Nurse-guided echo study, 240 patients, 2 academic hospitals; the product name is absent from the abstract.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "caption-033",
+  "family": "caption",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:33599681",
+  "b": "ctgov:NCT03897140",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Both describe 240 patients, but no identifier links paper and record (NOT VERIFIED).",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-034",
+  "family": "viz",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:DEN170073",
+  "b": "gudid:DEN170073:1.5",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [
+   "multiple-releases-under-submission"
+  ],
+  "reason": "GUDID release 1.5 lists DEN170073.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-035",
+  "family": "viz",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:DEN170073",
+  "b": "gudid:DEN170073:1.5",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "The De Novo gives the initial version 1.0; GUDID 1.5 is a later release.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-036",
+  "family": "viz",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:DEN170073:1.5",
+  "b": "gudid:DEN170073:1.6",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Eleven GUDID releases share one De Novo; 1.5 and 1.6 are different releases.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-037",
+  "family": "viz",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:DEN170073:1.1",
+  "b": "gudid:DEN170073:1.10",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "1.1 is not 1.10; a prefix match would merge them.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-038",
+  "family": "viz",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:DEN170073:1.10",
+  "b": "gudid:DEN170073:1.11",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Adjacent releases under one De Novo.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-039",
+  "family": "viz",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:DEN170073:1.2",
+  "b": "gudid:DEN170073:1.9",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Different releases under one De Novo.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-040",
+  "family": "viz",
+  "linkType": "SAME_SUBMISSION",
+  "a": "gudid:DEN170073:1.2",
+  "b": "gudid:DEN170073:1.9",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [
+   "multiple-releases-under-submission"
+  ],
+  "reason": "Both releases are tied to DEN170073, which proves the same authorization only.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-041",
+  "family": "viz",
+  "linkType": "SAME_PRODUCT",
+  "a": "gudid:DEN170073:1.5",
+  "b": "gudid:DEN170073:1.6",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Two releases of the same product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-042",
+  "family": "viz",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN170073",
+  "b": "list:K223042",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "product-name-drift"
+  ],
+  "reason": "\"Viz LVO ContaCT\" is the same product line as ContaCT.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-043",
+  "family": "viz",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:DEN170073",
+  "b": "list:K223042",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "DEN and K numbers differ.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-044",
+  "family": "viz",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN170073",
+  "b": "list:K210209",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Viz ICH is a different module (intracranial haemorrhage, not large vessel occlusion).",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-045",
+  "family": "viz",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K210209",
+  "b": "list:K220439",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Viz ICH and Viz SDH are different modules.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-046",
+  "family": "viz",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN170073",
+  "b": "list:DEN230003",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Viz HCM is a cardiac product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-047",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04608617",
+  "b": "510k:DEN170073",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [
+   "multiple-releases-under-submission"
+  ],
+  "reason": "The intervention name is \"Viz LVO (De Novo Number DEN170073)\".",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-048",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04608617",
+  "b": "list:K210209",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The study is of Viz LVO; K210209 is Viz ICH.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-049",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04142879",
+  "b": "510k:DEN170073",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Prospective trial of Viz software for large vessel occlusion triage; no module or version stated.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-050",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05838456",
+  "b": "510k:DEN170073",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Trial of Viz.AI software for large vessel occlusion screening in community hospitals.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-051",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:40335883",
+  "b": "510k:DEN170073",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Large vessel occlusion detection with Viz.ai software.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-052",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:36457286",
+  "b": "510k:DEN170073",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Large vessel occlusion detection with Viz.ai software.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-053",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:39246948",
+  "b": "510k:DEN170073",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "A study of Viz.ai ICH, a different module.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-054",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:39832899",
+  "b": "510k:DEN170073",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "A study of the Viz.AI ICH volume tool, a different module.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-055",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:35183401",
+  "b": "510k:DEN170073",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Returned for \"ContaCT\": contact dermatitis.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "viz-056",
+  "family": "viz",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:24140073",
+  "b": "510k:DEN170073",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Returned for \"ContaCT\": contact angle physics.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-057",
+  "family": "briefcase",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K253265",
+  "b": "list:K202992",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Abdominal CT free gas versus rib fracture: different modules under one brand.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-058",
+  "family": "briefcase",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K253265",
+  "b": "list:K251406",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same list name, company and product code; the list row does not say which module K251406 is.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-059",
+  "family": "briefcase",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K251406",
+  "b": "list:K251195",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Identical name, company and product code in two rows; module not stated.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-060",
+  "family": "briefcase",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K180647",
+  "b": "510k:K253265",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The 2018 BriefCase and the 2025 abdominal triage share a brand and product code; modules differ or are unstated.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-061",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:41444826",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "A 101,944-scan study of BriefCase ICH Triage; K253265 is abdominal CT.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-062",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:31828361",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Aidoc intracranial haemorrhage study; different module.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-063",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:33819478",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Aidoc intracranial haemorrhage study; different module.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-064",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:34117018",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Aidoc cervical spine fracture study; different module.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-065",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:41230302",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "module-differs"
+  ],
+  "reason": "Pulmonary embolism algorithms; different module.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-066",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:36862835",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Returned for \"BriefCase\": an essay titled \"The Briefcase She Carried\".",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-067",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:30251484",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Returned for \"briefcase\": a briefcase-sized OCT scanner.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-068",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT06754137",
+  "b": "510k:K253265",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Returned for an \"Aidoc\" query; it tests another vendor's product (BoneView).",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "briefcase-069",
+  "family": "briefcase",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:41444826",
+  "b": "list:K251406",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "K251406's module is not stated, so the ICH study may or may not describe it.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-070",
+  "family": "transpara",
+  "linkType": "SAME_SUBMISSION",
+  "a": "gudid:K221347:1.7.2",
+  "b": "510k:K221347",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The GUDID record lists K221347.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-071",
+  "family": "transpara",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:K221347:1.7.2",
+  "b": "510k:K221347",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "Same submission; GUDID 1.7.2 and the device name \"Transpara 1.7.2\".",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-072",
+  "family": "transpara",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:K221347",
+  "b": "list:K210404",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "1.7.2 and 1.7.0 are different releases.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-073",
+  "family": "transpara",
+  "linkType": "SAME_SUBMISSION",
+  "a": "510k:K221347",
+  "b": "list:K210404",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Different K numbers.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-074",
+  "family": "transpara",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K221347",
+  "b": "list:K210404",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Two releases of one product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-075",
+  "family": "transpara",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K221347",
+  "b": "list:K241831",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Transpara 2.1.0 is a later release of the same product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-076",
+  "family": "transpara",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:K221347",
+  "b": "list:K241831",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "1.7.2 versus 2.1.0.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-077",
+  "family": "transpara",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K221347",
+  "b": "list:K232096",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Transpara Density is a breast density product, not the detection product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-078",
+  "family": "transpara",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:37541274",
+  "b": "510k:K221347",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "The MASAI paper uses Transpara; it names version 1.7.0, K221347 is 1.7.2.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-079",
+  "family": "transpara",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:37541274",
+  "b": "list:K210404",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The MASAI paper names version 1.7.0, the version of K210404.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-080",
+  "family": "transpara",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04838756",
+  "b": "510k:K221347",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The MASAI trial's AI arm is Transpara (ScreenPoint).",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-081",
+  "family": "transpara",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:37541274",
+  "b": "ctgov:NCT04838756",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The abstract and the PubMed databank list NCT04838756; the registry lists the paper as a result.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-082",
+  "family": "transpara",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:39904652",
+  "b": "ctgov:NCT04838756",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The registry lists the paper as a result reference and the databank lists the NCT number.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "transpara-083",
+  "family": "transpara",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:32052311",
+  "b": "ctgov:NCT04838756",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "A 2020 single-site experience paper, not the MASAI trial.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-084",
+  "family": "mammoscreen",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K240301",
+  "b": "list:K243679",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "MammoScreen (3) and (4): generations of one product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-085",
+  "family": "mammoscreen",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K240301",
+  "b": "list:K260714",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "MammoScreen (3) and (5).",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-086",
+  "family": "mammoscreen",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K240301",
+  "b": "list:K211541",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "MammoScreen 2.0 and (3): earlier and later releases.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-087",
+  "family": "mammoscreen",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:K240301",
+  "b": "list:K243679",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "version-differs"
+  ],
+  "reason": "Generation (3) is not generation (4).",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-088",
+  "family": "mammoscreen",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "510k:K240301",
+  "b": "list:K211541",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Generation \"(3)\" and \"2.0\" are on different scales; whether 2.0 is generation 2 is not stated.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-089",
+  "family": "mammoscreen",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K240301",
+  "b": "list:K243685",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "MammoScreen BD is a density product with a different product code.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-090",
+  "family": "mammoscreen",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05800132",
+  "b": "510k:K240301",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Therapixel trial of MammoScreen second reading; no version stated.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-091",
+  "family": "mammoscreen",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04996316",
+  "b": "510k:K240301",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "OHSU \"MammoScreen\" risk assessment decision aid: a different product with the same name.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "mammoscreen-092",
+  "family": "mammoscreen",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:32159424",
+  "b": "510k:K240301",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The paper on the OHSU decision aid, not the mammography AI.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-093",
+  "family": "lunit",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K211733",
+  "b": "list:K211678",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "INSIGHT CXR Triage and INSIGHT MMG are different products.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-094",
+  "family": "lunit",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K211733",
+  "b": "list:K231470",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "INSIGHT CXR Triage and INSIGHT DBT are different products.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-095",
+  "family": "lunit",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:K211733:1.0:a",
+  "b": "gudid:K211733:1.0:b",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "Two GUDID records, same submission, both version 1.0.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-096",
+  "family": "lunit",
+  "linkType": "SAME_SUBMISSION",
+  "a": "gudid:K211733:1.0:a",
+  "b": "510k:K211733",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The GUDID record lists K211733.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-097",
+  "family": "lunit",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT06401434",
+  "b": "510k:K211733",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "intended-use-differs"
+  ],
+  "reason": "INSIGHT CXR in tuberculosis screening; K211733 is pleural effusion and pneumothorax triage.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-098",
+  "family": "lunit",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:40233023",
+  "b": "510k:K211733",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "intended-use-differs"
+  ],
+  "reason": "Compares INSIGHT CXR versions 3.1.0.0 and 3.9.0.1 for tuberculosis; K211733 is version 1.0 and a different use.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-099",
+  "family": "lunit",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:35202417",
+  "b": "510k:K211733",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "A concordance study of Lunit INSIGHT CXR; version and use not stated.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-100",
+  "family": "lunit",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05024591",
+  "b": "510k:K211733",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "intended-use-differs"
+  ],
+  "reason": "The AI-STREAM trial uses INSIGHT MMG, a mammography product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "lunit-101",
+  "family": "lunit",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05024591",
+  "b": "list:K211678",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The AI-STREAM trial uses Lunit INSIGHT MMG.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "paige-102",
+  "family": "paige",
+  "linkType": "SAME_SUBMISSION",
+  "a": "gudid:DEN200080:1.X",
+  "b": "510k:DEN200080",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The GUDID record lists DEN200080.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "paige-103",
+  "family": "paige",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:DEN200080:1.X",
+  "b": "510k:DEN200080",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "GUDID gives \"1.X\" and the summary gives v2.1.501; the two labels conflict and neither is shown to be wrong.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "paige-104",
+  "family": "paige",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:33904171",
+  "b": "510k:DEN200080",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Independent study of Paige Prostate with no version or identifier.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "paige-105",
+  "family": "paige",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:33782551",
+  "b": "510k:DEN200080",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Independent assessment of Paige Prostate with no version or identifier.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "paige-106",
+  "family": "paige",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:32393768",
+  "b": "510k:DEN200080",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "build-differs"
+  ],
+  "reason": "Studies \"Paige Prostate Alpha\", a research build; FDA locked v2.1.501.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-107",
+  "family": "gigenius",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN200055",
+  "b": "list:K211951",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same product name and company.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-108",
+  "family": "gigenius",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN200055",
+  "b": "list:K231143",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "GI Genius System 100 and 200 are configurations of the same product.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-109",
+  "family": "gigenius",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN200055",
+  "b": "list:K241887",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "A cell listing GI Genius Modules 100, 200, 300 and ColonPRO; it contains the same product.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-110",
+  "family": "gigenius",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04079478",
+  "b": "510k:DEN200055",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The summary cites the AID study (NCT04079478) as the study of the device.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-111",
+  "family": "gigenius",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT01694966",
+  "b": "510k:DEN200055",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The summary cites NCT01694966 only as the origin of the training videos (a methylene blue trial).",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-112",
+  "family": "gigenius",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04723758",
+  "b": "510k:DEN200055",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [
+   "owner-alias-drift"
+  ],
+  "reason": "COLO-DETECT tests GI Genius (manufactured by Medtronic) in routine NHS care.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-113",
+  "family": "gigenius",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:39153491",
+  "b": "ctgov:NCT04723758",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The registry lists the paper as a derived reference and the databank lists the NCT number.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-114",
+  "family": "gigenius",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:32371116",
+  "b": "ctgov:NCT04079478",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The report suspects this paper reports the AID study; no identifier or reference confirms it (NOT VERIFIED).",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-115",
+  "family": "gigenius",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:39153491",
+  "b": "ctgov:NCT04079478",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The COLO-DETECT paper does not report the AID study.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "gigenius-116",
+  "family": "gigenius",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:32371116",
+  "b": "510k:DEN200055",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The abstract names GI Genius and Medtronic as the CADe system in a randomized trial (label corrected after the first run: the abstract states the product).",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-117",
+  "family": "heartflow",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K213857",
+  "b": "list:K203329",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same product name and company.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-118",
+  "family": "heartflow",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K213857",
+  "b": "list:K250902",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same product name and company.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-119",
+  "family": "heartflow",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K213857",
+  "b": "list:K182035",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Earlier HeartFlow submission under the technique name \"FFRct\".",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-120",
+  "family": "heartflow",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K213857",
+  "b": "list:K190925",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "\"HeartFlow FFRct Analysis\" is the same product.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-121",
+  "family": "heartflow",
+  "linkType": "SAME_SUBMISSION",
+  "a": "gudid:K213857:FFRct version 3",
+  "b": "510k:K213857",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The GUDID record lists K213857.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-122",
+  "family": "heartflow",
+  "linkType": "STUDY_EVALUATES",
+  "a": "pubmed:24486266",
+  "b": "510k:K213857",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The 2014 NXT trial used an earlier HeartFlow analysis; version not stated.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-123",
+  "family": "heartflow",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05325112",
+  "b": "510k:K213857",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "HeartFlow, Inc. trial of FFR-CT in the emergency department.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-124",
+  "family": "heartflow",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05174247",
+  "b": "510k:K213857",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Uses \"FFRct analysis\"; FFRct is a technique several vendors offer and no vendor is named.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "heartflow-125",
+  "family": "heartflow",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT02809157",
+  "b": "510k:K213857",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Uses FFRCT; no vendor is named.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-126",
+  "family": "anumana",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K232699",
+  "b": "list:K250652",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The later clearance names the same low ejection fraction algorithm (1010).",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-127",
+  "family": "anumana",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K232699",
+  "b": "list:K253801",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Cardiac amyloidosis algorithm (1040): a different algorithm from the same company.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-128",
+  "family": "anumana",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K232699",
+  "b": "list:K252360",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Pulmonary hypertension algorithm (1020): a different algorithm from the same company.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-129",
+  "family": "anumana",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:K232699:1010",
+  "b": "list:K250652",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Algorithm identifier 1010 in both.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-130",
+  "family": "anumana",
+  "linkType": "SAME_MARKETED_VERSION",
+  "a": "gudid:K232699:1010",
+  "b": "list:K253801",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Algorithm 1010 versus 1040.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-131",
+  "family": "anumana",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04963218",
+  "b": "510k:K232699",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": true,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Retrospective 16,000-record, 4-site study matching the FDA study; the product is not named.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-132",
+  "family": "anumana",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05867407",
+  "b": "510k:K232699",
+  "truth": "MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Anumana-sponsored trial of the Anumana Low EF AI-ECG Algorithm.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-133",
+  "family": "anumana",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05867407",
+  "b": "list:K253801",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The trial is of the low EF algorithm, not the amyloidosis algorithm.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-134",
+  "family": "anumana",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT05867407",
+  "b": "list:K252360",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The trial is of the low EF algorithm, not the pulmonary hypertension algorithm.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-135",
+  "family": "anumana",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:40276542",
+  "b": "ctgov:NCT05867407",
+  "truth": "MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": true,
+  "expectedFlags": [],
+  "reason": "The registry lists the paper as a derived reference and the abstract cites the NCT number.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-136",
+  "family": "anumana",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:41547169",
+  "b": "ctgov:NCT04963218",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same design (16,000 extracted, 4 US sites) but no identifier or reference.",
+  "reportSection": "s4",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "anumana-137",
+  "family": "anumana",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:40276542",
+  "b": "ctgov:NCT04963218",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "The pragmatic trial design paper is not the retrospective validation study.",
+  "reportSection": "s5",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "aurora-138",
+  "family": "aurora",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K251153",
+  "b": "list:K231355",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Aurora from GE Medical Systems Israel and Aurora from EnsoData.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "aurora-139",
+  "family": "aurora",
+  "linkType": "SAME_SUBMISSION",
+  "a": "list:K251153",
+  "b": "list:K231355",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Different K numbers.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "aurora-140",
+  "family": "aurora",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K251153",
+  "b": "list:K251167",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "GE Aurora and uDR Aurora CX (United Imaging).",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "aurora-141",
+  "family": "aurora",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K231355",
+  "b": "list:P220012/S059",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "EnsoData Aurora and Medtronic Aurora EV ICD.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "aurora-142",
+  "family": "aurora",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K251153",
+  "b": "list:P220012/S059",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "GE Aurora and Medtronic Aurora EV ICD.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "bodyguardian-143",
+  "family": "bodyguardian",
+  "linkType": "SAME_PRODUCT",
+  "a": "list:K243349",
+  "b": "list:K192732",
+  "truth": "AMBIGUOUS",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Same name, two company strings; a change of owner is plausible but not shown in the fixtures (NOT VERIFIED).",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "bodyguardian-144",
+  "family": "bodyguardian",
+  "linkType": "SAME_SUBMISSION",
+  "a": "list:K243349",
+  "b": "list:K192732",
+  "truth": "NON_MATCH",
+  "labelBasis": "identifier",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Different K numbers.",
+  "reportSection": "s2",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "easy-145",
+  "family": "easy",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K253265",
+  "b": "510k:K221347",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Unrelated products or records from different families.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "easy-146",
+  "family": "easy",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:K200667",
+  "b": "510k:K232699",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Unrelated products or records from different families.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "easy-147",
+  "family": "easy",
+  "linkType": "SAME_PRODUCT",
+  "a": "510k:DEN200080",
+  "b": "510k:K213857",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Unrelated products or records from different families.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "easy-148",
+  "family": "easy",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT04838756",
+  "b": "510k:DEN180001",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Unrelated products or records from different families.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "easy-149",
+  "family": "easy",
+  "linkType": "STUDY_EVALUATES",
+  "a": "ctgov:NCT06401434",
+  "b": "510k:K213857",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Unrelated products or records from different families.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ },
+ {
+  "id": "easy-150",
+  "family": "easy",
+  "linkType": "PUBLICATION_REPORTS",
+  "a": "pubmed:37541274",
+  "b": "ctgov:NCT02963441",
+  "truth": "NON_MATCH",
+  "labelBasis": "reading",
+  "contestable": false,
+  "expectConfirmed": false,
+  "expectedFlags": [],
+  "reason": "Unrelated products or records from different families.",
+  "reportSection": "s6",
+  "labelling": {
+   "reader": "builder",
+   "readers": 1,
+   "independent": false
+  }
+ }
+]

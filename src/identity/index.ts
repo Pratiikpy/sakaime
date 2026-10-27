@@ -1,0 +1,16 @@
+export * from "./types.ts";
+export * from "./normalize.ts";
+export * from "./version.ts";
+export * from "./identifiers.ts";
+export * from "./exact.ts";
+export * from "./compare.ts";
+export * from "./flags.ts";
+export * from "./scorer.ts";
+export * from "./resolver.ts";
+export * from "./review.ts";
+export * from "./blocking.ts";
+export * from "./query.ts";
+export * from "./reference.ts";
+export * from "./corpus.ts";
+export * from "./evaluate.ts";
+export { DEFAULT_MODEL } from "./default-model.ts";

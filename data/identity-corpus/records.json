@@ -1,0 +1,3618 @@
+[
+ {
+  "family": "eyeart",
+  "record": {
+   "id": "510k:K200667",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K200667.json#results[0]",
+   "name": "EyeArt",
+   "manufacturer": "Eyenuk, Inc.",
+   "productCode": "PIB",
+   "date": "2020-08-03",
+   "ids": {
+    "submission": [
+     "K200667"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "version": "2.1.0",
+   "enrollment": 942,
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT03112005",
+     "channel": "text",
+     "context": "hanges do not introduce risks that adversely affect the safety and effectiveness of the device for its intended use. D. Clinical Testing 1. Overview EyeArt was validated in a prospective, multi-center pivotal clinical trial (ClinicalTrials.gov ID NCT03112005). A total of 942 subjects were consented of which 915 subjects met study Page 3 of 21 Eyenuk, Inc. EyeArt 510(k) Summary (K200667) eligibility crit"
+    }
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "eyeart",
+  "record": {
+   "id": "list:K223357",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K223357",
+   "name": "EyeArt v2.2.0",
+   "manufacturer": "Eyenuk, Inc.",
+   "productCode": "PIB",
+   "date": "2023-06-16",
+   "ids": {
+    "submission": [
+     "K223357"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "eyeart",
+  "record": {
+   "id": "gudid:K200667:2.1.0",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_K200667.json#results[0]",
+   "name": "EyeArt",
+   "manufacturer": "Eyenuk, Inc.",
+   "version": "2.1.0",
+   "productCode": "PIB",
+   "ids": {
+    "submission": [
+     "K200667"
+    ],
+    "udiDi": [
+     "00860000470001"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "eyeart",
+  "record": {
+   "id": "ctgov:NCT03112005",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT03112005.json",
+   "name": "Assessment of EyeArt as an Automated Diabetic Retinopathy Screening Tool",
+   "aliases": [
+    "Color fundus photography",
+    "Mydriatic Agent"
+   ],
+   "text": "More than 29 million people in the US are living with diabetes, many of whom will develop diabetic retinopathy (DR) or diabetic macular edema (DME) collectively known as diabetic eye disease (DED), the leading cause of vision loss and blindness in working-age adults. Annual eye screening is recommended for all diabetic patients since vision loss can be prevented with laser photocoagulation and anti-VEGF treatment if DR is diagnosed in its early stages. Currently, the number of clinical personnel trained for DR screening is orders of magnitude smaller than that needed to screen the large, growing diabetic population. Therefore, to meet this large unmet need for DR screening, a fully-automated computerized DR screening system is necessary. EyeArt is an automated screening device designed automatically analyze color fundus photographs of diabetic patients to identify patients with referabl Subjects will undergo fundus photography before and after administration of mydriatic agent. Subjects will be administered mydriatic medication to dilate their pupils.",
+   "sponsor": "Eyenuk, Inc.",
+   "manufacturer": "Eyenuk, Inc.",
+   "enrollment": 942,
+   "date": "2017-04-17",
+   "ids": {
+    "nct": [
+     "NCT03112005"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "eyeart",
+  "record": {
+   "id": "pubmed:34779843",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_eyeart.xml#34779843",
+   "text": "Pivotal Evaluation of an Artificial Intelligence System for Autonomous Detection of Referrable and Vision-Threatening Diabetic Retinopathy. Diabetic retinopathy (DR) is a leading cause of blindness in adults worldwide. Early detection and intervention can prevent blindness; however, many patients do not receive their recommended annual diabetic eye examinations, primarily owing to limited access. To evaluate the safety and accuracy of an artificial intelligence (AI) system (the EyeArt Automated DR Detection System, version 2.1.0) in detecting both more-than-mild diabetic retinopathy (mtmDR) and vision-threatening diabetic retinopathy (vtDR). A prospective multicenter cross-sectional diagnostic study was preregistered (NCT03112005) and conducted from April 17, 2017, to May 30, 2018. A total of 942 individuals aged 18 years or older who had diabetes gave consent to participate at 15 primary care and eye care facilities. Data analysis was performed from February 14 to July 10, 2019. Retinal imaging for the autonomous AI system and Early Treatment Diabetic Retinopathy Study (ETDRS) reference standard determination. Primary outcome measures included the sensitivity and specificity of the AI system in identifying participants' eyes with mtmDR and/or vtDR by 2-field undilated fundus photography vs a rigorous clinical reference standard comprising reading center grading of 4 wide-field dilated images using the ETDRS severity scale. Secondary outcome measures included the evaluation of imageability, dilated-if-needed analysis, enrichment correction analysis, worst-case imputation, and safety outcomes. Of 942 consenting individuals, 893 patients (1786 eyes) met the inclusion criteria and completed the study protocol. The population included 449 men (50.3%). Mean (SD) participant age was 53.9 (15.2) years (median, 56; range, 18-88 years), 655 were White (73.3%), and 206 had type 1 diabetes (23.1%). Sensitivity and specificity of the AI system were high in detecting mtmDR (sensitivity: 95.5%; 95% CI, 92.4%-98.5% and specificity: 85.0%; 95% CI, 82.6%-87.4%) and vtDR (sensitivity: 95.1%; 95% CI, 90.1%-100% and specificity: 89.0%; 95% CI, 87.0%-91.1%) without dilation. Imageability was high without dilation, with the AI system able to grade 87.4% (95% CI, 85.2%-89.6%) of the eyes with reading center grades. When eyes with ungradable results were dilated per the protocol, the imageability improved to 97.4% (95% CI, 96.4%-98.5%), with the sensitivity and specificity being similar. After correcting for enrichment, the mtmDR specificity increased to 87.8% (95% CI, 86.3%-89.5%) and the sensitivity remained similar; for vtDR, both sensitivity (97.0%; 95% CI, 91.2%-100%) and specificity (90.1%; 95% CI, 89.4%-91.5%) improved. This prospective multicenter cross-sectional diagnostic study noted safety and accuracy with use of the EyeArt Automated DR Detection System in detecting both mtmDR and, for the first time, vtDR, without physician assistance. These findings suggest that improved access to accurate, reliable diabetic eye examinations may increase adherence to recommended annual screenings and allow for accelerated referral of patients identified as having vtDR.",
+   "date": "2021",
+   "ids": {
+    "pmid": [
+     "34779843"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT03112005",
+     "channel": "text",
+     "context": "2.1.0) in detecting both more-than-mild diabetic retinopathy (mtmDR) and vision-threatening diabetic retinopathy (vtDR). A prospective multicenter cross-sectional diagnostic study was preregistered (NCT03112005) and conducted from April 17, 2017, to May 30, 2018. A total of 942 individuals aged 18 years or older who had diabetes gave consent to participate at 15 primary care and eye care facilities. Data an"
+    }
+   ],
+   "version": "2.1.0",
+   "enrollment": 942,
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "510k:DEN180001",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_DEN180001.json#results[0]",
+   "name": "IDx-DR",
+   "manufacturer": "Idx, LLC",
+   "productCode": "PIB",
+   "date": "2018-04-11",
+   "ids": {
+    "submission": [
+     "DEN180001"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "version": "2.0.0",
+   "enrollment": 900,
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "list:K203629",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K203629",
+   "name": "IDx-DR",
+   "manufacturer": "Digital Diagnostics Inc.",
+   "productCode": "PIB",
+   "date": "2021-06-10",
+   "ids": {
+    "submission": [
+     "K203629"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "list:K213037",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K213037",
+   "name": "IDx-DR v2.3",
+   "manufacturer": "Digital Diagnostics Inc.",
+   "productCode": "PIB",
+   "date": "2022-06-17",
+   "ids": {
+    "submission": [
+     "K213037"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "ctgov:NCT02963441",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT02963441.json",
+   "name": "A Multi-center Study to Evaluate Performance of an Automated Device for the Detection of Diabetic Retinopathy",
+   "aliases": [
+    "LumineticsCore (formerly IDX-DR)"
+   ],
+   "text": "Diabetes affects 30.3 million people or 9.3% of the population of the United States. Results of a study by the Eye Diseases Prevalence Research Group reveal that 40% of diabetes patients have some degree of diabetic retinopathy (DR) and that as many as 8% have severe, vision-threatening forms of DR. Early laser photocoagulation in high-risk proliferative diabetic retinopathy (PDR) has been shown to decrease the relative risk of vision loss by as much as 52%. Injections of anti-VEGF agents preserve and improve vision in people with PDR and/or diabetic macular edema. Despite effective treatment however, tens of thousands of people with diabetes are going blind each year largely because they don't undergo annual screening for retinopathy. Currently, less than 50%-60% of people with diabetes have a yearly eye exam and there may not be enough eye specialists to see the balance. The IDx-DR Sy Prospective analysis on an existing subgroup of subjects in the US pivotal study, version 01 and version 02.",
+   "sponsor": "Digital Diagnostics, Inc.",
+   "manufacturer": "Digital Diagnostics, Inc.",
+   "enrollment": 900,
+   "date": "2017-01",
+   "ids": {
+    "nct": [
+     "NCT02963441"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "31304320",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "pubmed:31304320",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_misc2.xml#31304320",
+   "text": "Pivotal trial of an autonomous AI-based diagnostic system for detection of diabetic retinopathy in primary care offices. Artificial Intelligence (AI) has long promised to increase healthcare affordability, quality and accessibility but FDA, until recently, had never authorized an autonomous AI diagnostic system. This pivotal trial of an AI system to detect diabetic retinopathy (DR) in people with diabetes enrolled 900 subjects, with no history of DR at primary care clinics, by comparing to Wisconsin Fundus Photograph Reading Center (FPRC) widefield stereoscopic photography and macular Optical Coherence Tomography (OCT), by FPRC certified photographers, and FPRC grading of Early Treatment Diabetic Retinopathy Study Severity Scale (ETDRS) and Diabetic Macular Edema (DME). More than mild DR (mtmDR) was defined as ETDRS level 35 or higher, and/or DME, in at least one eye. AI system operators underwent a standardized training protocol before study start. Median age was 59 years (range, 22-84 years); among participants, 47.5% of participants were male; 16.1% were Hispanic, 83.3% not Hispanic; 28.6% African American and 63.4% were not; 198 (23.8%) had mtmDR. The AI system exceeded all pre-specified superiority endpoints at sensitivity of 87.2% (95% CI, 81.8-91.2%) (>85%), specificity of 90.7% (95% CI, 88.3-92.7%) (>82.5%), and imageability rate of 96.1% (95% CI, 94.6-97.3%), demonstrating AI's ability to bring specialty-level diagnostics to primary care settings. Based on these results, FDA authorized the system for use by health care providers to detect more than mild DR and diabetic macular edema, making it, the first FDA authorized autonomous AI diagnostic system in any field of medicine, with the potential to help prevent vision loss in thousands of people with diabetes annually. ClinicalTrials.gov NCT02963441.",
+   "date": "2018",
+   "ids": {
+    "pmid": [
+     "31304320"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT02963441",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "enrollment": 900,
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "ctgov:NCT04965857",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_idxdr_term.json#NCT04965857",
+   "name": "Comparison of the Hologic Genius Digital Diagnostics System With the Liquid-based Cytology (LBC) Manual Microscopy",
+   "aliases": [
+    "Hologic's Genius Digital Diagnostics System"
+   ],
+   "sponsor": "Hologic Deutschland GmbH",
+   "manufacturer": "Hologic Deutschland GmbH",
+   "enrollment": 3000,
+   "date": "2021-09-01",
+   "ids": {
+    "nct": [
+     "NCT04965857"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "idxdr",
+  "record": {
+   "id": "ctgov:NCT01625598",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_idxdr_term.json#NCT01625598",
+   "name": "Computer Detection of Diabetic Retinopathy Compared to Clinical Examination",
+   "aliases": [
+    "Photography of the retina",
+    "Retinal photography"
+   ],
+   "sponsor": "Digital Diagnostics, Inc.",
+   "enrollment": 600,
+   "date": "2012-04",
+   "ids": {
+    "nct": [
+     "NCT01625598"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "diabetic-retinopathy-detection"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "510k:DEN190040",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_DEN190040.json#results[0]",
+   "name": "Caption Guidance",
+   "manufacturer": "Bay Labs, Inc.",
+   "productCode": "QJU",
+   "date": "2020-02-07",
+   "ids": {
+    "submission": [
+     "DEN190040"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "enrollment": 240,
+   "purposeTags": [
+    "echo-acquisition-guidance"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "list:K201992",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K201992",
+   "name": "Caption Guidance",
+   "manufacturer": "Caption Health",
+   "productCode": "QJU",
+   "date": "2020-09-18",
+   "ids": {
+    "submission": [
+     "K201992"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "echo-acquisition-guidance"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "list:K243065",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K243065",
+   "name": "Cardiac Guidance",
+   "manufacturer": "Caption Health, Inc.",
+   "productCode": "QJU",
+   "date": "2025-01-15",
+   "ids": {
+    "submission": [
+     "K243065"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "echo-acquisition-guidance"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "gudid:DEN190040:Guidance",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN190040.json#results[0]",
+   "name": "Caption",
+   "manufacturer": "GE Medical Systems, Ultrasound & Primary Care Diagnostics LLC",
+   "version": "Guidance",
+   "productCode": "QJU",
+   "ids": {
+    "submission": [
+     "DEN190040",
+     "K243065"
+    ],
+    "udiDi": [
+     "00198953038604"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "gudid:DEN190040:AI",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN190040.json#results[1]",
+   "name": "Caption",
+   "manufacturer": "GE Medical Systems, Ultrasound & Primary Care Diagnostics LLC",
+   "version": "AI",
+   "productCode": "QIH",
+   "ids": {
+    "submission": [
+     "DEN190040",
+     "DEN220063",
+     "K210747",
+     "K243065"
+    ],
+    "udiDi": [
+     "00198953030233"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "ctgov:NCT03897140",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT03897140.json",
+   "name": "Point-of-Care Echocardiography With Assistance Technology",
+   "aliases": [
+    "Diagnostic Test: Limited Echocardiogram"
+   ],
+   "text": "Establish the effectiveness of the Bay Labs, Inc. EchoGPS software in enabling RNs to acquire echocardiograms. In this study an echocardiogram protocol using the EchoGPS interface with the Terason uSmart 3200t, an FDA 510(k)-cleared, commercially available ultrasound device will be performed. Participants will have two scans, one by a registered nurse (RN) using the Terason uSmart 3200t with EchoGPS (Study Exam) and one by a sonographer using the Reference Device without EchoGPS guidance (Control Exam), under the same protocol. Study is non-significant risk (NSR). STUDY SOFTWARE non-significant risk (NSR) Bay Labs EchoGPS software interfaced with the Terason uSmart 3200t FDA 510(k)-cleared, commercially available ultrasound EchoGPS software communicates with the ultrasound image formation engine of the 510(k)-",
+   "sponsor": "Sara Guttas",
+   "manufacturer": "Bay Labs, Inc.",
+   "enrollment": 240,
+   "date": "2019-03-25",
+   "ids": {
+    "nct": [
+     "NCT03897140"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "echo-acquisition-guidance"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "ctgov:NCT03705650",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT03705650.json",
+   "name": "SHAPE:SeeingtheHeartwithAIPoweredEcho",
+   "aliases": [
+    "Limited Echocardiogram"
+   ],
+   "text": "Establish transthoracic echocardiogram (TTE) exams performed with Bay Labs EchoGPS guidance technology can be used in a primary care setting to accurately identify cardiac disease. In Phase I TTE exams with EchoGPS will be compared to findings from a commercially available, FDA 510(k)-cleared reference device (Terason uSmart 3200t, point-of-care ultrasound) without EchoGPS assistance technology. Study is non-significant risk (NSR). STUDY SOFTWARE non-significant risk (NSR) Bay Labs EchoGPS software interfaced with the Terason uSmart 3200t FDA 510(k)-cleared, commercially available ultrasound EchoGPS software communicates with the ultrasound image formation engine of the 510(k)-",
+   "sponsor": "Sara Guttas",
+   "manufacturer": "Bay Labs",
+   "enrollment": 55,
+   "date": "2018-10-10",
+   "ids": {
+    "nct": [
+     "NCT03705650"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "echo-acquisition-guidance"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "ctgov:NCT06717373",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_caption_term.json#NCT06717373",
+   "name": "Point-of-Care Echocardiography in Patients With Known or Suspected Aortic Stenosis",
+   "aliases": [
+    "AutoAS"
+   ],
+   "sponsor": "Caption Health, Inc.",
+   "manufacturer": "Caption Health, Inc.",
+   "enrollment": 63,
+   "date": "2025-02-07",
+   "ids": {
+    "nct": [
+     "NCT06717373"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "aortic-stenosis-echo"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "caption",
+  "record": {
+   "id": "pubmed:33599681",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_caption2.xml#33599681",
+   "text": "Utility of a Deep-Learning Algorithm to Guide Novices to Acquire Echocardiograms for Limited Diagnostic Use. Artificial intelligence (AI) has been applied to analysis of medical imaging in recent years, but AI to guide the acquisition of ultrasonography images is a novel area of investigation. A novel deep-learning (DL) algorithm, trained on more than 5 million examples of the outcome of ultrasonographic probe movement on image quality, can provide real-time prescriptive guidance for novice operators to obtain limited diagnostic transthoracic echocardiographic images. To test whether novice users could obtain 10-view transthoracic echocardiographic studies of diagnostic quality using this DL-based software. This prospective, multicenter diagnostic study was conducted in 2 academic hospitals. A cohort of 8 nurses who had not previously conducted echocardiograms was recruited and trained with AI. Each nurse scanned 30 patients aged at least 18 years who were scheduled to undergo a clinically indicated echocardiogram at Northwestern Memorial Hospital or Minneapolis Heart Institute between March and May 2019. These scans were compared with those of sonographers using the same echocardiographic hardware but without AI guidance. Each patient underwent paired limited echocardiograms: one from a nurse without prior echocardiography experience using the DL algorithm and the other from a sonographer without the DL algorithm. Five level 3-trained echocardiographers independently and blindly evaluated each acquisition. Four primary end points were sequentially assessed: qualitative judgement about left ventricular size and function, right ventricular size, and the presence of a pericardial effusion. Secondary end points included 6 other clinical parameters and comparison of scans by nurses vs sonographers. A total of 240 patients (mean [SD] age, 61 [16] years old; 139 men [57.9%]; 79 [32.9%] with body mass indexes >30) completed the study. Eight nurses each scanned 30 patients using the DL algorithm, producing studies judged to be of diagnostic quality for left ventricular size, function, and pericardial effusion in 237 of 240 cases (98.8%) and right ventricular size in 222 of 240 cases (92.5%). For the secondary end points, nurse and sonographer scans were not significantly different for most parameters. This DL algorithm allows novices without experience in ultrasonography to obtain diagnostic transthoracic echocardiographic studies for evaluation of left ventricular size and function, right ventricular size, and presence of a nontrivial pericardial effusion, expanding the reach of echocardiography to clinical settings in which immediate interrogation of anatomy and cardiac function is needed and settings with limited resources.",
+   "date": "2021",
+   "ids": {
+    "pmid": [
+     "33599681"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "enrollment": 240,
+   "purposeTags": [
+    "echo-acquisition-guidance"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "510k:DEN170073",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_DEN170073.json#results[0]",
+   "name": "ContaCT",
+   "manufacturer": "Viz.Al, Inc.",
+   "productCode": "QAS",
+   "date": "2018-02-13",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "version": "1.0",
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "list:K223042",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K223042",
+   "name": "Viz LVO ContaCT",
+   "manufacturer": "Viz.ai, Inc.",
+   "productCode": "QAS",
+   "date": "2022-10-21",
+   "ids": {
+    "submission": [
+     "K223042"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "list:K210209",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K210209",
+   "name": "Viz ICH",
+   "manufacturer": "Viz.ai, Inc.",
+   "productCode": "QAS",
+   "date": "2021-03-23",
+   "ids": {
+    "submission": [
+     "K210209"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "module": "ich",
+   "purposeTags": [
+    "ich-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "list:K220439",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K220439",
+   "name": "Viz SDH",
+   "manufacturer": "Viz.ai, Inc.",
+   "productCode": "QAS",
+   "date": "2022-07-25",
+   "ids": {
+    "submission": [
+     "K220439"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "module": "sdh",
+   "purposeTags": [
+    "sdh-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "list:DEN230003",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#DEN230003",
+   "name": "Viz HCM",
+   "manufacturer": "Viz.ai, Inc.",
+   "productCode": "QXO",
+   "date": "2023-08-03",
+   "ids": {
+    "submission": [
+     "DEN230003"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "module": "hcm",
+   "purposeTags": [
+    "hcm-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.1",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[5]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.1",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030004"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.2",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[6]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.2",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030035"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.5",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[9]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.5",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030073"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.6",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[1]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.6",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030080"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.9",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[7]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.9",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030134"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.10",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[4]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.10",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030172"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "gudid:DEN170073:1.11",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN170073.json#results[0]",
+   "name": "Viz LVO",
+   "manufacturer": "VIZ.AI, INC.",
+   "version": "1.11",
+   "productCode": "QAS",
+   "ids": {
+    "submission": [
+     "DEN170073"
+    ],
+    "udiDi": [
+     "00811852030189"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "ctgov:NCT04608617",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT04608617.json",
+   "name": "SYNCHRONISE: LVO Triage Timing and Outcome Study",
+   "aliases": [
+    "Viz LVO (De Novo Number DEN170073)",
+    "Baseline Effectiveness Cohort"
+   ],
+   "text": "The objective of this study is to evaluate the impact of Viz LVO in hospital systems with non-interventional and interventional (spoke and hub) stroke centers on the timing and outcomes of patients with suspected acute ischemic stroke indicated for mechanical thrombectomy. Viz LVO is a notification-only, parallel workflow tool for use by hospital networks and trained clinicians to identify and communicate images of specific patients to a specialist, independent of standard of care workflow. Viz LVO uses an artificial No Intervention was performed for the pre-Viz group. Record review to establish operational metrics only occurred.",
+   "sponsor": "Viz.ai, Inc.",
+   "manufacturer": "Viz.ai, Inc.",
+   "enrollment": 600,
+   "date": "2021-03-09",
+   "ids": {
+    "nct": [
+     "NCT04608617"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "submission",
+     "value": "DEN170073",
+     "channel": "field"
+    }
+   ],
+   "module": "lvo",
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "ctgov:NCT04142879",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT04142879.json",
+   "name": "Automated Detection and Triage of Large Vessel Occlusions Using Artificial Intelligence for Early and Rapid Treatment (ALERT)",
+   "aliases": [
+    "Viz Device Software"
+   ],
+   "text": "Post Market, Prospective, Randomized, Controlled, multi center data collection study to evaluate the use of Viz versus the standard of care in stroke workflow and clinical outcome parameters. Viz uses artificial intelligence to automatically detect, triage and notify stroke specialists of suspected large vessel occlusion (LVOs) and computed tomography angiogram (CTA) imaging. Viz includes functionality to automatically process computed to",
+   "sponsor": "Providence Little Company of Mary-Torrance",
+   "enrollment": 500,
+   "date": "2019-12-01",
+   "ids": {
+    "nct": [
+     "NCT04142879"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "29386200",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "26898852",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "24784550",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "27092472",
+     "channel": "field",
+     "role": "background"
+    }
+   ],
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "ctgov:NCT05838456",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT05838456.json",
+   "name": "Deep Learning Enabled Endovascular Stroke Therapy Screening in Community Hospitals",
+   "aliases": [
+    "Viz.AI software"
+   ],
+   "text": "After onset of Acute Ischemic Stroke (AIS), every minute of delay to treatment reduces the likelihood of a good clinical outcome. A key delay occurs in the time between completion of computed tomography (CT) angiography of the head and neck and interpretation in the setting of AIS care. The purpose of this study is to assess the effect of incorporating Viz.AI software, which via via a machine-learning algorithm performs artificial intelligence-based automated detection of large vessel occlusions (LVO) on CT angiography (CTA) images and alerts the AIS care team (diagnosis and treatment decisio Viz.AI software performs artificial intelligence-based automated detection of large vessel occlusions and alerts the AIS care team.",
+   "sponsor": "The University of Texas Health Science Center, Houston",
+   "manufacturer": "Viz.ai, Inc.",
+   "enrollment": 443,
+   "date": "2021-01-01",
+   "ids": {
+    "nct": [
+     "NCT05838456"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "37721738",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "pubmed:40335883",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_misc1.xml#40335883",
+   "text": "Automated Emergent Large Vessel Occlusion Detection Using Viz.ai Software and Its Impact on Stroke Workflow Metrics and Patient Outcomes in Stroke Centers: A Systematic Review and Meta-analysis. The implementation of artificial intelligence (AI), particularly Viz.ai software in stroke care, has emerged as a promising tool to enhance the detection of large vessel occlusion (LVO) and to improve stroke workflow metrics and patient outcomes. The aim of this systematic review and meta-analysis is to evaluate the impact of Viz.ai on stroke workflow efficiency in hospitals and on patients' outcomes. Following the PRISMA guidelines, we conducted a comprehensive search on electronic databases, including PubMed, Web of Science, and Scopus databases, to obtain relevant studies until 25 October 2024. Our primary outcomes were door-to-groin puncture (DTG) time, CT scan-to-start of endovascular treatment (EVT) time, CT scan-to-recanalization time, and door-in-door-out time. Secondary outcomes included symptomatic intracranial hemorrhage (ICH), any ICH, mortality, mRS score < 2 at 90 days, and length of hospital stay. A total of 12 studies involving 15,595 patients were included in our analysis. The pooled analysis demonstrated that the implementation of the Viz.ai algorithm was associated with lesser CT scan to EVT time (SMD -0.71, 95% CI [-0.98, -0.44], p < 0.001) and DTG time (SMD -0.50, 95% CI [-0.66, -0.35], p < 0.001) as well as CT to recanalization time (SMD -0.55, 95% CI [-0.76, -0.33], p < 0.001). Additionally, patients in the post-AI group had significantly lower door-in door-out time than the pre-AI group (SMD -0.49, 95% CI [-0.71, -0.28], p < 0.001). Despite the workflow metrics improvement, our analysis did not reveal statistically significant differences in patient clinical outcomes (p > 0.05). Our results suggest that the integration of the Viz.ai platform in stroke care holds significant potential for reducing EVT delays in patients with LVO and optimizing stroke flow metrics in comprehensive stroke centers. Further studies are required to validate its efficacy in improving clinical outcomes in patients with LVO.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "40335883"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Viz.ai, Inc."
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "pubmed:36457286",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_vizai.xml#36457286",
+   "text": "Automated detection of intracranial large vessel occlusions using Viz.ai software: Experience in a large, integrated stroke network. Endovascular thrombectomy is an evidence-based treatment for large vessel occlusion (LVO) stroke. Commercially available artificial intelligence has been designed to detect the presence of an LVO on computed tomography angiogram (CTA). We compared Viz.ai-LVO (San Francisco, CA, USA) to CTA interpretation by board-certified neuroradiologists (NRs) in a large, integrated stroke network. From January 2021 to December 2021, we compared Viz.ai detection of an internal carotid artery (ICA) or middle cerebral artery first segment (MCA-M1) occlusion to the gold standard of CTA interpretation by board-certified NRs for all code stroke CTAs. On a monthly basis, sensitivity, specificity, accuracy, positive predictive value (PPV), and negative predictive value (NPV) were calculated. Trend analyses were conducted to evaluate for any improvement of LVO detection by the software over time. 3851 patients met study inclusion criteria, of whom 220 (5.7%) had an ICA or MCA-M1 occlusion per NR. Sensitivity and specificity were 78.2% (95% CI 72%-83%) and 97% (95% CI 96%-98%), respectively. PPV was 61% (95% CI 55%-67%), NPV 99% (95% CI 98%-99%), and accuracy was 95.9% (95% CI 95.3%-96.5%). Neither specificity or sensitivity improved over time in the trend analysis. Viz.ai-LVO has high specificity and moderately high sensitivity to detect an ICA or proximal MCA occlusion. The software has the potential to streamline code stroke workflows and may be particularly impactful when emergency access to NRs or vascular neurologists is limited.",
+   "date": "2023",
+   "ids": {
+    "pmid": [
+     "36457286"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "lvo-triage"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Viz.ai, Inc."
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "pubmed:39246948",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_vizai.xml#39246948",
+   "text": "Revolutionizing Intracranial Hemorrhage Diagnosis: A Retrospective Analytical Study of Viz.ai ICH for Enhanced Diagnostic Accuracy. Introduction Artificial intelligence (AI) alerts the radiologist to the presence of intracranial hemorrhage (ICH) as fast as 1-2 minutes from scan completion, leading to faster diagnosis and treatment. We wanted to validate a new AI application called Viz.ai ICH to improve the diagnosis of suspected ICH. Methods We performed a retrospective analysis of 4,203 consecutive non-contrast brain computed tomography (CT) reports in a single institution between September 1, 2021, and January 31, 2022. The reports were made by neuroradiologists who reviewed each case for the presence of ICH. Reports and identified cases with positive findings for ICH were reviewed. Positive cases were categorized based on subtype, timing, and size/volume. Viz.ai ICH output was reviewed for positive cases. This AI model was validated by assessing its performance with Viz.ai ICH as the index test compared to the neuroradiologists' interpretation as the gold standard. Results According to neuroradiologists, 9.2% of non-contrast brain CT reports were positive for ICH. The sensitivity of Viz.ai ICH was 85%, specificity was 98%, positive predictive value was 81%, and negative predictive value was 99%. Subgroup analysis was performed based on intraparenchymal, subarachnoid, subdural, and intraventricular subtypes. Sensitivities were 94%, 79%, 83%, and 44%, respectively. Further stratification revealed sensitivity improves with higher acuity and volume/size across subtypes. Conclusion Our analysis indicates that AI can accurately detect ICH's presence, particularly for large-volume/large-size ICH. The paper introduces a novel AI model for detecting ICH. This advancement contributes to the field by revolutionizing ICH detection and improving patient outcomes.",
+   "date": "2024",
+   "ids": {
+    "pmid": [
+     "39246948"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "ich",
+   "purposeTags": [
+    "ich-triage"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Viz.ai, Inc."
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "pubmed:39832899",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_vizai.xml#39832899",
+   "text": "Real-world evaluation of the accuracy of the Viz.AI automated intracranial hemorrhage volume calculation tool. Appropriate management of spontaneous intracerebral hemorrhage (ICH) and intraventricular hemorrhage (IVH) requires rapid, accurate volume estimation. Viz.AI has developed an artificial intelligence (AI)-powered ICH calculation tool that may improve existing methods. Adult patients presenting to a large healthcare system between December 2015 and December 2021 with spontaneous ICH greater than 10mL and within 72 hours since ictus were analyzed for hematoma volume. mABC/2 (modified ABC/2) was measured by a board-certified neurosurgeon. Semi-autonomous segmentation (SAS) was performed by a trained medical student on 3D Slicer, adjudicated by a board-certified neurosurgeon and used as a surrogate ground-truth volume. 139 CTs met inclusion criteria. Mean ICH volume via ground-truth SAS was 47.69±27.19 mL. Mean ICH volume difference between SAS and AI and SAS and mABC/2 was 4.77±4.06 mL and 8.36±9.48 mL, respectively (p<0.01). Bland-Altman plots yielded AI and SAS limits of agreement between -4.45 and 13.18 mL, and mABC/2 and SAS limits of agreement between -21.35 and 27.02 mL. The average absolute difference between IVH volume yielded by SAS and AI was 3.26±3.55 mL. Bland-Altman plots yielded IVH volume limits of agreement between -7.48 mLand 10.47 mL. AI was 94.6% sensitive and 94.0% specific for detecting IVH in the presence of ICH. The average time-to-volume for SAS and AI was 424±208 and 151±49.7 s (P<0.01), respectively. Viz.AI is more accurate than mABC/2, and more rapid than SAS. The combination of speed and accuracy makes Viz.AI viable for clinical decision-making and clinical trial use.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "39832899"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "ich",
+   "purposeTags": [
+    "ich-volume"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Viz.ai, Inc."
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "pubmed:35183401",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_viz.xml#35183401",
+   "text": "Contact dermatitis and nutrition. There is a worldwide increase in food and nutrition-related contact dermatitis, including irritant contact dermatitis, allergic contact dermatitis, systemic contact dermatitis, protein contact dermatitis, and photocontact dermatitis. A wide range of patients is affected by this condition, from those who consume certain foods as part of their diet to workers who handle food occupationally. Patch testing, analytical chemistry, and reporting may help in timely recognition of contact allergens. Elimination of exposure to the known food or supplement is imperative for treatment. Currently, more research is needed in order to better define the role that nutrition plays in contact dermatitis.",
+   "date": "2022",
+   "ids": {
+    "pmid": [
+     "35183401"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "aliases": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "viz",
+  "record": {
+   "id": "pubmed:24140073",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_viz.xml#24140073",
+   "text": "Equilibrium contact angle or the most-stable contact angle? It is well-established that the equilibrium contact angle in a thermodynamic framework is an \"unattainable\" contact angle. Instead, the most-stable contact angle obtained from mechanical stimuli of the system is indeed experimentally accessible. Monitoring the susceptibility of a sessile drop to a mechanical stimulus enables to identify the most stable drop configuration within the practical range of contact angle hysteresis. Two different stimuli may be used with sessile drops: mechanical vibration and tilting. The most stable drop against vibration should reveal the changeless contact angle but against the gravity force, it should reveal the highest resistance to slide down. After the corresponding mechanical stimulus, once the excited drop configuration is examined, the focus will be on the contact angle of the initial drop configuration. This methodology needs to map significantly the static drop configurations with different stable contact angles. The most-stable contact angle, together with the advancing and receding contact angles, completes the description of physically realizable configurations of a solid-liquid system. Since the most-stable contact angle is energetically significant, it may be used in the Wenzel, Cassie or Cassie-Baxter equations accordingly or for the surface energy evaluation.",
+   "date": "2014",
+   "ids": {
+    "pmid": [
+     "24140073"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "aliases": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "510k:K253265",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K253265.json#results[0]",
+   "name": "BriefCase-Triage",
+   "manufacturer": "Aidoc Medical , Ltd.",
+   "productCode": "QAS",
+   "date": "2025-11-06",
+   "ids": {
+    "submission": [
+     "K253265"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "module": "abdominal ct free gas",
+   "purposeTags": [
+    "abdominal-free-gas-triage"
+   ],
+   "enrollment": 394,
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "list:K202992",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K202992",
+   "name": "BriefCase, RIB Fractures Triage (RibFx)",
+   "manufacturer": "Aidoc Medical, Ltd.",
+   "productCode": "QFM",
+   "date": "2021-04-14",
+   "ids": {
+    "submission": [
+     "K202992"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "module": "rib fracture",
+   "purposeTags": [
+    "rib-fracture-triage"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "list:K251406",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K251406",
+   "name": "BriefCase-Triage",
+   "manufacturer": "Aidoc Medical, Ltd.",
+   "productCode": "QAS",
+   "date": "2025-05-30",
+   "ids": {
+    "submission": [
+     "K251406"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "list:K251195",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K251195",
+   "name": "BriefCase-Triage",
+   "manufacturer": "Aidoc Medical , Ltd.",
+   "productCode": "QAS",
+   "date": "2026-01-27",
+   "ids": {
+    "submission": [
+     "K251195"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "list:K180647",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K180647",
+   "name": "BriefCase",
+   "manufacturer": "Aidoc Medical, Ltd.",
+   "productCode": "QAS",
+   "date": "2018-08-01",
+   "ids": {
+    "submission": [
+     "K180647"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:41444826",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase2.xml#41444826",
+   "text": "Real-world performance evaluation of a commercial deep learning model for intracranial hemorrhage detection. Intracranial hemorrhage (ICH) is a life-threatening emergency requiring rapid and accurate diagnosis, yet the real-world performance of FDA-cleared deep-learning models remains uncertain. We retrospectively evaluated a commercial AI model (Aidoc Medical Briefcase ICH Triage) across 101,944 non-contrast head CT examinations from 74,142 patients in a 17-facility academic health system (April 2023-April 2025). Reference-standard ICH labels and imaging characteristics were extracted from radiology reports using GPT-4o with a zero-shot prompt-refinement strategy, validated against 500 manually annotated cases. The LLM achieved 96% accuracy (κ = 0.85) for ICH classification. Overall, the Aidoc model demonstrated 82.2% sensitivity, 97.6% specificity, and 96.6% accuracy. Sensitivity was highest for acute (86.2%), large >10 mm (95.0%), and multi-compartment hemorrhages (93.6%), but substantially lower for subacute (45.5%), chronic (54.8%), small ≤10 mm (74.8%), and single-compartment bleeds (76.0%). Performance was also reduced in the outpatient setting (72.2%), where subtle hemorrhages were more common, while remaining consistent across demographic subgroups. These findings show that the model performs reliably for acute and extensive ICH but is less sensitive to subtle or localized presentations, underscoring the need for ongoing real-world evaluation and targeted improvements to support safe clinical triage.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "41444826"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "ich",
+   "purposeTags": [
+    "ich-triage"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Aidoc Medical, Ltd."
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:31828361",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase.xml#31828361",
+   "text": "Analysis of head CT scans flagged by deep learning software for acute intracranial hemorrhage. To analyze the implementation of deep learning software for the detection and worklist prioritization of acute intracranial hemorrhage on non-contrast head CT (NCCT) in various clinical settings at an academic medical center. Urgent NCCT scans were reviewed by the Aidoc (Tel Aviv, Israel) neural network software. All cases flagged by the software as positive for acute intracranial hemorrhage on the neuroradiology worklist were prospectively included in this assessment. The scans were classified regarding presence and type of hemorrhage, whether these were initial or follow-up scans, and patient visit location, including trauma/emergency, inpatient, and outpatient departments. During the 2 months of enrollment, 373 NCCT scans were flagged by the Aidoc software for possible intracranial hemorrhage out of 2011 scans analyzed (18.5%). Among the flagged cases, 275 (72.4%) were positive; 290 (77.7%) were inpatient cases, 75 (20.1%) were trauma/emergency cases, and eight (2.1%) were outpatient cases, and 229 of 373 (62.5%) were follow-up cases, of which 219 (95.6%) inpatient cases. Among the 144 new cases flagged for hemorrhage, 66 (44.4%) were positive, of which 39 (58.2%) were trauma/emergency cases. The overall sensitivity, specificity, positive predictive value, negative predictive value, and accuracy were 88.7%, 94.2% and 73.7%, 97.7%, and 93.4%, respectively. The accuracy of the intracranial hemorrhage detection was significantly higher for emergency cases than for inpatient cases (96.5% versus 89.4%). This study reveals that the performance of the deep learning software for acute intracranial hemorrhage detection varies depending upon the patient visit location. Furthermore, a substantial portion of flagged cases were follow-up exams, the majority of which were inpatient exams. These findings can help optimize the artificial intelligence-driven clincical workflow.",
+   "date": "2020",
+   "ids": {
+    "pmid": [
+     "31828361"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "ich",
+   "purposeTags": [
+    "ich-triage"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Aidoc Medical, Ltd."
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:33819478",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase.xml#33819478",
+   "text": "Diagnostic Accuracy and Failure Mode Analysis of a Deep Learning Algorithm for the Detection of Intracranial Hemorrhage. To determine the institutional diagnostic accuracy of an artificial intelligence (AI) decision support systems (DSS), Aidoc, in diagnosing intracranial hemorrhage (ICH) on noncontrast head CTs and to assess the potential generalizability of an AI DSS. This retrospective study included 3,605 consecutive, emergent, adult noncontrast head CT scans performed between July 1, 2019, and December 30, 2019, at our institution (51% female subjects, mean age of 61 ± 21 years). Each scan was evaluated for ICH by both a certificate of added qualification certified neuroradiologist and Aidoc. We determined the diagnostic accuracy of the AI model and performed a failure mode analysis with quantitative CT radiomic image characterization. Of the 3,605 scans, 349 cases of ICH (9.7% of studies) were identified. The neuroradiologist and Aidoc interpretations were concordant in 96.9% of cases and the overall sensitivity, specificity, positive predictive value, and negative predictive value were 92.3%, 97.7%, 81.3%, and 99.2%, respectively, with positive predictive values unexpectedly lower than in previously reported studies. Prior neurosurgery, type of ICH, and number of ICHs were significantly associated with decreased model performance. Quantitative image characterization with CT radiomics failed to reveal significant differences between concordant and discordant studies. This study revealed decreased diagnostic accuracy of an AI DSS at our institution. Despite extensive evaluation, we were unable to identify the source of this discrepancy, raising concerns about the generalizability of these tools with indeterminate failure modes. These results further highlight the need for standardized study design to allow for rigorous and reproducible site-to-site comparison of emerging deep learning technologies.",
+   "date": "2021",
+   "ids": {
+    "pmid": [
+     "33819478"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "ich",
+   "purposeTags": [
+    "ich-triage"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Aidoc Medical, Ltd."
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:34117018",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase2.xml#34117018",
+   "text": "Diagnostic Accuracy and Failure Mode Analysis of a Deep Learning Algorithm for the Detection of Cervical Spine Fractures. Artificial intelligence decision support systems are a rapidly growing class of tools to help manage ever-increasing imaging volumes. The aim of this study was to evaluate the performance of an artificial intelligence decision support system, Aidoc, for the detection of cervical spinal fractures on noncontrast cervical spine CT scans and to conduct a failure mode analysis to identify areas of poor performance. This retrospective study included 1904 emergent noncontrast cervical spine CT scans of adult patients (60 [SD, 22] years, 50.3% men). The presence of cervical spinal fracture was determined by Aidoc and an attending neuroradiologist; discrepancies were independently adjudicated. Algorithm performance was assessed by calculation of the diagnostic accuracy, and a failure mode analysis was performed. Aidoc and the neuroradiologist's interpretation were concordant in 91.5% of cases. Aidoc correctly identified 67 of 122 fractures (54.9%) with 106 false-positive flagged studies. Diagnostic performance was calculated as the following: sensitivity, 54.9% (95% CI, 45.7%-63.9%); specificity, 94.1% (95% CI, 92.9%-95.1%); positive predictive value, 38.7% (95% CI, 33.1%-44.7%); and negative predictive value, 96.8% (95% CI, 96.2%-97.4%). Worsened performance was observed in the detection of chronic fractures; differences in diagnostic performance were not altered by study indication or patient characteristics. We observed poor diagnostic accuracy of an artificial intelligence decision support system for the detection of cervical spine fractures. Many similar algorithms have also received little or no external validation, and this study raises concerns about their generalizability, utility, and rapid pace of deployment. Further rigorous evaluations are needed to understand the weaknesses of these tools before widespread implementation.",
+   "date": "2021",
+   "ids": {
+    "pmid": [
+     "34117018"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "c-spine fracture",
+   "purposeTags": [
+    "cspine-fracture-detection"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Aidoc Medical, Ltd."
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:41230302",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase2.xml#41230302",
+   "text": "Performance of FDA-Approved AI Algorithms in Detecting Acute Pulmonary Embolism on Computed Tomographic Pulmonary Angiography (CTPA): A Meta-Analysis of Real-World Retrospective Studies. Pulmonary embolism (PE) is a potentially fatal condition requiring prompt and accurate diagnosis. Computed tomographic pulmonary angiography (CTPA) is the gold standard for PE detection, but its interpretation is time-intensive and subject to human error. Recent advancements in artificial intelligence (AI), particularly in machine learning (ML) and deep learning (DL) algorithms, offer promising tools to enhance diagnostic efficiency and accuracy. This systematic review and meta-analysis evaluated the diagnostic performance of FDA-approved ML algorithms for detecting acute PE on CTPA. A comprehensive literature search across six databases identified six retrospective studies encompassing 9,102 CTPA scans, all of which assessed either the Aidoc or CINA-PE algorithms. Pooled sensitivity and specificity were 93% (95% CI: 88%-95%) and 98% (95% CI: 93%-100%), respectively, indicating high diagnostic accuracy across real-world datasets. All included studies demonstrated low risk of bias according to Quality Assessment of Diagnostic Accuracy Studies-2 (QUADAS-2) assessments. These findings support the integration of FDA-approved ML tools into radiological workflows as adjuncts to reduce diagnostic errors and improve triage. However, prospective trials are needed to assess their impact on clinical decision-making, workflow efficiency, cost-effectiveness, and patient outcomes.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "41230302"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "module": "pe",
+   "purposeTags": [
+    "pe-detection"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Aidoc Medical, Ltd."
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:36862835",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase.xml#36862835",
+   "text": "The Briefcase She Carried.",
+   "date": "2023",
+   "ids": {
+    "pmid": [
+     "36862835"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "aliases": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "pubmed:30251484",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_briefcase.xml#30251484",
+   "text": "Economical and compact briefcase spectral-domain optical coherence tomography system for primary care and point-of-care applications. Development of low-cost and portable optical coherence tomography (OCT) systems is of global interest in the OCT research community. Such systems enable utility broadly throughout a clinical facility, or in remote areas that often lack clinical infrastructure. We report the development and validation of a low-cost, portable briefcase spectral-domain optical coherence tomography (SD-OCT) system for point-of-care diagnostics in primary care centers and/or in remote settings. The self-contained briefcase OCT contains all associated optical hardware, including light source, spectrometer, hand-held probe, and a laptop. Additionally, this system utilizes unique real-time mosaicking of surface video images that are synchronized with rapid A-scan acquisition to eliminate the need for lateral scanning hardware, and enable the construction of cross-sectional B-mode images over extended lateral distances. The entire briefcase system weighs 9 kg and costs ∼USD$8000 using off-the-shelf components. System performance was validated by acquiring images of in vivo human skin on the fingertip, palm, and nail fold. The efficiency, portability, and low-cost enable accessibility and utility in primary care centers and low-resource settings.",
+   "date": "2018",
+   "ids": {
+    "pmid": [
+     "30251484"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "aliases": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "briefcase",
+  "record": {
+   "id": "ctgov:NCT06754137",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_aidoc_term.json#NCT06754137",
+   "name": "AI-Assisted Fracture Detection in Emergency Radiography",
+   "aliases": [
+    "BoneView AI-Assisted Radiograph Interpretation"
+   ],
+   "sponsor": "Salzburger Landeskliniken",
+   "enrollment": 1667,
+   "date": "2025-10-01",
+   "ids": {
+    "nct": [
+     "NCT06754137"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "510k:K221347",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K221347.json#results[0]",
+   "name": "Transpara 1.7.2",
+   "manufacturer": "Screenpoint Medical B.V.",
+   "productCode": "QDQ",
+   "date": "2022-08-03",
+   "ids": {
+    "submission": [
+     "K221347"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "list:K210404",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K210404",
+   "name": "Transpara 1.7.0",
+   "manufacturer": "ScreenPoint Medical B.V.",
+   "productCode": "QDQ",
+   "date": "2021-06-02",
+   "ids": {
+    "submission": [
+     "K210404"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "list:K241831",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K241831",
+   "name": "Transpara (2.1.0)",
+   "manufacturer": "ScreenPoint Medical B.V.",
+   "productCode": "QDQ",
+   "date": "2024-11-25",
+   "ids": {
+    "submission": [
+     "K241831"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "list:K232096",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K232096",
+   "name": "Transpara Density 1.0.0",
+   "manufacturer": "Screenpoint Medical B.V.",
+   "productCode": "QIH",
+   "date": "2023-12-11",
+   "ids": {
+    "submission": [
+     "K232096"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-density"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "gudid:K221347:1.7.2",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_K221347.json#results[0]",
+   "name": "Transpara",
+   "manufacturer": "Screenpoint Medical B.V.",
+   "version": "1.7.2",
+   "productCode": "QDQ",
+   "ids": {
+    "submission": [
+     "K221347"
+    ],
+    "udiDi": [
+     "08720387058013"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "ctgov:NCT04838756",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT04838756.json",
+   "name": "Mammography Screening With Artificial Intelligence (MASAI)",
+   "aliases": [
+    "AI screening modality",
+    "Conventional screening modality"
+   ],
+   "text": "The purpose of this randomized controlled trial is to assess whether AI can improve the efficacy of mammography screening, by adapting single and double reading based on AI derived cancer-risk scores and to use AI as a decision support in the screen reading, compared with conventional mammography screening (double reading without AI). Screen exam will be analysed with an AI system (Transpara, ScreenPoint, Nijmegen, The Netherlands) that assigns exams with a cancer-risk score from 1 to 10, as well as presenting CAD-marks at suspicious findings. Exams with risk score 1-9 will be sin Screen exams will be read by two radiologists without the support of AI.",
+   "sponsor": "Region Skane",
+   "manufacturer": "ScreenPoint Medical B.V.",
+   "enrollment": 100000,
+   "date": "2021-04-12",
+   "ids": {
+    "nct": [
+     "NCT04838756"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "37541274",
+     "channel": "field",
+     "role": "report"
+    },
+    {
+     "type": "pmid",
+     "value": "39904652",
+     "channel": "field",
+     "role": "report"
+    },
+    {
+     "type": "pmid",
+     "value": "41620232",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "pubmed:37541274",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_transpara.xml#37541274",
+   "text": "Artificial intelligence-supported screen reading versus standard double reading in the Mammography Screening with Artificial Intelligence trial (MASAI): a clinical safety analysis of a randomised, controlled, non-inferiority, single-blinded, screening accuracy study. Retrospective studies have shown promising results using artificial intelligence (AI) to improve mammography screening accuracy and reduce screen-reading workload; however, to our knowledge, a randomised trial has not yet been conducted. We aimed to assess the clinical safety of an AI-supported screen-reading protocol compared with standard screen reading by radiologists following mammography. In this randomised, controlled, population-based trial, women aged 40-80 years eligible for mammography screening (including general screening with 1·5-2-year intervals and annual screening for those with moderate hereditary risk of breast cancer or a history of breast cancer) at four screening sites in Sweden were informed about the study as part of the screening invitation. Those who did not opt out were randomly allocated (1:1) to AI-supported screening (intervention group) or standard double reading without AI (control group). Screening examinations were automatically randomised by the Picture Archive and Communications System with a pseudo-random number generator after image acquisition. The participants and the radiographers acquiring the screening examinations, but not the radiologists reading the screening examinations, were masked to study group allocation. The AI system (Transpara version 1.7.0) provided an examination-based malignancy risk score on a 10-level scale that was used to triage screening examinations to single reading (score 1-9) or double reading (score 10), with AI risk scores (for all examinations) and computer-aided detection marks (for examinations with risk score 8-10) available to the radiologists doing the screen reading. Here we report the prespecified clinical safety analysis, to be done after 80 000 women were enrolled, to assess the secondary outcome measures of early screening performance (cancer detection rate, recall rate, false positive rate, positive predictive value [PPV] of recall, and type of cancer detected [invasive or in situ]) and screen-reading workload. Analyses were done in the modified intention-to-treat population (ie, all women randomly assigned to a group with one complete screening examination, excluding women recalled due to enlarged lymph nodes diagnosed with lymphoma). The lowest acceptable limit for safety in the intervention group was a cancer detection rate of more than 3 per 1000 participants screened. The trial is registered with ClinicalTrials.gov, NCT04838756, and is closed to accrual; follow-up is ongoing to assess the primary endpoint of the trial, interval cancer rate. Between April 12, 2021, and July 28, 2022, 80 033 women were randomly assigned to AI-supported screening (n=40 003) or double reading without AI (n=40 030). 13 women were excluded from the analysis. The median age was 54·0 years (IQR 46·7-63·9). Race and ethnicity data were not collected. AI-supported screening among 39 996 participants resulted in 244 screen-detected cancers, 861 recalls, and a total of 46 345 screen readings. Standard screening among 40 024 participants resulted in 203 screen-detected cancers, 817 recalls, and a total of 83 231 screen readings. Cancer detection rates were 6·1 (95% CI 5·4-6·9) per 1000 screened participants in the intervention group, above the lowest acceptable limit for safety, and 5·1 (4·4-5·8) per 1000 in the control group-a ratio of 1·2 (95% CI 1·0-1·5; p=0·052). Recall rates were 2·2% (95% CI 2·0-2·3) in the intervention group and 2·0% (1·9-2·2) in the control group. The false positive rate was 1·5% (95% CI 1·4-1·7) in both groups. The PPV of recall was 28·3% (95% CI 25·3-31·5) in the intervention group and 24·8% (21·9-28·0) in the control group. In the intervention group, 184 (75%) of 244 cancers detected were invasive and 60 (25%) were in situ; in the control group, 165 (81%) of 203 cancers were invasive and 38 (19%) were in situ. The screen-reading workload was reduced by 44·3% using AI. AI-supported mammography screening resulted in a similar cancer detection rate compared with standard double reading, with a substantially lower screen-reading workload, indicating that the use of AI in mammography screening is safe. The trial was thus not halted and the primary endpoint of interval cancer rate will be assessed in 100 000 enrolled participants after 2-years of follow up. Swedish Cancer Society, Confederation of Regional Cancer Centres, and the Swedish governmental funding for clinical research (ALF).",
+   "date": "2023",
+   "ids": {
+    "pmid": [
+     "37541274"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT04838756",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "version": "1.7.0",
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "pubmed:39904652",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_transpara.xml#39904652",
+   "text": "Screening performance and characteristics of breast cancer detected in the Mammography Screening with Artificial Intelligence trial (MASAI): a randomised, controlled, parallel-group, non-inferiority, single-blinded, screening accuracy study. Emerging evidence suggests that artificial intelligence (AI) can increase cancer detection in mammography screening while reducing screen-reading workload, but further understanding of the clinical impact is needed. In this randomised, controlled, parallel-group, non-inferiority, single-blinded, screening-accuracy study, done within the Swedish national screening programme, women recruited at four screening sites in southwest Sweden (Malmö, Lund, Landskrona, and Trelleborg) who were eligible for mammography screening were randomly allocated (1:1) to AI-supported screening or standard double reading. The AI system (Transpara version 1.7.0 ScreenPoint Medical, Nijmegen, Netherlands) was used to triage screening examinations to single or double reading and as detection support highlighting suspicious findings. This is a protocol-defined analysis of the secondary outcome measures of recall, cancer detection, false-positive rates, positive predictive value of recall, type and stage of cancer detected, and screen-reading workload. This trial is registered at ClinicalTrials.gov, NCT04838756 and is closed to accrual. Between April 12, 2021, and Dec 7, 2022, 105 934 women were randomly assigned to the intervention or control group. 19 women were excluded from the analysis. The median age was 53·7 years (IQR 46·5-63·2). AI-supported screening among 53 043 participants resulted in 338 detected cancers and 1110 recalls. Standard screening among 52 872 participants resulted in 262 detected cancers and 1027 recalls. Cancer-detection rates were 6·4 per 1000 (95% CI 5·7-7·1) screened participants in the intervention group and 5·0 per 1000 (4·4-5·6) in the control group, a ratio of 1·29 (95% CI 1·09-1·51; p=0·0021). AI-supported screening resulted in an increased detection of invasive cancers (270 vs 217, a proportion ratio of 1·24 [95% CI 1·04-1·48]), wich were mainly small lymph-node negative cancers (58 more T1, 46 more lymph-node negative, and 21 more non-luminal A). AI-supported screening also resulted in an increased detection of in situ cancers (68 vs 45, a proportion ratio of 1·51 [1·03-2·19]), with about half of the increased detection being high-grade in situ cancer (12 more nuclear grade III, and no increase in nuclear grade I). The recall and false-positive rate were not significantly higher in the intervention group (a ratio of 1·08 [95% CI 0·99-1·17; p=0·084] and 1·01 [0·91-1·11; p=0·92], respectively). The positive predictive value of recall was significantly higher in the intervention group compared with the control group, with a ratio of 1·19 (95% CI 1·04-1·37; p=0·012). There were 61 248 screen readings in the intervention group and 109 692 in the control group, resulting in a 44·2% reduction in the screen-reading workload. The findings suggest that AI contributes to the early detection of clinically relevant breast cancer and reduces screen-reading workload without increasing false positives. Swedish Cancer Society, Confederation of Regional Cancer Centres, and Swedish governmental funding for clinical research.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "39904652"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT04838756",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "version": "1.7.0",
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "ScreenPoint Medical B.V."
+  }
+ },
+ {
+  "family": "transpara",
+  "record": {
+   "id": "pubmed:32052311",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_transpara.xml#32052311",
+   "text": "Artificial intelligence for breast cancer detection in mammography: experience of use of the ScreenPoint Medical Transpara system in 310 Japanese women. To compare the breast cancer detection performance in digital mammograms of a panel of three unaided human readers (HR) versus a stand-alone artificial intelligence (AI)-based Transpara system in a population of Japanese women. The subjects were 310 Japanese female outpatients who underwent digital mammographic examinations between January 2018 and October 2018. A panel of three HR provided a Breast Imaging Reporting and Data System (BI-RADS) score, and Transpara system provided an interactive decision support score and an examination-based cancer likelihood score. The area under the receiver operating characteristic curve (AUC), sensitivity, and specificity were compared under each of reading conditions. The AUC was higher for human readers than with stand-alone Transpara system (human readers 0.816; Transpara system 0.706; difference 0.11; P < 0.001). The sensitivity of the unaided HR for diagnosis was 89% and specificity was 86%. The sensitivity of stand-alone Transpara system for cutoff scores of 4 and 7 were 93% and 85%, and specificities were 45% and 67%, respectively. Although the diagnostic performance of Transpara system was statistically lower than that of HR, the recent advances in AI algorithms are expected to reduce the difference between computers and human experts in detecting breast cancer.",
+   "date": "2020",
+   "ids": {
+    "pmid": [
+     "32052311"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "ScreenPoint Medical B.V."
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "510k:K240301",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K240301.json#results[0]",
+   "name": "MammoScreen® (3)",
+   "manufacturer": "Therapixel",
+   "productCode": "QDQ",
+   "date": "2024-08-01",
+   "ids": {
+    "submission": [
+     "K240301"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "list:K243679",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K243679",
+   "name": "MammoScreenÂ® (4)",
+   "manufacturer": "Therapixel",
+   "productCode": "QDQ",
+   "date": "2025-07-03",
+   "ids": {
+    "submission": [
+     "K243679"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "list:K260714",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K260714",
+   "name": "MammoScreenÂ® (5)",
+   "manufacturer": "Therapixel",
+   "productCode": "QDQ",
+   "date": "2026-06-26",
+   "ids": {
+    "submission": [
+     "K260714"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "list:K211541",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K211541",
+   "name": "MammoScreen 2.0",
+   "manufacturer": "Therapixel",
+   "productCode": "QDQ",
+   "date": "2021-11-26",
+   "ids": {
+    "submission": [
+     "K211541"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "list:K243685",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K243685",
+   "name": "MammoScreen BD",
+   "manufacturer": "Therapixel",
+   "productCode": "QIH",
+   "date": "2025-08-22",
+   "ids": {
+    "submission": [
+     "K243685"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-density"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "ctgov:NCT05800132",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT05800132.json",
+   "name": "Diagnostic Performance of Breast Cancer Screening Second Reading Process Assisted by AI",
+   "aliases": [
+    "MammoScreen"
+   ],
+   "text": "The goal of this clinical trial is to compare, for the second reading of screening mammograms, the standard of care with an AI assisted scenario. The main questions it aims to answer are: * will the experimental pathway be non-inferior to the standard pathway? * will the experimental pathway be economically superior to the standard pathway? Participants will receive screening mammograms, as part of the breast cancer screening program. Researchers will compare the interpretation made by the second reader in the standard pathway with the AI assisted interpretation made by a different reader in the experimental pathway. Diagnostic reading aid for breast cancer screening",
+   "sponsor": "Therapixel",
+   "manufacturer": "Therapixel",
+   "enrollment": 5000,
+   "date": "2023-06-01",
+   "ids": {
+    "nct": [
+     "NCT05800132"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "ctgov:NCT04996316",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_mammoscreen.json#NCT04996316",
+   "name": "MammoScreen Breast Cancer Risk Assessment and Decision Aid for Breast Cancer Screening and Referrals",
+   "aliases": [
+    "Electronic Health Record Review",
+    "Interview",
+    "Media Intervention",
+    "Survey Administration",
+    "Training and Education"
+   ],
+   "sponsor": "OHSU Knight Cancer Institute",
+   "enrollment": 1141,
+   "date": "2022-09-07",
+   "ids": {
+    "nct": [
+     "NCT04996316"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-risk-assessment"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "mammoscreen",
+  "record": {
+   "id": "pubmed:32159424",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_mammoscreen.xml#32159424",
+   "text": "Use of an Online Breast Cancer Risk Assessment and Patient Decision Aid in Primary Care Practices. Background: U.S. Preventive Services Task Force (USPSTF) recommendations for mammography screening, genetic counseling and testing for pathogenic BRCA1/2 mutations, and use of risk-reducing medications require assessment of breast cancer risk for clinical decision-making, but efficient methods for risk assessment in clinical practice are lacking. Materials and Methods: A cross-sectional study evaluating a web-based breast cancer risk assessment and decision aid (MammoScreen) was conducted in an academic general internal medicine clinic. All eligible women, 40-74 years of age without previous diagnosis of breast or ovarian cancer and who were enrolled in the Epic MyChart patient portal were invited. MammoScreen uptake and completion rates and consistency between breast cancer risk determined by MammoScreen and existing risk information in the Epic record were measured. Patient and physician experiences were summarized from interviews. Results: Of 448 invited participants, 339 (75.7%) read their MyChart invitation and 125 (36.9%) who read invitations enrolled in the study; 118 (94.4% of enrolled) completed MammoScreen. Twenty-one women were categorized as above-average risk from either MammoScreen data or the chart review and 7 (33.3%) were identified by both sources. Physicians and patients believed MammoScreen was easy to use and was helpful in identifying risks and facilitating shared decision-making. Conclusions: Breast cancer risk assessment and mammography screening decision support were efficiently implemented through a web-based tool for patients sent through an electronic patient portal. Integration of patient decision aids with risk algorithms in clinical practice may help support the implementation of USPSTF recommendations that include risk assessment and shared decision-making.",
+   "date": "2020",
+   "ids": {
+    "pmid": [
+     "32159424"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "breast-cancer-risk-assessment"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "510k:K211733",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K211733.json#results[0]",
+   "name": "Lunit INSIGHT CXR Triage",
+   "manufacturer": "Lunit, Inc.",
+   "productCode": "QFM",
+   "date": "2021-11-10",
+   "ids": {
+    "submission": [
+     "K211733"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "cxr-triage-pleural-effusion-pneumothorax"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "list:K211678",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K211678",
+   "name": "Lunit INSIGHT MMG",
+   "manufacturer": "Lunit Inc.",
+   "productCode": "QDQ",
+   "date": "2021-11-17",
+   "ids": {
+    "submission": [
+     "K211678"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "list:K231470",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K231470",
+   "name": "Lunit INSIGHT DBT",
+   "manufacturer": "Lunit Inc.",
+   "productCode": "QDQ",
+   "date": "2023-11-06",
+   "ids": {
+    "submission": [
+     "K231470"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "dbt-breast-cancer-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "gudid:K211733:1.0:a",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_K211733.json#results[0]",
+   "name": "Lunit INSIGHT CXR Triage",
+   "manufacturer": "Lunit Inc.",
+   "version": "1.0",
+   "productCode": "QFM",
+   "ids": {
+    "submission": [
+     "K211733"
+    ],
+    "udiDi": [
+     "08800076000179"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "gudid:K211733:1.0:b",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_K211733.json#results[1]",
+   "name": "Lunit INSIGHT CXR Triage",
+   "manufacturer": "Lunit Inc.",
+   "version": "1.0",
+   "productCode": "QFM",
+   "ids": {
+    "submission": [
+     "K211733"
+    ],
+    "udiDi": [
+     "08800076000124"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "ctgov:NCT06401434",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT06401434.json",
+   "name": "Evaluation of CAD-based Triage for CXR Interpretation During TB Screening",
+   "aliases": [
+    "On-site radiologist",
+    "CAD-based triage (with INSIGHT CXR software)"
+   ],
+   "text": "Clinical workflows which position computer-aided detection (CAD) software for chest X-ray interpretation during TB screening as a decision support tool for radiologists, with the aim of improving interpretation accuracy and/or efficiency, may prove to be a more acceptable use case than outright radiologist replacement. Freundeskreis Für Internationale Tuberkulosehilfe e.V. (FIT) will organize 80 community-based chest X-ray screening events for TB across three provinces of Viet Nam as part of a All participants in this arm will be screened by CXR. All CXR images will be interpreted by only an on-site radiologist. Participants with an abnormal CXR result from the radiologist will be indicated for follow-on diagnostic testing with the Xpert M All participants in this arm will be screened by CXR. All CXR images will first be processed with the INSIGHT CXR CAD software (Lunit, South Korea) to identify the totally normal/clear CXR images; only those with the possibility of containing an abno",
+   "sponsor": "Freundeskreis Für Internationale Tuberkulosehilfe e.V",
+   "manufacturer": "Lunit, Inc.",
+   "enrollment": 23835,
+   "date": "2024-05-29",
+   "ids": {
+    "nct": [
+     "NCT06401434"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "33822560",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "36342705",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "34073627",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "36180271",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "32539700",
+     "channel": "field",
+     "role": "background"
+    },
+    {
+     "type": "pmid",
+     "value": "33321696",
+     "channel": "field",
+     "role": "background"
+    }
+   ],
+   "purposeTags": [
+    "tb-screening-cxr"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "ctgov:NCT05024591",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_lunit.json#NCT05024591",
+   "name": "Artificial Intelligence for breaST canceR scrEening in mAMmography (AI-STREAM)",
+   "aliases": [
+    "Lunit INSIGHT MMG CADe/x for medical imaging"
+   ],
+   "sponsor": "Kyung Hee University Hospital at Gangdong",
+   "manufacturer": "Lunit, Inc.",
+   "enrollment": 25008,
+   "date": "2021-02-01",
+   "ids": {
+    "nct": [
+     "NCT05024591"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "breast-cancer-detection-mammography"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "pubmed:40233023",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_lunitcxr.xml#40233023",
+   "text": "Comparison of different Lunit INSIGHT CXR software versions when reading chest radiographs for tuberculosis. New versions of computer-aided detection (CAD) software for chest X-ray (CXR) interpretation during tuberculosis (TB) screening are regularly released which purport to have incremental performance gains. No studies have independently assessed differences in software performance between the World Health Organization recommended INSIGHT CXR software (Lunit, South Korea). A well-characterized Digital Imaging and Communications in Medicine (DICOM) test library was compiled using data from a community-based TB screening initiative in Ho Chi Minh City, Viet Nam. The performance of Lunit CAD software versions 3.1.0.0 and 3.9.0.1 (newer version) were compared by measuring the area under the receiver operating characteristic curve (AUC), stratified by key clinical and demographic variables and using Xpert MTB/RIF Ultra (Ultra) test results as the reference standard. Median abnormality scores were compared using the Wilcoxon signed-rank test and performance characteristics were compared at clinically-relevant cut-off thresholds (e.g., 90% sensitivity) between the versions. The DICOM test library contained 2,708 participants, of whom 10.3% had a Mycobacterium tuberculosis (MTB) positive Ultra test result. The newer software version had a significantly higher AUC than its predecessor (AUC 0.76 vs 0.78, p = 0.029), and performed significantly better among people with a past history of TB (AUC 0.67 vs 0.73, p = 0.003), older individuals (0.75 vs 0.77, p = 0.040) and males (0.73 vs 0.76, p = 0.008). When using an cut-off threshold optimized for the older software version, the newer software was significantly less accurate than its predecessors. However, when the cut-off threshold was re-calibrated, there were no significant differences in sensitivity and specificity between the software versions. Although INSIGHT CXR v3.9.0.1 has some significantly improved performance characteristics compared to its predecessor, further studies should assess how these performance differences translate into real-world improvements during TB screening. As new CAD software versions are rolled out, cut-off thresholds must be re-calibrated to ensure the continued accuracy of CXR interpretation.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "40233023"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "tb-screening-cxr"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Lunit, Inc."
+  }
+ },
+ {
+  "family": "lunit",
+  "record": {
+   "id": "pubmed:35202417",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_lunitcxr.xml#35202417",
+   "text": "Concordance rate of radiologists and a commercialized deep-learning solution for chest X-ray: Real-world experience with a multicenter health screening cohort. Lunit INSIGHT CXR (Lunit) is a commercially available deep-learning algorithm-based decision support system for chest radiography (CXR). This retrospective study aimed to evaluate the concordance rate of radiologists and Lunit for thoracic abnormalities in a multicenter health screening cohort. We retrospectively evaluated the radiology reports and Lunit results for CXR at several health screening centers in August 2020. Lunit was adopted as a clinical decision support system (CDSS) in routine clinical practice. Subsequently, radiologists completed their reports after reviewing the Lunit results. The DLA result was provided as a color map with an abnormality score (%) for thoracic lesions when the score was greater than the predefined cutoff value of 15%. Concordance was achieved when (a) the radiology reports were consistent with the DLA results (\"accept\"), (b) the radiology reports were partially consistent with the DLA results (\"edit\") or had additional lesions compared with the DLA results (\"add\"). There was discordance when the DLA results were rejected in the radiology report. In addition, we compared the reading times before and after Lunit was introduced. Finally, we evaluated systemic usability scale questionnaire for radiologists and physicians who had experienced Lunit. Among 3,113 participants (1,157 men; mean age, 49 years), thoracic abnormalities were found in 343 (11.0%) based on the CXR radiology reports and 621 (20.1%) based on the Lunit results. The concordance rate was 86.8% (accept: 85.3%, edit: 0.9%, and add: 0.6%), and the discordance rate was 13.2%. Except for 479 cases (7.5%) for whom reading time data were unavailable (n = 5) or unreliable (n = 474), the median reading time increased after the clinical integration of Lunit (median, 19s vs. 14s, P < 0.001). The real-world multicenter health screening cohort showed a high concordance of the chest X-ray report and the Lunit result under the clinical integration of the deep-learning solution. The reading time slight increased with the Lunit assistance.",
+   "date": "2022",
+   "ids": {
+    "pmid": [
+     "35202417"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "aliases": [],
+   "purposeTags": [],
+   "supersedes": [],
+   "manufacturer": "Lunit, Inc."
+  }
+ },
+ {
+  "family": "paige",
+  "record": {
+   "id": "510k:DEN200080",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_DEN200080.json#results[0]",
+   "name": "Paige Prostate",
+   "manufacturer": "Paige.Ai",
+   "productCode": "QPN",
+   "date": "2021-09-21",
+   "ids": {
+    "submission": [
+     "DEN200080"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "version": "2.1.501",
+   "purposeTags": [
+    "prostate-cancer-detection-pathology"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "paige",
+  "record": {
+   "id": "gudid:DEN200080:1.X",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_DEN200080.json#results[0]",
+   "name": "Paige Prostate",
+   "manufacturer": "PAIGE.AI, INC.",
+   "version": "1.X",
+   "productCode": "QPN",
+   "ids": {
+    "submission": [
+     "DEN200080"
+    ],
+    "udiDi": [
+     "00860007599118"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "paige",
+  "record": {
+   "id": "pubmed:33904171",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_misc2.xml#33904171",
+   "text": "Independent real-world application of a clinical-grade automated prostate cancer detection system. Artificial intelligence (AI)-based systems applied to histopathology whole-slide images have the potential to improve patient care through mitigation of challenges posed by diagnostic variability, histopathology caseload, and shortage of pathologists. We sought to define the performance of an AI-based automated prostate cancer detection system, Paige Prostate, when applied to independent real-world data. The algorithm was employed to classify slides into two categories: benign (no further review needed) or suspicious (additional histologic and/or immunohistochemical analysis required). We assessed the sensitivity, specificity, positive predictive values (PPVs), and negative predictive values (NPVs) of a local pathologist, two central pathologists, and Paige Prostate in the diagnosis of 600 transrectal ultrasound-guided prostate needle core biopsy regions ('part-specimens') from 100 consecutive patients, and to ascertain the impact of Paige Prostate on diagnostic accuracy and efficiency. Paige Prostate displayed high sensitivity (0.99; CI 0.96-1.0), NPV (1.0; CI 0.98-1.0), and specificity (0.93; CI 0.90-0.96) at the part-specimen level. At the patient level, Paige Prostate displayed optimal sensitivity (1.0; CI 0.93-1.0) and NPV (1.0; CI 0.91-1.0) at a specificity of 0.78 (CI 0.64-0.89). The 27 part-specimens considered by Paige Prostate as suspicious, whose final diagnosis was benign, were found to comprise atrophy (n = 14), atrophy and apical prostate tissue (n = 1), apical/benign prostate tissue (n = 9), adenosis (n = 2), and post-atrophic hyperplasia (n = 1). Paige Prostate resulted in the identification of four additional patients whose diagnoses were upgraded from benign/suspicious to malignant. Additionally, this AI-based test provided an estimated 65.5% reduction of the diagnostic time for the material analyzed. Given its optimal sensitivity and NPV, Paige Prostate has the potential to be employed for the automated identification of patients whose histologic slides could forgo full histopathologic review. In addition to providing incremental improvements in diagnostic accuracy and efficiency, this AI-based system identified patients whose prostate cancers were not initially diagnosed by three experienced histopathologists. © 2021 The Authors. The Journal of Pathology published by John Wiley & Sons, Ltd. on behalf of The Pathological Society of Great Britain and Ireland.",
+   "date": "2021",
+   "ids": {
+    "pmid": [
+     "33904171"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "prostate-cancer-detection-pathology"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Paige.AI"
+  }
+ },
+ {
+  "family": "paige",
+  "record": {
+   "id": "pubmed:33782551",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_misc2.xml#33782551",
+   "text": "An independent assessment of an artificial intelligence system for prostate cancer detection shows strong diagnostic accuracy. Prostate cancer is a leading cause of morbidity and mortality for adult males in the US. The diagnosis of prostate carcinoma is usually made on prostate core needle biopsies obtained through a transrectal approach. These biopsies may account for a significant portion of the pathologists' workload, yet variability in the experience and expertise, as well as fatigue of the pathologist may adversely affect the reliability of cancer detection. Machine-learning algorithms are increasingly being developed as tools to aid and improve diagnostic accuracy in anatomic pathology. The Paige Prostate AI-based digital diagnostic is one such tool trained on the digital slide archive of New York's Memorial Sloan Kettering Cancer Center (MSKCC) that categorizes a prostate biopsy whole-slide image as either \"Suspicious\" or \"Not Suspicious\" for prostatic adenocarcinoma. To evaluate the performance of this program on prostate biopsies secured, processed, and independently diagnosed at an unrelated institution, we used Paige Prostate to review 1876 prostate core biopsy whole-slide images (WSIs) from our practice at Yale Medicine. Paige Prostate categorizations were compared to the pathology diagnosis originally rendered on the glass slides for each core biopsy. Discrepancies between the rendered diagnosis and categorization by Paige Prostate were each manually reviewed by pathologists with specialized genitourinary pathology expertise. Paige Prostate showed a sensitivity of 97.7% and positive predictive value of 97.9%, and a specificity of 99.3% and negative predictive value of 99.2% in identifying core biopsies with cancer in a data set derived from an independent institution. Areas for improvement were identified in Paige Prostate's handling of poor quality scans. Overall, these results demonstrate the feasibility of porting a machine-learning algorithm to an institution remote from its training set, and highlight the potential of such algorithms as a powerful workflow tool for the evaluation of prostate core biopsies in surgical pathology practices.",
+   "date": "2021",
+   "ids": {
+    "pmid": [
+     "33782551"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "prostate-cancer-detection-pathology"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Paige.AI"
+  }
+ },
+ {
+  "family": "paige",
+  "record": {
+   "id": "pubmed:32393768",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_misc2.xml#32393768",
+   "text": "Novel artificial intelligence system increases the detection of prostate cancer in whole slide images of core needle biopsies. Prostate cancer (PrCa) is the second most common cancer among men in the United States. The gold standard for detecting PrCa is the examination of prostate needle core biopsies. Diagnosis can be challenging, especially for small, well-differentiated cancers. Recently, machine learning algorithms have been developed for detecting PrCa in whole slide images (WSIs) with high test accuracy. However, the impact of these artificial intelligence systems on pathologic diagnosis is not known. To address this, we investigated how pathologists interact with Paige Prostate Alpha, a state-of-the-art PrCa detection system, in WSIs of prostate needle core biopsies stained with hematoxylin and eosin. Three AP-board certified pathologists assessed 304 anonymized prostate needle core biopsy WSIs in 8 hours. The pathologists classified each WSI as benign or cancerous. After ~4 weeks, pathologists were tasked with re-reviewing each WSI with the aid of Paige Prostate Alpha. For each WSI, Paige Prostate Alpha was used to perform cancer detection and, for WSIs where cancer was detected, the system marked the area where cancer was detected with the highest probability. The original diagnosis for each slide was rendered by genitourinary pathologists and incorporated any ancillary studies requested during the original diagnostic assessment. Against this ground truth, the pathologists and Paige Prostate Alpha were measured. Without Paige Prostate Alpha, pathologists had an average sensitivity of 74% and an average specificity of 97%. With Paige Prostate Alpha, the average sensitivity for pathologists significantly increased to 90% with no statistically significant change in specificity. With Paige Prostate Alpha, pathologists more often correctly classified smaller, lower grade tumors, and spent less time analyzing each WSI. Future studies will investigate if similar benefit is yielded when such a system is used to detect other forms of cancer in a setting that more closely emulates real practice.",
+   "date": "2020",
+   "ids": {
+    "pmid": [
+     "32393768"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "version": "Alpha",
+   "purposeTags": [
+    "prostate-cancer-detection-pathology"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Paige.AI"
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "510k:DEN200055",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_DEN200055.json#results[0]",
+   "name": "GI Genius",
+   "manufacturer": "Cosmo Artificial Intelligence - Ai, Ltd.",
+   "productCode": "QNP",
+   "date": "2021-04-09",
+   "ids": {
+    "submission": [
+     "DEN200055"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT04079478",
+     "channel": "text",
+     "context": "nical investigation performed in Italy, titled \"The AID Study: Artificial Intelligence for Colorectal Adenoma De Novo Summary (DEN200055/S001) Page 14 Detection\" (Clinicaltrials.gov identifier: NCT04079478). The study was conducted at three medical centers in Italy (Humanitas Research Hospital [Milan], Nuovo Regina Margherita Hospital [Rome], and Valduce Hospital [Como]). Each medical center included two investigator endoscopists for a total of six in"
+    },
+    {
+     "type": "nct",
+     "value": "NCT01694966",
+     "channel": "text",
+     "context": "ne performance testing was also used for algorithm training, and was originally from a study titled, \"The Safety and Efficacy of Methylene Blue MMX� Modified Release Tablets Administered to Subjects Undergoing Screening or Surveillance Colonoscopy\" [NCT01694966]. A diagram describing the use of the videos from that study is included in Figure 3 below. The multi-arm study included colonoscopy videos in which methylene blue was used (725 videos) and a control arm in which no methylene blue was used (480 vide"
+    }
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "list:K211951",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K211951",
+   "name": "GI Genius",
+   "manufacturer": "Cosmo Artificial Intelligence - AI Ltd",
+   "productCode": "QNP",
+   "date": "2021-07-23",
+   "ids": {
+    "submission": [
+     "K211951"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "list:K231143",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K231143",
+   "name": "GI Genius System 100 and GI Genius System 200",
+   "manufacturer": "Cosmo Artificial Intelligence - AI Ltd",
+   "productCode": "QNP",
+   "date": "2023-05-19",
+   "ids": {
+    "submission": [
+     "K231143"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "list:K241887",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K241887",
+   "name": "GI GeniusÂ™ Module 100 (GGM100.US); GI GeniusÂ™ Module 200 (GGM200.US); ColonPROÂ™ 4.0 (CPRO40.US); GI GeniusÂ™ Module 300 (GGM300-US); ColonPROÂ™ 4.0 (CPRO40S-US)",
+   "manufacturer": "Cosmo Artificial Intelligence - AI Ltd",
+   "productCode": "QNP",
+   "date": "2024-07-25",
+   "ids": {
+    "submission": [
+     "K241887"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "ctgov:NCT04079478",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT04079478.json",
+   "name": "The AID Study: Artificial Intelligence for Colorectal Adenoma Detection",
+   "aliases": [
+    "AI"
+   ],
+   "text": "Colonoscopy is clinically used as the gold standard for detection of colon cancer (CRC) and removal of adenomatous polyps. Despite the success of colonoscopy in reducing cancer-related deaths, there exists a disappointing level of adenomas missed at colonoscopy. \"Back-to-back\" colonoscopies have indicated significant miss rates of 27% for small adenomas (\\< 5 mm) and 6% for adenomas of more than 10 mm in diameter. Studies performing both CT colonography and colonoscopy estimate that the colonoscopy miss rate for polyps over 10 mm in size may be as high as 12%. The clinical importance of missed lesions should be emphasized because these lesions may ultimately progress to CRC8. Limitations in human visual perception and other human biases such as fatigue, distraction, level of alertness during examination increases such recognition errors and way of mitigating them may be the key to impro Artificial intellignece colonoscopy",
+   "sponsor": "Istituto Clinico Humanitas",
+   "enrollment": 700,
+   "date": "2019-09-25",
+   "ids": {
+    "nct": [
+     "NCT04079478"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "ctgov:NCT01694966",
+   "kind": "Study",
+   "source": "derived-from-fda-summary",
+   "fixtureRef": "fda/DEN200055_summary_text.txt#NCT01694966",
+   "name": "The Safety and Efficacy of Methylene Blue MMX Modified Release Tablets Administered to Subjects Undergoing Screening or Surveillance Colonoscopy",
+   "ids": {
+    "nct": [
+     "NCT01694966"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "colonoscopy-methylene-blue"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "ctgov:NCT04723758",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT04723758.json",
+   "name": "COLO-DETECT: Can an Artificial Intelligence Device Increase Detection of Polyps During Colonoscopy?",
+   "aliases": [
+    "GI Genius-assisted diagnostic colonoscopy",
+    "Diagnostic Colonoscopy"
+   ],
+   "text": "COLO-DETECT is a clinical trial to evaluate whether an Artificial Intelligence device (\"GI Genius\", manufactured by Medtronic) can identify more polyps (pre-cancerous growths of the bowel lining) during colonoscopy (large bowel camera test) than during colonoscopy without it. Participants will undergo diagnostic colonoscopy, which will be identical to the normal standard of care at the unit where they are undergoing their procedure, except that GI Genius will be turned on during the procedure. Diagnostic colonoscopy will be performed as per the standard of care for the unit where the patient is having their procedure.",
+   "sponsor": "South Tyneside and Sunderland NHS Foundation Trust",
+   "manufacturer": "Medtronic",
+   "enrollment": 2032,
+   "date": "2021-03-29",
+   "ids": {
+    "nct": [
+     "NCT04723758"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "39153491",
+     "channel": "field",
+     "role": "report"
+    },
+    {
+     "type": "pmid",
+     "value": "35680613",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "pubmed:39153491",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_gigenius.xml#39153491",
+   "text": "Polyp detection with colonoscopy assisted by the GI Genius artificial intelligence endoscopy module compared with standard colonoscopy in routine colonoscopy practice (COLO-DETECT): a multicentre, open-label, parallel-arm, pragmatic randomised controlled trial. Increased polyp detection during colonoscopy is associated with decreased post-colonoscopy colorectal cancer incidence and mortality. The COLO-DETECT trial aimed to assess the clinical effectiveness of the GI Genius intelligent endoscopy module for polyp detection, comparing colonoscopy assisted by GI Genius (computer-aided detection [CADe]-assisted colonoscopy) with standard colonoscopy in routine practice. We did a multicentre, open-label, parallel-arm, pragmatic randomised controlled trial in 12 National Health Service (NHS) hospitals (ten NHS Trusts) in England, among adults (aged ≥18 years) undergoing planned colonoscopy for gastrointestinal symptoms or for surveillance due to personal or family history (ie, symptomatic indications), or colorectal cancer screening. Randomisation (1:1) to CADe-assisted colonoscopy or standard colonoscopy was done with a web-based dynamic adaptive algorithm, immediately before colonoscopy, with stratification by age group, sex, colonoscopy indication (screening or symptomatic), and NHS Trust. Recruiting staff, participants, and colonoscopists were unmasked to trial allocation; histopathologists, co-chief investigators, and trial statisticians were masked. CADe-assisted colonoscopy consisted of standard colonoscopy plus the GI Genius module active for at least the entire inspection phase of colonoscope withdrawal. The primary outcome was mean adenomas per procedure (total number of adenomas detected divided by total number of procedures); the key secondary outcome was adenoma detection rate (proportion of colonoscopies with at least one adenoma). Analysis was by intention to treat (ITT), with outcomes compared between groups by mixed-effects regression modelling, in which effect estimates were adjusted for randomisation stratification variables. Data were imputed for outcome measures with more than 5% missing values. All participants who underwent colonoscopy were assessed for safety. The trial is registered on ISRCTN (ISRCTN10451355) and ClinicalTrials.gov (NCT04723758), and is complete. Between March 29, 2021, and April 6, 2023, 2032 participants (1132 [55·7%] male, 900 [44·3%] female; mean age 62·4 years [SD 10·8]) were recruited and randomly assigned: 1015 to CADe-assisted colonoscopy and 1017 to standard colonoscopy. 1231 (60·6%) participants were undergoing screening and 801 (39·4%) had symptomatic indications. Mean adenomas per procedure was 1·56 (SD 2·82; n=1001 participants with available data) in the CADe-assisted colonoscopy group versus 1·21 (1·91; n=1009) in the standard colonoscopy group, representing an adjusted mean difference of 0·36 (95% CI 0·14-0·57; adjusted incidence rate ratio 1·30 [95% CI 1·15-1·47], p<0·0001). Adenomas were detected in 555 (56·6%) of 980 participants in the CADe-assisted colonoscopy group versus 477 (48·4%) of 986 in the standard colonoscopy group, representing a proportion difference of 8·3% (95% CI 3·9-12·7; adjusted odds ratio 1·47 [95% CI 1·21-1·78], p<0·0001). Numbers of adverse events were similar between the CADe-assisted colonoscopy and standard colonoscopy groups (adverse events: 25 vs 19; serious adverse events: four vs six), and no adverse events in the CADe-assisted colonoscopy group were deemed to be related to GI Genius use on independent review. Results of the COLO-DETECT trial support the use of GI Genius to increase detection of premalignant colorectal polyps in routine colonoscopy practice. Medtronic.",
+   "date": "2024",
+   "ids": {
+    "pmid": [
+     "39153491"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT04723758",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "enrollment": 2032,
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Medtronic"
+  }
+ },
+ {
+  "family": "gigenius",
+  "record": {
+   "id": "pubmed:32371116",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_gigenius.xml#32371116",
+   "text": "Efficacy of Real-Time Computer-Aided Detection of Colorectal Neoplasia in a Randomized Trial. One-fourth of colorectal neoplasias are missed during screening colonoscopies; these can develop into colorectal cancer (CRC). Deep learning systems allow for real-time computer-aided detection (CADe) of polyps with high accuracy. We performed a multicenter, randomized trial to assess the safety and efficacy of a CADe system in detection of colorectal neoplasias during real-time colonoscopy. We analyzed data from 685 subjects (61.32 ± 10.2 years old; 337 men) undergoing screening colonoscopies for CRC, post-polypectomy surveillance, or workup due to positive results from a fecal immunochemical test or signs or symptoms of CRC, at 3 centers in Italy from September through November 2019. Patients were randomly assigned (1:1) to groups who underwent high-definition colonoscopies with the CADe system or without (controls). The CADe system included an artificial intelligence-based medical device (GI-Genius, Medtronic) trained to process colonoscopy images and superimpose them, in real time, on the endoscopy display a green box over suspected lesions. A minimum withdrawal time of 6 minutes was required. Lesions were collected and histopathology findings were used as the reference standard. The primary outcome was adenoma detection rate (ADR, the percentage of patients with at least 1 histologically proven adenoma or carcinoma). Secondary outcomes were adenomas detected per colonoscopy, non-neoplastic resection rate, and withdrawal time. The ADR was significantly higher in the CADe group (54.8%) than in the control group (40.4%) (relative risk [RR], 1.30; 95% confidence interval [CI], 1.14-1.45). Adenomas detected per colonoscopy were significantly higher in the CADe group (mean, 1.07 ±1.54) than in the control group (mean 0.71 ± 1.20) (incidence rate ratio, 1.46; 95% CI, 1.15-1.86). Adenomas 5 mm or smaller were detected in a significantly higher proportion of subjects in the CADe group (33.7%) than in the control group (26.5%; RR, 1.26; 95% CI, 1.01-1.52), as were adenomas of 6 to 9 mm (detected in 10.6% of subjects in the CADe group vs 5.8% in the control group; RR, 1.78; 95% CI, 1.09-2.86), regardless of morphology or location. There was no significant difference between groups in withdrawal time (417 ± 101 seconds for the CADe group vs 435 ± 149 for controls; P = .1) or proportion of subjects with resection of non-neoplastic lesions (26.0% in the CADe group vs 28.7% of controls; RR, 1.00; 95% CI, 0.90-1.12). In a multicenter, randomized trial, we found that including CADe in real-time colonoscopy significantly increases ADR and adenomas detected per colonoscopy without increasing withdrawal time. ClinicalTrials.gov no: 04079478.",
+   "date": "2020",
+   "ids": {
+    "pmid": [
+     "32371116"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "colon-polyp-detection"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "Medtronic"
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "510k:K213857",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K213857.json#results[0]",
+   "name": "HeartFlow Analysis",
+   "manufacturer": "HeartFlow, Inc.",
+   "productCode": "PJA",
+   "date": "2022-10-14",
+   "ids": {
+    "submission": [
+     "K213857"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "list:K203329",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K203329",
+   "name": "HeartFlow Analysis",
+   "manufacturer": "HeartFlow, Inc.",
+   "productCode": "PJA",
+   "date": "2021-01-08",
+   "ids": {
+    "submission": [
+     "K203329"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "list:K250902",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K250902",
+   "name": "HeartFlow Analysis",
+   "manufacturer": "HeartFlow, Inc.",
+   "productCode": "PJA",
+   "date": "2025-07-18",
+   "ids": {
+    "submission": [
+     "K250902"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "list:K182035",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K182035",
+   "name": "FFRct",
+   "manufacturer": "HeartFlow, Inc",
+   "productCode": "PJA",
+   "date": "2018-12-06",
+   "ids": {
+    "submission": [
+     "K182035"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "list:K190925",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K190925",
+   "name": "HeartFlow FFRct Analysis",
+   "manufacturer": "HeartFlow, Inc.",
+   "productCode": "PJA",
+   "date": "2019-08-15",
+   "ids": {
+    "submission": [
+     "K190925"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "gudid:K213857:FFRct version 3",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_K213857.json#results[0]",
+   "name": "HeartFlow Analysis",
+   "manufacturer": "Heartflow, Inc.",
+   "version": "FFRct version 3",
+   "productCode": "LLZ",
+   "ids": {
+    "submission": [
+     "K213857"
+    ],
+    "udiDi": [
+     "00853341006060"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "pubmed:24486266",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_heartflow2.xml#24486266",
+   "text": "Diagnostic performance of noninvasive fractional flow reserve derived from coronary computed tomography angiography in suspected coronary artery disease: the NXT trial (Analysis of Coronary Blood Flow Using CT Angiography: Next Steps). The goal of this study was to determine the diagnostic performance of noninvasive fractional flow reserve (FFR) derived from standard acquired coronary computed tomography angiography (CTA) datasets (FFR(CT)) for the diagnosis of myocardial ischemia in patients with suspected stable coronary artery disease (CAD). FFR measured during invasive coronary angiography (ICA) is the gold standard for lesion-specific coronary revascularization decisions in patients with stable CAD. The potential for FFR(CT) to noninvasively identify ischemia in patients with suspected CAD has not been sufficiently investigated. This prospective multicenter trial included 254 patients scheduled to undergo clinically indicated ICA for suspected CAD. Coronary CTA was performed before ICA. Evaluation of stenosis (>50% lumen reduction) in coronary CTA was performed by local investigators and in ICA by an independent core laboratory. FFR(CT) was calculated and interpreted in a blinded fashion by an independent core laboratory. Results were compared with invasively measured FFR, with ischemia defined as FFR(CT) or FFR ≤0.80. The area under the receiver-operating characteristic curve for FFR(CT) was 0.90 (95% confidence interval [CI]: 0.87 to 0.94) versus 0.81 (95% CI: 0.76 to 0.87) for coronary CTA (p = 0.0008). Per-patient sensitivity and specificity (95% CI) to identify myocardial ischemia were 86% (95% CI: 77% to 92%) and 79% (95% CI: 72% to 84%) for FFR(CT) versus 94% (86 to 97) and 34% (95% CI: 27% to 41%) for coronary CTA, and 64% (95% CI: 53% to 74%) and 83% (95% CI: 77% to 88%) for ICA, respectively. In patients (n = 235) with intermediate stenosis (95% CI: 30% to 70%), the diagnostic accuracy of FFR(CT) remained high. FFR(CT) provides high diagnostic accuracy and discrimination for the diagnosis of hemodynamically significant CAD with invasive FFR as the reference standard. When compared with anatomic testing by using coronary CTA, FFR(CT) led to a marked increase in specificity. (HeartFlowNXT-HeartFlow Analysis of Coronary Blood Flow Using Coronary CT Angiography [HFNXT]; NCT01757678).",
+   "date": "2014",
+   "ids": {
+    "pmid": [
+     "24486266"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT01757678",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "aliases": [],
+   "supersedes": [],
+   "manufacturer": "HeartFlow, Inc."
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "ctgov:NCT05325112",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_heartflow.json#NCT05325112",
+   "name": "Assessing Diagnostic Value of Non-invasive FFR-CT in Coronary Care in the Emergency Department",
+   "aliases": [
+    "FFR-CT"
+   ],
+   "sponsor": "HeartFlow, Inc.",
+   "manufacturer": "HeartFlow, Inc.",
+   "enrollment": 18,
+   "date": "2022-07-15",
+   "ids": {
+    "nct": [
+     "NCT05325112"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "ctgov:NCT05174247",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_heartflow.json#NCT05174247",
+   "name": "Addition of FFRct in the Diagnostic Pathway of Patients With Stable Chest Pain",
+   "aliases": [
+    "FFRct analysis"
+   ],
+   "sponsor": "Erasmus Medical Center",
+   "enrollment": 528,
+   "date": "2021-07-27",
+   "ids": {
+    "nct": [
+     "NCT05174247"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "heartflow",
+  "record": {
+   "id": "ctgov:NCT02809157",
+   "kind": "Study",
+   "source": "ctgov-search",
+   "fixtureRef": "ctgov/search_heartflow.json#NCT02809157",
+   "name": "Non-invasive Fractional Flow Reserve CT (FFRCT)Scan for the Study of Coronary Vaso-motion",
+   "aliases": [],
+   "sponsor": "National Heart Centre Singapore",
+   "enrollment": 10,
+   "date": "2014-10",
+   "ids": {
+    "nct": [
+     "NCT02809157"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "coronary-ffr-ct"
+   ],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "510k:K232699",
+   "kind": "AuthorizationSubmission",
+   "source": "openfda-510k",
+   "fixtureRef": "openfda/510k_K232699.json#results[0]",
+   "name": "Low Ejection Fraction AI-ECG Algorithm",
+   "manufacturer": "Anumana, Inc.",
+   "productCode": "QYE",
+   "date": "2023-09-28",
+   "ids": {
+    "submission": [
+     "K232699"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "enrollment": 16000,
+   "purposeTags": [
+    "low-ef-ecg-screening"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "list:K250652",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K250652",
+   "name": "ECG-AI Low Ejection Fraction (LEF) 12-Lead algorithm (1010)",
+   "manufacturer": "Anumana, Inc.",
+   "productCode": "QYE",
+   "date": "2025-07-28",
+   "ids": {
+    "submission": [
+     "K250652"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "low-ef-ecg-screening"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "list:K253801",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K253801",
+   "name": "ECG-AI Cardiac Amyloidosis (CA) 12-Lead Algorithm (1040)",
+   "manufacturer": "Anumana, Inc.",
+   "productCode": "SHP",
+   "date": "2026-04-07",
+   "ids": {
+    "submission": [
+     "K253801"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "cardiac-amyloidosis-ecg"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "list:K252360",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K252360",
+   "name": "ECG-AI Pulmonary Hypertension (PH) 12-Lead algorithm (1020)",
+   "manufacturer": "Anumana, Inc.",
+   "productCode": "SAT",
+   "date": "2026-03-28",
+   "ids": {
+    "submission": [
+     "K252360"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "purposeTags": [
+    "pulmonary-hypertension-ecg"
+   ],
+   "aliases": [],
+   "mentions": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "gudid:K232699:1010",
+   "kind": "SoftwareRelease",
+   "source": "gudid",
+   "fixtureRef": "openfda/udi_K232699.json#results[0]",
+   "name": "ECG-AI LEF 12-Lead Algorithm",
+   "manufacturer": "Anumana, Inc.",
+   "version": "1010",
+   "productCode": "QYE",
+   "ids": {
+    "submission": [
+     "K232699"
+    ],
+    "udiDi": [
+     "00860007426407"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "ctgov:NCT04963218",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT04963218.json",
+   "name": "A Multi-Center Study of Detection of Low Ventricular Ejection Fraction",
+   "aliases": [
+    "AI Algorithm to detect LVEF in ECG"
+   ],
+   "text": "This is a multi-site, retrospective study to evaluate the performance of a locked AI-based algorithm for detection of left ventricular systolic dysfunction. A prerequisite for inclusion of subjects from each institution will be the availability of at least one digital 12-lead ECG paired with an echocardiogram with LVEF information within 30 days of the date of the ECG. The AI-ECG LVSD algorithm will be applied on all ECGs and diagnostic performance features for the detection of LVSD will be esti A clinical decision support software as a medical device that detects whether a patient has LVEF less than or equal to 40% based upon the input of one or more ECG vectors at the point-of-care.",
+   "sponsor": "Mayo Clinic",
+   "enrollment": 16000,
+   "date": "2021-08-30",
+   "ids": {
+    "nct": [
+     "NCT04963218"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "purposeTags": [
+    "low-ef-ecg-screening"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "ctgov:NCT05867407",
+   "kind": "Study",
+   "source": "ctgov",
+   "fixtureRef": "ctgov/study_NCT05867407.json",
+   "name": "A Multicenter Pragmatic Implementation Study of ECG-AI-Based Clinical Decision Support Software to Identify Low LVEF",
+   "aliases": [
+    "Anumana Low EF AI-ECG Algorithm",
+    "Care-as-Usual"
+   ],
+   "text": "A prospective, cluster-randomized, care-as-usual controlled trial to evaluate the impact of an ECG-based artificial intelligence (ECG-AI) algorithm to detect low left ventricular ejection fraction (LVEF) on diagnosis rates of LVEF ≤ 40% in the outpatient setting. The objective of this study is to evaluate the impacts of an ECG-AI algorithm to detect low LVEF and an associated Medical Device Data System when used during routine outpatient care. The study will be conducted in 2 phases: feasibilit Clinician will have access to the Anumana Low EF AI-ECG algorithm via a link in the patient's electronic health record which will display results applied to patients' ECGs, as well as supporting information. Using the results of the algorithm, combin Clinicians will not have access to the Anumana Low EF AI-ECG algorithm and will provide care-as-usual.",
+   "sponsor": "Anumana, Inc.",
+   "manufacturer": "Anumana, Inc.",
+   "enrollment": 11610,
+   "date": "2024-06-13",
+   "ids": {
+    "nct": [
+     "NCT05867407"
+    ],
+    "submission": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "pmid",
+     "value": "40276542",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "low-ef-ecg-screening"
+   ],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "pubmed:40276542",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_misc2.xml#40276542",
+   "text": "A multicenter pragmatic implementation study of AI-ECG-based clinical decision support software to identify low LVEF: Clinical trial design and methods. Artificial intelligence (AI) enabled algorithms can detect or predict cardiovascular conditions using electrocardiogram (ECG) data. Clinical studies have evaluated ECG-AI algorithms, including a recent single-center study which evaluated outcomes when clinicians were provided with ECG-AI results. A Multicenter Pragmatic IMplementation Study of ECG-AI-Based Clinical Decision Support Software to Identify Low LVEF (AIM ECG-AI) will evaluate clinical impacts of clinical decision support software (CDSS) integrated within the electronic health record (EHR) to provide point-of-care ECG-AI results to clinicians during routine outpatient care. AIM ECG-AI is a multicenter, cluster-randomized trial recruiting and randomizing clinicians to receive access to the CDSS (intervention) or provide usual care. Clinicians are recruited from 5 geographically distinct health systems and clustered at the care team level. AIM ECG-AI will evaluate clinical care provided during >32,000 eligible clinical encounters with adult patients with no history of low LVEF and who have a digital ECG documented within the health system's EHR, with 90 day follow up. Study data includes clinician surveys, study software metrics, and EHR data as a read-out for clinician decision-making. AIM ECG-AI will evaluate detection of left ventricular ejection fraction ≤40 % by echocardiography, with exploratory endpoints. Subgroup analyses will evaluate the health system, clinician, and patient-level characteristics associated with outcomes (NCT05867407). AIM ECG-AI is the first multisite clinical evaluation of an EHR-integrated, point-of-care CDSS to provide ECG-AI results in the clinical workflow. The findings will provide valuable insights for clinically focused software design to bring AI into routine clinical practice.",
+   "date": "2025",
+   "ids": {
+    "pmid": [
+     "40276542"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [
+    {
+     "type": "nct",
+     "value": "NCT05867407",
+     "channel": "field",
+     "role": "report"
+    }
+   ],
+   "purposeTags": [
+    "low-ef-ecg-screening"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "anumana",
+  "record": {
+   "id": "pubmed:41547169",
+   "kind": "Publication",
+   "source": "pubmed",
+   "fixtureRef": "pubmed/ef_anumana.xml#41547169",
+   "text": "Multisite, External Validation of an AI-Enabled ECG Algorithm for Detection of Low Ejection Fraction. Low left ventricular ejection fraction (LEF) can progress undiagnosed. Artificial intelligence-based electrocardiogram (ECG-AI) screening may provide a scalable means to detect LEF. The purpose of this study was to validate a complete ECG-AI software as a medical device for LEF detection. Four geographically diverse sites in the United States identified patients with both ECGs and transthoracic echocardiograms performed within 30 days of each other in clinical practice. Data were electronically extracted to specific guidelines and transmitted to the coordinating center for analysis. Records of 16,000 subjects were extracted, resulting in an evaluable set of 13,960 subjects (mean age 66 years; 52% male). The device demonstrated excellent discrimination (AUROC: 0.92 [95% CI: 0.91-0.93]) and was 84.5% (95% CI: 82.2%-86.6%) sensitive and 83.6% (95% CI: 82.9%-84.2%) specific for LEF. The overall prevalence of LEF in the study data set was 7.9%, with LEF among 1.6% of the ECG-AI negative and 30.5% of ECG-AI positive subjects, contributing to positive and negative predictive values of 30.5% (95% CI: 28.8%-32.1%) and 98.4% (95% CI: 98.2%-98.7%), respectively. External validation studies such as this one provide a rigorous framework to validate an algorithm's performance. This study demonstrated the algorithm's strong diagnostic accuracy over a geographically diverse, independent set of patients. In this generally unselected population, the algorithm produced a test negative result in 78% of the cases, suggesting potential utility as a rule-out strategy to defer echocardiography when other clinical findings are absent.",
+   "date": "2026",
+   "ids": {
+    "pmid": [
+     "41547169"
+    ],
+    "submission": [],
+    "nct": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "mentions": [],
+   "enrollment": 16000,
+   "purposeTags": [
+    "low-ef-ecg-screening"
+   ],
+   "aliases": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "aurora",
+  "record": {
+   "id": "list:K251153",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K251153",
+   "name": "Aurora",
+   "manufacturer": "GE Medical Systems Israel",
+   "productCode": "KPS",
+   "date": "2025-06-12",
+   "ids": {
+    "submission": [
+     "K251153"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "aurora",
+  "record": {
+   "id": "list:K231355",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K231355",
+   "name": "Aurora",
+   "manufacturer": "EnsoData",
+   "productCode": "MNR",
+   "date": "2024-02-09",
+   "ids": {
+    "submission": [
+     "K231355"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "aurora",
+  "record": {
+   "id": "list:K251167",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K251167",
+   "name": "uDR Aurora CX",
+   "manufacturer": "Shanghai United Imaging Healthcare Co., Ltd.",
+   "productCode": "KPR",
+   "date": "2025-09-19",
+   "ids": {
+    "submission": [
+     "K251167"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "aurora",
+  "record": {
+   "id": "list:P220012/S059",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#P220012/S059",
+   "name": "Aurora EV ICD (DVEA3E4)",
+   "manufacturer": "Medtronic, Inc.",
+   "productCode": "LWS",
+   "date": "2025-10-28",
+   "ids": {
+    "submission": [
+     "P220012/S059"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "bodyguardian",
+  "record": {
+   "id": "list:K243349",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K243349",
+   "name": "BodyGuardian Remote Monitoring System (BGRMS v3.0)",
+   "manufacturer": "Boston Scientific Cardiac Diagnostic Technologies, Inc.",
+   "productCode": "DSI",
+   "date": "2026-01-23",
+   "ids": {
+    "submission": [
+     "K243349"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ },
+ {
+  "family": "bodyguardian",
+  "record": {
+   "id": "list:K192732",
+   "kind": "AuthorizationSubmission",
+   "source": "fda-ai-list",
+   "fixtureRef": "fda/ai-enabled-devices.csv#K192732",
+   "name": "BodyGuardian Remote Monitoring System",
+   "manufacturer": "Preventice Technologies, Inc.",
+   "productCode": "DSI",
+   "date": "2020-03-26",
+   "ids": {
+    "submission": [
+     "K192732"
+    ],
+    "nct": [],
+    "pmid": [],
+    "doi": [],
+    "udiDi": []
+   },
+   "aliases": [],
+   "mentions": [],
+   "purposeTags": [],
+   "supersedes": []
+  }
+ }
+]
