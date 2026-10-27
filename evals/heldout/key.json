@@ -1,0 +1,1222 @@
+{
+  "about": "Sealed answer key for the held-out ScopeShift (B) set. CONSTRUCTED claims over five FDA 510(k) summaries that no development claim uses. Single builder, two passes (hand label, then a relation table fed to a mechanical oracle), not independent; no clinician has read it. The key was written before Sakaime or any other arm was run on these claims.",
+  "notice": "CONSTRUCTED CLAIM. Written for this test in the style of a vendor claim; it is not a statement by any vendor and says nothing about any vendor.",
+  "sources": [
+    {
+      "id": "K253801",
+      "textSha256": "370f142b810f9cbc429c8bda1b2369fbda962d4ac3e07415bee4f73de4e64d3d",
+      "pdfSha256": "64f33af7ee25ee51907c3da996b099ca2ec910c6211c756d26c650e1c7c81169",
+      "pdfChecked": true,
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253801.pdf",
+      "decisionDate": "2026-04-07"
+    },
+    {
+      "id": "K252360",
+      "textSha256": "9ffe008aca0c7552291ad2398886bc4b0ee9c4143ad0d1afc26478b752f8aef0",
+      "pdfSha256": "baa24227cdf949a659bece9926c8855b9d2f23f0a320a506cb60c6ac61bce702",
+      "pdfChecked": true,
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K252360.pdf",
+      "decisionDate": "2026-03-28"
+    },
+    {
+      "id": "K253825",
+      "textSha256": "0f0e9004dc2c06a7f60dc86215b1a09cfab083a18da45a4054b4dfd327a9fa7a",
+      "pdfSha256": "dd0325fed31557a4822cefc4dbd420c73c2ae6b5b4d246a642430e4bbe8e6b8e",
+      "pdfChecked": true,
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253825.pdf",
+      "decisionDate": "2026-06-15"
+    },
+    {
+      "id": "K250680",
+      "textSha256": "4c72f2f21d721d52462c956b13754670180ed17314b76d2d2007a650951e558a",
+      "pdfSha256": "46ce487a01089308731a628b66a8dbe255b4512139398f81973af510ee0dc065",
+      "pdfChecked": true,
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K250680.pdf",
+      "decisionDate": "2026-04-30"
+    },
+    {
+      "id": "K253163",
+      "textSha256": "9fbce941b1b92caaff555eb477d2ba8645b2e178d945ccfc1aeafb2b991a282f",
+      "pdfSha256": "359517c2eca2c17d148b92d2ac036a754734c3eb704316d90e00ac3c5e0542ff",
+      "pdfChecked": true,
+      "url": "https://www.accessdata.fda.gov/cdrh_docs/pdf25/K253163.pdf",
+      "decisionDate": "2026-04-22"
+    }
+  ],
+  "labelDistribution": {
+    "SUPPORTED_FOR_SCOPE": 5,
+    "SUPPORTED_ONLY_FOR_NARROWER_SCOPE": 2,
+    "CONTRADICTED_BY_SPECIFIED_EVIDENCE": 8,
+    "REQUIRES_DOMAIN_REVIEW": 1,
+    "INSUFFICIENT_EVIDENCE": 4
+  },
+  "contestable": 11,
+  "clusters": [
+    "K253801",
+    "K252360",
+    "K253825",
+    "K250680",
+    "K253163"
+  ],
+  "pass2Disagreements": [],
+  "keys": {
+    "HO-CA-01": {
+      "key": {
+        "expectedLabel": "SUPPORTED_FOR_SCOPE",
+        "acceptableLabels": [],
+        "keyConfidence": "clear",
+        "mismatches": [],
+        "note": "Population and purpose equal the indication; the validation enrolled adults 18 and older. No software version appears in the summary, so the claim names none."
+      },
+      "quotes": [
+        {
+          "id": "ca.ifu",
+          "doc": "K253801",
+          "quote": "software as a medical device intended to aid in earlier detection of Cardiac Amyloidosis in adults being evaluated for signs or symptoms consistent with cardiac amyloidosis.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ca.study",
+          "doc": "K253801",
+          "quote": "The study population included adults aged 18 years and older with both an ECG and TTE obtained within +/- 180 days of each other.",
+          "page": 8,
+          "onPages": [
+            8
+          ],
+          "found": true
+        },
+        {
+          "id": "ca.perf",
+          "doc": "K253801",
+          "quote": "Sensitivity 78.9 % Specificity 91.2 %",
+          "page": 7,
+          "onPages": [
+            7
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_FOR_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_FOR_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-CA-02": {
+      "key": {
+        "expectedLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "population",
+            "claimed": "adults not being evaluated for signs or symptoms of cardiac amyloidosis (unselected adults with an ECG)",
+            "established": "adults being evaluated for signs or symptoms consistent with cardiac amyloidosis"
+          }
+        ],
+        "supportedNarrowerScope": "adults being evaluated for signs or symptoms consistent with cardiac amyloidosis",
+        "note": "Whether the indication's population statement is an explicit limit (contradicted) or the covered part of a wider claim (narrower scope) is a labelling-policy question, as for CP-01 in the development set."
+      },
+      "quotes": [
+        {
+          "id": "ca.ifu",
+          "doc": "K253801",
+          "quote": "software as a medical device intended to aid in earlier detection of Cardiac Amyloidosis in adults being evaluated for signs or symptoms consistent with cardiac amyloidosis.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ca.study",
+          "doc": "K253801",
+          "quote": "The study population included adults aged 18 years and older with both an ECG and TTE obtained within +/- 180 days of each other.",
+          "page": 8,
+          "onPages": [
+            8
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "PARTIAL",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-CA-03": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "purpose",
+            "claimed": "rule out cardiac amyloidosis on a negative result (diagnosis)",
+            "established": "aid to earlier detection; not a stand-alone diagnostic; a negative result should not rule out further evaluation"
+          }
+        ],
+        "note": "The summary says in words that a negative result does not rule out further evaluation. The rule table has no rule for a sentence that negates a use, so a system that reads only the purpose taxonomy may report the wider purpose as a narrower scope."
+      },
+      "quotes": [
+        {
+          "id": "ca.standalone",
+          "doc": "K253801",
+          "quote": "is not intended to be a stand-alone diagnostic device for cardiac amyloidosis nor to replace current clinical practice guidelines.",
+          "page": 4,
+          "onPages": [
+            4,
+            6,
+            11
+          ],
+          "found": true
+        },
+        {
+          "id": "ca.negative",
+          "doc": "K253801",
+          "quote": "a negative result should not rule out additional clinical evaluation.",
+          "page": 4,
+          "onPages": [
+            4,
+            6,
+            11
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "purpose": "PARTIAL"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": true,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-CA-04": {
+      "key": {
+        "expectedLabel": "REQUIRES_DOMAIN_REVIEW",
+        "acceptableLabels": [],
+        "keyConfidence": "clear",
+        "mismatches": [
+          {
+            "dimension": "timing",
+            "claimed": "evidence relied on from 2030-07-01",
+            "established": "clearance letter dated 2026-04-07; no source states a window for how long it stays current"
+          }
+        ],
+        "note": "The hospital policy passed with the case sets a staleness window of 1095 days; the gap is about four years. No source sets a threshold, so the label is a review, never a verdict."
+      },
+      "quotes": [
+        {
+          "id": "ca.letter",
+          "doc": "K253801",
+          "quote": "April 7, 2026 Anumana, Inc.",
+          "page": 1,
+          "onPages": [
+            1
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "REQUIRES_DOMAIN_REVIEW"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "timing": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": true,
+        "contraryAdequate": false,
+        "oracleLabel": "REQUIRES_DOMAIN_REVIEW",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-PH-01": {
+      "key": {
+        "expectedLabel": "SUPPORTED_FOR_SCOPE",
+        "acceptableLabels": [],
+        "keyConfidence": "clear",
+        "mismatches": [],
+        "note": "Version 3.1.0 is the subject device in the substantial-equivalence table; the pacemaker exclusion in the claim equals the one in the indication."
+      },
+      "quotes": [
+        {
+          "id": "ph.ifu",
+          "doc": "K252360",
+          "quote": "software intended to aid in earlier detection of elevated mean pulmonary arterial pressure (mPAP), an indicator of pulmonary hypertension, in adults presenting with dyspnea.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.pacer",
+          "doc": "K252360",
+          "quote": "should not be used on ECGs from adults with an implanted pacemaker or on ECGs with a paced rhythm.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.version",
+          "doc": "K252360",
+          "quote": "Product Name ECG-AI PH 12-Lead algorithm ECG-AI LEF 12-Lead algorithm (v3.1.0) (v2.5.0)",
+          "page": 12,
+          "onPages": [
+            12,
+            13
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.inclusion",
+          "doc": "K252360",
+          "quote": "age ≥ 18 with at least one dyspnea ICD code",
+          "page": 9,
+          "onPages": [
+            9
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.perf",
+          "doc": "K252360",
+          "quote": "sensitivity of 73.0% (95% CI of 72.1% to 73.9%), and a specificity of 74.4% (95% CI of 73.5% to 75.2%).",
+          "page": 9,
+          "onPages": [
+            9
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_FOR_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "version": "CONTAINED",
+          "population": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_FOR_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-PH-02": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "keyConfidence": "clear",
+        "mismatches": [
+          {
+            "dimension": "population",
+            "claimed": "ECGs from adults with an implanted pacemaker or a paced rhythm",
+            "established": "should not be used on ECGs from adults with an implanted pacemaker or on ECGs with a paced rhythm"
+          }
+        ],
+        "note": "A named exclusion in the indication that the claim extends beyond (rule R10)."
+      },
+      "quotes": [
+        {
+          "id": "ph.pacer",
+          "doc": "K252360",
+          "quote": "should not be used on ECGs from adults with an implanted pacemaker or on ECGs with a paced rhythm.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.version",
+          "doc": "K252360",
+          "quote": "Product Name ECG-AI PH 12-Lead algorithm ECG-AI LEF 12-Lead algorithm (v3.1.0) (v2.5.0)",
+          "page": 12,
+          "onPages": [
+            12,
+            13
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "version": "CONTAINED",
+          "population": "PARTIAL",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": true,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-PH-03": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "INSUFFICIENT_EVIDENCE",
+          "REQUIRES_DOMAIN_REVIEW"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "purpose",
+            "claimed": "monitoring response to therapy with repeated ECGs",
+            "established": "not intended for assessing disease progression or monitoring response to therapy; not intended for serial monitoring"
+          }
+        ],
+        "note": "The summary excludes monitoring in words. A purpose taxonomy that only places monitoring apart from detection sees a different purpose, which also withholds support."
+      },
+      "quotes": [
+        {
+          "id": "ph.monitor",
+          "doc": "K252360",
+          "quote": "is not intended for assessing disease progression or monitoring response to therapy.",
+          "page": 6,
+          "onPages": [
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.serial",
+          "doc": "K252360",
+          "quote": "is not intended for repeated testing in a short time interval, serial use during the same hospitalization or for serial monitoring.",
+          "page": 6,
+          "onPages": [
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.version",
+          "doc": "K252360",
+          "quote": "Product Name ECG-AI PH 12-Lead algorithm ECG-AI LEF 12-Lead algorithm (v3.1.0) (v2.5.0)",
+          "page": 12,
+          "onPages": [
+            12,
+            13
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "version": "CONTAINED",
+          "population": "DISJOINT",
+          "purpose": "DISJOINT"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": true,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-PH-04": {
+      "key": {
+        "expectedLabel": "INSUFFICIENT_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "version",
+            "claimed": "2.5.0",
+            "established": "3.1.0 (the subject device); 2.5.0 is the predicate ECG-AI LEF 12-Lead algorithm"
+          }
+        ],
+        "note": "The only version string tied to the subject is 3.1.0. The 2.5.0 in the same table row belongs to the predicate (a different Anumana product)."
+      },
+      "quotes": [
+        {
+          "id": "ph.version",
+          "doc": "K252360",
+          "quote": "Product Name ECG-AI PH 12-Lead algorithm ECG-AI LEF 12-Lead algorithm (v3.1.0) (v2.5.0)",
+          "page": 12,
+          "onPages": [
+            12,
+            13
+          ],
+          "found": true
+        },
+        {
+          "id": "ph.perf",
+          "doc": "K252360",
+          "quote": "sensitivity of 73.0% (95% CI of 72.1% to 73.9%), and a specificity of 74.4% (95% CI of 73.5% to 75.2%).",
+          "page": 9,
+          "onPages": [
+            9
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "INSUFFICIENT_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "version": "DISJOINT",
+          "population": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "INSUFFICIENT_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SD-01": {
+      "key": {
+        "expectedLabel": "SUPPORTED_FOR_SCOPE",
+        "acceptableLabels": [],
+        "keyConfidence": "clear",
+        "mismatches": [],
+        "note": "No software version is stated for the subject device, so the claim names none."
+      },
+      "quotes": [
+        {
+          "id": "sd.ifu",
+          "doc": "K253825",
+          "quote": "The outputs of Saige-Dx are intended to be used as a concurrent reading aid for interpreting physicians on screening mammograms with compatible DBT hardware.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "sd.pop",
+          "doc": "K253825",
+          "quote": "The device is intended to be used on women from a screening population undergoing screening mammography.",
+          "page": 6,
+          "onPages": [
+            6
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_FOR_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_FOR_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SD-02": {
+      "key": {
+        "expectedLabel": "INSUFFICIENT_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "version",
+            "claimed": "4.0.0",
+            "established": "the summary names no version for the subject device; v4.0.0 is the model number of the predicate (K251873)"
+          }
+        ],
+        "note": "The one version string in the document belongs to the predicate. The subject is described only as 'the current version'."
+      },
+      "quotes": [
+        {
+          "id": "sd.pred",
+          "doc": "K253825",
+          "quote": "Predicate Device: Trade Name: Saige-Dx Device Model: v4.0.0",
+          "page": 5,
+          "onPages": [
+            5
+          ],
+          "found": true
+        },
+        {
+          "id": "sd.studies",
+          "doc": "K253825",
+          "quote": "Saige-Dx was validated through two retrospective, blinded, pivotal standalone performance studies.",
+          "page": 7,
+          "onPages": [
+            7
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "INSUFFICIENT_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "version": "UNKNOWN",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "INSUFFICIENT_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SD-03": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "purpose",
+            "claimed": "autonomous reading: no radiologist read for low-suspicion exams",
+            "established": "adjunct tool, not intended to replace a physician's own review; concurrent reading aid"
+          }
+        ],
+        "note": "Same kind of claim as MS-02 in the development set."
+      },
+      "quotes": [
+        {
+          "id": "sd.adjunct",
+          "doc": "K253825",
+          "quote": "is an adjunct tool and is not intended to replace a physician’s own review of a mammogram.",
+          "page": 6,
+          "onPages": [
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "sd.ifu",
+          "doc": "K253825",
+          "quote": "The outputs of Saige-Dx are intended to be used as a concurrent reading aid for interpreting physicians on screening mammograms with compatible DBT hardware.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "purpose": "DISJOINT"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": true,
+        "reviewFlag": true,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SD-04": {
+      "key": {
+        "expectedLabel": "INSUFFICIENT_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "population",
+            "claimed": "symptomatic women undergoing diagnostic mammography",
+            "established": "women from a screening population undergoing screening mammography"
+          }
+        ]
+      },
+      "quotes": [
+        {
+          "id": "sd.pop",
+          "doc": "K253825",
+          "quote": "The device is intended to be used on women from a screening population undergoing screening mammography.",
+          "page": 6,
+          "onPages": [
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "sd.ifu",
+          "doc": "K253825",
+          "quote": "The outputs of Saige-Dx are intended to be used as a concurrent reading aid for interpreting physicians on screening mammograms with compatible DBT hardware.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "INSUFFICIENT_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "DISJOINT",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "INSUFFICIENT_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SE-01": {
+      "key": {
+        "expectedLabel": "SUPPORTED_FOR_SCOPE",
+        "acceptableLabels": [],
+        "keyConfidence": "clear",
+        "mismatches": [],
+        "note": "The indication names ED presentation or hospital admission through the stay in acute care settings; the study covered emergency department, intensive care unit and ward at four hospitals."
+      },
+      "quotes": [
+        {
+          "id": "se.ifu",
+          "doc": "K250680",
+          "quote": "is intended to be used for adult patients (≥18 years old) upon Emergency Department (ED) presentation or hospital admission throughout the duration of the patient’s stay in acute care settings.",
+          "page": 7,
+          "onPages": [
+            7,
+            8
+          ],
+          "found": true
+        },
+        {
+          "id": "se.purpose",
+          "doc": "K250680",
+          "quote": "to aid in the early detection and/or risk prediction of sepsis developing within 24 hours.",
+          "page": 4,
+          "onPages": [
+            4,
+            6,
+            8
+          ],
+          "found": true
+        },
+        {
+          "id": "se.sole",
+          "doc": "K250680",
+          "quote": "should not be used as the sole basis to determine the presence of sepsis",
+          "page": 4,
+          "onPages": [
+            4,
+            7,
+            8
+          ],
+          "found": true
+        },
+        {
+          "id": "se.n",
+          "doc": "K250680",
+          "quote": "evaluated 7732 hospital encounters from 7298 unique patients",
+          "page": 12,
+          "onPages": [
+            12
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_FOR_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "setting": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_FOR_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SE-02": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "keyConfidence": "clear",
+        "mismatches": [
+          {
+            "dimension": "population",
+            "claimed": "aged 12 and older",
+            "established": "adult patients (18 years old and older)"
+          }
+        ],
+        "note": "A numeric age limit in the indication that the claim extends beyond (rule R10)."
+      },
+      "quotes": [
+        {
+          "id": "se.ifu",
+          "doc": "K250680",
+          "quote": "is intended to be used for adult patients (≥18 years old) upon Emergency Department (ED) presentation or hospital admission throughout the duration of the patient’s stay in acute care settings.",
+          "page": 7,
+          "onPages": [
+            7,
+            8
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "PARTIAL",
+          "setting": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": true,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SE-03": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "metric",
+            "claimed": "encounter-level PPA of at least 85%",
+            "established": "encounter-level PPA 79.4% (95% CI 74.2-84.6), which did not meet the study's own 80% acceptance criterion"
+          }
+        ],
+        "note": "The whole interval lies below the claim. Whether the study counts as adequate to contradict a claim is a judgement; the validation was the FDA-reviewed multi-site study."
+      },
+      "quotes": [
+        {
+          "id": "se.ppa",
+          "doc": "K250680",
+          "quote": "the device achieved the following performance at the encounter-level: Encounter-level PPA 79.4% (95% CI 74.2-84.6)",
+          "page": 13,
+          "onPages": [
+            13
+          ],
+          "found": true
+        },
+        {
+          "id": "se.notmet",
+          "doc": "K250680",
+          "quote": "Although the device did not meet the pre-specified acceptance criteria for encounter-level PPA,",
+          "page": 13,
+          "onPages": [
+            13
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "setting": "CONTAINED",
+          "purpose": "CONTAINED",
+          "metric": "DISJOINT"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": true,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-SE-04": {
+      "key": {
+        "expectedLabel": "INSUFFICIENT_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "setting",
+            "claimed": "outpatient primary care",
+            "established": "emergency department presentation, hospital admission and the stay in acute care settings"
+          }
+        ]
+      },
+      "quotes": [
+        {
+          "id": "se.ifu",
+          "doc": "K250680",
+          "quote": "is intended to be used for adult patients (≥18 years old) upon Emergency Department (ED) presentation or hospital admission throughout the duration of the patient’s stay in acute care settings.",
+          "page": 7,
+          "onPages": [
+            7,
+            8
+          ],
+          "found": true
+        },
+        {
+          "id": "se.n",
+          "doc": "K250680",
+          "quote": "evaluated 7732 hospital encounters from 7298 unique patients",
+          "page": 12,
+          "onPages": [
+            12
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "INSUFFICIENT_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "setting": "DISJOINT",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "INSUFFICIENT_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-EF-01": {
+      "key": {
+        "expectedLabel": "SUPPORTED_FOR_SCOPE",
+        "acceptableLabels": [],
+        "keyConfidence": "clear",
+        "mismatches": [],
+        "note": "The summary states no age range and no software version, so the claim names neither."
+      },
+      "quotes": [
+        {
+          "id": "ef.ifu",
+          "doc": "K253163",
+          "quote": "indicated for use in the analysis of contrast-enhanced abdominal CT images. The device is intended to assist hospital networks and trained clinicians in workflow triage by flagging and communication of suspected positive findings of appendicitis.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ef.perf",
+          "doc": "K253163",
+          "quote": "sensitivity of 0.928 (95% CI: 0.873–0.960) and specificity of 0.932 (95% CI: 0.882–0.961)",
+          "page": 9,
+          "onPages": [
+            9
+          ],
+          "found": true
+        },
+        {
+          "id": "ef.n",
+          "doc": "K253163",
+          "quote": "The study evaluated 300 consecutively collected contrast-enhanced abdominal CT cases from multiple U.S. clinical sites",
+          "page": 9,
+          "onPages": [
+            9
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_FOR_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "setting": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_FOR_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-EF-02": {
+      "key": {
+        "expectedLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "population",
+            "claimed": "abdominal CT without contrast",
+            "established": "contrast-enhanced abdominal CT images"
+          }
+        ],
+        "supportedNarrowerScope": "contrast-enhanced abdominal CT",
+        "note": "Whether the stated image type is an explicit limit (contradicted) or the covered part of a wider claim is a labelling-policy question."
+      },
+      "quotes": [
+        {
+          "id": "ef.ifu",
+          "doc": "K253163",
+          "quote": "indicated for use in the analysis of contrast-enhanced abdominal CT images. The device is intended to assist hospital networks and trained clinicians in workflow triage by flagging and communication of suspected positive findings of appendicitis.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ef.n",
+          "doc": "K253163",
+          "quote": "The study evaluated 300 consecutively collected contrast-enhanced abdominal CT cases from multiple U.S. clinical sites",
+          "page": 9,
+          "onPages": [
+            9
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "PARTIAL",
+          "setting": "CONTAINED",
+          "purpose": "CONTAINED"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "SUPPORTED_ONLY_FOR_NARROWER_SCOPE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-EF-03": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW",
+          "INSUFFICIENT_EVIDENCE"
+        ],
+        "keyConfidence": "contestable",
+        "mismatches": [
+          {
+            "dimension": "purpose",
+            "claimed": "diagnosis from the notification without image review",
+            "established": "not intended to be used as a diagnostic device; notified clinicians are responsible for viewing full images"
+          }
+        ],
+        "note": "A purpose taxonomy that places triage inside diagnosis can report the wider purpose as a narrower scope; the summary states in words that the device is not diagnostic."
+      },
+      "quotes": [
+        {
+          "id": "ef.notdx",
+          "doc": "K253163",
+          "quote": "is not intended to be used as a diagnostic device.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        },
+        {
+          "id": "ef.full",
+          "doc": "K253163",
+          "quote": "Notified clinicians are responsible for viewing full images per the standard of care.",
+          "page": 4,
+          "onPages": [
+            4,
+            6
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "setting": "CONTAINED",
+          "purpose": "PARTIAL"
+        },
+        "explicitLimit": false,
+        "textNegatesUse": true,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    },
+    "HO-EF-04": {
+      "key": {
+        "expectedLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "acceptableLabels": [
+          "REQUIRES_DOMAIN_REVIEW"
+        ],
+        "keyConfidence": "clear",
+        "mismatches": [
+          {
+            "dimension": "timing",
+            "claimed": "in production since 2026-01-01",
+            "established": "clearance letter dated 2026-04-22; the authorization took effect on that date"
+          }
+        ],
+        "note": "The claimed use began before the authorization existed."
+      },
+      "quotes": [
+        {
+          "id": "ef.letter",
+          "doc": "K253163",
+          "quote": "April 22, 2026 Re: K253163",
+          "page": 1,
+          "onPages": [
+            1
+          ],
+          "found": true
+        }
+      ],
+      "pass1": {
+        "label": "CONTRADICTED_BY_SPECIFIED_EVIDENCE"
+      },
+      "pass2": {
+        "relations": {
+          "product": "CONTAINED",
+          "population": "CONTAINED",
+          "setting": "CONTAINED",
+          "purpose": "CONTAINED",
+          "timing": "DISJOINT"
+        },
+        "explicitLimit": true,
+        "textNegatesUse": false,
+        "reviewFlag": false,
+        "contraryAdequate": false,
+        "oracleLabel": "CONTRADICTED_BY_SPECIFIED_EVIDENCE",
+        "agreesWithPass1": true
+      }
+    }
+  }
+}
