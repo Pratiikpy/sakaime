@@ -8,6 +8,8 @@ The first use case is a hospital team reviewing a medical-AI vendor's claim. The
 
 Built for Track 1 of the Open Agent Hackathon 2026, *Solving Fragmented Intelligence*. Licence: Apache-2.0.
 
+**Start here:** [full judge brief on Notion](https://congruous-neighbor-289.notion.site/Sakaime-Brief-for-Users-Judges-Research-PMF-406dfbac05cc81a581a6fa814d08e9e7) (problem, product, every result and every limit) · [demo video, 3:55](https://drive.google.com/file/d/1jXCCANnrG8X17-oGdmd8syNWivGx3llX/view) · [pitch deck (PDF)](docs/submission/sakaime-deck.pdf)
+
 ## What it will never say
 
 Every finding carries exactly one of five labels. They describe what the evidence covers; they are not a safety rating.

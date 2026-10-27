@@ -79,7 +79,7 @@ New, found while building the layer:
 
 8. A column named `source` makes `COMPILE USL` fail with "Invalid DDL statement. Please provide a valid CREATE TABLE statement". The message does not name the column; I found it by compiling the columns one at a time. It is `origin` now.
 9. A DDL table that references another by foreign key must come after it in the same request, and a one-table dry run of a table with a foreign key fails for the same reason (`ReferenceTable...`), which reads like a fault in the table.
-10. The refusal for a non-administrator is `User is not permitted to run this command`. `src/federation/classify.ts` has no pattern for that wording, so the port reports it as INVALID, not FORBIDDEN. The refusal is still a refusal and is not retried; the class is wrong. This is outside the files I own and is reported to the lead.
+10. The refusal for a non-administrator is `User is not permitted to run this command`. The first version of our port classed it as INVALID instead of FORBIDDEN; the classifier now maps it to FORBIDDEN (fixed after the hardening review) and the refusal is not retried.
 11. Descriptions are free text to the end of the statement; a colon or an apostrophe in one is not safe, so `assertDescription` limits them to letters, digits, space and `_ . , -`.
 12. `RUN DQ` is slow beside a plain read: 0.8 to 3.9 seconds per rule on data of a few hundred rows, and the row-count statement over all ten tables took 5 seconds. A full read of the layer for the web app is 13 statements and about 12 seconds live, which is why the service keeps a live snapshot for 30 seconds and the recorded one is replayed.
 

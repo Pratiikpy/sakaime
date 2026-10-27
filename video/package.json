@@ -1,0 +1,40 @@
+{
+  "name": "sakaime-video",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Demo video for Sakaime: a Remotion composition over real footage of the running product.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.19"
+  },
+  "scripts": {
+    "ui": "npm --prefix .. run ui:build",
+    "sync": "node scripts/sync-assets.mjs",
+    "snapshot": "node scripts/snapshot.mjs",
+    "data": "node scripts/build-data.mjs",
+    "footage": "node footage/snapshot-ui.mjs && node footage/record-all.mjs",
+    "voice": "node scripts/voice.mjs && node scripts/make-audio.mjs",
+    "studio": "npm run sync && npm run data && remotion studio src/index.ts --port=3986",
+    "check:words": "node scripts/check-words.mjs",
+    "check:numbers": "node scripts/check-numbers.mjs",
+    "check:cues": "node scripts/check-cues.mjs",
+    "check:length": "node scripts/check-length.mjs",
+    "check": "npm run data && npm run check:words && npm run check:numbers && npm run check:cues && npm run check:length",
+    "render": "npm run sync && npm run check && remotion render src/index.ts Sakaime out/sakaime-demo.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p --audio-codec=aac --audio-bitrate=192k --port=3987 && node scripts/check-length.mjs --video out/sakaime-demo.mp4",
+    "frames": "node scripts/extract-frames.mjs",
+    "build:all": "npm run ui && npm run footage && npm run snapshot && npm run data && npm run voice && npm run docs && npm run render && npm run render:captions && npm run frames",
+    "render:captions": "npm run sync && npm run check && remotion render src/index.ts Sakaime out/sakaime-demo-captions.mp4 --props=./props/captions.json --codec=h264 --crf=17 --pixel-format=yuv420p --audio-codec=aac --audio-bitrate=192k --port=3987 && node scripts/check-length.mjs --video out/sakaime-demo-captions.mp4",
+    "docs": "node scripts/make-docs.mjs"
+  },
+  "dependencies": {
+    "@playwright/test": "1.64.1",
+    "@remotion/cli": "4.0.539",
+    "@remotion/media-utils": "4.0.539",
+    "@types/react": "19.2.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.539",
+    "typescript": "5.7.3"
+  }
+}

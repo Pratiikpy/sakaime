@@ -1,0 +1,10 @@
+node_modules/
+out/
+public/fonts/
+public/footage/
+public/audio/
+src/generated/
+footage/raw/
+footage/ui-snapshot/
+footage/clips/
+audio/

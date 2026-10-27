@@ -28,11 +28,9 @@ Public records (data/cassettes/, data/fixtures/, data/sample/, data/silos/regist
   (for example authors' e-mail addresses in PubMed and ClinicalTrials.gov entries) are part of the public records as published
   and are not used by the product.
 
-Europe PMC full text, PMC8593763 (evals/gate0/raw/europepmc/)
+Europe PMC full text, PMC8593763 (kept locally; not redistributed in this repository)
   Ipp E, Liljenquist D, Bode B, et al. Pivotal evaluation of an artificial intelligence system for autonomous detection of
   referrable and vision-threatening diabetic retinopathy. JAMA Network Open. 2021;4(11):e2134254.
   doi:10.1001/jamanetworkopen.2021.34254
   Licensed by the authors under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
-  (https://creativecommons.org/licenses/by-nc-nd/4.0/). PMC8593763_fulltext.xml is the Europe PMC full-text XML as served on
-  2026-10-27; PMC8593763_fulltext.txt is a plain-text rendering of it. These two files are NOT covered by the Apache License of this
-  repository and may be used only on the terms of that Creative Commons licence.
+  (https://creativecommons.org/licenses/by-nc-nd/4.0/). The full text was read on 2026-10-27 to establish the EyeArt chain; only hashes and short quoted passages appear in this repository (evals/gate0/eyeart-case-manifest.json). The article itself is not covered by the Apache License of this repository and is used only on the terms of that Creative Commons licence.
