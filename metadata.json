@@ -1,0 +1,109 @@
+{
+  "$schema": "docs/schemas/community-metadata.schema.json",
+  "schema_version": "0.1-community",
+  "project": {
+    "name": "Sakaime",
+    "summary": "Checks whether the evidence behind a medical-AI vendor's claim covers the exact product version, population, setting, purpose and date a hospital review team has in mind, by discovering and joining fragmented regulator, registry, literature, vendor and hospital sources.",
+    "licence": "Apache-2.0"
+  },
+  "track": "Solving Fragmented Intelligence",
+  "team": {
+    "name": "Prateek",
+    "solo": true,
+    "builders": [{ "name": "Prateek", "role": "Builder", "github": "Pratiikpy" }]
+  },
+  "repository": "https://github.com/Pratiikpy/sakaime",
+  "submission": {
+    "demo_video": null,
+    "slide_deck": null
+  },
+  "sponsors": {
+    "zetaris": {
+      "status": "working",
+      "how": "Federates a Postgres hospital database, registry and regulator snapshot files, and vendor packet files in one SQL statement that produces the Evidence Matrix; new databases appear in the Source Console from the Zetaris catalog without a code change; a Unified Semantic Layer is queried as a read-only identity with a completeness data-quality rule; reviewers not assigned to a case see masked vendor columns.",
+      "where": [
+        "src/federation/",
+        "src/discovery/",
+        "infra/zetaris/",
+        "data/silos/"
+      ],
+      "evidence": [
+        "infra/zetaris/GATES.md",
+        "data/discovery-shift/LIVE.md",
+        "tests/federation/",
+        "tests/service/"
+      ],
+      "decisions": ["docs/03-zetaris-plan.md", "docs/DECISIONS.md"],
+      "integration_working": true,
+      "in_use_case": true,
+      "use_case_note": "Eight of nine gates pass on a local Zetaris 2.4.3.1 stack; natural-language-to-SQL is not present in this build. The Evidence Matrix, source registration and the Unified Semantic Layer run on it. Sample mode replays recorded Zetaris answers; live mode needs Docker.",
+      "interface": "sql-editor",
+      "deployment": "local-docker",
+      "data_sources": ["postgres", "filestore csv", "filestore pdf", "rest"]
+    },
+    "meterless": {
+      "status": "working",
+      "how": "H-MEM keeps reviewer-confirmed links, accepted schema mappings and institutional precedents; the World Model reconstructs what was known on a date and marks exactly the dependent findings stale; Markovian reads long documents in bounded chunks; Scout Intent guards every request and document-derived instruction and signs export contracts.",
+      "where": ["src/engines/", "third_party/meterless/"],
+      "evidence": [
+        "tests/engines/ABLATIONS.md",
+        "tests/engines/markovian/MA3-RESULTS.md",
+        "tests/engines/scout/RESULTS.md",
+        "tests/engines/"
+      ],
+      "decisions": ["docs/04-meterless-plan.md"],
+      "integration_working": true,
+      "in_use_case": true,
+      "use_case_note": "The sponsor conformance runners pass on our implementations (H-MEM 13/13, World Model 8/8, Markovian 8/8). Scout has no sponsor runner; our grader is stricter and its held-out results are weak on unseen wording (see tests/engines/scout/RESULTS.md). The recorded run reached models through the NVIDIA API; the Nightshift client is built and was tested against the installed Nightshift, but is not the route of the recorded run.",
+      "engines": ["H-MEM", "World Model", "Markovian", "Scout Intent"],
+      "provider": "none"
+    },
+    "nvidia": {
+      "status": "working",
+      "how": "Nemotron 3.5 Lightning 30B serves the high-volume roles (planner, discoverer, resolver, extractor second opinion, reporter) and Nemotron 3 Ultra 550B serves the critic and identity adjudication, with structured-output validation and bounded retries.",
+      "where": ["src/models/", "src/agents/"],
+      "evidence": ["src/models/roles.ts", "data/model-cassettes/", "tests/models/"],
+      "decisions": ["docs/DECISIONS.md"],
+      "integration_working": true,
+      "in_use_case": true,
+      "use_case_note": "Recorded replies in data/model-cassettes were made against the real route on 2026-10-27. Model proposals never become facts without a deterministic check.",
+      "models": ["nvidia/nemotron-3.5-lightning-30b-a3b", "nvidia/nemotron-3-ultra-550b-a55b"],
+      "route": "build.nvidia.com"
+    },
+    "cursor": {
+      "status": "planned",
+      "how": "Not used in this build. Cursor is optional for this hackathon according to the organizers' moderators.",
+      "where": [],
+      "evidence": ["docs/DECISIONS.md"],
+      "decisions": ["docs/DECISIONS.md"]
+    }
+  },
+  "pre_existing": [
+    {
+      "name": "Meterless reference engines and conformance runners",
+      "what": "The sponsor's public Apache-2.0 reference implementations of H-MEM and the World Model, vendored unmodified.",
+      "where": ["third_party/meterless/"]
+    },
+    {
+      "name": "Public datasets and registries",
+      "what": "openFDA, ClinicalTrials.gov, PubMed, Europe PMC and FDA decision summaries, stored as small hashed recordings.",
+      "where": ["data/cassettes/", "data/silos/registry/", "evals/heldout/raw/"]
+    },
+    {
+      "name": "Studied open-source mechanisms",
+      "what": "Ideas from Splink, Docling, OpenLineage, the Airbyte protocol, the Trino connector SPI and Graphiti, rebuilt in new code. No code copied.",
+      "where": ["docs/provenance.md"]
+    },
+    {
+      "name": "Design experience and fonts from an earlier submission",
+      "what": "A previous hackathon submission (Track 3) informed the Zetaris and Nightshift request contracts and the visual identity; no code, copy or screenshots were reused. The Outfit and JetBrains Mono font files (SIL OFL) were copied.",
+      "where": ["docs/provenance.md", "ui/public/fonts/"]
+    }
+  ],
+  "run": {
+    "setup": "README.md, section 'Try it (no keys, no Docker)': npm ci, then npm run judge, then npm run ui:build and npm run serve in sample mode.",
+    "sample_mode": true,
+    "secrets": ["NVIDIA_API_KEY", "NVIDIA_BASE_URL", "NIGHTSHIFT_API_KEY", "ZETARIS_REST_URL", "ZETARIS_API_KEY", "ZETARIS_ORG_ID"]
+  },
+  "evidence_logs": "output_examples/traces/"
+}
