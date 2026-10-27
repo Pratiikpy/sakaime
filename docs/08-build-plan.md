@@ -69,7 +69,7 @@ Measured: ScopeShift (A), 222 controlled counterfactuals over 18 summaries: 218 
 
 Built: bounded state machine with budgets and idempotency keys on registration, decisions and export; roles planner, discoverer, retriever, resolver, extractor, critic, reporter; Nightshift client and receipt verifier; four engines in `src/engines/`; Scout Intent with its own grader.
 
-Measured: sponsor conformance runners pass (H-MEM 13, World Model 8, Markovian 8); the Scout stock harness exits 0 over its 32 examples. MA-1 to MA-4 are on constructed inputs (`tests/engines/ABLATIONS.md`, `tests/engines/markovian/MA3-RESULTS.md`, `tests/engines/scout/RESULTS.md`). Not measured: MA-5 (receipts), the critic, Nightshift as the route of the committed run (0 of 14 replies receipted). Weak: Scout held-out recall 9 of 24 with rules alone, 16 of 24 with the optional classifier (D-030).
+Measured: sponsor conformance runners pass (H-MEM 13, World Model 8, Markovian 8); the Scout stock harness exits 0 over its 32 examples. MA-1 to MA-4 are on constructed inputs (`tests/engines/ABLATIONS.md`, `tests/engines/markovian/MA3-RESULTS.md`, `tests/engines/scout/RESULTS.md`). MA-5 (receipts): the committed run was recorded through Nightshift and all 61 recordings re-verify (14, 23 and 23 receipted replies in the three dossiers). Not measured: the critic's effect on labels (no label was changed by it in any trace). Weak: Scout held-out recall 9 of 24 with rules alone, 16 of 24 with the optional classifier (D-030).
 
 ### Gate 5: independent evaluation
 
