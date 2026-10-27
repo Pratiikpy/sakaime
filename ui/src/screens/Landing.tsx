@@ -5,6 +5,7 @@ import type { CaseDetail, CaseSummary } from "../api/types";
 import { LabelBadge, ProvenanceBadge } from "../components/badges";
 import { Icon } from "../components/Icon";
 import { ErrorState, Loading } from "../components/feedback";
+import { SourceTrail } from "../components/SourceTrail";
 import { Why } from "../components/Why";
 import { Redaction, useDocTitle } from "../components/ui";
 import { headlineFinding } from "../lib/explain";
@@ -70,6 +71,12 @@ function LiveStrip() {
         <div className="strip__why">
           <h4 className="strip__why-title">Why this answer, and what would change it</h4>
           <Why c={detail.data} f={finding} maxDims={3} maxAsks={2} heading={false} />
+        </div>
+      )}
+      {detail.data && (
+        <div className="strip__why">
+          <h4 className="strip__why-title">Where it came from</h4>
+          <SourceTrail c={detail.data} compact />
         </div>
       )}
       <div className="strip__actions">
@@ -138,12 +145,16 @@ export function Landing() {
           Sakaime checks whether the evidence behind a vendor's claim covers the exact use you have in mind: the product version, the patients, the care
           setting, the purpose and the date. Where the evidence stops, it says so, and it shows the page.
         </p>
+        <p className="hero__lead">
+          The evidence for one claim sits in places that share no identifier: the regulator's decision summary, the trial registry, the journal paper, the vendor's
+          packet and the hospital's own requirements. Sakaime finds and joins them, says how sure each join is, and keeps the source of every fact.
+        </p>
         <p className="hero__tag">Know where the evidence stops.</p>
       </section>
 
       <section className="block" aria-labelledby="strip-h">
         <h2 id="strip-h" className="block__title">
-          A real case
+          A worked case
         </h2>
         <LiveStrip />
       </section>

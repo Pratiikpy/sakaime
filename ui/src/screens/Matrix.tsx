@@ -26,50 +26,55 @@ function MatrixTable({ m }: { m: EvidenceMatrix }) {
   }, [m.columns]);
 
   return (
-    <div className="table-wrap table-wrap-scroll" role="region" aria-label="Evidence matrix, scrolls sideways" tabIndex={0}>
-      <table className="data-table matrix responsive" data-testid="matrix-table">
-        <caption className="sr-only">Federated result. Each column names the source it came from.</caption>
-        <thead>
-          <tr className="matrix__groups">
-            {groups.map((g, i) => (
-              <th key={`${g.sourceId}-${i}`} colSpan={g.span} scope="colgroup" className="matrix__group" data-source={g.sourceId}>
-                <span className="source-tag">{g.label}</span>
-              </th>
-            ))}
-          </tr>
-          <tr>
-            {m.columns.map((c) => (
-              <th key={c.name} scope="col" data-source={c.sourceId}>
-                <span className="mono">{c.name}</span>
-                <span className="sr-only"> from {c.sourceLabel}</span>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {m.rows.map((r, i) => (
-            <tr key={i}>
-              {m.columns.map((c) => {
-                const cell = r.cells[c.name];
-                const text = show(cell?.value);
-                return (
-                  <td key={c.name} data-label={c.name.replace(/_/g, "_​") /* a break point after each underscore, so the phone layout wraps between words */} data-source={cell?.sourceId ?? c.sourceId}>
-                    {text === "" ? (
-                      <span className="null-cell">
-                        <span aria-hidden="true">no value</span>
-                        <span className="sr-only">no value in this source</span>
-                      </span>
-                    ) : (
-                      <span className="cell-val">{text}</span>
-                    )}
-                  </td>
-                );
-              })}
+    <>
+      <p className="muted matrix__hint">
+        The table is wider than the screen. Scroll sideways to read all {m.columns.length} columns; the dark headers name the {groups.length === 1 ? "source" : `${groups.length} sources`} they come from.
+      </p>
+      <div className="table-wrap table-wrap-scroll" role="region" aria-label="Evidence matrix, scrolls sideways" tabIndex={0}>
+        <table className="data-table matrix responsive" data-testid="matrix-table">
+          <caption className="sr-only">Federated result. Each column names the source it came from.</caption>
+          <thead>
+            <tr className="matrix__groups">
+              {groups.map((g, i) => (
+                <th key={`${g.sourceId}-${i}`} colSpan={g.span} scope="colgroup" className="matrix__group" data-source={g.sourceId}>
+                  <span className="source-tag">{g.label}</span>
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+            <tr>
+              {m.columns.map((c) => (
+                <th key={c.name} scope="col" data-source={c.sourceId}>
+                  <span className="mono">{c.name}</span>
+                  <span className="sr-only"> from {c.sourceLabel}</span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {m.rows.map((r, i) => (
+              <tr key={i}>
+                {m.columns.map((c) => {
+                  const cell = r.cells[c.name];
+                  const text = show(cell?.value);
+                  return (
+                    <td key={c.name} data-label={c.name.replace(/_/g, "_​") /* a break point after each underscore, so the phone layout wraps between words */} data-source={cell?.sourceId ?? c.sourceId}>
+                      {text === "" ? (
+                        <span className="null-cell">
+                          <span aria-hidden="true">no value</span>
+                          <span className="sr-only">no value in this source</span>
+                        </span>
+                      ) : (
+                        <span className="cell-val">{text}</span>
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 

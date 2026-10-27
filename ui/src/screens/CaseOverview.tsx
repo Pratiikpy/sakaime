@@ -9,6 +9,7 @@ import { FindingTypeTags, XrayLink } from "../components/FindingBits";
 import { EmptyState, ErrorState, Notice, useAnnounce } from "../components/feedback";
 import { Icon } from "../components/Icon";
 import { Clamp, CopyButton, Disclosure, Section, useDocTitle } from "../components/ui";
+import { SourceTrail } from "../components/SourceTrail";
 import { Why, whyLead } from "../components/Why";
 import { claimName, claimSentence, claimSummary, headlineFinding, otherFindings, snippet } from "../lib/explain";
 import { DECISION_ACTIONS, DIMENSION_NAME } from "../lib/vocab";
@@ -288,6 +289,10 @@ function Body({ c, reload }: { c: CaseDetail; reload: () => void }) {
           </div>
         </Section>
       )}
+
+      <Section id="trail" title="Where this answer came from">
+        <SourceTrail c={c} />
+      </Section>
 
       {others.length > 0 && (
         <Section id="claims" title="The vendor's claims, checked against the same evidence" aside={<span className="muted">{plural(others.length, "claim")}</span>}>

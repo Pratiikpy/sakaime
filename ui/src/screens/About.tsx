@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { api } from "../api/client";
 import { useResource } from "../api/hooks";
 import { LabelBadge, RelationBadge, HealthBadge, LinkStateBadge } from "../components/badges";
@@ -103,6 +104,30 @@ export function About() {
         </ol>
       </Section>
 
+      <Section id="sponsors" title="The three sponsor technologies, and what each changes">
+        <ul className="plain-list" data-testid="sponsor-tech">
+          <li>
+            <strong>Zetaris</strong> joins the hospital's database, the vendor packet files and the registry snapshots in one statement. Stopping it loses the sources reached through
+            it and lowers the answers that needed them (the "federation engine stops" drill). It also hides columns from a reviewer who is not assigned to a case. See{" "}
+            <Link to="/cases">a case's evidence matrix</Link> and <Link to="/sources">the source console</Link>.
+          </li>
+          <li>
+            <strong>Meterless</strong> supplies four engines. The World Model reconstructs what was known on a date and marks exactly the findings that depended on a changed fact
+            as out of date (the timeline and the "registry record changes" drill). Scout Intent screens requests and document text for instructions and signs what an export may
+            contain (the Guard screen). H-MEM keeps confirmed links, accepted source mappings and precedents between runs. Markovian reads long documents.
+          </li>
+          <li>
+            <strong>NVIDIA Nemotron</strong> proposes: a plan, a column mapping for a new source, a second reading of an ambiguous passage, an objection and the report prose. A
+            proposal becomes a fact only after a deterministic check or a reviewer accepts it, so with the model off the labels do not move (the "model route fails" drill). The
+            investigation screen shows which model answered each step and whether the reply was recorded.
+          </li>
+        </ul>
+        <p className="muted">
+          What removing the engines changes is measured in <code className="mono">tests/engines/ABLATIONS.md</code> on constructed sessions, and the arms without the compiler or
+          the identity layer are in <code className="mono">evals/RESULTS.md</code>. In a sample run the Zetaris and Nemotron replies are recordings of the real services, labelled as such; the Meterless engines run locally from the vendored reference code, not as recordings.
+        </p>
+      </Section>
+
       <Section id="words" title="The words used on every screen">
         <h3 className="subhead">The five answers</h3>
         <ul className="legend-list">
@@ -167,7 +192,7 @@ export function About() {
         <ul className="limits">
           <li>Sakaime describes how far cited evidence reaches. It does not certify a product, rule on regulatory standing, or replace clinical judgement.</li>
           <li>The vendor claims, the hospital requirements and the review database are constructed for the demonstration and labelled so. No contradiction shown is a finding about a real vendor.</li>
-          <li>The worked case is one device. The chain from the regulator's summary to the trial to the paper is proven at identifier level; that the paper's software build equals the authorized build is not established.</li>
+          <li>Three devices are worked as cases (EyeArt, Lunit INSIGHT CXR Triage and Transpara). For EyeArt the chain from the regulator's summary to the trial to the paper is established at identifier level; that the paper's software build equals the authorized build is read from the paper's own text and is not independently checked.</li>
           <li>The FDA list of AI-enabled devices is a pinned snapshot. FDA blocks scripted download, so the live list is not fetched by default and is shown as out of date.</li>
           <li>In a sample run, source responses and model replies are recorded. They are real responses from a stated date, shown with a "recorded" badge, not live calls.</li>
           <li>Whether a local model can run the vendor-confidential lane usefully on small hardware has not been verified.</li>

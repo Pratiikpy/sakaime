@@ -27,6 +27,15 @@ export const shortHash = (h: string | undefined, n = 10): string => (h ? (h.leng
 
 export const plural = (n: number, one: string, many = `${one}s`): string => `${n} ${n === 1 ? one : many}`;
 
+/** "a, b and c": a list of names read as a phrase. */
+export function joinWords(items: string[]): string {
+  if (items.length <= 1) return items[0] ?? "";
+  return `${items.slice(0, -1).join(", ")} and ${items[items.length - 1]}`;
+}
+
+/** The first letter of a service sentence in capitals; a reason that starts with a metric name ("sensitivity is ...") then reads as a sentence. */
+export const sentence = (s: string): string => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
+
 export const caseId = (s: string): string => encodeURIComponent(s);
 
 /**

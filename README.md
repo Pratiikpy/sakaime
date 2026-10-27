@@ -33,7 +33,7 @@ npm ci
 npm run judge
 ```
 
-`npm run judge` replays the recorded run offline. It re-verifies the signed dossier hashes, re-runs the compiler on the recorded evidence, replays the source-failure drills and prints PASS or FAIL for each claim. It needs no key and finishes in a few seconds.
+`npm run judge` replays the recorded run offline. It re-verifies the signed dossier hashes, re-runs the compiler on the recorded evidence, replays the source-failure drills and prints PASS or FAIL for each claim. It needs no key and finishes in a few seconds. `npm test` also runs offline; the browser tests (`npm run ui:test`) need `npx playwright install chromium` or an installed Google Chrome.
 
 To use the product:
 
@@ -47,11 +47,11 @@ In sample mode every external read is replayed from recordings made against the 
 
 ### What to look at first
 
-1. **Cases**: open the EyeArt case. The packet holds ten constructed vendor claims. One is supported, three are supported only for a narrower use, one is contradicted, and the rest need more evidence or a domain review.
+1. **Review desk**: open the EyeArt case. The packet holds ten constructed vendor claims. One is supported, three are supported only for a narrower use, one is contradicted, and the rest need more evidence or a domain review.
 2. **Claim X-ray**: each dimension (product, version, population, setting, purpose, date, metric) shown claimed against established, with the exact passage, its page, its source and its retrieval date.
-3. **Applicability Lab**: change the version, age range, setting or date and watch the label recompute. No model is called.
-4. **Resilience**: stop a source, stop the federation engine, truncate a result, inject an instruction into a vendor document. A lost required source never turns a claim into a supported one.
-5. **Sources**: add a source from a description and a URL and watch the eight onboarding stages, including the checks that catch a unit or meaning change.
+3. **Applicability lab**: change the version, age range, setting or date and watch the label recompute. No model is called.
+4. **Resilience**: run a drill that stops a source, stops the federation engine, truncates a result or injects an instruction into a vendor document. A lost required source never turns a claim into a supported one.
+5. **Sources**: add a source from a description and a URL and watch the eight onboarding stages; an address inside a network or at cloud metadata is refused at stage one. In sample mode the allowed example is read from a recording and stops before registration (the object store is configured only in live mode), and the checks against held records are replayed only for recorded statements. The unit and meaning-change catches are measured in DiscoveryShift, above.
 6. **Dossier**: export the signed bundle, change one character and watch the verifier name the failing item.
 
 ## How it works
@@ -75,11 +75,13 @@ Code owns calculations, labels and checks. Nemotron proposes (mappings, extracti
 
 | Sponsor | What it does here | Code | Evidence |
 |---|---|---|---|
-| **Zetaris** | Federates three silo types in one statement; discovers sources from its catalog; a Unified Semantic Layer queried as a read-only identity; a completeness data-quality rule; masking for reviewers not assigned to a case | `src/federation/`, `src/discovery/`, `infra/zetaris/` | `infra/zetaris/GATES.md`: eight of nine gates pass on a real 2.4.3.1 stack; natural-language-to-SQL is blocked in this build |
+| **Zetaris** | Federates three silo types in one statement; discovers sources from its catalog; a Unified Semantic Layer queried as a read-only identity; a completeness data-quality rule; masking for reviewers not assigned to a case | `src/federation/`, `src/discovery/`, `infra/zetaris/` | `infra/zetaris/GATES.md`, on a real 2.4.3.1 stack: Z-HEAD, Z-REST, Z-POL (two defects found), Z-CAT, Z-AUD (with limits), Z-TT, Z-USL, Z-PDF and the kill drill pass; Z-NL (natural-language-to-SQL) is blocked in this build |
 | **Meterless** | H-MEM keeps confirmed links, accepted mappings and precedents; the World Model reconstructs history and marks exactly the dependent findings stale; Markovian reads long documents; Scout Intent guards every request and signs export contracts | `src/engines/`, `third_party/meterless/` | Sponsor conformance runners pass: H-MEM 13/13, World Model 8/8, Markovian 8/8; ablations in `tests/engines/ABLATIONS.md` |
 | **NVIDIA Nemotron** | Planner, discoverer, resolver, extractor second opinion, critic and reporter roles; Lightning 30B for volume, Ultra 550B for the critic | `src/models/` | Receipt log and role map in `src/models/roles.ts`; recorded replies in `data/model-cassettes/` |
 
 Cursor is optional for this hackathon and was not used.
+
+In sample mode the model roles can only answer from recordings; a role with no recording falls back to rules and templates and the investigation trace says so for each step ("no recording for role ..."). Check the trace of the case you open to see which roles had a recorded reply.
 
 ## Measured results
 
@@ -92,9 +94,9 @@ Every number below comes from a results file under [`evals/results/`](evals/resu
 | ScopeShift B, 20 sealed held-out claims, full pipeline | exact 9 of 20; 0 of 15 unsupported labelled supported; 4 of 5 well-supported flagged. A second look, not a blind test (see errata) | builder-labelled |
 | Same claims, one Nemotron call with all records in the prompt | held-out exact 63% (mean of 3); 22% of unsupported claims labelled supported | builder-labelled |
 | Same claims, tool-using Nemotron agent without the compiler | held-out exact 60%; 3 of 15 unsupported labelled supported | builder-labelled |
-| Competitors on the same inputs | Constat and HealthIT.com return evidence fields but no verdict on a claim: 0 of 26 | builder-labelled |
+| Competitors on the same inputs | Neither Constat nor HealthIT.com emits a verdict on a claim. A reviewer could re-derive the key from Constat's output for 7 of 26 claims and from HealthIT's for 0 of 26 | builder-labelled |
 | IdentityShift, 14 device families held out in turn | 0 of 60 false merges (a fuzzy-name baseline: 23 of 60); precision 48 of 48; recall 0.77 | development set, one reader |
-| DiscoveryShift, 102 mutated source layouts | 48 of 48 mappable layouts mapped; 44 of 44 must-not-register layouts caught; hardcoded ETL baseline: 22 of 48 and 12 of 44 | builder-labelled, four base tables |
+| DiscoveryShift, 102 mutated source layouts (100 scored, 2 known limits) from four base tables | First run on the sealed suite: 39 of 48 mappable layouts mapped, 44 of 44 must-not-register layouts caught. Second run, after fixes made against the same cases: 48 of 48 and 44 of 44. A hardcoded loader: 22 of 48 and 12 of 44 | builder-labelled |
 | TimeShift | 27 of 27 cases: the stale set equals the dependent set | consistency |
 | FailureShift | 157 of 157 drills end in the correct state, including stopping the real Zetaris API container | consistency |
 
@@ -109,7 +111,7 @@ Every number below comes from a results file under [`evals/results/`](evals/resu
 - **Extraction gaps.** Results that exist only in stacked tables are not read, so a numeric performance claim is not supported by any case today. Study population and setting are not inherited from the indications.
 - **Constructed claims.** Every vendor claim and hospital requirement is constructed and labelled so on screen. No claim is a statement by a real vendor. There is no patient data.
 - **Recorded replay.** Sample mode replays recorded model and engine replies. The default mode is live when configured; live mode was exercised once end to end.
-- **Guard.** The Scout rule layer is strong on the prompts it was tuned on and weak on unseen wording (held-out injection recall 9 of 24 with rules alone); the optional model classifier raises it at the cost of some false blocks. See `tests/engines/scout/RESULTS.md`.
+- **Guard.** The Scout rule layer is strong on the prompts it was tuned on and weak on unseen wording (held-out injection recall 9 of 24 with rules alone); a model classifier exists and is measured in `tests/engines/scout/RESULTS.md`, but the product's guard (`src/agents/guard.ts`) runs the rules only and does not enable it.
 - **Receipts.** Nightshift receipts identify where a reply came from, not that it is true, and they carry no hash of the reply text.
 
 ## Live mode
@@ -133,4 +135,4 @@ evals/, data/, tests/       evaluation suites, recordings and corpora, tests
 docs/, infra/zetaris/       design, decisions, research reports, Zetaris runbook
 ```
 
-Run the tests with `npm test` (browser tests: `npm run ui:test`) and the type checks with `npm run typecheck`. What existed before the build, what was studied and under which licence: [`docs/provenance.md`](docs/provenance.md). Requirement-by-requirement status: [`docs/05-requirements-matrix.md`](docs/05-requirements-matrix.md).
+Run the tests with `npm test`, which runs offline, and the type checks with `npm run typecheck`. The browser tests (`npm run ui:test`) need Chromium from `npx playwright install chromium` or an installed Google Chrome. What existed before the build, what was studied and under which licence: [`docs/provenance.md`](docs/provenance.md). Requirement-by-requirement status: [`docs/05-requirements-matrix.md`](docs/05-requirements-matrix.md).

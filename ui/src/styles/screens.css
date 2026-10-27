@@ -307,3 +307,23 @@
 .history__superseded .icon { display: inline; vertical-align: -2px; }
 .missing-group__says { font-size: 0.9rem; max-width: 80ch; }
 .drill-findings__says { color: var(--ink-2); font-size: 0.9rem; max-width: 70ch; }
+
+/* ---------------------------------------------------------------- where an answer came from */
+.trail { display: grid; gap: 20px 32px; padding: 16px 18px; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--paper); }
+@media (min-width: 900px) { .trail { grid-template-columns: 1.3fr 1fr; } }
+.trail__col { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.trail__list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.trail__list li { display: flex; flex-direction: column; gap: 1px; }
+.trail__name { font-weight: 600; overflow-wrap: anywhere; }
+.trail__meta { color: var(--ink-2); font-size: 0.88rem; }
+.trail__note { font-size: 0.9rem; max-width: 70ch; }
+.trail__states { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.trail__state { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border: 1.5px solid var(--line-strong); border-radius: 999px; font-size: 0.9rem; }
+.trail__state-good { color: var(--green); border-color: var(--green-line); background: var(--green-soft); }
+.trail__state-partial, .trail__state-unknown { background: var(--paper-2); border-style: dashed; }
+.trail__state-bad { color: var(--rust); }
+.trail-compact { border: 0; padding: 0; border-top: 1px solid var(--line); padding-top: 14px; border-radius: 0; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .trail-compact { grid-template-columns: 1.3fr 1fr; } }
+.constructed-note .prov-badge { margin-right: 8px; }
+.matrix__hint { display: none; font-size: 0.9rem; margin-bottom: 8px; }
+@media (min-width: 760px) { .matrix__hint { display: block; } }

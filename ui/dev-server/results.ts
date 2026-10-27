@@ -62,7 +62,7 @@ function scoutRows(): ResultRow[] {
   const raw = read("tests/engines/scout/RESULTS.json");
   if (!raw) return [];
   try {
-    const j = JSON.parse(raw) as { all?: { injection?: { recall?: R; precision?: R } } };
+    const j = JSON.parse(raw) as { heldout?: { injection?: { recall?: R; precision?: R } } };
     const out: ResultRow[] = [];
     const add = (id: string, measure: string, r: R | undefined) => {
       if (!r || typeof r.k !== "number") return;
@@ -74,12 +74,13 @@ function scoutRows(): ResultRow[] {
         value: r.p.toFixed(3),
         denominator: `${r.k}/${r.n}`,
         interval: `Wilson ${r.lo.toFixed(3)} to ${r.hi.toFixed(3)}`,
-        limits: "Evaluation set of 426 labelled requests written by the builder. Not independent.",
+        limits:
+          "Held-out prompts written by the builder, rules only. The rules were adjusted after the first two files; on the last file alone, written blind, recall was 9 of 24. A model classifier is measured in tests/engines/scout/RESULTS.md but is not enabled in the product's guard. Not independent.",
         source: "tests/engines/scout/RESULTS.json",
       });
     };
-    add("guard-recall", "Injection attempts caught (recall)", j.all?.injection?.recall);
-    add("guard-precision", "Blocked requests that were attacks (precision)", j.all?.injection?.precision);
+    add("guard-recall", "Injection attempts caught on held-out prompts (recall)", j.heldout?.injection?.recall);
+    add("guard-precision", "Blocked held-out requests that were attacks (precision)", j.heldout?.injection?.precision);
     return out;
   } catch {
     return [];
@@ -170,7 +171,7 @@ function evalRows(): ResultRow[] {
       id: "scopeshift-a-exact",
       group: "The rules against a rule table",
       measure: "Answers that match the rule table on controlled one-change cases",
-      limits: "Consistency check on 236 cases over 18 real FDA summaries, 17 device families. It shows the code does what the table says, not that the table is clinically right.",
+      limits: "Consistency check on {n} cases over 18 real FDA summaries, 17 device families. It shows the code does what the table says, not that the table is clinically right.",
     },
     {
       file: "scopeshift-a.json",
@@ -178,7 +179,7 @@ function evalRows(): ResultRow[] {
       id: "scopeshift-a-false-supported",
       group: "The rules against a rule table",
       measure: "Cases called supported although the key withholds support",
-      limits: "Same 236 cases. Lower is better; this is the safety measure, and it is not zero.",
+      limits: "Counted over the {n} cases whose key withholds support; the other cases are controls. Lower is better; this is the safety measure. Zero observed in a sample does not show zero error in general: the interval says how high it could still be.",
     },
     {
       file: "scopeshift-b-held-out.json",
@@ -186,7 +187,7 @@ function evalRows(): ResultRow[] {
       id: "scopeshift-b-exact",
       group: "The whole pipeline on documents held out from development",
       measure: "Answers that match the builder's key (exact label)",
-      limits: "Five held-out devices, key sealed before the run. Labels by one builder, not independent reviewers. The shortfall is in the hand-off from document reading to the rules, not in the rules themselves.",
+      limits: "Five held-out devices, key sealed before the run, but the extraction layer had been repaired on these documents (a second look, not a blind result). Labels by one builder, not independent reviewers. Most misses are INSUFFICIENT_EVIDENCE: study records that state no population or setting, and condition wording the rules will not place.",
     },
     {
       file: "scopeshift-b-held-out.json",
@@ -223,10 +224,18 @@ function evalRows(): ResultRow[] {
     {
       file: "discoveryshift.json",
       path: ["full.run1.correct"],
-      id: "discoveryshift-full",
+      id: "discoveryshift-first",
       group: "Finding and mapping new sources",
-      measure: "New sources mapped, held or declined correctly",
-      limits: "100 scored cases from 4 base sources; the interval across base sources is wide. Labels by one builder.",
+      measure: "New sources mapped, held or declined correctly, first run",
+      limits: "100 scored cases from 4 base sources; the interval across base sources is wide. Labels by one builder. The first run found faults that were then repaired.",
+    },
+    {
+      file: "discoveryshift.json",
+      path: ["full.run2.correct"],
+      id: "discoveryshift-repaired",
+      group: "Finding and mapping new sources",
+      measure: "New sources mapped, held or declined correctly, after the repairs",
+      limits: "The same 100 cases after the repairs the first run led to, so this is not a blind result. A hard-coded loader maps 22 of the 48 mappable layouts and declines 12 of the 44 that must not be registered (data/discovery-shift/RESULTS.md).",
     },
   ];
   const out: ResultRow[] = [];
@@ -246,7 +255,7 @@ function evalRows(): ResultRow[] {
         value: v.rate.toFixed(3),
         denominator: `${v.k}/${v.n}`,
         ...(typeof v.wilsonLo === "number" && typeof v.wilsonHi === "number" ? { interval: `Wilson ${v.wilsonLo.toFixed(3)} to ${v.wilsonHi.toFixed(3)}` } : {}),
-        limits: w.limits,
+        limits: w.limits.replace("{n}", String(v.n)),
         source: `evals/results/${w.file}`,
       });
     } catch {

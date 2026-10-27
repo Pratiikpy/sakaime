@@ -10,7 +10,7 @@ import { Clamp, Disclosure, Mono, Section, useDocTitle } from "../components/ui"
 import { Why } from "../components/Why";
 import { ASSERTION_NAME, CANDIDATE_CLASS_NAME, DIMENSION_NAME, DIMENSION_QUESTION, LABEL_META, LINK_TYPE_NAME, RELATION_META } from "../lib/vocab";
 import { claimName, claimSentence, dimensionsOf, headlineFinding, rankAnchors, snippet } from "../lib/explain";
-import { formatDate, formatDateTime, plural, shortHash, sideText } from "../lib/format";
+import { formatDate, formatDateTime, plural, sentence, shortHash, sideText } from "../lib/format";
 
 function Anchor({ a }: { a: AnchorView }) {
   const where = a.page !== undefined ? `page ${a.page}` : a.jsonPath ? `field ${a.jsonPath}` : "location not stated";
@@ -98,7 +98,7 @@ function DimensionRow({ d, anchors }: { d: DimensionView; anchors: AnchorView[] 
       <p className="dim-row__reason">
         <Icon name="info" size={14} />
         <span>
-          <Clamp text={d.reason} lines={3} />
+          <Clamp text={sentence(d.reason)} lines={3} />
         </span>
       </p>
       {anchors.length > 0 ? (

@@ -10,7 +10,7 @@ import { Clamp, CopyButton, Section, useDocTitle } from "../components/ui";
 import { Why } from "../components/Why";
 import { headlineFinding } from "../lib/explain";
 import { DIMENSION_NAME, LABEL_META, PURPOSE_SUGGESTIONS, RELATION_META, SETTING_SUGGESTIONS } from "../lib/vocab";
-import { formatMs } from "../lib/format";
+import { formatMs, sentence } from "../lib/format";
 
 interface Form {
   versions: string;
@@ -121,7 +121,7 @@ function Result({ r, c }: { r: RecomputeResponse; c: CaseDetail }) {
               <RelationBadge relation={d.relation} />
             </div>
             <p className="muted">
-              <Clamp text={d.reason} lines={3} />
+              <Clamp text={sentence(d.reason)} lines={3} />
             </p>
           </li>
         ))}

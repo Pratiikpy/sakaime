@@ -144,9 +144,21 @@ function Body({ caseId }: { caseId: string }) {
             }
           >
             {phase === "idle" && (
-              <EmptyState title="No run yet" icon="play">
-                Press Run to watch the investigation. Nothing is called until you do. Each step appears as the service makes it.
-              </EmptyState>
+              <>
+                <EmptyState title="No run yet" icon="play">
+                  Press "Run the investigation" to watch it. {c.mode.sample ? "In a sample run every step is replayed from recordings." : "Nothing is called until you do."} Each step appears as the service makes it.
+                </EmptyState>
+                <h3 className="subhead">The roles you will see at work</h3>
+                <ul className="plain-list role-preview" data-testid="role-preview">
+                  {Object.entries(ROLE_META)
+                    .filter(([k]) => k !== "system")
+                    .map(([k, r]) => (
+                      <li key={k}>
+                        <strong>{r.name}.</strong> {r.does}.
+                      </li>
+                    ))}
+                </ul>
+              </>
             )}
             {error && <ErrorState error={error} onRetry={start} title="The run did not finish" />}
             {phase === "interrupted" && !error && (

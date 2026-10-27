@@ -134,11 +134,16 @@ function Legend() {
 function OnboardingView({ result, revealed, animating, onRetry, busy }: { result: OnboardingResult; revealed: number; animating: boolean; onRetry: () => void; busy: boolean }) {
   const shown = result.stages.slice(0, revealed);
   const done = revealed >= result.stages.length;
-  const outcome = {
-    registered: { tone: "good" as const, title: "Registered", icon: "check" as const },
-    held_for_review: { tone: "warn" as const, title: "Held for review", icon: "person" as const },
-    declined: { tone: "bad" as const, title: "Declined", icon: "cross" as const },
-  }[result.outcome];
+  const stopped = result.outcome === "declined" && result.stages.find((s) => s.stage === "authorization")?.status === "passed" && /UNAVAILABLE/.test(result.reason ?? "");
+  // A source whose address was fine but whose later step could not run is not refused as a source. It is said differently from a decline
+  // of the address, so a reviewer does not read a missing capability as a verdict on the source.
+  const outcome: { tone: "good" | "warn" | "bad"; title: string; icon: "check" | "person" | "cross" | "warn" } = stopped
+    ? { tone: "warn", title: "Stopped before registration", icon: "warn" }
+    : {
+        registered: { tone: "good" as const, title: "Registered", icon: "check" as const },
+        held_for_review: { tone: "warn" as const, title: "Held for review", icon: "person" as const },
+        declined: { tone: "bad" as const, title: "Declined", icon: "cross" as const },
+      }[result.outcome];
   return (
     <div className="onboarding" data-testid="onboarding-result" aria-busy={animating}>
       <ol className="stages">

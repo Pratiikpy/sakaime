@@ -1,12 +1,12 @@
 import type { CaseDetail, Finding, Label } from "../api/types";
 import { openDimensions } from "../lib/explain";
-import { plural } from "../lib/format";
+import { joinWords, plural, sentence } from "../lib/format";
 import { DIMENSION_NAME } from "../lib/vocab";
 import { RelationBadge } from "./badges";
 import { Clamp } from "./ui";
 
 function lead(label: Label, open: string[], lost: boolean): string {
-  const names = open.length > 0 ? open.join(", ") : "part of the use";
+  const names = open.length > 0 ? joinWords(open) : "part of the use";
   const tail = lost ? " Some sources did not answer, which also lowers the answer; it never raises it." : "";
   switch (label) {
     case "SUPPORTED_FOR_SCOPE":
@@ -45,7 +45,7 @@ export function Why({ c, f, maxDims = 4, maxAsks = 3, heading = true, showLead =
                 <strong>{DIMENSION_NAME[d.dimension]}</strong> <RelationBadge relation={d.relation} />
               </span>
               <span className="why__reason">
-                <Clamp text={d.reason} lines={2} />
+                <Clamp text={sentence(d.reason)} lines={2} />
               </span>
             </li>
           ))}
